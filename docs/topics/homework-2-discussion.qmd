@@ -1,0 +1,7 @@
+---
+title: Homework 2 discussion
+---
+
+{{< include '_homework-2-discussion.qmd' >}}
+
+    

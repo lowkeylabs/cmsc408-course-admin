@@ -1,0 +1,81 @@
+
+
+## Key components of an ER model
+
+
+
+Entities
+
+: These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
+
+
+
+Attributes
+
+: Attributes are properties or characteristics that describe the entities. For example, if you're modeling a *Customer* entity, attributes could include *CustomerID,* *Name,* *Email,* etc.
+
+
+
+Relationships
+
+: Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
+
+
+
+## Cardinality
+
+
+
+Cardinality describes the number of instances of one entity that can be associated with the number of instances of another entity through a relationship. It defines the multiplicity of the relationship.
+
+
+
+There are three main types of cardinality:
+
+
+
+One-to-One (1:1)
+
+: In a one-to-one relationship, each instance of one entity is related to only one instance of another entity, and vice versa.
+
+
+
+One-to-Many (1:N)
+
+: In a one-to-many relationship, each instance of one entity can be related to multiple instances of another entity, but each instance of the other entity is related to only one instance of the first entity.
+
+
+
+Many-to-Many (N:M)
+
+: In a many-to-many relationship, each instance of one entity can be related to multiple instances of another entity, and vice versa.
+
+
+
+## Participation
+
+
+
+Participation refers to whether every instance of an entity must participate in a relationship or if participation is optional. It indicates whether an instance of an entity is required to have a corresponding related instance in the related entity.
+
+
+
+There are two main types of participation:
+
+
+
+<p>&nbsp;</p>
+
+
+
+Total Participation (Existence Dependency)
+
+: In total participation, every instance of the participating entity must be related to at least one instance of the related entity. 
+
+
+
+Partial Participation
+
+: In partial participation, an instance of the participating entity may or may not be related to an instance of the related entity. 
+
+

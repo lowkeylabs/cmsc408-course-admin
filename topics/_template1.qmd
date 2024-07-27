@@ -1,4 +1,3 @@
-
 # template1
 
 ## Slide 1

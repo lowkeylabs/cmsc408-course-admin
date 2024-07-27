@@ -1,0 +1,143 @@
+
+
+## Relational Database Model
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+
+
+* **Tables** represent the fundamental entity for manipulation.
+
+* Tables have multiple columns called **fields**, each with unique names and data types. **Fields** correspond to attributes in our ER model.
+
+* Tables have multiple rows called **records** that represent individual instances of the data stored in the table. These are sometimes called *tuples*.
+
+* Relationships between tables are documented as **keys**. Keys are simply fields in a table, designated as keys. Keys have special properties and the database keeps track of them differently.
+
+* A complete definition entities, attributes and relations, along with any data types and constraints is called a **schema**.
+
+
+
+:::
+
+::: {.column}
+
+
+
+CREATE TABLE students (
+
+    student_id INT PRIMARY KEY,
+
+    name VARCHAR(100),
+
+    year INT
+
+);
+
+
+
+CREATE TABLE courses (
+
+    course_id INT PRIMARY KEY,
+
+    title VARCHAR(100),
+
+    credit_hours INT
+
+);
+
+
+
+CREATE TABLE student_courses (
+
+    student_id INT,
+
+    course_id INT,
+
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+
+    FOREIGN KEY (course_id) REFERENCES courses(course_id),
+
+    PRIMARY KEY (student_id, course_id)
+
+);
+
+
+
+
+
+::: {style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px"}
+
+In the example above, we define two entities: students and courses, and
+
+establish a many-to-many relationship between them.  The relationships
+
+are documented in a separate table with foreign keys.  The individual rows
+
+in the student-courses table represent pairs of students and courses or "student-course tuples".
+
+:::
+
+
+
+:::
+
+::::
+
+
+
+## In the coming weeks
+
+
+
+* We'll spend the next lecture exploring how to translate specific
+
+logical designs into actual SQL.
+
+
+
+* We'll also explore the fundamentals of relational algebra and how
+
+we tersly communicate operatings that we can perform on the data and how those
+
+operations look in SQL.
+
+
+
+* Finally, we'll examine ways to minimize duplication of data by *functionally* analyzing 
+
+our tables and evaluating it's *normal form*.
+
+
+
+
+
+## Housekeeping
+
+
+
+- Homework 3 due Tuesday (tomorrow), 9/12
+
+- Project deliverable 3 (video) due Friday.
+
+- Check your grades to verify that we've got it all correct!
+
+- Verify your group assignments, needed for deliverable 3!
+
+
+
+<p>&nbsp;</p>
+
+
+
+#| echo: false
+
+from src.utils import upcoming_calendar
+
+# Set the lecture ID and number of rows to show at the top of this file!
+
+upcoming_calendar( lecture_id, n_rows )

@@ -1,0 +1,7 @@
+---
+title: Sample code
+---
+
+{{< include '_sample-code.qmd' >}}
+
+    

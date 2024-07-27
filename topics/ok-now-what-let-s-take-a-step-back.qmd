@@ -1,0 +1,7 @@
+---
+title: ... ok, now what?  Let's take a step back ...
+---
+
+{{< include '_ok-now-what-let-s-take-a-step-back.qmd' >}}
+
+    

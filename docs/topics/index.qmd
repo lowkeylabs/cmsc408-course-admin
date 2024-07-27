@@ -1,0 +1,25 @@
+---
+title: Available Topics
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+```{python}
+#| echo: false
+#| output: asis
+
+import os
+import glob
+
+# Use glob to find all *.qmd files
+qmd_files = glob.glob(os.path.join(".", "*.qmd"))
+# Filter out files that begin with "_"
+qmd_files = [f for f in qmd_files if not os.path.basename(f).startswith("_")]
+
+for qmd_file in qmd_files:
+    file_name = os.path.basename(qmd_file)
+    print(f'<iframe src="{file_name}" width="275" height="125"></iframe>\n')
+
+```

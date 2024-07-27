@@ -1,0 +1,11 @@
+---
+title: New topic
+subtitle: A single topic file
+---
+
+This is a wrapper around a single topic.  It consists of a section title and then the contents of the topic.
+
+The underscore topic file (e.g., _template1.qmd ) can be included in the lecture file.
+
+{{< include '_new-topic.qmd' >}}
+    

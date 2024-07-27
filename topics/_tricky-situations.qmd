@@ -1,0 +1,509 @@
+
+
+## Tricky situations
+
+
+
+These represent design choices in how you choose to represent features of the real world in your conceptual design.
+
+
+
+You should apply an 80/20 or 90/10 rule. Don't worry about trying to capture every feature, just the big ones.
+
+
+
+The rubber meets the road when you create the physical design and write the actual SQL code.
+
+
+
+## Tricky situations - Entities
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+
+
+Weak vs. Strong Entities
+
+: Strong entities exist independently.  Weak entities depend on a strong entity for their existence.  If the strong entity is deleted, then weak entity is deleted, too.
+
+
+
+<p/>
+
+
+
+For instance, a "Employee" could be a strong entity, while "Dependents" could be a weak entity depending on it.
+
+
+
+They're both *entities*, however, your design decision is what to do with the weak entity when the strong entity gets deleted.  Do you delete it or keep it?
+
+
+
+*ask chatgpt: why do strong vs. weak entities matter in er diagrams?*
+
+:::
+
+::: {.column}
+
+Subtypes and Supertypes
+
+: Entities can be generalized or specialized. This can help improve data integrity and minimize the need to repeat fields.
+
+
+
+<p/>
+
+
+
+For example, "Vehicle" could be a supertype of "Car" and "Motorcycle".  As another example, *Employee* can be the supertype and subtypes might include *engineer*, *salesperson*, *manager*.
+
+
+
+*ask chatgpt: in er diagrams, why to supertype and subtypes matter?*
+
+:::
+
+::::
+
+## Tricky situations - Entities
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+
+
+//| echo: false
+
+//| eval: true
+
+//| fig-width: 400px
+
+digraph G {
+
+    graph [rankdir=TB];
+
+    node [shape=record];
+
+
+
+    // Define the supertype
+
+    Vehicle [label="{Vehicle | Vehicle_ID : int \l Brand : string \l Model : string \l Year : int \l }"];
+
+  
+
+    // Define the subtypes
+
+    Car [label="{Car | Seating_Capacity : int \l Number_of_Doors : int \l }"];
+
+    Motorcycle [label="{Motorcycle | Type : string \l has_Sidecar : bool \l }"];
+
+    Truck [label="{Truck | Payload_Capacity : int \l Number_of_Axles : int \l }"];
+
+  
+
+    // Indicate subtype-supertype relationships
+
+    Car -> Vehicle [label="IS_A"];
+
+    Motorcycle -> Vehicle [label="IS_A"];
+
+    Truck -> Vehicle [label="IS_A"];
+
+}
+
+
+
+:::
+
+::: {.column}
+
+
+
+### In this example
+
+
+
+* Car, Motorcycle and Truck are subtype entities.
+
+
+
+* They all share a common supertype (parent), *vehicle* that contains attributes common to all.
+
+
+
+* Car, motorcycle and truck are strong entities.  Vehicle is a weak entity.  If a Car is deleted, the corresponding vehicle information must also be deleted!
+
+
+
+* This is a good strategy to minimize duplication of common attributes across entities.
+
+
+
+* However, you must ensure that care is taken when deleting to ensure that you don't get vehicles without subtypes!
+
+
+
+* You can't directly query vehicle without a connection back to the subtype entity!  Modeling the *is_a* relationship is key.
+
+
+
+
+
+:::
+
+::::
+
+
+
+## Tricky situations - Attributes
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+Simple vs. Composite
+
+: Simple attributes cannot be divided any further, whereas composite attributes can.
+
+
+
+<p/>
+
+
+
+For example "Full Name", can be divided into "First Name" and "Last Name".
+
+
+
+<p/>
+
+
+
+Single-valued vs. Multi-valued
+
+: For example, *Address* or *Phone Number* can be multi-valued if multiple numbers are allowed for a single individual.
+
+
+
+:::
+
+::: {.column}
+
+
+
+Derived Attributes
+
+: These are attributes that can be derived from other attributes in the database.
+
+
+
+<p/>
+
+
+
+For instance, "Age" can be derived from "Date of Birth".
+
+
+
+<p/>
+
+
+
+Key Attributes
+
+: Primary keys, foreign keys serve as attributes that help uniquely entities.
+
+
+
+:::
+
+::::
+
+
+
+## Tricky situations - Attributes
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+
+
+//| echo: false
+
+//| fig-height: 250px
+
+//| fig-width: 400px
+
+graph ERDiagram {
+
+  layout=neato;
+
+  scale=1.3;
+
+  // Basic styling
+
+  node [style=filled, fillcolor=lightyellow];
+
+
+
+  // Entity
+
+  Person [shape=box, label="Person"];
+
+  
+
+  // Composite attribute for Name
+
+  Name [shape=ellipse, label="Name"];
+
+  FirstName [shape=ellipse, label="FirstName"];
+
+  LastName [shape=ellipse, label="LastName"];
+
+
+
+  // Multivalued composite attribute for Address
+
+  Address [shape=doublecircle, label="Address"];
+
+  City [shape=ellipse, label="City"];
+
+  State [shape=ellipse, label="State"];
+
+  Zip [shape=ellipse, label="Zip"];
+
+
+
+  // Connect entity to attributes
+
+  Person -- Name;
+
+  Person -- Address;
+
+
+
+  // Connect composite attribute Name to its components
+
+  Name -- FirstName;
+
+  Name -- LastName;
+
+
+
+  // Connect multivalued composite attribute Address to its components
+
+  Address -- City;
+
+  Address -- State;
+
+  Address -- Zip;
+
+}
+
+:::
+
+::: {.column}
+
+### In this example
+
+
+
+* *person* is the entity with two attributes.
+
+
+
+* *name* is a composite attribute, with subattributes first name and last name.
+
+
+
+* *address* is a multi-valued attribute, that is, each person can have multiple addresses. Each address is a composite attribute with city, state and zip.
+
+
+
+:::
+
+::::
+
+
+
+## Tricky situations - Relationships
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+
+
+Recursive Relationships
+
+: Sometimes an entity has a relationship with itself.
+
+
+
+Associative Entities
+
+: When a many-to-many relationship exists, it often helps to introduce an associative entity that holds extra data about the relationship.
+
+
+
+<p>&nbsp;</p>
+
+### In this example
+
+
+
+An *employee* manages other employees. This is a *recursive* relationship. We're also keeping track of the start date of the management relationshpi using an *associative entity*.
+
+
+
+:::
+
+::: {.column}
+
+
+
+
+
+//| echo: false
+
+//| fig-height: 250px
+
+//| fig-width: 400px
+
+graph ERDiagram {
+
+  layout="neato";
+
+  scale=1.3
+
+  // Basic styling
+
+  node [style=filled, fillcolor=lightyellow];
+
+
+
+  // Entity
+
+  Employee [shape=box, label="Employee"];
+
+
+
+  // Attributes for Entity
+
+  EmpID [shape=ellipse, label="EmpID"];
+
+  Name [shape=ellipse, label="Name"];
+
+  
+
+  // Relationship
+
+  Manages [shape=diamond, label="Manages", fillcolor=lightgray];
+
+
+
+  // Attribute for Relationship
+
+  StartDate [shape=ellipse, label="StartDate"];
+
+
+
+  // Connect entity to attributes
+
+  Employee -- EmpID;
+
+  Employee -- Name;
+
+
+
+  // Recursive relationship with diamond and its attribute
+
+  Employee -- Manages -- Employee;
+
+  Manages -- StartDate;
+
+}
+
+
+
+
+
+:::
+
+::::
+
+
+
+## Tricky situations - Relationships
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+
+
+N-ary Relationships
+
+: More complex relationships that involve more than two entities.
+
+
+
+<p>&nbsp;</p>
+
+
+
+A common relationship is a 3-way, or ternary relationship.
+
+
+
+### In this example
+
+
+
+An order requires three entities to exist: a customer, a sales_person, and a product.
+
+
+
+:::
+
+::: {.column}
+
+
+
+%%| echo: false
+
+erDiagram
+
+    ORDER }o--|| CUSTOMER : places
+
+    ORDER }o--|| SALES_PERSON : places
+
+    ORDER }o--|| PRODUCT : places
+
+
+
+
+
+:::
+
+::::
+
+

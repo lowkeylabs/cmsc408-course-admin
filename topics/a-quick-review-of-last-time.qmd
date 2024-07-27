@@ -1,0 +1,7 @@
+---
+title: A quick review of last time ...
+---
+
+{{< include '_a-quick-review-of-last-time.qmd' >}}
+
+    

@@ -1,0 +1,7 @@
+---
+title: Quick review of deliverables
+---
+
+{{< include '_quick-review-of-deliverables.qmd' >}}
+
+    

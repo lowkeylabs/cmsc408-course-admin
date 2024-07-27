@@ -1,0 +1,7 @@
+---
+title: Entities, attributes and relationships<br/>and the ER Diagram
+---
+
+{{< include '_entities-attributes-and-relationships-and-the-er-diagram.qmd' >}}
+
+    

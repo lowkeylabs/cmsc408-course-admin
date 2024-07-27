@@ -1,0 +1,193 @@
+
+
+
+
+//| echo: true
+
+//| eval: false
+
+//| fig-height: 250px
+
+//| fig-width: 400px
+
+graph ERDiagram {
+
+  layout=neato;
+
+  scale=1.3;
+
+  // Basic styling
+
+  node [style=filled, fillcolor=lightyellow];
+
+
+
+  // Entity
+
+  Person [shape=box, label="Person"];
+
+  
+
+  // Composite attribute for Name
+
+  Name [shape=ellipse, label="Name"];
+
+  FirstName [shape=ellipse, label="FirstName"];
+
+  LastName [shape=ellipse, label="LastName"];
+
+
+
+  // Multivalued composite attribute for Address
+
+  Address [shape=doublecircle, label="Address"];
+
+  City [shape=ellipse, label="City"];
+
+  State [shape=ellipse, label="State"];
+
+  Zip [shape=ellipse, label="Zip"];
+
+
+
+  // Connect entity to attributes
+
+  Person -- Name;
+
+  Person -- Address;
+
+
+
+  // Connect composite attribute Name to its components
+
+  Name -- FirstName;
+
+  Name -- LastName;
+
+
+
+  // Connect multivalued composite attribute Address to its components
+
+  Address -- City;
+
+  Address -- State;
+
+  Address -- Zip;
+
+}
+
+
+
+## Sample code
+
+
+
+
+
+//| echo: true
+
+//| eval: false
+
+//| fig-height: 250px
+
+//| fig-width: 400px
+
+graph ERDiagram {
+
+  layout="neato";
+
+  scale=1.3
+
+  // Basic styling
+
+  node [style=filled, fillcolor=lightyellow];
+
+
+
+  // Entity
+
+  Employee [shape=box, label="Employee"];
+
+
+
+  // Attributes for Entity
+
+  EmpID [shape=ellipse, label="EmpID"];
+
+  Name [shape=ellipse, label="Name"];
+
+  
+
+  // Relationship
+
+  Manages [shape=diamond, label="Manages", fillcolor=lightgray];
+
+
+
+  // Attribute for Relationship
+
+  StartDate [shape=ellipse, label="StartDate"];
+
+
+
+  // Connect entity to attributes
+
+  Employee -- EmpID;
+
+  Employee -- Name;
+
+
+
+  // Recursive relationship with diamond and its attribute
+
+  Employee -- Manages -- Employee;
+
+  Manages -- StartDate;
+
+}
+
+
+
+
+
+## Sample code
+
+
+
+
+
+%%| echo: true
+
+erDiagram
+
+    ORDER }o--|| CUSTOMER : places
+
+    ORDER }o--|| SALES_PERSON : places
+
+    ORDER }o--|| PRODUCT : places
+
+
+
+
+
+## Housekeeping
+
+
+
+- [Project deliverable 3](https://virginiacommonwealth.instructure.com/courses/85746/pages/project-overview-and-deliverable-summary) - this is approval for your project idea. You're making a brief video and submitting it for approval.
+
+- [Homework 2](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427) due Friday. No class on Monday.
+
+- [Practice quiz](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/174180) available on Canvas.
+
+- Quiz on Wednesday. Lockdown Browser required. Window of time, probably 5pm-7:30pm on Wednesday.
+
+
+
+#| echo: false
+
+from src.utils import upcoming_calendar
+
+# Set the lecture ID and number of rows to show at the top of this file!
+
+upcoming_calendar( lecture_id, n_rows )

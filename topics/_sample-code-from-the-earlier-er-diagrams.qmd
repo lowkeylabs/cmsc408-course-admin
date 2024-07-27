@@ -1,0 +1,49 @@
+
+
+## Sample code
+
+
+
+//| echo: true
+
+//| eval: false
+
+//| fig-width: 400px
+
+digraph G {
+
+    graph [rankdir=TB];
+
+    node [shape=record];
+
+
+
+    // Define the supertype
+
+    Vehicle [label="{Vehicle | Vehicle_ID : int \l Brand : string \l Model : string \l Year : int \l }"];
+
+  
+
+    // Define the subtypes
+
+    Car [label="{Car | Seating_Capacity : int \l Number_of_Doors : int \l }"];
+
+    Motorcycle [label="{Motorcycle | Type : string \l has_Sidecar : bool \l }"];
+
+    Truck [label="{Truck | Payload_Capacity : int \l Number_of_Axles : int \l }"];
+
+  
+
+    // Indicate subtype-supertype relationships
+
+    Car -> Vehicle [label="IS_A"];
+
+    Motorcycle -> Vehicle [label="IS_A"];
+
+    Truck -> Vehicle [label="IS_A"];
+
+}
+
+
+
+

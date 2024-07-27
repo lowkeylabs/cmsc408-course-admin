@@ -1,0 +1,7 @@
+---
+title: Tricky situations
+---
+
+{{< include '_tricky-situations.qmd' >}}
+
+    

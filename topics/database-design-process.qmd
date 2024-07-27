@@ -1,0 +1,7 @@
+---
+title: Database design process
+---
+
+{{< include '_database-design-process.qmd' >}}
+
+    

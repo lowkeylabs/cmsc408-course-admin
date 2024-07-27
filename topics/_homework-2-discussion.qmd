@@ -1,0 +1,131 @@
+
+
+## Overview and Software Baseline
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+### Overview
+
+
+
+Homeworks 2 and 3 both focus on ER diagramming and report writing.
+
+
+
+Homework 2 is *mostly* about getting everything
+
+installed and running. The majority of the points are awarded
+
+for simply making the tools work. Why *do it for free* when you can
+
+earn points towards the final grade!
+
+
+
+See the rubric on the main homework page for details on how the assignment will be scored.
+
+
+
+[Link to homework 2](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427)
+
+
+
+:::
+
+::: {.column}
+
+### Software Baseline
+
+
+
+To successfully complete homework 2 - and the rest of the class - you should verify:
+
+
+
+- visual studio code,
+
+- quarto,
+
+- git,
+
+- gh (the github CLI, newly added to the list).
+
+
+
+If you're feeling bold:
+
+
+
+- pyenv (optional)
+
+- python
+
+
+
+:::
+
+::::
+
+
+
+## Overview and Software Baseline
+
+
+
+![](assets/software-baseline.png){fig-align="center"}
+
+
+
+<center>
+
+*Notes: using the command line; all programs are running from command line*
+
+</center>
+
+
+
+## Quarto and rendering
+
+
+
+This figure presents a high-level quarto workflow.
+
+
+
+![](assets/quarto-qmd-how-it-works.png)
+
+
+
+For homework 2, using quarto to render *qmd* files to markdown *md* files. We'll use GITHUB *present* the *md* files in a pretty way.
+
+
+
+In later assignments, we'll use quarto to render further down the pipeline, from *qmd* to *html*, *pptx*, or *pdf*.
+
+
+
+As an example, homework 1 provides a *qmd* file to be rendered to *html*.  Give it a whirl!
+
+
+
+## Demonstration of HW2
+
+
+
+- Open command line
+
+- Check software versions
+
+- Download repo
+
+- render a few items
+
+- push back to github
+
+- view results
+
+

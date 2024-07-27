@@ -1,0 +1,31 @@
+---
+title: Available Topics
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+```{python}
+#| echo: false
+#| output: asis
+
+import os
+import glob
+
+files_to_skip = ['index.qmd','sample-topic.qmd','template1.qmd']
+# Use glob to find all *.qmd files
+qmd_files = glob.glob(os.path.join(".", "*.qmd"))
+# Filter out files that begin with "_"
+qmd_files = [f for f in qmd_files if (not os.path.basename(f).startswith("_")) and (not os.path.basename(f) in files_to_skip)]
+
+print("<div class='column-page'>\n\n")
+
+for qmd_file in qmd_files:
+    file_name = os.path.basename(qmd_file)
+    base = os.path.splitext(file_name)[0]
+    new_file_name = f"{base}.html"
+    print(f'<iframe src="{new_file_name}" width="450" height="250"></iframe>\n\n')
+
+print("</div>")
+```

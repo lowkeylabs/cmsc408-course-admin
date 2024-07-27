@@ -1,0 +1,57 @@
+
+
+## A database ecosystem
+
+
+
+:::: {.columns}
+
+
+
+::: {.column}
+
+*A heck of a lot more than just data!*
+
+
+
+* Users and their needs
+
+* Ways to connect
+
+* Query processor
+
+* Storage manager
+
+* Physical storage
+
+
+
+### Designing a database
+
+
+
+Good design requires that we develop a better understanding
+
+of the database itself, so that we can more smoothly translate
+
+the conceptual and logical designs into a physical design.
+
+
+
+The choice of database and DBMS may constrain or shape
+
+our final design.
+
+
+
+:::
+
+::: {.column}
+
+![](assets/dbms-internals.png){width=80%}
+
+:::
+
+::::
+
+
