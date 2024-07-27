@@ -1,0 +1,12 @@
+I'm brainstorming performance indicators for the student learning outcome:
+"Apply computer science theory and software development fundamentals to produce computing-based solutions;"
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+I'd like to evaluate each performance indicator in four categories: exceeds expectations, meets expectations, developing, and unsatisfactory.
+I'd like each performance indicator and evaluation catagories arranged in a horizontal table with performance indicator on the left and unsatisfactory on the right.
+Care should be taken to ensure that each description fits within a single cell of the table and the table should only have three rows.
+
+
+
+
+For each performance indicator, I'd like two measurement criteria.  Each measure should be evaluated with a rubric that includes a ranged set of four evaluation criteria with the following categories: exceeds expectations, meets expectations, developing, and unsatisfactory. In the rubric, exceeds expectations should be on the left. I'd like the rubric laid out as a table with five columns, with the first column containing the criteria and the remaining four columns containing the evaluation categories. Please ensure that the description of each criteria fits within a single cell, and that each rubric has five columns in both the body and header.

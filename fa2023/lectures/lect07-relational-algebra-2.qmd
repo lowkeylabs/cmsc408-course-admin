@@ -1,0 +1,46 @@
+---
+date: 9/20/2023
+lecture-id: 7
+title: Relational Algebra 2
+---
+
+```{python}
+#| echo: false
+lecture_id = 7
+n_rows = 8
+```
+
+## Housekeeping
+
+- Homework assignment 4 (due Sunday night)
+- Quiz 2 (next Monday, just as before)
+- Practice quiz 2 (available now!)
+
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+
+## Worked problems for Practice quiz
+
+During class we worked questions from the practice quiz 2.
+
+Refer to the video for details.
+
+## Housekeeping
+
+- Homework assignment 4 (due Sunday night)
+- Quiz 2 (next Monday, just as before)
+- Practice quiz 2 (available now!)
+
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```

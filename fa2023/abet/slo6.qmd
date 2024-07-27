@@ -1,0 +1,98 @@
+---
+title: SLO6
+data: last-modified
+---
+
+"Apply computer science theory and software development fundamentals to produce computing-based solutions;"
+
+## Prompt
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Apply computer science theory and software development fundamentals to produce computing-based solutions;"
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+For each performance indicator, I'd like two measurement criteria.  Each measure should be evaluated with a rubric that includes a ranged set of four evaluation criteria with the following categories: exceeds expectations, meets expectations, developing, and unsatisfactory. In the rubric, exceeds expectations should be on the left. I'd like the rubric laid out as a table with five columns, with the first column containing the criteria and the remaining four columns containing the evaluation categories. Please ensure that the description of each criteria fits within a single cell, and that each rubric has five columns in both the body and header.
+
+
+## Response
+
+Certainly, I can help you create a rubric for performance indicators related to the student learning outcome "Apply computer science theory and software development fundamentals to produce computing-based solutions" in the domain of database theory and design. Here's a table with three performance indicators, their measures, and the corresponding rubrics:
+
+**Performance Indicator 1: Database Design Proficiency**
+
+| Criteria                                  | Exceeds Expectations | Meets Expectations | Developing            | Unsatisfactory          |
+|-------------------------------------------|----------------------|--------------------|-----------------------|-------------------------|
+| Understanding of Database Concepts        | Demonstrates a deep understanding of advanced database concepts and can apply them effectively to complex problems. | Shows a solid understanding of key database concepts and applies them accurately in various scenarios. | Demonstrates a basic understanding of database concepts but struggles to apply them consistently. | Fails to grasp fundamental database concepts. |
+| Normalization and Schema Design           | Designs highly normalized schemas that minimize redundancy and ensure data integrity effectively. | Designs normalized schemas that meet most requirements and maintain data integrity. | Designs partially normalized schemas with some issues in redundancy and data integrity. | Creates denormalized schemas with significant data integrity issues. |
+| Indexing and Query Optimization           | Implements advanced indexing strategies and optimizes queries for exceptional performance. | Implements appropriate indexing techniques and optimizes queries to ensure efficient performance. | Uses basic indexing and attempts query optimization, but with limited effectiveness. | Fails to implement proper indexing and struggles with query optimization. |
+
+**Performance Indicator 2: Application of SQL**
+
+| Criteria                                  | Exceeds Expectations | Meets Expectations | Developing              | Unsatisfactory            |
+|-------------------------------------------|----------------------|--------------------|-------------------------|---------------------------|
+| Complex Query Creation                    | Consistently creates complex SQL queries that retrieve and manipulate data accurately and efficiently. | Creates SQL queries of moderate complexity that fulfill requirements and produce accurate results. | Attempts to create SQL queries for simple tasks but faces challenges with accuracy and efficiency. | Struggles to construct even basic SQL queries correctly. |
+| Joins and Subqueries                      | Expertly uses various types of joins and subqueries to retrieve and combine data effectively. | Applies joins and subqueries appropriately to retrieve and combine data as needed. | Demonstrates basic understanding of joins and subqueries but often makes errors in usage. | Misinterprets the purpose of joins and subqueries, leading to incorrect or irrelevant results. |
+| Data Modification                         | Executes complex data modification operations (insert, update, delete) flawlessly and maintains data consistency. | Performs accurate data modification operations with attention to data integrity and consistency. | Attempts data modification operations but frequently encounters issues with accuracy and integrity. | Mishandles data modification operations, resulting in data inconsistencies. |
+
+**Performance Indicator 3: Problem Solving with Databases**
+
+| Criteria                                  | Exceeds Expectations | Meets Expectations | Developing                | Unsatisfactory              |
+|-------------------------------------------|----------------------|--------------------|---------------------------|-----------------------------|
+| Identifying Database Solutions             | Skillfully identifies optimal database solutions for a wide range of computing problems. | Capably identifies appropriate database solutions considering different problem scenarios. | Struggles to identify suitable database solutions and often opts for suboptimal choices. | Frequently misjudges or fails to identify effective database solutions. |
+| Error Handling and Troubleshooting        | Demonstrates exceptional ability to anticipate, identify, and resolve database-related errors and issues. | Effectively troubleshoots common database errors and implements solutions. | Encounters challenges in diagnosing and resolving database errors and lacks systematic approaches. | Struggles to diagnose and fix database errors, leading to prolonged issues. |
+| Performance Tuning                        | Proactively optimizes database performance based on thorough analysis, resulting in highly efficient systems. | Analyzes and enhances database performance by applying standard optimization techniques. | Attempts basic performance tuning but lacks in-depth analysis, leading to limited improvements. | Fails to optimize database performance, resulting in slow and inefficient systems. |
+
+Please note that the descriptions provided are general guidelines, and you may need to adapt them to align with your specific curriculum and teaching approach. Additionally, the rubric's wording can be modified to better suit your educational context.
+
+## Response
+
+Sure, I'd be happy to help you with that! Here are three performance indicators aligned with the learning outcome "Apply computer science theory and software development fundamentals to produce computing-based solutions" in the knowledge domain of database theory and design, along with their respective measurement criteria and rubrics:
+
+### Performance Indicator 1: Database Design Proficiency
+
+| Criteria                                            | Exceeds Expectations                         | Meets Expectations                           | Developing                                 | Unsatisfactory                             |
+|----------------------------------------------------|----------------------------------------------|----------------------------------------------|--------------------------------------------|-------------------------------------------|
+| Understanding of Normalization Principles          | Designs highly normalized databases with minimal redundancy and appropriate use of normalization techniques. | Designs normalized databases with minimal redundancy and appropriate use of normalization techniques. | Designs partially normalized databases but with some redundancy. | Designs denormalized databases with significant redundancy. |
+| Schema Completeness and Accuracy                   | Designs comprehensive and accurate database schemas that effectively capture all relevant entities, attributes, and relationships. | Designs accurate database schemas that capture most relevant entities, attributes, and relationships. | Designs incomplete database schemas with missing entities, attributes, or relationships. | Designs database schemas with numerous missing entities, attributes, or relationships. |
+| Integration of Advanced Concepts (e.g., Indexing)   | Integrates advanced concepts such as indexing, query optimization, and performance tuning effectively to enhance database performance. | Integrates indexing and basic optimization techniques to enhance database performance. | Applies limited indexing or optimization techniques, resulting in moderate performance improvements. | Lacks understanding of indexing and optimization, leading to poor database performance. |
+
+### Performance Indicator 2: Query and Transaction Implementation
+
+| Criteria                                           | Exceeds Expectations                         | Meets Expectations                           | Developing                                 | Unsatisfactory                             |
+|---------------------------------------------------|----------------------------------------------|----------------------------------------------|--------------------------------------------|-------------------------------------------|
+| Query Complexity and Optimization                 | Constructs complex queries efficiently, demonstrating an excellent understanding of query optimization strategies. | Constructs moderately complex queries with reasonable efficiency. | Constructs simple queries, but lacks optimization techniques, leading to some performance issues. | Struggles to construct even basic queries; lacks optimization knowledge. |
+| Transaction Management                            | Implements transactions effectively, ensuring data consistency, isolation, durability, and appropriate error handling. | Implements transactions with basic data consistency and error handling measures. | Implements transactions inconsistently, leading to occasional data integrity issues. | Fails to implement transactions correctly, resulting in frequent data integrity problems. |
+| Error Identification and Debugging                | Skillfully identifies and rectifies query errors and bugs using advanced debugging techniques. | Identifies and corrects common query errors and bugs through systematic debugging. | Struggles to identify query errors, requiring assistance for effective debugging. | Frequently fails to identify or rectify query errors; lacks debugging skills. |
+
+### Performance Indicator 3: Application of Security Measures
+
+| Criteria                                           | Exceeds Expectations                         | Meets Expectations                           | Developing                                 | Unsatisfactory                             |
+|---------------------------------------------------|----------------------------------------------|----------------------------------------------|--------------------------------------------|-------------------------------------------|
+| Data Protection Strategies                        | Implements robust security measures, including encryption, access controls, and data masking, effectively safeguarding sensitive data. | Implements basic security measures like access controls and basic encryption for sensitive data. | Implements limited security measures, leaving some sensitive data vulnerable. | Fails to implement essential security measures, risking exposure of sensitive data. |
+| SQL Injection and Vulnerability Mitigation        | Demonstrates a strong ability to prevent SQL injection and mitigate other common vulnerabilities effectively. | Effectively prevents SQL injection and addresses common vulnerabilities using best practices. | Partially addresses vulnerabilities, leaving certain aspects susceptible to attacks. | Fails to address SQL injection and other vulnerabilities, making the application an easy target. |
+| Compliance with Privacy Regulations               | Ensures compliance with relevant privacy regulations and industry standards, with a deep understanding of legal and ethical considerations. | Demonstrates awareness of privacy regulations and implements basic measures for compliance. | Shows limited understanding of privacy regulations, resulting in potential non-compliance. | Ignores privacy regulations, putting the application at significant legal risk. |
+
+Feel free to adapt these performance indicators, measurement criteria, and rubrics to your specific needs. The provided rubrics offer a general framework for evaluating student performance across different levels of proficiency.
+
+
+## Prompt
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Apply computer science theory and software development fundamentals to produce computing-based solutions;"
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+I'd like to evaluate each performance indicator in four categories: exceeds expectations, meets expectations, developing, and unsatisfactory.
+I'd like each performance indicator and evaluation catagories arranged in a horizontal table with performance indicator on the left and unsatisfactory on the right.
+Care should be taken to ensure that each description fits within a single cell of the table and the table should only have three rows.
+
+
+## Response
+
+I apologize for the confusion. Here's the table with the "-" removed from all cell contents:
+
+| Performance Indicator                        | Exceeds Expectations                  | Meets Expectations                   | Developing                           | Unsatisfactory                       |
+|----------------------------------------------|--------------------------------------|-------------------------------------|--------------------------------------|--------------------------------------|
+| Indicator 1: Database Design                 | Designs complex databases with optimal performance and scalability, showcasing expertise in normalization, indexing, and query optimization. | Designs functional databases with appropriate structure and functionality, demonstrating understanding of core principles. | Designs databases with minor issues, requiring revisions or adjustments after feedback and guidance. | Designs databases with significant flaws that hinder functionality and usability. |
+| Indicator 2: Query Development               | Develops intricate SQL queries that manipulate and extract data from databases, demonstrating advanced understanding of joins, subqueries, and optimization techniques. | Creates effective SQL queries to retrieve and manipulate data, applying fundamental principles of querying and data retrieval. | Constructs basic SQL queries, but lacks complexity or makes errors in syntax and logic, leading to inaccurate results. | Struggles to write accurate and functional SQL queries, resulting in incorrect or incomplete results. |
+| Indicator 3: Software-Database Integration   | Integrates databases seamlessly into software projects, ensuring data integrity and security. Demonstrates the ability to design and implement APIs and communication protocols between applications and databases. | Connects software applications with databases effectively, maintaining data consistency and security. Integrates basic APIs and functionalities for communication between software and databases. | Attempts to integrate databases with software, but encounters issues with implementation, leading to errors or inconsistencies in data handling. | Struggles to establish any connection between software and databases, resulting in a failure to interact with data stored. |
+

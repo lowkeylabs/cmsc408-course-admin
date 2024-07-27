@@ -1,0 +1,59 @@
+---
+title: "Index of course materials"
+lecture-id: 0
+date: last-modified
+format:
+    html:
+        include-in-header:
+            - text: |
+                <style>
+                    .item-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                    }
+
+                    .item {
+                        width: calc(25% - 10px); /* 25% width for each item with some spacing */
+                        margin: 5px;
+                        text-align: center;
+                        background-color: #f0f0f0;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                    }
+                </style>
+
+---
+
+```{python}
+#| echo: false
+#| output: asis
+#| label: lectures
+
+print("<div class='item-list'>")
+for i in range(1,30):
+    print(f"<div class='item'>[Lecture {i:2}](./lecture-{i:02}.html)"+"{target='_blank'}</div>")
+print("</div>")
+```
+
+```{python}
+#| echo: false
+#| output: asis
+#| label: links
+
+#print("<div class='item-list'>")
+#print("<div class='item'>[Zoom URL](https://vcu.zoom.us/j/87350386497){target='_blank'}</div>")
+#print("<div class='item'>[P5JS editor](https://editor.p5js.org){target='_blank'}</div>")
+#print("<div class='item'>[Expo snack](https://snack.expo.dev){target='_blank'}</div>")
+#print("</div>")
+
+
+#print("<div class='item-list'>")
+#print("<div class='item'>[Gallery SP2023](../gallery/index.html){target='_blank'}</div>")
+#print("<div class='item'>[Gallery SP2024](/gallery-sp2024/index.html){target='_blank'}</div>")
+#print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
+#print("</div>")
+
+```
+
+

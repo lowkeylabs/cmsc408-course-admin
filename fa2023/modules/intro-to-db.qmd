@@ -1,0 +1,161 @@
+---
+format:
+    revealjs:
+        slide-number: true
+---
+   
+# A long time ago ... in a galaxy far, far away ...
+
+## Early history
+
+:::: {.columns}
+
+::: {.column}
+### 1950s and early 1960s:
+* Data processing using magnetic tapes for storage
+* Tapes provided only sequential access
+* Punched cards for input
+:::
+::: {.column width="40%"}
+![](assets/1951_TapeData_P2.jpg)
+:::
+::::
+
+## Early history
+
+
+:::: {.columns}
+::: {.column}
+### Late 1960s and 1970s:
+* Hard disks allowed direct access to data
+* Network and hierarchical data models in widespread use
+* Ted Codd defines the Relational data model
+* High-performance (for the era) transaction processing
+:::
+::: {.column width="40%"}
+![](assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg)
+:::
+::::
+
+## Modern systems
+
+:::: {.columns}
+:::{.column}
+### 1980s:
+
+* Research relational prototypes evolve into commercial systems
+    - SQL becomes industrial standard
+* Parallel and distributed database systems
+* Object-oriented database systems
+
+### 1990s:
+
+* Large decision support and data-mining applications
+* Large multi-terabyte data warehouses
+* Emergence of Web commerce
+:::
+::: {.column}
+![](assets/1990-computer-center.png)
+:::
+::::
+
+## Modern systems
+
+
+:::: {.columns}
+::: {.column}
+### Early 2000s:
+
+* XML and XQuery standards
+* Automated database administration
+
+### Later 2000s:
+
+* Giant data storage systems
+* Google BigTable, Yahoo PNuts, Amazon, …
+
+### 2022 and Beyond:
+
+<https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4>
+:::
+::: {.column}
+![](assets/google-data-center.png)
+:::
+::::
+
+# DB vs DBMS
+
+## Important concept - DB vs DBMS
+
+### Database (DB)
+
+* **Entities:** abstractions of data
+* **Relationships:** semantic information that connects two or more entities to each other
+* Logical architectures 
+
+### Database Management System (DBMS)
+
+* hosts multiple databases
+* Set of programs to access and manipulate the data
+* Controls access, manages users
+* Environment that is convenient, efficient, secure, reliable, scalable
+* Examples: Oracle, SQL Server, MySQL
+
+# Why databases?
+
+## Why not use spreadsheets?
+
+Spreadsheets DO work and they ARE viable!
+
+### Here is view of a data base through a web site
+
+<https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/>
+
+### Here is the source data
+
+<https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023>
+
+## Why not use spreadsheets?
+
+### Drawbacks of using file systems to store data
+
+* Data redundancy and inconsistency in multiple files and formats
+* Need to write a new program to carry out each new task
+* Difficulty in accessing data: where and how
+* Data isolation
+* Integrity problems and constraints
+* Atomicity of updates
+* Concurrent access by multiple users
+* Security problems
+
+## Why use a DBMS?
+
+### Advantages of a DBMS 
+
+* Data independence (facilitates sharing of information)
+* Efficient data access (indexes can be used for optimization)
+* Data consistency and integrity
+* Security and authorization
+* Data administration
+* Concurrent access and crash recovery
+* Reduced application development time
+
+## Why use a DBMS?
+
+### Size and scale
+
+Here is an example data warehouse build summary:
+
+<https://docs.google.com/spreadsheets/d/11BazRGXKIdAT4B5ln5O567-Ah0n68ulmjVqdXZgPyTE/edit#gid=1785128451>
+
+## Why use a DBMS?
+
+### In summary: ACID
+
+**Atomicity:**  Either all operations of the transaction are properly reflected in the database or none are
+
+**Consistency:** Execution of a transaction in isolation preserves the consistency of the database
+
+**Isolation:** Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions
+
+**Durability:**  After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures.

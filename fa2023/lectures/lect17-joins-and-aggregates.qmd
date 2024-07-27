@@ -1,0 +1,106 @@
+---
+date: 11/6/2023
+lecture-id: 17
+title: SQL DDL and DML Examples
+---
+
+```{python}
+#| echo: false
+lecture_id = 17
+n_rows = 8
+```
+
+## Housekeeping
+
+- [Homework 7 (Constructing a DB)](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725428) due this upcoming Sunday, 11/12
+- Submit both HTML report (HW7) and a URL to gradescope (HW7B)
+- [Semester project due in five weeks](https://virginiacommonwealth.instructure.com/courses/85746/pages/semester-project-overview-project-due-monday-12-slash-11), Monday, Dec. 11th.
+- Lecture today:
+    * Discussion of final project
+    * DDL and DML, creating SQL tables workflow
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+# Semester Project Review
+
+## Semester Project Review - major deliverables
+
+<https://virginiacommonwealth.instructure.com/courses/85746/pages/semester-project-overview-project-due-monday-12-slash-11>
+
+* Deliverable 4 - the database design
+
+* Deliverable 7 - the database implementation (including design)
+
+
+## Semester Project Review - additional items
+
+API definition
+: Your database is to be accessible from the server through a RESTful API. What is your API definition? What are the various ways to get data? This should be documented so that someone wanting to leverage your database can understand how to access it.
+
+Demonstration of the API in action
+: somehow, you need to demonstrate how the API works, and that the API actually works. I leave this one to you. 
+
+Links to your source code
+: This includes your DDL and DML SQL code. Your database should be able to be rebuilt from scratch using your DML and DDL.
+
+Future considerations
+: What needs to be done next to take your project to the next level? If you had more time, what would you do next?
+
+Reflections on the overall project
+: How did the project go? Did you achieve what you originally intended to build? If not, what kept you from achieving it?
+
+Final video
+: Stand-alone, that is, a summary of the ENTIRE project, not just the implementation. I’d also like you to discuss future considerations and reflections on the project.
+
+## Semester Project Review - next actions
+
+* To date: you've got a preliminary database design (see design doc)
+
+* Next tasks:
+
+    1. Final report: Create copy of deliverable 4 QMD to deliverable 7 QMD.
+    1. CREATE TABLES and populate with sample data
+    1. Construct test queries in QMD file
+    1. Get flask setup and running on localhost
+    1. Get Quarto to query flask on localhost
+    1. Design your API.
+    1. Connect Mysql -> flask -> quarto report
+
+We'll discuss using APIs in the very near future.
+
+# Homework 7 - Creating and using a database
+
+## Homework 7
+
+### Discuss assignment
+
+<https://virginiacommonwealth.instructure.com/courses/85746/assignments/725428>
+
+<p>&nbsp;</p>
+
+### Demonstration
+
+In-class start walk-through of homework 7.
+
+
+
+
+
+## Housekeeping
+
+- [Homework 7 (Constructing a DB)](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725428) due this upcoming Sunday, 11/12
+- Submit both HTML report (HW7) and a URL to gradescope (HW7B)
+- [Semester project due in five weeks](https://virginiacommonwealth.instructure.com/courses/85746/pages/semester-project-overview-project-due-monday-12-slash-11), Monday, Dec. 11th.
+- Lecture today - DDL and DML, creating SQL tables workflow
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```

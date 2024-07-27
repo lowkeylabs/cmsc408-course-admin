@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+format: 
+    revealjs:
+        theme: [default]
+---
+
+## This slide works
+
+text
+
+![](image.png)
+
+## This slide works too
+
+::: {.fragment}
+
+![](image.png)
+
+:::
+
+## This slide doesn't
+
+![](image.png)

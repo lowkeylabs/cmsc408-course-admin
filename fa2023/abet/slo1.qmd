@@ -1,0 +1,133 @@
+---
+title: slo1
+data: last-modified
+---
+
+"Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions."
+
+## Prompt
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions."
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+For each performance indicator, I'd like two measurement criteria.  Each measure should be evaluated with a rubric that includes a ranged set of four evaluation criteria with the following categories: exceeds expectations, meets expectations, developing, and unsatisfactory. In the rubric, exceeds expectations should be on the left. I'd like the rubric laid out as a table with five columns, with the first column containing the criteria and the remaining four columns containing the evaluation categories. Please ensure that the description of each criteria fits within a single cell, and that each rubric has five columns in both the body and header.
+
+## Response
+
+Sure, I'd be happy to help you with that. Here are three performance indicators along with their measurement criteria and a rubric for each:
+
+**Performance Indicator 1:**
+**Analyzing Complex Computing Problems**
+
+| Criteria                                  | Exceeds Expectations             | Meets Expectations             | Developing             | Unsatisfactory            |
+|-------------------------------------------|----------------------------------|-------------------------------|------------------------|---------------------------|
+| Identification of Relevant Disciplines    | Accurately identifies multiple relevant disciplines and their connections to the problem | Identifies relevant disciplines and their connections to the problem | Identifies some relevant disciplines, but connections are unclear | Does not identify relevant disciplines |
+| Depth of Problem Analysis                  | Provides a comprehensive and detailed analysis of the problem, considering various facets | Presents a thorough analysis of the problem, addressing key aspects | Offers a basic analysis, but some important aspects are missing | Provides a superficial or incomplete analysis |
+| Application of Computing Principles        | Applies advanced computing principles appropriately to develop innovative solutions | Applies computing principles effectively to propose viable solutions | Attempts to apply computing principles, but solutions lack feasibility | Fails to apply computing principles effectively |
+| Interdisciplinary Integration              | Seamlessly integrates principles from different disciplines, showing a deep understanding | Integrates principles from different disciplines to support solutions | Attempts interdisciplinary integration, but lacks coherence | Fails to integrate principles from other disciplines |
+| Overall Solution Quality                  | Presents a well-rounded and highly effective solution with strong rationale | Provides a solid solution with clear rationale | Presents a solution with some gaps in rationale or effectiveness | Offers a solution without clear rationale or viability |
+
+**Performance Indicator 2:**
+**Application of Database Theory and Design**
+
+| Criteria                                  | Exceeds Expectations             | Meets Expectations             | Developing             | Unsatisfactory            |
+|-------------------------------------------|----------------------------------|-------------------------------|------------------------|---------------------------|
+| Utilization of Database Concepts          | Demonstrates a sophisticated understanding of database theory, incorporating advanced concepts | Applies fundamental database theory effectively | Demonstrates basic understanding of database theory, but overlooks some key concepts | Shows limited or incorrect understanding of database theory |
+| Design Complexity and Innovation          | Designs a highly intricate and innovative database solution, considering unique requirements | Designs a comprehensive and functional database solution | Designs a basic database, but lacks complexity or innovation | Designs an inadequate or non-functional database |
+| Data Model Integration                    | Integrates multiple data models seamlessly to address various aspects of the problem | Successfully applies appropriate data models to the problem | Attempts to apply relevant data models, but with some inconsistencies | Misapplies or ignores data models |
+| Query Optimization                         | Implements advanced query optimization techniques, resulting in exceptional performance | Applies effective query optimization strategies | Implements basic query optimization, with some room for improvement | Fails to optimize queries effectively |
+| Documentation and Explanation              | Provides clear and well-structured documentation, explaining design decisions comprehensively | Offers organized documentation with explanations of design decisions | Provides documentation with incomplete or unclear explanations | Provides inadequate or missing documentation |
+
+**Performance Indicator 3:**
+**Problem-Solving and Decision-Making in Database Context**
+
+| Criteria                                  | Exceeds Expectations             | Meets Expectations             | Developing             | Unsatisfactory            |
+|-------------------------------------------|----------------------------------|-------------------------------|------------------------|---------------------------|
+| Problem Decomposition and Prioritization  | Expertly decomposes the problem into sub-components and prioritizes effectively | Skillfully breaks down the problem and establishes reasonable priorities | Partially decomposes the problem but struggles with prioritization | Fails to decompose the problem or establish priorities |
+| Consideration of Alternatives              | Identifies and evaluates a wide range of alternatives with sophisticated analysis | Considers multiple alternatives with a solid analysis | Examines a limited set of alternatives, with some analysis | Examines only one or a few alternatives without adequate analysis |
+| Trade-off Analysis                        | Conducts comprehensive trade-off analysis considering various factors and implications | Performs reasonable trade-off analysis considering key factors | Attempts trade-off analysis but overlooks important factors | Lacks trade-off analysis or considers irrelevant factors |
+| Decision Justification                     | Justifies decisions with a strong rationale, considering technical and non-technical aspects | Provides sound justifications for decisions made | Offers justifications, but some are weak or unsupported | Fails to provide adequate justifications for decisions |
+
+Feel free to adjust and customize the rubrics to fit your specific assessment criteria and grading standards.
+
+## Response 2
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions."
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+For each performance indicator, I'd like two measurement criteria.  Each measure should be evaluated with a rubric that includes a ranged set of four evaluation criteria with the following categories: exceeds expectations, meets expectations, developing, and unsatisfactory. In the rubric, exceeds expectations should be on the left. I'd like the rubric laid out as a table with five columns, with the first column containing the criteria and the remaining four columns containing the evaluation categories. Please ensure that the description of each criteria fits within a single cell, and that each rubric has five columns in both the body and header.
+
+## Prompt
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions."
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+I'd like to evaluate each performance indicator in four categories: exceeds expectations, meets expectations, developing, and unsatisfactory.
+I'd like each performance indicator and evaluation catagories arranged in a horizontal table with performance indicator on the left and unsatisfactory on the right.
+Care should be taken to ensure that each description fits within a single cell of the table and the table should only have three rows.
+
+## Response
+
+I understand your request. Here's the table with the performance indicators, evaluation categories, and descriptions as you've outlined:
+
+| Performance Indicator                                           | Exceeds Expectations                                      | Meets Expectations                                        | Developing                                              | Unsatisfactory                                           |
+|-----------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------|
+| **1. Problem Analysis**                                          | Effectively deconstructs complex database problems into their constituent elements, demonstrating a deep understanding of relevant concepts and relationships. | Accurately breaks down complex database problems, considering key concepts and relationships. | Attempts to deconstruct database problems but overlooks some critical aspects. | Struggles to break down database problems, missing important concepts. |
+| **2. Interdisciplinary Application**                             | Skillfully applies principles from database theory and other relevant disciplines to propose innovative solutions that address the problem's complexity. | Appropriately integrates database theory with other disciplines to suggest feasible solutions. | Attempts to combine database principles with other disciplines, with limited effectiveness. | Fails to connect database principles with other disciplines, leading to ineffective solutions. |
+| **3. Solution Identification**                                   | Expertly identifies multiple potential solutions, considering their implications and trade-offs thoroughly. | Identifies suitable solutions and discusses their potential impacts and trade-offs. | Presents limited solution options with incomplete insight into their implications. | Offers single, inadequate solution choice without proper consideration of its implications. |
+
+Please note that these descriptions are concise and fit within a single cell of the table as requested. They provide a framework for assessing students' performance aligned with the learning outcome you specified in the context of database theory and design.
+
+
+## Additional work after a conversation with Ahmed 8/30/2023
+
+### prompt
+
+I'm working with student learning outcomes and performance indicators. Given a student learning outcome, I am to create several performance indicators. Each performance indicators must satisfactorially answer these questions:
+- Does the performance indicator support the intended outcome?
+- Does the performance indicator describe what the students should know (cognitative), do (behaviorial) or think (affective)?
+- Is the performance indicator specific, measureable, a result of learning?
+- Can activities be designed to enable students to learn the desired performance indicator?
+- Is the performance indicator a "leading indicator" for the outcome?
+- Can results of assessment of student work against the performance indicator be used to make decisions on how to improve the program?
+
+The student learning outcome is: "Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions." The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+I'd like to evaluate each performance indicator in four categories: exceeds expectations, meets expectations, developing, and unsatisfactory.
+I'd like each performance indicator and evaluation catagories arranged in a horizontal table with performance indicator on the left and unsatisfactory on the right.
+Care should be taken to ensure that each description fits within a single cell of the table and the table should only have three rows. Each cell in the table should NOT use hyphens or dashes.
+
+### result. ChatGPT 4.0 8/31/2023
+
+Certainly! Below is a table that lists three performance indicators aligned with the given student learning outcome in the context of database theory and design. The table also includes four evaluation categories for each performance indicator.
+
+| Performance Indicator | Exceeds Expectations | Meets Expectations | Developing | Unsatisfactory |
+|-----------------------|----------------------|--------------------|------------|----------------|
+| 1. Develop a query to extract relevant data for solving a computing problem. | Formulates a query that is not only correct but also optimized for performance. | Correctly formulates a query to extract the necessary data. | Formulates a query with minor errors or inefficiencies. | Unable to formulate a relevant query. |
+| 2. Create a relational schema that addresses the requirements of a complex computing problem. | Designs a relational schema that is correct, normalized, and highly efficient. | Designs a correct and normalized relational schema. | Designs a schema with some redundancy or errors. | Fails to design a relevant schema. |
+| 3. Evaluate and select appropriate database technologies to solve a given problem. | Evaluates multiple database technologies and justifies the best choice with relevant metrics. | Correctly selects an appropriate database technology for the problem. | Selects a database technology but with limited justification. | Fails to select or justify an appropriate database technology. |
+
+To evaluate whether these performance indicators satisfy the criteria you've outlined:
+
+1. **Does the performance indicator support the intended outcome?**  
+   Yes, all three indicators aim to measure aspects of analyzing a complex computing problem in the domain of database theory and design.
+
+2. **Does the performance indicator describe what the students should know (cognitive), do (behavioral), or think (affective)?**  
+   All three indicators focus on what students should "do" (behavioral) and "know" (cognitive).
+
+3. **Is the performance indicator specific, measurable, a result of learning?**  
+   Yes, they are specific (e.g., "Develop a query," "Create a relational schema"), measurable (can be assessed through coursework or exams), and result from learning database theory and design.
+
+4. **Can activities be designed to enable students to learn the desired performance indicator?**  
+   Absolutely, activities like hands-on exercises, assignments, and projects can be designed to train students on these performance indicators.
+
+5. **Is the performance indicator a "leading indicator" for the outcome?**  
+   Yes, mastering these performance indicators would be strong leading indicators that the student can "analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions."
+
+6. **Can results of assessment of student work against the performance indicator be used to make decisions on how to improve the program?**  
+   Definitely, the evaluation categories allow for a nuanced assessment of student proficiency, informing future curriculum adjustments.
+
+   

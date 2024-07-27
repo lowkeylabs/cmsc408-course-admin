@@ -1,0 +1,75 @@
+---
+title: CMSC 508 Outcomes and Indicators
+author: John Leonard
+date: last-modified
+format:
+    html:
+        toc: true
+        embed-resources: true
+---
+
+## Student Learning Outcome 1
+
+"Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions."
+
+| Performance Indicator                                           | Exceeds Expectations                                      | Meets Expectations                                        | Developing                                              | Unsatisfactory                                           |
+|-----------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------|
+| **1. Problem Analysis**                                          | Effectively deconstructs complex database problems into their constituent elements, demonstrating a deep understanding of relevant concepts and relationships. | Accurately breaks down complex database problems, considering key concepts and relationships. | Attempts to deconstruct database problems but overlooks some critical aspects. | Struggles to break down database problems, missing important concepts. |
+| **2. Interdisciplinary Application**                             | Skillfully applies principles from database theory and other relevant disciplines to propose innovative solutions that address the problem's complexity. | Appropriately integrates database theory with other disciplines to suggest feasible solutions. | Attempts to combine database principles with other disciplines, with limited effectiveness. | Fails to connect database principles with other disciplines, leading to ineffective solutions. |
+| **3. Solution Identification**                                   | Expertly identifies multiple potential solutions, considering their implications and trade-offs thoroughly. | Identifies suitable solutions and discusses their potential impacts and trade-offs. | Presents limited solution options with incomplete insight into their implications. | Offers single, inadequate solution choice without proper consideration of its implications. |
+
+## Student Learning Outcome 2
+
+"Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the discipline of computer science." 
+
+
+| Performance Indicator                                                                               | Exceeds Expectations                                       | Meets Expectations                                       | Developing                                       | Unsatisfactory                                       |
+|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------|----------------------------------------------------|
+| **1. Solution Design**                                                                             | Develops a comprehensive and innovative solution plan, incorporating advanced techniques and considerations. | Creates a well-structured solution plan with consideration of key design principles.       | Creates a solution plan with some gaps and inconsistencies in design choices.       | Fails to create a coherent solution plan or includes inappropriate design elements.   |
+| **2. Implementation Proficiency**                                                                  | Implements the solution with exceptional proficiency, demonstrating mastery of relevant tools and practices. | Successfully implements the solution according to plan using appropriate tools and practices.  | Implements the solution with minor errors but faces significant challenges in execution.      | Struggles to implement the solution, resulting in a solution that does not meet requirements. |
+| **3. Evaluation and Reflection**                                                                   | Conducts a thorough evaluation, comparing the solution against alternatives, and showcasing insights.       | Performs a comprehensive evaluation, analyzing strengths and weaknesses of the solution.   | Conducts a basic evaluation, but lacks depth  in insights and critical analysis.    | Provides minimal or no evaluation of the solution's effectiveness and shortcomings.      |
+
+
+## Student Learning Outcome 3
+
+"Communicate effectively in a variety of professional contexts;"
+
+| Performance Indicator | Exceeds Expectations | Meets Expectations | Developing | Unsatisfactory |
+|-----------------------|----------------------|--------------------|------------|----------------|
+| **1. Explanation Clarity** | Can clearly and concisely explain complex concepts using various professional contexts, adapting language and examples to audience needs. | Can effectively explain concepts in professional contexts, maintaining audience engagement and clarity. | Explains concepts with minor inaccuracies or confusion, and requires guidance to understand key concepts. | Struggles to explain basic concepts and lacks coherence; unable to convey key points. |
+| **2. Visual Aids Utilization** | Skillfully employs visual aids (e.g., diagrams, charts) to enhance understanding of concepts in presentations and technical documents. | Effectively uses visual aids to support explanations, enhancing comprehension of topics and improving the overall professionalism. | Attempts to use visual aids but they lack clarity or relevance, and they may not align with the content being presented. | Rarely uses visual aids or uses them inappropriately, failing to enhance understanding or professionalism. |
+| **3. Technical Writing Proficiency** | Demonstrates excellent technical writing skills in various formats (reports, documentation), effectively conveying concepts and solutions. | Writes well-structured technical documents, maintaining technical accuracy and clarity. | Presents ideas in a disorganized or unclear manner, making it difficult to follow the logical flow of thoughts or arguments. | Struggles to convey ideas coherently in written form, lacking appropriate terminology and logical structure. |
+| **4. Dialog With Peers and Collegues** | Skillfully communicates non-technical and technical ideas in clear, thoughtful and meaningful ways through written and/or oral communication. | Effectively communicates non-technical and technical ideas in thoughtful and meaningful ways through written and/or oral communication. | Communicates ideas in a disorganized or unclear manner, making it difficult to follow the logical flow of thoughts or arguments. | Struggles to convey ideas coherently in written form, lacking appropriate terminology and logical structure. |
+
+## Student Learning Outcome 4
+
+"Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;"
+
+
+| Performance Indicator                                    | Exceeds Expectations                              | Meets Expectations                            | Developing                                    | Unsatisfactory                               |
+|----------------------------------------------------------|--------------------------------------------------|----------------------------------------------|----------------------------------------------|----------------------------------------------|
+| **1. Ethical Decision-Making**                            | Consistently applies legal and ethical principles to complex scenarios, demonstrating deep understanding of implications in database theory and design. | Applies legal and ethical principles to various scenarios, showing understanding of implications in database theory and design. | Demonstrates some awareness of legal and ethical considerations, but struggles to apply them consistently in database-related contexts. | Lacks awareness of legal and ethical principles in various scenarios. |
+| **2. Professional Responsibility**                        | Takes a proactive role in identifying potential legal and ethical issues in database projects, consistently integrating them into project planning. | Identifies potential legal and ethical considerations in database projects, considering their impact on project planning and execution. | Recognizes basic legal and ethical considerations, but may overlook critical aspects, potentially leading to oversights and risks. | Fails to recognize or address legal and ethical considerations. |
+| **3. Ethical Dilemma Resolution**                         | Effectively navigates complex ethical dilemmas in database work, balancing technical requirements with legal and moral considerations for optimal outcomes. | Analyzes and addresses common ethical dilemmas in database work, making balanced decisions based on legal and moral considerations. | Recognizes straightforward ethical dilemmas but may struggle with more complex situations or defaults to technical aspects over ethical considerations. | Struggles to identify ethical dilemmas and lacks awareness of legal and moral considerations. |
+
+## Student Learning Outcome 5
+
+"Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;"
+
+| Performance Indicator                                      | Exceeds Expectations                              | Meets Expectations                            | Developing                                    | Unsatisfactory                               |
+|------------------------------------------------------------|--------------------------------------------------|----------------------------------------------|----------------------------------------------|----------------------------------------------|
+| **1. Collaborative Contribution**                          | Consistently takes a proactive role in leading and contributing to team activities related to database theory and design, demonstrating excellent communication and problem-solving skills. | Effectively participates in team activities related to database theory and design, contributing positively through communication and problem-solving. | Participates in team activities but occasionally struggles with communication or problem-solving aspects, requiring some guidance. | Rarely contributes to team activities, displaying poor communication and problem-solving skills, hindering progress. |
+| **2. Team Coordination**                                   | Successfully organizes and manages team tasks for database projects, ensuring efficient resource allocation and timely goal achievement. | Efficiently participates in coordinating team tasks for database projects, assisting in resource allocation and goal achievement. | Occasionally experiences challenges in organizing tasks or allocating resources within the team, leading to minor delays. | Struggles to coordinate tasks or manage resources, causing significant delays and confusion within the team. |
+| **3. Conflict Resolution**                                 | Skillfully mediates conflicts within the team, fostering a harmonious working environment, and finding constructive solutions that benefit the project and team dynamics. | Effectively addresses conflicts within the team, promoting a positive working environment, and contributing to productive solutions. | Encounters difficulties in resolving conflicts, occasionally resulting in unresolved tension that affects teamwork and project progress. | Struggles to manage conflicts, leading to unresolved issues and creating a negative atmosphere within the team. |
+
+## Student Learning Outcome 6
+
+"Apply computer science theory and software development fundamentals to produce computing-based solutions;"
+
+| Performance Indicator                        | Exceeds Expectations                  | Meets Expectations                   | Developing                           | Unsatisfactory                       |
+|----------------------------------------------|--------------------------------------|-------------------------------------|--------------------------------------|--------------------------------------|
+| **1: Database Design**                 | Designs complex databases with optimal performance and scalability, showcasing expertise in normalization, indexing, and query optimization. | Designs functional databases with appropriate structure and functionality, demonstrating understanding of core principles. | Designs databases with minor issues, requiring revisions or adjustments after feedback and guidance. | Designs databases with significant flaws that hinder functionality and usability. |
+| **2: Query Development**               | Develops intricate SQL queries that manipulate and extract data from databases, demonstrating advanced understanding of joins, subqueries, and optimization techniques. | Creates effective SQL queries to retrieve and manipulate data, applying fundamental principles of querying and data retrieval. | Constructs basic SQL queries, but lacks complexity or makes errors in syntax and logic, leading to inaccurate results. | Struggles to write accurate and functional SQL queries, resulting in incorrect or incomplete results. |
+| **3: Software-Database Integration**   | Integrates databases seamlessly into software projects, ensuring data integrity and security. Demonstrates the ability to design and implement APIs and communication protocols between applications and databases. | Connects software applications with databases effectively, maintaining data consistency and security. Integrates basic APIs and functionalities for communication between software and databases. | Attempts to integrate databases with software, but encounters issues with implementation, leading to errors or inconsistencies in data handling. | Struggles to establish any connection between software and databases, resulting in a failure to interact with data stored. |
+
+

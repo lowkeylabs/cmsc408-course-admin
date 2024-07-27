@@ -1,0 +1,126 @@
+---
+date: 11/15/2023
+lecture-id: 20
+title: Working with APIs in python
+---
+
+```{python}
+#| echo: false
+lecture_id = 20
+n_rows = 8
+```
+
+## Housekeeping
+
+- Homework 7 submission remains open for those still working.
+- Homework 8 autograder has not yet been written (maybe tomorrow?)
+- Keep working on semester project!
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+# Database tips
+
+## Database tips - Primary and Foreign Keys
+
+* You *don't need* primary keys, foreign keys or unique field constraints.
+
+* Primary, foreign keys, and UNIQUE are *integrity constraints*.
+
+* They are all OPTIONAL and can added later.
+
+* You can do "joins" without primary and foreign key, just use caution.
+
+* Tables and records connect on values in the table.
+
+* Primary keys, foreign keys and UNIQUE are your friends, don't ignore them.  With them, you can trust your database.
+
+### Exercise
+Explore these options in homework 7 DDL file.
+
+## Database tips - Exporting
+
+* PHPMyAdmin has an export feature.  Export allows you to move a database to another server.
+
+* Export creates a DDL file that in one swipe, will create your database.
+
+* Export is also a useful tool to help you better understand SQL options.
+
+### Exercise
+Try "export" in PHPMyAdmin to see how MySQl views your database!
+
+# Python, Quarto and APIs
+
+## Python, Quarto and APIs - Renaming repos
+
+I don't know about you, but I HATE the really long names with GITHUB repositories.
+
+No fear - you can change the local name of your project folder without messing with the official name on github.
+
+How do you do it?  Simply change the name of the top project folder using your file finder (mac) or file explorer (windows).  As long as you DO NOT CHANGE the names of any of the folder INSIDE the root folder, you're OK.
+
+You can also move project folders around on your local hard drive, for example, moving them all to a "projects" folder under your ~home directory.  Again, as long as you don't change any of the names INSIDE the project folder, you'll be OK.
+
+GIT lets you rename the local folder when you clone the folder for the first time, by ADDING AN EXTRA ARGUMENT (the name of local folder). Here are examples using "git clone" and "gh repo clone"
+
+## Python, Quarto and APIs - Working with repos
+
+### Exercise - rename repo
+
+Clone hw8 and give it a new name during the clone process
+
+
+### Exercise - poetry reminders
+
+1. clone project using **gh repo clone**
+1. **poetry install**   <- this creates your virtual environment and downloads all modules in the *pyproject.toml* file.
+1. **poetry shell**  <- this *activates* your virtual environment shells into it.
+1. **exit**  <- this leaves the shell from above and *deactivates* your virtual environment.
+
+
+## Python, Quarto and APIs - Separate python files
+
+You don't need to keep all your python in the QMD file.  In fact, it's probably
+best to NOT keep the python source in the QMD, it's more difficult to reuse.
+
+You can create .py files in the same folder as the qmd and import them into your qmd.
+
+### Exercise - adding python file
+
+Create a utils.py file in hw8 folder.  Add a function *hello_from_utils*, and import the function into the hw8.qmd file.
+
+### Exercise - creating helper function
+
+Create a function named *api_query* that accepts two arguments: api_endpoint and api_query and returns the results of the query or None if there errors.
+
+### Exercise - create function to display a formatted character
+
+Create a function named *print_character* that accepts a json character dictionary and writes it to the output stream.
+
+## Python, Quarto and APIs - Separate python files
+
+Take control of the visual styles in your HTML files!
+
+### Exercise - add a styles.css
+
+Add a styles.css, add a few classes in your outputs, and convert the output to a card!
+
+* W3Schools CSS tutorial:  <https://www.w3schools.com/css/default.asp>
+
+
+## Housekeeping
+
+- Homework 7 submission remains open for those still working.
+- Homework 8 autograder has not yet been written (maybe tomorrow?)
+- Keep working on semester project!
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```

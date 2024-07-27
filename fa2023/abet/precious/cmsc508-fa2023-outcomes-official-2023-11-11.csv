@@ -1,0 +1,13 @@
+﻿vendor_guid,object_type,title,description,display_name,calculation_method,calculation_int,parent_guids,workflow_state,mastery_points,ratings,,,,,,,,,
+ABET24-20231111,group,ABET 2023-2024,,,,,,active,,,,,,,,,,,
+A24SLO-20231111,group,ABET 2023-2024 Student Learning,,,,,ABET24-20231111,active,,,,,,,,,,,
+A24SLO1-20231111,group,SLO1 - Analyze and Define Problem,Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions.,Analyze and Define Problem,,,A24SLO-20231111,active,,,,,,,,,,,
+A24SLO6-20231111,group,SLO6 - Build and Deploy Using Tools,Apply computer science theory and software development fundamentals to produce computing-based solutions.,Build and Deploy Using Tools,,,A24SLO-20231111,active,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+cmsc508-20231111-p1.1,outcome,P1.1 - Define problem and scope,Describe the environment and use groups for specific database project,Define problem and scope,highest,,A24SLO1-20231111,active,3,4,Exceeds,3,Meets,2,Developing,1,Unsatisfactory,0,Not measured
+cmsc508-20231111-p1.2,outcome,P1.2 - Identify entities,Identify the entities that need to be stored within the database,Identify entities,highest,,A24SLO1-20231111,active,3,4,Exceeds,3,Meets,2,Developing,1,Unsatisfactory,0,Not measured
+cmsc508-20231111-p1.3,outcome,P1.3 - Describe uses of DB,Describe potential uses in the form of queries,Describe uses of DB,highest,,A24SLO1-20231111,active,3,4,Exceeds,3,Meets,2,Developing,1,Unsatisfactory,0,Not measured
+cmsc508-20231111-p1.4,outcome,P1.4 - Create ER siagram,Create an ER diagram for the database,ER Diagram,highest,,A24SLO1-20231111,active,3,4,Exceeds,3,Meets,2,Developing,1,Unsatisfactory,0,Not measured
+,,,,,,,,,,,,,,,,,,,
+cmsc508-20231111-p6.1,outcome,P6.1 - Design database,"Designs functional databases with appropriate structure and functionality, demonstrating understanding of core principles.",Design database,highest,,A24SLO6-20231111,active,3,4,Exceeds,3,Meets,2,Developing,1,Unsatisfactory,0,Not measured
+cmsc508-20231111-p6.2,outcome,P6.2 - Integrate database,"Integrate software applications with databases effectively, maintaining data consistency and security. Integrates basic APIs and functionalities for communication between software and databases.",Integrate database,highest,,A24SLO6-20231111,active,3,4,Exceeds,3,Meets,2,Developing,1,Unsatisfactory,0,Not measured

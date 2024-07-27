@@ -1,0 +1,62 @@
+
+.lecture-wrapper{
+    transform: scale(0.60);
+    transform-origin: 0 0;
+    width:1000px;
+    /*
+    text-align:center;
+    display: flex;
+    width:auto;
+    height:auto;
+    position: block;
+    */
+}
+
+.sketch-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.75);
+}
+
+.sketch-item a {
+    display: inline-block;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sketch-item a:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5)
+}
+
+.sketch-wrapper {
+    /*
+    position: relative;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    */
+    transform: scale(0.50);
+    vertical-align: top;
+}
+
+
+.sketch-code-btn {
+    display: block;
+    position: absolute;
+    right: 30px;
+    padding: 8px 15px;
+    bottom: 40px; /* space between iframe and button */
+    background-color: #474747;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.sketch-code-btn:hover {
+    background-color: #5E5E5E;
+    color: white;
+}

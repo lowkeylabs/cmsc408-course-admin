@@ -1,0 +1,58 @@
+course-title: "CMSC 408 - Databases"
+subtitle: "Lecture {{< meta lecture-id >}}"
+
+project:
+  title: "CMSC 408 - Databases"
+  output-dir: ../../docs/fa2024
+
+date-format: "dddd - MMM D, YYYY"
+from: markdown+emoji
+filters:
+  - reveal-header
+
+jupyter: python3
+
+format:
+    revealjs:
+        scrollable: true
+        auto-stretch: false
+        pdf-separate-fragments: false
+
+        include-in-header:
+          - text: |
+              <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+
+        # reveal-header codes.  See:  https://github.com/shafayetShafee/reveal-header
+#        header: "{{< meta course-title >}} - {{< meta subtitle >}}"
+#        header: "{{< meta course-title >}}"
+        header: "CMSC 408 - Database Theory"
+        slide-number: true
+        header-logo: ./assets/CS-icon-with-dept-name-white-2.png
+        header-logo-text: "Computer Science at VCU"
+        logo: ./assets/CS-icon-01.png  # set a logo, then hide it in the SCSS. Forces slide numbers to top.
+
+        ## hardcoding these to 0, 1920, 1080 fills the screen
+        ## 900/500 is best for Canvas embedded slides.
+        # https://quarto.org/docs/presentations/revealjs/advanced.html#presentation-size
+        #width: 900;
+        #height: 500;
+#        margin: 0.05
+        width: 900
+        height: 500
+        margin: 0.1
+
+        min-scale: 0.2
+        max-scale: 2.0
+
+        # beige blood dark default league moon night serif simple sky solarized
+        theme: [default, ./assets/lectures.scss]
+        css: [./assets/sketch-css.css]
+        menu: false
+        code-copy: true
+        code-fold: false
+        execute: true
+        echo: true
+        code-block-background: true
+        code-line-numbers: true
+

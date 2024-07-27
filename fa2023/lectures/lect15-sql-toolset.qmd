@@ -1,0 +1,32 @@
+---
+date: 10/25/2023
+lecture-id: 15
+title: SQL toolset
+---
+
+```{python}
+#| echo: false
+lecture_id = 15
+n_rows = 7
+```
+
+## Housekeeping
+
+- Quiz 4 - Wednesday, 5-9pm or by arrangement.
+- [Project deliverable 5 - project and team assessment](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/176690)
+- [Canvas - Week 11](https://virginiacommonwealth.instructure.com/courses/85746/modules)
+- [Practice quiz](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/176575) is available on Canvas.
+- Discussion of [autograder for HW6/HW6B](https://virginiacommonwealth.instructure.com/courses/85746/assignments/793188).
+- Still having trouble with HW6?  Visit <https://vcu-ssg.github.io/ssg-quarto-python-setup/>
+- [Homework 7 is posted.](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725428)
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+# SQL Joins
+
+## SQL Joins

@@ -1,0 +1,602 @@
+# cnvsapi config file (.cnvsapi). Auto-created: 2023-08-17
+
+# This is a strictly formatted TOML file. It contains configuration values for this 
+# program. Highest level paramters control application run-time. Subsequent sections 
+# contain parameters for services that interact with this program.
+                                        
+# Log_level: used for watching execution.  This tool uses loguru.
+# Values: "TRACE", "DEBUG", "INFO", "SUCCESS", "WARNING", "ERROR", "CRITICAL"
+# Default: "WARNING"
+                                        
+[application]
+# Application configuration variables
+
+log_level = "WARNING"
+default_split_code = "::"
+
+
+[canvas]
+# Campus default values for Canvas
+
+# Url: high level web address of campus canvas server
+
+url = "https://virginiacommonwealth.instructure.com"
+
+
+[keyring]
+# keyring is a local computer secure storage system leveraging tools from
+# the local OS. Keyring works on windows, linux and mac.
+# See: https://pypi.org/project/keyring/
+
+# Namespace and entry are used with "keyring" to store canvas token in local
+# computer secure password storage. Don't mess with these, they were carefully
+# selected to work across all windows, linux, and mac platforms.
+
+namespace = "cmsc-vcu-course-tools-api"
+entry = "CANVAS_API_TOKEN"
+
+[course] 
+# Course contains a list of potential courses that this canvas user
+# can connect.  Use "cnvsapi courses --add-to-config" to freshen this section.
+# Once freshened, the user should uncomment one of the courses to serve
+# as default for further operations.
+        
+# course_id=15168    #  (2020FALL)SENIOR PROJECT I
+# course_id=28532    #  CMSC 320 Spring 2021 (Software Engineering & Web Dev)
+# course_id=74903    #  CMSC 475 - USER INTERFACE DESIGN
+# course_id=719      #  CMSC 508 Sandbox Course - s2dmduke
+# course_id=28530    #  CMSC-210-C90-SP2021 - COMPUTERS AND PROGRAMMING
+# course_id=80218    #  CMSC-255-001-SU2023 - INTRODUCTION TO PROGRAMMING
+# course_id=80379    #  CMSC-302-001-SU2023 - INTRO TO DISCRETE STRUCTURES
+# course_id=70841    #  CMSC-312-901-SP2023 - INTRO TO OPERATING SYSTEMS
+# course_id=28533    #  CMSC-330-DATA SCIENCE SKILLS
+# course_id=60816    #  CMSC-441-903-FA2022 - SR DESIGN STUDIO I (LAB/PROJ)
+# course_id=84649    #  CMSC-441-903-FA2023 - SR DESIGN STUDIO I (LAB/PROJ)
+# course_id=74572    #  CMSC-442-903-SP2023 - SR DESIGN STUDIO II (LAB/PROJ)
+# course_id=40953    #  CMSC-451-903-FA2021 - SENIOR PROJECT I
+# course_id=21874    #  CMSC-452-903-SP2021 - SENIOR PROJECT II
+# course_id=50791    #  CMSC-452-903-SP2022 - SENIOR PROJECT II
+# course_id=50843    #  CMSC-475-001-SP2022 - DES & IMPLEMNT USER INTERFACE
+# course_id=60923    #  CMSC-508-901-FA2022 - DATA BASE THEORY
+course_id=85746    #  CMSC-508-901-FA2023 - DATA BASE THEORY
+# course_id=86151    #  COAR 463/CMSC 391-FA2023 - INTRO TO GAME DEVELOPMENT
+# course_id=56466    #  COAR-463-701-SP2022 - HNR:INTRO TO GAME DEVELOPMENT
+# course_id=10439    #  DATA SCIENCE SKILLS
+# course_id=81951    #  ENGR-497-L52-FA2023 - Software for Social Good
+# course_id=3975     #  Growing With Canvas - jdleonard
+# course_id=88459    #  Sandbox Course - jdleonard
+# course_id=19975    #  UAC and GAC Minutes
+# course_id=35849    #  VCU Template - jdleonard
+
+[course.85746.pages]
+[course.85746.pages.intro-statement-on-the-use-of-generative-ai]
+title = "Intro - Statement on the Use of Generative AI"
+
+[course.85746.pages.intro-about-your-instructor-john-leonard]
+title = "Intro - About Your Instructor - John Leonard"
+
+[course.85746.pages.intro-academic-support-and-policies]
+title = "Intro - Academic Support and Policies"
+
+[course.85746.pages.intro-canvas-basics]
+title = "Intro - Canvas Basics"
+
+[course.85746.pages.intro-canvas-helpful-tips]
+title = "Intro - Canvas Helpful Tips"
+
+[course.85746.pages.intro-course-schedule]
+title = "Intro - Course Schedule"
+
+[course.85746.pages.intro-getting-started]
+title = "Intro - Getting Started"
+
+[course.85746.pages.intro-course-syllabus]
+title = "Intro - Course Syllabus"
+
+[course.85746.pages.semester-project-team-survey]
+title = "Semester Project Team Survey"
+
+[course.85746.pages.intro-student-resources]
+title = "Intro - Student Resources"
+
+[course.85746.pages.intro-technology-support-and-requirements]
+title = "Intro - Technology Support and Requirements"
+
+[course.85746.pages.intro-textbook-and-other-resources]
+title = "Intro - Textbook and Other Resources"
+
+[course.85746.pages.week-1-complete]
+title = "Week 1 - Complete!"
+
+[course.85746.pages.week-1-databases-on-real-hardware-video-and-notes]
+title = "Week 1 - Databases on real hardware (video and notes)"
+
+[course.85746.pages.week-1-getting-started]
+title = "Week 1 - Getting Started"
+
+[course.85746.pages.lecture-1-slides-welcome-to-cmsc-508]
+title = "Lecture 1 - Slides - Welcome to CMSC 508"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect01-welcome-to-cmsc508.html"
+
+
+[course.85746.pages.week-1-introduction-to-databases-videos]
+title = "Week 1 - Introduction to Databases (videos)"
+
+[course.85746.pages.week-1-pogil-and-practice-submission-to-gradescope]
+title = "Week 1 - POGIL and practice submission to gradescope"
+
+[course.85746.pages.week-1-pogil-worksheet]
+title = "Week 1 - POGIL worksheet"
+
+[course.85746.pages.week-1-review-course-schedule]
+title = "Week 1 - Review Course Schedule"
+
+[course.85746.pages.week-1-review-the-syllabus]
+title = "Week 1 - Review the Syllabus"
+
+[course.85746.pages.week-1-schedule-10-min-proposal-meeting]
+title = "Week 1 - Schedule 10-min proposal meeting"
+
+[course.85746.pages.week-1-todo]
+title = "Week 1 - TODO"
+
+[course.85746.pages.week-1-why-is-the-study-of-data-and-databases-important-videos]
+title = "Week 1 - Why is the study of data and databases important? (videos)"
+
+[course.85746.pages.week-10-complete]
+title = "Week 10 - Complete!"
+
+[course.85746.pages.week-10-getting-started]
+title = "Week 10 - Getting Started"
+
+[course.85746.pages.week-10-introduction-to-sql-part-3-videos]
+title = "Week 10 - Introduction to SQL - Part 3 (videos)"
+
+[course.85746.pages.week-10-introduction-to-sql-parts-2-and-3-2-videos]
+title = "Week 10 - Introduction to SQL - Parts 2 and 3  (2 videos)"
+
+[course.85746.pages.week-10-lecture-notes-and-videos]
+title = "Week 10 - Lecture notes and videos"
+
+[course.85746.pages.week-11-complete]
+title = "Week 11 - Complete!"
+
+[course.85746.pages.week-11-getting-started]
+title = "Week 11 - Getting Started"
+
+[course.85746.pages.week-11-homework-5-files-for-mysql-2]
+title = "Week 11 - Homework 5 Files for MySQL-2"
+
+[course.85746.pages.week-11-lecture-notes-and-videos]
+title = "Week 11 - Lecture notes and videos"
+
+[course.85746.pages.week-12-aggregating-data-video]
+title = "Week 12 - Aggregating data (video)"
+
+[course.85746.pages.week-12-complete]
+title = "Week 12 - Complete!"
+
+[course.85746.pages.week-12-getting-started]
+title = "Week 12 - Getting Started"
+
+[course.85746.pages.week-12-lecture-notes-and-zoom-videos]
+title = "Week 12 - Lecture notes and zoom videos"
+
+[course.85746.pages.week-12-subqueries-video]
+title = "Week 12 - Subqueries (video)"
+
+[course.85746.pages.week-13-complete]
+title = "Week 13 - Complete!"
+
+[course.85746.pages.week-13-getting-started]
+title = "Week 13 - Getting Started"
+
+[course.85746.pages.week-13-lecture-notes-and-zoom-videos]
+title = "Week 13 - Lecture notes and zoom videos"
+
+[course.85746.pages.week-13-phase-2-project-webapp-development-videos-and-links]
+title = "Week 13 - Phase 2 Project - WebApp development (videos and links)"
+
+[course.85746.pages.week-13-revisiting-integrity-constraints-video]
+title = "Week 13 - Revisiting integrity constraints (video)"
+
+[course.85746.pages.week-14-dont-bother-getting-started-relax]
+title = "Week 14 - Don't Bother Getting Started - Relax!"
+
+[course.85746.pages.week-15-complete]
+title = "Week 15 - Complete!"
+
+[course.85746.pages.week-15-database-views-1-video]
+title = "Week 15 - Database Views (1 video)"
+
+[course.85746.pages.week-15-getting-started]
+title = "Week 15 - Getting Started"
+
+[course.85746.pages.week-15-lecture-notes-and-zoom-videos]
+title = "Week 15 - Lecture notes and zoom videos"
+
+[course.85746.pages.week-15-phase-2-project-repeat-webapp-development-videos-and-links]
+title = "Week 15 - Phase 2 Project - (repeat) WebApp development (videos and links)"
+
+[course.85746.pages.week-15-triggers-and-stored-procedures-2-videos]
+title = "Week 15 - Triggers and stored procedures (2 videos)"
+
+[course.85746.pages.week-16-application-security-2-videos]
+title = "Week 16 - Application security (2 videos)"
+
+[course.85746.pages.week-16-complete]
+title = "Week 16 - Complete!"
+
+[course.85746.pages.week-16-database-security-introduction-1-video]
+title = "Week 16 - Database security introduction (1 video)"
+
+[course.85746.pages.week-16-getting-started]
+title = "Week 16 - Getting Started"
+
+[course.85746.pages.week-16-lecture-notes-and-zoom-videos]
+title = "Week 16 - Lecture notes and zoom videos"
+
+[course.85746.pages.week-16-security-and-authorization-1-video]
+title = "Week 16 - Security and Authorization (1 video)"
+
+[course.85746.pages.week-16-sql-injection-1-video]
+title = "Week 16 - SQL Injection (1 video)"
+
+[course.85746.pages.week-17-complete-no-in-class-final-no-class-meeting-on-12-slash-19]
+title = "Week 17 - Complete! - NO IN-CLASS FINAL. No class meeting on 12/19!"
+
+[course.85746.pages.week-17-getting-started]
+title = "Week 17 - Getting Started"
+
+[course.85746.pages.week-18-no-in-class-final-on-12-slash-19]
+title = "Week 18 - NO IN CLASS FINAL on 12/19."
+
+[course.85746.pages.week-2-complete]
+title = "Week 2 - Complete!"
+
+[course.85746.pages.week-2-entity-relationship-models-older-videos]
+title = "Week 2 - Entity-Relationship Models (older videos)"
+
+[course.85746.pages.week-2-er-model-practice]
+title = "Week 2 - ER Model Practice"
+
+[course.85746.pages.week-2-getting-started]
+title = "Week 2 - Getting Started"
+
+[course.85746.pages.delete-week-2-homework-1-solutions]
+title = "(DELETE) Week 2 - Homework 1 Solutions"
+
+[course.85746.pages.lecture-2-er-models-fa2022-slides-and-videos]
+title = "Lecture 2 - ER Models - FA2022 slides and videos"
+
+[course.85746.pages.week-2-practice-building-er-models-video]
+title = "Week 2 - Practice Building ER Models (video)"
+
+[course.85746.pages.week-2-review-the-course-schedule]
+title = "Week 2 - Review the Course Schedule"
+
+[course.85746.pages.week-2-todo]
+title = "Week 2 - TODO"
+
+[course.85746.pages.week-3-complete]
+title = "Week 3 - Complete!"
+
+[course.85746.pages.week-3-getting-started]
+title = "Week 3 - Getting Started"
+
+[course.85746.pages.week-4-continued-to-next-week]
+title = "Week 4 - (continued to next week)"
+
+[course.85746.pages.week-4-defining-attribute-domains-notes]
+title = "Week 4 - Defining Attribute Domains (notes)"
+
+[course.85746.pages.week-4-er-diagram-notation-for-cardinality-and-participation]
+title = "Week 4 - ER Diagram Notation for Cardinality and Participation"
+
+[course.85746.pages.week-5-getting-started-this-is-a-two-week-module]
+title = "Week 5 - Getting Started (This is a two week module)"
+
+[course.85746.pages.week-5-fa2022-relational-model]
+title = "Week 5 - FA2022 - Relational Model"
+
+[course.85746.pages.week-5-relational-algebra-queries-and-examples-videos]
+title = "Week 5 - Relational Algebra Queries and Examples (videos)"
+
+[course.85746.pages.week-5-relational-algebra-videos]
+title = "Week 5 - Relational Algebra (videos)"
+
+[course.85746.pages.week-5-relational-model-videos]
+title = "Week 5 - Relational Model (videos)"
+
+[course.85746.pages.week-4-start-work-on-homework-2]
+title = "Week 4 - Start work on homework 2"
+
+[course.85746.pages.week-6-complete]
+title = "Week 6 - Complete!"
+
+[course.85746.pages.week-6-continuing-from-last-week]
+title = "Week 6 - (continuing from last week)"
+
+[course.85746.pages.week-5-homework-2-due-fri-9-slash-23-11pm]
+title = "Week 5 - Homework 2 - Due Fri, 9/23, 11pm"
+
+[course.85746.pages.week-5-fa2022-relational-algebra-slides-slash-videos]
+title = "Week 5 - FA2022 Relational Algebra  - slides / videos"
+
+[course.85746.pages.week-6-continued-to-next-week]
+title = "Week 6 - (continued to next week)"
+
+[course.85746.pages.week-6-getting-started-9-3-week-module]
+title = "Week 6 - Getting Started 9 (3-week module)"
+
+[course.85746.pages.week-6-lectures-notes]
+title = "Week 6 - Lectures notes"
+
+[course.85746.pages.week-6-relational-database-design-part-1-2-videos]
+title = "Week 6 - Relational Database Design - Part 1 (2 videos)"
+
+[course.85746.pages.week-6-relational-database-design-part-2-3-videos]
+title = "Week 6 - Relational Database Design - Part 2 (3 videos)"
+
+[course.85746.pages.week-6-relational-database-design-part-3-2-videos]
+title = "Week 6 - Relational Database Design - Part 3 (2 videos)"
+
+[course.85746.pages.week-7-continued-from-last-week]
+title = "Week 7 - (continued from last week)"
+
+[course.85746.pages.week-7-continued-to-next-week]
+title = "Week 7 - (continued to next week)"
+
+[course.85746.pages.week-7-homework-3-due-fri-10-slash-7-11pm]
+title = "Week 7 - Homework 3 - Due Fri, 10/7, 11pm"
+
+[course.85746.pages.week-7-fa2022-canonical-cover-normalization]
+title = "Week 7 - FA2022 - Canonical cover, Normalization"
+
+[course.85746.pages.week-8-complete]
+title = "Week 8 - Complete!"
+
+[course.85746.pages.week-8-continued-from-last-week]
+title = "Week 8 - (continued from last week)"
+
+[course.85746.pages.week-9-fa2022-normal-forms-notes-and-study-guide]
+title = "Week 9 - FA2022 - Normal forms - Notes and Study Guide"
+
+[course.85746.pages.week-8-moreattributeclosureexamples]
+title = "Week 8 - MoreAttributeClosureExamples"
+
+[course.85746.pages.week-8-quiz-3-wed-dot-10-slash-12-5-30pm-in-class]
+title = "Week 8 - Quiz 3 - Wed., 10/12, 5:30pm - IN CLASS"
+
+[course.85746.pages.week-8-review-of-relational-design-topics]
+title = "Week 8 - Review of Relational Design Topics"
+
+[course.85746.pages.week-9-aws-relational-database-service-rds-overview]
+title = "Week 9 - AWS Relational Database Service (RDS) Overview"
+
+[course.85746.pages.week-9-complete]
+title = "Week 9 - Complete!"
+
+[course.85746.pages.week-9-getting-started]
+title = "Week 9 - Getting Started"
+
+[course.85746.pages.week-4-fa2022-introduction-to-sql-part-1-videos]
+title = "Week 4 - FA2022 Introduction to SQL - Part 1 (videos)"
+
+[course.85746.pages.week-9-fa2022-intro-to-sql-slides-and-video]
+title = "Week 9 - FA2022 - Intro to SQL, slides and video"
+
+[course.85746.pages.week-9-phase-i-team-survey]
+title = "Week 9 - Phase I Team Survey"
+
+[course.85746.pages.week-9-practice-files-and-walk-through-for-db-browser-for-sqlite]
+title = "Week 9 - Practice Files and Walk-through for DB Browser for SQLite"
+
+[course.85746.pages.sample-lecture-1]
+title = "Sample - Lecture 1"
+
+[course.85746.pages.sample-lecture-0]
+title = "Sample - Lecture 0"
+
+[course.85746.pages.intro-statement-on-generative-ai]
+title = "Intro - Statement on Generative AI"
+
+[course.85746.pages.intro-complete]
+title = "Intro - Complete"
+
+[course.85746.pages.lecture-1-zoom-recording]
+title = "Lecture 1 - zoom recording"
+
+[course.85746.pages.lecture-2-zoom-recording]
+title = "Lecture 2 - zoom recording"
+
+[course.85746.pages.lecture-3-entity-relation-models-2]
+title = "Lecture 3 - Entity Relation Models 2"
+
+[course.85746.pages.lecture-3-entity-relation-models-2.lecture-3-entity-relation-models-2-3]
+title = "Lecture 3 - Entity Relation Models 2-2"
+[course.85746.pages.lecture-3-zoom-recording]
+title = "Lecture 3 - zoom recording"
+
+[course.85746.pages.week-1-readings]
+title = "Week 1 - Readings"
+
+[course.85746.pages.lecture-2-slides-entity-relation-models-1]
+title = "Lecture 2 - Slides - Entity Relation Models 1"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect02-entity-relation-models-1.html"
+
+[course.85746.pages.week-3-monday-9-slash-4-no-class]
+title = "Week 3 - Monday, 9/4 - NO CLASS"
+
+[course.85746.pages.lecture-4-slides-ddl-dml-sqllite-and-mysql]
+title = "Lecture 4 - Slides - DDL, DML, SQLLITE and MySQL"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect04-ddl-dml-sqllite-mysql.html"
+
+[course.85746.pages.lecture-4-zoom-video]
+title = "Lecture 4 - zoom video"
+
+[course.85746.pages.lecture-5-zoom-video]
+title = "Lecture 5 - zoom video"
+
+[course.85746.pages.lecture-5-slides-relational-models]
+title = "Lecture 5 - Slides - Relational Models"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect05-relational-models.html"
+
+[course.85746.pages.week-4-complete]
+title = "Week 4 - complete!"
+
+[course.85746.pages.week-5-complete-2]
+title = "Week 5 - complete!"
+
+[course.85746.pages.week-3-see-resources-from-last-week]
+title = "Week 3 - See resources from last week"
+
+[course.85746.pages.lecture-6-slides]
+title = "Lecture 6 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect06-relational-algebra-1.html"
+
+[course.85746.pages.lecture-6-zoom-video]
+title = "Lecture 6 - zoom video"
+
+[course.85746.pages.lecture-7-zoom-video]
+title = "Lecture 7 - zoom video"
+
+[course.85746.pages.lecture-7-slides]
+title = "Lecture 7 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect07-relational-algebra-2.html"
+
+[course.85746.pages.lecture-8-slides]
+title = "Lecture 8 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect08-joins-and-aggregates-1.html"
+
+[course.85746.pages.lecture-8-zoom-video]
+title = "Lecture 8 - zoom video"
+
+[course.85746.pages.lecture-9-zoom-video]
+title = "Lecture 9 - zoom video"
+
+[course.85746.pages.lecture-10-zoom-video]
+title = "Lecture 10 - zoom video"
+
+[course.85746.pages.lecture-9-slides]
+title = "Lecture 9 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect09-functional-dependencies.html"
+
+[course.85746.pages.lecture-10-slides]
+title = "Lecture  10 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect10-closures-and-canonical-covers.html"
+
+[course.85746.pages.lecture-11-slides]
+title = "Lecture  11 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect11-normalization.html"
+
+[course.85746.pages.lecture-12-slides]
+title = "Lecture  12 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect12-4nf-5nf-and-study-guide.html"
+
+[course.85746.pages.lecture-12-zoom-video]
+title = "Lecture  12 - zoom video"
+
+[course.85746.pages.lecture-11-zoom-video]
+title = "Lecture  11 - zoom video"
+
+[course.85746.pages.lecture-13-zoom-video]
+title = "Lecture  13 - zoom video"
+
+[course.85746.pages.lecture-13-slides]
+title = "Lecture  13 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect13-intro-to-api-flask-python.html"
+
+[course.85746.pages.lecture-14-slides]
+title = "Lecture  14 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect14-more-joins-and-aggregates.html"
+
+[course.85746.pages.lecture-15-slides]
+title = "Lecture  15 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect15-aggregates-and-subqueries.html"
+
+[course.85746.pages.lecture-14-zoom-video]
+title = "Lecture  14 - zoom video"
+
+[course.85746.pages.lecture-15-zoom-video]
+title = "Lecture  15 - zoom video"
+
+[course.85746.pages.lecture-16-slides]
+title = "Lecture  16 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect16-subqueries-and-views.html"
+
+[course.85746.pages.lecture-16-zoom-video]
+title = "Lecture  16 - zoom video"
+
+[course.85746.pages.lecture-17-zoom-video]
+title = "Lecture  17 - zoom video"
+
+[course.85746.pages.lecture-18-zoom-video]
+title = "Lecture  18 - zoom video"
+
+[course.85746.pages.lecture-18-slides]
+title = "Lecture  18 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect18-aggregate-and-join-examples-1.html"
+
+[course.85746.pages.lecture-17-slides]
+title = "Lecture  17 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect17-api-development-more-flask.html"
+
+[course.85746.pages.lecture-19-slides]
+title = "Lecture  19 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect19-aggregate-and-join-examples-2.html"
+
+[course.85746.pages.lecture-19-zoom-video]
+title = "Lecture  19 - zoom video"
+
+[course.85746.pages.lecture-20-zoom-video]
+title = "Lecture  20 - zoom video"
+
+[course.85746.pages.lecture-20-slides]
+title = "Lecture  20 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect20-api-examples.html"
+
+[course.85746.pages.lecture-21-slides]
+title = "Lecture  21 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect21-referential-integrity-1.html"
+
+[course.85746.pages.lecture-22-slides]
+title = "Lecture  22 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect22-referential-integrity-2.html"
+
+[course.85746.pages.lecture-22-zoom-video]
+title = "Lecture  22 - zoom video"
+
+[course.85746.pages.lecture-21-zoom-video]
+title = "Lecture  21 - zoom video"
+
+[course.85746.pages.lecture-23-zoom-video]
+title = "Lecture  23 - zoom video"
+
+[course.85746.pages.lecture-24-zoom-video]
+title = "Lecture  24 - zoom video"
+
+[course.85746.pages.lecture-25-zoom-video]
+title = "Lecture  25 - zoom video"
+
+[course.85746.pages.lecture-25-slides]
+title = "Lecture  25 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect25-project-presentations.html"
+
+[course.85746.pages.lecture-24-slides]
+title = "Lecture  24 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect24-procedures-and-triggers-2.html"
+
+[course.85746.pages.lecture-23-slides]
+title = "Lecture  23 - slides"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect23-procedures-and-triggers-1.html"
+
+[course.85746.pages.week-4-start-here]
+title = "Week 4 - Start here"
+
+[course.85746.pages.lecture-3-slides-entity-relation-models-2]
+title = "Lecture 3 - Slides - Entity Relation Models 2"
+slideframe = "https://lowkeylabs.github.io/cmsc508-fa2023-admin/lect03-entity-relation-models-2.html"
+
+[course.85746.pages.lecture-3-entity-relation-models-2-2]
+title = "Lecture 3 - Entity Relation Models 2"

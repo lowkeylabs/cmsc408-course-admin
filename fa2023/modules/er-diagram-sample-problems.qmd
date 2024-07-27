@@ -1,0 +1,46 @@
+---
+title: Sample problems
+date: last-modified
+format:
+    html:
+        toc: true
+---
+
+## Initial ChatGPT query
+
+I'm teaching a database course. My current module is ER diagrams. I want the students to get lots of practice crafting ER diagrams.  Each problem description should contain a brief overview of the system, and then provide descriptions of entities, attributes in the system. Relationships between each entity should also be described. Unless specified, I'd like all the problem descriptions to capture 3 entities.  I'd like each problem statement formatted as a word problem without bullets or headers.
+
+I'd like word problems focused on the following topics:
+1. library system;
+2. university system;
+3. hospital system;
+4. ecommerce system;
+5. mural tracking system with murals, artists and buildings;
+6. music venue system with bands, venues and concerts;
+
+Certainly! Below are word problems for each topic that should provide your students with practice in crafting ER diagrams. Each problem has three entities to consider, as requested.
+
+### Library System
+
+Imagine a local public library that wants to manage its inventory of books, patrons who borrow them, and the librarians who manage the library. Each book has a unique ISBN, title, and genre. Some books have multiple authors. A patron has a library card number, name, and contact information. Librarians have an employee ID, name, and the area they specialize in (like "Children's Books" or "Reference"). A book can be borrowed by a single patron at any given time, and a librarian checks out books to patrons. A patron can borrow multiple books but can't borrow the same book more than once at the same time.
+
+### University System
+
+Consider a university that wants to manage its students, professors, and courses. Students have a student ID, name, and major. Professors have an employee ID, name, and academic department. Courses have a course code, name, and a specified number of credits. Students can enroll in multiple courses, and courses can have multiple students enrolled. Professors can teach multiple courses but each course is taught by a single professor. Students receive grades for the courses they are enrolled in, issued by the professor teaching the course.
+
+### Hospital System
+
+Picture a hospital that wants to keep track of patients, doctors, and the treatments given. Each patient has a patient ID, name, and medical history. Doctors have a license number, name, and area of specialization. Treatments have a treatment code, name, and cost. Patients can receive multiple treatments, and each treatment can be administered to multiple patients. Doctors are responsible for administering treatments to patients, and each doctor can administer multiple treatments but each treatment is administered by a single doctor.
+
+### Ecommerce System
+
+Envision an ecommerce platform that sells products, serves customers, and processes transactions. Each product has a product ID, name, and price. Customers have a customer ID, name, and email address. Transactions have a transaction ID, total amount, and timestamp. A customer can make multiple transactions, and each transaction can include multiple products. Products can be part of multiple transactions but are sold by the unit in each transaction. Transactions are processed by customers, and each customer's transaction can contain multiple products.
+
+### Mural Tracking System
+
+Imagine a city that wants to keep track of its murals, artists, and the buildings they are painted on. Each mural has a mural ID, title, and completion date. Artists have an artist ID, name, and artistic style. Buildings have a building ID, address, and owner name. An artist can create multiple murals, but each mural is created by a single artist. Murals can be painted on multiple buildings, and buildings can have multiple murals. Each mural is associated with a single building and is created by one artist.
+
+### Music Venue System
+
+Consider a music venue system that wants to manage bands, venues, and concerts. Each band has a band ID, name, and genre. Venues have a venue ID, name, and capacity. Concerts have a concert ID, date, and ticket price. A band can play in multiple concerts, and concerts can host multiple bands. Concerts take place in venues, and each venue can host multiple concerts but each concert is held at a single venue. Bands perform at concerts, and each concert can host multiple bands.
+

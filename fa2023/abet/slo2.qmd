@@ -1,0 +1,162 @@
+---
+title: SLO2
+data: last-modified
+---
+
+"Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the discipline of computer science." 
+
+## Prompt
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the discipline of computer science." 
+Please provide 3 performance indicators that align with the learning outcome.
+For each performance indicator, I'd like two measurement criteria.  Each measure should be evaluated with a rubric that includes a ranged set of four evaluation criteria with the following categories: exceeds expectations, meets expectations, developing, and unsatisfactory. In the rubric, exceeds expectations should be on the left. I'd like the rubric laid out as a table with five columns, with the first column containing the criteria and the remaining four columns containing the evaluation categories. Please ensure that the description of each criteria fits within a single cell, and that each rubric has five columns in both the body and header.
+
+
+## Response
+
+**Performance Indicator 1: Designing a Comprehensive Database Schema**
+*Outcome: Students can design a comprehensive database schema that addresses the given computing requirements.*
+
+|     | Exceeds Expectations | Meets Expectations | Developing | Unsatisfactory |
+| --- | ---                  | ---                | ---        | ---           |
+| Criteria 1: Schema Complexity | Designs a highly normalized and efficient schema that exhibits a deep understanding of advanced design concepts. | Designs a normalized schema that effectively captures the necessary data elements. | Designs a partially normalized schema, with some redundancies or inefficiencies. | Designs a denormalized or overly complex schema that fails to address the requirements. |
+| Criteria 2: Entity-Relationship Diagram | Creates an ER diagram that precisely represents all entities, relationships, attributes, and constraints. | Creates an accurate ER diagram with minor omissions or minor misrepresentations. | Presents an ER diagram with significant omissions or inaccuracies. | Presents an ER diagram that is largely incorrect or inadequate. |
+| Criteria 3: Schema Documentation | Provides comprehensive documentation, including clear explanations for design choices and a detailed data dictionary. | Offers sufficient documentation that explains most design decisions and includes a basic data dictionary. | Provides minimal documentation with limited explanations and a rudimentary data dictionary. | Offers inadequate or absent documentation. |
+
+**Performance Indicator 2: Implementation of the Database Solution**
+*Outcome: Students can implement the designed database schema to create a functional database solution.*
+
+|     | Exceeds Expectations | Meets Expectations | Developing | Unsatisfactory |
+| --- | ---                  | ---                | ---        | ---           |
+| Criteria 1: Query Implementation | Implements advanced queries efficiently and optimally, showcasing a deep grasp of query languages and optimization techniques. | Successfully implements necessary queries with minor inefficiencies. | Implements queries with noticeable performance issues or functional gaps. | Fails to implement essential queries correctly or completely. |
+| Criteria 2: Data Integrity Measures | Implements comprehensive data validation, integrity constraints, and error handling mechanisms. | Implements basic data validation and integrity checks effectively. | Implements only rudimentary data validation, leaving room for potential integrity issues. | Fails to implement proper data integrity measures. |
+| Criteria 3: System Performance | Achieves exceptional performance with minimal query response times and optimal resource utilization. | Achieves satisfactory performance with reasonable query response times and resource usage. | Experiences performance issues, resulting in slower query responses or inefficient resource utilization. | Encounters severe performance problems leading to unacceptable query response times or resource bottlenecks. |
+
+**Performance Indicator 3: Evaluation and Optimization of the Database Solution**
+*Outcome: Students can evaluate the implemented database solution and optimize its performance.*
+
+|     | Exceeds Expectations | Meets Expectations | Developing | Unsatisfactory |
+| --- | ---                  | ---                | ---        | ---           |
+| Criteria 1: Performance Analysis | Conducts in-depth performance analysis using advanced techniques, demonstrating a comprehensive understanding of optimization strategies. | Performs thorough performance analysis with effective utilization of optimization techniques. | Conducts basic performance analysis with limited optimization strategies. | Fails to analyze performance or optimize the database solution. |
+| Criteria 2: Optimization Strategies | Implements advanced optimization techniques resulting in significant performance improvements. | Implements standard optimization strategies effectively. | Attempts basic optimization strategies with limited success. | Does not apply optimization strategies or worsens performance. |
+| Criteria 3: Iterative Refinement | Iteratively refines the database design and implementation based on performance analysis, achieving substantial enhancements. | Makes iterative improvements based on performance analysis, leading to noticeable refinements. | Makes limited attempts at iterative refinement with minor improvements. | Does not engage in iterative refinement processes. |
+
+Please note that these rubrics are just examples, and you can adjust them according to your specific requirements and expectations. The provided criteria and descriptions aim to demonstrate the progression from exceeding expectations to unsatisfactory performance for each performance indicator.
+
+
+## Response 2
+
+Certainly, here are three performance indicators aligned with the learning outcome "Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the discipline of computer science" in the context of database theory and design:
+
+---
+
+**Performance Indicator 1: Solution Design**
+*Measure: Ability to create a comprehensive design for a computing-based solution to address specific database requirements.*
+
+| Criteria               | Exceeds Expectations       | Meets Expectations      | Developing               | Unsatisfactory          |
+|------------------------|----------------------------|-------------------------|--------------------------|-------------------------|
+| Design Complexity      | Develops highly complex design| Develops complex design| Creates simple design   | Lacks design complexity |
+| User Requirements      | Addresses all user requirements| Addresses most requirements| Partially addresses requirements| Misses key requirements |
+| Scalability            | Expertly designs for scalability| Designs for scalability| Partial scalability design | Lacks scalability design|
+| Novelty                | Incorporates innovative ideas| Introduces creative ideas| Limited creative input  | Lacks innovative ideas |
+
+---
+
+**Performance Indicator 2: Solution Implementation**
+*Measure: Proficiency in implementing the designed computing-based solution with a focus on database theory and design.*
+
+| Criteria               | Exceeds Expectations       | Meets Expectations      | Developing               | Unsatisfactory          |
+|------------------------|----------------------------|-------------------------|--------------------------|-------------------------|
+| Code Quality           | Develops exceptionally high-| Develops high-quality | Develops basic code     | Produces poor-quality code|
+| Efficiency             | Produces highly efficient code| Produces efficient code| Produces somewhat efficient code| Produces inefficient code|
+| Feature Completion    | Implements all specified features| Implements most features| Partial feature completion| Misses key features     |
+| Error Handling         | Implements comprehensive error| Implements error handling| Partial error handling | Lacks error handling   |
+
+---
+
+**Performance Indicator 3: Solution Evaluation**
+*Measure: Ability to assess the effectiveness and efficiency of the implemented computing-based solution for database theory and design.*
+
+| Criteria               | Exceeds Expectations       | Meets Expectations      | Developing               | Unsatisfactory          |
+|------------------------|----------------------------|-------------------------|--------------------------|-------------------------|
+| Evaluation Depth       | Conducts in-depth evaluation | Conducts thorough evaluation| Conducts basic evaluation | Lacks evaluation        |
+| Performance Analysis  | Performs advanced performance| Analyzes performance   | Partial performance analysis| Limited analysis       |
+| User Feedback          | Incorporates comprehensive user| Incorporates user feedback| Partial user feedback   | Lacks user feedback    |
+| Improvement Planning   | Creates comprehensive plan   | Creates improvement plan| Partial improvement plan| No improvement plan   |
+
+---
+
+Feel free to adapt the criteria and language to best suit your specific context and requirements. This rubric should provide a clear framework for evaluating students' ability to design, implement, and evaluate computing-based solutions within the domain of database theory and design.
+
+
+# Response 3
+Sure, I'd be happy to help you with that! Here are three performance indicators aligned with the given learning outcome, along with their measurement criteria and corresponding rubrics:
+
+---
+
+**Performance Indicator 1: Design Proficiency**
+
+*Measurement Criteria:*
+
+| Criteria                                     | Exceeds Expectations                                                                                             | Meets Expectations                                                                                        | Developing                                                                                    | Unsatisfactory                                                                              |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Problem Analysis                            | Student demonstrates an exceptional ability to thoroughly analyze computing requirements.                  | Student effectively analyzes computing requirements.                                                 | Student attempts to analyze computing requirements but misses key points.                    | Student's analysis of computing requirements is shallow or incorrect.                        |
+| Creativity in Solution Exploration | Student goes above and beyond in exploring creative and innovative computing solutions.                | Student demonstrates creativity in exploring computing solutions.                                  | Student attempts to explore various computing solutions but lacks creativity.                 | Student's solution exploration is limited and lacks creativity.                              |
+| Consideration of Stakeholders       | Student thoroughly considers a wide range of stakeholders and incorporates their needs exceptionally. | Student effectively considers stakeholders and their needs.                                       | Student attempts to consider stakeholders but overlooks some aspects.                         | Student's consideration of stakeholders and their needs is incomplete or inappropriate.     |
+| Feasibility of Solution                   | Student provides a highly detailed and realistic assessment of the feasibility of the chosen solution. | Student assesses the feasibility of the chosen solution in a practical manner.                | Student attempts to assess feasibility but overlooks practical constraints.                    | Student's assessment of solution feasibility is inaccurate or unrealistic.                     |
+
+---
+
+**Performance Indicator 2: Implementation Proficiency**
+
+*Measurement Criteria:*
+
+| Criteria                      | Exceeds Expectations                                                                                       | Meets Expectations                                                                          | Developing                                                                   | Unsatisfactory                                                             |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Code Quality              | Student consistently produces well-organized, efficient, and thoroughly documented code. | Student produces organized, efficient, and documented code.                   | Student produces code with some organization and documentation issues. | Student's code is disorganized, inefficient, and lacks documentation. |
+| Functionality Achievement | Student's implemented solution fully and elegantly meets all specified requirements.      | Student's implemented solution meets all specified requirements.                | Student's solution meets some requirements but has major gaps.          | Student's solution minimally meets requirements or is non-functional.   |
+| Error Handling             | Student anticipates and addresses a wide range of potential errors exceptionally.          | Student effectively implements error handling for anticipated issues. | Student attempts error handling but misses several anticipated errors. | Student's error handling is minimal or absent, leading to frequent issues. |
+| Iterative Development    | Student demonstrates an exceptional iterative development process with multiple refined versions. | Student follows an effective iterative development process with refinements. | Student attempts iterative development but with limited refinements.    | Student lacks an iterative approach, with minimal to no refinements.     |
+
+---
+
+**Performance Indicator 3: Evaluation and Reflection**
+
+*Measurement Criteria:*
+
+| Criteria                   | Exceeds Expectations                                                                                       | Meets Expectations                                                               | Developing                                                                   | Unsatisfactory                                                             |
+|----------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Rigorous Testing        | Student conducts extensive and thorough testing, covering various scenarios and edge cases exceptionally. | Student performs comprehensive testing, encompassing various scenarios.     | Student conducts basic testing but misses several scenarios.           | Student's testing is minimal and doesn't cover critical scenarios.      |
+| Evaluation of Results | Student critically analyzes the outcome, providing deep insights backed by solid evidence.             | Student evaluates the outcome, offering insights supported by evidence.    | Student attempts to evaluate but lacks in-depth insights.             | Student's evaluation is shallow and lacks supporting evidence.         |
+| Reflection on Process | Student reflects on the development process extensively, identifying key lessons and improvements.   | Student reflects on the process, highlighting lessons and improvements. | Student reflects on the process but lacks depth in lessons learned. | Student's reflection is superficial and lacks meaningful insights.    |
+| User Feedback           | Student incorporates user feedback exceptionally, demonstrating a deep understanding of user needs. | Student effectively integrates user feedback, addressing key points.  | Student attempts to integrate feedback but misses important aspects. | Student's integration of user feedback is limited or ineffective.    |
+
+---
+
+Please note that these rubrics are provided as examples and can be adjusted to suit your specific requirements and context. They are designed to help you assess students' performance based on the given learning outcome.
+
+## Prompt
+
+I'm brainstorming performance indicators for the student learning outcome:
+"Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the discipline of computer science." 
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+I'd like to evaluate each performance indicator in four categories: exceeds expectations, meets expectations, developing, and unsatisfactory.
+I'd like each performance indicator and evaluation catagories arranged in a horizontal table with performance indicator on the left and unsatisfactory on the right.
+Care should be taken to ensure that each description fits within a single cell of the table and the table should only have three rows.
+
+I understand your request. Here's a table with the three performance indicators aligned with the learning outcome and their corresponding evaluation categories:
+
+| Performance Indicator                                                                               | Exceeds Expectations                                       | Meets Expectations                                       | Developing                                       | Unsatisfactory                                       |
+|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------|----------------------------------------------------|
+| **1. Solution Design**                                                                             | Develops a comprehensive and innovative solution plan, | Creates a well-structured solution plan with       | Creates a solution plan with some gaps and       | Fails to create a coherent solution plan         |
+|                                    | incorporating advanced techniques and considerations.   | consideration of key design principles.           | inconsistencies in design choices.              | or includes inappropriate design elements.     |
+| **2. Implementation Proficiency**                                                                  | Implements the solution with exceptional proficiency,  | Successfully implements the solution according   | Implements the solution with minor errors       | Struggles to implement the solution, resulting  |
+|                                    | demonstrating mastery of relevant tools and practices.  | to plan using appropriate tools and practices.   | but faces significant challenges in execution.  | in a solution that does not meet requirements.  |
+| **3. Evaluation and Reflection**                                                                   | Conducts a thorough evaluation, comparing the        | Performs a comprehensive evaluation, analyzing   | Conducts a basic evaluation, but lacks depth    | Provides minimal or no evaluation of the       |
+|                                    | solution against alternatives, and showcasing insights. | strengths and weaknesses of the solution.         | in insights and critical analysis.              | solution's effectiveness and shortcomings.     |
+
+Please note that these descriptions are concise and fit within a single cell of the table. You can adapt and modify them according to the specific context of your assessment and the level of students' expertise.
+
+

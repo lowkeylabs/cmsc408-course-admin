@@ -1,0 +1,57 @@
+---
+title: SLO2
+data: last-modified
+---
+
+"Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the discipline of computer science." 
+
+## Prompt
+
+i'm brainstorming performance indicators for the student learning outcome:
+"Communicate effectively in a variety of professional contexts;"
+The knowledge domain is database theory and design.
+Please provide 3 performance indicators that align with the learning outcome.
+For each performance indicator, I'd like one measure.  Each measure should include a ranged set of four criteria with the following categories: exceeds expectations, meets expectations, developing, and unsatisfactory. In the rubric, exceeds expections should be on the left. I'd like the rubric layed out as a table with five columns.
+
+## Response
+Certainly, I'd be happy to help you create performance indicators and a rubric for the student learning outcome "Communicate effectively in a variety of professional contexts" in the context of database theory and design. Here are three performance indicators along with their associated measures and rubrics:
+
+---
+
+**Performance Indicator 1: Written Documentation**
+*Measure: Quality of written documentation created for a database design project.*
+
+| Criteria               | Exceeds Expectations       | Meets Expectations      | Developing               | Unsatisfactory          |
+|------------------------|----------------------------|-------------------------|--------------------------|-------------------------|
+| Clarity and Structure  | Clear and well-organized   | Generally clear         | Somewhat unclear         | Unclear and disorganized|
+| Technical Language     | Consistently appropriate   | Mostly appropriate     | Occasionally unclear    | Often misuses language |
+| Visual Aids            | Highly effective           | Generally effective    | Somewhat effective      | Ineffective or absent  |
+| Cohesiveness           | Excellent integration      | Mostly integrated      | Partial integration     | Lacks integration      |
+
+---
+
+**Performance Indicator 2: Verbal Presentation**
+*Measure: Quality of a verbal presentation explaining a complex database concept.*
+
+| Criteria               | Exceeds Expectations       | Meets Expectations      | Developing               | Unsatisfactory          |
+|------------------------|----------------------------|-------------------------|--------------------------|-------------------------|
+| Content Mastery        | Comprehensive knowledge    | Solid understanding    | Partial understanding   | Inaccurate information  |
+| Engagement             | Highly engaging and dynamic| Mostly engaging        | Somewhat engaging       | Monotonous or unclear  |
+| Clarity and Precision  | Highly clear and precise   | Generally clear         | Occasionally unclear    | Confusing and unclear  |
+| Interaction            | Skillful interaction       | Adequate interaction   | Limited interaction     | Poor or no interaction |
+
+---
+
+**Performance Indicator 3: Collaborative Discussion**
+*Measure: Effectiveness in participating in a group discussion on a database design problem.*
+
+| Criteria               | Exceeds Expectations       | Meets Expectations      | Developing               | Unsatisfactory          |
+|------------------------|----------------------------|-------------------------|--------------------------|-------------------------|
+| Active Contribution    | Consistently contributes   | Mostly contributes     | Occasionally contributes| Rarely contributes     |
+| Problem Analysis       | Offers deep insights       | Provides insightful    | Offers limited insights | Lacks analysis         |
+| Respectful Dialogue    | Always respectful          | Mostly respectful      | Occasionally disruptive | Disrespectful           |
+| Synthesis of Ideas     | Skillfully synthesizes     | Adequately synthesizes | Partial synthesis       | Lacks synthesis        |
+
+---
+
+Feel free to adjust the criteria and language to better fit your specific context and requirements. This rubric should provide a clear framework for evaluating students' performance in effectively communicating about database theory and design in various professional contexts.

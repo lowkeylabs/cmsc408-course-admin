@@ -1,0 +1,26 @@
+---
+title: "Template lecture"
+lecture-id: 99
+date: 1999-12-31
+---
+```{python}
+#| echo: false
+lecture_id = 1
+n_rows = 8
+```
+
+## Housekeeping
+
+Lots of stuff to do as we get this engine fired up:
+
+- Visit the course canvas and get acclimated.
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+
+## {background-color="black"}

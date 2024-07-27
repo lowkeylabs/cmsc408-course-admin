@@ -1,0 +1,23 @@
+---
+format:
+    revealjs:
+        slide-number: true
+---
+   
+# Section test 1
+
+## Slide 1
+
+This is a test slide
+
+## Slide 2
+
+This is a test slide with python:
+
+```{python}
+print("hello world")
+```
+
+## Slide 3
+
+All done!

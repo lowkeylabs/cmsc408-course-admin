@@ -1,0 +1,49 @@
+course-title: "CMSC 508 - Database Theory"
+subtitle: "Lecture {{< meta lecture-id >}}"
+
+project:
+  title: "CMSC 508 - Database Theory"
+  output-dir: ../docs/
+
+date-format: "dddd - MMM D, YYYY"
+from: markdown+emoji
+filters:
+  - reveal-header
+
+jupyter: python3
+
+format:
+    revealjs:
+        slide-number: true
+        scrollable: true
+        auto-stretch: false
+        pdf-separate-fragments: false
+        header: "{{< meta title >}} - {{< meta subtitle >}}"
+        header-logo: assets/CS-icon-with-dept-name-white-2.png
+        header-logo-text: "Computer Science at VCU"
+
+        ## hardcoding these to 0, 1920, 1080 fills the screen
+        # https://quarto.org/docs/presentations/revealjs/advanced.html#presentation-size
+        #width: 900;
+        #height: 500;
+#        margin: 0.05
+        width: 900
+        height: 500
+        margin: 0.1
+        min-scale: 0.2
+        max-scale: 2.0
+
+        # beige blood dark default league moon night serif simple sky solarized
+        theme: [default, assets/lectures.scss]
+#        theme: [default]
+        menu: false
+        logo: assets/CS-icon-01.png  # set a logo, then hide it in the SCSS. Forces slide numbers to top.
+
+        code-copy: true
+        code-fold: false
+        execute: true
+        echo: true
+        code-block-background: true
+        code-line-numbers: true
+
+
