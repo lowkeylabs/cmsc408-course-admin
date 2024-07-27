@@ -1,0 +1,7 @@
+---
+title: Sample topic
+---
+
+
+
+{{< include '_sample-topic.qmd' >}}

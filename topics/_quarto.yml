@@ -1,9 +1,8 @@
 course-title: "CMSC 408 - Databases"
-subtitle: "Lecture {{< meta lecture-id >}}"
 
 project:
   title: "CMSC 408 - Databases"
-  output-dir: ../../docs/fa2024
+  output-dir: ../docs/topics
 
 date-format: "dddd - MMM D, YYYY"
 from: markdown+emoji

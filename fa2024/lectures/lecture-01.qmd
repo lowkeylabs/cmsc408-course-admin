@@ -27,6 +27,6 @@ lecture_topics = [
 
 {{< include "./_template-housekeeping.qmd" >}}
 
-
+{{< include "../../topics/_sample-topic.qmd" >}}
 
 {{< include "./_template-housekeeping.qmd" >}}

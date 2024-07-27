@@ -1,0 +1,7 @@
+---
+title: template1
+---
+
+{{< include '_template1.qmd' >}}
+
+    
