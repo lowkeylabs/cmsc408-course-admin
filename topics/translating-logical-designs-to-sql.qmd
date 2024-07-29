@@ -1,5 +1,7 @@
 ---
 title: Translating logical designs to SQL
+tags:
+- homework
 ---
 
 {{< include '_translating-logical-designs-to-sql.qmd' >}}

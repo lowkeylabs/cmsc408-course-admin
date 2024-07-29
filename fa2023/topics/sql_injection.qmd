@@ -1,0 +1,6 @@
+---
+title: Sql Injection
+tags: []
+---
+
+{{< include _sql_injection.qmd >}}

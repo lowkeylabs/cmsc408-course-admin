@@ -1,5 +1,7 @@
 ---
 title: Sample code
+tags:
+- homework
 ---
 
 {{< include '_sample-code.qmd' >}}

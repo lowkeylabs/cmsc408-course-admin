@@ -1,5 +1,6 @@
 ---
 title: Sample code from the earlier ER diagrams.
+tags: []
 ---
 
 {{< include '_sample-code-from-the-earlier-er-diagrams.qmd' >}}

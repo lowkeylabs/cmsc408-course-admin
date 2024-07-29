@@ -1,5 +1,10 @@
 ---
 title: Entities, attributes and relationships<br/>and the ER Diagram
+tasl:
+    source: fa2023\lectures\lect02-entity-relation-models-1.qmd
+    topic: Entities, attributes and relationships<br/>and the ER Diagram
+tags:
+- homework
 ---
 
 {{< include '_entities-attributes-and-relationships-and-the-er-diagram.qmd' >}}

@@ -1,5 +1,10 @@
 ---
 title: Homework 2 discussion
+tasl:
+    source: fa2023\lectures\lect02-entity-relation-models-1.qmd
+    topic: Homework 2 discussion
+tags:
+- homework
 ---
 
 {{< include '_homework-2-discussion.qmd' >}}

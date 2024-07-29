@@ -1,5 +1,7 @@
 ---
 title: Quick review of deliverables
+tags:
+- homework
 ---
 
 {{< include '_quick-review-of-deliverables.qmd' >}}
