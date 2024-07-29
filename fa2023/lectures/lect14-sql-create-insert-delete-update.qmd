@@ -26,7 +26,7 @@ from src.utils import upcoming_calendar
 upcoming_calendar( lecture_id, n_rows )
 ```
 
-# Homework 6 - connecting to DBMS
+# Homework 6 - connecting to DBMS (2)
 
 ## Homework 6 - connecting to DBMS
 

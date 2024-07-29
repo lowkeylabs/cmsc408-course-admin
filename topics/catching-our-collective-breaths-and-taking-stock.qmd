@@ -1,5 +1,11 @@
 ---
 title: Catching our collective breaths and taking stock
+tasl:
+    source: fa2023\lectures\lect04-ddl-dml-sqllite-mysql.qmd
+    tags:
+    - lecture
+    - lecture-04
+    topic: Catching our collective breaths and taking stock
 ---
 
 {{< include '_catching-our-collective-breaths-and-taking-stock.qmd' >}}

@@ -3,7 +3,7 @@ subtitle: "Lecture {{< meta lecture-id >}}"
 
 project:
   title: "CMSC 508 - Database Theory"
-  output-dir: ../docs/
+  output-dir: ../../docs/fa2023
 
 date-format: "dddd - MMM D, YYYY"
 from: markdown+emoji

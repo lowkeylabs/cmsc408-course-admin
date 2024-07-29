@@ -1,0 +1,13 @@
+---
+title: SELECT statement
+tasl:
+    source: fa2023\lectures\lect13-sql-selects.qmd
+    tags:
+    - lecture
+    - lecture-13
+    topic: SELECT statement
+---
+
+{{< include '_select-statement.qmd' >}}
+
+    

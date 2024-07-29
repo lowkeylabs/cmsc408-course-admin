@@ -1,5 +1,11 @@
 ---
 title: and now back to our regularly scheduled program
+tasl:
+    source: fa2023\lectures\lect03-entity-relation-models-2.qmd
+    tags:
+    - lecture
+    - lecture-03
+    topic: and now back to our regularly scheduled program
 ---
 
 {{< include '_and-now-back-to-our-regularly-scheduled-program.qmd' >}}

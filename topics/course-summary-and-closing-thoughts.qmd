@@ -1,0 +1,13 @@
+---
+title: Course summary and closing thoughts
+tasl:
+    source: fa2023\lectures\lect24-procedures-and-triggers-2.qmd
+    tags:
+    - lecture
+    - lecture-24
+    topic: Course summary and closing thoughts
+---
+
+{{< include '_course-summary-and-closing-thoughts.qmd' >}}
+
+    

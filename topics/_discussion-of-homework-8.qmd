@@ -1,0 +1,108 @@
+
+# Discussion of Homework 8
+
+## Discussion of Homework 8
+
+:::: {.columns}
+::: {.column}
+
+### Exercise 1: Basic API Request
+
+**Objective:** Retrieve and print the first 5 characters from the API.
+
+**Concepts:** HTTP GET request, JSON response parsing.
+
+*<https://rickandmortyapi.com/documentation/#get-multiple-characters>*
+
+:::
+::: {.column}
+### Exercise 2: Handling Pagination
+
+**Objective:** Retrieve and print the names of all characters that appear on the first 3 pages of the API results.
+
+**Concepts:** Looping over pages, query parameters.
+
+*<https://rickandmortyapi.com/documentation/#info-and-pagination>*
+
+:::
+::::
+
+## Discussion of Homework 8
+
+:::: {.columns}
+::: {.column}
+
+### Exercise 3: Query Parameters
+
+**Objective:** Find and print all characters with the name "Rick".
+
+**Concepts:** Utilizing query parameters, conditional logic.
+
+*<https://rickandmortyapi.com/documentation/#filter-characters>*
+
+:::
+::: {.column}
+
+### Exercise 4: Error Handling
+
+**Objective:** Write a function that takes a character ID and prints the character's information. It should handle cases where the character does not exist.
+
+**Concepts:** Error handling, function definition.
+
+*This will challenge your python skills*
+:::
+::::
+
+## Discussion of Homework 8
+
+:::: {.columns}
+::: {.column}
+
+### Exercise 5: Data Manipulation
+
+**Objective:** Retrieve all locations and their associated characters, and present this information in a dictionary with location names as keys and lists of character names as values.
+
+**Concepts:** Data structuring, nested API calls.
+
+*This will challenge your python skills*
+
+:::
+::: {.column}
+
+### Exercise 6: Create a high-school yearbook style listing of images
+
+This exercise incorporates all the skills from above, adding additional craziness to display the data in a yearbook-style layout within your quarto HTML file.
+
+**Objective:** Use the "Rick and Morty" API to generate a yearbook-style grid of headshots and names of characters within this HTML.
+
+**Concepts:** API data extraction, structured text generation, file I/O, basic web design.
+
+*This will challenge your python and html skills*
+
+:::
+::::
+
+## Discussion of Homework 8
+
+<center>
+![](assets/yearbook-example.png){width=550}
+</center>
+
+I recommend that you use a [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) and [CSS styling](https://quarto.org/docs/output-formats/html-basics.html#css-styles) to
+create the yearbook. There are many ways to solve the problem!
+
+
+## Housekeeping
+
+- Many of you are continuing to work on HW7.  Keep on it!
+- Homework 8 has been posted and is due next Sunday, 11/19.
+- Project deliverable 6 - status report is also due Sunday, 11/19.
+
+<p>&nbsp;</p>
+- Today: a discussion of APIs
+<p>&nbsp;</p>
+
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )

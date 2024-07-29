@@ -1,0 +1,13 @@
+---
+title: Recognizing BCNF
+tasl:
+    source: fa2023\lectures\lect09-analysis-and-normal-forms-2.qmd
+    tags:
+    - lecture
+    - lecture-09
+    topic: Recognizing BCNF
+---
+
+{{< include '_recognizing-bcnf.qmd' >}}
+
+    

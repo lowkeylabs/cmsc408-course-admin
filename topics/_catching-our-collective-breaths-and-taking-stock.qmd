@@ -1,73 +1,39 @@
 
+# Catching our collective breaths and taking stock
 
 ## Course to date
 
-
-
 :::: {.columns}
 
-
-
 ::: {.column}
-
 ### Topics
 
-
-
 - Database design
-
 - Conceptual design
-
     * entities, attributes and relationships
-
     * Chen diagrams
-
 - Logical design
-
     * Cardinality and Participation
-
     * Crow's foot diagrams
 
-
-
 :::
-
 ::: {.column}
-
 ### Skills and tools
 
-
-
 - Quarto workflow and output formats
-
 - GITHUB and git
-
 - graphviz (not just for ER diagrams!)
-
 - mermaid (not just for ER diagrams!)
-
 - Zoom videos and Kaltura
 
-
-
 :::
-
 ::::
-
-
-
 
 
 ### Next up:
 
-
-
 - Physical design
-
     * Bridging the gap between design and implementation
-
     * Converting multivalued attributes and relations to entities
-
     * Converting entities to tables and connecting them up
-
 

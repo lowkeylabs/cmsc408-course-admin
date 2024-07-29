@@ -1,0 +1,13 @@
+---
+title: Housekeeping
+tasl:
+    source: fa2023\lectures\lect08-analysis-and-normal-forms-1.qmd
+    tags:
+    - lecture
+    - lecture-08
+    topic: Housekeeping
+---
+
+{{< include '_housekeeping.qmd' >}}
+
+    

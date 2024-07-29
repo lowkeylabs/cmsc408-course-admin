@@ -1,0 +1,13 @@
+---
+title: Relational Models
+tasl:
+    source: fa2023\lectures\lect05-relational-models.qmd
+    tags:
+    - lecture
+    - lecture-05
+    topic: Relational Models
+---
+
+{{< include '_relational-models.qmd' >}}
+
+    

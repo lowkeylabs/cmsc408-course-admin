@@ -1,271 +1,138 @@
 
+# ... ok, now what?  Let's take a step back ...
 
 ## Database design process - overview
 
-
-
 :::: {.columns}
-
 ::: {.column}
-
 ### Overview
 
-
-
 - Basic steps are on the right.
-
 - There are many different approaches.
-
 - Watch the videos, you'll see different approaches.
-
 - Can be as hard or simple as you want to make it.
-
 - Iterate!
 
-
-
 - *Note: the Microsoft approach (on Canvas) jumps more
-
 quickly to logical design and implementation.*
 
-
-
 :::
-
 ::: {.column}
-
-
 
 ### Database design process
 
-
-
 1. Understanding requirements
-
-
 
 **2. Conceptual design** <- Chen diagrams/graphviz
 
-
-
 **3. Logical design** <- Crows foot diagrams/mermaid
-
-
 
 4. Physical design
 
-
-
 5. Implementation
 
-
-
 :::
-
 ::::
 
-
-
 ## Database design process - logical design
-
-
 
 * Entity sets and relationship sets can be expressed uniformly as relation schemas that represent the contents of the database
 
-
-
 * A database that implements an E-R diagram can be represented by a collection of relation schemas
-
-
 
 * For each entity set and relationship set there is a unique schema that is assigned the name of the corresponding set.
 
-
-
 * Each schema has a number of columns corresponding to attributes which have unique names.
-
-
 
 ## Database design process - logical design
 
-
-
 :::: {.columns}
-
 ::: {.column width=30%}
-
 ### Conceptual design
 
-
-
 //| echo: false
-
 //| eval: true
-
 //| fig-width: 200px
-
 //| fig-height: 200px
-
 //| fig-align: left
-
 graph ER {
-
 	layout=neato;
-
   scale=1.1;
-
 	node [shape=box]; building; room;
-
 	node [shape=ellipse]; address, city, state, occupant, room_number
-
 	node [shape=diamond,style=filled,color=lightgrey]; has
-
 	
-
 	building -- has [label="1",len=1.00]
-
 	has -- room [label="n",len=1.00]
-
 	
-
 	building -- address
-
 	building -- city
-
 	building -- state
-
   room -- room_number
-
 	room -- occupant
-
 }
-
 :::
 
-
-
 ::: {.column width=30%}
-
 ### Logical design
-
 %%| echo: false
-
 %%| eval: true
-
 %%| fig-align: left
-
 erDiagram
-
 BUILDING ||--|{ ROOM : contains
 
-
-
 BUILDING{
-
   string address
-
   string city
-
   string state
-
 }
-
-
 
 ROOM {
-
   string room_number
-
   string occupants
-
 }
-
-
 
 :::
-
 ::: {.column width=30%}
-
 ### Logical design refined
 
-
-
 %%| echo: false
-
 %%| eval: true
-
 %%| fig-height: 300px
-
 %%| fig-align: left
-
 erDiagram
-
     
-
 CONTAINS }|--|| ROOM : x
-
 CONTAINS }|--|| BUILDING : x
 
-
-
 BUILDING{
-
     primary_key building_id
-
     string address
-
     string city
-
     string state
-
 }
-
-
 
 CONTAINS{
-
     primary_key id
-
     foreign_key building_id
-
     foreign_key room_id
-
 }
-
-
 
 ROOM {
-
     primary_key room_id
-
     string room_number
-
     string occupants
-
 }
-
 ### *Relation set* notation:
 
-
-
 <div style="font-size: 0.70em; margin-top:0.0em">
-
 * building( <ins>building_id</ins>, address, city, state)
-
-
 
 * room( <ins>room_id</ins>, room_number, occupants)
 
-
-
 * contains( <ins>id</ins>, building_id, room_id)
-
 </div>
-
 :::
-
 ::::
-
-
 
 

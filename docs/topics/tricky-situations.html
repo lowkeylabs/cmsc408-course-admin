@@ -11,7 +11,7 @@
 <script src="tricky-situations_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="tricky-situations_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="tricky-situations_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Tricky situations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,7 +337,12 @@
 </div>
 
 </section>
-<section id="tricky-situations" class="slide level2">
+<section>
+<section id="tricky-situations" class="title-slide slide level1 center">
+<h1>Tricky situations</h1>
+
+</section>
+<section id="tricky-situations-1" class="slide level2">
 <h2>Tricky situations</h2>
 <p>These represent design choices in how you choose to represent features of the real world in your conceptual design.</p>
 <p>You should apply an 80/20 or 90/10 rule. Don’t worry about trying to capture every feature, just the big ones.</p>
@@ -350,7 +355,7 @@
 <dl>
 <dt>Weak vs.&nbsp;Strong Entities</dt>
 <dd>
-<p>Strong entities exist independently. Weak entities depend on a strong entity for their existence. If the strong entity is deleted, then weak entity is deleted, too.</p>
+Strong entities exist independently. Weak entities depend on a strong entity for their existence. If the strong entity is deleted, then weak entity is deleted, too.
 </dd>
 </dl>
 <p>
@@ -361,51 +366,30 @@
 <dl>
 <dt>Subtypes and Supertypes</dt>
 <dd>
-<p>Entities can be generalized or specialized. This can help improve data integrity and minimize the need to repeat fields.</p>
+Entities can be generalized or specialized. This can help improve data integrity and minimize the need to repeat fields.
 </dd>
 </dl>
 <p>
 </p><p>For example, “Vehicle” could be a supertype of “Car” and “Motorcycle”. As another example, <em>Employee</em> can be the supertype and subtypes might include <em>engineer</em>, <em>salesperson</em>, <em>manager</em>.</p>
 <p><em>ask chatgpt: in er diagrams, why to supertype and subtypes matter?</em></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="tricky-situations---entities-1" class="slide level2">
 <h2>Tricky situations - Entities</h2>
 <div class="columns">
 <div class="column">
-<p>//| echo: false</p>
-<p>//| eval: true</p>
-<p>//| fig-width: 400px</p>
-<p>digraph G {</p>
-<pre><code>graph [rankdir=TB];
-
-node [shape=record];
-
-
-
-// Define the supertype
-
+<p>//| echo: false //| eval: true //| fig-width: 400px digraph G { graph [rankdir=TB]; node [shape=record];</p>
+<pre><code>// Define the supertype
 Vehicle [label="{Vehicle | Vehicle_ID : int \l Brand : string \l Model : string \l Year : int \l }"];
 
-
-
 // Define the subtypes
-
 Car [label="{Car | Seating_Capacity : int \l Number_of_Doors : int \l }"];
-
 Motorcycle [label="{Motorcycle | Type : string \l has_Sidecar : bool \l }"];
-
 Truck [label="{Truck | Payload_Capacity : int \l Number_of_Axles : int \l }"];
 
-
-
 // Indicate subtype-supertype relationships
-
 Car -&gt; Vehicle [label="IS_A"];
-
 Motorcycle -&gt; Vehicle [label="IS_A"];
-
 Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <p>}</p>
 </div><div class="column">
@@ -418,8 +402,7 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <li><p>However, you must ensure that care is taken when deleting to ensure that you don’t get vehicles without subtypes!</p></li>
 <li><p>You can’t directly query vehicle without a connection back to the subtype entity! Modeling the <em>is_a</em> relationship is key.</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="tricky-situations---attributes" class="slide level2">
 <h2>Tricky situations - Attributes</h2>
@@ -428,7 +411,7 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <dl>
 <dt>Simple vs.&nbsp;Composite</dt>
 <dd>
-<p>Simple attributes cannot be divided any further, whereas composite attributes can.</p>
+Simple attributes cannot be divided any further, whereas composite attributes can.
 </dd>
 </dl>
 <p>
@@ -437,14 +420,14 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 </p><dl>
 <dt>Single-valued vs.&nbsp;Multi-valued</dt>
 <dd>
-<p>For example, <em>Address</em> or <em>Phone Number</em> can be multi-valued if multiple numbers are allowed for a single individual.</p>
+For example, <em>Address</em> or <em>Phone Number</em> can be multi-valued if multiple numbers are allowed for a single individual.
 </dd>
 </dl>
 </div><div class="column">
 <dl>
 <dt>Derived Attributes</dt>
 <dd>
-<p>These are attributes that can be derived from other attributes in the database.</p>
+These are attributes that can be derived from other attributes in the database.
 </dd>
 </dl>
 <p>
@@ -453,46 +436,22 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 </p><dl>
 <dt>Key Attributes</dt>
 <dd>
-<p>Primary keys, foreign keys serve as attributes that help uniquely entities.</p>
+Primary keys, foreign keys serve as attributes that help uniquely entities.
 </dd>
 </dl>
-</div>
-</div>
+</div></div>
 </section>
 <section id="tricky-situations---attributes-1" class="slide level2">
 <h2>Tricky situations - Attributes</h2>
 <div class="columns">
 <div class="column">
-<p>//| echo: false</p>
-<p>//| fig-height: 250px</p>
-<p>//| fig-width: 400px</p>
-<p>graph ERDiagram {</p>
-<p>layout=neato;</p>
-<p>scale=1.3;</p>
-<p>// Basic styling</p>
-<p>node [style=filled, fillcolor=lightyellow];</p>
-<p>// Entity</p>
-<p>Person [shape=box, label=“Person”];</p>
-<p>// Composite attribute for Name</p>
-<p>Name [shape=ellipse, label=“Name”];</p>
-<p>FirstName [shape=ellipse, label=“FirstName”];</p>
-<p>LastName [shape=ellipse, label=“LastName”];</p>
-<p>// Multivalued composite attribute for Address</p>
-<p>Address [shape=doublecircle, label=“Address”];</p>
-<p>City [shape=ellipse, label=“City”];</p>
-<p>State [shape=ellipse, label=“State”];</p>
-<p>Zip [shape=ellipse, label=“Zip”];</p>
-<p>// Connect entity to attributes</p>
-<p>Person – Name;</p>
-<p>Person – Address;</p>
-<p>// Connect composite attribute Name to its components</p>
-<p>Name – FirstName;</p>
-<p>Name – LastName;</p>
-<p>// Connect multivalued composite attribute Address to its components</p>
-<p>Address – City;</p>
-<p>Address – State;</p>
-<p>Address – Zip;</p>
-<p>}</p>
+<p>//| echo: false //| fig-height: 250px //| fig-width: 400px graph ERDiagram { layout=neato; scale=1.3; // Basic styling node [style=filled, fillcolor=lightyellow];</p>
+<p>// Entity Person [shape=box, label=“Person”];</p>
+<p>// Composite attribute for Name Name [shape=ellipse, label=“Name”]; FirstName [shape=ellipse, label=“FirstName”]; LastName [shape=ellipse, label=“LastName”];</p>
+<p>// Multivalued composite attribute for Address Address [shape=doublecircle, label=“Address”]; City [shape=ellipse, label=“City”]; State [shape=ellipse, label=“State”]; Zip [shape=ellipse, label=“Zip”];</p>
+<p>// Connect entity to attributes Person – Name; Person – Address;</p>
+<p>// Connect composite attribute Name to its components Name – FirstName; Name – LastName;</p>
+<p>// Connect multivalued composite attribute Address to its components Address – City; Address – State; Address – Zip; }</p>
 </div><div class="column">
 <h3 id="in-this-example-1">In this example</h3>
 <ul>
@@ -500,8 +459,7 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <li><p><em>name</em> is a composite attribute, with subattributes first name and last name.</p></li>
 <li><p><em>address</em> is a multi-valued attribute, that is, each person can have multiple addresses. Each address is a composite attribute with city, state and zip.</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="tricky-situations---relationships" class="slide level2">
 <h2>Tricky situations - Relationships</h2>
@@ -510,11 +468,11 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <dl>
 <dt>Recursive Relationships</dt>
 <dd>
-<p>Sometimes an entity has a relationship with itself.</p>
+Sometimes an entity has a relationship with itself.
 </dd>
 <dt>Associative Entities</dt>
 <dd>
-<p>When a many-to-many relationship exists, it often helps to introduce an associative entity that holds extra data about the relationship.</p>
+When a many-to-many relationship exists, it often helps to introduce an associative entity that holds extra data about the relationship.
 </dd>
 </dl>
 <p>
@@ -523,32 +481,14 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <h3 id="in-this-example-2">In this example</h3>
 <p>An <em>employee</em> manages other employees. This is a <em>recursive</em> relationship. We’re also keeping track of the start date of the management relationshpi using an <em>associative entity</em>.</p>
 </div><div class="column">
-<p>//| echo: false</p>
-<p>//| fig-height: 250px</p>
-<p>//| fig-width: 400px</p>
-<p>graph ERDiagram {</p>
-<p>layout=“neato”;</p>
-<p>scale=1.3</p>
-<p>// Basic styling</p>
-<p>node [style=filled, fillcolor=lightyellow];</p>
-<p>// Entity</p>
-<p>Employee [shape=box, label=“Employee”];</p>
-<p>// Attributes for Entity</p>
-<p>EmpID [shape=ellipse, label=“EmpID”];</p>
-<p>Name [shape=ellipse, label=“Name”];</p>
-<p>// Relationship</p>
-<p>Manages [shape=diamond, label=“Manages”, fillcolor=lightgray];</p>
-<p>// Attribute for Relationship</p>
-<p>StartDate [shape=ellipse, label=“StartDate”];</p>
-<p>// Connect entity to attributes</p>
-<p>Employee – EmpID;</p>
-<p>Employee – Name;</p>
-<p>// Recursive relationship with diamond and its attribute</p>
-<p>Employee – Manages – Employee;</p>
-<p>Manages – StartDate;</p>
-<p>}</p>
-</div>
-</div>
+<p>//| echo: false //| fig-height: 250px //| fig-width: 400px graph ERDiagram { layout=“neato”; scale=1.3 // Basic styling node [style=filled, fillcolor=lightyellow];</p>
+<p>// Entity Employee [shape=box, label=“Employee”];</p>
+<p>// Attributes for Entity EmpID [shape=ellipse, label=“EmpID”]; Name [shape=ellipse, label=“Name”];</p>
+<p>// Relationship Manages [shape=diamond, label=“Manages”, fillcolor=lightgray];</p>
+<p>// Attribute for Relationship StartDate [shape=ellipse, label=“StartDate”];</p>
+<p>// Connect entity to attributes Employee – EmpID; Employee – Name;</p>
+<p>// Recursive relationship with diamond and its attribute Employee – Manages – Employee; Manages – StartDate; }</p>
+</div></div>
 </section>
 <section id="tricky-situations---relationships-1" class="slide level2">
 <h2>Tricky situations - Relationships</h2>
@@ -557,7 +497,7 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <dl>
 <dt>N-ary Relationships</dt>
 <dd>
-<p>More complex relationships that involve more than two entities.</p>
+More complex relationships that involve more than two entities.
 </dd>
 </dl>
 <p>
@@ -567,15 +507,8 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <h3 id="in-this-example-3">In this example</h3>
 <p>An order requires three entities to exist: a customer, a sales_person, and a product.</p>
 </div><div class="column">
-<p>%%| echo: false</p>
-<p>erDiagram</p>
-<pre><code>ORDER }o--|| CUSTOMER : places
-
-ORDER }o--|| SALES_PERSON : places
-
-ORDER }o--|| PRODUCT : places</code></pre>
-</div>
-</div>
+<p>%%| echo: false erDiagram ORDER }o–|| CUSTOMER : places ORDER }o–|| SALES_PERSON : places ORDER }o–|| PRODUCT : places</p>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -596,7 +529,7 @@ ORDER }o--|| PRODUCT : places</code></pre>
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -844,18 +777,7 @@ ORDER }o--|| PRODUCT : places</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -887,7 +809,29 @@ ORDER }o--|| PRODUCT : places</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -895,7 +839,7 @@ ORDER }o--|| PRODUCT : places</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

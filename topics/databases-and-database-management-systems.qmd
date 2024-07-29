@@ -1,5 +1,11 @@
 ---
 title: Databases and Database Management Systems
+tasl:
+    source: fa2023\lectures\lect04-ddl-dml-sqllite-mysql.qmd
+    tags:
+    - lecture
+    - lecture-04
+    topic: Databases and Database Management Systems
 ---
 
 {{< include '_databases-and-database-management-systems.qmd' >}}

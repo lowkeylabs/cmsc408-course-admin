@@ -1,0 +1,13 @@
+---
+title: Terms and definitions
+tasl:
+    source: fa2023\lectures\lect09-analysis-and-normal-forms-2.qmd
+    tags:
+    - lecture
+    - lecture-09
+    topic: Terms and definitions
+---
+
+{{< include '_terms-and-definitions.qmd' >}}
+
+    

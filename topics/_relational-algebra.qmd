@@ -1,0 +1,49 @@
+
+# Relational Algebra
+
+## Relational Algebraic Operators and Operations
+
+:::: {.columns}
+::: {.column width=33%}
+### Relational Operators
+
+- Selection  σ
+- Projection  π
+- Rename  ρ
+
+:::
+::: {.column width=33%}
+### Set Operators
+
+- Union  ∪
+- Intersection  ∩
+- Difference  -
+
+### Logical Operators
+
+- And  ∧
+- Or  ∨
+- Not  ¬
+
+:::
+
+::: {.column width=33%}
+### Joins and Products
+
+- Natural join $\bowtie$
+- Theta join $\bowtie_{\theta}$
+- Left outer join ⟕  
+- Right outer join ⟖
+- Full outer join ⟗
+- Cartesian product  ⨯
+- Division ÷
+
+:::
+:::
+
+#### Additional Resources
+
+- Relational Algebra Calculator : <https://dbis-uibk.github.io/relax/landing>
+- Practice Exercises (HTML): <http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html>
+- [More practice exercises (PDF)](http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf)
+

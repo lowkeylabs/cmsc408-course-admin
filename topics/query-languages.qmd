@@ -1,0 +1,13 @@
+---
+title: Query languages
+tasl:
+    source: fa2023\lectures\lect06-relational-algebra-1.qmd
+    tags:
+    - lecture
+    - lecture-06
+    topic: Query languages
+---
+
+{{< include '_query-languages.qmd' >}}
+
+    

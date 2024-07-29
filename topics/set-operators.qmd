@@ -1,0 +1,13 @@
+---
+title: Set Operators
+tasl:
+    source: fa2023\lectures\lect06-relational-algebra-1.qmd
+    tags:
+    - lecture
+    - lecture-06
+    topic: Set Operators
+---
+
+{{< include '_set-operators.qmd' >}}
+
+    

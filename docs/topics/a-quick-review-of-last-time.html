@@ -11,7 +11,7 @@
 <script src="a-quick-review-of-last-time_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="a-quick-review-of-last-time_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="a-quick-review-of-last-time_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>A quick review of last time …</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,20 +337,25 @@
 </div>
 
 </section>
+<section>
+<section id="a-quick-review-of-last-time" class="title-slide slide level1 center">
+<h1>A quick review of last time …</h1>
+
+</section>
 <section id="key-components-of-an-er-model" class="slide level2">
 <h2>Key components of an ER model</h2>
 <dl>
 <dt>Entities</dt>
 <dd>
-<p>These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.</p>
+These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
 </dd>
 <dt>Attributes</dt>
 <dd>
-<p>Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.</p>
+Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.
 </dd>
 <dt>Relationships</dt>
 <dd>
-<p>Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.</p>
+Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
 </dd>
 </dl>
 </section>
@@ -361,15 +366,15 @@
 <dl>
 <dt>One-to-One (1:1)</dt>
 <dd>
-<p>In a one-to-one relationship, each instance of one entity is related to only one instance of another entity, and vice versa.</p>
+In a one-to-one relationship, each instance of one entity is related to only one instance of another entity, and vice versa.
 </dd>
 <dt>One-to-Many (1:N)</dt>
 <dd>
-<p>In a one-to-many relationship, each instance of one entity can be related to multiple instances of another entity, but each instance of the other entity is related to only one instance of the first entity.</p>
+In a one-to-many relationship, each instance of one entity can be related to multiple instances of another entity, but each instance of the other entity is related to only one instance of the first entity.
 </dd>
 <dt>Many-to-Many (N:M)</dt>
 <dd>
-<p>In a many-to-many relationship, each instance of one entity can be related to multiple instances of another entity, and vice versa.</p>
+In a many-to-many relationship, each instance of one entity can be related to multiple instances of another entity, and vice versa.
 </dd>
 </dl>
 </section>
@@ -383,11 +388,11 @@
 <dl>
 <dt>Total Participation (Existence Dependency)</dt>
 <dd>
-<p>In total participation, every instance of the participating entity must be related to at least one instance of the related entity.</p>
+In total participation, every instance of the participating entity must be related to at least one instance of the related entity.
 </dd>
 <dt>Partial Participation</dt>
 <dd>
-<p>In partial participation, an instance of the participating entity may or may not be related to an instance of the related entity.</p>
+In partial participation, an instance of the participating entity may or may not be related to an instance of the related entity.
 </dd>
 </dl>
 <div class="quarto-auto-generated-content">
@@ -410,7 +415,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -658,18 +663,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -701,7 +695,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -709,7 +725,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

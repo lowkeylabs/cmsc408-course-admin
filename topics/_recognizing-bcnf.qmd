@@ -1,0 +1,286 @@
+
+# Recognizing BCNF
+
+## Boyce-Codd Normal Form (BCNF) - Example 1
+
+:::: {.columns}
+::: {.column width=50%}
+
+A relation $R$ with functional dependencies $F$ is in BCNF if for all
+$X \rightarrow Y$ in $F_{min}^+$:
+
+* $Y \subseteq X$ (the trival FD), **OR**
+* $X$ is a superkey for $R$
+
+A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency $A \rightarrow B$, $A$ is a superkey.
+
+:::
+::: {.column width=50%}
+### Trivial FD{style="text-align:center"}
+::: {style="font-size:10pt"}
+
+| Language   |
+|------------|
+| SQL        |
+| Python     |
+| Perl       |
+| C++        |
+| Javascript |
+
+
+:::
+:::
+::::
+### Trival:  $X \rightarrow X$
+
+//| echo: false
+//| fig-width: 800px
+//| fig-height: 100px
+digraph G {
+    node [shape=ellipse]; // Set the shape of nodes to ellipses
+    bgcolor="#00000000";
+    {rank=same;
+    // Define the four nodes
+    A [label="Language"];
+    }
+    // Arrange the nodes in a horizontal row
+}
+
+## Boyce-Codd Normal Form (BCNF) - Example 2
+
+:::: {.columns}
+::: {.column width=50%}
+
+A relation $R$ with functional dependencies $F$ is in BCNF if for all
+$X \rightarrow Y$ in $F_{min}^+$:
+
+* $Y \subseteq X$ (the trival FD), **OR**
+* $X$ is a superkey for $R$
+
+A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency $A \rightarrow B$, $A$ is a superkey.
+
+:::
+::: {.column width=50%}
+### Non-composite key {style="text-align:center"}
+::: {style="font-size:10pt"}
+
+| Course Code | Course Name       |
+|-------------|-------------------|
+| CMSC210     | Software Design   |
+| CMSC320     | Data Structures   |
+| CMSC430     | Web Development   |
+| CMSC441     | Capstone          |
+| CMSC475     | UI/UX design      |
+| CMSC508     | Databases         |
+| CMSC515     | Computer Vision   |
+| CMSC610     | Machine Learning  |
+
+:::
+:::
+::::
+### Non-composite key:  $X \rightarrow Y$
+
+//| echo: false
+//| fig-width: 800px
+//| fig-height: 100px
+digraph G {
+    node [shape=ellipse]; // Set the shape of nodes to ellipses
+    bgcolor="#00000000";
+    {rank=same;
+    // Define the four nodes
+    A [label="Course code"];
+    B [label="Course name"];
+    }
+    // Arrange the nodes in a horizontal row
+    A -> B;
+}
+
+## Boyce-Codd Normal Form (BCNF) - Example 3
+
+:::: {.columns}
+::: {.column width=50%}
+
+A relation $R$ with functional dependencies $F$ is in BCNF if for all
+$X \rightarrow Y$ in $F_{min}^+$:
+
+* $Y \subseteq X$ (the trival FD), **OR**
+* $X$ is a superkey for $R$
+
+A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency $A \rightarrow B$, $A$ is a superkey.
+
+:::
+::: {.column width=50%}
+### Composite key {style="text-align:center"}
+::: {style="font-size:10pt"}
+
+|  First   |    Last  |   Major   |
+|----------|----------|-----------|
+|  Alberto | Cano     |  Comp Sci  |
+|  Bob     | Dahlberg |  History  |
+|  Sarah   | Adams    |  Biology  |
+|  John    | Leonard  |  Civil Engr|
+|  Michael | Turner   |  Comp Sci |
+|  Emily   | Parker   |  English  |
+|  Jessica | Clark    |  Mathematics |
+
+:::
+:::
+::::
+
+### Composite key:  ${A,B} \rightarrow C$
+
+//| echo: false
+//| fig-width: 800px
+//| fig-height: 100px
+digraph G {
+    node [shape=ellipse]; // Set the shape of nodes to ellipses
+    bgcolor="#00000000";
+    {rank=same;
+    // Define the four nodes
+    A [label="First, Last"];
+    B [label="Major"];
+    }
+    // Arrange the nodes in a horizontal row
+    A -> B;
+}
+
+## Boyce-Codd Normal Form (BCNF) - Terms
+
+:::: {.columns}
+::: {.column width=50%}
+
+A relation $R$ with functional dependencies $F$ is in BCNF if for all
+$X \rightarrow Y$ in $F_{min}^+$:
+
+* $Y \subseteq X$ (the trival FD), **OR**
+* $X$ is a superkey for $R$
+
+A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency $A \rightarrow B$, $A$ is a superkey.
+
+:::
+::: {.column width=50%}
+### Terms
+::: {style="font-size:11.5pt; margin-top:-12px"}
+* Schemas and relations
+* Functional dependencies
+* Keys: Superkey, key, composite key
+* Prime and non-prime attributes
+* Armstrong's Axioms
+* Attribute closures
+* Minimum candidate keys
+* $F_{min}^+$ - minimal cover set
+:::
+:::
+::::
+
+<p>&nbsp;</p>
+### Non-composite key: $A \rightarrow {B,C,D}$
+//| echo: false
+//| fig-width: 800px
+//| fig-height: 100px
+digraph G {
+    node [shape=ellipse]; // Set the shape of nodes to ellipses
+    bgcolor="#00000000";
+    {rank=same;
+     // Define the four nodes
+        A [label="A: Prime / Key"];
+        B [label="D: Non prime attr"];
+        C [label="C: Non prime attr"];
+        D [label="B: Non prime attr"];
+    }
+    // Arrange the nodes in a horizontal row
+    A -> D;
+    A -> C;
+    A -> B;
+}
+
+::: {style="text-align:center"}
+*The superkey, the whole key, and nothing but the key, so help me Codd!*
+:::
+
+## Boyce-Codd Normal Form (BCNF) - An algorithm
+
+:::: {.columns}
+::: {.column width=45%}
+### Algorithm
+Repeat for each relation $R$ in schema $S$:
+
+- Calculate attribute closures ${\{X\}}^+$
+- Determine minimum candidate keys ${C\!K}_{min}$
+- Determine prime and non-prime attributes
+- Determine minimal cover set $F_{min}^+$
+- Determine highest normal form of relation $R$
+- Decompose input relation $R$ into BCNF
+
+Until all relations $R$ in schema $S$ are BCNF.
+:::
+::: {.column width=50%}
+### Skills for CMSC 508
+
+- By inspection determine if a relation $R$ is BCNF,
+- Translate schema $S$ into relational algebraic form,
+- Document functional dependencies for each $R$ in $S$,
+- Run [calculator by Raymond Cho](http://raymondcho.net/RelationalDatabaseTools/RelationalDatabaseTools.html),
+- Describe reports and algorithms used by calculator,
+- Interpret reports to find necessary outputs,
+- Identify decomposed BCNF relations from report.
+
+:::
+::::
+
+## Boyce-Codd Normal Form (BCNF) - A Worked Example
+
+:::: {.columns}
+::: {.column width=60%}
+
+::: {style="font-size:10pt"}
+
+| RID  | Course                   | Instructor     | Languages             |
+|------|--------------------------|----------------|-----------------------|
+|  1   | CMSC508 Databases        | John Leonard   | SQL, Python, Perl     |
+|  2   | CMSC508 Databases        | Alberto Cano   | SQL, Python, C++      |
+|  3   | CMSC475 UI/UX design     | John Leonard   | Javascript, Python    |
+|  4   | CMSC441 Capstone         | Bob Dahlberg   | COBOL, FORTRAN        |
+|  5   | CMSC320 Data Structures  | Sarah Adams    | C++, Java, Python     |
+|  6   | CMSC210 Software Design  | Michael Turner | Java, C#              |
+|  7   | CMSC515 Computer Vision  | Emily Parker   | Python, MATLAB        |
+|  8   | CMSC430 Web Development  | Jessica Clark  | HTML, CSS, JavaScript |
+|  9   | CMSC610 Machine Learning | Alberto Cano   | Python, R             |
+
+:::
+
+:::
+::: {.column width="39%"}
+The *schema* $S$ on the left consists of one *relation* $R$.
+
+In relational model notation:
+
+* $R( A,B,C,D )$
+* $F( A \rightarrow B,C,D; B,C \rightarrow D )$
+
+Now for some quick math:
+
+- [Inside the calculator by Raymond Cho](http://raymondcho.net/RelationalDatabaseTools/RelationalDatabaseTools.html),
+
+And the resulting schema in BCNF:
+
+* $R_0(A,B,C)$, and
+* $R_1(B,C,D)$
+
+
+:::
+::::
+
+## Housekeeping
+
+- [Review week 7 materials](https://virginiacommonwealth.instructure.com/courses/85746/modules)
+- [Review Homework 5](https://virginiacommonwealth.instructure.com/courses/85746/assignments/732261?module_item_id=2903763)
+- Quiz 3 next Wednesday, October 11 covering normalization
+- On Wednesday do more problems and explore Homework 5.
+
+<p>&nbsp;</p>
+
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )

@@ -1,0 +1,13 @@
+---
+title: Homework 6 - connecting to DBMS (2)
+tasl:
+    source: fa2023\lectures\lect14-sql-create-insert-delete-update.qmd
+    tags:
+    - lecture
+    - lecture-14
+    topic: Homework 6 - connecting to DBMS (2)
+---
+
+{{< include '_homework-6-connecting-to-dbms-2.qmd' >}}
+
+    

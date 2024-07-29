@@ -1,215 +1,110 @@
 
+# Database design process
 
 ## Database design process - overview
 
-
-
 :::: {.columns}
-
 ::: {.column}
-
 ### Overview
 
-
-
 - Basic steps are on the right.
-
 - There are many different approaches.
-
 - Watch the videos, you'll see different approaches.
-
 - Can be as hard or simple as you want to make it.
-
 - Iterate!
 
-
-
 - *Note: the Microsoft approach (on Canvas) jumps more
-
 quickly to logical design and implementation.*
 
-
-
 :::
-
 ::: {.column}
-
-
 
 ### Database design process
 
-
-
 1. Understanding requirements
-
-
 
 2. Conceptual design
 
-
-
 3. Logical design
-
-
 
 4. Physical design
 
-
-
 5. Implementation
 
-
-
 :::
-
 ::::
-
-
 
 ## Database design process - more detail
 
-
-
 :::: {.columns}
-
 ::: {.column}
-
-
 
 1. Understanding requirements
-
     * Problem domain,
-
     * Need,
-
     * Context, scope and perspective,
-
     * Uses cases, user roles
-
     * Security, privacy
-
     * Use cases, specific queries
-
 2. Conceptual design
-
     * Entities, attributes, relationships
-
     * ER diagrams
-
 3. Logical design
-
     * converting entities, attributes and relations, and other odd features to tables. 
-
     * Normalization and functional analysis
 
-
-
 :::
-
 ::: {.column}
-
 4. Physical design
-
     * More fully defining tables
-
     * Adding integrity constraints, triggers
-
     * Reporting: adding views
-
     * Maintenance: adding procedures
-
     * Considering access: defining the API
-
 5. Implementation
-
     * code it up,
-
     * load it up, 
-
     * test it up,
-
     * see where you screwed it up,
-
     * iterate it up.
-
 :::
-
 ::::
-
-
 
 <center>*This maps nicely with the [Semester Project](https://virginiacommonwealth.instructure.com/courses/85746/pages/project-overview-and-deliverable-summary) deliverables!*</center>
 
-
-
 ## Database design process - normalization
-
-
 
 *Normalization* is the process of reorganizing the columns and tables of a relational database to minimize data redundancy and avoid inconsistencies
 
-
-
 *Normalization* decomposes a table into smaller tables without losing information
 
+*Normalization* is iterative, don‚Äôt *expect* perfection the first time through!
 
+*Normalization* is iterative, don‚Äôt *try* to achieve perfection the first time through.  Relax!
 
-*Normalization* is iterative, donít *expect* perfection the first time through!
-
-
-
-*Normalization* is iterative, donít *try* to achieve perfection the first time through.  Relax!
-
-
-
-*Normalization* Theory provides simple tests to determine a ìgood designî
-
-
-
+*Normalization* Theory provides simple tests to determine a ‚Äúgood design‚Äù
 
 
 ## Database design process - ER diagrams
 
-
-
 It's all about sharing your database design. How do you share your design with others?
-
-
 
 An entity-relationship (ER) model was first proposed by [Peter Chen in 1976](https://dl.acm.org/doi/10.1145/320434.320440)
 
-
-
 <p/>
-
-
 
 * Highlights the conceptual features (schema) of a database.
 
-
-
 * Maps the meanings and interactions of real-world entities to a conceptual schema
-
-
 
 * Focuses on portraying relations between entities, attributes, and relationships in a graphical fashion.
 
-
-
 * Different notions to support different needs.
-
-
 
 * Quarto supports at least two notations. We'll use both!
 
-
-
 * Tons of other tools to draw ER diagrams using different notations.
 
-
-
 * THERE IS NO STANDARD!
-
-
 
 

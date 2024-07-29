@@ -1,0 +1,27 @@
+
+# Housekeeping
+
+## Project deliverable 4
+
+[![](assets/project-deliverable4-screen.png)](
+https://virginiacommonwealth.instructure.com/courses/85746/assignments/725440)
+
+## Quiz and quiz stats
+
+[![](assets/quiz2-stats.png)](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/168282/statistics)
+
+## Peer reviews
+
+[![](assets/peer-review-example.png)](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725439)
+
+## Changes to the schedule
+
+[![](assets/course-schedule-2023-09-27.png)](https://virginiacommonwealth.instructure.com/courses/85746/pages/intro-course-schedule?module_item_id=3020381)
+
+## Discuss Quarto
+
+- What is working?  What isn't working? What is confusing?
+
+[![](assets/quarto-guide.png){height=380}](https://quarto.org/docs/guide/)
+
+

@@ -1,0 +1,65 @@
+
+# MySQL DBMS
+
+## MYSQL DBMS
+
+:::: {.columns}
+::: {.column width=55%}
+###  Leveraging the power
+
+What not simply use 2-D arrays or other data structures in our programs? Why use a data base at all?
+
+* The DBMS will DO LOTS OF WORK for us AUTOMATICALLY.
+We simply need to know how to tell it what we want it to do.
+
+* We can provide these management and operating rules when tables are created.
+
+* The DBMS will enforce the rules in real-time behind the scenes.
+
+* The DBMS maintains several databases specifically
+for the management of the database itself!
+
+:::
+::: {.column width=45%}
+
+![](assets/L13-dbms-overview.png){height=400 fig-align="center"}
+
+:::
+::::
+
+## MySQL DBMS
+
+:::: {.columns}
+::: {.column width=25%}
+
+![](assets/L13-mysql-col1.png)
+
+:::
+::: {.column width=30%}
+
+![](assets/L13-mysql-col2.png)
+
+:::
+::: {.column width=45%}
+### MYSQL Documentation
+
+![](assets/L13-mysql-col3.png)
+
+### Two types of statements:
+
+* Data Definition Statement (DDL)
+* Data Manipulation Statements (DML)
+
+<https://dev.mysql.com/doc/refman/8.0/en/>
+
+:::
+::::
+
+## DDL - Data Definition Language
+
+![](assets/L13-mysql-ddl.png)
+
+## DML - Data Manipulation Language
+
+![](assets/L13-mysql-dml.png)
+

@@ -11,7 +11,7 @@
 <script src="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Entities, attributes and relationships and the ER Diagram</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,28 +337,32 @@
 </div>
 
 </section>
+<section>
+<section id="entities-attributes-and-relationships-and-the-er-diagram" class="title-slide slide level1 center">
+<h1>Entities, attributes and relationships<br>and the ER Diagram</h1>
+
+</section>
 <section id="key-components-of-an-er-model" class="slide level2">
 <h2>Key components of an ER model</h2>
 <dl>
 <dt>Entities</dt>
 <dd>
-<p>These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.</p>
+These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
 </dd>
 <dt>Attributes</dt>
 <dd>
-<p>Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.</p>
+Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.
 </dd>
 <dt>Relationships</dt>
 <dd>
-<p>Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.</p>
+Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
 </dd>
 </dl>
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <p>Imagine a city full of buildings.</p>
-<p>Each building can can be located with an address,</p>
-<p>city, and state. A building consists of one or more rooms.</p>
+<p>Each building can can be located with an address, city, and state. A building consists of one or more rooms.</p>
 <p>Rooms have room_numbers and occupants.</p>
 <p><strong>Identify the entities, attributes and relationships</strong></p>
 </section>
@@ -366,100 +370,38 @@
 <h2>Chen notation</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p>//| echo: true</p>
-<p>//| eval: false</p>
-<p>graph ER {</p>
-<pre><code>layout=neato;</code></pre>
-<p>scale=1.1;</p>
-<pre><code>node [shape=box]; building; room;
-
-node [shape=ellipse]; address, city, state, occupant, room_number
-
-node [shape=diamond,style=filled,color=lightgrey]; has
-
-
-
-building -- has [label="1",len=1.00]
-
+<p>//| echo: true //| eval: false graph ER { layout=neato; scale=1.1; node [shape=box]; building; room; node [shape=ellipse]; address, city, state, occupant, room_number node [shape=diamond,style=filled,color=lightgrey]; has</p>
+<pre><code>building -- has [label="1",len=1.00]
 has -- room [label="n",len=1.00]
 
-
-
 building -- address
-
 building -- city
-
 building -- state</code></pre>
-<p>room – room_number</p>
-<pre><code>room -- occupant</code></pre>
-<p>}</p>
+<p>room – room_number room – occupant }</p>
 </div><div class="column" style="width:59%;">
-<p>//| echo: false</p>
-<p>//| eval: true</p>
-<p>//| fig-width: 500px</p>
-<p>//| fig-height: 240px</p>
-<p>graph {</p>
-<pre><code>layout=neato;</code></pre>
-<p>scale=1.1;</p>
-<pre><code>node [shape=box,fontsize=12]; building; room;
-
-node [shape=ellipse,fontsize=12]; address, city, state, occupant, room_number
-
-node [shape=diamond,fontsize=12,style=filled,color=lightgrey]; has
-
-
-
-building -- has [label="1",len=1.00]
-
+<p>//| echo: false //| eval: true //| fig-width: 500px //| fig-height: 240px graph { layout=neato; scale=1.1; node [shape=box,fontsize=12]; building; room; node [shape=ellipse,fontsize=12]; address, city, state, occupant, room_number node [shape=diamond,fontsize=12,style=filled,color=lightgrey]; has</p>
+<pre><code>building -- has [label="1",len=1.00]
 has -- room [label="n",len=1.00]
 
-
-
 building -- address
-
 building -- city
-
 building -- state</code></pre>
-<p>room – room_number</p>
-<pre><code>room -- occupant</code></pre>
-<p>}</p>
-</div>
-</div>
+<p>room – room_number room – occupant }</p>
+</div></div>
 <p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
 </section>
 <section id="crows-foot-notation" class="slide level2">
 <h2>Crow’s Foot notation</h2>
 <div class="columns">
 <div class="column">
-<p>%%| echo: true</p>
-<p>%%| eval: false</p>
-<p>erDiagram</p>
-<p>BUILDING ||–|{ ROOM : contains</p>
-<p>BUILDING{</p>
-<p>string address</p>
-<p>string city</p>
-<p>string state</p>
-<p>}</p>
-<p>ROOM {</p>
-<p>string room_number</p>
-<p>string occupants</p>
-<p>}</p>
+<p>%%| echo: true %%| eval: false erDiagram BUILDING ||–|{ ROOM : contains</p>
+<p>BUILDING{ string address string city string state }</p>
+<p>ROOM { string room_number string occupants }</p>
 </div><div class="column">
-<p>%%| echo: false</p>
-<p>%%| eval: true</p>
-<p>erDiagram</p>
-<p>BUILDING ||–|{ ROOM : contains</p>
-<p>BUILDING{</p>
-<p>string address</p>
-<p>string city</p>
-<p>string state</p>
-<p>}</p>
-<p>ROOM {</p>
-<p>string room_number</p>
-<p>string occupant</p>
-<p>}</p>
-</div>
-</div>
+<p>%%| echo: false %%| eval: true erDiagram BUILDING ||–|{ ROOM : contains</p>
+<p>BUILDING{ string address string city string state }</p>
+<p>ROOM { string room_number string occupant }</p>
+</div></div>
 <p><a href="https://mermaid.live/edit">Link to mermaid live</a></p>
 </section>
 <section id="cardinality" class="slide level2">
@@ -469,15 +411,15 @@ building -- state</code></pre>
 <dl>
 <dt>One-to-One (1:1)</dt>
 <dd>
-<p>In a one-to-one relationship, each instance of one entity is related to only one instance of another entity, and vice versa.</p>
+In a one-to-one relationship, each instance of one entity is related to only one instance of another entity, and vice versa.
 </dd>
 <dt>One-to-Many (1:N)</dt>
 <dd>
-<p>In a one-to-many relationship, each instance of one entity can be related to multiple instances of another entity, but each instance of the other entity is related to only one instance of the first entity.</p>
+In a one-to-many relationship, each instance of one entity can be related to multiple instances of another entity, but each instance of the other entity is related to only one instance of the first entity.
 </dd>
 <dt>Many-to-Many (N:M)</dt>
 <dd>
-<p>In a many-to-many relationship, each instance of one entity can be related to multiple instances of another entity, and vice versa.</p>
+In a many-to-many relationship, each instance of one entity can be related to multiple instances of another entity, and vice versa.
 </dd>
 </dl>
 </section>
@@ -488,11 +430,11 @@ building -- state</code></pre>
 <dl>
 <dt>Total Participation (Existence Dependency)</dt>
 <dd>
-<p>In total participation, every instance of the participating entity must be related to at least one instance of the related entity.</p>
+In total participation, every instance of the participating entity must be related to at least one instance of the related entity.
 </dd>
 <dt>Partial Participation</dt>
 <dd>
-<p>In partial participation, an instance of the participating entity may or may not be related to an instance of the related entity.</p>
+In partial participation, an instance of the participating entity may or may not be related to an instance of the related entity.
 </dd>
 </dl>
 </section>
@@ -510,23 +452,18 @@ building -- state</code></pre>
 <h2>Housekeeping</h2>
 <p>Another busy week, mostly with software set up.</p>
 <ul>
-<li><p>Start to work on <a href="https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427">homework 2</a>, DUE FRIDAY!</p></li>
-<li><p>Review the videos:</p>
+<li>Start to work on <a href="https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427">homework 2</a>, DUE FRIDAY!</li>
+<li>Review the videos:
 <ul>
 <li>Database design, ER diagramming, ER diagrams to relational tables.</li>
 </ul></li>
-<li><p>Kick around database ideas with your teammate(s) and begin to draw pictures!</p></li>
-<li><p><strong>Quiz 1</strong> next week, topics: Database design, ER diagrams. More details on Wednesday.</p></li>
+<li>Kick around database ideas with your teammate(s) and begin to draw pictures!</li>
+<li><strong>Quiz 1</strong> next week, topics: Database design, ER diagrams. More details on Wednesday.</li>
 </ul>
 <p>
 &nbsp;
 </p>
-<p>#| echo: false</p>
-<p>from src.utils import upcoming_calendar</p>
-</section>
-<section id="set-the-lecture-id-and-number-of-rows-to-show-at-the-top-of-this-file" class="title-slide slide level1 center">
-<h1>Set the lecture ID and number of rows to show at the top of this file!</h1>
-<p>upcoming_calendar( lecture_id, n_rows )</p>
+<p>#| echo: false from src.utils import upcoming_calendar # Set the lecture ID and number of rows to show at the top of this file! upcoming_calendar( lecture_id, n_rows )</p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -547,7 +484,7 @@ building -- state</code></pre>
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -795,18 +732,7 @@ building -- state</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -838,7 +764,29 @@ building -- state</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -846,7 +794,7 @@ building -- state</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

@@ -1,175 +1,90 @@
 
+# and now back to our regularly scheduled program
 
 ## Let's build an ER diagram!
 
-
-
 Imagine a library management system that keeps track of books, authors, and publishers. 
-
-
 
 Each book in the system is identified by its International Standard Book Number (ISBN), which serves as its unique identifier. Books are associated with authors and publishers.
 
-
-
 Authors are individuals who write books. Each author is identified by a unique AuthorID and has a name associated with them.  Authors have written at least one book but can write as many as they are able.
-
-
 
 Publishers are entities responsible for releasing books to the public. Each publisher has a unique PublisherID, a name, and a home city. Publishers have at least one book in their catalog and can publish as many as they are able.
 
-
-
 **Prepare ER diagrams for this system using both Chen and Crow's foot notation.**
-
-
 
 ## Let's build an ER diagram! (starter kit)
 
-
-
 :::: {.columns}
-
 ::: {.column}
-
 ### Using graphviz for Chen diagram
 
-
-
 //| echo: true
-
 //| eval: false
-
 graph ER {
-
 	layout=neato;
-
   scale=1.1;
-
 	node [shape=box]; building; room;
-
 	node [shape=ellipse]; address, city, state, occupant, room_number
-
 	node [shape=diamond,style=filled,color=lightgrey]; has
-
 	
-
 	building -- has [label="1",len=1.00]
-
 	has -- room [label="n",len=1.00]
-
 	
-
 	building -- address
-
 	building -- city
-
 	building -- state
-
   room -- room_number
-
 	room -- occupant
-
 }
 
-
-
 [Link to graphviz on-line editor](https://dreampuf.github.io/GraphvizOnline/)
-
 :::
-
 ::: {.column}
-
 ### Using mermaid for Crows foot notation
 
-
-
 %%| echo: true
-
 %%| eval: false
-
 erDiagram
-
     ORDER }o--|| CUSTOMER : places
-
     ORDER }o--|| SALES_PERSON : places
-
     ORDER }o--|| PRODUCT : places
 
 
 
 
-
-
-
-
-
 [Link to mermaid live](https://mermaid.live/edit)
-
 :::
-
 ::::
-
-
 
 ## Closing the loop - dropping them into quarto!
 
 
-
-
-
 (quick demo using HW2 as example)
-
-
 
 ## ER Diagram Practice
 
-
-
 Try creating ER diagrams of both sorts with these problem descriptions.  
-
-
-
 
 
 ### P1. Mural Tracking System
 
-
-
 Imagine a city that wants to keep track of its murals, artists, and the buildings they are painted on. Each mural has a mural ID, title, and completion date. Artists have an artist ID, name, and artistic style. Buildings have a building ID, address, and owner name. An artist can create multiple murals, but each mural is created by a single artist. Murals can be painted on multiple buildings, and buildings can have multiple murals. Each mural is associated with a single building and is created by one artist.
-
-
 
 ## ER Diagram Practice, Practice
 
-
-
 Try creating ER diagrams of both sorts with these problem descriptions.  
-
-
-
 
 
 ### P2. Music Venue System
 
-
-
 Consider a music venue system that wants to manage bands, venues, and concerts. Each band has a band ID, name, and genre. Venues have a venue ID, name, and capacity. Concerts have a concert ID, date, and ticket price. A band can play in multiple concerts, and concerts can host multiple bands. Concerts take place in venues, and each venue can host multiple concerts but each concert is held at a single venue. Bands perform at concerts, and each concert can host multiple bands.
-
-
 
 ## ER Diagram Practice, Practice, Perfect!
 
-
-
 Try creating ER diagrams of both sorts with these problem descriptions.  
-
-
 
 ### P3. Hospital System
 
-
-
 Picture a hospital that wants to keep track of patients, doctors, and the treatments given. Each patient has a patient ID, name, and medical history. Doctors have a license number, name, and area of specialization. Treatments have a treatment code, name, and cost. Patients can receive multiple treatments, and each treatment can be administered to multiple patients. Doctors are responsible for administering treatments to patients, and each doctor can administer multiple treatments but each treatment is administered by a single doctor.
-
 

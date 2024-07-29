@@ -1,0 +1,13 @@
+---
+title: SQL Joins
+tasl:
+    source: fa2023\lectures\lect15-sql-toolset.qmd
+    tags:
+    - lecture
+    - lecture-15
+    topic: SQL Joins
+---
+
+{{< include '_sql-joins.qmd' >}}
+
+    

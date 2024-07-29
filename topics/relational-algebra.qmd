@@ -1,0 +1,13 @@
+---
+title: Relational Algebra
+tasl:
+    source: fa2023\lectures\lect06-relational-algebra-1.qmd
+    tags:
+    - lecture
+    - lecture-06
+    topic: Relational Algebra
+---
+
+{{< include '_relational-algebra.qmd' >}}
+
+    

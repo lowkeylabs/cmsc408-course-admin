@@ -1,5 +1,11 @@
 ---
 title: A quick review of last time ...
+tasl:
+    source: fa2023\lectures\lect03-entity-relation-models-2.qmd
+    tags:
+    - lecture
+    - lecture-03
+    topic: A quick review of last time ...
 ---
 
 {{< include '_a-quick-review-of-last-time.qmd' >}}

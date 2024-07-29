@@ -1,0 +1,13 @@
+---
+title: Creating and using a database
+tasl:
+    source: fa2023\lectures\lect18-joins-and-aggregates-2.qmd
+    tags:
+    - lecture
+    - lecture-18
+    topic: Creating and using a database
+---
+
+{{< include '_creating-and-using-a-database.qmd' >}}
+
+    

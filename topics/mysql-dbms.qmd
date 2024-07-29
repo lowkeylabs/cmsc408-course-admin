@@ -1,0 +1,13 @@
+---
+title: MySQL DBMS
+tasl:
+    source: fa2023\lectures\lect13-sql-selects.qmd
+    tags:
+    - lecture
+    - lecture-13
+    topic: MySQL DBMS
+---
+
+{{< include '_mysql-dbms.qmd' >}}
+
+    

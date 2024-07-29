@@ -11,7 +11,7 @@
 <script src="homework-2-discussion_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="homework-2-discussion_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="homework-2-discussion_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Homework 2 discussion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,34 +337,35 @@
 </div>
 
 </section>
+<section>
+<section id="homework-2-discussion" class="title-slide slide level1 center">
+<h1>Homework 2 discussion</h1>
+
+</section>
 <section id="overview-and-software-baseline" class="slide level2">
 <h2>Overview and Software Baseline</h2>
 <div class="columns">
 <div class="column">
 <h3 id="overview">Overview</h3>
 <p>Homeworks 2 and 3 both focus on ER diagramming and report writing.</p>
-<p>Homework 2 is <em>mostly</em> about getting everything</p>
-<p>installed and running. The majority of the points are awarded</p>
-<p>for simply making the tools work. Why <em>do it for free</em> when you can</p>
-<p>earn points towards the final grade!</p>
+<p>Homework 2 is <em>mostly</em> about getting everything installed and running. The majority of the points are awarded for simply making the tools work. Why <em>do it for free</em> when you can earn points towards the final grade!</p>
 <p>See the rubric on the main homework page for details on how the assignment will be scored.</p>
 <p><a href="https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427">Link to homework 2</a></p>
 </div><div class="column">
 <h3 id="software-baseline">Software Baseline</h3>
 <p>To successfully complete homework 2 - and the rest of the class - you should verify:</p>
 <ul>
-<li><p>visual studio code,</p></li>
-<li><p>quarto,</p></li>
-<li><p>git,</p></li>
-<li><p>gh (the github CLI, newly added to the list).</p></li>
+<li>visual studio code,</li>
+<li>quarto,</li>
+<li>git,</li>
+<li>gh (the github CLI, newly added to the list).</li>
 </ul>
 <p>If you’re feeling bold:</p>
 <ul>
-<li><p>pyenv (optional)</p></li>
-<li><p>python</p></li>
+<li>pyenv (optional)</li>
+<li>python</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="overview-and-software-baseline-1" class="slide level2">
 <h2>Overview and Software Baseline</h2>
@@ -374,7 +375,7 @@
 </figure>
 </div>
 <center>
-<p><em>Notes: using the command line; all programs are running from command line</em></p>
+<em>Notes: using the command line; all programs are running from command line</em>
 </center>
 </section>
 <section id="quarto-and-rendering" class="slide level2">
@@ -388,12 +389,12 @@
 <section id="demonstration-of-hw2" class="slide level2">
 <h2>Demonstration of HW2</h2>
 <ul>
-<li><p>Open command line</p></li>
-<li><p>Check software versions</p></li>
-<li><p>Download repo</p></li>
-<li><p>render a few items</p></li>
-<li><p>push back to github</p></li>
-<li><p>view results</p></li>
+<li>Open command line</li>
+<li>Check software versions</li>
+<li>Download repo</li>
+<li>render a few items</li>
+<li>push back to github</li>
+<li>view results</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -415,7 +416,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -663,18 +664,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -706,7 +696,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -714,7 +726,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

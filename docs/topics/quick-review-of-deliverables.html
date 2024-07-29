@@ -11,7 +11,7 @@
 <script src="quick-review-of-deliverables_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="quick-review-of-deliverables_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="quick-review-of-deliverables_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Quick review of deliverables</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,14 +337,19 @@
 </div>
 
 </section>
+<section>
+<section id="quick-review-of-deliverables" class="title-slide slide level1 center">
+<h1>Quick review of deliverables</h1>
+
+</section>
 <section id="project-deliverable-3---video-proposal" class="slide level2">
 <h2>Project deliverable 3 - video proposal</h2>
 <ul>
-<li><p>Easiest may be to record in ZOOM</p></li>
-<li><p>LOG IN to zoom using SSO and your VCU account</p></li>
-<li><p>If your video isn’t saved, then manually move it to Kaltura</p></li>
-<li><p>Submit the Kaltura URL to Canvas.</p></li>
-<li><p>I’m experimenting with peer review. You’ll get to see and comment on videos from other students.</p></li>
+<li>Easiest may be to record in ZOOM</li>
+<li>LOG IN to zoom using SSO and your VCU account</li>
+<li>If your video isn’t saved, then manually move it to Kaltura</li>
+<li>Submit the Kaltura URL to Canvas.</li>
+<li>I’m experimenting with peer review. You’ll get to see and comment on videos from other students.</li>
 </ul>
 </section>
 <section id="quiz-results-and-commentary" class="slide level2">
@@ -359,17 +364,17 @@
 <section id="homework-3---er-diagrams-part-2" class="slide level2 scrollable">
 <h2>Homework 3 - ER Diagrams part 2</h2>
 <ul>
-<li><p>Deadline extended to tomorrow (Tuesday, 9/12) night.</p></li>
-<li><p>General workflow:</p>
+<li>Deadline extended to tomorrow (Tuesday, 9/12) night.</li>
+<li>General workflow:
 <ol type="1">
-<li><p>create your copy of assignment repo</p></li>
-<li><p>clone repo to local machine</p></li>
-<li><p>begin to develop solutions</p></li>
-<li><p>render document and view it in your browser.</p></li>
-<li><p>commit iterim results to GITHUB</p></li>
-<li><p>iterate steps 3-6 until done.</p></li>
+<li>create your copy of assignment repo</li>
+<li>clone repo to local machine</li>
+<li>begin to develop solutions</li>
+<li>render document and view it in your browser.</li>
+<li>commit iterim results to GITHUB</li>
+<li>iterate steps 3-6 until done.</li>
 </ol></li>
-<li><p>SUBMIT the rendered HTML file as an attachment to Canvas.</p></li>
+<li>SUBMIT the rendered HTML file as an attachment to Canvas.</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -391,7 +396,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -639,18 +644,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -682,7 +676,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -690,7 +706,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

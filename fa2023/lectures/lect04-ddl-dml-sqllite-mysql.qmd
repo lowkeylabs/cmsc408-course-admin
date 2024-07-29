@@ -125,6 +125,8 @@ our final design.
 
 # Users and Uses
 
+## Users and Uses
+
 End user
 : Uses application interfaces to access database
 

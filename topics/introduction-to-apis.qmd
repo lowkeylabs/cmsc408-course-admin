@@ -1,0 +1,13 @@
+---
+title: Introduction to APIs
+tasl:
+    source: fa2023\lectures\lect19-intro-to-apis.qmd
+    tags:
+    - lecture
+    - lecture-19
+    topic: Introduction to APIs
+---
+
+{{< include '_introduction-to-apis.qmd' >}}
+
+    

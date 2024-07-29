@@ -1,0 +1,672 @@
+
+# Relational Models
+
+## Relational Model - Entities
+
+:::: {.columns}
+::: {.column}
+
+* **Tables** correspond with entities and represent the fundamental object of manipulation.
+* Tables have multiple columns called **fields**, each with unique names and data types. **Fields** correspond to *attributes* in our ER model.
+* Tables have multiple rows called **records** that represent individual instances of the data stored in the table. These are sometimes called *tuples*.
+* Relationships between tables are documented as **keys**. Keys are simply fields in a table, designated as keys. Keys have special properties and the database keeps track of them differently.
+* A complete definition entities, attributes and relations, along with any data types and constraints is called a **schema**.
+
+:::
+::: {.column}
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    year INT
+);
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    title VARCHAR(100),
+    credit_hours INT
+);
+
+CREATE TABLE student_courses (
+    student_id INT,
+    course_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id),
+    PRIMARY KEY (student_id, course_id)
+);
+
+
+::: {style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px"}
+In the example above, we define two entities: students and courses, and
+establish a many-to-many relationship between them.  The relationships
+are documented in a separate table with foreign keys.  The individual rows
+in the student-courses table represent pairs of students and courses or "student-course tuples".
+:::
+
+:::
+::::
+
+## Relational Model - Attributes
+
+:::: {.columns}
+::: {.column}
+### Attributes
+
+* Attributes are represented as fields or columns.
+* A **domain** is the set of allowed values for each field.
+* Field values are (normally) required to be atomic (indivisible).
+* A special value **NULL** is a member of every domain.
+* The DB designer must specify whether NULL is allowed or not (NOT NULL)
+* Attributes take on specific data types. A database DDL specifies the data types:
+
+    - Strings (VARCHAR, CHAR)
+    - Numeric (NUMBER, INTEGER, FLOAT)
+    - Date (DATE, DATETIME)
+    - Objects (BFILE)
+
+:::
+::: {.column}
+### Relation Notation
+
+Tables or entities can be represents in **relation notation**,
+
+* *relationName (ID, Att1, �, AttN)*
+
+For example:
+
+* student( id, name, year )
+* course( id, title, credit_hours )
+* student_course( id, student_id, course_id )
+
+We can also add modifiers to individual attributes:
+
+* student( id [PK], name, year )
+* course( id [PK], title, credit_hours)
+* student_course( id [PK], student_id[FK], course_id[FK])
+
+:::
+::::
+
+## Relational Model - Attribute example with data
+
+:::: {.columns}
+::: {.column width=30%}
+
+### Questions
+
+* What is the domain for each field?
+
+* Can you write the relation set for each table?
+
+* Can you draw a Chen diagram for these tables?
+
+* Can you draw a Crow's Foot diagram for these tables?
+
+* Does the column order matter?
+
+
+:::
+::: {.column width=70%}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=0.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td></tr>
+    <tr><td align="left">Amara Singh</td><td>1991</td><td port="r1">1</td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td port="r2">2</td></tr>
+    <tr><td align="left">Chen Wei</td><td>1978</td><td port="r3">3</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td port="r4">4</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td port="r5">5</td></tr>
+    <tr><td align="left">Luc�a Gonz�lez</td><td>1980</td><td port="r6">6</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+</table>
+    >];
+}
+
+:::
+::::
+
+
+## Relational Model - Keys
+
+* A **key** can be any field (or fields) in a table.
+* A key is used to **uniquely** identify each tuple (or row or record).
+* Keys can take on any data type.
+* A record can have multiple keys, as long as they uniquely identify the record.
+    - A *super key* is a key of any size (one or more fields)
+    - A *candidate key* is a key of minimal size (minimal number of fields)
+    - A *primary key* is selected by the designer from one of the *candidate key* to become the primary identifier of the tuples in the relation
+* Any two tuples in the relation are prohibited from having the same value on the key attributes at the same time
+* *Primary keys* are typically size 1 but not necessarily.
+* Every relation must have a primary key
+* Keys are selected based on the intrinsic definition of the attributes, NOT on the existing values at any point in time
+
+
+## Relational Model - Key example with data
+
+:::: {.columns}
+::: {.column width=30%}
+
+### Questions
+
+* What columns can uniquely identify each table?
+
+* Can you identify *super keys* in each table?
+
+* Can you identify *candidate keys* in each table?
+
+* What is an appropriate *primary key* for each table?
+
+* Would student.name be an appropriate key?
+
+
+:::
+::: {.column width=70%}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=0.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td></tr>
+    <tr><td align="left">Amara Singh</td><td>1991</td><td port="r1">1</td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td port="r2">2</td></tr>
+    <tr><td align="left">Chen Wei</td><td>1978</td><td port="r3">3</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td port="r4">4</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td port="r5">5</td></tr>
+    <tr><td align="left">Luc�a Gonz�lez</td><td>1980</td><td port="r6">6</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+</table>
+    >];
+}
+
+:::
+::::
+
+
+## Relational Model - Relationships
+
+Relationships between tables and rows are modeled by connecting individual records using their *keys*.
+
+A *foreign key* is a column(s) in a table that contains copies of the *keys* from  another table referencing the related rows.
+
+A *foreign key* must contain valid references to existing records in an existing table or must be null.
+
+An attribute in a table can be simultaneously the primary key for that table and a foreign key referencing a column of another table
+
+Attributes which are FKs do not need to have the same name as the referenced key.
+
+Cardinalty and participation are represented through *foreign keys* and *integrity constraints*.
+
+## Relational Model - Relationship example with data
+
+:::: {.columns}
+::: {.column width=30%}
+### Questions
+
+* What changed in the students table?
+
+* What are the primary keys in each table?
+
+* What is the column labled "crs_id"?
+
+* What is the cardinality and participation of these tables?
+
+:::
+::: {.column width=70%}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="4" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td><td><b>crs_id</b></td></tr>
+    <tr><td align="left">Amara Singh</td><td>1991</td><td>1</td><td port="r1">NULL</td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td align="left">Chen Wei</td><td>1978</td><td>3</td><td port="r3">NULL</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td>4</td><td port="r4">2</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td>5</td><td port="r5">3</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td>6</td><td port="r6">3</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+</table>
+    >];
+
+    student:r2 -> course:c1 [label="" dir=none constraint=false];
+    student:r4 -> course:c2 [label="" dir=none constraint=false];
+    student:r5 -> course:c3 [label="" dir=none constraint=false];
+    student:r6 -> course:c3 [label="" dir=none constraint=false];
+
+}
+
+:::
+::::
+
+## Relational Model - Integrity Constraints
+
+An *integrity constraint* is:
+
+- a condition that must be true for every instance (row, record, tuple) in the relation (table).
+- specified in the definition of the database schema
+- verified by the DBMS at every CRUD operation (create, read, update, delete)
+
+:::: {.columns}
+::: {.column}
+### Domain integrity
+- ensure fields always contain the correct data
+- by data type
+- by length or size
+- by negative values
+- by closed set of allowed values
+- by NULL or NOT NULL values
+- by UNIQUE or not 
+
+:::
+::: {.column}
+### Referential integrity
+- maintains cardinality and participation
+- primary keys must be unique
+- foreign keys must exist
+
+:::
+::::
+
+Using *integrity constraints* the DBMS will maintain a perfect state for your database. By specifying integrity constraints, a designer lets the DBMS do the work for them.
+
+
+## Relational Model - Relationship example with data
+
+:::: {.columns}
+::: {.column width=30%}
+
+%%| echo: false
+erDiagram
+
+    AUTHORS ||--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+
+:::
+::: {.column width=60%}
+
+
+//| echo: false
+//| fig-width: 450px
+//| fig-height: 200px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.1 bgcolor=transparent]
+    // Define the node shape
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    // Define the Authors node with a table containing several rows of data
+    
+    // Define the Books node with a table containing several rows of data
+    Books [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td><b>id (PK)</b></td><td><b>title</b></td><td><b>publication_date</b></td><td><b>author_id (FK)</b></td></tr>
+            <tr><td>1</td><td>Happy days</td><td>2000-01-01</td><td port="f1">1</td></tr>
+            <tr><td>2</td><td>Sad days</td><td>2005-06-15</td><td port="f2">3</td></tr>
+            <tr><td>3</td><td>Jason Days</td><td>2010-03-10</td><td port="f3">2</td></tr>
+            <tr><td>4</td><td>Craw Days</td><td>2015-04-31</td><td port="f4">2</td></tr>
+            <tr><td>5</td><td>Days of Thunder</td><td>2022-01-23</td><td port="f5">3</td></tr>
+            <tr><td>6</td><td>Thunder road</td><td>2021-12-01</td><td port="f6">1</td></tr>
+            <tr><td>7</td><td>Road of plenty</td><td>2011-02-21</td><td port="f7">3</td></tr>
+            <tr><td>8</td><td>Plenty of what?</td><td>2013-01-12</td><td port="f8">5</td></tr>
+        </table>
+    >];
+
+    Authors [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td><b>id (PK)</b></td><td><b>name</b></td><td><b>birthdate</b></td></tr>
+            <tr><td port="f1">1</td><td>DiShawn</td><td>1980-01-01</td></tr>
+            <tr><td port="f2">2</td><td>Christopher</td><td>1975-05-14</td></tr>
+            <tr><td port="f3">3</td><td>Halle</td><td>1975-05-14</td></tr>
+            <tr><td port="f4">4</td><td>Fayad</td><td>1990-02-20</td></tr>
+            <tr><td port="f5">5</td><td>Hermes</td><td>1960-12-29</td></tr>
+        </table>
+    >];
+
+    // Define the foreign key relationships from Books to Authors
+    Books:f1 -> Authors:f1 [label="" dir=none constraint=false];
+    Books:f3 -> Authors:f2 [dir=none constraint=false];
+    Books:f4 -> Authors:f2 [dir=none constraint=false];
+    Books:f6 -> Authors:f1 [dir=none constraint=false];
+    Books:f8 -> Authors:f5 [dir=none constraint=false];
+
+    Books:f2 -> Authors:f3 [dir=none constraint=false];
+    Books:f5 -> Authors:f3 [dir=none constraint=false];
+    Books:f7 -> Authors:f3 [dir=none constraint=false];
+}
+
+### Questions
+
+* Does the ER diagram on the left match the tables on the right?
+* How do we ensure partial or total participation?
+* Write the detailed relation sets for this model.
+* How would we modify the tables to create a many-to-many relationship?
+
+
+:::
+::::
+
+## Relational Model - Relationship example with data
+
+:::: {.columns}
+::: {.column width=20%}
+
+%%| echo: false
+erDiagram
+
+    AUTHORS }|--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+
+:::
+::: {.column width=80%}
+
+//| echo: false
+//| fig-width: 600px
+//| fig-height: 275px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.1 bgcolor=transparent]
+    // Define the node shape
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    // Define the Authors node with a table containing several rows of data
+    
+    // Define the Books node with a table containing several rows of data
+    Books [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center">Book</td></tr>
+    <tr><td><b>title</b></td><td><b>publication_date</b></td><td><b>ID</b></td></tr>
+    <tr><td>Happy days</td><td>2000-01-01</td><td port="f1">1</td></tr>
+    <tr><td>Sad days</td><td>2005-06-15</td><td port="f2">2</td></tr>
+    <tr><td>Jason Days</td><td>2010-03-10</td><td port="f3">3</td></tr>
+    <tr><td>Craw Days</td><td>2015-04-31</td><td port="f4">4</td></tr>
+    <tr><td>Days of Thunder</td><td>2022-01-23</td><td port="f5">5</td></tr>
+    <tr><td>Thunder road</td><td>2021-12-01</td><td port="f6">6</td></tr>
+    <tr><td>Road of plenty</td><td>2011-02-21</td><td port="f7">7</td></tr>
+    <tr><td>Plenty of what?</td><td>2013-01-12</td><td port="f8">8</td></tr>
+</table>
+    >];
+
+    Authors [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3" align="center">Author</td></tr>
+            <tr><td><b>id (PK)</b></td><td><b>name</b></td><td><b>birthdate</b></td></tr>
+            <tr><td port="f1">1</td><td>DiShawn</td><td>1980-01-01</td></tr>
+            <tr><td port="f2">2</td><td>Christopher</td><td>1975-05-14</td></tr>
+            <tr><td port="f3">3</td><td>Halle</td><td>1975-05-14</td></tr>
+            <tr><td port="f4">4</td><td>Fayad</td><td>1990-02-20</td></tr>
+            <tr><td port="f5">5</td><td>Hermes</td><td>1960-12-29</td></tr>
+        </table>
+    >];
+
+    bk_auth [label=<
+
+    <table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center">Book_Author</td></tr>
+    <tr><td><b>book_id</b></td><td><b>id</b></td><td><b>author_id</b></td></tr>
+    <tr><td port="l1">1</td><td>1</td><td port="r1">1</td></tr>
+    <tr><td port="l2">2</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td port="l3">3</td><td>3</td><td port="r3">5</td></tr>
+    <tr><td port="l4">4</td><td>4</td><td port="r4">3</td></tr>
+    <tr><td port="l5">5</td><td>5</td><td port="r5">5</td></tr>
+    <tr><td port="l6">6</td><td>6</td><td port="r6">3</td></tr>
+    <tr><td port="l7">7</td><td>7</td><td port="r7">1</td></tr>
+    <tr><td port="l8">8</td><td>8</td><td port="r8">4</td></tr>
+    <tr><td port="l9">9</td><td>9</td><td port="r9">5</td></tr>
+</table>
+    >];
+
+    // Define the foreign key relationships from Books to Authors
+    Books:f1 -> bk_auth:l1 [label="" dir=none constraint=false];
+    Books:f2 -> bk_auth:l2 [label="" dir=none constraint=false];
+    Books:f3 -> bk_auth:l3 [label="" dir=none constraint=false];
+    Books:f4 -> bk_auth:l4 [label="" dir=none constraint=false];
+    Books:f5 -> bk_auth:l5 [label="" dir=none constraint=false];
+    Books:f6 -> bk_auth:l6 [label="" dir=none constraint=false];
+    Books:f7 -> bk_auth:l7 [label="" dir=none constraint=false];
+    Books:f8 -> bk_auth:l8 [label="" dir=none constraint=false];
+    Books:f8 -> bk_auth:l9 [label="" dir=none constraint=false];
+
+    bk_auth:r1 -> Authors:f1 [dir=none constraint=false];
+    bk_auth:r2 -> Authors:f1 [dir=none constraint=false];
+    bk_auth:r8 -> Authors:f4 [dir=none constraint=false];
+    bk_auth:r9 -> Authors:f5 [dir=none constraint=false];
+    bk_auth:r4 -> Authors:f3 [dir=none constraint=false];
+    bk_auth:r6 -> Authors:f3 [dir=none constraint=false];
+    bk_auth:r7 -> Authors:f1 [dir=none constraint=false];
+
+    bk_auth:r3 -> Authors:f5 [dir=none constraint=false];
+    bk_auth:r5 -> Authors:f5 [dir=none constraint=false];
+
+}
+
+### Detailed relation sets
+
+- book(id [PK], title [NOT NULL], publication_date [NOT NULL])
+
+- author( id[PK], name [NOT NULL], birthdate [NOT NULL])
+
+- book_author( id [PK], book_id [FK,NOT NULL], author_id [FK,NOT NULL])<br/>
+    &nbsp;&nbsp; FK(book_id) references (book.id) <br/>
+    &nbsp;&nbsp; FK(author_id) references (author.id) 
+
+:::
+::::
+
+## Relational Model - Relationship example with data
+
+:::: {.columns}
+::: {.column width=20%}
+
+%%| echo: false
+erDiagram
+
+    AUTHORS }|--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+
+:::
+::: {.column width=80%}
+
+//| echo: false
+//| fig-width: 600px
+//| fig-height: 275px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.1 bgcolor=transparent]
+    // Define the node shape
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    // Define the Authors node with a table containing several rows of data
+    
+    // Define the Books node with a table containing several rows of data
+    Books [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center">Book</td></tr>
+    <tr><td><b>title</b></td><td><b>publication_date</b></td><td><b>ID</b></td></tr>
+    <tr><td>Happy days</td><td>2000-01-01</td><td port="f1">1</td></tr>
+    <tr><td>Sad days</td><td>2005-06-15</td><td port="f2">2</td></tr>
+    <tr><td>Jason Days</td><td>2010-03-10</td><td port="f3">3</td></tr>
+    <tr><td>Craw Days</td><td>2015-04-31</td><td port="f4">4</td></tr>
+    <tr><td>Days of Thunder</td><td>2022-01-23</td><td port="f5">5</td></tr>
+    <tr><td>Thunder road</td><td>2021-12-01</td><td port="f6">6</td></tr>
+    <tr><td>Road of plenty</td><td>2011-02-21</td><td port="f7">7</td></tr>
+    <tr><td>Plenty of what?</td><td>2013-01-12</td><td port="f8">8</td></tr>
+</table>
+    >];
+
+    Authors [label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td colspan="3" align="center">Author</td></tr>
+            <tr><td><b>id (PK)</b></td><td><b>name</b></td><td><b>birthdate</b></td></tr>
+            <tr><td port="f1">1</td><td>DiShawn</td><td>1980-01-01</td></tr>
+            <tr><td port="f2">2</td><td>Christopher</td><td>1975-05-14</td></tr>
+            <tr><td port="f3">3</td><td>Halle</td><td>1975-05-14</td></tr>
+            <tr><td port="f4">4</td><td>Fayad</td><td>1990-02-20</td></tr>
+            <tr><td port="f5">5</td><td>Hermes</td><td>1960-12-29</td></tr>
+        </table>
+    >];
+
+    bk_auth [label=<
+
+    <table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center">Book_Author</td></tr>
+    <tr><td><b>book_id</b></td><td><b>id</b></td><td><b>author_id</b></td></tr>
+    <tr><td port="l1">1</td><td>1</td><td port="r1">1</td></tr>
+    <tr><td port="l2">2</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td port="l3">3</td><td>3</td><td port="r3">5</td></tr>
+    <tr><td port="l4">4</td><td>4</td><td port="r4">3</td></tr>
+    <tr><td port="l5">5</td><td>5</td><td port="r5">5</td></tr>
+    <tr><td port="l6">6</td><td>6</td><td port="r6">3</td></tr>
+    <tr><td port="l7">7</td><td>7</td><td port="r7">1</td></tr>
+    <tr><td port="l8">8</td><td>8</td><td port="r8">4</td></tr>
+    <tr><td port="l9">8</td><td>9</td><td port="r9">5</td></tr>
+</table>
+    >];
+
+    // Define the foreign key relationships from Books to Authors
+    Books:f1 -> bk_auth:l1 [label="" dir=none constraint=false];
+    Books:f2 -> bk_auth:l2 [label="" dir=none constraint=false];
+    Books:f3 -> bk_auth:l3 [label="" dir=none constraint=false];
+    Books:f4 -> bk_auth:l4 [label="" dir=none constraint=false];
+    Books:f5 -> bk_auth:l5 [label="" dir=none constraint=false];
+    Books:f6 -> bk_auth:l6 [label="" dir=none constraint=false];
+    Books:f7 -> bk_auth:l7 [label="" dir=none constraint=false];
+    Books:f8 -> bk_auth:l8 [label="" dir=none constraint=false];
+    Books:f8 -> bk_auth:l9 [label="" dir=none constraint=false];
+
+    bk_auth:r1 -> Authors:f1 [dir=none constraint=false];
+    bk_auth:r2 -> Authors:f1 [dir=none constraint=false];
+    bk_auth:r8 -> Authors:f4 [dir=none constraint=false];
+    bk_auth:r9 -> Authors:f5 [dir=none constraint=false];
+    bk_auth:r4 -> Authors:f3 [dir=none constraint=false];
+    bk_auth:r6 -> Authors:f3 [dir=none constraint=false];
+    bk_auth:r7 -> Authors:f1 [dir=none constraint=false];
+
+    bk_auth:r3 -> Authors:f5 [dir=none constraint=false];
+    bk_auth:r5 -> Authors:f5 [dir=none constraint=false];
+
+}
+
+### Questions
+
+* How would you modify this to ensure that books exactly one author?
+
+* How would you modify this to ensure that authors at least one book?
+
+* How would you modify this to ensure that authors has exactly one book?
+
+* Could you change these features in real-time?
+
+:::
+::::
+
+
+## Relational Model - Unanswered questions
+
+How would I model a composite attribute?
+: A composite attribute is something like *full name*, for example *John Denes Leonard II*.  You'll probably want to give each atomic piece
+of the *full name* it's own field/attribute and allow individual pieces to be NULL if they aren't used.  THEN, you might consider
+setting *full name* to be a calculated field, so that it is computed whenever needed by combining the individual first, middle, last, and initial.
+
+How would I model a multivalued attribute?
+: A multivalued attribute is something like *phone number*, that is, a *person* can have zero or more *phone numbers*. There are several solutions, either by adding a *person_id* foreign key to the *phone number* relation, OR by creating a separate link/join table (see the previous slide) and adjust the attributes (e.g., NOT NULL, UNIQUE, etc.) to get the cardinality and participation you're after.
+
+How would I model a weak entity?
+: A weak entity is one that depends on a strong entity to survive.  That is, if the *parent strong entity* is deleted, the weak entity is no longer needed.  This is modeled using a *TRIGGER* in the *schema*. When the string entity is deleted, all corresponding weak entities are deleted, too.
+
+## Housekeeping
+
+- Project deliverable 3 (video) due Friday.
+- Check your grades to verify that we've got it all correct!
+
+<p>&nbsp;</p>
+
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )

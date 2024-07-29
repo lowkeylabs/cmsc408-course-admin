@@ -1,6 +1,11 @@
 ---
 title: Sample code from the earlier ER diagrams.
-tags: []
+tasl:
+    source: fa2023\lectures\lect03-entity-relation-models-2.qmd
+    tags:
+    - lecture
+    - lecture-03
+    topic: Sample code from the earlier ER diagrams.
 ---
 
 {{< include '_sample-code-from-the-earlier-er-diagrams.qmd' >}}

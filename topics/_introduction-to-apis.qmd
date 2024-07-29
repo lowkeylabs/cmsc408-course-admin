@@ -1,0 +1,348 @@
+
+# Introduction to APIs
+
+## Introduction to APIs
+
+:::: {.columns}
+
+::: {.column}
+### What is an API?
+An API, or Application Programming Interface, is a set of rules and protocols that allows different software applications to communicate with each other.
+
+An API defines the methods and data formats that applications can use to request and exchange information.
+:::
+::: {.column}
+### Importance of APIs
+APIs are essential for enabling the integration and interaction of diverse software systems.
+
+APIs allow developers to access the functionality and data of other applications, services, or platforms, saving time and effort in building new software.
+
+APIs also enable the creation of third-party applications and services that extend the capabilities of existing software.
+:::
+::::
+
+## Introduction to APIs
+:::: {.columns}
+::: {.column}
+### Client-server communication
+APIs facilitate client-server communication, where one software component (the client) requests data or services from another component (the server). 
+
+* The client sends requests, and 
+* the server responds with the requested information.
+
+This client-server architecture is fundamental to modern software development and the internet.
+
+:::
+::: {.column}
+### Real-world API examples
+APIs are widely used in various industries and applications. For example:
+
+* Social media platforms provide APIs that allow developers to integrate social features into their apps.
+
+* Weather services offer APIs to access real-time weather data for location-based applications.
+
+* Payment gateways offer APIs for processing online payments securely.
+
+* CMSC 508 students offer APIs to access their project databases!
+:::
+::::
+
+
+## Making API calls using Python
+
+### Sample API request
+
+Python provides libraries like requests that make it easy to send HTTP requests. Here's a basic example of making a GET request using the requests library:
+
+#| eval: false
+#| echo: true
+import requests
+
+response = requests.get("https://rickandmortyapi.com/api/character/1")
+if response.status_code == 200:
+    # Request was successful
+    data = response.json()  ## Returns the json response as a python dictionary
+    print(data)
+else:
+    print("Request failed with status code:", response.status_code)
+
+## Making API calls using Python
+
+### Sample API response
+
+#| eval: true
+#| echo: false
+import requests
+
+response = requests.get("https://rickandmortyapi.com/api/character/1")
+if response.status_code == 200:
+    # Request was successful
+    data = response.json() # convert response to python dictionary
+    print(data)
+else:
+    print("Request failed with status code:", response.status_code)
+
+## Posting to an API
+
+To make an HTTP POST request, you use the post() method of the requests library. POST requests are typically used to send data to a server. Here's an example:
+
+import requests
+
+data = {"name": "John", "age": 30}
+
+response = requests.post("https://api.example.com/add_user", json=data)
+if response.status_code == 201:
+    # Resource created successfully
+    print("User added successfully.")
+else:
+    print("Request failed with status code:", response.status_code)
+
+## Authentication and API keys
+
+:::: {.columns}
+::: {.column}
+### Importance of authentication
+
+Authentication is a crucial aspect of API security.
+
+Authentication ensures that only authorized users or applications can access the API's resources and functionality.
+
+Without authentication, APIs would be vulnerable to unauthorized access and misuse.
+
+<https://stackoverflow.blog/2021/10/06/best-practices-for-authentication-and-authorization-for-rest-apis/>
+
+:::
+::: {.column}
+
+### What are API keys?
+
+API keys are unique alphanumeric codes or tokens provided by API providers to developers and applications.
+
+API keys serve as a form of authentication, allowing the API provider to identify and authorize the entity making the API requests.
+
+API keys are typically included in API requests as query parameters or headers.
+:::
+::::
+<center>***The Rick and Morty API does not require API keys. This is generally BAD!***</center>
+
+## Authentication and API keys
+
+:::: {.columns}
+::: {.column}
+### How API keys are used for access control
+API keys are used to enforce access control by associating specific permissions and rate limits with each key.
+
+When an API request is made with an API key, the API provider can verify the key's validity and determine what actions the requester is allowed to perform.
+
+Access control helps protect sensitive data and resources.
+:::
+::: {.column}
+### Obtaining and using API keys in Python:
+
+To obtain an API key, developers typically need to register with the API provider and follow their authentication process.
+
+Once you have an API key, you include it in your Python code when making API requests. This ensures that the API provider can verify your identity and grant access accordingly.
+
+For example, see: <https://www.weatherapi.com>
+
+:::
+::::
+
+## Authentication and API keys
+
+### Securing API keys and best practices
+
+Securing API keys is essential to prevent unauthorized access and protect your data.
+
+Best practices for securing API keys include:
+
+* Storing keys in environment variables or configuration files, not hardcoding them in code.
+
+* Using the .env file and load_dotenv()
+
+* Restricting API key access to only the necessary resources and actions.
+
+* Rotating keys regularly to reduce the risk of unauthorized access if a key is compromised.
+
+* Keeping API keys private and not sharing them in publicly accessible code repositories.
+
+## Authentication example in query string
+
+Using:  <https://www.weatherapi.com>
+
+### the API request
+
+#| eval: false
+#| echo: true
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.getenv("weather_api_key")  # retrieve KEY-VALUE pair from .env file
+zip_code="23284"
+
+# Define the API endpoint URL
+api_url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={zip_code}"
+
+try:
+    # Attempt to make an API request with authentication
+    response = requests.get(api_url)
+
+    # Check the response status code
+    if response.status_code == 200:
+        # Successful response (HTTP status code 200)
+        data = response.json() # convert response to python dictionary
+        print("Weather data retrieved successfully:")
+        print(data)
+    elif response.status_code == 401:
+        # Unauthorized access (HTTP status code 401)
+        print("Error: Unauthorized access (HTTP 401). Check your API key.")
+    else:
+        # Other unexpected errors
+        print(f"Error: Unexpected status code ({response.status_code})")
+except requests.exceptions.RequestException as e:
+    # Handle network-related errors (e.g., connection issues)
+    print(f"Error: {e}")
+except ValueError as e:
+    # Handle JSON decoding errors
+    print(f"Error decoding JSON: {e}")
+
+## Authentication example in query string
+
+Using:  <https://www.weatherapi.com/>
+
+### the API response
+
+#| eval: true
+#| echo: false
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.getenv("weather_api_key")
+zip_code="23284"
+
+# Define the API endpoint URL
+api_url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={zip_code}"
+
+try:
+    # Attempt to make an API request with authentication
+    response = requests.get(api_url)
+
+    # Check the response status code
+    if response.status_code == 200:
+        # Successful response (HTTP status code 200)
+        data = response.json()  # convert response to python dictionary
+        print("Weather data retrieved successfully:")
+        print(data)
+    elif response.status_code == 401:
+        # Unauthorized access (HTTP status code 401)
+        print("Error: Unauthorized access (HTTP 401). Check your API key.")
+    else:
+        # Other unexpected errors
+        print(f"Error: Unexpected status code ({response.status_code})")
+except requests.exceptions.RequestException as e:
+    # Handle network-related errors (e.g., connection issues)
+    print(f"Error: {e}")
+except ValueError as e:
+    # Handle JSON decoding errors
+    print(f"Error decoding JSON: {e}")
+
+### Sample url with key for exploration in browser
+
+print(f"{api_url}\n")
+
+## Working with JSON data
+
+:::: {.columns}
+::: {.column}
+
+### What is JSON (JavaScript Object Notation)?
+
+JSON, which stands for JavaScript Object Notation, is a lightweight data interchange format that is easy for both humans to read and write and machines to parse and generate.
+
+JSON is often used in APIs as a way to structure and transfer data between the server and the client.
+:::
+::: {.column}
+### Why JSON is used in APIs
+
+JSON is commonly used in APIs due to its simplicity and flexibility.
+
+JSON allows for the representation of structured data, such as objects and arrays, making it suitable for various data types.
+
+JSON is also language-independent, making it easy to work with across different programming languages.
+:::
+::::
+
+## Working with JSON data
+
+### Sample decoding a python dictionary converted from JSON
+
+#| eval: false
+#| echo: true
+print(f"""
+Weather in {data['location']['name']}
+at {data['location']['localtime']}
+is:\n\n
+{data['current']['temp_f']}(f) and {data['current']['condition']['text']}
+""")
+
+#| eval: true
+#| echo: false
+print(f"""
+Weather in {data['location']['name']} 
+at {data['location']['localtime']} is:\n\n
+{data['current']['temp_f']}(f) and {data['current']['condition']['text']}
+""")
+
+
+## Working with JSON data
+
+### Sample decoding a python dictionary converted from JSON
+
+:::: {.columns}
+::: {.column}
+
+#| eval: true
+#| echo: false
+import requests
+
+response = requests.get("https://rickandmortyapi.com/api/character/1")
+if response.status_code == 200:
+    # Request was successful
+    data = response.json()  ## Returns the json response as a python dictionary
+    #print(data)
+else:
+    print("Request failed with status code:", response.status_code)
+#| eval: false
+#| echo: true
+from IPython.display import Markdown
+# We're using data = response.json() 
+# from earlier rick and morty query
+Markdown(f"""
+![{data['name']}]({data['image']}){width=250}
+""")
+
+The [Markdown function](https://quarto.org/docs/prerelease/1.4/script.html#generating-markdown) is very handy when wanting to convert
+the results into markdown for processing AFTER python script is done.
+
+More on [markdown figures](https://quarto.org/docs/authoring/figures.html).
+
+For homework 8, I  recommend that you use a [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) and [CSS styling](https://quarto.org/docs/output-formats/html-basics.html#css-styles) to
+create the yearbook. There are many ways to solve the problem!
+
+:::
+::: {.column}
+#| eval: true
+#| echo: false
+from IPython.display import Markdown
+# use data = response.json() from earlier rick and morty query
+Markdown(f"""
+![{data['name']}]({data['image']}){{width=250}}
+""")
+
+:::
+::::
+

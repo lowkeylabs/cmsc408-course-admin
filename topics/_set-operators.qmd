@@ -1,0 +1,36 @@
+
+# Set Operators
+
+## Set Operators
+
+#| echo: false
+#| eval: true
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2, venn3
+
+# For a 2-set Venn diagram
+venn = venn2(subsets=(5, 5, 2 ),set_labels=("","") )
+
+venn.get_label_by_id('10').set_text('A')
+venn.get_label_by_id('10').set_fontsize(20)
+venn.get_label_by_id('10').set_color('white')
+venn.get_label_by_id('01').set_text('B')
+venn.get_label_by_id('01').set_fontsize(20)
+venn.get_label_by_id('11').set_text('')
+
+venn.get_patch_by_id('10').set_color('red')
+venn.get_patch_by_id('10').set_edgecolor('black')
+venn.get_patch_by_id('10').set_linewidth(4)
+venn.get_patch_by_id('01').set_color('white')
+venn.get_patch_by_id('01').set_edgecolor('black')
+venn.get_patch_by_id('11').set_color('white')
+venn.get_patch_by_id('11').set_edgecolor('black')
+
+# Uncomment the following lines for a 3-set Venn diagram
+# venn3(subsets=(10, 8, 12, 5, 3, 2, 1), set_labels=('Set A', 'Set B', 'Set C'))
+
+# Display the plot
+plt.gca().set_facecolor('none')
+plt.gcf().patch.set_facecolor('none')
+plt.show()
+

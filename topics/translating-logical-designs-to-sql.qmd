@@ -1,7 +1,11 @@
 ---
 title: Translating logical designs to SQL
-tags:
-- homework
+tasl:
+    source: fa2023\lectures\lect04-ddl-dml-sqllite-mysql.qmd
+    tags:
+    - lecture
+    - lecture-04
+    topic: Translating logical designs to SQL
 ---
 
 {{< include '_translating-logical-designs-to-sql.qmd' >}}

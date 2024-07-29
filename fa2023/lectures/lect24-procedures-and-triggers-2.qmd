@@ -40,7 +40,7 @@ upcoming_calendar( lecture_id, n_rows )
 <p>&nbsp;</p>
 * If you have grade questions - use Canvas!  It keeps me organized
 
-# Homework 9
+# Homework 9 - w24
 
 ## Homework 9
 

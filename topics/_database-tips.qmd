@@ -1,0 +1,31 @@
+
+# Database tips
+
+## Database tips - Primary and Foreign Keys
+
+* You *don't need* primary keys, foreign keys or unique field constraints.
+
+* Primary, foreign keys, and UNIQUE are *integrity constraints*.
+
+* They are all OPTIONAL and can added later.
+
+* You can do "joins" without primary and foreign key, just use caution.
+
+* Tables and records connect on values in the table.
+
+* Primary keys, foreign keys and UNIQUE are your friends, don't ignore them.  With them, you can trust your database.
+
+### Exercise
+Explore these options in homework 7 DDL file.
+
+## Database tips - Exporting
+
+* PHPMyAdmin has an export feature.  Export allows you to move a database to another server.
+
+* Export creates a DDL file that in one swipe, will create your database.
+
+* Export is also a useful tool to help you better understand SQL options.
+
+### Exercise
+Try "export" in PHPMyAdmin to see how MySQl views your database!
+

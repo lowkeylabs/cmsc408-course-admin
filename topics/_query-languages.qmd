@@ -1,0 +1,47 @@
+
+# Query languages
+
+## Query Language Family Tree
+
+:::: {.columns}
+::: {.column}
+### Relational Algebra
+
+- Expressions are applied as a series of
+steps to achieve a specific result.
+- The order of the steps matters.
+
+### Relational Calculus
+
+- Non-procedural.  Tells you what the result
+should be without providing steps
+- Can be converted to relational algebra
+
+### SQL
+
+- A modified, practical implementation of Relational Algebra.
+- Not exact, but close enough and VERY useful!
+
+:::
+
+::: {.column}
+
+//| echo: false
+//| eval: true
+//| fig-width: 400px
+//| fig-height: 350px
+digraph family_tree {
+    bgcolor="transparent";
+    node [shape=box];
+    "Query Language" -> "Procedural";
+    "Query Language" -> "Non-Procedural";
+    "Procedural" -> "Relational Algebra";
+    "Relational Algebra" -> "SQL";
+    "Non-Procedural" -> "Relational Calculus";
+    "Relational Calculus" -> "Tuple RC";
+    "Relational Calculus" -> "Domain RC";
+}
+
+:::
+::::
+

@@ -123,6 +123,7 @@ digraph family_tree {
 
 # Set Operators
 
+## Set Operators
 
 ```{python}
 #| echo: false

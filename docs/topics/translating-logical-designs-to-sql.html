@@ -11,7 +11,7 @@
 <script src="translating-logical-designs-to-sql_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="translating-logical-designs-to-sql_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="translating-logical-designs-to-sql_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Translating logical designs to SQL</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,85 +337,51 @@
 </div>
 
 </section>
+<section>
+<section id="translating-logical-designs-to-sql" class="title-slide slide level1 center">
+<h1>Translating logical designs to SQL</h1>
+
+</section>
 <section id="relational-database-model" class="slide level2">
 <h2>Relational Database Model</h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li><p><strong>Tables</strong> represent the fundamental entity for manipulation.</p></li>
-<li><p>Tables have multiple columns called <strong>fields</strong>, each with unique names and data types. <strong>Fields</strong> correspond to attributes in our ER model.</p></li>
-<li><p>Tables have multiple rows called <strong>records</strong> that represent individual instances of the data stored in the table. These are sometimes called <em>tuples</em>.</p></li>
-<li><p>Relationships between tables are documented as <strong>keys</strong>. Keys are simply fields in a table, designated as keys. Keys have special properties and the database keeps track of them differently.</p></li>
-<li><p>A complete definition entities, attributes and relations, along with any data types and constraints is called a <strong>schema</strong>.</p></li>
+<li><strong>Tables</strong> represent the fundamental entity for manipulation.</li>
+<li>Tables have multiple columns called <strong>fields</strong>, each with unique names and data types. <strong>Fields</strong> correspond to attributes in our ER model.</li>
+<li>Tables have multiple rows called <strong>records</strong> that represent individual instances of the data stored in the table. These are sometimes called <em>tuples</em>.</li>
+<li>Relationships between tables are documented as <strong>keys</strong>. Keys are simply fields in a table, designated as keys. Keys have special properties and the database keeps track of them differently.</li>
+<li>A complete definition entities, attributes and relations, along with any data types and constraints is called a <strong>schema</strong>.</li>
 </ul>
 </div><div class="column">
-<p>CREATE TABLE students (</p>
-<pre><code>student_id INT PRIMARY KEY,
-
-name VARCHAR(100),
-
-year INT</code></pre>
-<p>);</p>
-<p>CREATE TABLE courses (</p>
-<pre><code>course_id INT PRIMARY KEY,
-
-title VARCHAR(100),
-
-credit_hours INT</code></pre>
-<p>);</p>
-<p>CREATE TABLE student_courses (</p>
-<pre><code>student_id INT,
-
-course_id INT,
-
-FOREIGN KEY (student_id) REFERENCES students(student_id),
-
-FOREIGN KEY (course_id) REFERENCES courses(course_id),
-
-PRIMARY KEY (student_id, course_id)</code></pre>
-<p>);</p>
+<p>CREATE TABLE students ( student_id INT PRIMARY KEY, name VARCHAR(100), year INT );</p>
+<p>CREATE TABLE courses ( course_id INT PRIMARY KEY, title VARCHAR(100), credit_hours INT );</p>
+<p>CREATE TABLE student_courses ( student_id INT, course_id INT, FOREIGN KEY (student_id) REFERENCES students(student_id), FOREIGN KEY (course_id) REFERENCES courses(course_id), PRIMARY KEY (student_id, course_id) );</p>
 <div style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px">
-<p>In the example above, we define two entities: students and courses, and</p>
-<p>establish a many-to-many relationship between them. The relationships</p>
-<p>are documented in a separate table with foreign keys. The individual rows</p>
-<p>in the student-courses table represent pairs of students and courses or “student-course tuples”.</p>
+<p>In the example above, we define two entities: students and courses, and establish a many-to-many relationship between them. The relationships are documented in a separate table with foreign keys. The individual rows in the student-courses table represent pairs of students and courses or “student-course tuples”.</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="in-the-coming-weeks" class="slide level2">
 <h2>In the coming weeks</h2>
 <ul>
-<li>We’ll spend the next lecture exploring how to translate specific</li>
+<li><p>We’ll spend the next lecture exploring how to translate specific logical designs into actual SQL.</p></li>
+<li><p>We’ll also explore the fundamentals of relational algebra and how we tersly communicate operatings that we can perform on the data and how those operations look in SQL.</p></li>
+<li><p>Finally, we’ll examine ways to minimize duplication of data by <em>functionally</em> analyzing our tables and evaluating it’s <em>normal form</em>.</p></li>
 </ul>
-<p>logical designs into actual SQL.</p>
-<ul>
-<li>We’ll also explore the fundamentals of relational algebra and how</li>
-</ul>
-<p>we tersly communicate operatings that we can perform on the data and how those</p>
-<p>operations look in SQL.</p>
-<ul>
-<li>Finally, we’ll examine ways to minimize duplication of data by <em>functionally</em> analyzing</li>
-</ul>
-<p>our tables and evaluating it’s <em>normal form</em>.</p>
 </section>
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <ul>
-<li><p>Homework 3 due Tuesday (tomorrow), 9/12</p></li>
-<li><p>Project deliverable 3 (video) due Friday.</p></li>
-<li><p>Check your grades to verify that we’ve got it all correct!</p></li>
-<li><p>Verify your group assignments, needed for deliverable 3!</p></li>
+<li>Homework 3 due Tuesday (tomorrow), 9/12</li>
+<li>Project deliverable 3 (video) due Friday.</li>
+<li>Check your grades to verify that we’ve got it all correct!</li>
+<li>Verify your group assignments, needed for deliverable 3!</li>
 </ul>
 <p>
 &nbsp;
 </p>
-<p>#| echo: false</p>
-<p>from src.utils import upcoming_calendar</p>
-</section>
-<section id="set-the-lecture-id-and-number-of-rows-to-show-at-the-top-of-this-file" class="title-slide slide level1 center">
-<h1>Set the lecture ID and number of rows to show at the top of this file!</h1>
-<p>upcoming_calendar( lecture_id, n_rows )</p>
+<p>#| echo: false from src.utils import upcoming_calendar # Set the lecture ID and number of rows to show at the top of this file! upcoming_calendar( lecture_id, n_rows )</p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -436,7 +402,7 @@ PRIMARY KEY (student_id, course_id)</code></pre>
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -684,18 +650,7 @@ PRIMARY KEY (student_id, course_id)</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -727,7 +682,29 @@ PRIMARY KEY (student_id, course_id)</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -735,7 +712,7 @@ PRIMARY KEY (student_id, course_id)</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

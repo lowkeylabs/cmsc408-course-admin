@@ -1,0 +1,13 @@
+---
+title: Database tips
+tasl:
+    source: fa2023\lectures\lect20-writing-apis.qmd
+    tags:
+    - lecture
+    - lecture-20
+    topic: Database tips
+---
+
+{{< include '_database-tips.qmd' >}}
+
+    

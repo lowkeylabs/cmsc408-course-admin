@@ -1,5 +1,11 @@
 ---
-title: ... ok, now what?  Let's take a step back ...
+title: '... ok, now what?  Let''s take a step back ...'
+tasl:
+    source: fa2023\lectures\lect03-entity-relation-models-2.qmd
+    tags:
+    - lecture
+    - lecture-03
+    topic: '... ok, now what?  Let''s take a step back ...'
 ---
 
 {{< include '_ok-now-what-let-s-take-a-step-back.qmd' >}}

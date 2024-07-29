@@ -11,7 +11,7 @@
 <script src="databases-and-database-management-systems_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="databases-and-database-management-systems_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="databases-and-database-management-systems_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Databases and Database Management Systems</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,28 +337,29 @@
 </div>
 
 </section>
+<section>
+<section id="databases-and-database-management-systems" class="title-slide slide level1 center">
+<h1>Databases and Database Management Systems</h1>
+
+</section>
 <section id="a-database-ecosystem" class="slide level2">
 <h2>A database ecosystem</h2>
 <div class="columns">
 <div class="column">
 <p><em>A heck of a lot more than just data!</em></p>
 <ul>
-<li><p>Users and their needs</p></li>
-<li><p>Ways to connect</p></li>
-<li><p>Query processor</p></li>
-<li><p>Storage manager</p></li>
-<li><p>Physical storage</p></li>
+<li>Users and their needs</li>
+<li>Ways to connect</li>
+<li>Query processor</li>
+<li>Storage manager</li>
+<li>Physical storage</li>
 </ul>
 <h3 id="designing-a-database">Designing a database</h3>
-<p>Good design requires that we develop a better understanding</p>
-<p>of the database itself, so that we can more smoothly translate</p>
-<p>the conceptual and logical designs into a physical design.</p>
-<p>The choice of database and DBMS may constrain or shape</p>
-<p>our final design.</p>
+<p>Good design requires that we develop a better understanding of the database itself, so that we can more smoothly translate the conceptual and logical designs into a physical design.</p>
+<p>The choice of database and DBMS may constrain or shape our final design.</p>
 </div><div class="column">
 <p><img data-src="assets/dbms-internals.png" style="width:80.0%"></p>
-</div>
-</div>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -379,7 +380,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -627,18 +628,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -670,7 +660,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -678,7 +690,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

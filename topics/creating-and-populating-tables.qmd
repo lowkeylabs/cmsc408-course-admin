@@ -1,0 +1,13 @@
+---
+title: Creating and populating tables
+tasl:
+    source: fa2023\lectures\lect14-sql-create-insert-delete-update.qmd
+    tags:
+    - lecture
+    - lecture-14
+    topic: Creating and populating tables
+---
+
+{{< include '_creating-and-populating-tables.qmd' >}}
+
+    

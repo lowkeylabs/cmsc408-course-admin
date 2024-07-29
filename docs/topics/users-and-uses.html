@@ -11,7 +11,7 @@
 <script src="users-and-uses_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="users-and-uses_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="users-and-uses_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Users and Uses</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,36 +337,41 @@
 </div>
 
 </section>
-<section class="slide level2">
+<section>
+<section id="users-and-uses" class="title-slide slide level1 center">
+<h1>Users and Uses</h1>
 
+</section>
+<section id="users-and-uses-1" class="slide level2">
+<h2>Users and Uses</h2>
 <dl>
 <dt>End user</dt>
 <dd>
-<p>Uses application interfaces to access database</p>
+Uses application interfaces to access database
 </dd>
 <dt>Application programmer</dt>
 <dd>
-<p>Develops application interfaces (e.g., Web, API, mobile)</p>
+Develops application interfaces (e.g., Web, API, mobile)
 </dd>
 <dt>Business Analyst</dt>
 <dd>
-<p>Uses query tools to directly access the data base (e.g.&nbsp;statistical business analyst)</p>
+Uses query tools to directly access the data base (e.g.&nbsp;statistical business analyst)
 </dd>
 <dt>Database Administrator (DBA)</dt>
 <dd>
-<p>Designs logical and physical schemas</p>
+Designs logical and physical schemas
 </dd>
 <dd>
-<p>Handles security and authorization</p>
+Handles security and authorization
 </dd>
 <dd>
-<p>Oversees data availability, crash recovery, software updates</p>
+Oversees data availability, crash recovery, software updates
 </dd>
 <dd>
-<p>Monitors performance and tunes database as needs evolve</p>
+Monitors performance and tunes database as needs evolve
 </dd>
 <dd>
-<p>Manages users and access control</p>
+Manages users and access control
 </dd>
 </dl>
 </section>
@@ -378,16 +383,16 @@
 </ul>
 <p><strong>Responsible for</strong></p>
 <ul>
-<li><p>Interaction with the file manager</p></li>
-<li><p>Efficient storing, retrieving and updating of data</p></li>
+<li>Interaction with the file manager</li>
+<li>Efficient storing, retrieving and updating of data</li>
 </ul>
 <p><strong>Considerations</strong></p>
 <ul>
-<li><p>Types of storage access</p></li>
-<li><p>Types of file organization</p></li>
-<li><p>Types of indexing and hashing</p></li>
-<li><p>Types of authorization and access control</p></li>
-<li><p>Data integritity</p></li>
+<li>Types of storage access</li>
+<li>Types of file organization</li>
+<li>Types of indexing and hashing</li>
+<li>Types of authorization and access control</li>
+<li>Data integritity</li>
 </ul>
 </section>
 <section id="query-manager" class="slide level2">
@@ -396,20 +401,19 @@
 <div class="column">
 <p><em>Lots going on in between request and response!</em></p>
 <ul>
-<li><p>REQUEST (query)</p>
+<li>REQUEST (query)
 <ul>
-<li><p>query parser</p></li>
-<li><p>relational algebraic evaluationr</p></li>
-<li><p>optimizer</p></li>
-<li><p>planner (detailed code)</p></li>
-<li><p>evaluator</p></li>
+<li>query parser</li>
+<li>relational algebraic evaluationr</li>
+<li>optimizer</li>
+<li>planner (detailed code)</li>
+<li>evaluator</li>
 </ul></li>
-<li><p>RESPONSE (query output)</p></li>
+<li>RESPONSE (query output)</li>
 </ul>
 </div><div class="column">
 <p><img data-src="assets/query-manager.png" style="width:80.0%"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="transaction-example" class="slide level2">
 <h2>Transaction example</h2>
@@ -427,19 +431,19 @@
 <dl>
 <dt>Atomicity</dt>
 <dd>
-<p>Either all operations of the transaction are properly reflected in the database or none are</p>
+Either all operations of the transaction are properly reflected in the database or none are
 </dd>
 <dt>Consistency</dt>
 <dd>
-<p>Execution of a transaction in isolation preserves the consistency of the database</p>
+Execution of a transaction in isolation preserves the consistency of the database
 </dd>
 <dt>Isolation</dt>
 <dd>
-<p>Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions. <em>For every pair of transactions Ti and Tj, it appears to Ti that either Tj, finished execution before Ti started, or Tj started execution after Ti finished</em></p>
+Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions. <em>For every pair of transactions Ti and Tj, it appears to Ti that either Tj, finished execution before Ti started, or Tj started execution after Ti finished</em>
 </dd>
 <dt>Durability</dt>
 <dd>
-<p>After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures</p>
+After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures
 </dd>
 </dl>
 </section>
@@ -448,50 +452,40 @@
 <div class="columns">
 <div class="column">
 <ul>
-<li><p>DDL compiler generates a set of tables stored in a data dictionary</p></li>
-<li><p>Data dictionary contains metadata about:</p>
+<li>DDL compiler generates a set of tables stored in a data dictionary</li>
+<li>Data dictionary contains metadata about:
 <ul>
-<li><p>Database tables, fields and data types</p></li>
-<li><p>Primary and foreign keys</p></li>
-<li><p>Data integrity constrants</p></li>
-<li><p>Referential integrity</p></li>
-<li><p>Access and authorization rules</p></li>
+<li>Database tables, fields and data types</li>
+<li>Primary and foreign keys</li>
+<li>Data integrity constrants</li>
+<li>Referential integrity</li>
+<li>Access and authorization rules</li>
 </ul></li>
 </ul>
 </div><div class="column">
 <h3 id="example">Example</h3>
-<p>CREATE TABLE person (</p>
-<pre><code>person_id INT PRIMARY KEY,
-
-person_first_name VARCHAR(50),
-
-person_last_name VARCHAR(50),
-
-person_city VARCHAR(50)</code></pre>
-<p>);</p>
+<p>CREATE TABLE person ( person_id INT PRIMARY KEY, person_first_name VARCHAR(50), person_last_name VARCHAR(50), person_city VARCHAR(50) );</p>
 <h3 id="notes">Notes</h3>
 <ol type="1">
-<li><p>Fields are strongly typed,</p></li>
-<li><p>INT, VARCHAR(width), (lots more!)</p></li>
-<li><p>Additional attributed can be defined:</p>
+<li>Fields are strongly typed,</li>
+<li>INT, VARCHAR(width), (lots more!)</li>
+<li>Additional attributed can be defined:
 <ul>
 <li>PRIMARY KEY, FOREIGN KEY, etc.</li>
 </ul></li>
 </ol>
-</div>
-</div>
+</div></div>
 <p><strong>SQL</strong> (Structured Query Language) is the most widely used query declarative language for accessing relational databases.</p>
 </section>
 <section id="data-manipulation-language-dml" class="slide level2">
 <h2>Data Manipulation Language (DML)</h2>
-<p>Provides statements for all the other non-data related</p>
-<p>activities in the data base:</p>
+<p>Provides statements for all the other non-data related activities in the data base:</p>
 <ul>
-<li><p>managing users,</p></li>
-<li><p>tuning storage,</p></li>
-<li><p>backing up and replicating the data base,</p></li>
-<li><p>managing physical storage on the system,</p></li>
-<li><p>communicating with other systems.</p></li>
+<li>managing users,</li>
+<li>tuning storage,</li>
+<li>backing up and replicating the data base,</li>
+<li>managing physical storage on the system,</li>
+<li>communicating with other systems.</li>
 </ul>
 <p><strong>SQL</strong> (Structured Query Language) is the most widely used query declarative language for accessing relational databases.</p>
 </section>
@@ -500,22 +494,22 @@ person_city VARCHAR(50)</code></pre>
 <dl>
 <dt>Using a command line</dt>
 <dd>
-<p>SSH into server to script creation and population of the databases.</p>
+SSH into server to script creation and population of the databases.
 </dd>
 <dd>
-<p>Using a <em>connector</em></p>
+Using a <em>connector</em>
 </dd>
 <dt>Using an API</dt>
 <dd>
-<p>ODBC, REST, graphQL or other approaches to manipulate aspects of the data base.</p>
+ODBC, REST, graphQL or other approaches to manipulate aspects of the data base.
 </dd>
 <dt>Using PHPMyAdmin</dt>
 <dd>
-<p>Usually through a web browser to manage, monitor and tune the overall system.</p>
+Usually through a web browser to manage, monitor and tune the overall system.
 </dd>
 <dt>Using a PHP full stack</dt>
 <dd>
-<p>To run the application and use the database.</p>
+To run the application and use the database.
 </dd>
 <dd>
 <ul>
@@ -524,7 +518,7 @@ person_city VARCHAR(50)</code></pre>
 </dd>
 <dt>Using NodeJS full stack</dt>
 <dd>
-<p>To run the application and use the data base</p>
+To run the application and use the data base
 </dd>
 <dd>
 <ul>
@@ -547,15 +541,15 @@ person_city VARCHAR(50)</code></pre>
 <dl>
 <dt>Deployment and Setup</dt>
 <dd>
-<p>Requires a separate server setup, involving a more complex installation process and server maintenance.</p>
+Requires a separate server setup, involving a more complex installation process and server maintenance.
 </dd>
 <dt>Concurrent Access</dt>
 <dd>
-<p>Can handle multiple users and applications simultaneously, making it a better fit for web applications or systems with high concurrency requirements.</p>
+Can handle multiple users and applications simultaneously, making it a better fit for web applications or systems with high concurrency requirements.
 </dd>
 <dt>Storage and Performance</dt>
 <dd>
-<p>Often better suited for large datasets and offers higher performance for complex queries, thanks to optimization features and more expansive indexing options.</p>
+Often better suited for large datasets and offers higher performance for complex queries, thanks to optimization features and more expansive indexing options.
 </dd>
 </dl>
 </div><div class="column">
@@ -564,19 +558,18 @@ person_city VARCHAR(50)</code></pre>
 <dl>
 <dt>Deployment and Setup</dt>
 <dd>
-<p>Extremely lightweight and easy to set up, with no server to install or configure.</p>
+Extremely lightweight and easy to set up, with no server to install or configure.
 </dd>
 <dt>Concurrent Access</dt>
 <dd>
-<p>Generally supports single-user systems better, and might encounter locks or bottlenecks with multiple concurrent accesses.</p>
+Generally supports single-user systems better, and might encounter locks or bottlenecks with multiple concurrent accesses.
 </dd>
 <dt>Storage and Performance</dt>
 <dd>
-<p>Optimized for local storage with smaller databases, with a file-based storage system that might be less efficient for large datasets or complex queries.</p>
+Optimized for local storage with smaller databases, with a file-based storage system that might be less efficient for large datasets or complex queries.
 </dd>
 </dl>
-</div>
-</div>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -597,7 +590,7 @@ person_city VARCHAR(50)</code></pre>
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -845,18 +838,7 @@ person_city VARCHAR(50)</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -888,7 +870,29 @@ person_city VARCHAR(50)</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -896,7 +900,7 @@ person_city VARCHAR(50)</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

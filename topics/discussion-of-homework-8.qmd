@@ -1,0 +1,13 @@
+---
+title: Discussion of Homework 8
+tasl:
+    source: fa2023\lectures\lect19-intro-to-apis.qmd
+    tags:
+    - lecture
+    - lecture-19
+    topic: Discussion of Homework 8
+---
+
+{{< include '_discussion-of-homework-8.qmd' >}}
+
+    

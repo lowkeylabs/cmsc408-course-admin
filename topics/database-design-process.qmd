@@ -1,8 +1,11 @@
 ---
 title: Database design process
 tasl:
-  source: fa2023\lectures\lect02-entity-relation-models-1.qmd
-  topic: Database design process
+    source: fa2023\lectures\lect02-entity-relation-models-1.qmd
+    tags:
+    - lecture
+    - lecture-02
+    topic: Database design process
 ---
 
 {{< include '_database-design-process.qmd' >}}

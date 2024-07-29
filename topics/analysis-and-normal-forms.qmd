@@ -1,0 +1,13 @@
+---
+title: Analysis and Normal forms
+tasl:
+    source: fa2023\lectures\lect08-analysis-and-normal-forms-1.qmd
+    tags:
+    - lecture
+    - lecture-08
+    topic: Analysis and Normal forms
+---
+
+{{< include '_analysis-and-normal-forms.qmd' >}}
+
+    

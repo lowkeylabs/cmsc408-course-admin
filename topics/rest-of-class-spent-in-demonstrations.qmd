@@ -1,0 +1,13 @@
+---
+title: Rest of class spent in demonstrations
+tasl:
+    source: fa2023\lectures\lect22-referential-integrity-3.qmd
+    tags:
+    - lecture
+    - lecture-22
+    topic: Rest of class spent in demonstrations
+---
+
+{{< include '_rest-of-class-spent-in-demonstrations.qmd' >}}
+
+    

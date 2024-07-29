@@ -1,7 +1,11 @@
 ---
 title: Sample code
-tags:
-- homework
+tasl:
+    source: fa2023\lectures\lect03-entity-relation-models-2.qmd
+    tags:
+    - lecture
+    - lecture-03
+    topic: Sample code
 ---
 
 {{< include '_sample-code.qmd' >}}
