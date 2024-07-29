@@ -15,6 +15,7 @@
 :::
 ::: {.column}
 
+```{sql}
 CREATE TABLE students (
     student_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -35,6 +36,7 @@ CREATE TABLE student_courses (
     PRIMARY KEY (student_id, course_id)
 );
 
+```
 
 ::: {style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px"}
 In the example above, we define two entities: students and courses, and
@@ -59,16 +61,3 @@ operations look in SQL.
 our tables and evaluating it's *normal form*.
 
 
-## Housekeeping
-
-- Homework 3 due Tuesday (tomorrow), 9/12
-- Project deliverable 3 (video) due Friday.
-- Check your grades to verify that we've got it all correct!
-- Verify your group assignments, needed for deliverable 3!
-
-<p>&nbsp;</p>
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

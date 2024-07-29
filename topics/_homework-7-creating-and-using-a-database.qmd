@@ -17,14 +17,3 @@ In-class start walk-through of homework 7.
 
 
 
-## Housekeeping
-
-- [Homework 7 (Constructing a DB)](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725428) due this upcoming Sunday, 11/12
-- Submit both HTML report (HW7) and a URL to gradescope (HW7B)
-- [Semester project due in five weeks](https://virginiacommonwealth.instructure.com/courses/85746/pages/semester-project-overview-project-due-monday-12-slash-11), Monday, Dec. 11th.
-- Lecture today - DDL and DML, creating SQL tables workflow
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

@@ -50,6 +50,7 @@ quickly to logical design and implementation.*
 ::: {.column width=30%}
 ### Conceptual design
 
+```{dot}
 //| echo: false
 //| eval: true
 //| fig-width: 200px
@@ -71,10 +72,12 @@ graph ER {
   room -- room_number
 	room -- occupant
 }
+```
 :::
 
 ::: {.column width=30%}
 ### Logical design
+```{mermaid}
 %%| echo: false
 %%| eval: true
 %%| fig-align: left
@@ -91,11 +94,13 @@ ROOM {
   string room_number
   string occupants
 }
+```
 
 :::
 ::: {.column width=30%}
 ### Logical design refined
 
+```{mermaid}
 %%| echo: false
 %%| eval: true
 %%| fig-height: 300px
@@ -123,6 +128,7 @@ ROOM {
     string room_number
     string occupants
 }
+```
 ### *Relation set* notation:
 
 <div style="font-size: 0.70em; margin-top:0.0em">

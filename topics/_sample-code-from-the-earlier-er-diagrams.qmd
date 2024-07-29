@@ -3,6 +3,7 @@
 
 ## Sample code
 
+```{dot}
 //| echo: true
 //| eval: false
 //| fig-width: 400px
@@ -24,4 +25,5 @@ digraph G {
     Truck -> Vehicle [label="IS_A"];
 }
 
+```
 

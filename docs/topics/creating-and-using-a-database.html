@@ -11,7 +11,7 @@
 <script src="creating-and-using-a-database_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="creating-and-using-a-database_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="creating-and-using-a-database_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Creating and using a database</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -406,20 +406,6 @@ is recognized by the MySQL parser. However, this action is rejected by both Inno
 </p>
 <h3 id="demonstration-continues">Demonstration (continues)</h3>
 <p>In-class start walk-through of homework 7.</p>
-</section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
-<ul>
-<li><a href="https://virginiacommonwealth.instructure.com/courses/85746/assignments/725428">Homework 7 (Constructing a DB)</a> due this upcoming Sunday, 11/12</li>
-<li>Submit both HTML report (HW7) and a URL to gradescope (HW7B)</li>
-<li>Autograder is up.</li>
-<li><a href="https://virginiacommonwealth.instructure.com/courses/85746/pages/semester-project-overview-project-due-monday-12-slash-11">Semester project due in five weeks</a>, Monday, Dec.&nbsp;11th.</li>
-<li>Lecture today:
-<ul>
-<li>DDL and DML, creating SQL tables workflow</li>
-</ul></li>
-</ul>
-<p>#| echo: false from src.utils import upcoming_calendar # Set the lecture ID and number of rows to show at the top of this file! upcoming_calendar( lecture_id, n_rows )</p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -688,7 +674,18 @@ is recognized by the MySQL parser. However, this action is rejected by both Inno
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -720,29 +717,7 @@ is recognized by the MySQL parser. However, this action is rejected by both Inno
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -750,7 +725,7 @@ is recognized by the MySQL parser. However, this action is rejected by both Inno
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

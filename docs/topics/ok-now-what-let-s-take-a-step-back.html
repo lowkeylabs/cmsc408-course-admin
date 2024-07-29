@@ -11,7 +11,7 @@
 <script src="ok-now-what-let-s-take-a-step-back_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="ok-now-what-let-s-take-a-step-back_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="ok-now-what-let-s-take-a-step-back_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>… ok, now what? Let’s take a step back …</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -324,6 +324,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="ok-now-what-let-s-take-a-step-back_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="ok-now-what-let-s-take-a-step-back_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="ok-now-what-let-s-take-a-step-back_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
 <body class="quarto-light">
@@ -366,7 +369,8 @@
 <li><p>Physical design</p></li>
 <li><p>Implementation</p></li>
 </ol>
-</div></div>
+</div>
+</div>
 </section>
 <section id="database-design-process---logical-design" class="slide level2">
 <h2>Database design process - logical design</h2>
@@ -382,26 +386,170 @@
 <div class="columns">
 <div class="column" style="width:30%;">
 <h3 id="conceptual-design">Conceptual design</h3>
-<p>//| echo: false //| eval: true //| fig-width: 200px //| fig-height: 200px //| fig-align: left graph ER { layout=neato; scale=1.1; node [shape=box]; building; room; node [shape=ellipse]; address, city, state, occupant, room_number node [shape=diamond,style=filled,color=lightgrey]; has</p>
-<pre><code>building -- has [label="1",len=1.00]
-has -- room [label="n",len=1.00]
-
-building -- address
-building -- city
-building -- state</code></pre>
-<p>room – room_number room – occupant }</p>
+<div class="cell" data-eval="true" data-fig-width="200px" data-fig-height="200px" data-layout-align="left">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="200" height="200" viewbox="0.00 0.00 403.66 234.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto 0">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.21)">
+<title>ER</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-230.21 399.66,-230.21 399.66,4 -4,4"></polygon>
+<!-- building -->
+<g id="node1" class="node">
+<title>building</title>
+<polygon fill="none" stroke="black" points="143.53,-136.32 81.19,-136.32 81.19,-100.32 143.53,-100.32 143.53,-136.32"></polygon>
+<text text-anchor="middle" x="112.36" y="-114.12" font-family="Times,serif" font-size="14.00">building</text>
+</g>
+<!-- address -->
+<g id="node3" class="node">
+<title>address</title>
+<ellipse fill="none" stroke="black" cx="74.68" cy="-36.21" rx="40" ry="18"></ellipse>
+<text text-anchor="middle" x="74.68" y="-32.01" font-family="Times,serif" font-size="14.00">address</text>
+</g>
+<!-- building&#45;&#45;address -->
+<g id="edge3" class="edge">
+<title>building--address</title>
+<path fill="none" stroke="black" d="M104,-100.09C97.71,-86.39 89.14,-67.72 82.89,-54.1"></path>
+</g>
+<!-- city -->
+<g id="node4" class="node">
+<title>city</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-133.06" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-128.86" font-family="Times,serif" font-size="14.00">city</text>
+</g>
+<!-- building&#45;&#45;city -->
+<g id="edge4" class="edge">
+<title>building--city</title>
+<path fill="none" stroke="black" d="M81.06,-123.72C71.93,-125.3 62.04,-127.01 53.25,-128.53"></path>
+</g>
+<!-- state -->
+<g id="node5" class="node">
+<title>state</title>
+<ellipse fill="none" stroke="black" cx="103.09" cy="-208.21" rx="28.97" ry="18"></ellipse>
+<text text-anchor="middle" x="103.09" y="-204.01" font-family="Times,serif" font-size="14.00">state</text>
+</g>
+<!-- building&#45;&#45;state -->
+<g id="edge5" class="edge">
+<title>building--state</title>
+<path fill="none" stroke="black" d="M110.49,-136.51C108.88,-152.1 106.57,-174.46 104.96,-190.04"></path>
+</g>
+<!-- has -->
+<g id="node8" class="node">
+<title>has</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="199.29,-121.71 165.66,-103.71 199.29,-85.71 232.91,-103.71 199.29,-121.71"></polygon>
+<text text-anchor="middle" x="199.29" y="-99.51" font-family="Times,serif" font-size="14.00">has</text>
+</g>
+<!-- building&#45;&#45;has -->
+<g id="edge1" class="edge">
+<title>building--has</title>
+<path fill="none" stroke="black" d="M143.75,-113.04C153.57,-111.39 164.29,-109.59 173.66,-108.02"></path>
+<text text-anchor="middle" x="155.2" y="-114.73" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- room -->
+<g id="node2" class="node">
+<title>room</title>
+<polygon fill="none" stroke="black" points="312.11,-110.53 258.11,-110.53 258.11,-74.53 312.11,-74.53 312.11,-110.53"></polygon>
+<text text-anchor="middle" x="285.11" y="-88.33" font-family="Times,serif" font-size="14.00">room</text>
+</g>
+<!-- occupant -->
+<g id="node6" class="node">
+<title>occupant</title>
+<ellipse fill="none" stroke="black" cx="348.31" cy="-152.48" rx="45.78" ry="18"></ellipse>
+<text text-anchor="middle" x="348.31" y="-148.28" font-family="Times,serif" font-size="14.00">occupant</text>
+</g>
+<!-- room&#45;&#45;occupant -->
+<g id="edge7" class="edge">
+<title>room--occupant</title>
+<path fill="none" stroke="black" d="M304.41,-110.84C312.69,-118.69 322.3,-127.81 330.41,-135.5"></path>
+</g>
+<!-- room_number -->
+<g id="node7" class="node">
+<title>room_number</title>
+<ellipse fill="none" stroke="black" cx="329.91" cy="-18" rx="66" ry="18"></ellipse>
+<text text-anchor="middle" x="329.91" y="-13.8" font-family="Times,serif" font-size="14.00">room_number</text>
+</g>
+<!-- room&#45;&#45;room_number -->
+<g id="edge6" class="edge">
+<title>room--room_number</title>
+<path fill="none" stroke="black" d="M295.95,-74.49C303,-62.77 312.14,-47.56 319.16,-35.88"></path>
+</g>
+<!-- has&#45;&#45;room -->
+<g id="edge2" class="edge">
+<title>has--room</title>
+<path fill="none" stroke="black" d="M226.44,-100.17C236.46,-98.87 247.81,-97.39 257.84,-96.08"></path>
+<text text-anchor="middle" x="238.64" y="-102.33" font-family="Times,serif" font-size="14.00">n</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:30%;">
 <h3 id="logical-design">Logical design</h3>
-<p>%%| echo: false %%| eval: true %%| fig-align: left erDiagram BUILDING ||–|{ ROOM : contains</p>
-<p>BUILDING{ string address string city string state }</p>
-<p>ROOM { string room_number string occupants }</p>
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="left">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupants
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:30%;">
 <h3 id="logical-design-refined">Logical design refined</h3>
-<p>%%| echo: false %%| eval: true %%| fig-height: 300px %%| fig-align: left erDiagram</p>
-<p>CONTAINS }|–|| ROOM : x CONTAINS }|–|| BUILDING : x</p>
-<p>BUILDING{ primary_key building_id string address string city string state }</p>
-<p>CONTAINS{ primary_key id foreign_key building_id foreign_key room_id }</p>
-<p>ROOM { primary_key room_id string room_number string occupants } ### <em>Relation set</em> notation:</p>
+<div class="cell" data-reveal="true" data-eval="true" data-fig-height="300px" data-layout-align="left">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    
+CONTAINS }|--|| ROOM : x
+CONTAINS }|--|| BUILDING : x
+
+BUILDING{
+    primary_key building_id
+    string address
+    string city
+    string state
+}
+
+CONTAINS{
+    primary_key id
+    foreign_key building_id
+    foreign_key room_id
+}
+
+ROOM {
+    primary_key room_id
+    string room_number
+    string occupants
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="relation-set-notation"><em>Relation set</em> notation:</h3>
 <div style="font-size: 0.70em; margin-top:0.0em">
 <ul>
 <li><p>building( <ins>building_id</ins>, address, city, state)</p></li>
@@ -409,7 +557,8 @@ building -- state</code></pre>
 <li><p>contains( <ins>id</ins>, building_id, room_id)</p></li>
 </ul>
 </div>
-</div></div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -678,7 +827,18 @@ building -- state</code></pre>
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -710,29 +870,7 @@ building -- state</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -740,7 +878,7 @@ building -- state</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

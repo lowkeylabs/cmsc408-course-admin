@@ -58,13 +58,3 @@ Add a styles.css, add a few classes in your outputs, and convert the output to a
 * W3Schools CSS tutorial:  <https://www.w3schools.com/css/default.asp>
 
 
-## Housekeeping
-
-- Homework 7 submission remains open for those still working.
-- Homework 8 autograder has not yet been written (maybe tomorrow?)
-- Keep working on semester project!
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

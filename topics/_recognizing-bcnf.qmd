@@ -33,6 +33,7 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 ::::
 ### Trival:  $X \rightarrow X$
 
+```{dot}
 //| echo: false
 //| fig-width: 800px
 //| fig-height: 100px
@@ -45,6 +46,7 @@ digraph G {
     }
     // Arrange the nodes in a horizontal row
 }
+```
 
 ## Boyce-Codd Normal Form (BCNF) - Example 2
 
@@ -80,6 +82,7 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 ::::
 ### Non-composite key:  $X \rightarrow Y$
 
+```{dot}
 //| echo: false
 //| fig-width: 800px
 //| fig-height: 100px
@@ -94,6 +97,7 @@ digraph G {
     // Arrange the nodes in a horizontal row
     A -> B;
 }
+```
 
 ## Boyce-Codd Normal Form (BCNF) - Example 3
 
@@ -129,6 +133,7 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 
 ### Composite key:  ${A,B} \rightarrow C$
 
+```{dot}
 //| echo: false
 //| fig-width: 800px
 //| fig-height: 100px
@@ -143,6 +148,7 @@ digraph G {
     // Arrange the nodes in a horizontal row
     A -> B;
 }
+```
 
 ## Boyce-Codd Normal Form (BCNF) - Terms
 
@@ -175,6 +181,7 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 
 <p>&nbsp;</p>
 ### Non-composite key: $A \rightarrow {B,C,D}$
+```{dot}
 //| echo: false
 //| fig-width: 800px
 //| fig-height: 100px
@@ -193,6 +200,7 @@ digraph G {
     A -> C;
     A -> B;
 }
+```
 
 ::: {style="text-align:center"}
 *The superkey, the whole key, and nothing but the key, so help me Codd!*
@@ -271,16 +279,3 @@ And the resulting schema in BCNF:
 :::
 ::::
 
-## Housekeeping
-
-- [Review week 7 materials](https://virginiacommonwealth.instructure.com/courses/85746/modules)
-- [Review Homework 5](https://virginiacommonwealth.instructure.com/courses/85746/assignments/732261?module_item_id=2903763)
-- Quiz 3 next Wednesday, October 11 covering normalization
-- On Wednesday do more problems and explore Homework 5.
-
-<p>&nbsp;</p>
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CMSC 475 Study Guide",
+    "section": "",
+    "text": "UI Design\nVisual Design\nStoryboarding\nPrototyping\nImplementation\nAbout this guide"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this guide",
+    "section": "",
+    "text": "Creating this study guide\nThere isn’t a single textbook for User Interface design. ChatGPT was used to help curate content for this study guide. Below are examples of individual prompts and an overview of teh workflow.\nChatGPT version 3.5 was used.\nChatGPT output, copied using the copy button, is formatted as markdown. The markdown content from ChatGPT assembed into one or more QMD (quarto) files and rendered to produce this/these HTML files.\nPrompt to create level 1 content\nHi chatgpt. I’d like you to play the role of a professor teaching an undergraduate computer science course titled “design and implementation of user interfaces”. The focus this week is “story boarding and the workflow for user interface design”. Please six major topics to be covered. For each topic provide 5 slides of 5 bullets each on the topic.\nThis prompt resulted in these top level topics.\n\nIntroduction to User Interface Design\nPrinciples of Storyboarding\nWorkflow in UI Design\nUser-Centered Design Approach\nPrototyping and Feedback\nCase Studies and Best Practices\n\nFor each of these topics, ChatGPT provided 25 subtopics of content. This content was not organized in any recognizable pattern.\nPrompt to create categories and groups\nCategorize and group the following topics:\n\ntopic 1\ntopic 2\ntopic …\n\nThe main topics were assigned to header level 1. The groups were assigned to header level 2. The individual topics were assigned to header level 3.\nPrompt to create level 2 content\nProvide three sentences commenting on: topic goes here\nPrompt to create level 3 content\nProvide “five bullets followed by a concluding paragraph of two sentences” for each of the topics below, using the preferred format from above:\n\ntopic 1\ntopic 2\n…\n\nPrompt to create design pattern content\nGood afternoon, ChatGPT! I’d like you to play the role of a professor teaching an undergraduate computer science course titled “design and implementation of user interfaces”. Our current focus is on OOP design patterns that are most used in User Interface coding. Please provide a listing of the top 10 patterns in use, ordered in descending order by a estimated count or percentage associated the prevelance of each pattern. Further, I’d like each pattern presented in the following format:\nSingleton Pattern (15%)\nThe Singleton Pattern ensures that a class has only one instance and provides a global point of access to that instance. Often used for managing global resources like a configuration manager or a centralized event bus.\nThis prompt resulted in the following list:\n\nObserver Pattern\nSingleton Pattern\nDecorator Pattern\nFactory Method Pattern\nBuilder Pattern\nModel-View-Controller (MVC) Pattern\nAbstract Factory Pattern\nStrategy Pattern\nCommand Pattern\nState Pattern\n\nAdditional prompts to create appropriate text were created. Finally, the following prompt was used to create the code snippets.\nPrompt to create code snippets\nFor this class, we’ll be using P5JS and javascript for coding. For each of the design patterns listed below, please provide a working example for each pattern ready for pasting and running within the P5JS environment. Please put all class definitions at the top of the each program.\n\nObserver Pattern\nSingleton Pattern\nDecorator Pattern\nFactory Method Pattern\nBuilder Pattern\nModel-View-Controller (MVC) Pattern\nAbstract Factory Pattern\nStrategy Pattern\nCommand Pattern\nState Pattern"
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html",
+    "href": "er-models/intro-to-er-models.html",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "Entity-Relationship (ER) models are crucial in database design as they provide a conceptual blueprint of the system. This introduction will cover the definition and importance of ER models.\n\nER models depict the structure of a database using entities and relationships.\nThey help in organizing data systematically.\nER diagrams are visual representations of data requirements.\nThey facilitate communication between stakeholders.\nER models are foundational to designing efficient databases.\n\nSummary: ER models are essential tools in visualizing and structuring database requirements.\n\n\n\nER models are abstract, conceptual representations of data within a system. They define how data is interconnected and organized.\n\nER models include entities, attributes, and relationships.\nEntities represent objects or concepts.\nAttributes are properties or details of entities.\nRelationships illustrate how entities are connected.\nER models are independent of physical database implementation.\n\nSummary: ER models provide a high-level view of data and its relationships in a system.\n\n\n\nER models play a critical role in the initial stages of database design by laying out a clear structure. They ensure a thorough understanding of data requirements.\n\nThey provide a clear and organized view of data.\nHelp in identifying data requirements early on.\nAid in the prevention of data redundancy.\nFacilitate better database normalization.\nImprove communication between technical and non-technical stakeholders.\n\nSummary: ER models are instrumental in creating efficient, well-organized databases by clarifying data requirements.\n\n\n\nEntities are the primary components of ER models, representing real-world objects or concepts. They form the building blocks of the data structure.\n\nEntities can be tangible (e.g., employees, products) or intangible (e.g., orders, transactions).\nEach entity has a unique identifier, known as a primary key.\nEntities have attributes that provide more details.\nEntities are depicted as rectangles in ER diagrams.\nExamples include Customer, Product, and Order.\n\nSummary: Entities are core components of ER models, representing key objects or concepts within the system.\n\n\n\nAttributes provide additional details about entities, defining their properties. They help in describing the characteristics of entities.\n\nAttributes are depicted as ovals in ER diagrams.\nSimple attributes: indivisible values (e.g., age, name).\nComposite attributes: can be divided into smaller sub-parts (e.g., full name into first name and last name).\nDerived attributes: values that can be calculated from other attributes (e.g., age from birthdate).\nMulti-valued attributes: entities with multiple values (e.g., phone numbers).\n\nSummary: Attributes define the properties of entities, providing detailed descriptions and enhancing data organization.\n\n\n\nRelationships illustrate how entities interact with each other. They are crucial for understanding the associations between different data elements.\n\nRelationships are depicted as diamonds in ER diagrams.\nThey connect two or more entities.\nCan be one-to-one, one-to-many, or many-to-many.\nInclude attributes to describe the nature of the relationship.\nExamples: Customer places Order, Employee works in Department.\n\nSummary: Relationships connect entities, showcasing how different data elements interact within the system.\n\n\n\nThe conceptual data model provides a high-level overview of the entire data system. It focuses on identifying the entities and relationships.\n\nEmphasizes the big picture of the data requirements.\nIndependent of any database management system (DBMS).\nDefines the scope and boundaries of the database.\nUsed for initial discussions with stakeholders.\nHelps in understanding the overall structure without technical details.\n\nSummary: Conceptual data models provide a broad overview of data requirements, focusing on high-level entities and relationships.\n\n\n\nThe logical data model translates the conceptual model into a more detailed structure. It includes more technical details about data organization.\n\nDefines entities, attributes, and relationships in detail.\nSpecifies data types and constraints.\nIndependent of physical storage considerations.\nUsed to create a blueprint for database design.\nAids in the normalization process.\n\nSummary: Logical data models provide a detailed blueprint of data organization, aiding in precise database design.\n\n\n\nThe physical data model represents the implementation of the database on a specific DBMS. It includes details about data storage and access methods.\n\nSpecifies physical storage structures and indexing.\nIncludes tables, columns, data types, and constraints.\nOptimizes performance based on the specific DBMS.\nDefines physical data storage paths.\nDetails about backup and recovery mechanisms.\n\nSummary: Physical data models focus on the actual implementation and optimization of the database on a chosen DBMS.\n\n\n\nUnderstanding the differences between these models is crucial for effective database design. Each model serves a distinct purpose in the design process.\n\nConceptual Model: High-level, focuses on entities and relationships, used for initial discussions.\nLogical Model: Detailed, includes attributes and data types, independent of physical considerations.\nPhysical Model: Implementation-specific, focuses on storage, performance, and optimization.\nEach model builds upon the previous one, adding more details and specifications.\nTogether, they ensure a comprehensive and efficient database design.\n\nSummary: Conceptual, logical, and physical models each play unique roles in database design, ensuring a thorough and efficient process."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#introduction-to-er-models",
+    "href": "er-models/intro-to-er-models.html#introduction-to-er-models",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "Entity-Relationship (ER) models are crucial in database design as they provide a conceptual blueprint of the system. This introduction will cover the definition and importance of ER models.\n\nER models depict the structure of a database using entities and relationships.\nThey help in organizing data systematically.\nER diagrams are visual representations of data requirements.\nThey facilitate communication between stakeholders.\nER models are foundational to designing efficient databases.\n\nSummary: ER models are essential tools in visualizing and structuring database requirements."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#definition-of-er-models",
+    "href": "er-models/intro-to-er-models.html#definition-of-er-models",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "ER models are abstract, conceptual representations of data within a system. They define how data is interconnected and organized.\n\nER models include entities, attributes, and relationships.\nEntities represent objects or concepts.\nAttributes are properties or details of entities.\nRelationships illustrate how entities are connected.\nER models are independent of physical database implementation.\n\nSummary: ER models provide a high-level view of data and its relationships in a system."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#importance-of-er-models",
+    "href": "er-models/intro-to-er-models.html#importance-of-er-models",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "ER models play a critical role in the initial stages of database design by laying out a clear structure. They ensure a thorough understanding of data requirements.\n\nThey provide a clear and organized view of data.\nHelp in identifying data requirements early on.\nAid in the prevention of data redundancy.\nFacilitate better database normalization.\nImprove communication between technical and non-technical stakeholders.\n\nSummary: ER models are instrumental in creating efficient, well-organized databases by clarifying data requirements."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#components-of-er-models-entities",
+    "href": "er-models/intro-to-er-models.html#components-of-er-models-entities",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "Entities are the primary components of ER models, representing real-world objects or concepts. They form the building blocks of the data structure.\n\nEntities can be tangible (e.g., employees, products) or intangible (e.g., orders, transactions).\nEach entity has a unique identifier, known as a primary key.\nEntities have attributes that provide more details.\nEntities are depicted as rectangles in ER diagrams.\nExamples include Customer, Product, and Order.\n\nSummary: Entities are core components of ER models, representing key objects or concepts within the system."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#components-of-er-models-attributes",
+    "href": "er-models/intro-to-er-models.html#components-of-er-models-attributes",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "Attributes provide additional details about entities, defining their properties. They help in describing the characteristics of entities.\n\nAttributes are depicted as ovals in ER diagrams.\nSimple attributes: indivisible values (e.g., age, name).\nComposite attributes: can be divided into smaller sub-parts (e.g., full name into first name and last name).\nDerived attributes: values that can be calculated from other attributes (e.g., age from birthdate).\nMulti-valued attributes: entities with multiple values (e.g., phone numbers).\n\nSummary: Attributes define the properties of entities, providing detailed descriptions and enhancing data organization."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#components-of-er-models-relationships",
+    "href": "er-models/intro-to-er-models.html#components-of-er-models-relationships",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "Relationships illustrate how entities interact with each other. They are crucial for understanding the associations between different data elements.\n\nRelationships are depicted as diamonds in ER diagrams.\nThey connect two or more entities.\nCan be one-to-one, one-to-many, or many-to-many.\nInclude attributes to describe the nature of the relationship.\nExamples: Customer places Order, Employee works in Department.\n\nSummary: Relationships connect entities, showcasing how different data elements interact within the system."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#conceptual-data-model",
+    "href": "er-models/intro-to-er-models.html#conceptual-data-model",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "The conceptual data model provides a high-level overview of the entire data system. It focuses on identifying the entities and relationships.\n\nEmphasizes the big picture of the data requirements.\nIndependent of any database management system (DBMS).\nDefines the scope and boundaries of the database.\nUsed for initial discussions with stakeholders.\nHelps in understanding the overall structure without technical details.\n\nSummary: Conceptual data models provide a broad overview of data requirements, focusing on high-level entities and relationships."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#logical-data-model",
+    "href": "er-models/intro-to-er-models.html#logical-data-model",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "The logical data model translates the conceptual model into a more detailed structure. It includes more technical details about data organization.\n\nDefines entities, attributes, and relationships in detail.\nSpecifies data types and constraints.\nIndependent of physical storage considerations.\nUsed to create a blueprint for database design.\nAids in the normalization process.\n\nSummary: Logical data models provide a detailed blueprint of data organization, aiding in precise database design."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#physical-data-model",
+    "href": "er-models/intro-to-er-models.html#physical-data-model",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "The physical data model represents the implementation of the database on a specific DBMS. It includes details about data storage and access methods.\n\nSpecifies physical storage structures and indexing.\nIncludes tables, columns, data types, and constraints.\nOptimizes performance based on the specific DBMS.\nDefines physical data storage paths.\nDetails about backup and recovery mechanisms.\n\nSummary: Physical data models focus on the actual implementation and optimization of the database on a chosen DBMS."
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#differences-between-conceptual-logical-and-physical-models",
+    "href": "er-models/intro-to-er-models.html#differences-between-conceptual-logical-and-physical-models",
+    "title": "Introduction to ER Models",
+    "section": "",
+    "text": "Understanding the differences between these models is crucial for effective database design. Each model serves a distinct purpose in the design process.\n\nConceptual Model: High-level, focuses on entities and relationships, used for initial discussions.\nLogical Model: Detailed, includes attributes and data types, independent of physical considerations.\nPhysical Model: Implementation-specific, focuses on storage, performance, and optimization.\nEach model builds upon the previous one, adding more details and specifications.\nTogether, they ensure a comprehensive and efficient database design.\n\nSummary: Conceptual, logical, and physical models each play unique roles in database design, ensuring a thorough and efficient process."
+  },
+  {
+    "objectID": "er-models/overview.html",
+    "href": "er-models/overview.html",
+    "title": "Overview of Entity relationship models",
+    "section": "",
+    "text": "Introduction to Entity-Relationship Models\n\nDefinition and importance of ER models in database design.\nOverview of components: entities, relationships, and attributes.\nDifferences between conceptual, logical, and physical data models.\n\nEntities and Attributes\n\nDefinition and examples of entities.\nUnderstanding attributes and their types (simple, composite, derived).\nAttribute domains and constraints.\n\nRelationships and Cardinality\n\nDefinition and examples of relationships.\nTypes of relationships: one-to-one, one-to-many, many-to-many.\nUnderstanding and depicting cardinality and participation constraints.\n\nKeys and Identifiers\n\nImportance of keys in database design.\nPrimary keys, candidate keys, and composite keys.\nSurrogate keys vs. natural keys.\n\nER Diagrams: Symbols and Notation\n\nStandard symbols and notations used in ER diagrams.\nDifferences between Chen’s notation and Crow’s Foot notation.\nPractice creating ER diagrams using different notations.\n\nWeak Entities and Strong Entities\n\nDefinition and examples of weak entities.\nIdentifying weak entities and their relationships to strong entities.\nUse of partial keys and identifying relationships.\n\nAdvanced ER Modeling Concepts\n\nSpecialization and generalization.\nAggregation and composition.\nUnderstanding inheritance in ER models.\n\nER Modeling Best Practices and Common Pitfalls\n\nGuidelines for effective ER modeling.\nCommon mistakes to avoid in ER modeling.\nCase studies and real-world examples.\n\nTranslating ER Models to Relational Schema\n\nConverting ER diagrams to relational schemas.\nMapping entities, relationships, and attributes.\nHandling complex relationships and constraints in the relational model."
+  }
+]

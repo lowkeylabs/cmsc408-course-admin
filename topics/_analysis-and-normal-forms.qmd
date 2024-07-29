@@ -697,18 +697,3 @@ This algorithm can be used to clean up original tables, or verify existing table
 We'll be spending the next bunch of lectures working with these algorithms.
 
 
-## Housekeeping
-
-1. No homework dues this week!
-1. Project deliverable 4 - posted and available
-1. Quiz and quiz stats - Very nice!
-1. Peer reviews - still some issues.
-1. Changes to schedule (Version 4, see table below)
-1. Discuss Quarto
-
-<p>&nbsp;</p>
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

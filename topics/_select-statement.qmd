@@ -3,6 +3,29 @@
 
 ## SELECT clause
 
+
+```{python}
+#| eval: true
+#| echo: true
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("HW6_USER"),
+  'password': os.getenv("HW6_PASSWORD"),
+  'host': os.getenv("HW6_HOST"),
+  'database': os.getenv("HW6_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+
 :::: {.columns}
 ::: {.column width=50%}
 A *SELECT* query is the one of the most fundamental
@@ -55,6 +78,7 @@ $\Pi_{A_1, A_2, ... A_n}(\sigma_{P}(R_1 \times R_2 \times ... \times R_n) )$
 :::
 ::: {.column width=50%}
 
+```{sql}
 -- this is syntax
 SELECT [distinct] {*, column [[as] alias], ...}
 FROM table {or tables}
@@ -68,6 +92,7 @@ FROM
 -- indents are not managed
 -- comments stop processing of line
 
+```
 
 :::
 ::::
@@ -77,14 +102,17 @@ FROM
 :::: {.columns}
 ::: {.column width=50%}
 ### Using * to select all columns
+```{python}
 result = pd.read_sql("""
 select * from regions
 """,cnx)
 result
+```
 
 :::
 ::: {.column width=50%}
 ### Selecting only one attribute
+```{python}
 result = pd.read_sql("""
 select
   region_name
@@ -92,6 +120,7 @@ from
   regions
 """,cnx)
 result
+```
 
 :::
 ::::
@@ -101,18 +130,22 @@ result
 :::: {.columns}
 ::: {.column width=50%}
 ### Gathering all last names
+```{python}
 result = pd.read_sql("""
 select last_name from employees
 """,cnx)
 result
+```
 
 :::
 ::: {.column width=50%}
 ### Eliminating duplicates with DISTINCT
+```{python}
 result = pd.read_sql("""
 select distinct last_name from employees
 """,cnx)
 result
+```
 
 :::
 ::::
@@ -122,20 +155,24 @@ result
 :::: {.columns}
 ::: {.column width=50%}
 ### Combining last and first names
+```{python}
 result = pd.read_sql("""
 select concat(last_name,',',first_name)
 from employees
 """,cnx)
 result.head(7)
+```
 
 :::
 ::: {.column width=50%}
 ### Then renaming the column
+```{python}
 result = pd.read_sql("""
 select concat(last_name,',',first_name) as full_name
 from employees
 """,cnx)
 result.head(7)
+```
 
 :::
 ::::
@@ -145,6 +182,7 @@ result.head(7)
 :::: {.columns}
 ::: {.column width=50%}
 ### attribute can be literal or function
+```{python}
 
 result = pd.read_sql("""
 
@@ -156,6 +194,7 @@ from
 
 """,cnx)
 result.head(7)
+```
 <p>&nbsp;</p>
 Note that we're using a built-in table named *dual* that 
 returns what you put in as a table that can be used
@@ -166,12 +205,14 @@ in subsequent operations.
 ### Doing computations
 
 The attribute can be a function or arithmetic operation
+```{python}
 result = pd.read_sql("""
 select concat(last_name,',',first_name) as full_name,
 salary*12 as "Annual Salary"
 from employees
 """,cnx)
 result.head(5)
+```
 
 :::
 ::::
@@ -193,6 +234,7 @@ result.head(5)
 :::
 ::: {.column width=50%}
 
+```{python}
 result = pd.read_sql("""
 -- note that this is a monthly salary!
 SELECT
@@ -204,6 +246,7 @@ WHERE
 """,cnx)
 result.head(5)
 
+```
 
 :::
 ::::
@@ -216,12 +259,14 @@ result.head(5)
 :::: {.columns}
 ::: {.column width=50%}
 ### Selecting a department
+```{python}
 result = pd.read_sql("""
 select last_name,department_id
 from employees
 where department_id=110;
 """,cnx)
 result.head(7)
+```
 <p>&nbsp;</p>
 Data types matter.  You'll get an error
 if you set *department_id='110'*
@@ -230,12 +275,14 @@ if you set *department_id='110'*
 ::: {.column width=50%}
 ### Using BETWEEN
 The attribute can be a function or arithmetic operation
+```{python}
 result = pd.read_sql("""
 select concat(last_name,',',first_name) as full_name, salary
 from employees
 where salary BETWEEN 10000 and 12000;
 """,cnx)
 result.head(5)
+```
 
 :::
 ::::
@@ -245,23 +292,27 @@ result.head(5)
 :::: {.columns}
 ::: {.column width=50%}
 ### Using IN
+```{python}
 result = pd.read_sql("""
 select last_name,department_id
 from employees
 where department_id in (100,145,146)
 """,cnx)
 result.head(7)
+```
 <p>&nbsp;</p>
 
 :::
 ::: {.column width=50%}
 ### The long way
+```{python}
 result = pd.read_sql("""
 select last_name,department_id
 from employees
 where department_id=30 or department_id=70 or department_id=120
 """,cnx)
 result
+```
 <p>&nbsp;</p>
 
 :::
@@ -272,23 +323,27 @@ result
 :::: {.columns}
 ::: {.column width=50%}
 ### What are all the department IDs?
+```{python}
 result = pd.read_sql("""
 select distinct department_id
 from employees
 order by department_id
 """,cnx)
 result
+```
 <p>&nbsp;</p>
 
 :::
 ::: {.column width=50%}
 ### Who is missing a manager?
+```{python}
 result = pd.read_sql("""
 select last_name,job_id,manager_id
 from employees
 where manager_id is NULL
 """,cnx)
 result.head(7)
+```
 <p>&nbsp;</p>
 
 NULL must be all caps!!
@@ -301,6 +356,7 @@ NULL must be all caps!!
 :::: {.columns}
 ::: {.column width=50%}
 ### Calculating commissions
+```{python}
 #| echo: true
 #| eval: false
 result = pd.read_sql("""
@@ -317,6 +373,7 @@ order by
 
 """,cnx)
 result
+```
 <p>&nbsp;</p>
 What are the NaN "not a number" entries?
 
@@ -326,6 +383,7 @@ list?
 :::
 ::: {.column width=50%}
 ### Calculating commissions
+```{python}
 #| echo: false
 #| eval: true
 result = pd.read_sql("""
@@ -337,6 +395,7 @@ from employees
 order by last_name, first_name
 """,cnx)
 result
+```
 :::
 ::::
 
@@ -355,6 +414,7 @@ IFNULL( expr1, expr2 ) replaces NULL with a value.
 :::
 ::: {.column width=50%}
 ### Calculating commissions
+```{python}
 #| echo: true
 #| eval: false
 result = pd.read_sql("""
@@ -366,6 +426,7 @@ from employees
 order by last_name, first_name
 """,cnx)
 result
+```
 :::
 ::::
 
@@ -374,6 +435,7 @@ result
 :::: {.columns}
 ::: {.column width=50%}
 ### IFNULL( expr1, 0.0)
+```{python}
 #| echo: false
 #| eval: true
 result = pd.read_sql("""
@@ -390,9 +452,11 @@ order by
 
 """,cnx)
 result
+```
 :::
 ::: {.column width=50%}
 ### IFNULL( expr1, 'missing')
+```{python}
 #| echo: false
 #| eval: true
 result = pd.read_sql("""
@@ -404,6 +468,7 @@ from employees
 order by last_name, first_name
 """,cnx)
 result
+```
 :::
 ::::
 
@@ -431,6 +496,7 @@ Examples:
 :::: {.columns}
 ::: {.column width=50%}
 ### DOUBLE %% when using Python
+```{python}
 #| echo: true
 #| eval: true
 result = pd.read_sql("""
@@ -438,9 +504,11 @@ select last_name from employees
 where last_name like 'MC%%'
 """,cnx)
 result
+```
 :::
 ::: {.column width=50%}
 ### DOUBLE %% when using Python
+```{python}
 #| echo: true
 #| eval: true
 result = pd.read_sql("""
@@ -448,6 +516,7 @@ SELECT phone_number FROM employees
 WHERE phone_number LIKE '%%123%%';
 """,cnx)
 result
+```
 :::
 ::::
 
@@ -469,6 +538,7 @@ Attributes in *ORDER BY* can be computed!
 :::
 ::: {.column width=50%}
 ### Example
+```{python}
 #| echo: true
 #| eval: true
 result = pd.read_sql("""
@@ -480,15 +550,7 @@ order by
   last_name, first_name
 """,cnx)
 result
+```
 :::
 ::::
 
-## Housekeeping
-
-- Focus on getting everything to work!
-- YES - you MUST be able render explore.qmd. 
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

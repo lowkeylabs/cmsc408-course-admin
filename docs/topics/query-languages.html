@@ -11,7 +11,7 @@
 <script src="query-languages_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="query-languages_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="query-languages_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Query languages</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -362,8 +362,113 @@
 <li>Not exact, but close enough and VERY useful!</li>
 </ul>
 </div><div class="column">
-<p>//| echo: false //| eval: true //| fig-width: 400px //| fig-height: 350px digraph family_tree { bgcolor=“transparent”; node [shape=box]; “Query Language” -&gt; “Procedural”; “Query Language” -&gt; “Non-Procedural”; “Procedural” -&gt; “Relational Algebra”; “Relational Algebra” -&gt; “SQL”; “Non-Procedural” -&gt; “Relational Calculus”; “Relational Calculus” -&gt; “Tuple RC”; “Relational Calculus” -&gt; “Domain RC”; }</p>
-</div></div>
+<div class="cell" data-eval="true" data-fig-width="400px" data-fig-height="350px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="350" viewbox="0.00 0.00 316.70 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>family_tree</title>
+<!-- Query Language -->
+<g id="node1" class="node">
+<title>Query Language</title>
+<polygon fill="none" stroke="black" points="185.74,-252 76.38,-252 76.38,-216 185.74,-216 185.74,-252"></polygon>
+<text text-anchor="middle" x="131.06" y="-229.8" font-family="Times,serif" font-size="14.00">Query Language</text>
+</g>
+<!-- Procedural -->
+<g id="node2" class="node">
+<title>Procedural</title>
+<polygon fill="none" stroke="black" points="115.21,-180 38.92,-180 38.92,-144 115.21,-144 115.21,-180"></polygon>
+<text text-anchor="middle" x="77.06" y="-157.8" font-family="Times,serif" font-size="14.00">Procedural</text>
+</g>
+<!-- Query Language&#45;&gt;Procedural -->
+<g id="edge1" class="edge">
+<title>Query Language-&gt;Procedural</title>
+<path fill="none" stroke="black" d="M117.72,-215.7C111.31,-207.39 103.51,-197.28 96.46,-188.14"></path>
+<polygon fill="black" stroke="black" points="99.14,-185.88 90.26,-180.1 93.6,-190.16 99.14,-185.88"></polygon>
+</g>
+<!-- Non&#45;Procedural -->
+<g id="node3" class="node">
+<title>Non-Procedural</title>
+<polygon fill="none" stroke="black" points="246.98,-180 141.15,-180 141.15,-144 246.98,-144 246.98,-180"></polygon>
+<text text-anchor="middle" x="194.06" y="-157.8" font-family="Times,serif" font-size="14.00">Non-Procedural</text>
+</g>
+<!-- Query Language&#45;&gt;Non&#45;Procedural -->
+<g id="edge2" class="edge">
+<title>Query Language-&gt;Non-Procedural</title>
+<path fill="none" stroke="black" d="M146.64,-215.7C154.27,-207.22 163.59,-196.86 171.94,-187.58"></path>
+<polygon fill="black" stroke="black" points="174.58,-189.88 178.67,-180.1 169.38,-185.2 174.58,-189.88"></polygon>
+</g>
+<!-- Relational Algebra -->
+<g id="node4" class="node">
+<title>Relational Algebra</title>
+<polygon fill="none" stroke="black" points="122.19,-108 -0.06,-108 -0.06,-72 122.19,-72 122.19,-108"></polygon>
+<text text-anchor="middle" x="61.06" y="-85.8" font-family="Times,serif" font-size="14.00">Relational Algebra</text>
+</g>
+<!-- Procedural&#45;&gt;Relational Algebra -->
+<g id="edge3" class="edge">
+<title>Procedural-&gt;Relational Algebra</title>
+<path fill="none" stroke="black" d="M73.11,-143.7C71.35,-135.98 69.23,-126.71 67.26,-118.11"></path>
+<polygon fill="black" stroke="black" points="70.61,-117.07 64.97,-108.1 63.79,-118.63 70.61,-117.07"></polygon>
+</g>
+<!-- Relational Calculus -->
+<g id="node6" class="node">
+<title>Relational Calculus</title>
+<polygon fill="none" stroke="black" points="266.1,-108 140.03,-108 140.03,-72 266.1,-72 266.1,-108"></polygon>
+<text text-anchor="middle" x="203.06" y="-85.8" font-family="Times,serif" font-size="14.00">Relational Calculus</text>
+</g>
+<!-- Non&#45;Procedural&#45;&gt;Relational Calculus -->
+<g id="edge5" class="edge">
+<title>Non-Procedural-&gt;Relational Calculus</title>
+<path fill="none" stroke="black" d="M196.29,-143.7C197.28,-135.98 198.47,-126.71 199.58,-118.11"></path>
+<polygon fill="black" stroke="black" points="203.06,-118.47 200.86,-108.1 196.12,-117.58 203.06,-118.47"></polygon>
+</g>
+<!-- SQL -->
+<g id="node5" class="node">
+<title>SQL</title>
+<polygon fill="none" stroke="black" points="88.06,-36 34.06,-36 34.06,0 88.06,0 88.06,-36"></polygon>
+<text text-anchor="middle" x="61.06" y="-13.8" font-family="Times,serif" font-size="14.00">SQL</text>
+</g>
+<!-- Relational Algebra&#45;&gt;SQL -->
+<g id="edge4" class="edge">
+<title>Relational Algebra-&gt;SQL</title>
+<path fill="none" stroke="black" d="M61.06,-71.7C61.06,-63.98 61.06,-54.71 61.06,-46.11"></path>
+<polygon fill="black" stroke="black" points="64.56,-46.1 61.06,-36.1 57.56,-46.1 64.56,-46.1"></polygon>
+</g>
+<!-- Tuple RC -->
+<g id="node7" class="node">
+<title>Tuple RC</title>
+<polygon fill="none" stroke="black" points="207.4,-36 136.73,-36 136.73,0 207.4,0 207.4,-36"></polygon>
+<text text-anchor="middle" x="172.06" y="-13.8" font-family="Times,serif" font-size="14.00">Tuple RC</text>
+</g>
+<!-- Relational Calculus&#45;&gt;Tuple RC -->
+<g id="edge6" class="edge">
+<title>Relational Calculus-&gt;Tuple RC</title>
+<path fill="none" stroke="black" d="M195.4,-71.7C191.87,-63.73 187.61,-54.1 183.7,-45.26"></path>
+<polygon fill="black" stroke="black" points="186.89,-43.83 179.64,-36.1 180.49,-46.67 186.89,-43.83"></polygon>
+</g>
+<!-- Domain RC -->
+<g id="node8" class="node">
+<title>Domain RC</title>
+<polygon fill="none" stroke="black" points="308.84,-36 225.28,-36 225.28,0 308.84,0 308.84,-36"></polygon>
+<text text-anchor="middle" x="267.06" y="-13.8" font-family="Times,serif" font-size="14.00">Domain RC</text>
+</g>
+<!-- Relational Calculus&#45;&gt;Domain RC -->
+<g id="edge7" class="edge">
+<title>Relational Calculus-&gt;Domain RC</title>
+<path fill="none" stroke="black" d="M218.88,-71.7C226.63,-63.22 236.1,-52.86 244.59,-43.58"></path>
+<polygon fill="black" stroke="black" points="247.26,-45.85 251.43,-36.1 242.09,-41.12 247.26,-45.85"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -632,7 +737,18 @@
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -664,29 +780,7 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -694,7 +788,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

@@ -28,6 +28,7 @@ Rooms have room_numbers and occupants.
 :::: {.columns}
 ::: {.column width="40%"}
 
+```{dot}
 //| echo: true
 //| eval: false
 graph ER {
@@ -46,8 +47,10 @@ graph ER {
   room -- room_number
 	room -- occupant
 }
+```
 :::
 ::: {.column width="59%"}
+```{dot}
 //| echo: false
 //| eval: true
 //| fig-width: 500px
@@ -68,6 +71,7 @@ graph {
   room -- room_number
 	room -- occupant
 }
+```
 :::
 ::::
 [Link to graphviz on-line editor](https://dreampuf.github.io/GraphvizOnline/)
@@ -79,6 +83,7 @@ graph {
 
 ::: {.column}
 
+```{mermaid}
 %%| echo: true
 %%| eval: false
 erDiagram
@@ -94,11 +99,13 @@ ROOM {
   string room_number
   string occupants
 }
+```
 
 :::
 
 ::: {.column}
 
+```{mermaid}
 %%| echo: false
 %%| eval: true
 erDiagram
@@ -114,6 +121,7 @@ ROOM {
   string room_number
   string occupant
 }
+```
 
 :::
 
@@ -164,19 +172,3 @@ Publishers are entities responsible for releasing books to the public. Each publ
 
 [Link to mermaid live](https://mermaid.live/edit)
 
-## Housekeeping
-
-Another busy week, mostly with software set up.
-
-- Start to work on [homework 2](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427), DUE FRIDAY!
-- Review the videos:
-  * Database design, ER diagramming, ER diagrams to relational tables.
-- Kick around database ideas with your teammate(s) and begin to draw pictures!
-- **Quiz 1** next week, topics: Database design, ER diagrams. More details on Wednesday.
-
-<p>&nbsp;</p>
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )
