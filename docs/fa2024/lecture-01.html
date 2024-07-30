@@ -11,7 +11,7 @@
 <script src="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Welcome to CMSC408</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -357,16 +357,14 @@
 <ul>
 <li>When ready, the complete lecture will replace this one.</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
-<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -445,27 +443,106 @@
 </tbody>
 </table>
 </div>
-</div>
 </section>
 <section>
-<section id="sample-topic" class="title-slide slide level1 center">
-<h1>sample topic</h1>
+<section id="database-design-process" class="title-slide slide level1 center">
+<h1>Database design process</h1>
 
 </section>
-<section id="slide-1" class="slide level2">
-<h2>Slide 1</h2>
+<section id="database-design-process---overview" class="slide level2 scrollable">
+<h2>Database design process - overview</h2>
+<div class="columns">
+<div class="column">
+<h3 id="overview">Overview</h3>
 <ul>
-<li>bullet 1</li>
-<li>bullet 2</li>
-<li>bullet 3</li>
+<li><p>Basic steps are on the right.</p></li>
+<li><p>There are many different approaches.</p></li>
+<li><p>Watch the videos, you’ll see different approaches.</p></li>
+<li><p>Can be as hard or simple as you want to make it.</p></li>
+<li><p>Iterate!</p></li>
+<li><p><em>Note: the Microsoft approach (on Canvas) jumps more quickly to logical design and implementation.</em></p></li>
 </ul>
+</div><div class="column">
+<h3 id="database-design-process-1">Database design process</h3>
+<ol type="1">
+<li><p>Understanding requirements</p></li>
+<li><p>Conceptual design</p></li>
+<li><p>Logical design</p></li>
+<li><p>Physical design</p></li>
+<li><p>Implementation</p></li>
+</ol>
+</div></div>
 </section>
-<section id="slide-2" class="slide level2">
-<h2>Slide 2</h2>
+<section id="database-design-process---more-detail" class="slide level2 scrollable">
+<h2>Database design process - more detail</h2>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li>Understanding requirements
 <ul>
-<li>bullet 1</li>
-<li>bullet 2</li>
-<li>bullet 3</li>
+<li>Problem domain,</li>
+<li>Need,</li>
+<li>Context, scope and perspective,</li>
+<li>Uses cases, user roles</li>
+<li>Security, privacy</li>
+<li>Use cases, specific queries</li>
+</ul></li>
+<li>Conceptual design
+<ul>
+<li>Entities, attributes, relationships</li>
+<li>ER diagrams</li>
+</ul></li>
+<li>Logical design
+<ul>
+<li>converting entities, attributes and relations, and other odd features to tables.</li>
+<li>Normalization and functional analysis</li>
+</ul></li>
+</ol>
+</div><div class="column">
+<ol start="4" type="1">
+<li>Physical design
+<ul>
+<li>More fully defining tables</li>
+<li>Adding integrity constraints, triggers</li>
+<li>Reporting: adding views</li>
+<li>Maintenance: adding procedures</li>
+<li>Considering access: defining the API</li>
+</ul></li>
+<li>Implementation
+<ul>
+<li>code it up,</li>
+<li>load it up,</li>
+<li>test it up,</li>
+<li>see where you screwed it up,</li>
+<li>iterate it up.</li>
+</ul></li>
+</ol>
+</div></div>
+<center>
+<em>This maps nicely with the <a href="https://virginiacommonwealth.instructure.com/courses/85746/pages/project-overview-and-deliverable-summary">Semester Project</a> deliverables!</em>
+</center>
+</section>
+<section id="database-design-process---normalization" class="slide level2">
+<h2>Database design process - normalization</h2>
+<p><em>Normalization</em> is the process of reorganizing the columns and tables of a relational database to minimize data redundancy and avoid inconsistencies</p>
+<p><em>Normalization</em> decomposes a table into smaller tables without losing information</p>
+<p><em>Normalization</em> is iterative, don’t <em>expect</em> perfection the first time through!</p>
+<p><em>Normalization</em> is iterative, don’t <em>try</em> to achieve perfection the first time through. Relax!</p>
+<p><em>Normalization</em> Theory provides simple tests to determine a “good design”</p>
+</section>
+<section id="database-design-process---er-diagrams" class="slide level2">
+<h2>Database design process - ER diagrams</h2>
+<p>It’s all about sharing your database design. How do you share your design with others?</p>
+<p>An entity-relationship (ER) model was first proposed by <a href="https://dl.acm.org/doi/10.1145/320434.320440">Peter Chen in 1976</a></p>
+<p>
+</p><ul>
+<li><p>Highlights the conceptual features (schema) of a database.</p></li>
+<li><p>Maps the meanings and interactions of real-world entities to a conceptual schema</p></li>
+<li><p>Focuses on portraying relations between entities, attributes, and relationships in a graphical fashion.</p></li>
+<li><p>Different notions to support different needs.</p></li>
+<li><p>Quarto supports at least two notations. We’ll use both!</p></li>
+<li><p>Tons of other tools to draw ER diagrams using different notations.</p></li>
+<li><p>THERE IS NO STANDARD!</p></li>
 </ul>
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -483,16 +560,14 @@
 <ul>
 <li>When ready, the complete lecture will replace this one.</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
-<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -570,7 +645,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -840,18 +914,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -883,7 +946,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -891,7 +976,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

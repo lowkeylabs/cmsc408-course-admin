@@ -10,7 +10,7 @@
         "title: Welcome to CMSC508\n",
         "---"
       ],
-      "id": "e2abea41"
+      "id": "3c07066d"
     },
     {
       "cell_type": "code",
@@ -20,7 +20,7 @@
         "lecture_id = 1\n",
         "n_rows = 8"
       ],
-      "id": "d97aefb2",
+      "id": "8263a5e4",
       "execution_count": null,
       "outputs": []
     },
@@ -277,7 +277,7 @@
         "    * [project deliverable 2](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/168360) (due Sunday)!!!\n",
         "- Join the [course discord](https://discord.gg/9tXSmh7r) (Please change your server name!)\n"
       ],
-      "id": "de3fd897"
+      "id": "95308a95"
     },
     {
       "cell_type": "code",
@@ -288,7 +288,7 @@
         "# Set the lecture ID and number of rows to show at the top of this file!\n",
         "upcoming_calendar( lecture_id, n_rows )"
       ],
-      "id": "d65037ff",
+      "id": "5546011b",
       "execution_count": null,
       "outputs": []
     },
@@ -471,7 +471,7 @@
         "    * [project deliverable 2](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/168360) (due Sunday)!!!\n",
         "- Join the [course discord](https://discord.gg/9tXSmh7r) (Please change your server name!)\n"
       ],
-      "id": "0167093c"
+      "id": "4ed1c1b9"
     },
     {
       "cell_type": "code",
@@ -482,17 +482,16 @@
         "# Set the lecture ID and number of rows to show at the top of this file!\n",
         "upcoming_calendar( lecture_id, n_rows )"
       ],
-      "id": "d62e3f00",
+      "id": "3309b4cc",
       "execution_count": null,
       "outputs": []
     }
   ],
   "metadata": {
     "kernelspec": {
-      "name": "python3",
+      "display_name": "Python 3",
       "language": "python",
-      "display_name": "Python 3 (ipykernel)",
-      "path": "C:\\Users\\jdleonard\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\tasl-nj-V8QEm-py3.12\\share\\jupyter\\kernels\\python3"
+      "name": "python3"
     }
   },
   "nbformat": 4,
