@@ -15,6 +15,7 @@
 :::
 ::: {.column}
 
+```{sql}
 CREATE TABLE students (
     student_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -35,6 +36,7 @@ CREATE TABLE student_courses (
     PRIMARY KEY (student_id, course_id)
 );
 
+```
 
 ::: {style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px"}
 In the example above, we define two entities: students and courses, and
@@ -107,6 +109,7 @@ We can also add modifiers to individual attributes:
 
 :::
 ::: {.column width=70%}
+```{dot}
 //| echo: false
 //| fig-width: 550px
 //| fig-height: 250px
@@ -139,6 +142,7 @@ digraph RelationalDataModel {
     >];
 }
 
+```
 :::
 ::::
 
@@ -178,6 +182,7 @@ digraph RelationalDataModel {
 
 :::
 ::: {.column width=70%}
+```{dot}
 //| echo: false
 //| fig-width: 550px
 //| fig-height: 250px
@@ -210,6 +215,7 @@ digraph RelationalDataModel {
     >];
 }
 
+```
 :::
 ::::
 
@@ -244,6 +250,7 @@ Cardinalty and participation are represented through *foreign keys* and *integri
 
 :::
 ::: {.column width=70%}
+```{dot}
 //| echo: false
 //| fig-width: 550px
 //| fig-height: 250px
@@ -282,6 +289,7 @@ digraph RelationalDataModel {
 
 }
 
+```
 :::
 ::::
 
@@ -322,6 +330,7 @@ Using *integrity constraints* the DBMS will maintain a perfect state for your da
 :::: {.columns}
 ::: {.column width=30%}
 
+```{mermaid}
 %%| echo: false
 erDiagram
 
@@ -340,11 +349,13 @@ erDiagram
         int author_id
     }
 
+```
 
 :::
 ::: {.column width=60%}
 
 
+```{dot}
 //| echo: false
 //| fig-width: 450px
 //| fig-height: 200px
@@ -394,6 +405,7 @@ digraph RelationalDataModel {
     Books:f7 -> Authors:f3 [dir=none constraint=false];
 }
 
+```
 ### Questions
 
 * Does the ER diagram on the left match the tables on the right?
@@ -410,6 +422,7 @@ digraph RelationalDataModel {
 :::: {.columns}
 ::: {.column width=20%}
 
+```{mermaid}
 %%| echo: false
 erDiagram
 
@@ -428,10 +441,12 @@ erDiagram
         int author_id
     }
 
+```
 
 :::
 ::: {.column width=80%}
 
+```{dot}
 //| echo: false
 //| fig-width: 600px
 //| fig-height: 275px
@@ -512,6 +527,7 @@ digraph RelationalDataModel {
 
 }
 
+```
 ### Detailed relation sets
 
 - book(id [PK], title [NOT NULL], publication_date [NOT NULL])
@@ -530,6 +546,7 @@ digraph RelationalDataModel {
 :::: {.columns}
 ::: {.column width=20%}
 
+```{mermaid}
 %%| echo: false
 erDiagram
 
@@ -548,10 +565,12 @@ erDiagram
         int author_id
     }
 
+```
 
 :::
 ::: {.column width=80%}
 
+```{dot}
 //| echo: false
 //| fig-width: 600px
 //| fig-height: 275px
@@ -632,6 +651,7 @@ digraph RelationalDataModel {
 
 }
 
+```
 ### Questions
 
 * How would you modify this to ensure that books exactly one author?
@@ -659,14 +679,3 @@ How would I model a multivalued attribute?
 How would I model a weak entity?
 : A weak entity is one that depends on a strong entity to survive.  That is, if the *parent strong entity* is deleted, the weak entity is no longer needed.  This is modeled using a *TRIGGER* in the *schema*. When the string entity is deleted, all corresponding weak entities are deleted, too.
 
-## Housekeeping
-
-- Project deliverable 3 (video) due Friday.
-- Check your grades to verify that we've got it all correct!
-
-<p>&nbsp;</p>
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

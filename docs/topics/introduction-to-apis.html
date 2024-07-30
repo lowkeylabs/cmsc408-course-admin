@@ -11,7 +11,7 @@
 <script src="introduction-to-apis_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="introduction-to-apis_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="introduction-to-apis_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Introduction to APIs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="introduction-to-apis_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -354,7 +419,8 @@
 <p>APIs are essential for enabling the integration and interaction of diverse software systems.</p>
 <p>APIs allow developers to access the functionality and data of other applications, services, or platforms, saving time and effort in building new software.</p>
 <p>APIs also enable the creation of third-party applications and services that extend the capabilities of existing software.</p>
-</div></div>
+</div>
+</div>
 </section>
 <section id="introduction-to-apis-2" class="slide level2">
 <h2>Introduction to APIs</h2>
@@ -376,27 +442,47 @@
 <li><p>Payment gateways offer APIs for processing online payments securely.</p></li>
 <li><p>CMSC 508 students offer APIs to access their project databases!</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="making-api-calls-using-python" class="slide level2">
 <h2>Making API calls using Python</h2>
 <h3 id="sample-api-request">Sample API request</h3>
 <p>Python provides libraries like requests that make it easy to send HTTP requests. Here’s a basic example of making a GET request using the requests library:</p>
-<p>#| eval: false #| echo: true import requests</p>
-<p>response = requests.get(“https://rickandmortyapi.com/api/character/1”) if response.status_code == 200: # Request was successful data = response.json() ## Returns the json response as a python dictionary print(data) else: print(“Request failed with status code:”, response.status_code)</p>
+<div id="26c78563" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>response <span class="op">=</span> requests.get(<span class="st">"https://rickandmortyapi.com/api/character/1"</span>)</span>
+<span id="cb1-4"><a href=""></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb1-5"><a href=""></a>    <span class="co"># Request was successful</span></span>
+<span id="cb1-6"><a href=""></a>    data <span class="op">=</span> response.json()  <span class="co">## Returns the json response as a python dictionary</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="bu">print</span>(data)</span>
+<span id="cb1-8"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb1-9"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Request failed with status code:"</span>, response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="making-api-calls-using-python-1" class="slide level2">
 <h2>Making API calls using Python</h2>
 <h3 id="sample-api-response">Sample API response</h3>
-<p>#| eval: true #| echo: false import requests</p>
-<p>response = requests.get(“https://rickandmortyapi.com/api/character/1”) if response.status_code == 200: # Request was successful data = response.json() # convert response to python dictionary print(data) else: print(“Request failed with status code:”, response.status_code)</p>
+<div id="6884ffc3" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>{'id': 1, 'name': 'Rick Sanchez', 'status': 'Alive', 'species': 'Human', 'type': '', 'gender': 'Male', 'origin': {'name': 'Earth (C-137)', 'url': 'https://rickandmortyapi.com/api/location/1'}, 'location': {'name': 'Citadel of Ricks', 'url': 'https://rickandmortyapi.com/api/location/3'}, 'image': 'https://rickandmortyapi.com/api/character/avatar/1.jpeg', 'episode': ['https://rickandmortyapi.com/api/episode/1', 'https://rickandmortyapi.com/api/episode/2', 'https://rickandmortyapi.com/api/episode/3', 'https://rickandmortyapi.com/api/episode/4', 'https://rickandmortyapi.com/api/episode/5', 'https://rickandmortyapi.com/api/episode/6', 'https://rickandmortyapi.com/api/episode/7', 'https://rickandmortyapi.com/api/episode/8', 'https://rickandmortyapi.com/api/episode/9', 'https://rickandmortyapi.com/api/episode/10', 'https://rickandmortyapi.com/api/episode/11', 'https://rickandmortyapi.com/api/episode/12', 'https://rickandmortyapi.com/api/episode/13', 'https://rickandmortyapi.com/api/episode/14', 'https://rickandmortyapi.com/api/episode/15', 'https://rickandmortyapi.com/api/episode/16', 'https://rickandmortyapi.com/api/episode/17', 'https://rickandmortyapi.com/api/episode/18', 'https://rickandmortyapi.com/api/episode/19', 'https://rickandmortyapi.com/api/episode/20', 'https://rickandmortyapi.com/api/episode/21', 'https://rickandmortyapi.com/api/episode/22', 'https://rickandmortyapi.com/api/episode/23', 'https://rickandmortyapi.com/api/episode/24', 'https://rickandmortyapi.com/api/episode/25', 'https://rickandmortyapi.com/api/episode/26', 'https://rickandmortyapi.com/api/episode/27', 'https://rickandmortyapi.com/api/episode/28', 'https://rickandmortyapi.com/api/episode/29', 'https://rickandmortyapi.com/api/episode/30', 'https://rickandmortyapi.com/api/episode/31', 'https://rickandmortyapi.com/api/episode/32', 'https://rickandmortyapi.com/api/episode/33', 'https://rickandmortyapi.com/api/episode/34', 'https://rickandmortyapi.com/api/episode/35', 'https://rickandmortyapi.com/api/episode/36', 'https://rickandmortyapi.com/api/episode/37', 'https://rickandmortyapi.com/api/episode/38', 'https://rickandmortyapi.com/api/episode/39', 'https://rickandmortyapi.com/api/episode/40', 'https://rickandmortyapi.com/api/episode/41', 'https://rickandmortyapi.com/api/episode/42', 'https://rickandmortyapi.com/api/episode/43', 'https://rickandmortyapi.com/api/episode/44', 'https://rickandmortyapi.com/api/episode/45', 'https://rickandmortyapi.com/api/episode/46', 'https://rickandmortyapi.com/api/episode/47', 'https://rickandmortyapi.com/api/episode/48', 'https://rickandmortyapi.com/api/episode/49', 'https://rickandmortyapi.com/api/episode/50', 'https://rickandmortyapi.com/api/episode/51'], 'url': 'https://rickandmortyapi.com/api/character/1', 'created': '2017-11-04T18:48:46.250Z'}</code></pre>
+</div>
+</div>
 </section>
 <section id="posting-to-an-api" class="slide level2">
 <h2>Posting to an API</h2>
 <p>To make an HTTP POST request, you use the post() method of the requests library. POST requests are typically used to send data to a server. Here’s an example:</p>
-<p>import requests</p>
-<p>data = {“name”: “John”, “age”: 30}</p>
-<p>response = requests.post(“https://api.example.com/add_user”, json=data) if response.status_code == 201: # Resource created successfully print(“User added successfully.”) else: print(“Request failed with status code:”, response.status_code)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> requests</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>data <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"John"</span>, <span class="st">"age"</span>: <span class="dv">30</span>}</span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a>response <span class="op">=</span> requests.post(<span class="st">"https://api.example.com/add_user"</span>, json<span class="op">=</span>data)</span>
+<span id="cb3-6"><a href=""></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">201</span>:</span>
+<span id="cb3-7"><a href=""></a>    <span class="co"># Resource created successfully</span></span>
+<span id="cb3-8"><a href=""></a>    <span class="bu">print</span>(<span class="st">"User added successfully."</span>)</span>
+<span id="cb3-9"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb3-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Request failed with status code:"</span>, response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="authentication-and-api-keys" class="slide level2">
 <h2>Authentication and API keys</h2>
@@ -412,7 +498,8 @@
 <p>API keys are unique alphanumeric codes or tokens provided by API providers to developers and applications.</p>
 <p>API keys serve as a form of authentication, allowing the API provider to identify and authorize the entity making the API requests.</p>
 <p>API keys are typically included in API requests as query parameters or headers.</p>
-</div></div>
+</div>
+</div>
 <center>
 <strong><em>The Rick and Morty API does not require API keys. This is generally BAD!</em></strong>
 </center>
@@ -430,7 +517,8 @@
 <p>To obtain an API key, developers typically need to register with the API provider and follow their authentication process.</p>
 <p>Once you have an API key, you include it in your Python code when making API requests. This ensures that the API provider can verify your identity and grant access accordingly.</p>
 <p>For example, see: <a href="https://www.weatherapi.com" class="uri">https://www.weatherapi.com</a></p>
-</div></div>
+</div>
+</div>
 </section>
 <section id="authentication-and-api-keys-2" class="slide level2">
 <h2>Authentication and API keys</h2>
@@ -449,56 +537,60 @@
 <h2>Authentication example in query string</h2>
 <p>Using: <a href="https://www.weatherapi.com" class="uri">https://www.weatherapi.com</a></p>
 <h3 id="the-api-request">the API request</h3>
-<p>#| eval: false #| echo: true import os import requests from dotenv import load_dotenv</p>
-<p>load_dotenv() api_key = os.getenv(“weather_api_key”) # retrieve KEY-VALUE pair from .env file zip_code=“23284”</p>
-</section></section>
-<section>
-<section id="define-the-api-endpoint-url" class="title-slide slide level1 center">
-<h1>Define the API endpoint URL</h1>
-<p>api_url = f”http://api.weatherapi.com/v1/current.json?key={api_key}&amp;q={zip_code}”</p>
-<p>try: # Attempt to make an API request with authentication response = requests.get(api_url)</p>
-<pre><code># Check the response status code
-if response.status_code == 200:
-    # Successful response (HTTP status code 200)
-    data = response.json() # convert response to python dictionary
-    print("Weather data retrieved successfully:")
-    print(data)
-elif response.status_code == 401:
-    # Unauthorized access (HTTP status code 401)
-    print("Error: Unauthorized access (HTTP 401). Check your API key.")
-else:
-    # Other unexpected errors
-    print(f"Error: Unexpected status code ({response.status_code})")</code></pre>
-<p>except requests.exceptions.RequestException as e: # Handle network-related errors (e.g., connection issues) print(f”Error: {e}“) except ValueError as e: # Handle JSON decoding errors print(f”Error decoding JSON: {e}“)</p>
+<div id="313231ef" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb4-2"><a href=""></a><span class="im">import</span> requests</span>
+<span id="cb4-3"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a>load_dotenv()</span>
+<span id="cb4-6"><a href=""></a>api_key <span class="op">=</span> os.getenv(<span class="st">"weather_api_key"</span>)  <span class="co"># retrieve KEY-VALUE pair from .env file</span></span>
+<span id="cb4-7"><a href=""></a>zip_code<span class="op">=</span><span class="st">"23284"</span></span>
+<span id="cb4-8"><a href=""></a></span>
+<span id="cb4-9"><a href=""></a><span class="co"># Define the API endpoint URL</span></span>
+<span id="cb4-10"><a href=""></a>api_url <span class="op">=</span> <span class="ss">f"http://api.weatherapi.com/v1/current.json?key=</span><span class="sc">{</span>api_key<span class="sc">}</span><span class="ss">&amp;q=</span><span class="sc">{</span>zip_code<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-11"><a href=""></a></span>
+<span id="cb4-12"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb4-13"><a href=""></a>    <span class="co"># Attempt to make an API request with authentication</span></span>
+<span id="cb4-14"><a href=""></a>    response <span class="op">=</span> requests.get(api_url)</span>
+<span id="cb4-15"><a href=""></a></span>
+<span id="cb4-16"><a href=""></a>    <span class="co"># Check the response status code</span></span>
+<span id="cb4-17"><a href=""></a>    <span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb4-18"><a href=""></a>        <span class="co"># Successful response (HTTP status code 200)</span></span>
+<span id="cb4-19"><a href=""></a>        data <span class="op">=</span> response.json() <span class="co"># convert response to python dictionary</span></span>
+<span id="cb4-20"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Weather data retrieved successfully:"</span>)</span>
+<span id="cb4-21"><a href=""></a>        <span class="bu">print</span>(data)</span>
+<span id="cb4-22"><a href=""></a>    <span class="cf">elif</span> response.status_code <span class="op">==</span> <span class="dv">401</span>:</span>
+<span id="cb4-23"><a href=""></a>        <span class="co"># Unauthorized access (HTTP status code 401)</span></span>
+<span id="cb4-24"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Error: Unauthorized access (HTTP 401). Check your API key."</span>)</span>
+<span id="cb4-25"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb4-26"><a href=""></a>        <span class="co"># Other unexpected errors</span></span>
+<span id="cb4-27"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Error: Unexpected status code (</span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb4-28"><a href=""></a><span class="cf">except</span> requests.exceptions.RequestException <span class="im">as</span> e:</span>
+<span id="cb4-29"><a href=""></a>    <span class="co"># Handle network-related errors (e.g., connection issues)</span></span>
+<span id="cb4-30"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-31"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
+<span id="cb4-32"><a href=""></a>    <span class="co"># Handle JSON decoding errors</span></span>
+<span id="cb4-33"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error decoding JSON: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="authentication-example-in-query-string-1" class="slide level2">
 <h2>Authentication example in query string</h2>
 <p>Using: <a href="https://www.weatherapi.com/" class="uri">https://www.weatherapi.com/</a></p>
 <h3 id="the-api-response">the API response</h3>
-<p>#| eval: true #| echo: false import os import requests from dotenv import load_dotenv</p>
-<p>load_dotenv() api_key = os.getenv(“weather_api_key”) zip_code=“23284”</p>
-</section></section>
-<section>
-<section id="define-the-api-endpoint-url-1" class="title-slide slide level1 center">
-<h1>Define the API endpoint URL</h1>
-<p>api_url = f”http://api.weatherapi.com/v1/current.json?key={api_key}&amp;q={zip_code}”</p>
-<p>try: # Attempt to make an API request with authentication response = requests.get(api_url)</p>
-<pre><code># Check the response status code
-if response.status_code == 200:
-    # Successful response (HTTP status code 200)
-    data = response.json()  # convert response to python dictionary
-    print("Weather data retrieved successfully:")
-    print(data)
-elif response.status_code == 401:
-    # Unauthorized access (HTTP status code 401)
-    print("Error: Unauthorized access (HTTP 401). Check your API key.")
-else:
-    # Other unexpected errors
-    print(f"Error: Unexpected status code ({response.status_code})")</code></pre>
-<p>except requests.exceptions.RequestException as e: # Handle network-related errors (e.g., connection issues) print(f”Error: {e}“) except ValueError as e: # Handle JSON decoding errors print(f”Error decoding JSON: {e}“)</p>
-</section>
+<div id="5928724c" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>Error: Unexpected status code (403)</code></pre>
+</div>
+</div>
 <h3 id="sample-url-with-key-for-exploration-in-browser">Sample url with key for exploration in browser</h3>
-<p>print(f”{api_url}“)</p>
+<div id="bcf5569d" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>api_url<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>http://api.weatherapi.com/v1/current.json?key=None&amp;q=23284
+</code></pre>
+</div>
+</div>
+</section>
 <section id="working-with-json-data" class="slide level2">
 <h2>Working with JSON data</h2>
 <div class="columns">
@@ -511,27 +603,50 @@ else:
 <p>JSON is commonly used in APIs due to its simplicity and flexibility.</p>
 <p>JSON allows for the representation of structured data, such as objects and arrays, making it suitable for various data types.</p>
 <p>JSON is also language-independent, making it easy to work with across different programming languages.</p>
-</div></div>
+</div>
+</div>
 </section>
 <section id="working-with-json-data-1" class="slide level2">
 <h2>Working with JSON data</h2>
 <h3 id="sample-decoding-a-python-dictionary-converted-from-json">Sample decoding a python dictionary converted from JSON</h3>
-<p>#| eval: false #| echo: true print(f”“” Weather in {data[‘location’][‘name’]} at {data[‘location’][‘localtime’]} is: {data[‘current’][‘temp_f’]}(f) and {data[‘current’][‘condition’][‘text’]} “““)</p>
-<p>#| eval: true #| echo: false print(f”“” Weather in {data[‘location’][‘name’]} at {data[‘location’][‘localtime’]} is: {data[‘current’][‘temp_f’]}(f) and {data[‘current’][‘condition’][‘text’]} “““)</p>
+<div id="ccd3e948" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
+<span id="cb8-2"><a href=""></a><span class="ss">Weather in </span><span class="sc">{</span>data[<span class="st">'location'</span>][<span class="st">'name'</span>]<span class="sc">}</span></span>
+<span id="cb8-3"><a href=""></a><span class="ss">at </span><span class="sc">{</span>data[<span class="st">'location'</span>][<span class="st">'localtime'</span>]<span class="sc">}</span></span>
+<span id="cb8-4"><a href=""></a><span class="ss">is:</span><span class="ch">\n\n</span></span>
+<span id="cb8-5"><a href=""></a><span class="sc">{</span>data[<span class="st">'current'</span>][<span class="st">'temp_f'</span>]<span class="sc">}</span><span class="ss">(f) and </span><span class="sc">{</span>data[<span class="st">'current'</span>][<span class="st">'condition'</span>][<span class="st">'text'</span>]<span class="sc">}</span></span>
+<span id="cb8-6"><a href=""></a><span class="ss">"""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="working-with-json-data-2" class="slide level2">
 <h2>Working with JSON data</h2>
 <h3 id="sample-decoding-a-python-dictionary-converted-from-json-1">Sample decoding a python dictionary converted from JSON</h3>
 <div class="columns">
 <div class="column">
-<p>#| eval: true #| echo: false import requests</p>
-<p>response = requests.get(“https://rickandmortyapi.com/api/character/1”) if response.status_code == 200: # Request was successful data = response.json() ## Returns the json response as a python dictionary #print(data) else: print(“Request failed with status code:”, response.status_code) #| eval: false #| echo: true from IPython.display import Markdown # We’re using data = response.json() # from earlier rick and morty query Markdown(f”“” <img data-src="%7Bdata%5B'image'%5D%7D.png" width="250" alt="{data[‘name’]}"> “““)</p>
+<div id="b1d06275" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb9-2"><a href=""></a><span class="co"># We're using data = response.json() </span></span>
+<span id="cb9-3"><a href=""></a><span class="co"># from earlier rick and morty query</span></span>
+<span id="cb9-4"><a href=""></a>Markdown(<span class="ss">f"""</span></span>
+<span id="cb9-5"><a href=""></a><span class="ss">![</span><span class="sc">{</span>data[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>data[<span class="st">'image'</span>]<span class="sc">}</span><span class="ss">)</span><span class="sc">{</span>width<span class="op">=</span><span class="dv">250</span><span class="sc">}</span></span>
+<span id="cb9-6"><a href=""></a><span class="ss">"""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The <a href="https://quarto.org/docs/prerelease/1.4/script.html#generating-markdown">Markdown function</a> is very handy when wanting to convert the results into markdown for processing AFTER python script is done.</p>
 <p>More on <a href="https://quarto.org/docs/authoring/figures.html">markdown figures</a>.</p>
 <p>For homework 8, I recommend that you use a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">CSS flexbox</a> and <a href="https://quarto.org/docs/output-formats/html-basics.html#css-styles">CSS styling</a> to create the yearbook. There are many ways to solve the problem!</p>
 </div><div class="column">
-<p>#| eval: true #| echo: false from IPython.display import Markdown # use data = response.json() from earlier rick and morty query Markdown(f”“” <img data-src="%7Bdata%5B'image'%5D%7D.png" alt="{data[‘name’]}">{{width=250}} “““)</p>
-</div></div>
+<div id="e3e1b3da" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" width="250"></p>
+<figcaption>Rick Sanchez</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -800,7 +915,18 @@ else:
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -832,29 +958,7 @@ else:
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -862,7 +966,7 @@ else:
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

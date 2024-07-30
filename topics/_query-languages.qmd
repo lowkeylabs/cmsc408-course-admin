@@ -26,6 +26,7 @@ should be without providing steps
 
 ::: {.column}
 
+```{dot}
 //| echo: false
 //| eval: true
 //| fig-width: 400px
@@ -41,6 +42,7 @@ digraph family_tree {
     "Relational Calculus" -> "Tuple RC";
     "Relational Calculus" -> "Domain RC";
 }
+```
 
 :::
 ::::

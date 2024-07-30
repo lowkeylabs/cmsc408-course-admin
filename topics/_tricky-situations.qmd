@@ -41,6 +41,7 @@ For example, "Vehicle" could be a supertype of "Car" and "Motorcycle".  As anoth
 :::: {.columns}
 ::: {.column}
 
+```{dot}
 //| echo: false
 //| eval: true
 //| fig-width: 400px
@@ -62,6 +63,7 @@ digraph G {
     Truck -> Vehicle [label="IS_A"];
 }
 
+```
 :::
 ::: {.column}
 
@@ -122,6 +124,7 @@ Key Attributes
 :::: {.columns}
 ::: {.column}
 
+```{dot}
 //| echo: false
 //| fig-height: 250px
 //| fig-width: 400px
@@ -158,6 +161,7 @@ graph ERDiagram {
   Address -- State;
   Address -- Zip;
 }
+```
 :::
 ::: {.column}
 ### In this example
@@ -191,6 +195,7 @@ An *employee* manages other employees. This is a *recursive* relationship. We're
 ::: {.column}
 
 
+```{dot}
 //| echo: false
 //| fig-height: 250px
 //| fig-width: 400px
@@ -222,6 +227,7 @@ graph ERDiagram {
   Manages -- StartDate;
 }
 
+```
 
 :::
 ::::
@@ -245,12 +251,14 @@ An order requires three entities to exist: a customer, a sales_person, and a pro
 :::
 ::: {.column}
 
+```{mermaid}
 %%| echo: false
 erDiagram
     ORDER }o--|| CUSTOMER : places
     ORDER }o--|| SALES_PERSON : places
     ORDER }o--|| PRODUCT : places
 
+```
 
 :::
 ::::

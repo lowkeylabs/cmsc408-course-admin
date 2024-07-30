@@ -1,0 +1,21 @@
+---
+title: About this guide
+---
+
+# Creating this study guide
+
+ChatGPT was used to help curate content for this study guide.  Below are examples of individual prompts and an overview of teh workflow.
+
+ChatGPT version 4o was used.
+
+ChatGPT output, copied using the *copy* button, is formatted as *markdown*.  The markdown content from ChatGPT assembed into one or more QMD (quarto) files and *rendered* to produce this/these HTML files.
+
+** Entity-relationship models **
+
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
+
+I need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered.
+
+
+
+

@@ -1,21 +1,3 @@
 
 # Course summary and closing thoughts
 
-## Housekeeping
-
-:::: {.columns}
-::: {.column}
-- Stuff still due:  HW9, Semester Project
-- Course Evaluation: HW10, Due Monday
-- No in-class final!
-:::
-::: {.column}
-- Self- and Team- evaluation. Due Monday
-- Pizza RSVP and order - Due Sunday!
-:::
-::::
-<p>&nbsp;</p>
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

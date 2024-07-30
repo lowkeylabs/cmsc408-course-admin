@@ -3,6 +3,7 @@
 
 ## Set Operators
 
+```{python}
 #| echo: false
 #| eval: true
 import matplotlib.pyplot as plt
@@ -34,3 +35,4 @@ plt.gca().set_facecolor('none')
 plt.gcf().patch.set_facecolor('none')
 plt.show()
 
+```

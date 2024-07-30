@@ -1,0 +1,90 @@
+---
+title: About this guide
+---
+
+# Creating this study guide
+
+There isn't a single textbook for User Interface design.  ChatGPT was used to help curate content for this study guide.  Below are examples of individual prompts and an overview of teh workflow.
+
+ChatGPT version 3.5 was used.
+
+ChatGPT output, copied using the *copy* button, is formatted as *markdown*.  The markdown content from ChatGPT assembed into one or more QMD (quarto) files and *rendered* to produce this/these HTML files.
+
+**Prompt to create level 1 content**
+
+*Hi chatgpt. I'd like you to play the role of a professor teaching an undergraduate computer science course titled "design and implementation of user interfaces".
+The focus this week is "story boarding and the workflow for user interface design". 
+Please six major topics to be covered. For each topic provide 5 slides of 5 bullets each on the topic.*
+
+This prompt resulted in these top level topics.
+
+1. Introduction to User Interface Design
+2. Principles of Storyboarding
+3. Workflow in UI Design
+4. User-Centered Design Approach
+5. Prototyping and Feedback
+6. Case Studies and Best Practices
+
+For each of these topics, ChatGPT provided 25 subtopics of content.  This content was not organized in any recognizable pattern.
+
+**Prompt to create categories and groups**
+
+*Categorize and group the following topics:*
+
+* topic 1
+* topic 2
+* topic ...
+
+The main topics were assigned to header level 1.  The groups were assigned to header level 2.  The individual topics were assigned to header level 3.
+
+**Prompt to create level 2 content**
+
+*Provide three sentences commenting on: topic goes here*
+
+**Prompt to create level 3 content**
+
+*Provide "five bullets followed by a concluding paragraph of two sentences" for each of the topics below, using the preferred format from above:*
+
+* topic 1
+* topic 2
+* ...
+
+
+**Prompt to create design pattern content**
+
+*Good afternoon, ChatGPT! I’d like you to play the role of a professor teaching an undergraduate computer science course titled “design and implementation of user interfaces”. Our current focus is on OOP design patterns that are most used in User Interface coding.  Please provide a listing of the top 10 patterns in use, ordered in descending order by a estimated count or percentage associated the prevelance of each pattern. Further, I'd like each pattern presented in the following format:*
+
+  *Singleton Pattern (15%)*
+
+  *The Singleton Pattern ensures that a class has only one instance and provides a global point of access to that instance. Often used for managing global resources like a configuration manager or a centralized event bus.*
+
+This prompt resulted in the following list:
+
+1. Observer Pattern
+1. Singleton Pattern
+1. Decorator Pattern
+1. Factory Method Pattern
+1. Builder Pattern
+1. Model-View-Controller (MVC) Pattern
+1. Abstract Factory Pattern
+1. Strategy Pattern
+1. Command Pattern
+1. State Pattern
+
+Additional prompts to create appropriate text were created.  Finally, the following prompt was used to create the code snippets.
+
+**Prompt to create code snippets**
+
+*For this class, we'll be using P5JS and javascript for coding.  For each of the design patterns listed below, please provide a working example for each pattern ready for pasting and running within the P5JS environment.  Please put all class definitions at the top of the each program.*
+
+1. Observer Pattern
+1. Singleton Pattern
+1. Decorator Pattern
+1. Factory Method Pattern
+1. Builder Pattern
+1. Model-View-Controller (MVC) Pattern
+1. Abstract Factory Pattern
+1. Strategy Pattern
+1. Command Pattern
+1. State Pattern
+

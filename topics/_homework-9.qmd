@@ -5,15 +5,3 @@
 
 We're jumping to the command prompt for a review of the homework 9 problem statement.
 
-## Housekeeping
-
-- Homework 9 due next Monday, 12/11.
-- Homework 10 due next Monday, 12/11.
-- Semester Project deliverable 7 - next Monday, 12/11.
-- Canvas: lots of good references
-- Tonight: SQL Injection, VIEWS and Stored Procedures, Homework 9
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

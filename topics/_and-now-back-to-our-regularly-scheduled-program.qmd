@@ -19,6 +19,7 @@ Publishers are entities responsible for releasing books to the public. Each publ
 ::: {.column}
 ### Using graphviz for Chen diagram
 
+```{dot}
 //| echo: true
 //| eval: false
 graph ER {
@@ -37,12 +38,14 @@ graph ER {
   room -- room_number
 	room -- occupant
 }
+```
 
 [Link to graphviz on-line editor](https://dreampuf.github.io/GraphvizOnline/)
 :::
 ::: {.column}
 ### Using mermaid for Crows foot notation
 
+```{mermaid}
 %%| echo: true
 %%| eval: false
 erDiagram
@@ -50,6 +53,7 @@ erDiagram
     ORDER }o--|| SALES_PERSON : places
     ORDER }o--|| PRODUCT : places
 
+```
 
 
 

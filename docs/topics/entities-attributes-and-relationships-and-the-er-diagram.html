@@ -11,7 +11,7 @@
 <script src="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Entities, attributes and relationships and the ER Diagram</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="entities-attributes-and-relationships-and-the-er-diagram_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -324,6 +389,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="entities-attributes-and-relationships-and-the-er-diagram_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
 <body class="quarto-light">
@@ -370,38 +438,193 @@ Relationships illustrate how entities are related to each other. Relationships c
 <h2>Chen notation</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p>//| echo: true //| eval: false graph ER { layout=neato; scale=1.1; node [shape=box]; building; room; node [shape=ellipse]; address, city, state, occupant, room_number node [shape=diamond,style=filled,color=lightgrey]; has</p>
-<pre><code>building -- has [label="1",len=1.00]
-has -- room [label="n",len=1.00]
+<div class="cell" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href=""></a><span class="va">graph</span> <span class="va">ER</span> <span class="ot">{</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">    </span><span class="va">layout</span><span class="ot">=</span><span class="va">neato</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href=""></a><span class="co">  </span><span class="va">scale</span><span class="ot">=</span><span class="dv">1.1</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">];</span><span class="co"> </span><span class="va">building</span><span class="ot">;</span><span class="co"> </span><span class="va">room</span><span class="ot">;</span></span>
+<span id="cb1-5"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">ellipse</span><span class="ot">];</span><span class="co"> </span><span class="va">address</span><span class="co">, </span><span class="va">city</span><span class="co">, </span><span class="va">state</span><span class="co">, </span><span class="va">occupant</span><span class="co">, </span><span class="va">room_number</span></span>
+<span id="cb1-6"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">diamond</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">lightgrey</span><span class="ot">];</span><span class="co"> </span><span class="va">has</span></span>
+<span id="cb1-7"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-8"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">has</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-9"><a href=""></a><span class="co">    </span><span class="va">has</span><span class="co"> -- </span><span class="va">room</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"n"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-10"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-11"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">address</span></span>
+<span id="cb1-12"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">city</span></span>
+<span id="cb1-13"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">state</span></span>
+<span id="cb1-14"><a href=""></a><span class="co">  </span><span class="va">room</span><span class="co"> -- </span><span class="va">room_number</span></span>
+<span id="cb1-15"><a href=""></a><span class="co">    </span><span class="va">room</span><span class="co"> -- </span><span class="va">occupant</span></span>
+<span id="cb1-16"><a href=""></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
 
-building -- address
-building -- city
-building -- state</code></pre>
-<p>room – room_number room – occupant }</p>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:59%;">
-<p>//| echo: false //| eval: true //| fig-width: 500px //| fig-height: 240px graph { layout=neato; scale=1.1; node [shape=box,fontsize=12]; building; room; node [shape=ellipse,fontsize=12]; address, city, state, occupant, room_number node [shape=diamond,fontsize=12,style=filled,color=lightgrey]; has</p>
-<pre><code>building -- has [label="1",len=1.00]
-has -- room [label="n",len=1.00]
-
-building -- address
-building -- city
-building -- state</code></pre>
-<p>room – room_number room – occupant }</p>
-</div></div>
+<div class="cell" data-eval="true" data-fig-width="500px" data-fig-height="240px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="500" height="240" viewbox="0.00 0.00 394.19 234.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.21)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-230.21 390.19,-230.21 390.19,4 -4,4"></polygon>
+<!-- building -->
+<g id="node1" class="node">
+<title>building</title>
+<polygon fill="none" stroke="black" points="140.37,-136.32 84.36,-136.32 84.36,-100.32 140.37,-100.32 140.37,-136.32"></polygon>
+<text text-anchor="middle" x="112.36" y="-114.72" font-family="Times,serif" font-size="12.00">building</text>
+</g>
+<!-- address -->
+<g id="node3" class="node">
+<title>address</title>
+<ellipse fill="none" stroke="black" cx="74.68" cy="-36.21" rx="33.41" ry="18"></ellipse>
+<text text-anchor="middle" x="74.68" y="-32.61" font-family="Times,serif" font-size="12.00">address</text>
+</g>
+<!-- building&#45;&#45;address -->
+<g id="edge3" class="edge">
+<title>building--address</title>
+<path fill="none" stroke="black" d="M104,-100.09C97.67,-86.3 89.02,-67.46 82.76,-53.82"></path>
+</g>
+<!-- city -->
+<g id="node4" class="node">
+<title>city</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-133.06" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-129.46" font-family="Times,serif" font-size="12.00">city</text>
+</g>
+<!-- building&#45;&#45;city -->
+<g id="edge4" class="edge">
+<title>building--city</title>
+<path fill="none" stroke="black" d="M83.94,-123.23C74.04,-124.93 63,-126.84 53.28,-128.52"></path>
+</g>
+<!-- state -->
+<g id="node5" class="node">
+<title>state</title>
+<ellipse fill="none" stroke="black" cx="103.09" cy="-208.21" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="103.09" y="-204.61" font-family="Times,serif" font-size="12.00">state</text>
+</g>
+<!-- building&#45;&#45;state -->
+<g id="edge5" class="edge">
+<title>building--state</title>
+<path fill="none" stroke="black" d="M110.49,-136.51C108.88,-152.1 106.57,-174.46 104.96,-190.04"></path>
+</g>
+<!-- has -->
+<g id="node8" class="node">
+<title>has</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="199.29,-121.71 170.49,-103.71 199.29,-85.71 228.09,-103.71 199.29,-121.71"></polygon>
+<text text-anchor="middle" x="199.29" y="-100.11" font-family="Times,serif" font-size="12.00">has</text>
+</g>
+<!-- building&#45;&#45;has -->
+<g id="edge1" class="edge">
+<title>building--has</title>
+<path fill="none" stroke="black" d="M140.83,-113.53C152.41,-111.59 165.62,-109.37 176.55,-107.53"></path>
+<text text-anchor="middle" x="155.19" y="-114.73" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- room -->
+<g id="node2" class="node">
+<title>room</title>
+<polygon fill="none" stroke="black" points="312.11,-110.53 258.11,-110.53 258.11,-74.53 312.11,-74.53 312.11,-110.53"></polygon>
+<text text-anchor="middle" x="285.11" y="-88.93" font-family="Times,serif" font-size="12.00">room</text>
+</g>
+<!-- occupant -->
+<g id="node6" class="node">
+<title>occupant</title>
+<ellipse fill="none" stroke="black" cx="348.31" cy="-152.48" rx="37.77" ry="18"></ellipse>
+<text text-anchor="middle" x="348.31" y="-148.88" font-family="Times,serif" font-size="12.00">occupant</text>
+</g>
+<!-- room&#45;&#45;occupant -->
+<g id="edge7" class="edge">
+<title>room--occupant</title>
+<path fill="none" stroke="black" d="M304.41,-110.84C312.98,-118.97 322.97,-128.45 331.26,-136.31"></path>
+</g>
+<!-- room_number -->
+<g id="node7" class="node">
+<title>room_number</title>
+<ellipse fill="none" stroke="black" cx="329.91" cy="-18" rx="53.78" ry="18"></ellipse>
+<text text-anchor="middle" x="329.91" y="-14.4" font-family="Times,serif" font-size="12.00">room_number</text>
+</g>
+<!-- room&#45;&#45;room_number -->
+<g id="edge6" class="edge">
+<title>room--room_number</title>
+<path fill="none" stroke="black" d="M295.95,-74.49C303,-62.77 312.14,-47.56 319.16,-35.88"></path>
+</g>
+<!-- has&#45;&#45;room -->
+<g id="edge2" class="edge">
+<title>has--room</title>
+<path fill="none" stroke="black" d="M223.19,-100.6C234.01,-99.19 246.84,-97.52 258,-96.06"></path>
+<text text-anchor="middle" x="237.1" y="-102.53" font-family="Times,serif" font-size="14.00">n</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
 </section>
 <section id="crows-foot-notation" class="slide level2">
 <h2>Crow’s Foot notation</h2>
 <div class="columns">
 <div class="column">
-<p>%%| echo: true %%| eval: false erDiagram BUILDING ||–|{ ROOM : contains</p>
-<p>BUILDING{ string address string city string state }</p>
-<p>ROOM { string room_number string occupants }</p>
+<div class="cell" data-reveal="true" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href=""></a>erDiagram</span>
+<span id="cb2-2"><a href=""></a>BUILDING ||--|{ ROOM : contains</span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>BUILDING{</span>
+<span id="cb2-5"><a href=""></a>  string address</span>
+<span id="cb2-6"><a href=""></a>  string city</span>
+<span id="cb2-7"><a href=""></a>  string state</span>
+<span id="cb2-8"><a href=""></a>}</span>
+<span id="cb2-9"><a href=""></a></span>
+<span id="cb2-10"><a href=""></a>ROOM {</span>
+<span id="cb2-11"><a href=""></a>  string room_number</span>
+<span id="cb2-12"><a href=""></a>  string occupants</span>
+<span id="cb2-13"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column">
-<p>%%| echo: false %%| eval: true erDiagram BUILDING ||–|{ ROOM : contains</p>
-<p>BUILDING{ string address string city string state }</p>
-<p>ROOM { string room_number string occupant }</p>
-</div></div>
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p><a href="https://mermaid.live/edit">Link to mermaid live</a></p>
 </section>
 <section id="cardinality" class="slide level2">
@@ -447,23 +670,6 @@ In partial participation, an instance of the participating entity may or may not
 <p><strong>Prepare ER diagrams for this system using both Chen and Crow’s foot notation.</strong></p>
 <p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
 <p><a href="https://mermaid.live/edit">Link to mermaid live</a></p>
-</section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
-<p>Another busy week, mostly with software set up.</p>
-<ul>
-<li>Start to work on <a href="https://virginiacommonwealth.instructure.com/courses/85746/assignments/725427">homework 2</a>, DUE FRIDAY!</li>
-<li>Review the videos:
-<ul>
-<li>Database design, ER diagramming, ER diagrams to relational tables.</li>
-</ul></li>
-<li>Kick around database ideas with your teammate(s) and begin to draw pictures!</li>
-<li><strong>Quiz 1</strong> next week, topics: Database design, ER diagrams. More details on Wednesday.</li>
-</ul>
-<p>
-&nbsp;
-</p>
-<p>#| echo: false from src.utils import upcoming_calendar # Set the lecture ID and number of rows to show at the top of this file! upcoming_calendar( lecture_id, n_rows )</p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -732,7 +938,18 @@ In partial participation, an instance of the participating entity may or may not
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -764,29 +981,7 @@ In partial participation, an instance of the participating entity may or may not
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -794,7 +989,7 @@ In partial participation, an instance of the participating entity may or may not
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

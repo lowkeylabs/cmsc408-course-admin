@@ -72,6 +72,7 @@ See the [MySQL CREATE TABLE documentation](https://dev.mysql.com/doc/refman/8.0/
 ::: {.column width=48%}
 ### [CREATE TABLE](https://dev.mysql.com/doc/refman/8.0/en/create-table.html)
 
+```sql
 CREATE TABLE instructor (
   ID		int AUTO_INCREMENT,
   full_name	varchar(20) NOT NULL,
@@ -82,6 +83,7 @@ CREATE TABLE instructor (
   FOREIGN KEY (dept_name)
     REFERENCES departments (department_name)
 );
+```
 *indentation and capitalization doesn't matter*
 
 :::
@@ -118,9 +120,11 @@ CREATE TABLE instructor (
 
 ### ALTER TABLE
 
+```{sql}
 ALTER TABLE tbl_name
     [alter_option [, alter_option] ...]
     [partition_options]
+```
 <p>&nbsp;</p>
 
 * Alter options:
@@ -138,9 +142,11 @@ See the [MySQL ALTER TABLE documentation](https://dev.mysql.com/doc/refman/8.0/e
 ::: {.column width=49%}
 ### DROP TABLE
 
+```{sql}
 DROP [TEMPORARY] TABLE [IF EXISTS]
     tbl_name [, tbl_name] ...
     [RESTRICT | CASCADE]
+```
 <p>&nbsp;</p>
 
 * Can drop multiple tables with a single command.
@@ -161,6 +167,7 @@ See the [MySQL DROP TABLE documentation](https://dev.mysql.com/doc/refman/8.0/en
 ::: {.column width=45%}
 ### Crows Foot Diagram
 
+```{mermaid}
 %%| echo: false
 erDiagram
     CITY {
@@ -183,9 +190,11 @@ erDiagram
     STATE ||--|{ CITY : "Has"
     CITY ||--o| STATE : "Is capital of"
     CITY ||--o| COUNTRY : "Is capital of"
+```
 :::
 ::: {.column width=54%}
 ### SQL CREATE
+```{sql}
 
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS city;
@@ -220,6 +229,7 @@ ALTER TABLE state ADD FOREIGN KEY (state_home_country_id) REFERENCES country (co
 ALTER TABLE state ADD FOREIGN KEY (state_capital_city_id) REFERENCES city (city_id);
 ALTER TABLE country ADD FOREIGN KEY (country_capital_city_id) REFERENCES city (city_id);
 
+```
 :::
 ::::
 
@@ -230,6 +240,7 @@ ALTER TABLE country ADD FOREIGN KEY (country_capital_city_id) REFERENCES city (c
 
 ### INSERT INTO syntax
 
+```{sql}
 INSERT INTO relation VALUES (V1, …, VN);
 # Inserts a new row with all the values matching the order of the columns.
 # BAD IN PRACTICE!
@@ -247,6 +258,7 @@ INSERT INTO instructor (ID, name, salary, office)
 INSERT INTO instructor (name, salary, office)
 		      VALUES ('ALBERTO CANO', 9876.5, 'W0465');	-- ID AUTO GENERATED
 
+```
 <p>&nbsp;</p>
 
 See the [MySQL INSERT INTO documentation](https://dev.mysql.com/doc/refman/8.0/en/insert.html
@@ -273,6 +285,7 @@ See the [MySQL INSERT INTO documentation](https://dev.mysql.com/doc/refman/8.0/e
 
 ### UPDATE syntax
 
+```{sql}
 UPDATE [LOW_PRIORITY] [IGNORE] table_reference
     SET assignment_list
     [WHERE where_condition]
@@ -287,6 +300,7 @@ assignment:
 
 assignment_list:
     assignment [, assignment] ...
+```
 <p>&nbsp;</p>
 
 See the [MySQL UPDATE docs](https://dev.mysql.com/doc/refman/8.0/en/update.html)
@@ -294,6 +308,7 @@ See the [MySQL UPDATE docs](https://dev.mysql.com/doc/refman/8.0/en/update.html)
 :::
 ::: {.column width=55%}
 ### UPDATE examples
+```{sql}
 UPDATE instructor SET salary = 4321.00 WHERE ID = 123;
 # SAFE. Will update the salary based on the PRIMARY KEY.
 
@@ -309,6 +324,7 @@ UPDATE instructor SET salary = salary * 1.05;
 # DANGER! Will update everyone’s 
 # salary +5% respectively.
 
+```
 
 :::
 ::::
@@ -321,6 +337,7 @@ UPDATE instructor SET salary = salary * 1.05;
 ### DELETE
 
  Opposite of SELECT with many common arguments.
+```{sql}
 DELETE [LOW_PRIORITY] [QUICK] [IGNORE]
   FROM tbl_name [[AS] tbl_alias]
   [PARTITION (partition_name [, partition_name] ...)]
@@ -334,6 +351,7 @@ DELETE FROM instructor
  WHERE last_name like 'LEON%';
 
 DELETE FROM employee where id=101;
+```
 <p>&nbsp;</p>
 
 See the [MySQL DELETE statement docs](https://dev.mysql.com/doc/refman/8.0/en/delete.html)
@@ -346,8 +364,10 @@ See the [MySQL DELETE statement docs](https://dev.mysql.com/doc/refman/8.0/en/de
 
 Removes all rows in a table and resets metadata (counters, indexes, etc)
 
+```{sql}
 TRUNCATE TABLE instructor;
 
+```
 <p>&nbsp;</p>
 
 See the [MySQL TRUNCATE docs ](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html)
@@ -359,9 +379,11 @@ See the [MySQL TRUNCATE docs ](https://dev.mysql.com/doc/refman/8.0/en/truncate-
 
 Removes table from the database.
 
+```{sql}
 DROP TABLE instuctor;
 DROP TABLE IF EXISTS country;
 
+```
 <p>&nbsp;</p>
 
 See the [MySQL DROP TABLE docs](https://dev.mysql.com/doc/refman/8.0/en/drop-table.html)
@@ -372,6 +394,7 @@ See the [MySQL DROP TABLE docs](https://dev.mysql.com/doc/refman/8.0/en/drop-tab
 
 ## Large DDL example
 
+```{sql}
 CREATE TABLE job_grades (
 grade_level VARCHAR(3),
 lowest_sal  FLOAT,
@@ -781,6 +804,7 @@ BEGIN
   END IF;
 END;
 //
+```
 
 ## DDL and DML summary
 
@@ -819,16 +843,3 @@ all the commands.
 :::
 ::::
 
-## Housekeeping
-
-- Homework 6 - due next Sunday, 10/29
-- Open computer session - Noon-4pm tomorrow, 10/24 in ERB
-- Autograder not open yet.  Will show 0/10 until open it.
-- Quiz - SQL - next Wednesday, Nov. 1st.  Same routine.  Practice quiz soon.
-- Changes to [Course Schedule.](https://virginiacommonwealth.instructure.com/courses/85746/pages/intro-course-schedule)
-
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

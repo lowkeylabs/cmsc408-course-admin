@@ -32,14 +32,3 @@ Researchers, policymakers, analysts and *students in CMSC 508* use the WDI to tr
 - <https://cmsc508.com/phpmyadmin>
 
 
-## Housekeeping
-
-* Homeworks 7 and 8 - turn them in!
-* Homework 9 - SQL Funhouse, due 12/11 (last day of class)
-* Semester project - due 12/11 (last day of class)
-
-
-#| echo: false
-from src.utils import upcoming_calendar
-# Set the lecture ID and number of rows to show at the top of this file!
-upcoming_calendar( lecture_id, n_rows )

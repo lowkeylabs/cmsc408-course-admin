@@ -11,7 +11,7 @@
 <script src="tricky-situations_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="tricky-situations_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="tricky-situations_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Tricky situations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -324,6 +324,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="tricky-situations_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="tricky-situations_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="tricky-situations_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
 <body class="quarto-light">
@@ -372,26 +375,88 @@ Entities can be generalized or specialized. This can help improve data integrity
 <p>
 </p><p>For example, “Vehicle” could be a supertype of “Car” and “Motorcycle”. As another example, <em>Employee</em> can be the supertype and subtypes might include <em>engineer</em>, <em>salesperson</em>, <em>manager</em>.</p>
 <p><em>ask chatgpt: in er diagrams, why to supertype and subtypes matter?</em></p>
-</div></div>
+</div>
+</div>
 </section>
 <section id="tricky-situations---entities-1" class="slide level2">
 <h2>Tricky situations - Entities</h2>
 <div class="columns">
 <div class="column">
-<p>//| echo: false //| eval: true //| fig-width: 400px digraph G { graph [rankdir=TB]; node [shape=record];</p>
-<pre><code>// Define the supertype
-Vehicle [label="{Vehicle | Vehicle_ID : int \l Brand : string \l Model : string \l Year : int \l }"];
-
-// Define the subtypes
-Car [label="{Car | Seating_Capacity : int \l Number_of_Doors : int \l }"];
-Motorcycle [label="{Motorcycle | Type : string \l has_Sidecar : bool \l }"];
-Truck [label="{Truck | Payload_Capacity : int \l Number_of_Axles : int \l }"];
-
-// Indicate subtype-supertype relationships
-Car -&gt; Vehicle [label="IS_A"];
-Motorcycle -&gt; Vehicle [label="IS_A"];
-Truck -&gt; Vehicle [label="IS_A"];</code></pre>
-<p>}</p>
+<div class="cell" data-eval="true" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="480" viewbox="0.00 0.00 477.65 229.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 225.2)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-225.2 473.65,-225.2 473.65,4 -4,4"></polygon>
+<!-- Vehicle -->
+<g id="node1" class="node">
+<title>Vehicle</title>
+<polygon fill="none" stroke="black" points="179.98,-0.5 179.98,-100.5 290.45,-100.5 290.45,-0.5 179.98,-0.5"></polygon>
+<text text-anchor="middle" x="235.21" y="-83.9" font-family="Times,serif" font-size="14.00">Vehicle</text>
+<polyline fill="none" stroke="black" points="179.98,-75.7 290.45,-75.7 "></polyline>
+<text text-anchor="start" x="187.98" y="-59.1" font-family="Times,serif" font-size="14.00">Vehicle_ID : int </text>
+<text text-anchor="start" x="187.98" y="-42.3" font-family="Times,serif" font-size="14.00"> Brand : string </text>
+<text text-anchor="start" x="187.98" y="-25.5" font-family="Times,serif" font-size="14.00"> Model : string </text>
+<text text-anchor="start" x="187.98" y="-8.7" font-family="Times,serif" font-size="14.00"> Year : int </text>
+</g>
+<!-- Car -->
+<g id="node2" class="node">
+<title>Car</title>
+<polygon fill="none" stroke="black" points="0,-154.3 0,-220.7 154.43,-220.7 154.43,-154.3 0,-154.3"></polygon>
+<text text-anchor="middle" x="77.21" y="-204.1" font-family="Times,serif" font-size="14.00">Car</text>
+<polyline fill="none" stroke="black" points="0,-195.9 154.43,-195.9 "></polyline>
+<text text-anchor="start" x="8" y="-179.3" font-family="Times,serif" font-size="14.00">Seating_Capacity : int </text>
+<text text-anchor="start" x="8" y="-162.5" font-family="Times,serif" font-size="14.00"> Number_of_Doors : int </text>
+</g>
+<!-- Car&#45;&gt;Vehicle -->
+<g id="edge1" class="edge">
+<title>Car-&gt;Vehicle</title>
+<path fill="none" stroke="black" d="M115.06,-154.16C132.15,-139.57 152.8,-121.92 172.12,-105.41"></path>
+<polygon fill="black" stroke="black" points="174.41,-108.06 179.73,-98.9 169.86,-102.74 174.41,-108.06"></polygon>
+<text text-anchor="middle" x="170.99" y="-123.2" font-family="Times,serif" font-size="14.00">IS_A</text>
+</g>
+<!-- Motorcycle -->
+<g id="node3" class="node">
+<title>Motorcycle</title>
+<polygon fill="none" stroke="black" points="172,-154.3 172,-220.7 298.42,-220.7 298.42,-154.3 172,-154.3"></polygon>
+<text text-anchor="middle" x="235.21" y="-204.1" font-family="Times,serif" font-size="14.00">Motorcycle</text>
+<polyline fill="none" stroke="black" points="172,-195.9 298.42,-195.9 "></polyline>
+<text text-anchor="start" x="180" y="-179.3" font-family="Times,serif" font-size="14.00">Type : string </text>
+<text text-anchor="start" x="180" y="-162.5" font-family="Times,serif" font-size="14.00"> has_Sidecar : bool </text>
+</g>
+<!-- Motorcycle&#45;&gt;Vehicle -->
+<g id="edge2" class="edge">
+<title>Motorcycle-&gt;Vehicle</title>
+<path fill="none" stroke="black" d="M235.21,-154.16C235.21,-141.17 235.21,-125.77 235.21,-110.9"></path>
+<polygon fill="black" stroke="black" points="238.71,-110.72 235.21,-100.72 231.71,-110.72 238.71,-110.72"></polygon>
+<text text-anchor="middle" x="249.99" y="-123.2" font-family="Times,serif" font-size="14.00">IS_A</text>
+</g>
+<!-- Truck -->
+<g id="node4" class="node">
+<title>Truck</title>
+<polygon fill="none" stroke="black" points="316.78,-154.3 316.78,-220.7 469.65,-220.7 469.65,-154.3 316.78,-154.3"></polygon>
+<text text-anchor="middle" x="393.21" y="-204.1" font-family="Times,serif" font-size="14.00">Truck</text>
+<polyline fill="none" stroke="black" points="316.78,-195.9 469.65,-195.9 "></polyline>
+<text text-anchor="start" x="324.78" y="-179.3" font-family="Times,serif" font-size="14.00">Payload_Capacity : int </text>
+<text text-anchor="start" x="324.78" y="-162.5" font-family="Times,serif" font-size="14.00"> Number_of_Axles : int </text>
+</g>
+<!-- Truck&#45;&gt;Vehicle -->
+<g id="edge3" class="edge">
+<title>Truck-&gt;Vehicle</title>
+<path fill="none" stroke="black" d="M355.37,-154.16C338.28,-139.57 317.63,-121.92 298.31,-105.41"></path>
+<polygon fill="black" stroke="black" points="300.57,-102.74 290.69,-98.9 296.02,-108.06 300.57,-102.74"></polygon>
+<text text-anchor="middle" x="346.99" y="-123.2" font-family="Times,serif" font-size="14.00">IS_A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column">
 <h3 id="in-this-example">In this example</h3>
 <ul>
@@ -402,7 +467,8 @@ Truck -&gt; Vehicle [label="IS_A"];</code></pre>
 <li><p>However, you must ensure that care is taken when deleting to ensure that you don’t get vehicles without subtypes!</p></li>
 <li><p>You can’t directly query vehicle without a connection back to the subtype entity! Modeling the <em>is_a</em> relationship is key.</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="tricky-situations---attributes" class="slide level2">
 <h2>Tricky situations - Attributes</h2>
@@ -439,19 +505,113 @@ These are attributes that can be derived from other attributes in the database.
 Primary keys, foreign keys serve as attributes that help uniquely entities.
 </dd>
 </dl>
-</div></div>
+</div>
+</div>
 </section>
 <section id="tricky-situations---attributes-1" class="slide level2">
 <h2>Tricky situations - Attributes</h2>
 <div class="columns">
 <div class="column">
-<p>//| echo: false //| fig-height: 250px //| fig-width: 400px graph ERDiagram { layout=neato; scale=1.3; // Basic styling node [style=filled, fillcolor=lightyellow];</p>
-<p>// Entity Person [shape=box, label=“Person”];</p>
-<p>// Composite attribute for Name Name [shape=ellipse, label=“Name”]; FirstName [shape=ellipse, label=“FirstName”]; LastName [shape=ellipse, label=“LastName”];</p>
-<p>// Multivalued composite attribute for Address Address [shape=doublecircle, label=“Address”]; City [shape=ellipse, label=“City”]; State [shape=ellipse, label=“State”]; Zip [shape=ellipse, label=“Zip”];</p>
-<p>// Connect entity to attributes Person – Name; Person – Address;</p>
-<p>// Connect composite attribute Name to its components Name – FirstName; Name – LastName;</p>
-<p>// Connect multivalued composite attribute Address to its components Address – City; Address – State; Address – Zip; }</p>
+<div class="cell" data-fig-height="250px" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="250" viewbox="0.00 0.00 431.17 381.90" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 377.9)">
+<title>ERDiagram</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-377.9 427.17,-377.9 427.17,4 -4,4"></polygon>
+<!-- Person -->
+<g id="node1" class="node">
+<title>Person</title>
+<polygon fill="lightyellow" stroke="black" points="221.17,-202.37 166.95,-202.37 166.95,-166.37 221.17,-166.37 221.17,-202.37"></polygon>
+<text text-anchor="middle" x="194.06" y="-180.17" font-family="Times,serif" font-size="14.00">Person</text>
+</g>
+<!-- Name -->
+<g id="node2" class="node">
+<title>Name</title>
+<ellipse fill="lightyellow" stroke="black" cx="269.57" cy="-253.37" rx="34.19" ry="18"></ellipse>
+<text text-anchor="middle" x="269.57" y="-249.17" font-family="Times,serif" font-size="14.00">Name</text>
+</g>
+<!-- Person&#45;&#45;Name -->
+<g id="edge1" class="edge">
+<title>Person--Name</title>
+<path fill="none" stroke="black" d="M213.9,-202.5C225.78,-213.36 240.75,-227.04 252.18,-237.47"></path>
+</g>
+<!-- Address -->
+<g id="node5" class="node">
+<title>Address</title>
+<ellipse fill="lightyellow" stroke="black" cx="119.84" cy="-111.29" rx="42.86" ry="42.86"></ellipse>
+<ellipse fill="none" stroke="black" cx="119.84" cy="-111.29" rx="46.87" ry="46.87"></ellipse>
+<text text-anchor="middle" x="119.84" y="-107.09" font-family="Times,serif" font-size="14.00">Address</text>
+</g>
+<!-- Person&#45;&#45;Address -->
+<g id="edge2" class="edge">
+<title>Person--Address</title>
+<path fill="none" stroke="black" d="M175.71,-166.31C168.93,-159.63 161.01,-151.83 153.31,-144.24"></path>
+</g>
+<!-- FirstName -->
+<g id="node3" class="node">
+<title>FirstName</title>
+<ellipse fill="lightyellow" stroke="black" cx="371.36" cy="-238.07" rx="51.61" ry="18"></ellipse>
+<text text-anchor="middle" x="371.36" y="-233.87" font-family="Times,serif" font-size="14.00">FirstName</text>
+</g>
+<!-- Name&#45;&#45;FirstName -->
+<g id="edge3" class="edge">
+<title>Name--FirstName</title>
+<path fill="none" stroke="black" d="M302.62,-248.4C309.35,-247.39 316.57,-246.31 323.69,-245.23"></path>
+</g>
+<!-- LastName -->
+<g id="node4" class="node">
+<title>LastName</title>
+<ellipse fill="lightyellow" stroke="black" cx="262.57" cy="-355.9" rx="50.94" ry="18"></ellipse>
+<text text-anchor="middle" x="262.57" y="-351.7" font-family="Times,serif" font-size="14.00">LastName</text>
+</g>
+<!-- Name&#45;&#45;LastName -->
+<g id="edge4" class="edge">
+<title>Name--LastName</title>
+<path fill="none" stroke="black" d="M268.32,-271.7C267.04,-290.36 265.08,-319.13 263.81,-337.73"></path>
+</g>
+<!-- City -->
+<g id="node6" class="node">
+<title>City</title>
+<ellipse fill="lightyellow" stroke="black" cx="27.67" cy="-165.2" rx="27.85" ry="18"></ellipse>
+<text text-anchor="middle" x="27.67" y="-161" font-family="Times,serif" font-size="14.00">City</text>
+</g>
+<!-- Address&#45;&#45;City -->
+<g id="edge5" class="edge">
+<title>Address--City</title>
+<path fill="none" stroke="black" d="M79.42,-134.93C68.68,-141.22 57.52,-147.74 48.33,-153.12"></path>
+</g>
+<!-- State -->
+<g id="node7" class="node">
+<title>State</title>
+<ellipse fill="lightyellow" stroke="black" cx="47.15" cy="-39.2" rx="30.19" ry="18"></ellipse>
+<text text-anchor="middle" x="47.15" y="-35" font-family="Times,serif" font-size="14.00">State</text>
+</g>
+<!-- Address&#45;&#45;State -->
+<g id="edge6" class="edge">
+<title>Address--State</title>
+<path fill="none" stroke="black" d="M86.48,-78.2C78.27,-70.06 69.85,-61.71 62.92,-54.84"></path>
+</g>
+<!-- Zip -->
+<g id="node8" class="node">
+<title>Zip</title>
+<ellipse fill="lightyellow" stroke="black" cx="171.84" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="171.84" y="-13.8" font-family="Times,serif" font-size="14.00">Zip</text>
+</g>
+<!-- Address&#45;&#45;Zip -->
+<g id="edge7" class="edge">
+<title>Address--Zip</title>
+<path fill="none" stroke="black" d="M142.65,-70.37C149.53,-58.03 156.71,-45.15 162.22,-35.25"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column">
 <h3 id="in-this-example-1">In this example</h3>
 <ul>
@@ -459,7 +619,8 @@ Primary keys, foreign keys serve as attributes that help uniquely entities.
 <li><p><em>name</em> is a composite attribute, with subattributes first name and last name.</p></li>
 <li><p><em>address</em> is a multi-valued attribute, that is, each person can have multiple addresses. Each address is a composite attribute with city, state and zip.</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="tricky-situations---relationships" class="slide level2">
 <h2>Tricky situations - Relationships</h2>
@@ -481,14 +642,79 @@ When a many-to-many relationship exists, it often helps to introduce an associat
 <h3 id="in-this-example-2">In this example</h3>
 <p>An <em>employee</em> manages other employees. This is a <em>recursive</em> relationship. We’re also keeping track of the start date of the management relationshpi using an <em>associative entity</em>.</p>
 </div><div class="column">
-<p>//| echo: false //| fig-height: 250px //| fig-width: 400px graph ERDiagram { layout=“neato”; scale=1.3 // Basic styling node [style=filled, fillcolor=lightyellow];</p>
-<p>// Entity Employee [shape=box, label=“Employee”];</p>
-<p>// Attributes for Entity EmpID [shape=ellipse, label=“EmpID”]; Name [shape=ellipse, label=“Name”];</p>
-<p>// Relationship Manages [shape=diamond, label=“Manages”, fillcolor=lightgray];</p>
-<p>// Attribute for Relationship StartDate [shape=ellipse, label=“StartDate”];</p>
-<p>// Connect entity to attributes Employee – EmpID; Employee – Name;</p>
-<p>// Recursive relationship with diamond and its attribute Employee – Manages – Employee; Manages – StartDate; }</p>
-</div></div>
+<div class="cell" data-fig-height="250px" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="250" viewbox="0.00 0.00 250.97 297.08" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 293.08)">
+<title>ERDiagram</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-293.08 246.97,-293.08 246.97,4 -4,4"></polygon>
+<!-- Employee -->
+<g id="node1" class="node">
+<title>Employee</title>
+<polygon fill="lightyellow" stroke="black" points="153.05,-94.15 80.53,-94.15 80.53,-58.15 153.05,-58.15 153.05,-94.15"></polygon>
+<text text-anchor="middle" x="116.79" y="-71.95" font-family="Times,serif" font-size="14.00">Employee</text>
+</g>
+<!-- EmpID -->
+<g id="node2" class="node">
+<title>EmpID</title>
+<ellipse fill="lightyellow" stroke="black" cx="203.5" cy="-24.16" rx="39.43" ry="18"></ellipse>
+<text text-anchor="middle" x="203.5" y="-19.96" font-family="Times,serif" font-size="14.00">EmpID</text>
+</g>
+<!-- Employee&#45;&#45;EmpID -->
+<g id="edge1" class="edge">
+<title>Employee--EmpID</title>
+<path fill="none" stroke="black" d="M147.12,-57.97C157.67,-51.64 169.35,-44.64 179.34,-38.65"></path>
+</g>
+<!-- Name -->
+<g id="node3" class="node">
+<title>Name</title>
+<ellipse fill="lightyellow" stroke="black" cx="34.09" cy="-18" rx="34.19" ry="18"></ellipse>
+<text text-anchor="middle" x="34.09" y="-13.8" font-family="Times,serif" font-size="14.00">Name</text>
+</g>
+<!-- Employee&#45;&#45;Name -->
+<g id="edge2" class="edge">
+<title>Employee--Name</title>
+<path fill="none" stroke="black" d="M91.08,-58.07C79.42,-49.87 65.81,-40.3 54.81,-32.57"></path>
+</g>
+<!-- Manages -->
+<g id="node4" class="node">
+<title>Manages</title>
+<polygon fill="lightgray" stroke="black" points="112.69,-193.9 47.87,-175.9 112.69,-157.9 177.5,-175.9 112.69,-193.9"></polygon>
+<text text-anchor="middle" x="112.69" y="-171.7" font-family="Times,serif" font-size="14.00">Manages</text>
+</g>
+<!-- Employee&#45;&#45;Manages -->
+<g id="edge3" class="edge">
+<title>Employee--Manages</title>
+<path fill="none" stroke="black" d="M110.68,-94.22C108.02,-112.59 106.91,-140.84 108.18,-158.83"></path>
+</g>
+<!-- Manages&#45;&#45;Employee -->
+<g id="edge4" class="edge">
+<title>Manages--Employee</title>
+<path fill="none" stroke="black" d="M118.6,-159.19C121.34,-141.26 122.55,-112.88 121.38,-94.38"></path>
+</g>
+<!-- StartDate -->
+<g id="node5" class="node">
+<title>StartDate</title>
+<ellipse fill="lightyellow" stroke="black" cx="113.68" cy="-271.08" rx="47.51" ry="18"></ellipse>
+<text text-anchor="middle" x="113.68" y="-266.88" font-family="Times,serif" font-size="14.00">StartDate</text>
+</g>
+<!-- Manages&#45;&#45;StartDate -->
+<g id="edge5" class="edge">
+<title>Manages--StartDate</title>
+<path fill="none" stroke="black" d="M112.88,-194.25C113.05,-211.1 113.31,-235.95 113.49,-252.78"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="tricky-situations---relationships-1" class="slide level2">
 <h2>Tricky situations - Relationships</h2>
@@ -507,8 +733,24 @@ More complex relationships that involve more than two entities.
 <h3 id="in-this-example-3">In this example</h3>
 <p>An order requires three entities to exist: a customer, a sales_person, and a product.</p>
 </div><div class="column">
-<p>%%| echo: false erDiagram ORDER }o–|| CUSTOMER : places ORDER }o–|| SALES_PERSON : places ORDER }o–|| PRODUCT : places</p>
-</div></div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    ORDER }o--|| CUSTOMER : places
+    ORDER }o--|| SALES_PERSON : places
+    ORDER }o--|| PRODUCT : places
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -777,7 +1019,18 @@ More complex relationships that involve more than two entities.
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -809,29 +1062,7 @@ More complex relationships that involve more than two entities.
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -839,7 +1070,7 @@ More complex relationships that involve more than two entities.
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

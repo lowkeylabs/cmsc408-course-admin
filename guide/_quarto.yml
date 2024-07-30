@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: ../docs/guide
+
+format:
+  html:
+    toc: true
+    css: guide.css
+#    theme: cosmo
+
+website:
+  title: "Guide"
+  page-navigation: true
+  bread-crumbs: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: ../gallery/index.html
+        text: Gallery
+        target: "_blank"
+      - href: about.qmd
+        text: About
+  sidebar:
+    collapse-level: 1
+#    contents:
+#      - section: UI Overview
+#        contents:
+#        - href: ui-design/intro-to-ui-design.qmd
+#          text: Introduction*
+#        - href: ui-design/design-build.qmd
+#          text: UX/UI Workflow*
+#        - href: ui-design/challenges.qmd
+#          text: Challenges
+#        - href: ui-design/emerging-trends.qmd
+#          text: Emerging Trends
+#        - href: mastering-ui-design/ui-trends.qmd
+#          text: Emerging Trends Examples

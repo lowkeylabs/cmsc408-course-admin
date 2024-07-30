@@ -54,6 +54,7 @@ APIs are widely used in various industries and applications. For example:
 
 Python provides libraries like requests that make it easy to send HTTP requests. Here's a basic example of making a GET request using the requests library:
 
+```{python}
 #| eval: false
 #| echo: true
 import requests
@@ -65,11 +66,13 @@ if response.status_code == 200:
     print(data)
 else:
     print("Request failed with status code:", response.status_code)
+```
 
 ## Making API calls using Python
 
 ### Sample API response
 
+```{python}
 #| eval: true
 #| echo: false
 import requests
@@ -81,11 +84,13 @@ if response.status_code == 200:
     print(data)
 else:
     print("Request failed with status code:", response.status_code)
+```
 
 ## Posting to an API
 
 To make an HTTP POST request, you use the post() method of the requests library. POST requests are typically used to send data to a server. Here's an example:
 
+```python
 import requests
 
 data = {"name": "John", "age": 30}
@@ -96,6 +101,7 @@ if response.status_code == 201:
     print("User added successfully.")
 else:
     print("Request failed with status code:", response.status_code)
+```
 
 ## Authentication and API keys
 
@@ -172,6 +178,7 @@ Using:  <https://www.weatherapi.com>
 
 ### the API request
 
+```{python}
 #| eval: false
 #| echo: true
 import os
@@ -207,6 +214,7 @@ except requests.exceptions.RequestException as e:
 except ValueError as e:
     # Handle JSON decoding errors
     print(f"Error decoding JSON: {e}")
+```
 
 ## Authentication example in query string
 
@@ -214,6 +222,7 @@ Using:  <https://www.weatherapi.com/>
 
 ### the API response
 
+```{python}
 #| eval: true
 #| echo: false
 import os
@@ -249,10 +258,13 @@ except requests.exceptions.RequestException as e:
 except ValueError as e:
     # Handle JSON decoding errors
     print(f"Error decoding JSON: {e}")
+```
 
 ### Sample url with key for exploration in browser
 
+```{python}
 print(f"{api_url}\n")
+```
 
 ## Working with JSON data
 
@@ -280,6 +292,7 @@ JSON is also language-independent, making it easy to work with across different 
 
 ### Sample decoding a python dictionary converted from JSON
 
+```{python}
 #| eval: false
 #| echo: true
 print(f"""
@@ -288,14 +301,17 @@ at {data['location']['localtime']}
 is:\n\n
 {data['current']['temp_f']}(f) and {data['current']['condition']['text']}
 """)
+```
 
+```{python}
 #| eval: true
 #| echo: false
-print(f"""
-Weather in {data['location']['name']} 
-at {data['location']['localtime']} is:\n\n
-{data['current']['temp_f']}(f) and {data['current']['condition']['text']}
-""")
+#print(f"""
+#Weather in {data['location']['name']} 
+#at {data['location']['localtime']} is:\n\n
+#{data['current']['temp_f']}(f) and {data['current']['condition']['text']}
+#""")
+```
 
 
 ## Working with JSON data
@@ -305,6 +321,7 @@ at {data['location']['localtime']} is:\n\n
 :::: {.columns}
 ::: {.column}
 
+```{python}
 #| eval: true
 #| echo: false
 import requests
@@ -316,6 +333,8 @@ if response.status_code == 200:
     #print(data)
 else:
     print("Request failed with status code:", response.status_code)
+```
+```{python}
 #| eval: false
 #| echo: true
 from IPython.display import Markdown
@@ -324,6 +343,7 @@ from IPython.display import Markdown
 Markdown(f"""
 ![{data['name']}]({data['image']}){width=250}
 """)
+```
 
 The [Markdown function](https://quarto.org/docs/prerelease/1.4/script.html#generating-markdown) is very handy when wanting to convert
 the results into markdown for processing AFTER python script is done.
@@ -335,6 +355,7 @@ create the yearbook. There are many ways to solve the problem!
 
 :::
 ::: {.column}
+```{python}
 #| eval: true
 #| echo: false
 from IPython.display import Markdown
@@ -342,6 +363,7 @@ from IPython.display import Markdown
 Markdown(f"""
 ![{data['name']}]({data['image']}){{width=250}}
 """)
+```
 
 :::
 ::::

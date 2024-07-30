@@ -11,7 +11,7 @@
 <script src="relational-models_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="relational-models_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="relational-models_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Relational Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="relational-models_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -324,6 +389,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="relational-models_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="relational-models_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="relational-models_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
 <body class="quarto-light">
@@ -354,13 +422,30 @@
 <li>A complete definition entities, attributes and relations, along with any data types and constraints is called a <strong>schema</strong>.</li>
 </ul>
 </div><div class="column">
-<p>CREATE TABLE students ( student_id INT PRIMARY KEY, name VARCHAR(100), year INT );</p>
-<p>CREATE TABLE courses ( course_id INT PRIMARY KEY, title VARCHAR(100), credit_hours INT );</p>
-<p>CREATE TABLE student_courses ( student_id INT, course_id INT, FOREIGN KEY (student_id) REFERENCES students(student_id), FOREIGN KEY (course_id) REFERENCES courses(course_id), PRIMARY KEY (student_id, course_id) );</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>CREATE TABLE students (</span>
+<span id="cb1-2"><a href=""></a>    student_id INT PRIMARY KEY,</span>
+<span id="cb1-3"><a href=""></a>    name VARCHAR(100),</span>
+<span id="cb1-4"><a href=""></a>    year INT</span>
+<span id="cb1-5"><a href=""></a>);</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a>CREATE TABLE courses (</span>
+<span id="cb1-8"><a href=""></a>    course_id INT PRIMARY KEY,</span>
+<span id="cb1-9"><a href=""></a>    title VARCHAR(100),</span>
+<span id="cb1-10"><a href=""></a>    credit_hours INT</span>
+<span id="cb1-11"><a href=""></a>);</span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a>CREATE TABLE student_courses (</span>
+<span id="cb1-14"><a href=""></a>    student_id INT,</span>
+<span id="cb1-15"><a href=""></a>    course_id INT,</span>
+<span id="cb1-16"><a href=""></a>    FOREIGN KEY (student_id) REFERENCES students(student_id),</span>
+<span id="cb1-17"><a href=""></a>    FOREIGN KEY (course_id) REFERENCES courses(course_id),</span>
+<span id="cb1-18"><a href=""></a>    PRIMARY KEY (student_id, course_id)</span>
+<span id="cb1-19"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px">
 <p>In the example above, we define two entities: students and courses, and establish a many-to-many relationship between them. The relationships are documented in a separate table with foreign keys. The individual rows in the student-courses table represent pairs of students and courses or “student-course tuples”.</p>
 </div>
-</div></div>
+</div>
+</div>
 </section>
 <section id="relational-model---attributes" class="slide level2">
 <h2>Relational Model - Attributes</h2>
@@ -399,7 +484,8 @@
 <li>course( id [PK], title, credit_hours)</li>
 <li>student_course( id [PK], student_id[FK], course_id[FK])</li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="relational-model---attribute-example-with-data" class="slide level2">
 <h2>Relational Model - Attribute example with data</h2>
@@ -414,152 +500,101 @@
 <li><p>Does the column order matter?</p></li>
 </ul>
 </div><div class="column" style="width:70%;">
-<p>//| echo: false //| fig-width: 550px //| fig-height: 250px digraph RelationalDataModel {</p>
-<pre><code>graph [nodesep=0.0 bgcolor=transparent]
-node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
-
-student [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-<b>Students</b>
-</td>
-</tr>
-<tr>
-<td>
-<b>name</b>
-</td>
-<td>
-<b>year</b>
-</td>
-<td>
-<b>id</b>
-</td>
-</tr>
-<tr>
-<td align="left">
-Amara Singh
-</td>
-<td>
-1991
-</td>
-<td port="r1">
-1
-</td>
-</tr>
-<tr>
-<td align="left">
-Youssef El-Mohamed
-</td>
-<td>
-1987
-</td>
-<td port="r2">
-2
-</td>
-</tr>
-<tr>
-<td align="left">
-Chen Wei
-</td>
-<td>
-1978
-</td>
-<td port="r3">
-3
-</td>
-</tr>
-<tr>
-<td align="left">
-Olga Petrova
-</td>
-<td>
-NULL
-</td>
-<td port="r4">
-4
-</td>
-</tr>
-<tr>
-<td align="left">
-Kwame Nkrumah
-</td>
-<td>
-1965
-</td>
-<td port="r5">
-5
-</td>
-</tr>
-<tr>
-<td align="left">
-Luc�a Gonz�lez
-</td>
-<td>
-1980
-</td>
-<td port="r6">
-6
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];
-
-course [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-<b>Courses</b>
-</td>
-</tr>
-<tr>
-<td>
-<b>id</b>
-</td>
-<td>
-<b>name</b>
-</td>
-<td>
-<b>hours</b>
-</td>
-</tr>
-<tr>
-<td port="c1">
-1
-</td>
-<td>
-CMSC391
-</td>
-<td>
-3
-</td>
-</tr>
-<tr>
-<td port="c2">
-2
-</td>
-<td>
-CMSC475
-</td>
-<td>
-3
-</td>
-</tr>
-<tr>
-<td port="c3">
-3
-</td>
-<td>
-CMSC508
-</td>
-<td>
-3
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];</code></pre>
-<p>}</p>
-</div></div>
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 286.50 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 154,-148 154,-130 8,-130"></polygon>
+<text text-anchor="start" x="59.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 109,-130 109,-112 8,-112"></polygon>
+<text text-anchor="start" x="45.44" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109,-112 109,-130 140,-130 140,-112 109,-112"></polygon>
+<text text-anchor="start" x="114.21" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140,-112 140,-130 154,-130 154,-112 140,-112"></polygon>
+<text text-anchor="start" x="142.56" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 109,-112 109,-94 8,-94"></polygon>
+<text text-anchor="start" x="11" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109,-94 109,-112 140,-112 140,-94 109,-94"></polygon>
+<text text-anchor="start" x="113.38" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140,-94 140,-112 154,-112 154,-94 140,-94"></polygon>
+<text text-anchor="start" x="144.22" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 109,-94 109,-76 8,-76"></polygon>
+<text text-anchor="start" x="10.7" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109,-76 109,-94 140,-94 140,-76 109,-76"></polygon>
+<text text-anchor="start" x="113.38" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140,-76 140,-94 154,-94 154,-76 140,-76"></polygon>
+<text text-anchor="start" x="144.22" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 109,-76 109,-58 8,-58"></polygon>
+<text text-anchor="start" x="11" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109,-58 109,-76 140,-76 140,-58 109,-58"></polygon>
+<text text-anchor="start" x="113.38" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140,-58 140,-76 154,-76 154,-58 140,-58"></polygon>
+<text text-anchor="start" x="144.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 109,-58 109,-40 8,-40"></polygon>
+<text text-anchor="start" x="11" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109,-40 109,-58 140,-58 140,-40 109,-40"></polygon>
+<text text-anchor="start" x="111.72" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-40 140,-58 154,-58 154,-40 140,-40"></polygon>
+<text text-anchor="start" x="144.22" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 109,-40 109,-22 8,-22"></polygon>
+<text text-anchor="start" x="11" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109,-22 109,-40 140,-40 140,-22 109,-22"></polygon>
+<text text-anchor="start" x="113.38" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140,-22 140,-40 154,-40 154,-22 140,-22"></polygon>
+<text text-anchor="start" x="144.22" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 109,-22 109,-4 8,-4"></polygon>
+<text text-anchor="start" x="11" y="-10" font-family="Arial" font-size="10.00">Luc�a Gonz�lez</text>
+<polygon fill="none" stroke="cyan" points="109,-4 109,-22 140,-22 140,-4 109,-4"></polygon>
+<text text-anchor="start" x="113.38" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140,-4 140,-22 154,-22 154,-4 140,-4"></polygon>
+<text text-anchor="start" x="144.22" y="-10" font-family="Arial" font-size="10.00">6</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 271,-121 271,-103 172,-103"></polygon>
+<text text-anchor="start" x="201.49" y="-110" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 186,-103 186,-85 172,-85"></polygon>
+<text text-anchor="start" x="174.56" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="186,-85 186,-103 238,-103 238,-85 186,-85"></polygon>
+<text text-anchor="start" x="198.94" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="238,-85 238,-103 271,-103 271,-85 238,-85"></polygon>
+<text text-anchor="start" x="240.61" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 186,-85 186,-67 172,-67"></polygon>
+<text text-anchor="start" x="176.22" y="-73" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="186,-67 186,-85 238,-85 238,-67 186,-67"></polygon>
+<text text-anchor="start" x="188.94" y="-73" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="238,-67 238,-85 271,-85 271,-67 238,-67"></polygon>
+<text text-anchor="start" x="251.72" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 186,-67 186,-49 172,-49"></polygon>
+<text text-anchor="start" x="176.22" y="-55" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="186,-49 186,-67 238,-67 238,-49 186,-49"></polygon>
+<text text-anchor="start" x="188.94" y="-55" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="238,-49 238,-67 271,-67 271,-49 238,-49"></polygon>
+<text text-anchor="start" x="251.72" y="-55" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 186,-49 186,-31 172,-31"></polygon>
+<text text-anchor="start" x="176.22" y="-37" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="186,-31 186,-49 238,-49 238,-31 186,-31"></polygon>
+<text text-anchor="start" x="188.94" y="-37" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="238,-31 238,-49 271,-49 271,-31 238,-31"></polygon>
+<text text-anchor="start" x="251.72" y="-37" font-family="Arial" font-size="10.00">3</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="relational-model---keys" class="slide level2">
 <h2>Relational Model - Keys</h2>
@@ -592,152 +627,101 @@ CMSC508
 <li><p>Would student.name be an appropriate key?</p></li>
 </ul>
 </div><div class="column" style="width:70%;">
-<p>//| echo: false //| fig-width: 550px //| fig-height: 250px digraph RelationalDataModel {</p>
-<pre><code>graph [nodesep=0.0 bgcolor=transparent]
-node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
-
-student [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-<b>Students</b>
-</td>
-</tr>
-<tr>
-<td>
-<b>name</b>
-</td>
-<td>
-<b>year</b>
-</td>
-<td>
-<b>id</b>
-</td>
-</tr>
-<tr>
-<td align="left">
-Amara Singh
-</td>
-<td>
-1991
-</td>
-<td port="r1">
-1
-</td>
-</tr>
-<tr>
-<td align="left">
-Youssef El-Mohamed
-</td>
-<td>
-1987
-</td>
-<td port="r2">
-2
-</td>
-</tr>
-<tr>
-<td align="left">
-Chen Wei
-</td>
-<td>
-1978
-</td>
-<td port="r3">
-3
-</td>
-</tr>
-<tr>
-<td align="left">
-Olga Petrova
-</td>
-<td>
-NULL
-</td>
-<td port="r4">
-4
-</td>
-</tr>
-<tr>
-<td align="left">
-Kwame Nkrumah
-</td>
-<td>
-1965
-</td>
-<td port="r5">
-5
-</td>
-</tr>
-<tr>
-<td align="left">
-Luc�a Gonz�lez
-</td>
-<td>
-1980
-</td>
-<td port="r6">
-6
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];
-
-course [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-<b>Courses</b>
-</td>
-</tr>
-<tr>
-<td>
-<b>id</b>
-</td>
-<td>
-<b>name</b>
-</td>
-<td>
-<b>hours</b>
-</td>
-</tr>
-<tr>
-<td port="c1">
-1
-</td>
-<td>
-CMSC391
-</td>
-<td>
-3
-</td>
-</tr>
-<tr>
-<td port="c2">
-2
-</td>
-<td>
-CMSC475
-</td>
-<td>
-3
-</td>
-</tr>
-<tr>
-<td port="c3">
-3
-</td>
-<td>
-CMSC508
-</td>
-<td>
-3
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];</code></pre>
-<p>}</p>
-</div></div>
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 286.50 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 154,-148 154,-130 8,-130"></polygon>
+<text text-anchor="start" x="59.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 109,-130 109,-112 8,-112"></polygon>
+<text text-anchor="start" x="45.44" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109,-112 109,-130 140,-130 140,-112 109,-112"></polygon>
+<text text-anchor="start" x="114.21" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140,-112 140,-130 154,-130 154,-112 140,-112"></polygon>
+<text text-anchor="start" x="142.56" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 109,-112 109,-94 8,-94"></polygon>
+<text text-anchor="start" x="11" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109,-94 109,-112 140,-112 140,-94 109,-94"></polygon>
+<text text-anchor="start" x="113.38" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140,-94 140,-112 154,-112 154,-94 140,-94"></polygon>
+<text text-anchor="start" x="144.22" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 109,-94 109,-76 8,-76"></polygon>
+<text text-anchor="start" x="10.7" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109,-76 109,-94 140,-94 140,-76 109,-76"></polygon>
+<text text-anchor="start" x="113.38" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140,-76 140,-94 154,-94 154,-76 140,-76"></polygon>
+<text text-anchor="start" x="144.22" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 109,-76 109,-58 8,-58"></polygon>
+<text text-anchor="start" x="11" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109,-58 109,-76 140,-76 140,-58 109,-58"></polygon>
+<text text-anchor="start" x="113.38" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140,-58 140,-76 154,-76 154,-58 140,-58"></polygon>
+<text text-anchor="start" x="144.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 109,-58 109,-40 8,-40"></polygon>
+<text text-anchor="start" x="11" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109,-40 109,-58 140,-58 140,-40 109,-40"></polygon>
+<text text-anchor="start" x="111.72" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-40 140,-58 154,-58 154,-40 140,-40"></polygon>
+<text text-anchor="start" x="144.22" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 109,-40 109,-22 8,-22"></polygon>
+<text text-anchor="start" x="11" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109,-22 109,-40 140,-40 140,-22 109,-22"></polygon>
+<text text-anchor="start" x="113.38" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140,-22 140,-40 154,-40 154,-22 140,-22"></polygon>
+<text text-anchor="start" x="144.22" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 109,-22 109,-4 8,-4"></polygon>
+<text text-anchor="start" x="11" y="-10" font-family="Arial" font-size="10.00">Luc�a Gonz�lez</text>
+<polygon fill="none" stroke="cyan" points="109,-4 109,-22 140,-22 140,-4 109,-4"></polygon>
+<text text-anchor="start" x="113.38" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140,-4 140,-22 154,-22 154,-4 140,-4"></polygon>
+<text text-anchor="start" x="144.22" y="-10" font-family="Arial" font-size="10.00">6</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 271,-121 271,-103 172,-103"></polygon>
+<text text-anchor="start" x="201.49" y="-110" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 186,-103 186,-85 172,-85"></polygon>
+<text text-anchor="start" x="174.56" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="186,-85 186,-103 238,-103 238,-85 186,-85"></polygon>
+<text text-anchor="start" x="198.94" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="238,-85 238,-103 271,-103 271,-85 238,-85"></polygon>
+<text text-anchor="start" x="240.61" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 186,-85 186,-67 172,-67"></polygon>
+<text text-anchor="start" x="176.22" y="-73" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="186,-67 186,-85 238,-85 238,-67 186,-67"></polygon>
+<text text-anchor="start" x="188.94" y="-73" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="238,-67 238,-85 271,-85 271,-67 238,-67"></polygon>
+<text text-anchor="start" x="251.72" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 186,-67 186,-49 172,-49"></polygon>
+<text text-anchor="start" x="176.22" y="-55" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="186,-49 186,-67 238,-67 238,-49 186,-49"></polygon>
+<text text-anchor="start" x="188.94" y="-55" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="238,-49 238,-67 271,-67 271,-49 238,-49"></polygon>
+<text text-anchor="start" x="251.72" y="-55" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 186,-49 186,-31 172,-31"></polygon>
+<text text-anchor="start" x="176.22" y="-37" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="186,-31 186,-49 238,-49 238,-31 186,-31"></polygon>
+<text text-anchor="start" x="188.94" y="-37" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="238,-31 238,-49 271,-49 271,-31 238,-31"></polygon>
+<text text-anchor="start" x="251.72" y="-37" font-family="Arial" font-size="10.00">3</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="relational-model---relationships" class="slide level2">
 <h2>Relational Model - Relationships</h2>
@@ -760,178 +744,135 @@ CMSC508
 <li><p>What is the cardinality and participation of these tables?</p></li>
 </ul>
 </div><div class="column" style="width:70%;">
-<p>//| echo: false //| fig-width: 550px //| fig-height: 250px digraph RelationalDataModel {</p>
-<pre><code>graph [nodesep=1.0 bgcolor=transparent]
-node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
-
-student [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="4" align="center">
-<b>Students</b>
-</td>
-</tr>
-<tr>
-<td>
-<b>name</b>
-</td>
-<td>
-<b>year</b>
-</td>
-<td>
-<b>id</b>
-</td>
-<td>
-<b>crs_id</b>
-</td>
-</tr>
-<tr>
-<td align="left">
-Amara Singh
-</td>
-<td>
-1991
-</td>
-<td>
-1
-</td>
-<td port="r1">
-NULL
-</td>
-</tr>
-<tr>
-<td align="left">
-Youssef El-Mohamed
-</td>
-<td>
-1987
-</td>
-<td>
-2
-</td>
-<td port="r2">
-1
-</td>
-</tr>
-<tr>
-<td align="left">
-Chen Wei
-</td>
-<td>
-1978
-</td>
-<td>
-3
-</td>
-<td port="r3">
-NULL
-</td>
-</tr>
-<tr>
-<td align="left">
-Olga Petrova
-</td>
-<td>
-NULL
-</td>
-<td>
-4
-</td>
-<td port="r4">
-2
-</td>
-</tr>
-<tr>
-<td align="left">
-Kwame Nkrumah
-</td>
-<td>
-1965
-</td>
-<td>
-5
-</td>
-<td port="r5">
-3
-</td>
-</tr>
-<tr>
-<td align="left">
-Lucia Gonzalez
-</td>
-<td>
-1980
-</td>
-<td>
-6
-</td>
-<td port="r6">
-3
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];
-
-course [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-<b>Courses</b>
-</td>
-</tr>
-<tr>
-<td>
-<b>id</b>
-</td>
-<td>
-<b>name</b>
-</td>
-<td>
-<b>hours</b>
-</td>
-</tr>
-<tr>
-<td port="c1">
-1
-</td>
-<td>
-CMSC391
-</td>
-<td>
-3
-</td>
-</tr>
-<tr>
-<td port="c2">
-2
-</td>
-<td>
-CMSC475
-</td>
-<td>
-3
-</td>
-</tr>
-<tr>
-<td port="c3">
-3
-</td>
-<td>
-CMSC508
-</td>
-<td>
-3
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];
-
-student:r2 -&gt; course:c1 [label="" dir=none constraint=false];
-student:r4 -&gt; course:c2 [label="" dir=none constraint=false];
-student:r5 -&gt; course:c3 [label="" dir=none constraint=false];
-student:r6 -&gt; course:c3 [label="" dir=none constraint=false];</code></pre>
-<p>}</p>
-</div></div>
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 392.00 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8.5,-130 8.5,-148 189.5,-148 189.5,-130 8.5,-130"></polygon>
+<text text-anchor="start" x="77.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8.5,-112 8.5,-130 109.5,-130 109.5,-112 8.5,-112"></polygon>
+<text text-anchor="start" x="45.94" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109.5,-112 109.5,-130 140.5,-130 140.5,-112 109.5,-112"></polygon>
+<text text-anchor="start" x="114.71" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140.5,-112 140.5,-130 154.5,-130 154.5,-112 140.5,-112"></polygon>
+<text text-anchor="start" x="143.06" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="154.5,-112 154.5,-130 189.5,-130 189.5,-112 154.5,-112"></polygon>
+<text text-anchor="start" x="157.27" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8.5,-94 8.5,-112 109.5,-112 109.5,-94 8.5,-94"></polygon>
+<text text-anchor="start" x="11.5" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109.5,-94 109.5,-112 140.5,-112 140.5,-94 109.5,-94"></polygon>
+<text text-anchor="start" x="113.88" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140.5,-94 140.5,-112 154.5,-112 154.5,-94 140.5,-94"></polygon>
+<text text-anchor="start" x="144.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="154.5,-94 154.5,-112 189.5,-112 189.5,-94 154.5,-94"></polygon>
+<text text-anchor="start" x="159.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-76 8.5,-94 109.5,-94 109.5,-76 8.5,-76"></polygon>
+<text text-anchor="start" x="11.2" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109.5,-76 109.5,-94 140.5,-94 140.5,-76 109.5,-76"></polygon>
+<text text-anchor="start" x="113.88" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140.5,-76 140.5,-94 154.5,-94 154.5,-76 140.5,-76"></polygon>
+<text text-anchor="start" x="144.72" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="154.5,-76 154.5,-94 189.5,-94 189.5,-76 154.5,-76"></polygon>
+<text text-anchor="start" x="169.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8.5,-58 8.5,-76 109.5,-76 109.5,-58 8.5,-58"></polygon>
+<text text-anchor="start" x="11.5" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109.5,-58 109.5,-76 140.5,-76 140.5,-58 109.5,-58"></polygon>
+<text text-anchor="start" x="113.88" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140.5,-58 140.5,-76 154.5,-76 154.5,-58 140.5,-58"></polygon>
+<text text-anchor="start" x="144.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="154.5,-58 154.5,-76 189.5,-76 189.5,-58 154.5,-58"></polygon>
+<text text-anchor="start" x="159.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-40 8.5,-58 109.5,-58 109.5,-40 8.5,-40"></polygon>
+<text text-anchor="start" x="11.5" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109.5,-40 109.5,-58 140.5,-58 140.5,-40 109.5,-40"></polygon>
+<text text-anchor="start" x="112.22" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140.5,-40 140.5,-58 154.5,-58 154.5,-40 140.5,-40"></polygon>
+<text text-anchor="start" x="144.72" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="154.5,-40 154.5,-58 189.5,-58 189.5,-40 154.5,-40"></polygon>
+<text text-anchor="start" x="169.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8.5,-22 8.5,-40 109.5,-40 109.5,-22 8.5,-22"></polygon>
+<text text-anchor="start" x="11.5" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109.5,-22 109.5,-40 140.5,-40 140.5,-22 109.5,-22"></polygon>
+<text text-anchor="start" x="113.88" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140.5,-22 140.5,-40 154.5,-40 154.5,-22 140.5,-22"></polygon>
+<text text-anchor="start" x="144.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="154.5,-22 154.5,-40 189.5,-40 189.5,-22 154.5,-22"></polygon>
+<text text-anchor="start" x="169.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8.5,-4 8.5,-22 109.5,-22 109.5,-4 8.5,-4"></polygon>
+<text text-anchor="start" x="11.5" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109.5,-4 109.5,-22 140.5,-22 140.5,-4 109.5,-4"></polygon>
+<text text-anchor="start" x="113.88" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140.5,-4 140.5,-22 154.5,-22 154.5,-4 140.5,-4"></polygon>
+<text text-anchor="start" x="144.72" y="-10" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="154.5,-4 154.5,-22 189.5,-22 189.5,-4 154.5,-4"></polygon>
+<text text-anchor="start" x="169.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="277.5,-103 277.5,-121 376.5,-121 376.5,-103 277.5,-103"></polygon>
+<text text-anchor="start" x="306.99" y="-110" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="277.5,-85 277.5,-103 291.5,-103 291.5,-85 277.5,-85"></polygon>
+<text text-anchor="start" x="280.06" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="291.5,-85 291.5,-103 343.5,-103 343.5,-85 291.5,-85"></polygon>
+<text text-anchor="start" x="304.44" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="343.5,-85 343.5,-103 376.5,-103 376.5,-85 343.5,-85"></polygon>
+<text text-anchor="start" x="346.11" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="277.5,-67 277.5,-85 291.5,-85 291.5,-67 277.5,-67"></polygon>
+<text text-anchor="start" x="281.72" y="-73" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="291.5,-67 291.5,-85 343.5,-85 343.5,-67 291.5,-67"></polygon>
+<text text-anchor="start" x="294.44" y="-73" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="343.5,-67 343.5,-85 376.5,-85 376.5,-67 343.5,-67"></polygon>
+<text text-anchor="start" x="357.22" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-49 277.5,-67 291.5,-67 291.5,-49 277.5,-49"></polygon>
+<text text-anchor="start" x="281.72" y="-55" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="291.5,-49 291.5,-67 343.5,-67 343.5,-49 291.5,-49"></polygon>
+<text text-anchor="start" x="294.44" y="-55" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="343.5,-49 343.5,-67 376.5,-67 376.5,-49 343.5,-49"></polygon>
+<text text-anchor="start" x="357.22" y="-55" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-31 277.5,-49 291.5,-49 291.5,-31 277.5,-31"></polygon>
+<text text-anchor="start" x="281.72" y="-37" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="291.5,-31 291.5,-49 343.5,-49 343.5,-31 291.5,-31"></polygon>
+<text text-anchor="start" x="294.44" y="-37" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="343.5,-31 343.5,-49 376.5,-49 376.5,-31 343.5,-31"></polygon>
+<text text-anchor="start" x="357.22" y="-37" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M190.5,-85C228.93,-85 238.07,-76 276.5,-76"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M190.5,-49C228.93,-49 238.07,-58 276.5,-58"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-31C228.93,-31 238.07,-40 276.5,-40"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r6-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-13C230.56,-13 236.44,-40 276.5,-40"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="relational-model---integrity-constraints" class="slide level2">
 <h2>Relational Model - Integrity Constraints</h2>
@@ -960,73 +901,214 @@ student:r6 -&gt; course:c3 [label="" dir=none constraint=false];</code></pre>
 <li>primary keys must be unique</li>
 <li>foreign keys must exist</li>
 </ul>
-</div></div>
+</div>
+</div>
 <p>Using <em>integrity constraints</em> the DBMS will maintain a perfect state for your database. By specifying integrity constraints, a designer lets the DBMS do the work for them.</p>
 </section>
 <section id="relational-model---relationship-example-with-data-1" class="slide level2">
 <h2>Relational Model - Relationship example with data</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p>%%| echo: false erDiagram</p>
-<pre><code>AUTHORS ||--o{ BOOKS : "have"
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
 
-AUTHORS {
-    int id
-    string name
-    date birthdate
-}
+    AUTHORS ||--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
 
-BOOKS {
-    int id
-    string title
-    date publication_date
-    int author_id
-}</code></pre>
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:60%;">
-<p>//| echo: false //| fig-width: 450px //| fig-height: 200px digraph RelationalDataModel {</p>
-<pre><code>graph [nodesep=1.1 bgcolor=transparent]
-// Define the node shape
-node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
-
-// Define the Authors node with a table containing several rows of data
-
-// Define the Books node with a table containing several rows of data
-Books [label=&lt;
-    &lt;table border="0" cellborder="1" cellspacing="0"&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;id (PK)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;title&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;publication_date&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;author_id (FK)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Happy days&lt;/td&gt;&lt;td&gt;2000-01-01&lt;/td&gt;&lt;td port="f1"&gt;1&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Sad days&lt;/td&gt;&lt;td&gt;2005-06-15&lt;/td&gt;&lt;td port="f2"&gt;3&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Jason Days&lt;/td&gt;&lt;td&gt;2010-03-10&lt;/td&gt;&lt;td port="f3"&gt;2&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Craw Days&lt;/td&gt;&lt;td&gt;2015-04-31&lt;/td&gt;&lt;td port="f4"&gt;2&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Days of Thunder&lt;/td&gt;&lt;td&gt;2022-01-23&lt;/td&gt;&lt;td port="f5"&gt;3&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;Thunder road&lt;/td&gt;&lt;td&gt;2021-12-01&lt;/td&gt;&lt;td port="f6"&gt;1&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;Road of plenty&lt;/td&gt;&lt;td&gt;2011-02-21&lt;/td&gt;&lt;td port="f7"&gt;3&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;Plenty of what?&lt;/td&gt;&lt;td&gt;2013-01-12&lt;/td&gt;&lt;td port="f8"&gt;5&lt;/td&gt;&lt;/tr&gt;
-    &lt;/table&gt;
-&gt;];
-
-Authors [label=&lt;
-    &lt;table border="0" cellborder="1" cellspacing="0"&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;id (PK)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;birthdate&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f1"&gt;1&lt;/td&gt;&lt;td&gt;DiShawn&lt;/td&gt;&lt;td&gt;1980-01-01&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f2"&gt;2&lt;/td&gt;&lt;td&gt;Christopher&lt;/td&gt;&lt;td&gt;1975-05-14&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f3"&gt;3&lt;/td&gt;&lt;td&gt;Halle&lt;/td&gt;&lt;td&gt;1975-05-14&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f4"&gt;4&lt;/td&gt;&lt;td&gt;Fayad&lt;/td&gt;&lt;td&gt;1990-02-20&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f5"&gt;5&lt;/td&gt;&lt;td&gt;Hermes&lt;/td&gt;&lt;td&gt;1960-12-29&lt;/td&gt;&lt;/tr&gt;
-    &lt;/table&gt;
-&gt;];
-
-// Define the foreign key relationships from Books to Authors
-Books:f1 -&gt; Authors:f1 [label="" dir=none constraint=false];
-Books:f3 -&gt; Authors:f2 [dir=none constraint=false];
-Books:f4 -&gt; Authors:f2 [dir=none constraint=false];
-Books:f6 -&gt; Authors:f1 [dir=none constraint=false];
-Books:f8 -&gt; Authors:f5 [dir=none constraint=false];
-
-Books:f2 -&gt; Authors:f3 [dir=none constraint=false];
-Books:f5 -&gt; Authors:f3 [dir=none constraint=false];
-Books:f7 -&gt; Authors:f3 [dir=none constraint=false];</code></pre>
-<p>}</p>
+<div class="cell" data-fig-width="450px" data-fig-height="200px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="450" height="200" viewbox="0.00 0.00 547.00 178.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 174)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-148 8,-166 46,-166 46,-148 8,-148"></polygon>
+<text text-anchor="start" x="10.89" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="46,-148 46,-166 125,-166 125,-148 46,-148"></polygon>
+<text text-anchor="start" x="76.61" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="125,-148 125,-166 210,-166 210,-148 125,-148"></polygon>
+<text text-anchor="start" x="127.77" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="210,-148 210,-166 284,-166 284,-148 210,-148"></polygon>
+<text text-anchor="start" x="212.84" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">author_id (FK)</text>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 46,-148 46,-130 8,-130"></polygon>
+<text text-anchor="start" x="24.22" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="46,-130 46,-148 125,-148 125,-130 46,-130"></polygon>
+<text text-anchor="start" x="59.1" y="-136" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="125,-130 125,-148 210,-148 210,-130 125,-130"></polygon>
+<text text-anchor="start" x="141.92" y="-136" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="210,-130 210,-148 284,-148 284,-130 210,-130"></polygon>
+<text text-anchor="start" x="244.22" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 46,-130 46,-112 8,-112"></polygon>
+<text text-anchor="start" x="24.22" y="-118" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="46,-112 46,-130 125,-130 125,-112 46,-112"></polygon>
+<text text-anchor="start" x="64.65" y="-118" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="125,-112 125,-130 210,-130 210,-112 125,-112"></polygon>
+<text text-anchor="start" x="141.92" y="-118" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="210,-112 210,-130 284,-130 284,-112 210,-112"></polygon>
+<text text-anchor="start" x="244.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 46,-112 46,-94 8,-94"></polygon>
+<text text-anchor="start" x="24.22" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="46,-94 46,-112 125,-112 125,-94 46,-94"></polygon>
+<text text-anchor="start" x="59.38" y="-100" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="125,-94 125,-112 210,-112 210,-94 125,-94"></polygon>
+<text text-anchor="start" x="141.92" y="-100" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="210,-94 210,-112 284,-112 284,-94 210,-94"></polygon>
+<text text-anchor="start" x="244.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 46,-94 46,-76 8,-76"></polygon>
+<text text-anchor="start" x="24.22" y="-82" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="46,-76 46,-94 125,-94 125,-76 46,-76"></polygon>
+<text text-anchor="start" x="61.05" y="-82" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="125,-76 125,-94 210,-94 210,-76 125,-76"></polygon>
+<text text-anchor="start" x="141.92" y="-82" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="210,-76 210,-94 284,-94 284,-76 210,-76"></polygon>
+<text text-anchor="start" x="244.22" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 46,-76 46,-58 8,-58"></polygon>
+<text text-anchor="start" x="24.22" y="-64" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="46,-58 46,-76 125,-76 125,-58 46,-58"></polygon>
+<text text-anchor="start" x="48.54" y="-64" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="125,-58 125,-76 210,-76 210,-58 125,-58"></polygon>
+<text text-anchor="start" x="141.92" y="-64" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="210,-58 210,-76 284,-76 284,-58 210,-58"></polygon>
+<text text-anchor="start" x="244.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 46,-58 46,-40 8,-40"></polygon>
+<text text-anchor="start" x="24.22" y="-46" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="46,-40 46,-58 125,-58 125,-40 46,-40"></polygon>
+<text text-anchor="start" x="55.48" y="-46" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="125,-40 125,-58 210,-58 210,-40 125,-40"></polygon>
+<text text-anchor="start" x="141.92" y="-46" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="210,-40 210,-58 284,-58 284,-40 210,-40"></polygon>
+<text text-anchor="start" x="244.22" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 46,-40 46,-22 8,-22"></polygon>
+<text text-anchor="start" x="24.22" y="-28" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="46,-22 46,-40 125,-40 125,-22 46,-22"></polygon>
+<text text-anchor="start" x="53.26" y="-28" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="125,-22 125,-40 210,-40 210,-22 125,-22"></polygon>
+<text text-anchor="start" x="141.92" y="-28" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="210,-22 210,-40 284,-40 284,-22 210,-22"></polygon>
+<text text-anchor="start" x="244.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 46,-22 46,-4 8,-4"></polygon>
+<text text-anchor="start" x="24.22" y="-10" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="46,-4 46,-22 125,-22 125,-4 46,-4"></polygon>
+<text text-anchor="start" x="51.31" y="-10" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="125,-4 125,-22 210,-22 210,-4 125,-4"></polygon>
+<text text-anchor="start" x="141.92" y="-10" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="210,-4 210,-22 284,-22 284,-4 210,-4"></polygon>
+<text text-anchor="start" x="244.22" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="379,-121 379,-139 417,-139 417,-121 379,-121"></polygon>
+<text text-anchor="start" x="381.89" y="-128" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="417,-121 417,-139 474,-139 474,-121 417,-121"></polygon>
+<text text-anchor="start" x="432.44" y="-128" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="474,-121 474,-139 531,-139 531,-121 474,-121"></polygon>
+<text text-anchor="start" x="481.11" y="-128" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="379,-103 379,-121 417,-121 417,-103 379,-103"></polygon>
+<text text-anchor="start" x="395.22" y="-109" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="417,-103 417,-121 474,-121 474,-103 417,-103"></polygon>
+<text text-anchor="start" x="425.49" y="-109" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="474,-103 474,-121 531,-121 531,-103 474,-103"></polygon>
+<text text-anchor="start" x="476.92" y="-109" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="379,-85 379,-103 417,-103 417,-85 379,-85"></polygon>
+<text text-anchor="start" x="395.22" y="-91" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="417,-85 417,-103 474,-103 474,-85 417,-85"></polygon>
+<text text-anchor="start" x="419.66" y="-91" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="474,-85 474,-103 531,-103 531,-85 474,-85"></polygon>
+<text text-anchor="start" x="476.92" y="-91" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-67 379,-85 417,-85 417,-67 379,-67"></polygon>
+<text text-anchor="start" x="395.22" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="417,-67 417,-85 474,-85 474,-67 417,-67"></polygon>
+<text text-anchor="start" x="434.11" y="-73" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="474,-67 474,-85 531,-85 531,-67 474,-67"></polygon>
+<text text-anchor="start" x="476.92" y="-73" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-49 379,-67 417,-67 417,-49 379,-49"></polygon>
+<text text-anchor="start" x="395.22" y="-55" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="417,-49 417,-67 474,-67 474,-49 417,-49"></polygon>
+<text text-anchor="start" x="431.6" y="-55" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="474,-49 474,-67 531,-67 531,-49 474,-49"></polygon>
+<text text-anchor="start" x="476.92" y="-55" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="379,-31 379,-49 417,-49 417,-31 379,-31"></polygon>
+<text text-anchor="start" x="395.22" y="-37" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="417,-31 417,-49 474,-49 474,-31 417,-31"></polygon>
+<text text-anchor="start" x="428" y="-37" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="474,-31 474,-49 531,-49 531,-31 474,-31"></polygon>
+<text text-anchor="start" x="476.92" y="-37" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M285,-139C328.04,-139 334.96,-112 378,-112"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge2" class="edge">
+<title>Books:f3-&gt;Authors:f2</title>
+<path fill="none" stroke="black" d="M285,-103C326.53,-103 336.47,-94 378,-94"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge3" class="edge">
+<title>Books:f4-&gt;Authors:f2</title>
+<path fill="none" stroke="black" d="M285,-85C326.53,-85 336.47,-94 378,-94"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge4" class="edge">
+<title>Books:f6-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M285,-49C334.92,-49 328.08,-112 378,-112"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge5" class="edge">
+<title>Books:f8-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M285,-13C328.04,-13 334.96,-40 378,-40"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge6" class="edge">
+<title>Books:f2-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-121C330.92,-121 332.08,-76 378,-76"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge7" class="edge">
+<title>Books:f5-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-67C326.53,-67 336.47,-76 378,-76"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge8" class="edge">
+<title>Books:f7-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-31C330.92,-31 332.08,-76 378,-76"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <h3 id="questions-3">Questions</h3>
 <ul>
 <li>Does the ER diagram on the left match the tables on the right?</li>
@@ -1034,392 +1116,630 @@ Books:f7 -&gt; Authors:f3 [dir=none constraint=false];</code></pre>
 <li>Write the detailed relation sets for this model.</li>
 <li>How would we modify the tables to create a many-to-many relationship?</li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="relational-model---relationship-example-with-data-2" class="slide level2">
 <h2>Relational Model - Relationship example with data</h2>
 <div class="columns">
 <div class="column" style="width:20%;">
-<p>%%| echo: false erDiagram</p>
-<pre><code>AUTHORS }|--o{ BOOKS : "have"
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
 
-AUTHORS {
-    int id
-    string name
-    date birthdate
-}
+    AUTHORS }|--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
 
-BOOKS {
-    int id
-    string title
-    date publication_date
-    int author_id
-}</code></pre>
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:80%;">
-<p>//| echo: false //| fig-width: 600px //| fig-height: 275px digraph RelationalDataModel {</p>
-<pre><code>graph [nodesep=1.1 bgcolor=transparent]
-// Define the node shape
-node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
-
-// Define the Authors node with a table containing several rows of data
-
-// Define the Books node with a table containing several rows of data
-Books [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-Book
-</td>
-</tr>
-<tr>
-<td>
-<b>title</b>
-</td>
-<td>
-<b>publication_date</b>
-</td>
-<td>
-<b>ID</b>
-</td>
-</tr>
-<tr>
-<td>
-Happy days
-</td>
-<td>
-2000-01-01
-</td>
-<td port="f1">
-1
-</td>
-</tr>
-<tr>
-<td>
-Sad days
-</td>
-<td>
-2005-06-15
-</td>
-<td port="f2">
-2
-</td>
-</tr>
-<tr>
-<td>
-Jason Days
-</td>
-<td>
-2010-03-10
-</td>
-<td port="f3">
-3
-</td>
-</tr>
-<tr>
-<td>
-Craw Days
-</td>
-<td>
-2015-04-31
-</td>
-<td port="f4">
-4
-</td>
-</tr>
-<tr>
-<td>
-Days of Thunder
-</td>
-<td>
-2022-01-23
-</td>
-<td port="f5">
-5
-</td>
-</tr>
-<tr>
-<td>
-Thunder road
-</td>
-<td>
-2021-12-01
-</td>
-<td port="f6">
-6
-</td>
-</tr>
-<tr>
-<td>
-Road of plenty
-</td>
-<td>
-2011-02-21
-</td>
-<td port="f7">
-7
-</td>
-</tr>
-<tr>
-<td>
-Plenty of what?
-</td>
-<td>
-2013-01-12
-</td>
-<td port="f8">
-8
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];
-
-Authors [label=&lt;
-    &lt;table border="0" cellborder="1" cellspacing="0"&gt;
-        &lt;tr&gt;&lt;td colspan="3" align="center"&gt;Author&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;id (PK)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;birthdate&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f1"&gt;1&lt;/td&gt;&lt;td&gt;DiShawn&lt;/td&gt;&lt;td&gt;1980-01-01&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f2"&gt;2&lt;/td&gt;&lt;td&gt;Christopher&lt;/td&gt;&lt;td&gt;1975-05-14&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f3"&gt;3&lt;/td&gt;&lt;td&gt;Halle&lt;/td&gt;&lt;td&gt;1975-05-14&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f4"&gt;4&lt;/td&gt;&lt;td&gt;Fayad&lt;/td&gt;&lt;td&gt;1990-02-20&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f5"&gt;5&lt;/td&gt;&lt;td&gt;Hermes&lt;/td&gt;&lt;td&gt;1960-12-29&lt;/td&gt;&lt;/tr&gt;
-    &lt;/table&gt;
-&gt;];
-
-bk_auth [label=&lt;
-
-&lt;table border="0" cellborder="1" cellspacing="0"&gt;
-&lt;tr&gt;&lt;td colspan="3" align="center"&gt;Book_Author&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;book_id&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;id&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;author_id&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l1"&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td port="r1"&gt;1&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l2"&gt;2&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td port="r2"&gt;1&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l3"&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td port="r3"&gt;5&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l4"&gt;4&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td port="r4"&gt;3&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l5"&gt;5&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td port="r5"&gt;5&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l6"&gt;6&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td port="r6"&gt;3&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l7"&gt;7&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td port="r7"&gt;1&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l8"&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td port="r8"&gt;4&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l9"&gt;9&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td port="r9"&gt;5&lt;/td&gt;&lt;/tr&gt;</code></pre>
-
-<pre><code>&gt;];
-
-// Define the foreign key relationships from Books to Authors
-Books:f1 -&gt; bk_auth:l1 [label="" dir=none constraint=false];
-Books:f2 -&gt; bk_auth:l2 [label="" dir=none constraint=false];
-Books:f3 -&gt; bk_auth:l3 [label="" dir=none constraint=false];
-Books:f4 -&gt; bk_auth:l4 [label="" dir=none constraint=false];
-Books:f5 -&gt; bk_auth:l5 [label="" dir=none constraint=false];
-Books:f6 -&gt; bk_auth:l6 [label="" dir=none constraint=false];
-Books:f7 -&gt; bk_auth:l7 [label="" dir=none constraint=false];
-Books:f8 -&gt; bk_auth:l8 [label="" dir=none constraint=false];
-Books:f8 -&gt; bk_auth:l9 [label="" dir=none constraint=false];
-
-bk_auth:r1 -&gt; Authors:f1 [dir=none constraint=false];
-bk_auth:r2 -&gt; Authors:f1 [dir=none constraint=false];
-bk_auth:r8 -&gt; Authors:f4 [dir=none constraint=false];
-bk_auth:r9 -&gt; Authors:f5 [dir=none constraint=false];
-bk_auth:r4 -&gt; Authors:f3 [dir=none constraint=false];
-bk_auth:r6 -&gt; Authors:f3 [dir=none constraint=false];
-bk_auth:r7 -&gt; Authors:f1 [dir=none constraint=false];
-
-bk_auth:r3 -&gt; Authors:f5 [dir=none constraint=false];
-bk_auth:r5 -&gt; Authors:f5 [dir=none constraint=false];</code></pre>
-<p>}</p>
+<div class="cell" data-fig-width="600px" data-fig-height="275px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="600" height="275" viewbox="0.00 0.00 656.00 214.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 210)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-175 8,-193 188,-193 188,-175 8,-175"></polygon>
+<text text-anchor="start" x="86.6" y="-181" font-family="Arial" font-size="10.00">Book</text>
+<polygon fill="none" stroke="cyan" points="8,-157 8,-175 87,-175 87,-157 8,-157"></polygon>
+<text text-anchor="start" x="38.61" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="87,-157 87,-175 172,-175 172,-157 87,-157"></polygon>
+<text text-anchor="start" x="89.77" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="172,-157 172,-175 188,-175 188,-157 172,-157"></polygon>
+<text text-anchor="start" x="175" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">ID</text>
+<polygon fill="none" stroke="cyan" points="8,-139 8,-157 87,-157 87,-139 8,-139"></polygon>
+<text text-anchor="start" x="21.1" y="-145" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="87,-139 87,-157 172,-157 172,-139 87,-139"></polygon>
+<text text-anchor="start" x="103.92" y="-145" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="172,-139 172,-157 188,-157 188,-139 172,-139"></polygon>
+<text text-anchor="start" x="177.22" y="-145" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-121 8,-139 87,-139 87,-121 8,-121"></polygon>
+<text text-anchor="start" x="26.65" y="-127" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="87,-121 87,-139 172,-139 172,-121 87,-121"></polygon>
+<text text-anchor="start" x="103.92" y="-127" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="172,-121 172,-139 188,-139 188,-121 172,-121"></polygon>
+<text text-anchor="start" x="177.22" y="-127" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-103 8,-121 87,-121 87,-103 8,-103"></polygon>
+<text text-anchor="start" x="21.38" y="-109" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="87,-103 87,-121 172,-121 172,-103 87,-103"></polygon>
+<text text-anchor="start" x="103.92" y="-109" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 188,-121 188,-103 172,-103"></polygon>
+<text text-anchor="start" x="177.22" y="-109" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-85 8,-103 87,-103 87,-85 8,-85"></polygon>
+<text text-anchor="start" x="23.05" y="-91" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="87,-85 87,-103 172,-103 172,-85 87,-85"></polygon>
+<text text-anchor="start" x="103.92" y="-91" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 188,-103 188,-85 172,-85"></polygon>
+<text text-anchor="start" x="177.22" y="-91" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-67 8,-85 87,-85 87,-67 8,-67"></polygon>
+<text text-anchor="start" x="10.54" y="-73" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="87,-67 87,-85 172,-85 172,-67 87,-67"></polygon>
+<text text-anchor="start" x="103.92" y="-73" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 188,-85 188,-67 172,-67"></polygon>
+<text text-anchor="start" x="177.22" y="-73" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-49 8,-67 87,-67 87,-49 8,-49"></polygon>
+<text text-anchor="start" x="17.48" y="-55" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="87,-49 87,-67 172,-67 172,-49 87,-49"></polygon>
+<text text-anchor="start" x="103.92" y="-55" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 188,-67 188,-49 172,-49"></polygon>
+<text text-anchor="start" x="177.22" y="-55" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="8,-31 8,-49 87,-49 87,-31 8,-31"></polygon>
+<text text-anchor="start" x="15.26" y="-37" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="87,-31 87,-49 172,-49 172,-31 87,-31"></polygon>
+<text text-anchor="start" x="103.92" y="-37" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 188,-49 188,-31 172,-31"></polygon>
+<text text-anchor="start" x="177.22" y="-37" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="8,-13 8,-31 87,-31 87,-13 8,-13"></polygon>
+<text text-anchor="start" x="13.31" y="-19" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="87,-13 87,-31 172,-31 172,-13 87,-13"></polygon>
+<text text-anchor="start" x="103.92" y="-19" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="172,-13 172,-31 188,-31 188,-13 172,-13"></polygon>
+<text text-anchor="start" x="177.22" y="-19" font-family="Arial" font-size="10.00">8</text>
+</g>
+<!-- bk_auth -->
+<g id="node3" class="node">
+<title>bk_auth</title>
+<polygon fill="none" stroke="cyan" points="284,-184 284,-202 393,-202 393,-184 284,-184"></polygon>
+<text text-anchor="start" x="309.59" y="-190" font-family="Arial" font-size="10.00">Book_Author</text>
+<polygon fill="none" stroke="cyan" points="284,-166 284,-184 328,-184 328,-166 284,-166"></polygon>
+<text text-anchor="start" x="286.83" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">book_id</text>
+<polygon fill="none" stroke="cyan" points="328,-166 328,-184 342,-184 342,-166 328,-166"></polygon>
+<text text-anchor="start" x="330.56" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="342,-166 342,-184 393,-184 393,-166 342,-166"></polygon>
+<text text-anchor="start" x="344.72" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">author_id</text>
+<polygon fill="none" stroke="cyan" points="284,-148 284,-166 328,-166 328,-148 284,-148"></polygon>
+<text text-anchor="start" x="303.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="328,-148 328,-166 342,-166 342,-148 328,-148"></polygon>
+<text text-anchor="start" x="332.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="342,-148 342,-166 393,-166 393,-148 342,-148"></polygon>
+<text text-anchor="start" x="364.72" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-130 284,-148 328,-148 328,-130 284,-130"></polygon>
+<text text-anchor="start" x="303.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="328,-130 328,-148 342,-148 342,-130 328,-130"></polygon>
+<text text-anchor="start" x="332.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="342,-130 342,-148 393,-148 393,-130 342,-130"></polygon>
+<text text-anchor="start" x="364.72" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-112 284,-130 328,-130 328,-112 284,-112"></polygon>
+<text text-anchor="start" x="303.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="328,-112 328,-130 342,-130 342,-112 328,-112"></polygon>
+<text text-anchor="start" x="332.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="342,-112 342,-130 393,-130 393,-112 342,-112"></polygon>
+<text text-anchor="start" x="364.72" y="-118" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-94 284,-112 328,-112 328,-94 284,-94"></polygon>
+<text text-anchor="start" x="303.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="328,-94 328,-112 342,-112 342,-94 328,-94"></polygon>
+<text text-anchor="start" x="332.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="342,-94 342,-112 393,-112 393,-94 342,-94"></polygon>
+<text text-anchor="start" x="364.72" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-76 284,-94 328,-94 328,-76 284,-76"></polygon>
+<text text-anchor="start" x="303.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="328,-76 328,-94 342,-94 342,-76 328,-76"></polygon>
+<text text-anchor="start" x="332.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="342,-76 342,-94 393,-94 393,-76 342,-76"></polygon>
+<text text-anchor="start" x="364.72" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-58 284,-76 328,-76 328,-58 284,-58"></polygon>
+<text text-anchor="start" x="303.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="328,-58 328,-76 342,-76 342,-58 328,-58"></polygon>
+<text text-anchor="start" x="332.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="342,-58 342,-76 393,-76 393,-58 342,-58"></polygon>
+<text text-anchor="start" x="364.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-40 284,-58 328,-58 328,-40 284,-40"></polygon>
+<text text-anchor="start" x="303.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="328,-40 328,-58 342,-58 342,-40 328,-40"></polygon>
+<text text-anchor="start" x="332.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="342,-40 342,-58 393,-58 393,-40 342,-40"></polygon>
+<text text-anchor="start" x="364.72" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-22 284,-40 328,-40 328,-22 284,-22"></polygon>
+<text text-anchor="start" x="303.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="328,-22 328,-40 342,-40 342,-22 328,-22"></polygon>
+<text text-anchor="start" x="332.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="342,-22 342,-40 393,-40 393,-22 342,-22"></polygon>
+<text text-anchor="start" x="364.72" y="-28" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="284,-4 284,-22 328,-22 328,-4 284,-4"></polygon>
+<text text-anchor="start" x="303.22" y="-10" font-family="Arial" font-size="10.00">9</text>
+<polygon fill="none" stroke="cyan" points="328,-4 328,-22 342,-22 342,-4 328,-4"></polygon>
+<text text-anchor="start" x="332.22" y="-10" font-family="Arial" font-size="10.00">9</text>
+<polygon fill="none" stroke="cyan" points="342,-4 342,-22 393,-22 393,-4 342,-4"></polygon>
+<text text-anchor="start" x="364.72" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;bk_auth:l1</title>
+<path fill="none" stroke="black" d="M189,-148C230.97,-148 241.03,-157 283,-157"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge2" class="edge">
+<title>Books:f2-&gt;bk_auth:l2</title>
+<path fill="none" stroke="black" d="M189,-130C230.97,-130 241.03,-139 283,-139"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge3" class="edge">
+<title>Books:f3-&gt;bk_auth:l3</title>
+<path fill="none" stroke="black" d="M189,-112C230.97,-112 241.03,-121 283,-121"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge4" class="edge">
+<title>Books:f4-&gt;bk_auth:l4</title>
+<path fill="none" stroke="black" d="M189,-94C230.97,-94 241.03,-103 283,-103"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge5" class="edge">
+<title>Books:f5-&gt;bk_auth:l5</title>
+<path fill="none" stroke="black" d="M189,-76C230.97,-76 241.03,-85 283,-85"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge6" class="edge">
+<title>Books:f6-&gt;bk_auth:l6</title>
+<path fill="none" stroke="black" d="M189,-58C230.97,-58 241.03,-67 283,-67"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge7" class="edge">
+<title>Books:f7-&gt;bk_auth:l7</title>
+<path fill="none" stroke="black" d="M189,-40C230.97,-40 241.03,-49 283,-49"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge8" class="edge">
+<title>Books:f8-&gt;bk_auth:l8</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-31 283,-31"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge9" class="edge">
+<title>Books:f8-&gt;bk_auth:l9</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-13 283,-13"></path>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="488,-148 488,-166 640,-166 640,-148 488,-148"></polygon>
+<text text-anchor="start" x="549.27" y="-154" font-family="Arial" font-size="10.00">Author</text>
+<polygon fill="none" stroke="cyan" points="488,-130 488,-148 526,-148 526,-130 488,-130"></polygon>
+<text text-anchor="start" x="490.89" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="526,-130 526,-148 583,-148 583,-130 526,-130"></polygon>
+<text text-anchor="start" x="541.44" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="583,-130 583,-148 640,-148 640,-130 583,-130"></polygon>
+<text text-anchor="start" x="590.11" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="488,-112 488,-130 526,-130 526,-112 488,-112"></polygon>
+<text text-anchor="start" x="504.22" y="-118" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="526,-112 526,-130 583,-130 583,-112 526,-112"></polygon>
+<text text-anchor="start" x="534.49" y="-118" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="583,-112 583,-130 640,-130 640,-112 583,-112"></polygon>
+<text text-anchor="start" x="585.92" y="-118" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="488,-94 488,-112 526,-112 526,-94 488,-94"></polygon>
+<text text-anchor="start" x="504.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="526,-94 526,-112 583,-112 583,-94 526,-94"></polygon>
+<text text-anchor="start" x="528.66" y="-100" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="583,-94 583,-112 640,-112 640,-94 583,-94"></polygon>
+<text text-anchor="start" x="585.92" y="-100" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-76 488,-94 526,-94 526,-76 488,-76"></polygon>
+<text text-anchor="start" x="504.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="526,-76 526,-94 583,-94 583,-76 526,-76"></polygon>
+<text text-anchor="start" x="543.11" y="-82" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="583,-76 583,-94 640,-94 640,-76 583,-76"></polygon>
+<text text-anchor="start" x="585.92" y="-82" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-58 488,-76 526,-76 526,-58 488,-58"></polygon>
+<text text-anchor="start" x="504.22" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="526,-58 526,-76 583,-76 583,-58 526,-58"></polygon>
+<text text-anchor="start" x="540.6" y="-64" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="583,-58 583,-76 640,-76 640,-58 583,-58"></polygon>
+<text text-anchor="start" x="585.92" y="-64" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="488,-40 488,-58 526,-58 526,-40 488,-40"></polygon>
+<text text-anchor="start" x="504.22" y="-46" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="526,-40 526,-58 583,-58 583,-40 526,-40"></polygon>
+<text text-anchor="start" x="537" y="-46" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="583,-40 583,-58 640,-58 640,-40 583,-40"></polygon>
+<text text-anchor="start" x="585.92" y="-46" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge10" class="edge">
+<title>bk_auth:r1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-157C438.32,-157 442.68,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge11" class="edge">
+<title>bk_auth:r2-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-139C436.1,-139 444.9,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge12" class="edge">
+<title>bk_auth:r8-&gt;Authors:f4</title>
+<path fill="none" stroke="black" d="M394,-31C438.32,-31 442.68,-67 487,-67"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge13" class="edge">
+<title>bk_auth:r9-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-13C438.32,-13 442.68,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge14" class="edge">
+<title>bk_auth:r4-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-103C436.1,-103 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge15" class="edge">
+<title>bk_auth:r6-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-67C436.1,-67 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge16" class="edge">
+<title>bk_auth:r7-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-49C446.27,-49 434.73,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge17" class="edge">
+<title>bk_auth:r3-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-121C446.27,-121 434.73,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge18" class="edge">
+<title>bk_auth:r5-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-85C438.32,-85 442.68,-49 487,-49"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <h3 id="detailed-relation-sets">Detailed relation sets</h3>
 <ul>
 <li><p>book(id [PK], title [NOT NULL], publication_date [NOT NULL])</p></li>
 <li><p>author( id[PK], name [NOT NULL], birthdate [NOT NULL])</p></li>
 <li><p>book_author( id [PK], book_id [FK,NOT NULL], author_id [FK,NOT NULL])<br> &nbsp;&nbsp; FK(book_id) references (book.id) <br> &nbsp;&nbsp; FK(author_id) references (author.id)</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="relational-model---relationship-example-with-data-3" class="slide level2">
 <h2>Relational Model - Relationship example with data</h2>
 <div class="columns">
 <div class="column" style="width:20%;">
-<p>%%| echo: false erDiagram</p>
-<pre><code>AUTHORS }|--o{ BOOKS : "have"
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
 
-AUTHORS {
-    int id
-    string name
-    date birthdate
-}
+    AUTHORS }|--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
 
-BOOKS {
-    int id
-    string title
-    date publication_date
-    int author_id
-}</code></pre>
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:80%;">
-<p>//| echo: false //| fig-width: 600px //| fig-height: 275px digraph RelationalDataModel {</p>
-<pre><code>graph [nodesep=1.1 bgcolor=transparent]
-// Define the node shape
-node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
-
-// Define the Authors node with a table containing several rows of data
-
-// Define the Books node with a table containing several rows of data
-Books [label=&lt;</code></pre>
-<table border="0" cellborder="1" cellspacing="0">
-<tbody><tr>
-<td colspan="3" align="center">
-Book
-</td>
-</tr>
-<tr>
-<td>
-<b>title</b>
-</td>
-<td>
-<b>publication_date</b>
-</td>
-<td>
-<b>ID</b>
-</td>
-</tr>
-<tr>
-<td>
-Happy days
-</td>
-<td>
-2000-01-01
-</td>
-<td port="f1">
-1
-</td>
-</tr>
-<tr>
-<td>
-Sad days
-</td>
-<td>
-2005-06-15
-</td>
-<td port="f2">
-2
-</td>
-</tr>
-<tr>
-<td>
-Jason Days
-</td>
-<td>
-2010-03-10
-</td>
-<td port="f3">
-3
-</td>
-</tr>
-<tr>
-<td>
-Craw Days
-</td>
-<td>
-2015-04-31
-</td>
-<td port="f4">
-4
-</td>
-</tr>
-<tr>
-<td>
-Days of Thunder
-</td>
-<td>
-2022-01-23
-</td>
-<td port="f5">
-5
-</td>
-</tr>
-<tr>
-<td>
-Thunder road
-</td>
-<td>
-2021-12-01
-</td>
-<td port="f6">
-6
-</td>
-</tr>
-<tr>
-<td>
-Road of plenty
-</td>
-<td>
-2011-02-21
-</td>
-<td port="f7">
-7
-</td>
-</tr>
-<tr>
-<td>
-Plenty of what?
-</td>
-<td>
-2013-01-12
-</td>
-<td port="f8">
-8
-</td>
-</tr>
-</tbody></table>
-<pre><code>&gt;];
-
-Authors [label=&lt;
-    &lt;table border="0" cellborder="1" cellspacing="0"&gt;
-        &lt;tr&gt;&lt;td colspan="3" align="center"&gt;Author&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;id (PK)&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;birthdate&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f1"&gt;1&lt;/td&gt;&lt;td&gt;DiShawn&lt;/td&gt;&lt;td&gt;1980-01-01&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f2"&gt;2&lt;/td&gt;&lt;td&gt;Christopher&lt;/td&gt;&lt;td&gt;1975-05-14&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f3"&gt;3&lt;/td&gt;&lt;td&gt;Halle&lt;/td&gt;&lt;td&gt;1975-05-14&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f4"&gt;4&lt;/td&gt;&lt;td&gt;Fayad&lt;/td&gt;&lt;td&gt;1990-02-20&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td port="f5"&gt;5&lt;/td&gt;&lt;td&gt;Hermes&lt;/td&gt;&lt;td&gt;1960-12-29&lt;/td&gt;&lt;/tr&gt;
-    &lt;/table&gt;
-&gt;];
-
-bk_auth [label=&lt;
-
-&lt;table border="0" cellborder="1" cellspacing="0"&gt;
-&lt;tr&gt;&lt;td colspan="3" align="center"&gt;Book_Author&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;book_id&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;id&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;author_id&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l1"&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td port="r1"&gt;1&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l2"&gt;2&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td port="r2"&gt;1&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l3"&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td port="r3"&gt;5&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l4"&gt;4&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td port="r4"&gt;3&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l5"&gt;5&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td port="r5"&gt;5&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l6"&gt;6&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td port="r6"&gt;3&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l7"&gt;7&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td port="r7"&gt;1&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l8"&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td port="r8"&gt;4&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td port="l9"&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td port="r9"&gt;5&lt;/td&gt;&lt;/tr&gt;</code></pre>
-
-<pre><code>&gt;];
-
-// Define the foreign key relationships from Books to Authors
-Books:f1 -&gt; bk_auth:l1 [label="" dir=none constraint=false];
-Books:f2 -&gt; bk_auth:l2 [label="" dir=none constraint=false];
-Books:f3 -&gt; bk_auth:l3 [label="" dir=none constraint=false];
-Books:f4 -&gt; bk_auth:l4 [label="" dir=none constraint=false];
-Books:f5 -&gt; bk_auth:l5 [label="" dir=none constraint=false];
-Books:f6 -&gt; bk_auth:l6 [label="" dir=none constraint=false];
-Books:f7 -&gt; bk_auth:l7 [label="" dir=none constraint=false];
-Books:f8 -&gt; bk_auth:l8 [label="" dir=none constraint=false];
-Books:f8 -&gt; bk_auth:l9 [label="" dir=none constraint=false];
-
-bk_auth:r1 -&gt; Authors:f1 [dir=none constraint=false];
-bk_auth:r2 -&gt; Authors:f1 [dir=none constraint=false];
-bk_auth:r8 -&gt; Authors:f4 [dir=none constraint=false];
-bk_auth:r9 -&gt; Authors:f5 [dir=none constraint=false];
-bk_auth:r4 -&gt; Authors:f3 [dir=none constraint=false];
-bk_auth:r6 -&gt; Authors:f3 [dir=none constraint=false];
-bk_auth:r7 -&gt; Authors:f1 [dir=none constraint=false];
-
-bk_auth:r3 -&gt; Authors:f5 [dir=none constraint=false];
-bk_auth:r5 -&gt; Authors:f5 [dir=none constraint=false];</code></pre>
-<p>}</p>
+<div class="cell" data-fig-width="600px" data-fig-height="275px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="600" height="275" viewbox="0.00 0.00 656.00 214.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 210)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-175 8,-193 188,-193 188,-175 8,-175"></polygon>
+<text text-anchor="start" x="86.6" y="-181" font-family="Arial" font-size="10.00">Book</text>
+<polygon fill="none" stroke="cyan" points="8,-157 8,-175 87,-175 87,-157 8,-157"></polygon>
+<text text-anchor="start" x="38.61" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="87,-157 87,-175 172,-175 172,-157 87,-157"></polygon>
+<text text-anchor="start" x="89.77" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="172,-157 172,-175 188,-175 188,-157 172,-157"></polygon>
+<text text-anchor="start" x="175" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">ID</text>
+<polygon fill="none" stroke="cyan" points="8,-139 8,-157 87,-157 87,-139 8,-139"></polygon>
+<text text-anchor="start" x="21.1" y="-145" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="87,-139 87,-157 172,-157 172,-139 87,-139"></polygon>
+<text text-anchor="start" x="103.92" y="-145" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="172,-139 172,-157 188,-157 188,-139 172,-139"></polygon>
+<text text-anchor="start" x="177.22" y="-145" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-121 8,-139 87,-139 87,-121 8,-121"></polygon>
+<text text-anchor="start" x="26.65" y="-127" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="87,-121 87,-139 172,-139 172,-121 87,-121"></polygon>
+<text text-anchor="start" x="103.92" y="-127" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="172,-121 172,-139 188,-139 188,-121 172,-121"></polygon>
+<text text-anchor="start" x="177.22" y="-127" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-103 8,-121 87,-121 87,-103 8,-103"></polygon>
+<text text-anchor="start" x="21.38" y="-109" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="87,-103 87,-121 172,-121 172,-103 87,-103"></polygon>
+<text text-anchor="start" x="103.92" y="-109" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 188,-121 188,-103 172,-103"></polygon>
+<text text-anchor="start" x="177.22" y="-109" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-85 8,-103 87,-103 87,-85 8,-85"></polygon>
+<text text-anchor="start" x="23.05" y="-91" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="87,-85 87,-103 172,-103 172,-85 87,-85"></polygon>
+<text text-anchor="start" x="103.92" y="-91" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 188,-103 188,-85 172,-85"></polygon>
+<text text-anchor="start" x="177.22" y="-91" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-67 8,-85 87,-85 87,-67 8,-67"></polygon>
+<text text-anchor="start" x="10.54" y="-73" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="87,-67 87,-85 172,-85 172,-67 87,-67"></polygon>
+<text text-anchor="start" x="103.92" y="-73" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 188,-85 188,-67 172,-67"></polygon>
+<text text-anchor="start" x="177.22" y="-73" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-49 8,-67 87,-67 87,-49 8,-49"></polygon>
+<text text-anchor="start" x="17.48" y="-55" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="87,-49 87,-67 172,-67 172,-49 87,-49"></polygon>
+<text text-anchor="start" x="103.92" y="-55" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 188,-67 188,-49 172,-49"></polygon>
+<text text-anchor="start" x="177.22" y="-55" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="8,-31 8,-49 87,-49 87,-31 8,-31"></polygon>
+<text text-anchor="start" x="15.26" y="-37" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="87,-31 87,-49 172,-49 172,-31 87,-31"></polygon>
+<text text-anchor="start" x="103.92" y="-37" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 188,-49 188,-31 172,-31"></polygon>
+<text text-anchor="start" x="177.22" y="-37" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="8,-13 8,-31 87,-31 87,-13 8,-13"></polygon>
+<text text-anchor="start" x="13.31" y="-19" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="87,-13 87,-31 172,-31 172,-13 87,-13"></polygon>
+<text text-anchor="start" x="103.92" y="-19" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="172,-13 172,-31 188,-31 188,-13 172,-13"></polygon>
+<text text-anchor="start" x="177.22" y="-19" font-family="Arial" font-size="10.00">8</text>
+</g>
+<!-- bk_auth -->
+<g id="node3" class="node">
+<title>bk_auth</title>
+<polygon fill="none" stroke="cyan" points="284,-184 284,-202 393,-202 393,-184 284,-184"></polygon>
+<text text-anchor="start" x="309.59" y="-190" font-family="Arial" font-size="10.00">Book_Author</text>
+<polygon fill="none" stroke="cyan" points="284,-166 284,-184 328,-184 328,-166 284,-166"></polygon>
+<text text-anchor="start" x="286.83" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">book_id</text>
+<polygon fill="none" stroke="cyan" points="328,-166 328,-184 342,-184 342,-166 328,-166"></polygon>
+<text text-anchor="start" x="330.56" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="342,-166 342,-184 393,-184 393,-166 342,-166"></polygon>
+<text text-anchor="start" x="344.72" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">author_id</text>
+<polygon fill="none" stroke="cyan" points="284,-148 284,-166 328,-166 328,-148 284,-148"></polygon>
+<text text-anchor="start" x="303.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="328,-148 328,-166 342,-166 342,-148 328,-148"></polygon>
+<text text-anchor="start" x="332.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="342,-148 342,-166 393,-166 393,-148 342,-148"></polygon>
+<text text-anchor="start" x="364.72" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-130 284,-148 328,-148 328,-130 284,-130"></polygon>
+<text text-anchor="start" x="303.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="328,-130 328,-148 342,-148 342,-130 328,-130"></polygon>
+<text text-anchor="start" x="332.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="342,-130 342,-148 393,-148 393,-130 342,-130"></polygon>
+<text text-anchor="start" x="364.72" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-112 284,-130 328,-130 328,-112 284,-112"></polygon>
+<text text-anchor="start" x="303.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="328,-112 328,-130 342,-130 342,-112 328,-112"></polygon>
+<text text-anchor="start" x="332.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="342,-112 342,-130 393,-130 393,-112 342,-112"></polygon>
+<text text-anchor="start" x="364.72" y="-118" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-94 284,-112 328,-112 328,-94 284,-94"></polygon>
+<text text-anchor="start" x="303.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="328,-94 328,-112 342,-112 342,-94 328,-94"></polygon>
+<text text-anchor="start" x="332.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="342,-94 342,-112 393,-112 393,-94 342,-94"></polygon>
+<text text-anchor="start" x="364.72" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-76 284,-94 328,-94 328,-76 284,-76"></polygon>
+<text text-anchor="start" x="303.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="328,-76 328,-94 342,-94 342,-76 328,-76"></polygon>
+<text text-anchor="start" x="332.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="342,-76 342,-94 393,-94 393,-76 342,-76"></polygon>
+<text text-anchor="start" x="364.72" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-58 284,-76 328,-76 328,-58 284,-58"></polygon>
+<text text-anchor="start" x="303.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="328,-58 328,-76 342,-76 342,-58 328,-58"></polygon>
+<text text-anchor="start" x="332.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="342,-58 342,-76 393,-76 393,-58 342,-58"></polygon>
+<text text-anchor="start" x="364.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-40 284,-58 328,-58 328,-40 284,-40"></polygon>
+<text text-anchor="start" x="303.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="328,-40 328,-58 342,-58 342,-40 328,-40"></polygon>
+<text text-anchor="start" x="332.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="342,-40 342,-58 393,-58 393,-40 342,-40"></polygon>
+<text text-anchor="start" x="364.72" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-22 284,-40 328,-40 328,-22 284,-22"></polygon>
+<text text-anchor="start" x="303.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="328,-22 328,-40 342,-40 342,-22 328,-22"></polygon>
+<text text-anchor="start" x="332.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="342,-22 342,-40 393,-40 393,-22 342,-22"></polygon>
+<text text-anchor="start" x="364.72" y="-28" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="284,-4 284,-22 328,-22 328,-4 284,-4"></polygon>
+<text text-anchor="start" x="303.22" y="-10" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="328,-4 328,-22 342,-22 342,-4 328,-4"></polygon>
+<text text-anchor="start" x="332.22" y="-10" font-family="Arial" font-size="10.00">9</text>
+<polygon fill="none" stroke="cyan" points="342,-4 342,-22 393,-22 393,-4 342,-4"></polygon>
+<text text-anchor="start" x="364.72" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;bk_auth:l1</title>
+<path fill="none" stroke="black" d="M189,-148C230.97,-148 241.03,-157 283,-157"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge2" class="edge">
+<title>Books:f2-&gt;bk_auth:l2</title>
+<path fill="none" stroke="black" d="M189,-130C230.97,-130 241.03,-139 283,-139"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge3" class="edge">
+<title>Books:f3-&gt;bk_auth:l3</title>
+<path fill="none" stroke="black" d="M189,-112C230.97,-112 241.03,-121 283,-121"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge4" class="edge">
+<title>Books:f4-&gt;bk_auth:l4</title>
+<path fill="none" stroke="black" d="M189,-94C230.97,-94 241.03,-103 283,-103"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge5" class="edge">
+<title>Books:f5-&gt;bk_auth:l5</title>
+<path fill="none" stroke="black" d="M189,-76C230.97,-76 241.03,-85 283,-85"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge6" class="edge">
+<title>Books:f6-&gt;bk_auth:l6</title>
+<path fill="none" stroke="black" d="M189,-58C230.97,-58 241.03,-67 283,-67"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge7" class="edge">
+<title>Books:f7-&gt;bk_auth:l7</title>
+<path fill="none" stroke="black" d="M189,-40C230.97,-40 241.03,-49 283,-49"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge8" class="edge">
+<title>Books:f8-&gt;bk_auth:l8</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-31 283,-31"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge9" class="edge">
+<title>Books:f8-&gt;bk_auth:l9</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-13 283,-13"></path>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="488,-148 488,-166 640,-166 640,-148 488,-148"></polygon>
+<text text-anchor="start" x="549.27" y="-154" font-family="Arial" font-size="10.00">Author</text>
+<polygon fill="none" stroke="cyan" points="488,-130 488,-148 526,-148 526,-130 488,-130"></polygon>
+<text text-anchor="start" x="490.89" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="526,-130 526,-148 583,-148 583,-130 526,-130"></polygon>
+<text text-anchor="start" x="541.44" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="583,-130 583,-148 640,-148 640,-130 583,-130"></polygon>
+<text text-anchor="start" x="590.11" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="488,-112 488,-130 526,-130 526,-112 488,-112"></polygon>
+<text text-anchor="start" x="504.22" y="-118" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="526,-112 526,-130 583,-130 583,-112 526,-112"></polygon>
+<text text-anchor="start" x="534.49" y="-118" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="583,-112 583,-130 640,-130 640,-112 583,-112"></polygon>
+<text text-anchor="start" x="585.92" y="-118" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="488,-94 488,-112 526,-112 526,-94 488,-94"></polygon>
+<text text-anchor="start" x="504.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="526,-94 526,-112 583,-112 583,-94 526,-94"></polygon>
+<text text-anchor="start" x="528.66" y="-100" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="583,-94 583,-112 640,-112 640,-94 583,-94"></polygon>
+<text text-anchor="start" x="585.92" y="-100" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-76 488,-94 526,-94 526,-76 488,-76"></polygon>
+<text text-anchor="start" x="504.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="526,-76 526,-94 583,-94 583,-76 526,-76"></polygon>
+<text text-anchor="start" x="543.11" y="-82" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="583,-76 583,-94 640,-94 640,-76 583,-76"></polygon>
+<text text-anchor="start" x="585.92" y="-82" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-58 488,-76 526,-76 526,-58 488,-58"></polygon>
+<text text-anchor="start" x="504.22" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="526,-58 526,-76 583,-76 583,-58 526,-58"></polygon>
+<text text-anchor="start" x="540.6" y="-64" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="583,-58 583,-76 640,-76 640,-58 583,-58"></polygon>
+<text text-anchor="start" x="585.92" y="-64" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="488,-40 488,-58 526,-58 526,-40 488,-40"></polygon>
+<text text-anchor="start" x="504.22" y="-46" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="526,-40 526,-58 583,-58 583,-40 526,-40"></polygon>
+<text text-anchor="start" x="537" y="-46" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="583,-40 583,-58 640,-58 640,-40 583,-40"></polygon>
+<text text-anchor="start" x="585.92" y="-46" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge10" class="edge">
+<title>bk_auth:r1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-157C438.32,-157 442.68,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge11" class="edge">
+<title>bk_auth:r2-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-139C436.1,-139 444.9,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge12" class="edge">
+<title>bk_auth:r8-&gt;Authors:f4</title>
+<path fill="none" stroke="black" d="M394,-31C438.32,-31 442.68,-67 487,-67"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge13" class="edge">
+<title>bk_auth:r9-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-13C438.32,-13 442.68,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge14" class="edge">
+<title>bk_auth:r4-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-103C436.1,-103 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge15" class="edge">
+<title>bk_auth:r6-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-67C436.1,-67 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge16" class="edge">
+<title>bk_auth:r7-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-49C446.27,-49 434.73,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge17" class="edge">
+<title>bk_auth:r3-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-121C446.27,-121 434.73,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge18" class="edge">
+<title>bk_auth:r5-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-85C438.32,-85 442.68,-49 487,-49"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <h3 id="questions-4">Questions</h3>
 <ul>
 <li><p>How would you modify this to ensure that books exactly one author?</p></li>
@@ -1427,7 +1747,8 @@ bk_auth:r5 -&gt; Authors:f5 [dir=none constraint=false];</code></pre>
 <li><p>How would you modify this to ensure that authors has exactly one book?</p></li>
 <li><p>Could you change these features in real-time?</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="relational-model---unanswered-questions" class="slide level2">
 <h2>Relational Model - Unanswered questions</h2>
@@ -1445,17 +1766,6 @@ A multivalued attribute is something like <em>phone number</em>, that is, a <em>
 A weak entity is one that depends on a strong entity to survive. That is, if the <em>parent strong entity</em> is deleted, the weak entity is no longer needed. This is modeled using a <em>TRIGGER</em> in the <em>schema</em>. When the string entity is deleted, all corresponding weak entities are deleted, too.
 </dd>
 </dl>
-</section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
-<ul>
-<li>Project deliverable 3 (video) due Friday.</li>
-<li>Check your grades to verify that we’ve got it all correct!</li>
-</ul>
-<p>
-&nbsp;
-</p>
-<p>#| echo: false from src.utils import upcoming_calendar # Set the lecture ID and number of rows to show at the top of this file! upcoming_calendar( lecture_id, n_rows )</p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -1724,7 +2034,18 @@ A weak entity is one that depends on a strong entity to survive. That is, if the
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1756,29 +2077,7 @@ A weak entity is one that depends on a strong entity to survive. That is, if the
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1786,7 +2085,7 @@ A weak entity is one that depends on a strong entity to survive. That is, if the
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

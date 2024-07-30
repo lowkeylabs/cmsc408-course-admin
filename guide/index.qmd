@@ -1,0 +1,10 @@
+---
+title: CMSC 475 Study Guide
+---
+
+* [UI Design](ui-design/intro-to-ui-design)
+* [Visual Design](visual-design/visual-design.qmd)
+* [Storyboarding](storyboarding/storyboards.qmd)
+* [Prototyping](prototyping/prototyping.qmd)
+* [Implementation](ui-implementation/design-handoff.qmd)
+* [About this guide](about.qmd)

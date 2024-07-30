@@ -49,11 +49,13 @@
 
 * Enter these commands on your terminal.
 
+```sql
 ssh 23FA_jdleonard@cmsc508.com
 password: <your EID goes here>
 
 mysql -p
 password: <your Shout4 GOME password>
+```
 
 <p>&nbsp;</p>
 *This is the quickest and most efficient approach for directly managing the DBMS but not very useful for development.*
@@ -113,6 +115,7 @@ password: <your Shout4 GOME password>
 ::: {.column width=60%}
 ### See explorer.qmd for details!
 
+```{python}
 #| eval: true
 #| echo: true
 import os
@@ -132,6 +135,7 @@ engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['ho
 
 # create a database connection.  THIS IS THE ACTUAL CONNECTION!
 cnx = create_engine(engine_uri)
+```
 <p>&nbsp;</p>
 *This approach is most useful for developing the wrapper application around the SQL code.*
 
