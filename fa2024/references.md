@@ -10,3 +10,4 @@ Go back through evernote and chrome history (both accounts) to locate good mediu
 
 <https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape>
 
+<https://budibase.com/blog/data/cap-vs-acid/>
