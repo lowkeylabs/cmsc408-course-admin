@@ -27,6 +27,7 @@ revealjs = "^0.2.10"
 python-dotenv = "^1.0.0"
 sqlalchemy = "^2.0.22"
 pymysql = "^1.1.0"
+text2qti = "^0.7.1"
 
 [build-system]
 requires = ["poetry-core"]

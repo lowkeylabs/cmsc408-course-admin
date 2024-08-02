@@ -1,7 +1,7 @@
 Quiz title: Pre-class survey
 Quiz description: This is a simple survey to help me learn more about you. This activity is what is called a "graded survey", that is, you submit it and get points for submitting ANYTHING! Your individual responses don't have a right or wrong answers  (Translated - successful completion of this survey means an easy 10 points!)
 
-    I PLAN TO SHARE AGGREGATE SURVEY RESULTS WITH THE CLASS! No details about individuals, simply aggregate responses. I think you'll find some of the questions and answers fun.
+    I plan to share AGGREGATE SURVEY RESULTS with the class.  No details about individuals, simply aggregate responses. Any fill-in-the-blank responses will not be shared, either. I think you'll find some of the questions and answers fun.
 
     This survey also serves a second purpose. It assures both you and me that you've got everything set up for the the Respondus Lockdown browser.  Quizzes this class will be administered on-line using Canvas and the lockdown browser. Rather than have things blow up during the first real quiz, we'll use this opportunity to dip our toes in the water and get everything working properly early.
 
@@ -146,7 +146,7 @@ e) Strongly disagree
 f) Don't know, not sure.
 
 
-1. This course directly aligns with my career goals.
+1. I'm comfortable using DOCKER to build and run containers.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -156,6 +156,15 @@ f) Don't know, not sure.
 
 
 1. I'm comfortable using databases and SQL.
+*a) Strongly agree
+b) Agree
+c) Neutral
+d) Disagree
+e) Strongly disagree
+f) Don't know, not sure.
+
+
+1. This course directly aligns with my career goals.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -177,7 +186,7 @@ b) Team-based projects
 c) I'm comfy with either.
 
 
-1. Which learning method works best for you? (Select all that apply)
+1. Which learning method(s) works best for you? (Select all that apply)
 [*] Lectures
 [ ] Hands-on projects
 [ ] Group discussions
@@ -194,5 +203,30 @@ c) I'm comfy with either.
 [ ] Other
 
 
-1. Is there anything else that I should know?  Feel free to leave me a note!
+1. How would you prefer to get your questions answered during this course? (Select all that apply)
+[*] By asking the Teaching Assistant (TA) during office hours
+[ ] By asking the professor during office hours
+[ ] Through an online discussion forum (e.g., Piazza, Slack, etc.)
+[ ] Via email
+[ ] During class time
+[ ] Through group study sessions with peers
+
+
+1. How important is it for you to have access to the TA for questions and clarifications?
+[*] Extremely important
+[ ] Very important
+[ ] Moderately important
+[ ] Slightly important
+[ ] Not at all important
+
+
+1. How effective do you find Discord of clask for getting your questions answered?
+[*] Very effective
+[ ] Somewhat effective
+[ ] Neutral
+[ ] Somewhat ineffective
+[ ] Very ineffective
+
+
+1. Is there anything else that I should know?  Feel free to leave me a note!  These won't be shared.
 ____
