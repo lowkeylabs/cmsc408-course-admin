@@ -15,17 +15,17 @@ Quiz description: This is a simple survey to help me learn more about you. This 
 * .
 
 
-1. Star Wars or Star Trek?
+1. I prefer: Star Wars or Star Trek?
 *a) Star Wars
 b) Star Trek
 
 
-1. Your phone: iPhone or Android?
+1. My phone platform is: iPhone or Android?
 *a) iPhone
 b) Android
 
 
-1. Your primary computer for this class: Mac or Windows or Linux?
+1. My primary computer for this class is: Mac or Windows or Linux?
 *a) Mac
 b) Windows
 C) Linux
@@ -83,7 +83,24 @@ e) Strongly disagree
 f) Don't know, not sure.
 
 
+1. I'm comfortable using databases and SQL.
+*a) Strongly agree
+b) Agree
+c) Neutral
+d) Disagree
+e) Strongly disagree
+f) Don't know, not sure.
+
+
 1. I'm comfortable working from a command line terminal and shell (zch, bash, powershell, cmd, etc.)
+*a) Strongly agree
+b) Agree
+c) Neutral
+d) Disagree
+e) Strongly disagree
+f) Don't know, not sure.
+
+1. On windows, I regularly use WSL (Windows subsystem for linux):
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -155,7 +172,34 @@ e) Strongly disagree
 f) Don't know, not sure.
 
 
-1. I'm comfortable using databases and SQL.
+1. I'm comfortable using HTML and CSS to build web pages.
+*a) Strongly agree
+b) Agree
+c) Neutral
+d) Disagree
+e) Strongly disagree
+f) Don't know, not sure.
+
+
+1. I'm comfortable using Node, React, NextJS, and other JS tools to create web sites.
+*a) Strongly agree
+b) Agree
+c) Neutral
+d) Disagree
+e) Strongly disagree
+f) Don't know, not sure.
+
+
+1. I'm comfortable using Django and Python to create web sites.
+*a) Strongly agree
+b) Agree
+c) Neutral
+d) Disagree
+e) Strongly disagree
+f) Don't know, not sure.
+
+
+1. I'm comfortable using Apache and PHP to create web sites.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -206,7 +250,7 @@ c) I'm comfy with either.
 1. How would you prefer to get your questions answered during this course? (Select all that apply)
 [*] By asking the Teaching Assistant (TA) during office hours
 [ ] By asking the professor during office hours
-[ ] Through an online discussion forum (e.g., Piazza, Slack, etc.)
+[ ] Through an online discussion forum (e.g., Discord, Canvas, Slack, etc.)
 [ ] Via email
 [ ] During class time
 [ ] Through group study sessions with peers
@@ -220,7 +264,7 @@ c) I'm comfy with either.
 [ ] Not at all important
 
 
-1. How effective do you find Discord of clask for getting your questions answered?
+1. How effective do you find Discord or Slack for getting your questions answered?
 [*] Very effective
 [ ] Somewhat effective
 [ ] Neutral

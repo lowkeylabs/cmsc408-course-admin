@@ -25,3 +25,19 @@ ETL/ELT, Staging, which is just a way to move data between systems.
 Never Ever read a flat file into a table in a production system without first using a staging table…
 
 There are books and courses for the 3 different types.
+
+
+https://www.geeksforgeeks.org/how-to-integrate-mysql-database-with-django/
+
+https://www.geeksforgeeks.org/how-to-use-tailwind-css-with-django/
+
+https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
+
+https://github.com/prosenjeetshil/django-crud-operations-tutorial
+
+
+https://www.bezkoder.com/react-node-express-mysql/
+
+https://www.bezkoder.com/docker-compose-react-nodejs-mysql/
+
+
