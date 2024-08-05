@@ -46,3 +46,6 @@ https://medium.com/@aashari/easy-to-follow-guide-of-how-to-install-pyenv-on-ubun
 
 # cool advanced SQL functions
 https://towardsdatascience.com/the-most-useful-advanced-sql-techniques-to-succeed-in-the-tech-industry-0f0690e8386c
+
+# FastHTML
+https://www.geeky-gadgets.com/getting-started-with-fasthtml/
