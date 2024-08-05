@@ -43,3 +43,6 @@ https://www.bezkoder.com/docker-compose-react-nodejs-mysql/
 
 # easy install of pyenv
 https://medium.com/@aashari/easy-to-follow-guide-of-how-to-install-pyenv-on-ubuntu-a3730af8d7f0
+
+# cool advanced SQL functions
+https://towardsdatascience.com/the-most-useful-advanced-sql-techniques-to-succeed-in-the-tech-industry-0f0690e8386c
