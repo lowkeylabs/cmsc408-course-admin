@@ -41,3 +41,5 @@ https://www.bezkoder.com/react-node-express-mysql/
 https://www.bezkoder.com/docker-compose-react-nodejs-mysql/
 
 
+# easy install of pyenv
+https://medium.com/@aashari/easy-to-follow-guide-of-how-to-install-pyenv-on-ubuntu-a3730af8d7f0
