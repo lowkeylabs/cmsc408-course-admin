@@ -11,7 +11,7 @@
 <script src="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.5.56">
 
   <title>Welcome to CMSC408</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -324,6 +324,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="lecture-01_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="lecture-01_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="lecture-01_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -342,6 +345,439 @@
 
   <p class="date">Wednesday - Aug 21, 2024</p>
 </section>
+<section id="im-glad-youre-here" class="slide level2">
+<h2>I’m glad you’re here!!!!</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-rise-of-sql.png"></p>
+<figcaption><a href="https://spectrum.ieee.org/the-rise-of-sql" class="uri">https://spectrum.ieee.org/the-rise-of-sql</a></figcaption>
+</figure>
+</div>
+</div><div class="column">
+<h3 id="cmsc-508---database-theory">CMSC 508 - Database Theory</h3>
+<ul>
+<li>Semester course;</li>
+<li>3 lecture hours. 3 credits.</li>
+<li>Prerequisite: CMSC 303 with a minimum grade of C.</li>
+</ul>
+<p>Design and implementation of relational database systems. Emphasis is placed on entity-relationship diagrams, relational algebra, normal forms and normalization. Introduction to SQL. Discussion of physical level issues.</p>
+<p>Students will be required to complete a design project and give an oral presentation of the project.</p>
+</div></div>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning objectives</h2>
+<div class="more-separation">
+<ul>
+<li><p>SLO1 - Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions;</p></li>
+<li><p>SLO2 - Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline;</p></li>
+<li><p>SLO3 - Communicate effectively in a variety of professional contexts;</p></li>
+<li><p>SLO4 - Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;</p></li>
+<li><p>SLO5 - Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;</p></li>
+<li><p>SLO6 - Apply computer science theory and software development fundamentals to produce computing-based solutions;</p></li>
+</ul>
+</div>
+</section>
+<section id="topics-over-time" class="slide level2">
+<h2>Topics over time</h2>
+<p>The class organized in modules. The GANNT chart below highlights the topics and their order. Homework assignments reinforce topics discussed in class. Quizzes test understanding of the topics where appropriate. Material is presented in a way that complements the successful completion of the semester-long project.</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section Modules
+    Overview : m1, 8/21/2023, 1w
+    ER Models: m2, after m1, 2w
+    DB and SQL: m3, after m2, 1w
+    Relational Algebra: m4, after m3, 2w
+    Normal forms: m5, after m4, 3w
+    Joins and sums: m6, after m5, 2w
+    API and DB: m7, after m6, 2w
+    (break): m8, after m7, 1w
+    DB Integrity: m9, after m8, 3w
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading-and-deliverables" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="overview">Overview</h3>
+<p>Below are tables presenting the grading scheme and deliverable list for the class.</p>
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<center>
+<h3 id="deliverables">Deliverables</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Deliverable</th>
+<th style="text-align: center;">Pct</th>
+<th style="text-align: left;">Number of items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Homework</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: left;">11 submissions done individually</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Quizzes</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: left;">4 quizzes taken on-line using respondus</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Project</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: left;">7 submissions as part of a team</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div><div class="column" style="width:40%;">
+<center>
+<h3 id="grading">Grading</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: center;">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">90 &lt;= X</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80 &lt;= X &lt; 90</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">70 &lt;= X &lt; 80</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 &lt;= X &lt; 70</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X &lt; 60</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div></div>
+</section>
+<section id="grading-and-deliverables-1" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="homework-assignments">Homework Assignments</h3>
+<div style="font-size:0.9em;">
+<p>Homework assignments are done individually. Homeworks will be distributed using GITHUB classroom; a link will be provided in the Canvas assignment page. Homeworks will be submitted to Gradescope. Each assignment is worth 20 points. Rubrics will be provided. Homeworks will be written using Quarto. Homework 2 provides an opportunity to learn more about Quarto. Quarto will also be used for the semester project.</p>
+</div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+    section 11 Homework submissions&lt;br/&gt;(40%)
+    Pre-class survey: milestone, h1, 08/23/2023, 1d
+    ER Models 1: milestone, h2, 09/01/2023, 1d
+    ER Models 2: milestone, h3, 09/08/2023, 1d
+    DB, SQL, CRUD 1: milestone, h4, 09/22/2023, 1d
+    DB, SQL, CRUD 2: milestone, h5, 09/29/2023, 1d
+    DB joins and aggregates: milestone, h6, 10/06/2023, 1d
+    Normalization: milestone, h7, 10/20/2023, 1d
+    More joins and aggregates: milestone, h8, 10/27/2023, 1d
+    API and flask: milestone, h9,11/10/2023, 1d
+    DML and integrity: milestone, h10, 12/01/2023, 1d
+    Course evaluation: milestone, h11, 12/15/2023, 1d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading-and-deliverables-2" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="quizzes">Quizzes</h3>
+<div style="font-size:0.9em;">
+<p>There will be four quizzes throughout the semester. Each quiz will be worth 30 points. Quizzes will be administered on-line usint the Respondus lockdown browser. It is the responsibility of the student to ensure that the technology works. Homework assignment 1 offers practice to work out the bugs. Quizzes will be administered during class time.</p>
+</div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section 4 Quizzes&lt;br/&gt;(30%)
+    (first day of class): milestone, ldc1, 08/23/2023, 0d
+    ER Models: milestone, q1, 09/06/2023, 0d
+    Relational algebra: milestone, q2, 09/25/2023, 0d
+    Normal forms: milestone, q3, 10/16/2023, 0d
+    SQL basics: milestone, q4, 11/01/2023, 0d
+    (last day of class): milestone, ldc2, 12/11/2023, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading-and-deliverables-3" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="semester-long-project">Semester-long project</h3>
+<div style="font-size:0.9em;">
+<p>Students will work in teams of 2 on a semester-long project. The project will require the students design and build a database backend presenting an API. The domain of the project is chosen by the students. Tools include SQL, python, flask, MySQL, Quarto, and others.</p>
+</div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section 7 Project&lt;br/&gt;Deliverables&lt;br/&gt;(30%)
+    Student introductions: milestone, p1, 8/25/2023,0d
+    Team formation: milestone, p2, 8/27/2023, 0d
+    Clone team repo: milestone, p3, 9/15/2023, 0d
+    Phase 1 submission: milestone, p4, 10/13/2023, 0d
+    Project status report 1: milestone, p5, 11/03/2023, 0d
+    Project status report 2: milestone, p6, 11/17/2023, 0d
+    Phase 2 submission: milestone, p7, 12/11/2023, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="recommended-textbooks" class="slide level2">
+<h2>Recommended Textbooks</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-ramakrishnan.png" style="width:1.4in"></p>
+<figcaption><em>Database Management Systems, Third Edition</em>, R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-silberschatz.png" style="width:1.5in"></p>
+<figcaption><em>Database System Concepts, Sixth Edition</em>, A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Do I need really need a text book?</strong></p>
+</div>
+<div class="callout-content">
+<p>No, you don’t. These textbooks are <em>really good</em> and package lots of information into a single place.</p>
+<p><em>Life is a database</em> and from my perspective it’s all about speed of retrieval. When I’m building databases, I can’t EVER recall pulling out a text book to look something up!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="canvas-as-the-official-platform" class="slide level2">
+<h2>Canvas as the OFFICIAL platform</h2>
+<p>YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.</p>
+<p>WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.</p>
+<p>ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it’s important enough to be shared as part of the course materials on Canvas, I believe that it’s important enough for you to be familiar with it and possibly tested on it.</p>
+<p>I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn’t important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.</p>
+</section>
+<section id="statement-on-generative-ai" class="slide level2">
+<h2>Statement on Generative AI</h2>
+<p>Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.</p>
+<p>Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.</p>
+<p>Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. <strong>Use of Generative AI IS permitted on homework assignments and the semester project</strong>, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.</p>
+<p>Quizzes are designed to test your knowledge of the course material. <strong>Use of Generative AI is NOT permitted on any of the quizzes.</strong></p>
+</section>
+<section id="advice-from-your-peers" class="slide level2">
+<h2>Advice from your peers</h2>
+</section>
+<section>
+<section id="a-long-time-ago-in-a-galaxy-far-far-away" class="title-slide slide level1 center">
+<h1>A long time ago … in a galaxy far, far away …</h1>
+
+</section>
+<section id="early-history" class="slide level2">
+<h2>Early history</h2>
+<div class="columns">
+<div class="column">
+<h3 id="s-and-early-1960s">1950s and early 1960s:</h3>
+<ul>
+<li>Data processing using magnetic tapes for storage</li>
+<li>Tapes provided only sequential access</li>
+<li>Punched cards for input</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/1951_TapeData_P2.jpg"></p>
+</div></div>
+</section>
+<section id="early-history-1" class="slide level2">
+<h2>Early history</h2>
+<div class="columns">
+<div class="column">
+<h3 id="late-1960s-and-1970s">Late 1960s and 1970s:</h3>
+<ul>
+<li>Hard disks allowed direct access to data</li>
+<li>Network and hierarchical data models in widespread use</li>
+<li>Ted Codd defines the Relational data model</li>
+<li>High-performance (for the era) transaction processing</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg"></p>
+</div></div>
+</section>
+<section id="modern-systems" class="slide level2">
+<h2>Modern systems</h2>
+<div class="columns">
+<div class="column">
+<h3 id="s">1980s:</h3>
+<ul>
+<li>Research relational prototypes evolve into commercial systems
+<ul>
+<li>SQL becomes industrial standard</li>
+</ul></li>
+<li>Parallel and distributed database systems</li>
+<li>Object-oriented database systems</li>
+</ul>
+<h3 id="s-1">1990s:</h3>
+<ul>
+<li>Large decision support and data-mining applications</li>
+<li>Large multi-terabyte data warehouses</li>
+<li>Emergence of Web commerce</li>
+</ul>
+</div><div class="column">
+<p><img data-src="assets/1990-computer-center.png"></p>
+</div></div>
+</section>
+<section id="modern-systems-1" class="slide level2">
+<h2>Modern systems</h2>
+<div class="columns">
+<div class="column">
+<h3 id="early-2000s">Early 2000s:</h3>
+<ul>
+<li>XML and XQuery standards</li>
+<li>Automated database administration</li>
+</ul>
+<h3 id="later-2000s">Later 2000s:</h3>
+<ul>
+<li>Giant data storage systems</li>
+<li>Google BigTable, Yahoo PNuts, Amazon, …</li>
+</ul>
+<h3 id="and-beyond">2022 and Beyond:</h3>
+<p><a href="https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4" class="uri">https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4</a></p>
+</div><div class="column">
+<p><img data-src="assets/google-data-center.png"></p>
+</div></div>
+</section></section>
+<section>
+<section id="db-vs-dbms" class="title-slide slide level1 center">
+<h1>DB vs DBMS</h1>
+
+</section>
+<section id="important-concept---db-vs-dbms" class="slide level2">
+<h2>Important concept - DB vs DBMS</h2>
+<h3 id="database-db">Database (DB)</h3>
+<ul>
+<li><strong>Entities:</strong> abstractions of data</li>
+<li><strong>Relationships:</strong> semantic information that connects two or more entities to each other</li>
+<li>Logical architectures</li>
+</ul>
+<h3 id="database-management-system-dbms">Database Management System (DBMS)</h3>
+<ul>
+<li>hosts multiple databases</li>
+<li>Set of programs to access and manipulate the data</li>
+<li>Controls access, manages users</li>
+<li>Environment that is convenient, efficient, secure, reliable, scalable</li>
+<li>Examples: Oracle, SQL Server, MySQL</li>
+</ul>
+</section></section>
+<section>
+<section id="why-databases" class="title-slide slide level1 center">
+<h1>Why databases?</h1>
+
+</section>
+<section id="why-not-use-spreadsheets" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<p>Spreadsheets DO work and they ARE viable!</p>
+<h3 id="here-is-view-of-a-data-base-through-a-web-site">Here is view of a data base through a web site</h3>
+<p><a href="https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/" class="uri">https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/</a></p>
+<h3 id="here-is-the-source-data">Here is the source data</h3>
+<p><a href="https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023" class="uri">https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023</a></p>
+</section>
+<section id="why-not-use-spreadsheets-1" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<h3 id="drawbacks-of-using-file-systems-to-store-data">Drawbacks of using file systems to store data</h3>
+<ul>
+<li>Data redundancy and inconsistency in multiple files and formats</li>
+<li>Need to write a new program to carry out each new task</li>
+<li>Difficulty in accessing data: where and how</li>
+<li>Data isolation</li>
+<li>Integrity problems and constraints</li>
+<li>Atomicity of updates</li>
+<li>Concurrent access by multiple users</li>
+<li>Security problems</li>
+</ul>
+</section>
+<section id="why-use-a-dbms" class="slide level2">
+<h2>Why use a DBMS?</h2>
+<h3 id="advantages-of-a-dbms">Advantages of a DBMS</h3>
+<ul>
+<li>Data independence (facilitates sharing of information)</li>
+<li>Efficient data access (indexes can be used for optimization)</li>
+<li>Data consistency and integrity</li>
+<li>Security and authorization</li>
+<li>Data administration</li>
+<li>Concurrent access and crash recovery</li>
+<li>Reduced application development time</li>
+</ul>
+</section>
+<section id="why-use-a-dbms-1" class="slide level2">
+<h2>Why use a DBMS?</h2>
+<h3 id="size-and-scale">Size and scale</h3>
+<p>Here is an example data warehouse build summary:</p>
+<p><a href="https://docs.google.com/spreadsheets/d/11BazRGXKIdAT4B5ln5O567-Ah0n68ulmjVqdXZgPyTE/edit#gid=1785128451" class="uri">https://docs.google.com/spreadsheets/d/11BazRGXKIdAT4B5ln5O567-Ah0n68ulmjVqdXZgPyTE/edit#gid=1785128451</a></p>
+</section>
+<section id="why-use-a-dbms-2" class="slide level2">
+<h2>Why use a DBMS?</h2>
+<h3 id="in-summary-acid">In summary: ACID</h3>
+<p><strong>Atomicity:</strong> Either all operations of the transaction are properly reflected in the database or none are</p>
+<p><strong>Consistency:</strong> Execution of a transaction in isolation preserves the consistency of the database</p>
+<p><strong>Isolation:</strong> Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions</p>
+<p><strong>Durability:</strong> After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures.</p>
+</section>
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -350,215 +786,16 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Complete the pre-class survey</p></li>
+<li><p>Introduce yourself on the discussion group</p></li>
+<li><p>Join the discord</p></li>
+<li><p>Form your project team</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
-</ul>
-</div></div>
-<div style="margin-top:25px">
-<p>&nbsp;</p>
-</div>
-
-    <style></style>
-    <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Week</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Date</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Day</th>
-<th data-quarto-table-cell-role="th">Lectures</th>
-<th data-quarto-table-cell-role="th">Deliverables/Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Overview</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">8/21</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG1: L1 (Welcome to CMSC408)</td>
-<td>Quiz 1 due (Preclass Survey)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Overview</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">8/23</td>
-<td style="text-align: center;">Fri</td>
-<td></td>
-<td>PrjDel 1 due (Student introductions)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Overview</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">8/25</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>PrjDel 2 due (Team formation)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">ER Models</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">8/26</td>
-<td style="text-align: center;">Mon</td>
-<td>MTG2: L2 (Entity-relation models 1)</td>
-<td>Last day to add/drop</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">ER Models</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">8/28</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG3: L3 (Entity-relation models 2)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">ER Models</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">8/30</td>
-<td style="text-align: center;">Fri</td>
-<td></td>
-<td>HW1 due (ER Models 1)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">ER Models</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">9/2</td>
-<td style="text-align: center;">Mon</td>
-<td></td>
-<td>NO CLASS - University closed (Labor day)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">ER Models</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">9/4</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG4: L4 (ER Models)</td>
-<td>Quiz 2 due (Entity-relation models)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section>
-<section id="database-design-process" class="title-slide slide level1 center">
-<h1>Database design process</h1>
-
-</section>
-<section id="database-design-process---overview" class="slide level2 scrollable">
-<h2>Database design process - overview</h2>
-<div class="columns">
-<div class="column">
-<h3 id="overview">Overview</h3>
-<ul>
-<li><p>Basic steps are on the right.</p></li>
-<li><p>There are many different approaches.</p></li>
-<li><p>Watch the videos, you’ll see different approaches.</p></li>
-<li><p>Can be as hard or simple as you want to make it.</p></li>
-<li><p>Iterate!</p></li>
-<li><p><em>Note: the Microsoft approach (on Canvas) jumps more quickly to logical design and implementation.</em></p></li>
-</ul>
-</div><div class="column">
-<h3 id="database-design-process-1">Database design process</h3>
-<ol type="1">
-<li><p>Understanding requirements</p></li>
-<li><p>Conceptual design</p></li>
-<li><p>Logical design</p></li>
-<li><p>Physical design</p></li>
-<li><p>Implementation</p></li>
-</ol>
-</div></div>
-</section>
-<section id="database-design-process---more-detail" class="slide level2 scrollable">
-<h2>Database design process - more detail</h2>
-<div class="columns">
-<div class="column">
-<ol type="1">
-<li>Understanding requirements
-<ul>
-<li>Problem domain,</li>
-<li>Need,</li>
-<li>Context, scope and perspective,</li>
-<li>Uses cases, user roles</li>
-<li>Security, privacy</li>
-<li>Use cases, specific queries</li>
-</ul></li>
-<li>Conceptual design
-<ul>
-<li>Entities, attributes, relationships</li>
-<li>ER diagrams</li>
-</ul></li>
-<li>Logical design
-<ul>
-<li>converting entities, attributes and relations, and other odd features to tables.</li>
-<li>Normalization and functional analysis</li>
-</ul></li>
-</ol>
-</div><div class="column">
-<ol start="4" type="1">
-<li>Physical design
-<ul>
-<li>More fully defining tables</li>
-<li>Adding integrity constraints, triggers</li>
-<li>Reporting: adding views</li>
-<li>Maintenance: adding procedures</li>
-<li>Considering access: defining the API</li>
-</ul></li>
-<li>Implementation
-<ul>
-<li>code it up,</li>
-<li>load it up,</li>
-<li>test it up,</li>
-<li>see where you screwed it up,</li>
-<li>iterate it up.</li>
-</ul></li>
-</ol>
-</div></div>
-<center>
-<em>This maps nicely with the <a href="https://virginiacommonwealth.instructure.com/courses/85746/pages/project-overview-and-deliverable-summary">Semester Project</a> deliverables!</em>
-</center>
-</section>
-<section id="database-design-process---normalization" class="slide level2">
-<h2>Database design process - normalization</h2>
-<p><em>Normalization</em> is the process of reorganizing the columns and tables of a relational database to minimize data redundancy and avoid inconsistencies</p>
-<p><em>Normalization</em> decomposes a table into smaller tables without losing information</p>
-<p><em>Normalization</em> is iterative, don’t <em>expect</em> perfection the first time through!</p>
-<p><em>Normalization</em> is iterative, don’t <em>try</em> to achieve perfection the first time through. Relax!</p>
-<p><em>Normalization</em> Theory provides simple tests to determine a “good design”</p>
-</section>
-<section id="database-design-process---er-diagrams" class="slide level2">
-<h2>Database design process - ER diagrams</h2>
-<p>It’s all about sharing your database design. How do you share your design with others?</p>
-<p>An entity-relationship (ER) model was first proposed by <a href="https://dl.acm.org/doi/10.1145/320434.320440">Peter Chen in 1976</a></p>
-<p>
-</p><ul>
-<li><p>Highlights the conceptual features (schema) of a database.</p></li>
-<li><p>Maps the meanings and interactions of real-world entities to a conceptual schema</p></li>
-<li><p>Focuses on portraying relations between entities, attributes, and relationships in a graphical fashion.</p></li>
-<li><p>Different notions to support different needs.</p></li>
-<li><p>Quarto supports at least two notations. We’ll use both!</p></li>
-<li><p>Tons of other tools to draw ER diagrams using different notations.</p></li>
-<li><p>THERE IS NO STANDARD!</p></li>
-</ul>
-</section>
-<section id="housekeeping-1" class="slide level2">
-<h2>Housekeeping</h2>
-<div class="columns">
-<div class="column" style="width:9%;">
-
-</div><div class="column" style="width:45%;">
-<h3 id="discussion-items-1">Discussion items</h3>
-<ul>
-<li>This is a placeholder Lecture.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<h3 id="lecture-topics-1">Lecture topics</h3>
-<ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Course overview</p></li>
+<li><p>Introduction to databases</p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
