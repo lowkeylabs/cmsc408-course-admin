@@ -1,0 +1,30 @@
+---
+title: "Your Document Title"
+format: 
+  html:
+    self-contained: true
+    embed-resources: true
+    minimal: true
+  gfm:
+    mermaid-format: png
+---
+
+## GANNT chart of the semester
+
+```{mermaid}
+%%| echo: false
+gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section Modules
+    Overview : m1, 8/21/2023, 1w
+    ER Models: m2, after m1, 2w
+    DB and SQL: m3, after m2, 1w
+    Relational Algebra: m4, after m3, 2w
+    Normal forms: m5, after m4, 3w
+    Joins and sums: m6, after m5, 2w
+    API and DB: m7, after m6, 2w
+    (break): m8, after m7, 1w
+    DB Integrity: m9, after m8, 3w
+```

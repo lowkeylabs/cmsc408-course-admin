@@ -15,6 +15,7 @@ help:
 	@echo Available targets in the Makefile
 	@grep -E '^[a-zA-Z_-]+\.help' Makefile | sed 's/\.help[[:space:]]*=/:\t/'
 
+
 .PHONY: start-all
 start-all:
 	@echo Building $(ZIP_FILES)
@@ -33,5 +34,5 @@ all: $(ZIP_FILES)
 clean.help = Remove zip files
 .PHONY: clean
 clean:
-	rm -f *.zip
+#	rm -f *.zip
 	@echo Removed all zip files.

@@ -1,0 +1,232 @@
+## I'm glad you're here!!!!
+
+:::: {.columns}
+
+::: {.column}
+![<https://spectrum.ieee.org/the-rise-of-sql>](assets/L01-rise-of-sql.png){fig-align="center"}
+:::
+::: {.column}
+### CMSC 508 - Database Theory
+
+* Semester course;
+* 3 lecture hours. 3 credits. 
+* Prerequisite: CMSC 303 with a minimum grade of C.
+
+Design and implementation of relational database systems. Emphasis is placed on entity-relationship diagrams, relational algebra, normal forms and normalization. Introduction to SQL. Discussion of physical level issues. 
+
+Students will be required to complete a design project and give an oral presentation of the project.
+:::
+::::
+
+## Learning objectives
+
+::: {.more-separation}
+
+* SLO1 - Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions;
+
+* SLO2 - Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline;
+
+* SLO3 - Communicate effectively in a variety of professional contexts;
+
+* SLO4 - Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;
+
+* SLO5 - Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;
+
+* SLO6 - Apply computer science theory and software development fundamentals to produce computing-based solutions;
+
+:::
+
+## Topics over time
+
+The class organized in modules. The GANNT chart below highlights the topics and their order. Homework assignments reinforce topics discussed in class. Quizzes test understanding of the topics where appropriate. Material is presented in a way that
+complements the successful completion of the semester-long project.
+
+```{mermaid}
+%%| echo: false
+gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section Modules
+    Overview : m1, 8/21/2023, 1w
+    ER Models: m2, after m1, 2w
+    DB and SQL: m3, after m2, 1w
+    Relational Algebra: m4, after m3, 2w
+    Normal forms: m5, after m4, 3w
+    Joins and sums: m6, after m5, 2w
+    API and DB: m7, after m6, 2w
+    (break): m8, after m7, 1w
+    DB Integrity: m9, after m8, 3w
+```
+
+## Grading and deliverables
+
+This will be a busy semester! There will be items due each week.
+
+### Overview
+
+Below are tables presenting the grading scheme and deliverable list for the class. 
+
+<p>&nbsp;</p>
+
+:::: {.columns}
+::: {.column width="60%"}
+
+<center>
+### Deliverables
+| Deliverable | Pct | Number of items |
+|:-----:|:-----:|:---|
+| Homework   |   40%   | 11 submissions done individually |
+| Quizzes | 30% | 4 quizzes taken on-line using respondus |
+| Project | 30% | 7 submissions as part of a team |
+</center>
+
+:::
+
+::: {.column width="40%"}
+
+<center>
+### Grading
+| Score | Grade |
+|:-----:|:-----:|
+| 90 <= X   |   A   |
+| 80 <= X < 90 | B |
+| 70 <= X < 80 | C |
+| 60 <= X < 70 | D |
+|  X < 60 | F |
+</center>
+
+:::
+::::
+
+## Grading and deliverables
+
+This will be a busy semester! There will be items due each week.
+
+### Homework Assignments
+
+::: {style="font-size:0.9em;"}
+Homework assignments are done individually. Homeworks will be distributed using GITHUB classroom; a link will be provided in the Canvas assignment page. Homeworks will be
+submitted to Gradescope. Each assignment is worth 20 points. Rubrics will be
+provided. Homeworks will be written using Quarto. Homework 2 provides an opportunity
+to learn more about Quarto. Quarto will also be used for the semester project.
+:::
+
+```{mermaid}
+%%| echo: false
+gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+    section 11 Homework submissions<br/>(40%)
+    Pre-class survey: milestone, h1, 08/23/2023, 1d
+    ER Models 1: milestone, h2, 09/01/2023, 1d
+    ER Models 2: milestone, h3, 09/08/2023, 1d
+    DB, SQL, CRUD 1: milestone, h4, 09/22/2023, 1d
+    DB, SQL, CRUD 2: milestone, h5, 09/29/2023, 1d
+    DB joins and aggregates: milestone, h6, 10/06/2023, 1d
+    Normalization: milestone, h7, 10/20/2023, 1d
+    More joins and aggregates: milestone, h8, 10/27/2023, 1d
+    API and flask: milestone, h9,11/10/2023, 1d
+    DML and integrity: milestone, h10, 12/01/2023, 1d
+    Course evaluation: milestone, h11, 12/15/2023, 1d
+```
+
+## Grading and deliverables
+
+This will be a busy semester! There will be items due each week.
+
+### Quizzes
+
+::: {style="font-size:0.9em;"}
+There will be four quizzes throughout the semester. Each quiz will be worth 30 points.
+Quizzes will be administered on-line usint the Respondus lockdown browser. It is
+the responsibility of the student to ensure that the technology works. Homework assignment 1 offers practice to work out the bugs. Quizzes will be administered during class time.
+:::
+
+```{mermaid}
+%%| echo: false
+gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section 4 Quizzes<br/>(30%)
+    (first day of class): milestone, ldc1, 08/23/2023, 0d
+    ER Models: milestone, q1, 09/06/2023, 0d
+    Relational algebra: milestone, q2, 09/25/2023, 0d
+    Normal forms: milestone, q3, 10/16/2023, 0d
+    SQL basics: milestone, q4, 11/01/2023, 0d
+    (last day of class): milestone, ldc2, 12/11/2023, 0d
+```
+
+## Grading and deliverables
+
+This will be a busy semester! There will be items due each week.
+
+### Semester-long project
+
+::: {style="font-size:0.9em;"}
+Students will work in teams of 2 on a semester-long project. The project will
+require the students design and build a database backend presenting an API. The
+domain of the project is chosen by the students. Tools include SQL, python, flask, MySQL, Quarto, and others.
+:::
+
+```{mermaid}
+%%| echo: false
+gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section 7 Project<br/>Deliverables<br/>(30%)
+    Student introductions: milestone, p1, 8/25/2023,0d
+    Team formation: milestone, p2, 8/27/2023, 0d
+    Clone team repo: milestone, p3, 9/15/2023, 0d
+    Phase 1 submission: milestone, p4, 10/13/2023, 0d
+    Project status report 1: milestone, p5, 11/03/2023, 0d
+    Project status report 2: milestone, p6, 11/17/2023, 0d
+    Phase 2 submission: milestone, p7, 12/11/2023, 0d
+```
+
+## Recommended Textbooks
+
+:::: {.columns}
+::: {.column}
+![*Database Management Systems, Third Edition*, 
+R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631](assets/L01-ramakrishnan.png){width=1.4in fig-align="center"}
+:::
+::: {.column}
+![*Database System Concepts, Sixth Edition*,
+A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323](assets/L01-silberschatz.png){width=1.5in fig-align="center"}
+:::
+::::
+
+::: {.callout-note icon="false"}
+## Do I need really need a text book?
+No, you don't. These textbooks are *really good* and package lots of information into a single place.
+
+*Life is a database* and from my perspective it's all about speed of retrieval. When I'm building databases, I can't EVER recall pulling out a text book to look something up!
+:::
+
+## Canvas as the OFFICIAL platform
+
+YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.
+
+WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.
+
+ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it's important enough to be shared as part of the course materials on Canvas, I believe that it's important enough for you to be familiar with it and possibly tested on it.
+
+I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn't important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.
+
+## Statement on Generative AI
+
+Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.
+
+Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.
+
+Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. **Use of Generative AI IS permitted on homework assignments and the semester project**, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.
+
+Quizzes are designed to test your knowledge of the course material. **Use of Generative AI is NOT permitted on any of the quizzes.**
+
+## Advice from your peers
+
+
+

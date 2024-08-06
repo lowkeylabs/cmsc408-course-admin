@@ -4,6 +4,9 @@ subtitle: "Lecture {{< meta lecture-id >}}"
 project:
   title: "CMSC 408 - Databases"
   output-dir: ../../docs/fa2024
+  render:
+    - "lect*.qmd"
+    - "index.qmd"
 
 date-format: "dddd - MMM D, YYYY"
 from: markdown+emoji

@@ -1,0 +1,12 @@
+---
+title: "Intro to databases"
+tasl:
+    tags:
+    - lecture
+    - lecture-01
+    topic: Intro to databases
+---
+
+{{< include '_intro-to-databases.qmd' >}}
+
+    
