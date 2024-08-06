@@ -18,6 +18,51 @@ Students will be required to complete a design project and give an oral presenta
 :::
 ::::
 
+## Recommended Textbooks
+
+:::: {.columns}
+::: {.column}
+![*Database Management Systems, Third Edition*, 
+R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631](assets/L01-ramakrishnan.png){width=1.4in fig-align="center"}
+:::
+::: {.column}
+![*Database System Concepts, Sixth Edition*,
+A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323](assets/L01-silberschatz.png){width=1.5in fig-align="center"}
+:::
+::::
+
+::: {.callout-note icon="false"}
+## Do I need really need a text book?
+No, you don't. These textbooks are *really good* and package lots of information into a single place.
+
+*Life is a database* and from my perspective it's all about speed of retrieval. When I'm building databases, I can't EVER recall pulling out a text book to look something up!
+:::
+
+## Canvas is the OFFICIAL platform
+
+::: {.more-separation}
+* YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.
+
+* WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.
+
+* ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it's important enough to be shared as part of the course materials on Canvas, I believe that it's important enough for you to be familiar with it and possibly tested on it.
+
+* I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn't important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.
+:::
+
+## Statement on Generative AI
+
+* Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.
+
+* Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.
+
+* Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. **Use of Generative AI IS permitted on homework assignments and the semester project**, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.
+
+* Quizzes are designed to test your knowledge of the course material. **Use of Generative AI is NOT permitted on any of the quizzes.**
+
+* See [this document](https://virginiacommonwealth.instructure.com/courses/105097/files/12032089?wrap=1) to learn more!
+
+
 ## Learning objectives
 
 ::: {.more-separation}
@@ -33,6 +78,26 @@ Students will be required to complete a design project and give an oral presenta
 * SLO5 - Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;
 
 * SLO6 - Apply computer science theory and software development fundamentals to produce computing-based solutions;
+
+:::
+
+## Learning outcomes
+
+::: {.more-separation}
+
+* Demonstrate an understanding of the concepts underlying database design.
+
+* Analyze problems to identify data requirements, types and relations.
+
+* Create E-R and relational designs from problem statements.
+
+* Design data structures and functions to store and process the information.
+
+* Design and implement databases using SQL language.
+
+* Query and manipulate data using SQL language.
+
+* Design and implement reports using data queried from a database.
 
 :::
 
@@ -58,46 +123,6 @@ gantt
     (break): m8, after m7, 1w
     DB Integrity: m9, after m8, 3w
 ```
-
-## Grading and deliverables
-
-This will be a busy semester! There will be items due each week.
-
-### Overview
-
-Below are tables presenting the grading scheme and deliverable list for the class. 
-
-<p>&nbsp;</p>
-
-:::: {.columns}
-::: {.column width="60%"}
-
-<center>
-### Deliverables
-| Deliverable | Pct | Number of items |
-|:-----:|:-----:|:---|
-| Homework   |   40%   | 11 submissions done individually |
-| Quizzes | 30% | 4 quizzes taken on-line using respondus |
-| Project | 30% | 7 submissions as part of a team |
-</center>
-
-:::
-
-::: {.column width="40%"}
-
-<center>
-### Grading
-| Score | Grade |
-|:-----:|:-----:|
-| 90 <= X   |   A   |
-| 80 <= X < 90 | B |
-| 70 <= X < 80 | C |
-| 60 <= X < 70 | D |
-|  X < 60 | F |
-</center>
-
-:::
-::::
 
 ## Grading and deliverables
 
@@ -186,47 +211,99 @@ gantt
     Phase 2 submission: milestone, p7, 12/11/2023, 0d
 ```
 
-## Recommended Textbooks
+## Grading and deliverables
+
+This will be a busy semester! There will be items due each week.
+
+### Overview
+
+Below are tables presenting the grading scheme and deliverable list for the class. 
+
+<p>&nbsp;</p>
 
 :::: {.columns}
-::: {.column}
-![*Database Management Systems, Third Edition*, 
-R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631](assets/L01-ramakrishnan.png){width=1.4in fig-align="center"}
+::: {.column width="60%"}
+
+<center>
+### Deliverables
+| Deliverable | Pct | Number of items |
+|:-----:|:-----:|:---|
+| Homework   |   40%   | 11 submissions done individually |
+| Quizzes | 30% | 4 quizzes taken on-line using respondus |
+| Project | 30% | 7 submissions as part of a team |
+</center>
+
 :::
-::: {.column}
-![*Database System Concepts, Sixth Edition*,
-A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323](assets/L01-silberschatz.png){width=1.5in fig-align="center"}
+
+::: {.column width="40%"}
+
+<center>
+### Grading
+| Score | Grade | Fall 2023 |
+|:-----:|:-----:|:---------:|
+| 90 <= X   |   A   | 112 |
+| 80 <= X < 90 | B | 13 |
+| 70 <= X < 80 | C | 2 |
+| 60 <= X < 70 | D | 1 |
+|  X < 60 | F | 3 |
+</center>
+
 :::
 ::::
 
-::: {.callout-note icon="false"}
-## Do I need really need a text book?
-No, you don't. These textbooks are *really good* and package lots of information into a single place.
+## Advice from your peers (Fall 2023)
 
-*Life is a database* and from my perspective it's all about speed of retrieval. When I'm building databases, I can't EVER recall pulling out a text book to look something up!
+:::: {.columns}
+::: {.column}
+*This course is easy if you keep up with the work. Having assignments due every week along with the semester-long project is a lot to take on.*
+
+&nbsp;
+
+*I think there is a lot of work involved with this course, but so long as you stay on top of the assignments, you will be sucessful, as they are not really difficult, more so there is just a large quantity of them.*
+
+&nbsp;
+
+*The course was definitely difficult if not well prepared but the professor gives every single tool one needs to succeed. The pace was perfect and there is nothing I would change about it.*
+::: 
+::: {.column}
+*The pace was quick and the work was not easy. Each week the homework presented new concepts that were progressively more difficult, and it was very easy to fall behind. Not the class with the sort of work you can leave till the last minute, minimum, a couple hours per assignment.*
+
+&nbsp;
+
+*Lot of the material that was covered in this class was all very new to me, but Professor Leonard designed the course in a way that wasn't too overwhelming. I felt like the pace of the course was just right. Even the times I was falling behind a little bit, I was able to pick myself back up pretty quickly since the deadlines weren't super strict. *
+
 :::
+::::
 
-## Canvas as the OFFICIAL platform
+## Advice from your peers (Fall 2023)
 
-YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.
+:::: {.columns}
+::: {.column}
+*I found the course difficulty to be well balanced. If a student goes to class, asks questions, and makes an effort to do their assignment they should have no problem at all passing. The pace of the course was perfect and allowed enough time for each unit to be processed before moving on to the next one. *
 
-WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.
+&nbsp;
 
-ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it's important enough to be shared as part of the course materials on Canvas, I believe that it's important enough for you to be familiar with it and possibly tested on it.
+*The workload for this course is very challenging to manage. Having to create a whole database and then do weekly homework assignments is very difficult.*
 
-I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn't important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.
+&nbsp;
 
-## Statement on Generative AI
+*This course required an intense amount of coding. However, given the clear expectations and due dates,  I was able to plan ahead to meet deadlines. *
+::: 
+::: {.column}
+*This course is pretty easy, but I don't think it needs to be harder. It takes not much effort but still I feel like I am very good with databases, api's, even better at using python. I am still not good at writing queries though.*
 
-Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.
+&nbsp;
 
-Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.
+*There is a large level of effort required to this course. Especially towards the end of the semester the assignments and projects can be time consuming. That being said the professor gives more than enough time to complete them and he is very helpful if a section ends up being confusing for the class.*
 
-Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. **Use of Generative AI IS permitted on homework assignments and the semester project**, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.
+&nbsp;
 
-Quizzes are designed to test your knowledge of the course material. **Use of Generative AI is NOT permitted on any of the quizzes.**
+*This course was fairly difficult, but the professor made it very doable. The course pace was good, except by the end of the semester the pace gets really fast. 10/10 professor*
+:::
+::::
 
-## Advice from your peers
+
+
 
 
 

@@ -10,7 +10,10 @@
 <link href="intro-to-databases_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="intro-to-databases_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="intro-to-databases_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="intro-to-databases_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
+<link href="intro-to-databases_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="intro-to-databases_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="intro-to-databases_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="intro-to-databases_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
   <title>Intro to databases</title>
@@ -355,6 +358,9 @@
 </div><div class="column" style="width:40%;">
 <p><img data-src="assets/1951_TapeData_P2.jpg"></p>
 </div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
 </section>
 <section id="early-history-1" class="slide level2">
 <h2>Early history</h2>
@@ -370,6 +376,9 @@
 </div><div class="column" style="width:40%;">
 <p><img data-src="assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg"></p>
 </div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
 </section>
 <section id="modern-systems" class="slide level2">
 <h2>Modern systems</h2>
@@ -393,6 +402,9 @@
 </div><div class="column">
 <p><img data-src="assets/1990-computer-center.png"></p>
 </div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
 </section>
 <section id="modern-systems-1" class="slide level2">
 <h2>Modern systems</h2>
@@ -413,6 +425,10 @@
 </div><div class="column">
 <p><img data-src="assets/google-data-center.png"></p>
 </div></div>
+</section>
+<section id="open-source-data-engineering-landscape-2024" class="slide level2">
+<h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape">Open Source Data Engineering Landscape 2024</a></h2>
+<p><a href="assets/data-engineering-landscape-2024.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="assets/data-engineering-landscape-2024.png"></a></p>
 </section></section>
 <section>
 <section id="db-vs-dbms" class="title-slide slide level1 center">
@@ -912,6 +928,38 @@
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

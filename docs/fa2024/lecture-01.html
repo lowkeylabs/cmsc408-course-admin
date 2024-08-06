@@ -10,8 +10,11 @@
 <link href="lecture-01_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+<link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-01_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-01_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-01_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Welcome to CMSC408</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -345,6 +348,112 @@
 
   <p class="date">Wednesday - Aug 21, 2024</p>
 </section>
+<section id="housekeeping" class="slide level2">
+<h2>Housekeeping</h2>
+<div class="columns">
+<div class="column" style="width:9%;">
+
+</div><div class="column" style="width:45%;">
+<h3 id="discussion-items">Discussion items</h3>
+<ul>
+<li><p>Complete the pre-class survey</p></li>
+<li><p>Introduce yourself on the discussion group</p></li>
+<li><p>Join the discord</p></li>
+<li><p>Form your project team</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<h3 id="lecture-topics">Lecture topics</h3>
+<ul>
+<li><p>Course overview</p></li>
+<li><p>Intro to databases</p></li>
+</ul>
+</div></div>
+<div style="margin-top:25px">
+<p>&nbsp;</p>
+</div>
+
+    <style></style>
+    <div class="upcoming-calendar">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Week</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Lectures</th>
+<th data-quarto-table-cell-role="th">Deliverables/Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Overview</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8/21</td>
+<td style="text-align: center;">Wed</td>
+<td>MTG1: L1 (Welcome to CMSC408)</td>
+<td>Quiz 1 due (Preclass Survey)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Overview</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8/23</td>
+<td style="text-align: center;">Fri</td>
+<td></td>
+<td>PrjDel 1 due (Student introductions)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Overview</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8/25</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>PrjDel 2 due (Team formation)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8/26</td>
+<td style="text-align: center;">Mon</td>
+<td>MTG2: L2 (Entity-relation models 1)</td>
+<td>Last day to add/drop</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8/28</td>
+<td style="text-align: center;">Wed</td>
+<td>MTG3: L3 (Entity-relation models 2)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8/30</td>
+<td style="text-align: center;">Fri</td>
+<td></td>
+<td>HW1 due (ER Models 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">9/2</td>
+<td style="text-align: center;">Mon</td>
+<td></td>
+<td>NO CLASS - University closed (Labor day)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">9/4</td>
+<td style="text-align: center;">Wed</td>
+<td>MTG4: L4 (ER Models)</td>
+<td>Quiz 2 due (Entity-relation models)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="im-glad-youre-here" class="slide level2">
 <h2>I’m glad you’re here!!!!</h2>
 <div class="columns">
@@ -366,6 +475,57 @@
 <p>Students will be required to complete a design project and give an oral presentation of the project.</p>
 </div></div>
 </section>
+<section id="recommended-textbooks" class="slide level2">
+<h2>Recommended Textbooks</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-ramakrishnan.png" style="width:1.4in"></p>
+<figcaption><em>Database Management Systems, Third Edition</em>, R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-silberschatz.png" style="width:1.5in"></p>
+<figcaption><em>Database System Concepts, Sixth Edition</em>, A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Do I need really need a text book?</strong></p>
+</div>
+<div class="callout-content">
+<p>No, you don’t. These textbooks are <em>really good</em> and package lots of information into a single place.</p>
+<p><em>Life is a database</em> and from my perspective it’s all about speed of retrieval. When I’m building databases, I can’t EVER recall pulling out a text book to look something up!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="canvas-is-the-official-platform" class="slide level2">
+<h2>Canvas is the OFFICIAL platform</h2>
+<div class="more-separation">
+<ul>
+<li><p>YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.</p></li>
+<li><p>WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.</p></li>
+<li><p>ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it’s important enough to be shared as part of the course materials on Canvas, I believe that it’s important enough for you to be familiar with it and possibly tested on it.</p></li>
+<li><p>I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn’t important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.</p></li>
+</ul>
+</div>
+</section>
+<section id="statement-on-generative-ai" class="slide level2">
+<h2>Statement on Generative AI</h2>
+<ul>
+<li><p>Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.</p></li>
+<li><p>Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.</p></li>
+<li><p>Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. <strong>Use of Generative AI IS permitted on homework assignments and the semester project</strong>, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.</p></li>
+<li><p>Quizzes are designed to test your knowledge of the course material. <strong>Use of Generative AI is NOT permitted on any of the quizzes.</strong></p></li>
+<li><p>See <a href="https://virginiacommonwealth.instructure.com/courses/105097/files/12032089?wrap=1">this document</a> to learn more!</p></li>
+</ul>
+</section>
 <section id="learning-objectives" class="slide level2">
 <h2>Learning objectives</h2>
 <div class="more-separation">
@@ -376,6 +536,20 @@
 <li><p>SLO4 - Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;</p></li>
 <li><p>SLO5 - Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;</p></li>
 <li><p>SLO6 - Apply computer science theory and software development fundamentals to produce computing-based solutions;</p></li>
+</ul>
+</div>
+</section>
+<section id="learning-outcomes" class="slide level2">
+<h2>Learning outcomes</h2>
+<div class="more-separation">
+<ul>
+<li><p>Demonstrate an understanding of the concepts underlying database design.</p></li>
+<li><p>Analyze problems to identify data requirements, types and relations.</p></li>
+<li><p>Create E-R and relational designs from problem statements.</p></li>
+<li><p>Design data structures and functions to store and process the information.</p></li>
+<li><p>Design and implement databases using SQL language.</p></li>
+<li><p>Query and manipulate data using SQL language.</p></li>
+<li><p>Design and implement reports using data queried from a database.</p></li>
 </ul>
 </div>
 </section>
@@ -409,6 +583,101 @@
 </div>
 </section>
 <section id="grading-and-deliverables" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="homework-assignments">Homework Assignments</h3>
+<div style="font-size:0.9em;">
+<p>Homework assignments are done individually. Homeworks will be distributed using GITHUB classroom; a link will be provided in the Canvas assignment page. Homeworks will be submitted to Gradescope. Each assignment is worth 20 points. Rubrics will be provided. Homeworks will be written using Quarto. Homework 2 provides an opportunity to learn more about Quarto. Quarto will also be used for the semester project.</p>
+</div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+    section 11 Homework submissions&lt;br/&gt;(40%)
+    Pre-class survey: milestone, h1, 08/23/2023, 1d
+    ER Models 1: milestone, h2, 09/01/2023, 1d
+    ER Models 2: milestone, h3, 09/08/2023, 1d
+    DB, SQL, CRUD 1: milestone, h4, 09/22/2023, 1d
+    DB, SQL, CRUD 2: milestone, h5, 09/29/2023, 1d
+    DB joins and aggregates: milestone, h6, 10/06/2023, 1d
+    Normalization: milestone, h7, 10/20/2023, 1d
+    More joins and aggregates: milestone, h8, 10/27/2023, 1d
+    API and flask: milestone, h9,11/10/2023, 1d
+    DML and integrity: milestone, h10, 12/01/2023, 1d
+    Course evaluation: milestone, h11, 12/15/2023, 1d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading-and-deliverables-1" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="quizzes">Quizzes</h3>
+<div style="font-size:0.9em;">
+<p>There will be four quizzes throughout the semester. Each quiz will be worth 30 points. Quizzes will be administered on-line usint the Respondus lockdown browser. It is the responsibility of the student to ensure that the technology works. Homework assignment 1 offers practice to work out the bugs. Quizzes will be administered during class time.</p>
+</div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section 4 Quizzes&lt;br/&gt;(30%)
+    (first day of class): milestone, ldc1, 08/23/2023, 0d
+    ER Models: milestone, q1, 09/06/2023, 0d
+    Relational algebra: milestone, q2, 09/25/2023, 0d
+    Normal forms: milestone, q3, 10/16/2023, 0d
+    SQL basics: milestone, q4, 11/01/2023, 0d
+    (last day of class): milestone, ldc2, 12/11/2023, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading-and-deliverables-2" class="slide level2">
+<h2>Grading and deliverables</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="semester-long-project">Semester-long project</h3>
+<div style="font-size:0.9em;">
+<p>Students will work in teams of 2 on a semester-long project. The project will require the students design and build a database backend presenting an API. The domain of the project is chosen by the students. Tools include SQL, python, flask, MySQL, Quarto, and others.</p>
+</div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section 7 Project&lt;br/&gt;Deliverables&lt;br/&gt;(30%)
+    Student introductions: milestone, p1, 8/25/2023,0d
+    Team formation: milestone, p2, 8/27/2023, 0d
+    Clone team repo: milestone, p3, 9/15/2023, 0d
+    Phase 1 submission: milestone, p4, 10/13/2023, 0d
+    Project status report 1: milestone, p5, 11/03/2023, 0d
+    Project status report 2: milestone, p6, 11/17/2023, 0d
+    Phase 2 submission: milestone, p7, 12/11/2023, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="grading-and-deliverables-3" class="slide level2">
 <h2>Grading and deliverables</h2>
 <p>This will be a busy semester! There will be items due each week.</p>
 <h3 id="overview">Overview</h3>
@@ -455,175 +724,71 @@
 <tr class="header">
 <th style="text-align: center;">Score</th>
 <th style="text-align: center;">Grade</th>
+<th style="text-align: center;">Fall 2023</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">90 &lt;= X</td>
 <td style="text-align: center;">A</td>
+<td style="text-align: center;">112</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">80 &lt;= X &lt; 90</td>
 <td style="text-align: center;">B</td>
+<td style="text-align: center;">13</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">70 &lt;= X &lt; 80</td>
 <td style="text-align: center;">C</td>
+<td style="text-align: center;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">60 &lt;= X &lt; 70</td>
 <td style="text-align: center;">D</td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">X &lt; 60</td>
 <td style="text-align: center;">F</td>
+<td style="text-align: center;">3</td>
 </tr>
 </tbody>
 </table>
 </center>
 </div></div>
 </section>
-<section id="grading-and-deliverables-1" class="slide level2">
-<h2>Grading and deliverables</h2>
-<p>This will be a busy semester! There will be items due each week.</p>
-<h3 id="homework-assignments">Homework Assignments</h3>
-<div style="font-size:0.9em;">
-<p>Homework assignments are done individually. Homeworks will be distributed using GITHUB classroom; a link will be provided in the Canvas assignment page. Homeworks will be submitted to Gradescope. Each assignment is worth 20 points. Rubrics will be provided. Homeworks will be written using Quarto. Homework 2 provides an opportunity to learn more about Quarto. Quarto will also be used for the semester project.</p>
-</div>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">gantt
-    dateFormat M/DD/YYYY
-    axisFormat %U
-    section 11 Homework submissions&lt;br/&gt;(40%)
-    Pre-class survey: milestone, h1, 08/23/2023, 1d
-    ER Models 1: milestone, h2, 09/01/2023, 1d
-    ER Models 2: milestone, h3, 09/08/2023, 1d
-    DB, SQL, CRUD 1: milestone, h4, 09/22/2023, 1d
-    DB, SQL, CRUD 2: milestone, h5, 09/29/2023, 1d
-    DB joins and aggregates: milestone, h6, 10/06/2023, 1d
-    Normalization: milestone, h7, 10/20/2023, 1d
-    More joins and aggregates: milestone, h8, 10/27/2023, 1d
-    API and flask: milestone, h9,11/10/2023, 1d
-    DML and integrity: milestone, h10, 12/01/2023, 1d
-    Course evaluation: milestone, h11, 12/15/2023, 1d
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="grading-and-deliverables-2" class="slide level2">
-<h2>Grading and deliverables</h2>
-<p>This will be a busy semester! There will be items due each week.</p>
-<h3 id="quizzes">Quizzes</h3>
-<div style="font-size:0.9em;">
-<p>There will be four quizzes throughout the semester. Each quiz will be worth 30 points. Quizzes will be administered on-line usint the Respondus lockdown browser. It is the responsibility of the student to ensure that the technology works. Homework assignment 1 offers practice to work out the bugs. Quizzes will be administered during class time.</p>
-</div>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">gantt
-    dateFormat M/DD/YYYY
-    axisFormat %U
-
-    section 4 Quizzes&lt;br/&gt;(30%)
-    (first day of class): milestone, ldc1, 08/23/2023, 0d
-    ER Models: milestone, q1, 09/06/2023, 0d
-    Relational algebra: milestone, q2, 09/25/2023, 0d
-    Normal forms: milestone, q3, 10/16/2023, 0d
-    SQL basics: milestone, q4, 11/01/2023, 0d
-    (last day of class): milestone, ldc2, 12/11/2023, 0d
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="grading-and-deliverables-3" class="slide level2">
-<h2>Grading and deliverables</h2>
-<p>This will be a busy semester! There will be items due each week.</p>
-<h3 id="semester-long-project">Semester-long project</h3>
-<div style="font-size:0.9em;">
-<p>Students will work in teams of 2 on a semester-long project. The project will require the students design and build a database backend presenting an API. The domain of the project is chosen by the students. Tools include SQL, python, flask, MySQL, Quarto, and others.</p>
-</div>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">gantt
-    dateFormat M/DD/YYYY
-    axisFormat %U
-
-    section 7 Project&lt;br/&gt;Deliverables&lt;br/&gt;(30%)
-    Student introductions: milestone, p1, 8/25/2023,0d
-    Team formation: milestone, p2, 8/27/2023, 0d
-    Clone team repo: milestone, p3, 9/15/2023, 0d
-    Phase 1 submission: milestone, p4, 10/13/2023, 0d
-    Project status report 1: milestone, p5, 11/03/2023, 0d
-    Project status report 2: milestone, p6, 11/17/2023, 0d
-    Phase 2 submission: milestone, p7, 12/11/2023, 0d
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="recommended-textbooks" class="slide level2">
-<h2>Recommended Textbooks</h2>
+<section id="advice-from-your-peers-fall-2023" class="slide level2">
+<h2>Advice from your peers (Fall 2023)</h2>
 <div class="columns">
 <div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/L01-ramakrishnan.png" style="width:1.4in"></p>
-<figcaption><em>Database Management Systems, Third Edition</em>, R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631</figcaption>
-</figure>
-</div>
+<p><em>This course is easy if you keep up with the work. Having assignments due every week along with the semester-long project is a lot to take on.</em></p>
+<p>&nbsp;</p>
+<p><em>I think there is a lot of work involved with this course, but so long as you stay on top of the assignments, you will be sucessful, as they are not really difficult, more so there is just a large quantity of them.</em></p>
+<p>&nbsp;</p>
+<p><em>The course was definitely difficult if not well prepared but the professor gives every single tool one needs to succeed. The pace was perfect and there is nothing I would change about it.</em></p>
 </div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/L01-silberschatz.png" style="width:1.5in"></p>
-<figcaption><em>Database System Concepts, Sixth Edition</em>, A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323</figcaption>
-</figure>
-</div>
+<p><em>The pace was quick and the work was not easy. Each week the homework presented new concepts that were progressively more difficult, and it was very easy to fall behind. Not the class with the sort of work you can leave till the last minute, minimum, a couple hours per assignment.</em></p>
+<p>&nbsp;</p>
+<p><em>Lot of the material that was covered in this class was all very new to me, but Professor Leonard designed the course in a way that wasn’t too overwhelming. I felt like the pace of the course was just right. Even the times I was falling behind a little bit, I was able to pick myself back up pretty quickly since the deadlines weren’t super strict. </em></p>
 </div></div>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Do I need really need a text book?</strong></p>
-</div>
-<div class="callout-content">
-<p>No, you don’t. These textbooks are <em>really good</em> and package lots of information into a single place.</p>
-<p><em>Life is a database</em> and from my perspective it’s all about speed of retrieval. When I’m building databases, I can’t EVER recall pulling out a text book to look something up!</p>
-</div>
-</div>
-</div>
 </section>
-<section id="canvas-as-the-official-platform" class="slide level2">
-<h2>Canvas as the OFFICIAL platform</h2>
-<p>YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.</p>
-<p>WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.</p>
-<p>ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it’s important enough to be shared as part of the course materials on Canvas, I believe that it’s important enough for you to be familiar with it and possibly tested on it.</p>
-<p>I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn’t important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.</p>
-</section>
-<section id="statement-on-generative-ai" class="slide level2">
-<h2>Statement on Generative AI</h2>
-<p>Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.</p>
-<p>Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.</p>
-<p>Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. <strong>Use of Generative AI IS permitted on homework assignments and the semester project</strong>, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.</p>
-<p>Quizzes are designed to test your knowledge of the course material. <strong>Use of Generative AI is NOT permitted on any of the quizzes.</strong></p>
-</section>
-<section id="advice-from-your-peers" class="slide level2">
-<h2>Advice from your peers</h2>
+<section id="advice-from-your-peers-fall-2023-1" class="slide level2">
+<h2>Advice from your peers (Fall 2023)</h2>
+<div class="columns">
+<div class="column">
+<p><em>I found the course difficulty to be well balanced. If a student goes to class, asks questions, and makes an effort to do their assignment they should have no problem at all passing. The pace of the course was perfect and allowed enough time for each unit to be processed before moving on to the next one. </em></p>
+<p>&nbsp;</p>
+<p><em>The workload for this course is very challenging to manage. Having to create a whole database and then do weekly homework assignments is very difficult.</em></p>
+<p>&nbsp;</p>
+<p><em>This course required an intense amount of coding. However, given the clear expectations and due dates, I was able to plan ahead to meet deadlines. </em></p>
+</div><div class="column">
+<p><em>This course is pretty easy, but I don’t think it needs to be harder. It takes not much effort but still I feel like I am very good with databases, api’s, even better at using python. I am still not good at writing queries though.</em></p>
+<p>&nbsp;</p>
+<p><em>There is a large level of effort required to this course. Especially towards the end of the semester the assignments and projects can be time consuming. That being said the professor gives more than enough time to complete them and he is very helpful if a section ends up being confusing for the class.</em></p>
+<p>&nbsp;</p>
+<p><em>This course was fairly difficult, but the professor made it very doable. The course pace was good, except by the end of the semester the pace gets really fast. 10/10 professor</em></p>
+</div></div>
 </section>
 <section>
 <section id="a-long-time-ago-in-a-galaxy-far-far-away" class="title-slide slide level1 center">
@@ -643,6 +808,9 @@
 </div><div class="column" style="width:40%;">
 <p><img data-src="assets/1951_TapeData_P2.jpg"></p>
 </div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
 </section>
 <section id="early-history-1" class="slide level2">
 <h2>Early history</h2>
@@ -658,6 +826,9 @@
 </div><div class="column" style="width:40%;">
 <p><img data-src="assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg"></p>
 </div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
 </section>
 <section id="modern-systems" class="slide level2">
 <h2>Modern systems</h2>
@@ -681,6 +852,9 @@
 </div><div class="column">
 <p><img data-src="assets/1990-computer-center.png"></p>
 </div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
 </section>
 <section id="modern-systems-1" class="slide level2">
 <h2>Modern systems</h2>
@@ -701,6 +875,10 @@
 </div><div class="column">
 <p><img data-src="assets/google-data-center.png"></p>
 </div></div>
+</section>
+<section id="open-source-data-engineering-landscape-2024" class="slide level2">
+<h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape" target="_blank">Open Source Data Engineering Landscape 2024</a></h2>
+<p><a href="assets/data-engineering-landscape-2024.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="assets/data-engineering-landscape-2024.png"></a></p>
 </section></section>
 <section>
 <section id="db-vs-dbms" class="title-slide slide level1 center">
@@ -778,13 +956,13 @@
 <p><strong>Isolation:</strong> Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions</p>
 <p><strong>Durability:</strong> After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures.</p>
 </section>
-<section id="housekeeping" class="slide level2">
+<section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
 <div class="column" style="width:9%;">
 
 </div><div class="column" style="width:45%;">
-<h3 id="discussion-items">Discussion items</h3>
+<h3 id="discussion-items-1">Discussion items</h3>
 <ul>
 <li><p>Complete the pre-class survey</p></li>
 <li><p>Introduce yourself on the discussion group</p></li>
@@ -792,10 +970,10 @@
 <li><p>Form your project team</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
-<h3 id="lecture-topics">Lecture topics</h3>
+<h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
 <li><p>Course overview</p></li>
-<li><p>Introduction to databases</p></li>
+<li><p>Intro to databases</p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -1306,6 +1484,38 @@
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

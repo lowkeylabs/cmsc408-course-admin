@@ -15,6 +15,8 @@
 :::
 ::::
 
+<center><em>The history of databases tracks the history of computers</em></center>
+
 ## Early history
 
 
@@ -30,6 +32,8 @@
 ![](assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg)
 :::
 ::::
+
+<center><em>The history of databases tracks the history of computers</em></center>
 
 ## Modern systems
 
@@ -53,8 +57,9 @@
 :::
 ::::
 
-## Modern systems
+<center><em>The history of databases tracks the history of computers</em></center>
 
+## Modern systems
 
 :::: {.columns}
 ::: {.column}
@@ -76,6 +81,10 @@
 ![](assets/google-data-center.png)
 :::
 ::::
+
+## [Open Source Data Engineering Landscape 2024](https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape){target="_blank"}
+
+![](assets/data-engineering-landscape-2024.png){.lightbox}
 
 # DB vs DBMS
 

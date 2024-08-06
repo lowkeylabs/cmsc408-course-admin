@@ -25,9 +25,11 @@ discussion_items = [
 
 lecture_topics = [
     'Course overview',
-    'Introduction to databases'
+    'Intro to databases'
 ]
 ```
+
+{{< include "./_template-housekeeping.qmd" >}}
 
 {{< include ../../topics/_cmsc408-overview.qmd >}}
 
