@@ -1,4 +1,4 @@
-Quiz title: Quiz 2 - Relations, relational model and relational algebra - Blooms 4, Analyze.
+Quiz title: Quiz 3 - Relations, relational model and relational algebra - Blooms 4, Analyze.
 Quiz description: This quiz focuses on Relations, relational model and relational algebra.
 
 1. Analyzing the two given relations, which of the following operations would result in a set containing tuples where column B in Relation R is equal to column K in Relation S? [Don't get confused with the ⨝, this is a THETA JOIN not a natural join. One of these is correct!]

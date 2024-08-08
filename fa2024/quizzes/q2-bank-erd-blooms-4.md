@@ -1,4 +1,4 @@
-Quiz title: Quiz1 - Bank - ER Models - Blooms 4 (Analyze)
+Quiz title: Quiz 2 - Bank - ER Models - Blooms 4 (Analyze)
 Quiz description: This practice quiz focuses on entity-relation models and diagrams. 
 
     An entity-relationship (ER) model is a conceptual data model used in the field of database design to represent the structure of a database. It focuses on describing the entities (objects, concepts, or things) in a domain, the relationships between those entities, and the attributes (properties or characteristics) associated with the entities. The ER model is commonly used to visualize and understand the high-level organization of data within a system before it is implemented in a database management system.

@@ -1,4 +1,4 @@
-Quiz title: Quiz 3 - Normalization - Blooms 2, Understand.
+Quiz title: Quiz 4 - Normalization - Blooms 2, Understand.
 Quiz description: This quiz focuses on normalization.
 
 

@@ -1,4 +1,4 @@
-Quiz title: Quiz 3 - Normalization - Blooms 3, Apply.
+Quiz title: Quiz 4 - Normalization - Blooms 3, Apply.
 Quiz description: This quiz focuses on normalization.
 
 1. Given a relational schema, if you have derived the closure of an attribute set and it includes all the attributes of the relation, what can be inferred?

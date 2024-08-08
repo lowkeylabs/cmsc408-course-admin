@@ -1,4 +1,4 @@
-Quiz title: Quiz 3 - Normalization - Blooms 4, Analyze.
+Quiz title: Quiz 4 - Normalization - Blooms 4, Analyze.
 Quiz description: This quiz focuses on normalization.
 
 1. When analyzing the closure of a set of attributes, which statement best describes its purpose?

@@ -1,4 +1,4 @@
-Quiz title: Quiz 2 - Relations, relational model and relational algebra - Blooms 3, Apply.
+Quiz title: Quiz 3 - Relations, relational model and relational algebra - Blooms 3, Apply.
 Quiz description: This quiz focuses on Relations, relational model and relational algebra.
 
 

@@ -1,4 +1,4 @@
-Quiz title: Quiz 3 - Normalization - Blooms 5, Evaluate.
+Quiz title: Quiz 4 - Normalization - Blooms 5, Evaluate.
 Quiz description: This quiz focuses on normalization.
 
 1. Evaluating the following relation R(A, B, C, D) with FDs: A->B, BC->D. Which of these FDs is extraneous?

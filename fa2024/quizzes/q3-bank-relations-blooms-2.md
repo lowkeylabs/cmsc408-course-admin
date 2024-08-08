@@ -1,4 +1,4 @@
-Quiz title: Quiz 2 - Relations, relational model and relational algebra - Blooms 2, Understand.
+Quiz title: Quiz 3 - Relations, relational model and relational algebra - Blooms 2, Understand.
 Quiz description: This quiz focuses on Relations, relational model and relational algebra.
 
 1. What is the cardinality of Relation R?

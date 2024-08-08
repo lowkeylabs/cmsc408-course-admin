@@ -1,4 +1,4 @@
-Quiz title: Quiz 4 - SQL - Blooms 4, Analyze.
+Quiz title: Quiz 5 - SQL - Blooms 4, Analyze.
 Quiz description: This quiz focuses on SQL statements and their application.
 
 

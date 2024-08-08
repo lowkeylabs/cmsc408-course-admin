@@ -1,4 +1,4 @@
-Quiz title: Quiz 4 - SQL - Blooms 2, Understand.
+Quiz title: Quiz 5 - SQL - Blooms 2, Understand.
 Quiz description: This quiz focuses on SQL statements and their application.
 
 

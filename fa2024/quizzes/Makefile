@@ -27,6 +27,9 @@ all: clean start-all $(ZIP_FILES)
 	@echo ---------------------
 	@echo Complete.
 
+quiz2-bank.zip : q2-bank-erd-blooms-2.zip q2-bank-erd-blooms-3.zip q2-bank-erd-blooms-4.zip q2-bank-erd-blooms-5.zip 
+	7z a $(@) $(^)
+
 # Default target
 all: $(ZIP_FILES)
 
