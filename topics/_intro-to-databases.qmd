@@ -86,6 +86,11 @@
 
 ![](assets/data-engineering-landscape-2024.png){.lightbox}
 
+## [Open Source Data Engineering Landscape 2024](https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape){target="_blank"}
+
+![](assets/data-engineering-landscape-2024-with-highlights.png){.lightbox}
+
+
 # DB vs DBMS
 
 ## Important concept - DB vs DBMS

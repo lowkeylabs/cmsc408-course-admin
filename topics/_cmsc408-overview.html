@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>cmsc408-overview</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="_cmsc408-overview_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_cmsc408-overview_files/libs/quarto-html/quarto.js"></script>
+<script src="_cmsc408-overview_files/libs/quarto-html/popper.min.js"></script>
+<script src="_cmsc408-overview_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_cmsc408-overview_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_cmsc408-overview_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_cmsc408-overview_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_cmsc408-overview_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_cmsc408-overview_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_cmsc408-overview_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="_cmsc408-overview_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="_cmsc408-overview_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="_cmsc408-overview_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="im-glad-youre-here" class="level2">
+<h2 class="anchored" data-anchor-id="im-glad-youre-here">I’m glad you’re here!!!!</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/L01-rise-of-sql.png" class="img-fluid figure-img"></p>
+<figcaption><a href="https://spectrum.ieee.org/the-rise-of-sql" class="uri">https://spectrum.ieee.org/the-rise-of-sql</a></figcaption>
+</figure>
+</div>
+</div><div class="column">
+<section id="cmsc-508---database-theory" class="level3">
+<h3 class="anchored" data-anchor-id="cmsc-508---database-theory">CMSC 508 - Database Theory</h3>
+<ul>
+<li>Semester course;</li>
+<li>3 lecture hours. 3 credits.</li>
+<li>Prerequisite: CMSC 303 with a minimum grade of C.</li>
+</ul>
+<p>Design and implementation of relational database systems. Emphasis is placed on entity-relationship diagrams, relational algebra, normal forms and normalization. Introduction to SQL. Discussion of physical level issues.</p>
+<p>Students will be required to complete a design project and give an oral presentation of the project.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="recommended-textbooks" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-textbooks">Recommended Textbooks</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/L01-ramakrishnan.png" class="img-fluid figure-img" style="width:1.4in"></p>
+<figcaption><em>Database Management Systems, Third Edition</em>, R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/L01-silberschatz.png" class="img-fluid figure-img" style="width:1.5in"></p>
+<figcaption><em>Database System Concepts, Sixth Edition</em>, A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do I need really need a text book?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No, you don’t. These textbooks are <em>really good</em> and package lots of information into a single place.</p>
+<p><em>Life is a database</em> and from my perspective it’s all about speed of retrieval. When I’m building databases, I can’t EVER recall pulling out a text book to look something up!</p>
+</div>
+</div>
+</section>
+<section id="canvas-is-the-official-platform" class="level2">
+<h2 class="anchored" data-anchor-id="canvas-is-the-official-platform">Canvas is the OFFICIAL platform</h2>
+<div class="more-separation">
+<ul>
+<li><p>YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.</p></li>
+<li><p>WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.</p></li>
+<li><p>ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it’s important enough to be shared as part of the course materials on Canvas, I believe that it’s important enough for you to be familiar with it and possibly tested on it.</p></li>
+<li><p>I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn’t important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.</p></li>
+</ul>
+</div>
+</section>
+<section id="statement-on-generative-ai" class="level2">
+<h2 class="anchored" data-anchor-id="statement-on-generative-ai">Statement on Generative AI</h2>
+<ul>
+<li><p>Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.</p></li>
+<li><p>Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.</p></li>
+<li><p>Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. <strong>Use of Generative AI IS permitted on homework assignments and the semester project</strong>, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.</p></li>
+<li><p>Quizzes are designed to test your knowledge of the course material. <strong>Use of Generative AI is NOT permitted on any of the quizzes.</strong></p></li>
+<li><p>See <a href="https://virginiacommonwealth.instructure.com/courses/105097/files/12032089?wrap=1">this document</a> to learn more!</p></li>
+</ul>
+</section>
+<section id="abet-student-learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="abet-student-learning-outcomes">ABET Student Learning Outcomes</h2>
+<div class="more-separation">
+<p>SLO1 - <em>Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions;</em></p>
+<p>SLO2 - <em>Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline;</em></p>
+<p>SLO3 - <em>Communicate effectively in a variety of professional contexts;</em></p>
+<p>SLO4 - <em>Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;</em></p>
+<p>SLO5 - <em>Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;</em></p>
+<p>SLO6 - <em>Apply computer science theory and software development fundamentals to produce computing-based solutions;</em></p>
+<p>SLO7 - <em>Acquire and apply new knowledge as needed, using appropriate learning strategies.</em></p>
+</div>
+</section>
+<section id="cmsc-408-learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="cmsc-408-learning-outcomes">CMSC 408 Learning Outcomes</h2>
+<div style="font-size:90%;">
+<ol type="1">
+<li><p>Demonstrate an understanding of the concepts underlying database design. <em>(ABET SLO 1, SLO 7)</em></p></li>
+<li><p>Analyze problems to identify data requirements, types and relations. <em>(SLO 1)</em></p></li>
+<li><p>Create E-R and relational designs from problem statements. <em>(SLO 2)</em></p></li>
+<li><p>Design data structures and functions to store and process the information. <em>(SLO 2)</em></p></li>
+<li><p>Design and implement databases using SQL language. <em>(SLO 6)</em></p></li>
+<li><p>Query and manipulate data using SQL language. <em>(SLO 6)</em></p></li>
+<li><p>Design and implement reports using data queried from a database. <em>(SLO 3, SLO 6)</em></p></li>
+<li><p>Work effectively as part of a team to design, implement and deploy a database-driven web application <em>(SLO 5)</em></p></li>
+<li><p>Communicate project requirements, design decisions, and progress effectively to team members and stakeholder <em>(SLO 3)</em></p></li>
+<li><p>Incorporate strategies to ensure safe and secure storage and access to the database. <em>(SLO 4)</em></p></li>
+</ol>
+</div>
+</section>
+<section id="cmsc-408---tool-sets-and-rationale" class="level2">
+<h2 class="anchored" data-anchor-id="cmsc-408---tool-sets-and-rationale">CMSC 408 - Tool sets and rationale</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<section id="tool-sets-well-be-using" class="level3">
+<h3 class="anchored" data-anchor-id="tool-sets-well-be-using">Tool sets we’ll be using</h3>
+<div class="more-separation">
+<ul>
+<li><p>SQL, MySQL, and SQLITE</p></li>
+<li><p>VSCODE and various extensions</p></li>
+<li><p>Quarto, mermaid and graphviz</p></li>
+<li><p>GIT, GH and GITHUB</p></li>
+<li><p>Python, Pyenv and Poetry</p></li>
+<li><p>Docker and docker compose</p></li>
+</ul>
+</div>
+</section>
+</div><div class="column" style="width:65%;">
+<section id="expectations" class="level3">
+<h3 class="anchored" data-anchor-id="expectations">Expectations</h3>
+<p>This is a programming class. You will learn and improve through practice and reptition.</p>
+<p>There will be LOTS of opportunity to practice.</p>
+<p>We’ll be learning to “program/code” documentation and graphics using Quarto.</p>
+<p>We’ll be learning how to communicate designs using ER diagrams and crows-feet diagrams.</p>
+<p>We’ll be learning to create, retrieve, update and delete database objects using SQL.</p>
+<p>We’ll be learning docker to containerize a database and application and automate the reptition.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="topics-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="topics-over-time">Topics over time</h2>
+<p>The class organized in modules. The GANNT chart below highlights the topics and their order. Homework assignments reinforce topics discussed in class. Quizzes test understanding of the topics where appropriate. Material is presented in a way that complements the successful completion of the semester-long project.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %W
+
+    section Topics
+    ER Models : m1, 1/7/2024, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 3w
+    SQL : m6, after m5, 4w
+    Adv. SQL: m7, after m6, 5w
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="assessment-and-grading" class="level2">
+<h2 class="anchored" data-anchor-id="assessment-and-grading">Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<section id="there-will-be-a-mix-of-activities" class="level3">
+<h3 class="anchored" data-anchor-id="there-will-be-a-mix-of-activities">There will be a mix of activities</h3>
+<div style="font-size:100%;">
+<center>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Deliverable</th>
+<th style="text-align: center;">Pct</th>
+<th style="text-align: left;">Number of items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Homework</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: left;">10 submissions done individually</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Quizzes</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: left;">5 quizzes taken on-line using respondus</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Project</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: left;">12 submissions as part of a team</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+</section>
+</section>
+<section id="assessment-and-grading-1" class="level2">
+<h2 class="anchored" data-anchor-id="assessment-and-grading-1">Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<section id="homework-assignments" class="level3">
+<h3 class="anchored" data-anchor-id="homework-assignments">Homework Assignments</h3>
+<div style="font-size:0.9em;">
+<p>Homework assignments are done individually. Homeworks will be distributed using GITHUB classroom; a link will be provided in the Canvas assignment page. Homeworks will be submitted to Gradescope. Each assignment is worth 20 points. Rubrics will be provided. Homeworks will be written using Quarto. Homework 2 provides an opportunity to learn more about Quarto. Quarto will also be used for the semester project.</p>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section Homework&lt;br/&gt;(40%)
+    (first day of class): milestone, fdc1, 1/7/2024, 0d
+    DE Tool review: milestone, h1, 1/20/2024, 0d
+    HW 2: milestone, h2, 1/29/2024, 0d
+    HW 3: milestone, h3, 2/10/2024, 0d
+    HW 4: milestone, h4, 3/2/2024, 0d
+    hw 5: milestone, h5, 3/16/2024, 0d
+    hw 6: milestone, h6, 3/30/2024, 0d
+    hw 7: milestone, h7, 4/6/2024, 0d
+    homework 8: milestone, h8, 4/28/2024, 0d
+    Course Evaluation: milestone, h10, 4/28/2024, 0d
+    (last day of class): milestone, ldc2, 4/28/2024, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="assessment-and-grading-2" class="level2">
+<h2 class="anchored" data-anchor-id="assessment-and-grading-2">Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<section id="quizzes" class="level3">
+<h3 class="anchored" data-anchor-id="quizzes">Quizzes</h3>
+<div style="font-size:0.9em;">
+<p>There will be four quizzes throughout the semester. Each quiz will be worth 30 points. Quizzes will be administered on-line usint the Respondus lockdown browser. It is the responsibility of the student to ensure that the technology works. Homework assignment 1 offers practice to work out the bugs. Quizzes will be administered during class time.</p>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section Quizzes&lt;br/&gt;(5 at 30%)
+    (first day of class): milestone, fdc1, 1/7/2024, 0d
+    Pre-class survey: milestone, q0, 1/7/2024, 0d
+    ER Models: milestone, q1, 1/23/2024, 0d
+    Relational algebra: milestone, q2, 2/11/2024, 0d
+    Normal forms: milestone, q3, 2/27/2024, 0d
+    SQL basics: milestone, q4, 3/19/2024, 0d
+    (last day of class): milestone, ldc2, 4/28/2024, 0d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="assessment-and-grading-3" class="level2">
+<h2 class="anchored" data-anchor-id="assessment-and-grading-3">Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<section id="semester-long-project" class="level3">
+<h3 class="anchored" data-anchor-id="semester-long-project">Semester-long project</h3>
+<div style="font-size:0.9em;">
+<p>Students will work in teams of 2 on a semester-long project. The project will require the students design and build a database backend presenting an API. The domain of the project is chosen by the students. Tools include SQL, python, flask, MySQL, Quarto, and others.</p>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %U
+
+    section Project&lt;br/&gt;Deliverables&lt;br/&gt;(12 at 30%)
+    (first day of class): milestone, fdc1, 1/7/2024, 0d
+    Student introductions: milestone, p1, 1/11/2024,0d
+    Team formation: milestone, p2, 1/13/2024, 0d
+    Team update: milestone, p3, 1/18/2024, 0d
+    Team update: milestone, p4, 1/25/2024, 0d
+    Proposal video: milestone, p5, 2/3/2024, 0d
+    Team update: milestone, p6, 2/8/2024, 0d
+    Team update: milestone, p7, 2/22/2024, 0d
+    Design report: milestone, p8, 3/2/2024, 0d
+    Team update: milestone, p9, 3/8/2024, 0d
+    Web docker: milestone, p10, 3/23/2024, 0d
+    Team update: milestone, p11, 4/4/2024, 0d
+    Final submission: milestone, p12, 4/28/2024, 0d
+    (last day of class): milestone, ldc2, 4/28/2024, 0d
+    
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="assessment-and-grading-4" class="level2">
+<h2 class="anchored" data-anchor-id="assessment-and-grading-4">Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<section id="summary-and-grading-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="summary-and-grading-schedule">Summary and grading schedule</h3>
+<p>Below are tables presenting the grading scheme and deliverable list for the class.</p>
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<center>
+<section id="deliverables" class="level3">
+<h3 class="anchored" data-anchor-id="deliverables">Deliverables</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Deliverable</th>
+<th style="text-align: center;">Pct</th>
+<th style="text-align: left;">Number of items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Homework</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: left;">10 submissions done individually</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Quizzes</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: left;">5 quizzes taken on-line using respondus</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Project</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: left;">12 submissions as part of a team</td>
+</tr>
+</tbody>
+</table>
+</section></center>
+</div></div></section>
+</section></main></div><div class="column" style="width:40%;">
+<center>
+<section id="grading" class="level3">
+<h3 data-anchor-id="grading">Grading</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: center;">Grade</th>
+<th style="text-align: center;">Fall 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">90 &lt;= X</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">112</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80 &lt;= X &lt; 90</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">70 &lt;= X &lt; 80</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 &lt;= X &lt; 70</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X &lt; 60</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+</section></center>
+
+</div>
+
+
+
+<section id="advice-from-your-peers-fall-2023" class="level2">
+<h2 data-anchor-id="advice-from-your-peers-fall-2023">Advice from your peers (Fall 2023)</h2>
+<div style="font-size: 150%;">
+<p>&nbsp;</p>
+<p><em>Discuss the level of difficulty of this course, the pace of the course, and the level of effort required to complete the work in this course.</em></p>
+</div>
+</section>
+<section id="advice-from-your-peers-fall-2023-1" class="level2">
+<h2 data-anchor-id="advice-from-your-peers-fall-2023-1">Advice from your peers (Fall 2023)</h2>
+<div class="columns">
+<div class="column">
+<p><em>This course is easy if you keep up with the work. Having assignments due every week along with the semester-long project is a lot to take on.</em></p>
+<p>&nbsp;</p>
+<p><em>I think there is a lot of work involved with this course, but so long as you stay on top of the assignments, you will be sucessful, as they are not really difficult, more so there is just a large quantity of them.</em></p>
+<p>&nbsp;</p>
+<p><em>The course was definitely difficult if not well prepared but the professor gives every single tool one needs to succeed. The pace was perfect and there is nothing I would change about it.</em></p>
+</div><div class="column">
+<p><em>The pace was quick and the work was not easy. Each week the homework presented new concepts that were progressively more difficult, and it was very easy to fall behind. Not the class with the sort of work you can leave till the last minute, minimum, a couple hours per assignment.</em></p>
+<p>&nbsp;</p>
+<p><em>Lot of the material that was covered in this class was all very new to me, but Professor Leonard designed the course in a way that wasn’t too overwhelming. I felt like the pace of the course was just right. Even the times I was falling behind a little bit, I was able to pick myself back up pretty quickly since the deadlines weren’t super strict. </em></p>
+</div>
+</div>
+</section>
+<section id="advice-from-your-peers-fall-2023-2" class="level2">
+<h2 data-anchor-id="advice-from-your-peers-fall-2023-2">Advice from your peers (Fall 2023)</h2>
+<div class="columns">
+<div class="column">
+<p><em>I found the course difficulty to be well balanced. If a student goes to class, asks questions, and makes an effort to do their assignment they should have no problem at all passing. The pace of the course was perfect and allowed enough time for each unit to be processed before moving on to the next one. </em></p>
+<p>&nbsp;</p>
+<p><em>The workload for this course is very challenging to manage. Having to create a whole database and then do weekly homework assignments is very difficult.</em></p>
+<p>&nbsp;</p>
+<p><em>This course required an intense amount of coding. However, given the clear expectations and due dates, I was able to plan ahead to meet deadlines. </em></p>
+</div><div class="column">
+<p><em>This course is pretty easy, but I don’t think it needs to be harder. It takes not much effort but still I feel like I am very good with databases, api’s, even better at using python. I am still not good at writing queries though.</em></p>
+<p>&nbsp;</p>
+<p><em>There is a large level of effort required to this course. Especially towards the end of the semester the assignments and projects can be time consuming. That being said the professor gives more than enough time to complete them and he is very helpful if a section ends up being confusing for the class.</em></p>
+<p>&nbsp;</p>
+<p><em>This course was fairly difficult, but the professor made it very doable. The course pace was good, except by the end of the semester the pace gets really fast. 10/10 professor</em></p>
+</div>
+</div>
+</section>
+
+
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+ <!-- /content -->
+
+
+
+
+</body></html>

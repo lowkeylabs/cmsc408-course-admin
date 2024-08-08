@@ -125,5 +125,5 @@ outline_google_folder = "1-vljcqBePkmM5jhK-iALqsV_F1cpbgmD"
 syllabus_gdoc_key = "1nOUlwdnRIXFP55BDyBX8e6ay3Xj9HB0SOLmy5DdSfFc"
 syllabus_course_summary = "True"
 lecture_slides_template = "template-lecture-0.qmd"
-lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-fa2024-admin/lectures/"
+lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2024/"
 frontpage_additional_weeks = 99
