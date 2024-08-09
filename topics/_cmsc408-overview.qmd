@@ -211,15 +211,15 @@ gantt
 
     section Homework<br/>(9 at 40%)
     (first day of class): milestone, fdc1, 1/7/2024, 0d
-    DE Tool review: milestone, h1, 1/20/2024, 0d
-    HW 2: milestone, h2, 1/29/2024, 0d
-    HW 3: milestone, h3, 2/10/2024, 0d
-    HW 4: milestone, h4, 3/2/2024, 0d
-    hw 5: milestone, h5, 3/16/2024, 0d
-    hw 6: milestone, h6, 3/30/2024, 0d
-    hw 7: milestone, h7, 4/6/2024, 0d
-    homework 8: milestone, h8, 4/28/2024, 0d
-    Course Evaluation: milestone, h10, 4/28/2024, 0d
+    HW1 - DE Tool review: milestone, h1, 1/20/2024, 0d
+    Homework 2: milestone, h2, 1/29/2024, 0d
+    Homework 3: milestone, h3, 2/10/2024, 0d
+    Homework 4: milestone, h4, 3/2/2024, 0d
+    Homework 5: milestone, h5, 3/16/2024, 0d
+    Homework 6: milestone, h6, 3/30/2024, 0d
+    Homework 7: milestone, h7, 4/6/2024, 0d
+    Homework 8: milestone, h8, 4/28/2024, 0d
+    HW9 - Course Evaluation: milestone, h10, 4/28/2024, 0d
     (last day of class): milestone, ldc2, 4/28/2024, 0d
 ```
 
@@ -229,19 +229,20 @@ This will be a busy semester! There will be items due each week.
 
 ### Homework assignment policies
 
+::: {.smaller}
 * I observe [flexible deadlines](https://eric.ed.gov/?id=EJ1367855) for homework, NOT FOR QUIZZES OR DELIVERABLES!
 
-* READ homework rubrics to see expectations for each assignment.
+* Each homework has a *timeliness* score in the rubric.  *On-time* gets full credit.  The *timeliness score* is reduced slowly past the submission date.
 
-* In general, a *timeliness* score is reduced as assignments are submitted later.
-
-* *On-time* gets full credit and the score is reduced as submissions are later.
+* You will ALWAYS get credit for submitting assignments. ALWAYS turn something in! I want you to get the practice and LEARN!
 
 * I realize this is NOT your only class.  But don't get too far behind!
 
+* READ homework rubrics to see expectations for each assignment.  The rubrics will help you understand what's important and where you should spend your time.
+
 * The homework assignments are generally aligned with the semester project, so that one reinforces the other.  It pays to keep up!
 
-
+:::
 
 ## CMSC 408 - Assessment and Grading
 
@@ -263,11 +264,11 @@ gantt
 
     section Quizzes<br/>(5 at 30%)
     (first day of class): milestone, fdc1, 1/7/2024, 0d
-    Pre-class survey: milestone, q0, 1/7/2024, 0d
-    ER Models: milestone, q1, 1/23/2024, 0d
-    Relational algebra: milestone, q2, 2/11/2024, 0d
-    Normal forms: milestone, q3, 2/27/2024, 0d
-    SQL basics: milestone, q4, 3/19/2024, 0d
+    Quiz 1 - Pre-class survey: milestone, q0, 1/7/2024, 0d
+    Quiz 2 - ER Models: milestone, q1, 1/23/2024, 0d
+    Quiz 3 - Relational algebra: milestone, q2, 2/11/2024, 0d
+    Quiz 4 - Normal forms: milestone, q3, 2/27/2024, 0d
+    Quiz 5 - SQL basics: milestone, q4, 3/19/2024, 0d
     (last day of class): milestone, ldc2, 4/28/2024, 0d
 ```
 
@@ -279,7 +280,7 @@ This will be a busy semester! There will be items due each week.
 
 ::: {style="font-size:0.9em;"}
 Students will work in teams of 2 on a semester-long project. The project will
-require the students design, build and deploy a database driven web application.
+require the students design, build and deploy a database driven web application.  *Team Update* deliverables are brief surveys reflecting on project status, and should only take about 5-min to complete.
 :::
 
 ```{mermaid}
@@ -290,18 +291,18 @@ gantt
 
     section Project<br/>Deliverables<br/>(12 at 30%)
     (first day of class): milestone, fdc1, 1/7/2024, 0d
-    Student introductions: milestone, p1, 1/11/2024,0d
-    Team formation: milestone, p2, 1/13/2024, 0d
-    Team update: milestone, p3, 1/18/2024, 0d
-    Team update: milestone, p4, 1/25/2024, 0d
-    Proposal video: milestone, p5, 2/3/2024, 0d
-    Team update: milestone, p6, 2/8/2024, 0d
-    Team update: milestone, p7, 2/22/2024, 0d
-    Design report: milestone, p8, 3/2/2024, 0d
-    Team update: milestone, p9, 3/8/2024, 0d
-    Web docker: milestone, p10, 3/23/2024, 0d
-    Team update: milestone, p11, 4/4/2024, 0d
-    Final submission: milestone, p12, 4/28/2024, 0d
+    D01 - Student introductions **: milestone, p1, 1/11/2024,0d
+    D02 - Team formation **: milestone, p2, 1/13/2024, 0d
+    D03 - Team update: milestone, p3, 1/18/2024, 0d
+    D04 - Team update: milestone, p4, 1/25/2024, 0d
+    D05 - Proposal video **: milestone, p5, 2/3/2024, 0d
+    D06 - Team update: milestone, p6, 2/8/2024, 0d
+    D07 - Team update: milestone, p7, 2/22/2024, 0d
+    D08 - Design report **: milestone, p8, 3/2/2024, 0d
+    D09 - Team update: milestone, p9, 3/8/2024, 0d
+    D10 - Web docker **: milestone, p10, 3/23/2024, 0d
+    D11 - Team update: milestone, p11, 4/4/2024, 0d
+    D12 - Final submission **: milestone, p12, 4/28/2024, 0d
     (last day of class): milestone, ldc2, 4/28/2024, 0d
     
 ```

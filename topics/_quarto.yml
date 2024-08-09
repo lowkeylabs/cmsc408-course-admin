@@ -12,10 +12,13 @@ filters:
 jupyter: python3
 
 format:
+#    gfm:
+#      mermaid-format: png
     revealjs:
         scrollable: true
         auto-stretch: false
         pdf-separate-fragments: false
+#        embed-resources: true
 
         include-in-header:
           - text: |

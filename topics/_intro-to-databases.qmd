@@ -6,9 +6,9 @@
 
 ::: {.column}
 ### 1950s and early 1960s:
-* Data processing using magnetic tapes for storage
+* Data processing using [magnetic tapes for storage](https://en.wikipedia.org/wiki/Magnetic-tape_data_storage)
 * Tapes provided only sequential access
-* Punched cards for input
+* [Punched cards for input](https://en.wikipedia.org/wiki/Punched_card_input/output)
 :::
 ::: {.column width="40%"}
 ![](assets/1951_TapeData_P2.jpg)
@@ -19,14 +19,13 @@
 
 ## Early history
 
-
 :::: {.columns}
 ::: {.column}
 ### Late 1960s and 1970s:
-* Hard disks allowed direct access to data
-* Network and hierarchical data models in widespread use
-* Ted Codd defines the Relational data model
-* High-performance (for the era) transaction processing
+* [Hard disks allowed](https://en.wikipedia.org/wiki/History_of_hard_disk_drives) direct access to data
+* [Network and hierarchical data models](https://en.wikipedia.org/wiki/Database_model) in widespread use
+* [Edgar "Ted" Codd](https://en.wikipedia.org/wiki/Edgar_F._Codd) defines the Relational data model
+* [High-performance (for the era) transaction processing](https://en.wikipedia.org/wiki/Transaction_processing)
 :::
 ::: {.column width="40%"}
 ![](assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg)
@@ -91,44 +90,43 @@
 ![](assets/data-engineering-landscape-2024-with-highlights.png){.lightbox}
 
 
-# DB vs DBMS
+## Why not use spreadsheets?
 
-## Important concept - DB vs DBMS
+### Spreadsheets DO work and they ARE viable!
 
-### Database (DB)
+:::: {.columns}
+::: {.column}
+[Here is spreadsheet driven web site](https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/)
+:::
+::: {.column}
+[Here is the spreadsheet](https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023)
+:::
+::::
 
-* **Entities:** abstractions of data
-* **Relationships:** semantic information that connects two or more entities to each other
-* Logical architectures 
+### On the surface spreadsheets share many common elements with databases
 
-### Database Management System (DBMS)
-
-* hosts multiple databases
-* Set of programs to access and manipulate the data
-* Controls access, manages users
-* Environment that is convenient, efficient, secure, reliable, scalable
-* Examples: Oracle, SQL Server, MySQL
-
-# Why databases?
+:::: {.columns}
+::: {.column}
+### Entities
+* *Worksheets* are *Tables*
+* *Rows* are sometimes *Records*
+* *Columns* are sometimes *Fields*
+* *Workbooks* are *Databases* (collections of tables)
+:::
+::: {.column}
+### Operations
+* find rows, insert rows, delete rows, update rows,
+* add columns, remove columns
+* create worksheets, delete worksheets
+* create workbooks, delete workbooks
+:::
+::::
 
 ## Why not use spreadsheets?
 
-Spreadsheets DO work and they ARE viable!
-
-### Here is view of a data base through a web site
-
-<https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/>
-
-### Here is the source data
-
-<https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023>
-
-## Why not use spreadsheets?
-
-### Drawbacks of using file systems to store data
+### Drawbacks of using files and workbooks store data
 
 * Data redundancy and inconsistency in multiple files and formats
-* Need to write a new program to carry out each new task
 * Difficulty in accessing data: where and how
 * Data isolation
 * Integrity problems and constraints
@@ -136,34 +134,69 @@ Spreadsheets DO work and they ARE viable!
 * Concurrent access by multiple users
 * Security problems
 
-## Why use a DBMS?
+## On Line Transaction Processing (OLTP) databases
 
-### Advantages of a DBMS 
+:::: {.columns}
+::: {.column width=80%}
 
-* Data independence (facilitates sharing of information)
-* Efficient data access (indexes can be used for optimization)
-* Data consistency and integrity
-* Security and authorization
-* Data administration
-* Concurrent access and crash recovery
-* Reduced application development time
+::: {.more-separation}
+* This semester we'll be working with OLTP databases, like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.
 
-## Why use a DBMS?
+* These are *Relational* databases, that is, the database stores entities and the relationships between these entities.
 
-### Size and scale
+* These databases log each change to the database as a transaction.  Groups of transactions can be reviewed and used to restore the database to an earlier state.
 
-Here is an example data warehouse build summary:
+* Transactions (changes to the database) are communicated to the database management system using a language called *SQL*, a *structured query language*.
 
-<https://docs.google.com/spreadsheets/d/11BazRGXKIdAT4B5ln5O567-Ah0n68ulmjVqdXZgPyTE/edit#gid=1785128451>
+* [How do I pronounce SQL?](https://www.youtube.com/watch?v=S9C8PNX72Ms)
 
-## Why use a DBMS?
+:::
 
-### In summary: ACID
+:::
+::: {.column width=20%}
+![](assets/oltp-snip.png)
+:::
+::::
 
-**Atomicity:**  Either all operations of the transaction are properly reflected in the database or none are
+## On Line Transaction Processing (OLTP) databases
 
-**Consistency:** Execution of a transaction in isolation preserves the consistency of the database
+:::: {.columns}
+::: {.column}
 
-**Isolation:** Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions
+- **Fast Query Processing:** These databases prioritize quick query response times to ensure efficient and prompt processing of individual transactions, making them ideal for applications like banking, e-commerce, and order management systems.
 
-**Durability:**  After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures.
+- **High Transaction Volume:** OLTP databases are designed to handle a large number of short, atomic transactions, such as inserting, updating, or deleting records, which are typically initiated by end-users in real-time.
+
+:::
+::: {.column}
+
+- **Data Integrity and Consistency:** OLTP systems implement ACID (Atomicity, Consistency, Isolation, Durability) properties to ensure that all transactions are processed reliably, maintaining the integrity and consistency of the data even in the event of system failures.
+
+- **Normalized Data Structure:** OLTP databases typically use a highly normalized schema to minimize data redundancy, optimize storage efficiency, and reduce the complexity of data manipulation during frequent transactions.
+
+:::
+::::
+
+## CMSC 408 - in a nutshell
+
+* We'll apply *entity-relation* models to design and describe the contents of a database.
+
+* We'll apply *relational algebra* to formally describe how we query the database.
+
+* We'll apply *normalization* to ensure that we minimize redundant information in the database.
+
+* We'll tie everything together using SQL.
+```{mermaid}
+%%| echo: false
+gantt
+    dateFormat M/DD/YYYY
+    axisFormat %W
+
+    section Topics
+    ER Models : m1, 1/7/2024, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 3w
+    SQL : m6, after m5, 4w
+    Adv. SQL: m7, after m6, 5w
+```
+
