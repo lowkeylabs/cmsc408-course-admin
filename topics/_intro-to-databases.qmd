@@ -126,33 +126,33 @@
 
 * Suppose that to add a new person, you need to make changes to three tabs (e.g., 'Personal Info,' 'Contact Info,' and 'Employment Info'). 
 
-    - What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)
+    - *What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)*
 
 * Imagine that one of the tabs in your spreadsheet has a formula that automatically updates totals or averages when new data are entered. 
 
-    - What would happen if, during an update, the formula fails to recalculate properly?  (Consistency)
+    - *What would happen if, during an update, the formula fails to recalculate properly?  (Consistency)*
 
 * Consider a scenario where two people are editing the spreadsheet at the same time, both trying to add new rows to the same tab.
 
-    - How might their changes conflict, and what issues could arise?  (Isolation)
+    - *How might their changes conflict, and what issues could arise?  (Isolation)*
 
 * Suppose you have made all the necessary changes to add a new person in your spreadsheet and then your computer crashes before you can save the file.
 
-    - What happens to the changes? (Durability)
+    - *What happens to the changes? (Durability)*
 
 ## Why not use spreadsheets?
 
 * Imagine your spreadsheet contains sensitive information, such as personal or financial data.
 
-    - What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)
+    - *What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)*
 
 * Imagine that your spreadsheet currently manages a few hundred rows of data.
 
-    - What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)
+    - *What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)*
 
 * Imagine that your spreadsheet contains phone numbers across different tabs.
 
-    - What would happen if a home phone was changed on one tab but not another? (Normalization and redundancy)
+    - *What would happen if a home phone number was changed on one tab but not another? (Normalization and redundancy)*
 
 ## On Line Transaction Processing (OLTP) databases
 
