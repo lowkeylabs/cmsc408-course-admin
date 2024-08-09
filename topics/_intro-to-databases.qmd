@@ -124,33 +124,54 @@
 
 ## Why not use spreadsheets?
 
-### Drawbacks of using files and workbooks store data
+* Suppose that to add a new person, you need to make changes to three tabs (e.g., 'Personal Info,' 'Contact Info,' and 'Employment Info'). 
 
-* Data redundancy and inconsistency in multiple files and formats
-* Difficulty in accessing data: where and how
-* Data isolation
-* Integrity problems and constraints
-* Atomicity of updates
-* Concurrent access by multiple users
-* Security problems
+    - What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)
+
+* Imagine that one of the tabs in your spreadsheet has a formula that automatically updates totals or averages when new data are entered. 
+
+    - What would happen if, during an update, the formula fails to recalculate properly?  (Consistency)
+
+* Consider a scenario where two people are editing the spreadsheet at the same time, both trying to add new rows to the same tab.
+
+    - How might their changes conflict, and what issues could arise?  (Isolation)
+
+* Suppose you have made all the necessary changes to add a new person in your spreadsheet and then your computer crashes before you can save the file.
+
+    - What happens to the changes? (Durability)
+
+## Why not use spreadsheets?
+
+* Imagine your spreadsheet contains sensitive information, such as personal or financial data.
+
+    - What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)
+
+* Imagine that your spreadsheet currently manages a few hundred rows of data.
+
+    - What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)
+
+* Imagine that your spreadsheet contains phone numbers across different tabs.
+
+    - What would happen if a home phone was changed on one tab but not another? (Normalization and redundancy)
 
 ## On Line Transaction Processing (OLTP) databases
 
 :::: {.columns}
 ::: {.column width=80%}
 
-::: {.more-separation}
-* This semester we'll be working with OLTP databases, like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.
+* This semester we'll be exploring Relational, [On Line Transaction Processing (OLTP)](https://en.wikipedia.org/wiki/Online_transaction_processing) Database Management Systems (DBMS), like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.
 
-* These are *Relational* databases, that is, the database stores entities and the relationships between these entities.
+* A [Database Management System (DBMS)](https://en.wikipedia.org/wiki/Database#Database_management_system) is the software that enables users to define, create, manage, and interact with databases. It serves as an intermediary between the end users, applications, and the database, ensuring that data is organized, stored, retrieved, and modified efficiently and securely.
 
-* These databases log each change to the database as a transaction.  Groups of transactions can be reviewed and used to restore the database to an earlier state.
+* [There are many ways to store data in a DBMS](https://en.wikipedia.org/wiki/Database_model).
 
-* Transactions (changes to the database) are communicated to the database management system using a language called *SQL*, a *structured query language*.
+* We'll be focusing on the [*Relational* model](https://en.wikipedia.org/wiki/Database_model#Relational_model), where the DBMS stores entities and the relationships between these entities inside a single database (called a [SCHEMA](https://en.wikipedia.org/wiki/Database_schema)).
 
-* [How do I pronounce SQL?](https://www.youtube.com/watch?v=S9C8PNX72Ms)
+* These databases bundle multiple changes to the database as a [transaction](https://en.wikipedia.org/wiki/Database_transaction). Transactions can be reviewed and rolled back (reversed).
 
-:::
+* [ACID (atomicity, consistency, isolation, durability)](https://en.wikipedia.org/wiki/ACID) is a set of properties of transactions intended to guarantee data validity despite errors, power failures, and other mishaps.
+
+* Changes to the database are communicated to the DBMS using a language called [*SQL*, a *structured query language*](https://en.wikipedia.org/wiki/SQL). How does one [pronounce SQL?](https://www.youtube.com/watch?v=S9C8PNX72Ms)
 
 :::
 ::: {.column width=20%}

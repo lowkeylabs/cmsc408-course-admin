@@ -474,30 +474,55 @@
 </section>
 <section id="why-not-use-spreadsheets-1" class="slide level2">
 <h2>Why not use spreadsheets?</h2>
-<h3 id="drawbacks-of-using-files-and-workbooks-store-data">Drawbacks of using files and workbooks store data</h3>
 <ul>
-<li>Data redundancy and inconsistency in multiple files and formats</li>
-<li>Difficulty in accessing data: where and how</li>
-<li>Data isolation</li>
-<li>Integrity problems and constraints</li>
-<li>Atomicity of updates</li>
-<li>Concurrent access by multiple users</li>
-<li>Security problems</li>
+<li><p>Suppose that to add a new person, you need to make changes to three tabs (e.g., ‘Personal Info,’ ‘Contact Info,’ and ‘Employment Info’).</p>
+<ul>
+<li>What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)</li>
+</ul></li>
+<li><p>Imagine that one of the tabs in your spreadsheet has a formula that automatically updates totals or averages when new data are entered.</p>
+<ul>
+<li>What would happen if, during an update, the formula fails to recalculate properly? (Consistency)</li>
+</ul></li>
+<li><p>Consider a scenario where two people are editing the spreadsheet at the same time, both trying to add new rows to the same tab.</p>
+<ul>
+<li>How might their changes conflict, and what issues could arise? (Isolation)</li>
+</ul></li>
+<li><p>Suppose you have made all the necessary changes to add a new person in your spreadsheet and then your computer crashes before you can save the file.</p>
+<ul>
+<li>What happens to the changes? (Durability)</li>
+</ul></li>
+</ul>
+</section>
+<section id="why-not-use-spreadsheets-2" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<ul>
+<li><p>Imagine your spreadsheet contains sensitive information, such as personal or financial data.</p>
+<ul>
+<li>What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)</li>
+</ul></li>
+<li><p>Imagine that your spreadsheet currently manages a few hundred rows of data.</p>
+<ul>
+<li>What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)</li>
+</ul></li>
+<li><p>Imagine that your spreadsheet contains phone numbers across different tabs.</p>
+<ul>
+<li>What would happen if a home phone was changed on one tab but not another? (Normalization and redundancy)</li>
+</ul></li>
 </ul>
 </section>
 <section id="on-line-transaction-processing-oltp-databases" class="slide level2">
 <h2>On Line Transaction Processing (OLTP) databases</h2>
 <div class="columns">
 <div class="column" style="width:80%;">
-<div class="more-separation">
 <ul>
-<li><p>This semester we’ll be working with OLTP databases, like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.</p></li>
-<li><p>These are <em>Relational</em> databases, that is, the database stores entities and the relationships between these entities.</p></li>
-<li><p>These databases log each change to the database as a transaction. Groups of transactions can be reviewed and used to restore the database to an earlier state.</p></li>
-<li><p>Transactions (changes to the database) are communicated to the database management system using a language called <em>SQL</em>, a <em>structured query language</em>.</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=S9C8PNX72Ms">How do I pronounce SQL?</a></p></li>
+<li><p>This semester we’ll be exploring Relational, <a href="https://en.wikipedia.org/wiki/Online_transaction_processing">On Line Transaction Processing (OLTP)</a> Database Management Systems (DBMS), like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.</p></li>
+<li><p>A <a href="https://en.wikipedia.org/wiki/Database#Database_management_system">Database Management System (DBMS)</a> is the software that enables users to define, create, manage, and interact with databases. It serves as an intermediary between the end users, applications, and the database, ensuring that data is organized, stored, retrieved, and modified efficiently and securely.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Database_model">There are many ways to store data in a DBMS</a>.</p></li>
+<li><p>We’ll be focusing on the <a href="https://en.wikipedia.org/wiki/Database_model#Relational_model"><em>Relational</em> model</a>, where the DBMS stores entities and the relationships between these entities inside a single database (called a <a href="https://en.wikipedia.org/wiki/Database_schema">SCHEMA</a>).</p></li>
+<li><p>These databases bundle multiple changes to the database as a <a href="https://en.wikipedia.org/wiki/Database_transaction">transaction</a>. Transactions can be reviewed and rolled back (reversed).</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/ACID">ACID (atomicity, consistency, isolation, durability)</a> is a set of properties of transactions intended to guarantee data validity despite errors, power failures, and other mishaps.</p></li>
+<li><p>Changes to the database are communicated to the DBMS using a language called <a href="https://en.wikipedia.org/wiki/SQL"><em>SQL</em>, a <em>structured query language</em></a>. How does one <a href="https://www.youtube.com/watch?v=S9C8PNX72Ms">pronounce SQL?</a></p></li>
 </ul>
-</div>
 </div><div class="column" style="width:20%;">
 <p><img data-src="assets/oltp-snip.png"></p>
 </div>
@@ -960,7 +985,7 @@
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
