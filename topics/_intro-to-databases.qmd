@@ -165,7 +165,7 @@
 
 * [There are many ways to store data in a DBMS](https://en.wikipedia.org/wiki/Database_model).
 
-* We'll be focusing on the [*Relational* model](https://en.wikipedia.org/wiki/Database_model#Relational_model), where the DBMS stores entities and the relationships between these entities inside a single database (called a [SCHEMA](https://en.wikipedia.org/wiki/Database_schema)).
+* We'll be focusing on the [*Relational* model](https://en.wikipedia.org/wiki/Database_model#Relational_model), where the DBMS stores entities and the relationships between these entities inside a single database (called a [schema](https://en.wikipedia.org/wiki/Database_schema)).
 
 * These databases bundle multiple changes to the database as a [transaction](https://en.wikipedia.org/wiki/Database_transaction). Transactions can be reviewed and rolled back (reversed).
 

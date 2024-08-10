@@ -1076,7 +1076,7 @@
 <li><p>This semester we’ll be exploring Relational, <a href="https://en.wikipedia.org/wiki/Online_transaction_processing">On Line Transaction Processing (OLTP)</a> Database Management Systems (DBMS), like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.</p></li>
 <li><p>A <a href="https://en.wikipedia.org/wiki/Database#Database_management_system">Database Management System (DBMS)</a> is the software that enables users to define, create, manage, and interact with databases. It serves as an intermediary between the end users, applications, and the database, ensuring that data is organized, stored, retrieved, and modified efficiently and securely.</p></li>
 <li><p><a href="https://en.wikipedia.org/wiki/Database_model">There are many ways to store data in a DBMS</a>.</p></li>
-<li><p>We’ll be focusing on the <a href="https://en.wikipedia.org/wiki/Database_model#Relational_model"><em>Relational</em> model</a>, where the DBMS stores entities and the relationships between these entities inside a single database (called a <a href="https://en.wikipedia.org/wiki/Database_schema">SCHEMA</a>).</p></li>
+<li><p>We’ll be focusing on the <a href="https://en.wikipedia.org/wiki/Database_model#Relational_model"><em>Relational</em> model</a>, where the DBMS stores entities and the relationships between these entities inside a single database (called a <a href="https://en.wikipedia.org/wiki/Database_schema">schema</a>).</p></li>
 <li><p>These databases bundle multiple changes to the database as a <a href="https://en.wikipedia.org/wiki/Database_transaction">transaction</a>. Transactions can be reviewed and rolled back (reversed).</p></li>
 <li><p><a href="https://en.wikipedia.org/wiki/ACID">ACID (atomicity, consistency, isolation, durability)</a> is a set of properties of transactions intended to guarantee data validity despite errors, power failures, and other mishaps.</p></li>
 <li><p>Changes to the database are communicated to the DBMS using a language called <a href="https://en.wikipedia.org/wiki/SQL"><em>SQL</em>, a <em>structured query language</em></a>. How does one <a href="https://www.youtube.com/watch?v=S9C8PNX72Ms">pronounce SQL?</a></p></li>
@@ -1652,7 +1652,7 @@
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
