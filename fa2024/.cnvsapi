@@ -127,3 +127,4 @@ syllabus_course_summary = "True"
 lecture_slides_template = "template-lecture-0.qmd"
 lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2024/"
 frontpage_additional_weeks = 99
+zoom_lecture_url="https://vcu.zoom.us/j/84401855863"
