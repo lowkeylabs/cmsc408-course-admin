@@ -49,3 +49,6 @@ https://towardsdatascience.com/the-most-useful-advanced-sql-techniques-to-succee
 
 # FastHTML
 https://www.geeky-gadgets.com/getting-started-with-fasthtml/
+
+# Naming convention for fields
+https://towardsdatascience.com/classwords-my-favorite-convention-for-naming-database-columns-81cf3093c5a7
