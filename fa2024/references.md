@@ -52,3 +52,8 @@ https://www.geeky-gadgets.com/getting-started-with-fasthtml/
 
 # Naming convention for fields
 https://towardsdatascience.com/classwords-my-favorite-convention-for-naming-database-columns-81cf3093c5a7
+
+
+# Advanced SQL techniques
+
+https://www.kdnuggets.com/top-5-free-resources-for-learning-advanced-sql-techniques
