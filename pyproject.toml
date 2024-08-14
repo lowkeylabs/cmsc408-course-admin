@@ -19,7 +19,7 @@ pandas = "^2.0.3"
 numpy = "^1.25.2"
 loguru = "^0.7.0"
 python-frontmatter = "^1.0.0"
-cnvsapi = {path = "./helpers/cnvsapi-0.7.2-py3-none-any.whl"}
+cnvsapi = {path = "./helpers/cnvsapi-0.7.4-py3-none-any.whl"}
 tasl = {path = "./helpers/tasl-0.1.2-py3-none-any.whl"}
 nbformat = "^5.9.2"
 matplotlib-venn = "^0.11.9"
