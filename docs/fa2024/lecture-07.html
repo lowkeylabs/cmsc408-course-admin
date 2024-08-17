@@ -11,7 +11,7 @@
 <script src="lecture-07_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-07_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-07_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Relational Algebra 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -324,6 +324,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="lecture-07_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="lecture-07_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="lecture-07_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -357,14 +360,16 @@
 <ul>
 <li>When ready, the complete lecture will replace this one.</li>
 </ul>
-</div></div>
+</div>
+</div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
+<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -442,6 +447,34 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="you-are-here" class="slide level2">
+<h2>You are here</h2>
+<div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %W
+
+    section    
+    Week 5 : crit, weekblock, 2/4/2024, 1w
+
+    section Topics
+    ER Models : m1, 1/7/2024, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 3w
+    SQL : m6, after m5, 4w
+    Adv. SQL: m7, after m6, 5w
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -459,14 +492,16 @@
 <ul>
 <li>When ready, the complete lecture will replace this one.</li>
 </ul>
-</div></div>
+</div>
+</div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
+<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -544,6 +579,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -813,7 +849,18 @@
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -845,29 +892,7 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -875,7 +900,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
