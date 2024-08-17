@@ -129,3 +129,4 @@ lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2
 frontpage_additional_weeks = 99
 zoom_lecture_url="https://vcu.zoom.us/j/84401855863"
 use_outline_lectures_tab = false
+show_frontpage_vcr_buttons = true
