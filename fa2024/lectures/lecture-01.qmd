@@ -29,10 +29,11 @@ lecture_topics = [
 ]
 ```
 
-{{< include "./_template-housekeeping.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+{{< include "./_template-lecture-gantt.qmd" >}}
 
 {{< include ../../topics/_cmsc408-overview.qmd >}}
 
 {{< include ../../topics/_intro-to-databases.qmd >}}
 
-{{< include "./_template-housekeeping.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -58,4 +58,8 @@ format:
         echo: true
         code-block-background: true
         code-line-numbers: true
+      
+    gfm:
+        mermaid-format: png
+        
 

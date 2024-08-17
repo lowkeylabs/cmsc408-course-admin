@@ -1,0 +1,124 @@
+---
+title: weekly gantt images
+date: last-modified
+format:
+    html:
+        theme: spacelab
+    gfm:
+        mermaid-format: png
+---
+## You are here
+
+```{python}
+#| echo: false
+#| output: asis
+
+from cnvsapi.build_utils import get_current_week_from_lecture_id
+from datetime import datetime, timedelta
+
+
+def make_week( week_id ):
+
+    original_date_str = "1/7/2024"
+    original_date = datetime.strptime(original_date_str, "%m/%d/%Y")
+    new_date = original_date + timedelta(weeks=(week_id - 1) )
+    new_date_str = new_date.strftime("%m/%d/%Y").lstrip("0").replace("/0", "/")
+
+    # Define the content you want to write to the file
+    content = f"""
+    gantt
+        dateFormat  M/DD/YYYY
+        axisFormat  %W
+
+        section    
+        Wk {week_id} : crit, weekblock, {new_date_str}, 1w
+
+        section Topics
+        ER Models : m1, 1/7/2024, 3w
+        Rel. Algebra: m4, after m1, 2w
+        Normal forms: m5, after m4, 3w
+        SQL : m6, after m5, 4w
+        Adv. SQL: m7, after m6, 5w
+    """
+
+    # Open the file in write mode ('w' will create the file if it doesn't exist or overwrite it if it does)
+    with open(f"week-{week_id}-mermaid.mmd", "w") as file:
+        file.write(content)
+
+for i in range(1,18):
+    make_week( i )
+
+```
+
+
+
+```{mermaid}
+%%| echo: false
+%%| file: week-1-mermaid.mmd
+%%| 
+```
+
+```{mermaid}
+%%| echo: false
+%%| file: week-2-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-3-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-4-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-5-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-6-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-7-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-8-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-9-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-10-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-11-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-12-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-13-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-14-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-15-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-16-mermaid.mmd
+```
+```{mermaid}
+%%| echo: false
+%%| file: week-17-mermaid.mmd
+```
