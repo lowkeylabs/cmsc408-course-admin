@@ -1,10 +1,8 @@
 ---
-title: CMSC 475 Study Guide
+title: CMSC 408 - Databases Study Guide
 ---
 
-* [UI Design](ui-design/intro-to-ui-design)
-* [Visual Design](visual-design/visual-design.qmd)
-* [Storyboarding](storyboarding/storyboards.qmd)
-* [Prototyping](prototyping/prototyping.qmd)
-* [Implementation](ui-implementation/design-handoff.qmd)
-* [About this guide](about.qmd)
+* [Entity-Relationship Models](er-models/index.qmd)
+* [Relational Algebra]()
+* [Normal Forms and Normalization]()
+* [Structured Query Language]()

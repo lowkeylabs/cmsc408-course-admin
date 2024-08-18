@@ -1,0 +1,293 @@
+---
+title: Keys and Identifiers
+---
+
+<!--
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
+
+Here are nine 20-min or so lectures.
+
+1. **Introduction to Entity-Relationship Models**
+   - Definition and importance of ER models in database design.
+   - Overview of components: entities, relationships, and attributes.
+   - Differences between conceptual, logical, and physical data models.
+
+2. **Entities and Attributes**
+   - Definition and examples of entities.
+   - Understanding attributes and their types (simple, composite, derived).
+   - Attribute domains and constraints.
+
+3. **Relationships and Cardinality**
+   - Definition and examples of relationships.
+   - Types of relationships: one-to-one, one-to-many, many-to-many.
+   - Understanding and depicting cardinality and participation constraints.
+
+4. **Keys and Identifiers**
+   - Importance of keys in database design.
+   - Primary keys, candidate keys, and composite keys.
+   - Surrogate keys vs. natural keys.
+
+5. **ER Diagrams: Symbols and Notation**
+   - Standard symbols and notations used in ER diagrams.
+   - Differences between Chen’s notation and Crow's Foot notation.
+   - Practice creating ER diagrams using different notations.
+
+6. **Weak Entities and Strong Entities**
+   - Definition and examples of weak entities.
+   - Identifying weak entities and their relationships to strong entities.
+   - Use of partial keys and identifying relationships.
+
+7. **Advanced ER Modeling Concepts**
+   - Specialization and generalization.
+   - Aggregation and composition.
+   - Understanding inheritance in ER models.
+
+8. **ER Modeling Best Practices and Common Pitfalls**
+   - Guidelines for effective ER modeling.
+   - Common mistakes to avoid in ER modeling.
+   - Case studies and real-world examples.
+
+9. **Translating ER Models to Relational Schema**
+   - Converting ER diagrams to relational schemas.
+   - Mapping entities, relationships, and attributes.
+   - Handling complex relationships and constraints in the relational model.
+
+I'd like you to create 10 slides covering the following topics:
+
+4. **Keys and Identifiers**
+   - Importance of keys in database design.
+   - Primary keys, candidate keys, and composite keys.
+   - Surrogate keys vs. natural keys.
+
+Formatting of each slide is important.  Here are detailed instruction for the formatting of each slide.
+1. Each slide should consist of a title denoted in markdown header level 2 (##).
+1. Each title should describe the slide contents.  The title should not be numbered, just labeled.
+1. Each slide should lead off with 2 sentences summarizing the content of the slide.
+1. Each slide should contain 5-7 bullets. The bullets should be included in a special pandoc markdown format as shown below.
+1. Each slide should end with an unbolded sentence summarizing the slide.
+
+Below is an example of the formatting:
+---<start-example>
+## Introduction to Entities and Attributes
+
+Entities represent real-world objects or concepts, while attributes describe their characteristics. Understanding these concepts is crucial for effective database design.
+
+:::: {.columns}
+::: {.column width=95%}
+- Entities are objects or things in the real world that have a distinct existence.
+- Examples include a student, a course, a product, or an employee.
+- Attributes are the properties or characteristics of entities.
+- Each entity is represented by a set of attributes.
+- Attributes describe details like the name, age, or ID of an entity.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Entities and attributes form the foundation of the data model in database design.*
+---<end-example>
+
+-->
+
+Keys and identifiers are crucial in database design as they uniquely distinguish each record in a table, ensuring data integrity and facilitating relationships between tables. Primary keys, candidate keys, and composite keys serve different roles in maintaining uniqueness, while surrogate and natural keys offer options depending on the data characteristics and system requirements. Proper selection and use of keys are essential for efficient query performance and preventing data duplication.
+
+## Importance of Keys in Database Design
+
+Keys are essential in database design as they ensure the uniqueness of records and help establish relationships between tables. Understanding different types of keys is fundamental for maintaining data integrity.
+
+:::: {.columns}
+::: {.column width=95%}
+- Keys are attributes or sets of attributes that uniquely identify a record in a table.
+- Without keys, there would be no way to distinguish between two identical records.
+- Keys play a crucial role in indexing, which speeds up query performance.
+- They help maintain data integrity by enforcing uniqueness.
+- Proper use of keys prevents data duplication and ensures accurate retrieval.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Keys are the cornerstone of data integrity and efficient query performance in databases.*
+
+
+## Primary Keys: The Foundation of Uniqueness
+
+A primary key is a unique identifier for each record in a table. It is crucial for ensuring that no two records can have the same primary key value.
+
+:::: {.columns}
+::: {.column width=95%}
+- A primary key is a column or a set of columns that uniquely identifies each row in a table.
+- No two rows in a table can have the same primary key value.
+- Primary keys cannot contain NULL values.
+- They are automatically indexed to improve query performance.
+- In relational databases, primary keys are the basis for establishing relationships between tables.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Primary keys ensure the uniqueness and integrity of data in a database table.*
+
+
+## Candidate Keys: Potential Primary Keys
+
+Candidate keys are those that could potentially serve as a primary key. Understanding candidate keys is important for choosing the most appropriate primary key.
+
+:::: {.columns}
+::: {.column width=95%}
+- A candidate key is any column or combination of columns that can uniquely identify a row in a table.
+- Every table can have multiple candidate keys.
+- Out of all candidate keys, one is chosen as the primary key.
+- Candidate keys must be unique and not contain NULL values.
+- They serve as alternative unique identifiers for records.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Candidate keys offer flexibility in choosing the most suitable primary key for a table.*
+
+
+## Composite Keys: Combining Multiple Attributes
+
+Composite keys are formed by combining two or more attributes to create a unique identifier. They are useful when a single attribute is not sufficient to identify a record.
+
+:::: {.columns}
+::: {.column width=95%}
+- A composite key is a primary key composed of two or more columns.
+- It is used when no single attribute can uniquely identify a record.
+- All columns in the composite key together must be unique.
+- Composite keys are often used in junction tables to link two or more tables.
+- They enforce multi-attribute uniqueness in relational databases.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Composite keys are essential for uniquely identifying records in complex tables.*
+
+
+## Surrogate Keys: A Unique System-Generated Identifier
+
+Surrogate keys are artificial keys that are not derived from application data. They are commonly used when no natural primary key exists.
+
+:::: {.columns}
+::: {.column width=95%}
+- A surrogate key is an artificially generated identifier used as the primary key.
+- Surrogate keys are typically numeric and auto-incremented by the database system.
+- They are not derived from business data, ensuring their immutability.
+- Surrogate keys simplify indexing and improve performance in large databases.
+- They are particularly useful in scenarios where natural keys are too complex or change frequently.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Surrogate keys provide a simple and efficient way to uniquely identify records in a database.*
+
+
+## Natural Keys: Using Business Data for Identification
+
+Natural keys are keys that are derived from business data, such as a social security number or email address. They have real-world meaning but may have drawbacks in certain scenarios.
+
+:::: {.columns}
+::: {.column width=95%}
+- A natural key is an attribute that has a real-world meaning and is used as a primary key.
+- Examples include social security numbers, email addresses, or product codes.
+- Natural keys can simplify data understanding for end users.
+- They are prone to change, which can complicate database design and maintenance.
+- Using natural keys can introduce dependencies on external data sources.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Natural keys provide meaningful identifiers but can introduce complexity and dependencies.*
+
+
+## Choosing Between Surrogate and Natural Keys
+
+Deciding between surrogate and natural keys is a critical design choice that can affect the performance and maintainability of a database.
+
+:::: {.columns}
+::: {.column width=95%}
+- Surrogate keys offer simplicity, especially in complex or large-scale databases.
+- Natural keys provide meaningful identifiers but may require careful handling of changes.
+- The choice depends on factors like data stability, performance needs, and system complexity.
+- Surrogate keys are preferred when natural keys are prone to change or have a large data size.
+- Consider using natural keys when the key has inherent business significance and low volatility.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*The choice between surrogate and natural keys should be guided by data characteristics and system requirements.*
+
+
+## Ensuring Uniqueness: Constraints and Indexes
+
+Uniqueness constraints and indexes are critical for enforcing the uniqueness of keys and improving the performance of queries.
+
+:::: {.columns}
+::: {.column width=95%}
+- Uniqueness constraints ensure that key values are not duplicated across records.
+- Primary keys automatically enforce uniqueness and create an index.
+- Unique constraints can be applied to any column, not just the primary key.
+- Indexes improve query performance by speeding up data retrieval.
+- Proper indexing strategies are essential for maintaining fast and efficient databases.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Uniqueness constraints and indexes are vital for maintaining data integrity and optimizing query performance.*
+
+
+## Keys in Relationships: Establishing Links Between Tables
+
+Keys are essential for establishing relationships between tables in a relational database. Understanding foreign keys is key to effective database normalization.
+
+:::: {.columns}
+::: {.column width=95%}
+- Foreign keys are columns that establish a link between two tables.
+- A foreign key in one table points to the primary key in another table.
+- Foreign keys enforce referential integrity, ensuring consistent relationships.
+- Proper use of foreign keys prevents orphaned records and maintains data integrity.
+- Relationships between tables are fundamental to database normalization and data integrity.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Foreign keys are crucial for maintaining relationships and data integrity in relational databases.*
+
+
+## Summary of Keys and Identifiers
+
+Keys and identifiers are the backbone of relational databases, ensuring the uniqueness and integrity of data. Understanding the different types of keys and their applications is essential for effective database design.
+
+:::: {.columns}
+::: {.column width=95%}
+- Keys uniquely identify records and prevent duplication.
+- Primary keys, candidate keys, and composite keys serve different roles in database design.
+- Surrogate keys simplify indexing and are used when natural keys are inadequate.
+- Natural keys carry real-world meaning but may introduce complexities.
+- Choosing the right key type is critical for ensuring data integrity and database performance.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Effective use of keys and identifiers is essential for building reliable and efficient databases.*
+

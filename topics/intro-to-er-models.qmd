@@ -1,0 +1,5 @@
+---
+title: Introduction to ER Models
+---
+
+{{< include '_intro-to-er-models.qmd' >}}

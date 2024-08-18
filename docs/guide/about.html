@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Guide - About this guide</title>
+<title>CMSC 408 - Databases Study Guide - About this guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Guide</span>
+    <span class="navbar-title">CMSC 408 - Databases Study Guide</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -93,8 +93,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./../gallery/index.html" target="_blank"> 
-<span class="menu-text">Gallery</span></a>
+    <a class="nav-link" href="./er-models/index.html" target="_blank"> 
+<span class="menu-text">ER Models</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
@@ -121,6 +121,75 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">ER Modeling</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/intro-to-er-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/entities-and-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Entities and Attributes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/relationships-and-cardinality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relations and Cardinality</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/keys-and-identifiers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Keys and Identifiers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/er-diagramming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ER Diagramming</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/weak-and-strong-entities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weak and Strong Entities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/advanced-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/best-practices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Best Practices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./er-models/translating-to-relational-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Translation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -129,7 +198,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-this-study-guide" id="toc-creating-this-study-guide" class="nav-link active" data-scroll-target="#creating-this-study-guide">Creating this study guide</a></li>
+  <li><a href="#creating-this-study-guide" id="toc-creating-this-study-guide" class="nav-link active" data-scroll-target="#creating-this-study-guide">Creating this study guide</a>
+  <ul class="collapse">
+  <li><a href="#entity-relationship-models" id="toc-entity-relationship-models" class="nav-link" data-scroll-target="#entity-relationship-models">Entity-relationship models</a></li>
+  <li><a href="#relational-algebra" id="toc-relational-algebra" class="nav-link" data-scroll-target="#relational-algebra">Relational Algebra</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -157,72 +230,21 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="creating-this-study-guide" class="level1">
 <h1>Creating this study guide</h1>
-<p>There isn’t a single textbook for User Interface design. ChatGPT was used to help curate content for this study guide. Below are examples of individual prompts and an overview of teh workflow.</p>
-<p>ChatGPT version 3.5 was used.</p>
+<p>ChatGPT was used to help curate content for this study guide. Below are examples of individual prompts and an overview of teh workflow.</p>
+<p>ChatGPT version 4o was used.</p>
 <p>ChatGPT output, copied using the <em>copy</em> button, is formatted as <em>markdown</em>. The markdown content from ChatGPT assembed into one or more QMD (quarto) files and <em>rendered</em> to produce this/these HTML files.</p>
-<p><strong>Prompt to create level 1 content</strong></p>
-<p><em>Hi chatgpt. I’d like you to play the role of a professor teaching an undergraduate computer science course titled “design and implementation of user interfaces”. The focus this week is “story boarding and the workflow for user interface design”. Please six major topics to be covered. For each topic provide 5 slides of 5 bullets each on the topic.</em></p>
-<p>This prompt resulted in these top level topics.</p>
-<ol type="1">
-<li>Introduction to User Interface Design</li>
-<li>Principles of Storyboarding</li>
-<li>Workflow in UI Design</li>
-<li>User-Centered Design Approach</li>
-<li>Prototyping and Feedback</li>
-<li>Case Studies and Best Practices</li>
-</ol>
-<p>For each of these topics, ChatGPT provided 25 subtopics of content. This content was not organized in any recognizable pattern.</p>
-<p><strong>Prompt to create categories and groups</strong></p>
-<p><em>Categorize and group the following topics:</em></p>
-<ul>
-<li>topic 1</li>
-<li>topic 2</li>
-<li>topic …</li>
-</ul>
-<p>The main topics were assigned to header level 1. The groups were assigned to header level 2. The individual topics were assigned to header level 3.</p>
-<p><strong>Prompt to create level 2 content</strong></p>
-<p><em>Provide three sentences commenting on: topic goes here</em></p>
-<p><strong>Prompt to create level 3 content</strong></p>
-<p><em>Provide “five bullets followed by a concluding paragraph of two sentences” for each of the topics below, using the preferred format from above:</em></p>
-<ul>
-<li>topic 1</li>
-<li>topic 2</li>
-<li>…</li>
-</ul>
-<p><strong>Prompt to create design pattern content</strong></p>
-<p><em>Good afternoon, ChatGPT! I’d like you to play the role of a professor teaching an undergraduate computer science course titled “design and implementation of user interfaces”. Our current focus is on OOP design patterns that are most used in User Interface coding. Please provide a listing of the top 10 patterns in use, ordered in descending order by a estimated count or percentage associated the prevelance of each pattern. Further, I’d like each pattern presented in the following format:</em></p>
-<p><em>Singleton Pattern (15%)</em></p>
-<p><em>The Singleton Pattern ensures that a class has only one instance and provides a global point of access to that instance. Often used for managing global resources like a configuration manager or a centralized event bus.</em></p>
-<p>This prompt resulted in the following list:</p>
-<ol type="1">
-<li>Observer Pattern</li>
-<li>Singleton Pattern</li>
-<li>Decorator Pattern</li>
-<li>Factory Method Pattern</li>
-<li>Builder Pattern</li>
-<li>Model-View-Controller (MVC) Pattern</li>
-<li>Abstract Factory Pattern</li>
-<li>Strategy Pattern</li>
-<li>Command Pattern</li>
-<li>State Pattern</li>
-</ol>
-<p>Additional prompts to create appropriate text were created. Finally, the following prompt was used to create the code snippets.</p>
-<p><strong>Prompt to create code snippets</strong></p>
-<p><em>For this class, we’ll be using P5JS and javascript for coding. For each of the design patterns listed below, please provide a working example for each pattern ready for pasting and running within the P5JS environment. Please put all class definitions at the top of the each program.</em></p>
-<ol type="1">
-<li>Observer Pattern</li>
-<li>Singleton Pattern</li>
-<li>Decorator Pattern</li>
-<li>Factory Method Pattern</li>
-<li>Builder Pattern</li>
-<li>Model-View-Controller (MVC) Pattern</li>
-<li>Abstract Factory Pattern</li>
-<li>Strategy Pattern</li>
-<li>Command Pattern</li>
-<li>State Pattern</li>
-</ol>
+<section id="entity-relationship-models" class="level2">
+<h2 class="anchored" data-anchor-id="entity-relationship-models">Entity-relationship models</h2>
+<p><em>Hey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.</em></p>
+<p><em>I need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered.</em></p>
+</section>
+<section id="relational-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="relational-algebra">Relational Algebra</h2>
+<p><em>Hey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.</em></p>
+<p><em>I need your assistance developing materials for 9 20-min long lectures covering the topic of relational algebra. As a first step, please provide 9 high-level topics to be covered.</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

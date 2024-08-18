@@ -8,48 +8,51 @@ Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate 
 I need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered.
 -->
 
+Entity-Relationship (ER) modeling is a conceptual framework used to represent the data structure of a database system. It involves identifying entities (objects or concepts), attributes (properties of entities), and relationships (associations between entities) within the system. ER models are typically depicted using ER diagrams, which visually represent entities as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. These models are foundational in database design, helping to ensure that the database accurately reflects the real-world scenarios it is intended to represent.
 
-1. **Introduction to Entity-Relationship Models**
+## Topics in this unit
+
+1. [**Introduction to Entity-Relationship Models**](intro-to-er-models.qmd)
    - Definition and importance of ER models in database design.
    - Overview of components: entities, relationships, and attributes.
    - Differences between conceptual, logical, and physical data models.
 
-2. **Entities and Attributes**
+2. [**Entities and Attributes**](entities-and-attributes.qmd)
    - Definition and examples of entities.
    - Understanding attributes and their types (simple, composite, derived).
    - Attribute domains and constraints.
 
-3. **Relationships and Cardinality**
+3. [**Relationships and Cardinality**](relationships-and-cardinality.qmd)
    - Definition and examples of relationships.
    - Types of relationships: one-to-one, one-to-many, many-to-many.
    - Understanding and depicting cardinality and participation constraints.
 
-4. **Keys and Identifiers**
+4. [**Keys and Identifiers**](keys-and-identifiers.qmd)
    - Importance of keys in database design.
    - Primary keys, candidate keys, and composite keys.
    - Surrogate keys vs. natural keys.
 
-5. **ER Diagrams: Symbols and Notation**
+5. [**ER Diagrams: Symbols and Notation**](er-diagramming.qmd)
    - Standard symbols and notations used in ER diagrams.
    - Differences between Chen’s notation and Crow's Foot notation.
    - Practice creating ER diagrams using different notations.
 
-6. **Weak Entities and Strong Entities**
+6. [**Weak Entities and Strong Entities**](weak-and-strong-entities.qmd)
    - Definition and examples of weak entities.
    - Identifying weak entities and their relationships to strong entities.
    - Use of partial keys and identifying relationships.
 
-7. **Advanced ER Modeling Concepts**
+7. [**Advanced ER Modeling Concepts**](advanced-concepts.qmd)
    - Specialization and generalization.
    - Aggregation and composition.
    - Understanding inheritance in ER models.
 
-8. **ER Modeling Best Practices and Common Pitfalls**
+8. [**ER Modeling Best Practices and Common Pitfalls**](best-practices.qmd)
    - Guidelines for effective ER modeling.
    - Common mistakes to avoid in ER modeling.
    - Case studies and real-world examples.
 
-9. **Translating ER Models to Relational Schema**
+9. [**Translating ER Models to Relational Schema**](translating-to-relational-schema.qmd)
    - Converting ER diagrams to relational schemas.
    - Mapping entities, relationships, and attributes.
    - Handling complex relationships and constraints in the relational model.
