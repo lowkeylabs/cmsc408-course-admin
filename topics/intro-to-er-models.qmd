@@ -1,5 +1,14 @@
 ---
 title: Introduction to ER Models
+format:
+    revealjs:
+        include-in-header:
+        -   text: <script src='https://toolness.github.io/p5.js-widget/p5-widget.js'></script>
+tasl:
+    tags:
+    - er-models
 ---
+
+
 
 {{< include '_intro-to-er-models.qmd' >}}

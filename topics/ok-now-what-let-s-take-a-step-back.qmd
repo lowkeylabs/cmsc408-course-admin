@@ -5,6 +5,7 @@ tasl:
     tags:
     - lecture
     - lecture-03
+    - er-models
     topic: '... ok, now what?  Let''s take a step back ...'
 ---
 

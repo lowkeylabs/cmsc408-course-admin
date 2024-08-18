@@ -5,6 +5,7 @@ tasl:
     tags:
     - lecture
     - lecture-02
+    - er-models
     topic: Homework 2 discussion
 ---
 

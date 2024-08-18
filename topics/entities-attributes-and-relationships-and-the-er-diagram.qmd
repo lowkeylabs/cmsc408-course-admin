@@ -5,6 +5,7 @@ tasl:
     tags:
     - lecture
     - lecture-02
+    - er-models
     topic: Entities, attributes and relationships<br/>and the ER Diagram
 ---
 

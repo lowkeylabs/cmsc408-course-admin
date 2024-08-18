@@ -5,6 +5,7 @@ tasl:
     tags:
     - lecture
     - lecture-03
+    - er-models
     topic: Tricky situations
 ---
 

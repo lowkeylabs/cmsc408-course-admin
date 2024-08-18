@@ -28,6 +28,6 @@ lecture_topics = [
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-
+{{< include ../../topics/_intro-to-er-models.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
