@@ -14,7 +14,7 @@
 <script src="intro-to-databases_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="intro-to-databases_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="intro-to-databases_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Intro to databases</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -360,8 +360,7 @@
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="assets/1951_TapeData_P2.jpg"></p>
-</div>
-</div>
+</div></div>
 <center>
 <em>The history of databases tracks the history of computers</em>
 </center>
@@ -379,8 +378,7 @@
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg"></p>
-</div>
-</div>
+</div></div>
 <center>
 <em>The history of databases tracks the history of computers</em>
 </center>
@@ -406,8 +404,7 @@
 </ul>
 </div><div class="column">
 <p><img data-src="assets/1990-computer-center.png"></p>
-</div>
-</div>
+</div></div>
 <center>
 <em>The history of databases tracks the history of computers</em>
 </center>
@@ -430,8 +427,7 @@
 <p><a href="https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4" class="uri">https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4</a></p>
 </div><div class="column">
 <p><img data-src="assets/google-data-center.png"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="open-source-data-engineering-landscape-2024" class="slide level2">
 <h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape" target="_blank">Open Source Data Engineering Landscape 2024</a></h2>
@@ -449,8 +445,7 @@
 <p><a href="https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/">Here is spreadsheet driven web site</a></p>
 </div><div class="column">
 <p><a href="https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023">Here is the spreadsheet</a></p>
-</div>
-</div>
+</div></div>
 <h3 id="on-the-surface-spreadsheets-share-many-common-elements-with-databases">On the surface spreadsheets share many common elements with databases</h3>
 <div class="columns">
 <div class="column">
@@ -469,8 +464,7 @@
 <li>create worksheets, delete worksheets</li>
 <li>create workbooks, delete workbooks</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="why-not-use-spreadsheets-1" class="slide level2">
 <h2>Why not use spreadsheets?</h2>
@@ -525,8 +519,7 @@
 </ul>
 </div><div class="column" style="width:20%;">
 <p><img data-src="assets/oltp-snip.png"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="on-line-transaction-processing-oltp-databases-1" class="slide level2">
 <h2>On Line Transaction Processing (OLTP) databases</h2>
@@ -541,8 +534,7 @@
 <li><p><strong>Data Integrity and Consistency:</strong> OLTP systems implement ACID (Atomicity, Consistency, Isolation, Durability) properties to ensure that all transactions are processed reliably, maintaining the integrity and consistency of the data even in the event of system failures.</p></li>
 <li><p><strong>Normalized Data Structure:</strong> OLTP databases typically use a highly normalized schema to minimize data redundancy, optimize storage efficiency, and reduce the complexity of data manipulation during frequent transactions.</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="cmsc-408---in-a-nutshell" class="slide level2">
 <h2>CMSC 408 - in a nutshell</h2>
@@ -841,18 +833,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -884,7 +865,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -892,7 +895,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
@@ -985,30 +988,37 @@
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false});
-    window.onload = () => {
-      lightboxQuarto.on('slide_before_load', (data) => {
-        const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-        const href = trigger.getAttribute('href');
-        if (href !== null) {
-          const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-          if (imgEl !== null) {
-            const srcAttr = imgEl.getAttribute("src");
-            if (srcAttr && srcAttr.startsWith("data:")) {
-              slideConfig.href = srcAttr;
-            }
-          }
-        } 
-      });
-
-      lightboxQuarto.on('slide_after_load', (data) => {
-        const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(slideNode);
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
         }
-      });
-
-    };
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
               </script>
     
 

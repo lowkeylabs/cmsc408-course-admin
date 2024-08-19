@@ -11,7 +11,7 @@
 <script src="introduction-to-apis_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="introduction-to-apis_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="introduction-to-apis_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Introduction to APIs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -72,7 +72,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -86,7 +86,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -419,8 +419,7 @@
 <p>APIs are essential for enabling the integration and interaction of diverse software systems.</p>
 <p>APIs allow developers to access the functionality and data of other applications, services, or platforms, saving time and effort in building new software.</p>
 <p>APIs also enable the creation of third-party applications and services that extend the capabilities of existing software.</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="introduction-to-apis-2" class="slide level2">
 <h2>Introduction to APIs</h2>
@@ -442,14 +441,13 @@
 <li><p>Payment gateways offer APIs for processing online payments securely.</p></li>
 <li><p>CMSC 508 students offer APIs to access their project databases!</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="making-api-calls-using-python" class="slide level2">
 <h2>Making API calls using Python</h2>
 <h3 id="sample-api-request">Sample API request</h3>
 <p>Python provides libraries like requests that make it easy to send HTTP requests. Here’s a basic example of making a GET request using the requests library:</p>
-<div id="26c78563" class="cell" data-execution_count="1">
+<div id="b2808b09" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>response <span class="op">=</span> requests.get(<span class="st">"https://rickandmortyapi.com/api/character/1"</span>)</span>
@@ -464,7 +462,7 @@
 <section id="making-api-calls-using-python-1" class="slide level2">
 <h2>Making API calls using Python</h2>
 <h3 id="sample-api-response">Sample API response</h3>
-<div id="6884ffc3" class="cell" data-execution_count="2">
+<div id="a9acd68f" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>{'id': 1, 'name': 'Rick Sanchez', 'status': 'Alive', 'species': 'Human', 'type': '', 'gender': 'Male', 'origin': {'name': 'Earth (C-137)', 'url': 'https://rickandmortyapi.com/api/location/1'}, 'location': {'name': 'Citadel of Ricks', 'url': 'https://rickandmortyapi.com/api/location/3'}, 'image': 'https://rickandmortyapi.com/api/character/avatar/1.jpeg', 'episode': ['https://rickandmortyapi.com/api/episode/1', 'https://rickandmortyapi.com/api/episode/2', 'https://rickandmortyapi.com/api/episode/3', 'https://rickandmortyapi.com/api/episode/4', 'https://rickandmortyapi.com/api/episode/5', 'https://rickandmortyapi.com/api/episode/6', 'https://rickandmortyapi.com/api/episode/7', 'https://rickandmortyapi.com/api/episode/8', 'https://rickandmortyapi.com/api/episode/9', 'https://rickandmortyapi.com/api/episode/10', 'https://rickandmortyapi.com/api/episode/11', 'https://rickandmortyapi.com/api/episode/12', 'https://rickandmortyapi.com/api/episode/13', 'https://rickandmortyapi.com/api/episode/14', 'https://rickandmortyapi.com/api/episode/15', 'https://rickandmortyapi.com/api/episode/16', 'https://rickandmortyapi.com/api/episode/17', 'https://rickandmortyapi.com/api/episode/18', 'https://rickandmortyapi.com/api/episode/19', 'https://rickandmortyapi.com/api/episode/20', 'https://rickandmortyapi.com/api/episode/21', 'https://rickandmortyapi.com/api/episode/22', 'https://rickandmortyapi.com/api/episode/23', 'https://rickandmortyapi.com/api/episode/24', 'https://rickandmortyapi.com/api/episode/25', 'https://rickandmortyapi.com/api/episode/26', 'https://rickandmortyapi.com/api/episode/27', 'https://rickandmortyapi.com/api/episode/28', 'https://rickandmortyapi.com/api/episode/29', 'https://rickandmortyapi.com/api/episode/30', 'https://rickandmortyapi.com/api/episode/31', 'https://rickandmortyapi.com/api/episode/32', 'https://rickandmortyapi.com/api/episode/33', 'https://rickandmortyapi.com/api/episode/34', 'https://rickandmortyapi.com/api/episode/35', 'https://rickandmortyapi.com/api/episode/36', 'https://rickandmortyapi.com/api/episode/37', 'https://rickandmortyapi.com/api/episode/38', 'https://rickandmortyapi.com/api/episode/39', 'https://rickandmortyapi.com/api/episode/40', 'https://rickandmortyapi.com/api/episode/41', 'https://rickandmortyapi.com/api/episode/42', 'https://rickandmortyapi.com/api/episode/43', 'https://rickandmortyapi.com/api/episode/44', 'https://rickandmortyapi.com/api/episode/45', 'https://rickandmortyapi.com/api/episode/46', 'https://rickandmortyapi.com/api/episode/47', 'https://rickandmortyapi.com/api/episode/48', 'https://rickandmortyapi.com/api/episode/49', 'https://rickandmortyapi.com/api/episode/50', 'https://rickandmortyapi.com/api/episode/51'], 'url': 'https://rickandmortyapi.com/api/character/1', 'created': '2017-11-04T18:48:46.250Z'}</code></pre>
 </div>
@@ -498,8 +496,7 @@
 <p>API keys are unique alphanumeric codes or tokens provided by API providers to developers and applications.</p>
 <p>API keys serve as a form of authentication, allowing the API provider to identify and authorize the entity making the API requests.</p>
 <p>API keys are typically included in API requests as query parameters or headers.</p>
-</div>
-</div>
+</div></div>
 <center>
 <strong><em>The Rick and Morty API does not require API keys. This is generally BAD!</em></strong>
 </center>
@@ -517,8 +514,7 @@
 <p>To obtain an API key, developers typically need to register with the API provider and follow their authentication process.</p>
 <p>Once you have an API key, you include it in your Python code when making API requests. This ensures that the API provider can verify your identity and grant access accordingly.</p>
 <p>For example, see: <a href="https://www.weatherapi.com" class="uri">https://www.weatherapi.com</a></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="authentication-and-api-keys-2" class="slide level2">
 <h2>Authentication and API keys</h2>
@@ -537,7 +533,7 @@
 <h2>Authentication example in query string</h2>
 <p>Using: <a href="https://www.weatherapi.com" class="uri">https://www.weatherapi.com</a></p>
 <h3 id="the-api-request">the API request</h3>
-<div id="313231ef" class="cell" data-execution_count="3">
+<div id="9c0b0be9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> os</span>
 <span id="cb4-2"><a href=""></a><span class="im">import</span> requests</span>
 <span id="cb4-3"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
@@ -577,16 +573,17 @@
 <h2>Authentication example in query string</h2>
 <p>Using: <a href="https://www.weatherapi.com/" class="uri">https://www.weatherapi.com/</a></p>
 <h3 id="the-api-response">the API response</h3>
-<div id="5928724c" class="cell" data-execution_count="4">
+<div id="32e36df6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: Unexpected status code (403)</code></pre>
+<pre><code>Weather data retrieved successfully:
+{'location': {'name': 'Richmond', 'region': 'Virginia', 'country': 'USA', 'lat': 37.55, 'lon': -77.46, 'tz_id': 'America/New_York', 'localtime_epoch': 1724077004, 'localtime': '2024-08-19 10:16'}, 'current': {'last_updated_epoch': 1724076900, 'last_updated': '2024-08-19 10:15', 'temp_c': 28.9, 'temp_f': 84.0, 'is_day': 1, 'condition': {'text': 'Partly cloudy', 'icon': '//cdn.weatherapi.com/weather/64x64/day/116.png', 'code': 1003}, 'wind_mph': 5.6, 'wind_kph': 9.0, 'wind_degree': 20, 'wind_dir': 'NNE', 'pressure_mb': 1009.0, 'pressure_in': 29.78, 'precip_mm': 0.0, 'precip_in': 0.0, 'humidity': 61, 'cloud': 25, 'feelslike_c': 31.7, 'feelslike_f': 89.0, 'windchill_c': 25.9, 'windchill_f': 78.6, 'heatindex_c': 27.2, 'heatindex_f': 81.0, 'dewpoint_c': 18.4, 'dewpoint_f': 65.2, 'vis_km': 16.0, 'vis_miles': 9.0, 'uv': 7.0, 'gust_mph': 10.1, 'gust_kph': 16.2}}</code></pre>
 </div>
 </div>
 <h3 id="sample-url-with-key-for-exploration-in-browser">Sample url with key for exploration in browser</h3>
-<div id="bcf5569d" class="cell" data-execution_count="5">
+<div id="cf8f94cd" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>api_url<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>http://api.weatherapi.com/v1/current.json?key=None&amp;q=23284
+<pre><code>http://api.weatherapi.com/v1/current.json?key=1573b425a7c94e09ba8141744231311&amp;q=23284
 </code></pre>
 </div>
 </div>
@@ -603,13 +600,12 @@
 <p>JSON is commonly used in APIs due to its simplicity and flexibility.</p>
 <p>JSON allows for the representation of structured data, such as objects and arrays, making it suitable for various data types.</p>
 <p>JSON is also language-independent, making it easy to work with across different programming languages.</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="working-with-json-data-1" class="slide level2">
 <h2>Working with JSON data</h2>
 <h3 id="sample-decoding-a-python-dictionary-converted-from-json">Sample decoding a python dictionary converted from JSON</h3>
-<div id="ccd3e948" class="cell" data-execution_count="6">
+<div id="fd173320" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="bu">print</span>(<span class="ss">f"""</span></span>
 <span id="cb8-2"><a href=""></a><span class="ss">Weather in </span><span class="sc">{</span>data[<span class="st">'location'</span>][<span class="st">'name'</span>]<span class="sc">}</span></span>
 <span id="cb8-3"><a href=""></a><span class="ss">at </span><span class="sc">{</span>data[<span class="st">'location'</span>][<span class="st">'localtime'</span>]<span class="sc">}</span></span>
@@ -623,7 +619,7 @@
 <h3 id="sample-decoding-a-python-dictionary-converted-from-json-1">Sample decoding a python dictionary converted from JSON</h3>
 <div class="columns">
 <div class="column">
-<div id="b1d06275" class="cell" data-execution_count="9">
+<div id="7a3573a4" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
 <span id="cb9-2"><a href=""></a><span class="co"># We're using data = response.json() </span></span>
 <span id="cb9-3"><a href=""></a><span class="co"># from earlier rick and morty query</span></span>
@@ -635,7 +631,7 @@
 <p>More on <a href="https://quarto.org/docs/authoring/figures.html">markdown figures</a>.</p>
 <p>For homework 8, I recommend that you use a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">CSS flexbox</a> and <a href="https://quarto.org/docs/output-formats/html-basics.html#css-styles">CSS styling</a> to create the yearbook. There are many ways to solve the problem!</p>
 </div><div class="column">
-<div id="e3e1b3da" class="cell" data-execution_count="10">
+<div id="49417285" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -645,8 +641,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -915,18 +910,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -958,7 +942,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -966,7 +972,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

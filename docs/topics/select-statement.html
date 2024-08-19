@@ -11,7 +11,7 @@
 <script src="select-statement_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="select-statement_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="select-statement_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>SELECT statement</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -72,7 +72,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -86,7 +86,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -412,7 +412,7 @@
 </section>
 <section id="select-clause" class="slide level2">
 <h2>SELECT clause</h2>
-<div id="692b3f1f" class="cell" data-execution_count="1">
+<div id="2d81fa83" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
@@ -449,8 +449,7 @@
 <li>R* represents a relation (table), cartesian project, or join</li>
 <li>P is a predicate, conditions or filters</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="select-clause-and-examples" class="slide level2">
 <h2>SELECT clause and examples</h2>
@@ -477,21 +476,19 @@
 <span id="cb2-10"><a href=""></a></span>
 <span id="cb2-11"><a href=""></a>-- indents are not managed</span>
 <span id="cb2-12"><a href=""></a>-- comments stop processing of line</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="select-clause-and-examples-1" class="slide level2">
 <h2>SELECT clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="using-to-select-all-columns">Using * to select all columns</h3>
-<div id="d0329aeb" class="cell" data-execution_count="2">
+<div id="9c340466" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb3-2"><a href=""></a><span class="st">select * from regions</span></span>
 <span id="cb3-3"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb3-4"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -507,7 +504,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -542,10 +539,9 @@
 </div>
 </div>
 </div>
-</div>
 </div><div class="column" style="width:50%;">
 <h3 id="selecting-only-one-attribute">Selecting only one attribute</h3>
-<div id="754d87db" class="cell" data-execution_count="3">
+<div id="65afb84b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb4-2"><a href=""></a><span class="st">select</span></span>
 <span id="cb4-3"><a href=""></a><span class="st">  region_name</span></span>
@@ -554,7 +550,6 @@
 <span id="cb4-6"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb4-7"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -570,7 +565,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -600,22 +595,19 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="select-clause-and-examples-2" class="slide level2">
 <h2>SELECT clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="gathering-all-last-names">Gathering all last names</h3>
-<div id="af76785b" class="cell" data-execution_count="4">
+<div id="cbb946cd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb5-2"><a href=""></a><span class="st">select last_name from employees</span></span>
 <span id="cb5-3"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb5-4"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -631,7 +623,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -690,16 +682,14 @@
 </div>
 </div>
 </div>
-</div>
 </div><div class="column" style="width:50%;">
 <h3 id="eliminating-duplicates-with-distinct">Eliminating duplicates with DISTINCT</h3>
-<div id="d1a449ff" class="cell" data-execution_count="5">
+<div id="9df519d0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb6-2"><a href=""></a><span class="st">select distinct last_name from employees</span></span>
 <span id="cb6-3"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb6-4"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -715,7 +705,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -774,23 +764,20 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="select-clause-and-examples-3" class="slide level2">
 <h2>SELECT clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="combining-last-and-first-names">Combining last and first names</h3>
-<div id="dbfa427f" class="cell" data-execution_count="6">
+<div id="c1232b56" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb7-2"><a href=""></a><span class="st">select concat(last_name,',',first_name)</span></span>
 <span id="cb7-3"><a href=""></a><span class="st">from employees</span></span>
 <span id="cb7-4"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb7-5"><a href=""></a>result.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -806,7 +793,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -848,17 +835,15 @@
 </div>
 </div>
 </div>
-</div>
 </div><div class="column" style="width:50%;">
 <h3 id="then-renaming-the-column">Then renaming the column</h3>
-<div id="c983b049" class="cell" data-execution_count="7">
+<div id="c27ac0f4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb8-2"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name</span></span>
 <span id="cb8-3"><a href=""></a><span class="st">from employees</span></span>
 <span id="cb8-4"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb8-5"><a href=""></a>result.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -874,7 +859,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -916,16 +901,14 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="select-clause-and-examples-4" class="slide level2">
 <h2>SELECT clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="attribute-can-be-literal-or-function">attribute can be literal or function</h3>
-<div id="1ba45cf6" class="cell" data-execution_count="8">
+<div id="5389d214" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb9-2"><a href=""></a></span>
 <span id="cb9-3"><a href=""></a><span class="st">select</span></span>
@@ -938,7 +921,6 @@
 <span id="cb9-10"><a href=""></a>result.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
-<div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -953,7 +935,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -965,12 +947,11 @@
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>27</td>
-<td>2024-07-29 14:04:03</td>
+<td>2024-08-19 10:18:50</td>
 </tr>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -981,7 +962,7 @@
 </div><div class="column" style="width:50%;">
 <h3 id="doing-computations">Doing computations</h3>
 <p>The attribute can be a function or arithmetic operation</p>
-<div id="2d46f9b1" class="cell" data-execution_count="9">
+<div id="8fe6a747" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb10-2"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name,</span></span>
 <span id="cb10-3"><a href=""></a><span class="st">salary*12 as "Annual Salary"</span></span>
@@ -989,7 +970,6 @@
 <span id="cb10-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb10-6"><a href=""></a>result.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1005,7 +985,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1045,9 +1025,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="where-clause-and-examples" class="slide level2">
 <h2>WHERE clause and examples</h2>
@@ -1061,7 +1039,7 @@
 <li><p>WHERE also uses special operators: <em>BETWEEN</em>, <em>IN</em> and <em>IS NULL</em></p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="538b1a63" class="cell" data-execution_count="10">
+<div id="35603904" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb11-2"><a href=""></a><span class="st">-- note that this is a monthly salary!</span></span>
 <span id="cb11-3"><a href=""></a><span class="st">SELECT</span></span>
@@ -1073,7 +1051,6 @@
 <span id="cb11-9"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb11-10"><a href=""></a>result.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1089,7 +1066,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1135,16 +1112,14 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="where-clause-and-examples-1" class="slide level2">
 <h2>WHERE clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="selecting-a-department">Selecting a department</h3>
-<div id="74fea0a8" class="cell" data-execution_count="11">
+<div id="fed49607" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb12-2"><a href=""></a><span class="st">select last_name,department_id</span></span>
 <span id="cb12-3"><a href=""></a><span class="st">from employees</span></span>
@@ -1152,7 +1127,6 @@
 <span id="cb12-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb12-6"><a href=""></a>result.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1168,7 +1142,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1193,7 +1167,6 @@
 </div>
 </div>
 </div>
-</div>
 <p>
 &nbsp;
 </p>
@@ -1201,7 +1174,7 @@
 </div><div class="column" style="width:50%;">
 <h3 id="using-between">Using BETWEEN</h3>
 <p>The attribute can be a function or arithmetic operation</p>
-<div id="d476dcd2" class="cell" data-execution_count="12">
+<div id="5d62195e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb13-2"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name, salary</span></span>
 <span id="cb13-3"><a href=""></a><span class="st">from employees</span></span>
@@ -1209,7 +1182,6 @@
 <span id="cb13-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb13-6"><a href=""></a>result.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1225,7 +1197,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1265,16 +1237,14 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="where-clause-and-examples-2" class="slide level2">
 <h2>WHERE clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="using-in">Using IN</h3>
-<div id="7410cd6d" class="cell" data-execution_count="13">
+<div id="f74418b0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb14-2"><a href=""></a><span class="st">select last_name,department_id</span></span>
 <span id="cb14-3"><a href=""></a><span class="st">from employees</span></span>
@@ -1282,7 +1252,6 @@
 <span id="cb14-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb14-6"><a href=""></a>result.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1298,7 +1267,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1343,13 +1312,12 @@
 </div>
 </div>
 </div>
-</div>
 <p>
 &nbsp;
 </p>
 </div><div class="column" style="width:50%;">
 <h3 id="the-long-way">The long way</h3>
-<div id="835e8fa3" class="cell" data-execution_count="14">
+<div id="80b8d62a" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb15-2"><a href=""></a><span class="st">select last_name,department_id</span></span>
 <span id="cb15-3"><a href=""></a><span class="st">from employees</span></span>
@@ -1357,7 +1325,6 @@
 <span id="cb15-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb15-6"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1373,7 +1340,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1423,19 +1390,17 @@
 </div>
 </div>
 </div>
-</div>
 <p>
 &nbsp;
 </p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="where-clause-and-examples-3" class="slide level2">
 <h2>WHERE clause and examples</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="what-are-all-the-department-ids">What are all the department IDs?</h3>
-<div id="1e95888e" class="cell" data-execution_count="15">
+<div id="f87ea251" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb16-2"><a href=""></a><span class="st">select distinct department_id</span></span>
 <span id="cb16-3"><a href=""></a><span class="st">from employees</span></span>
@@ -1443,7 +1408,6 @@
 <span id="cb16-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb16-6"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1459,7 +1423,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1521,13 +1485,12 @@
 </div>
 </div>
 </div>
-</div>
 <p>
 &nbsp;
 </p>
 </div><div class="column" style="width:50%;">
 <h3 id="who-is-missing-a-manager">Who is missing a manager?</h3>
-<div id="b18e0821" class="cell" data-execution_count="16">
+<div id="bf0ddd91" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb17-2"><a href=""></a><span class="st">select last_name,job_id,manager_id</span></span>
 <span id="cb17-3"><a href=""></a><span class="st">from employees</span></span>
@@ -1535,7 +1498,6 @@
 <span id="cb17-5"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb17-6"><a href=""></a>result.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1551,7 +1513,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1573,20 +1535,18 @@
 </div>
 </div>
 </div>
-</div>
 <p>
 &nbsp;
 </p>
 <p>NULL must be all caps!!</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="computations" class="slide level2">
 <h2>Computations</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="calculating-commissions">Calculating commissions</h3>
-<div id="41bfc370" class="cell" data-execution_count="17">
+<div id="f3c7458c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb18-2"><a href=""></a></span>
 <span id="cb18-3"><a href=""></a><span class="st">select </span></span>
@@ -1609,9 +1569,8 @@
 <p>How do we remove the NaN (not a number) from list?</p>
 </div><div class="column" style="width:50%;">
 <h3 id="calculating-commissions-1">Calculating commissions</h3>
-<div id="20e6fd19" class="cell" data-execution_count="18">
+<div id="8bc6c86f" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="17">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1627,7 +1586,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1710,9 +1669,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="ifnull-operator" class="slide level2">
 <h2>IFNULL operator</h2>
@@ -1726,7 +1683,7 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="calculating-commissions-2">Calculating commissions</h3>
-<div id="38267588" class="cell" data-execution_count="19">
+<div id="aad7f4c9" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb19-2"><a href=""></a><span class="st">select </span></span>
 <span id="cb19-3"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Name",</span></span>
@@ -1737,17 +1694,15 @@
 <span id="cb19-8"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb19-9"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="ifnull-operator-1" class="slide level2">
 <h2>IFNULL operator</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="ifnull-expr1-0.0">IFNULL( expr1, 0.0)</h3>
-<div id="f0d9e126" class="cell" data-execution_count="20">
+<div id="6509eec1" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display" data-execution_count="18">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1763,7 +1718,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1846,12 +1801,10 @@
 </div>
 </div>
 </div>
-</div>
 </div><div class="column" style="width:50%;">
 <h3 id="ifnull-expr1-missing">IFNULL( expr1, ‘missing’)</h3>
-<div id="cc142d87" class="cell" data-execution_count="21">
+<div id="0df0f13d" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display" data-execution_count="19">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1867,7 +1820,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -1950,9 +1903,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="string-operations" class="slide level2">
 <h2>String operations</h2>
@@ -1971,14 +1922,13 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="double-when-using-python">DOUBLE %% when using Python</h3>
-<div id="55a26a0a" class="cell" data-execution_count="22">
+<div id="8d51f9d5" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb21-2"><a href=""></a><span class="st">select last_name from employees</span></span>
 <span id="cb21-3"><a href=""></a><span class="st">where last_name like 'MC</span><span class="sc">%%</span><span class="st">'</span></span>
 <span id="cb21-4"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb21-5"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1994,7 +1944,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -2016,17 +1966,15 @@
 </div>
 </div>
 </div>
-</div>
 </div><div class="column" style="width:50%;">
 <h3 id="double-when-using-python-1">DOUBLE %% when using Python</h3>
-<div id="69e20035" class="cell" data-execution_count="23">
+<div id="298d5140" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb22-2"><a href=""></a><span class="st">SELECT phone_number FROM employees</span></span>
 <span id="cb22-3"><a href=""></a><span class="st">WHERE phone_number LIKE '</span><span class="sc">%%</span><span class="st">123</span><span class="sc">%%</span><span class="st">';</span></span>
 <span id="cb22-4"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb22-5"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2042,7 +1990,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -2120,9 +2068,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="order-by-clause" class="slide level2">
 <h2>ORDER BY clause</h2>
@@ -2135,7 +2081,7 @@
 <p>Attributes in <em>ORDER BY</em> can be computed!</p>
 </div><div class="column" style="width:50%;">
 <h3 id="example">Example</h3>
-<div id="367a8e40" class="cell" data-execution_count="24">
+<div id="890e1d91" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>result <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
 <span id="cb23-2"><a href=""></a><span class="st">select </span></span>
 <span id="cb23-3"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Full Name", salary as "Monthly"</span></span>
@@ -2146,7 +2092,6 @@
 <span id="cb23-8"><a href=""></a><span class="st">"""</span>,cnx)</span>
 <span id="cb23-9"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2162,7 +2107,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -2233,9 +2178,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -2504,18 +2447,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -2547,7 +2479,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2555,7 +2509,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

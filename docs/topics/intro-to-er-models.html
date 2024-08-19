@@ -11,7 +11,7 @@
 <script src="intro-to-er-models_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="intro-to-er-models_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="intro-to-er-models_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Introduction to ER Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -325,6 +325,7 @@
     }
   </style>
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -356,8 +357,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Understanding ER models is crucial for effective database design and implementation.</em></p>
 </section>
 <section id="components-of-er-models-entities-relationships-and-attributes" class="slide level2">
@@ -374,8 +374,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Entities, relationships, and attributes are the building blocks of an ER model.</em></p>
 </section>
 <section id="conceptual-logical-and-physical-data-models" class="slide level2">
@@ -392,8 +391,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Different types of data models address various stages of database design, from conceptualization to implementation.</em></p>
 </section>
 <section id="entities-in-er-models" class="slide level2">
@@ -410,8 +408,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Entities form the core of the database, representing key objects or concepts in the system.</em></p>
 </section>
 <section id="relationships-in-er-models" class="slide level2">
@@ -428,8 +425,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Relationships ensure that the database reflects the interactions between different entities in the system.</em></p>
 </section>
 <section id="attributes-in-er-models" class="slide level2">
@@ -446,8 +442,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Attributes are key to defining the details and constraints of entities and relationships in the database.</em></p>
 </section>
 <section id="cardinality-in-relationships" class="slide level2">
@@ -464,8 +459,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.</em></p>
 </section>
 <section id="er-diagram-notations" class="slide level2">
@@ -482,8 +476,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Mastering ER diagram notations is key to effectively designing and interpreting database models.</em></p>
 </section>
 <section id="specialization-and-generalization-in-er-models" class="slide level2">
@@ -500,8 +493,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Specialization and generalization are powerful tools for managing complexity in ER models.</em></p>
 </section>
 <section id="translating-er-models-to-relational-schema" class="slide level2">
@@ -518,8 +510,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Translating ER models to relational schemas is essential for implementing the database design in a relational database system.</em></p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -789,18 +780,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -832,7 +812,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -840,7 +842,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
