@@ -203,6 +203,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#standard-symbols-in-er-diagrams" id="toc-standard-symbols-in-er-diagrams" class="nav-link active" data-scroll-target="#standard-symbols-in-er-diagrams">Standard Symbols in ER Diagrams</a></li>
   <li><a href="#chens-notation-in-er-diagrams" id="toc-chens-notation-in-er-diagrams" class="nav-link" data-scroll-target="#chens-notation-in-er-diagrams">Chen’s Notation in ER Diagrams</a></li>
   <li><a href="#crows-foot-notation-in-er-diagrams" id="toc-crows-foot-notation-in-er-diagrams" class="nav-link" data-scroll-target="#crows-foot-notation-in-er-diagrams">Crow’s Foot Notation in ER Diagrams</a></li>
+  <li><a href="#example-of-crows-foot-notation" id="toc-example-of-crows-foot-notation" class="nav-link" data-scroll-target="#example-of-crows-foot-notation">Example of Crow’s Foot Notation</a></li>
   <li><a href="#differences-between-chens-and-crows-foot-notations" id="toc-differences-between-chens-and-crows-foot-notations" class="nav-link" data-scroll-target="#differences-between-chens-and-crows-foot-notations">Differences Between Chen’s and Crow’s Foot Notations</a></li>
   <li><a href="#practice-creating-er-diagrams-with-chens-notation" id="toc-practice-creating-er-diagrams-with-chens-notation" class="nav-link" data-scroll-target="#practice-creating-er-diagrams-with-chens-notation">Practice: Creating ER Diagrams with Chen’s Notation</a></li>
   <li><a href="#practice-creating-er-diagrams-with-crows-foot-notation" id="toc-practice-creating-er-diagrams-with-crows-foot-notation" class="nav-link" data-scroll-target="#practice-creating-er-diagrams-with-crows-foot-notation">Practice: Creating ER Diagrams with Crow’s Foot Notation</a></li>
@@ -234,6 +235,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+ <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+            
+        mermaid.initialize({ startOnLoad: true });
+
+        // Function to update the diagram
+        function updateDiagram() {
+            const code = document.getElementById('input_01').value;
+            const diagramContainer = document.getElementById('diagram_01');
+
+            // Clear the diagram container
+            diagramContainer.innerHTML = '';
+
+            // Create a new div for the Mermaid code
+            const newDiv = document.createElement('div');
+            newDiv.className = 'mermaid';
+            newDiv.innerHTML = code;
+
+            // Append the new div to the container
+            diagramContainer.appendChild(newDiv);
+
+            // Remove the "data-processed" attribute if it exists
+            newDiv.removeAttribute("data-processed");
+
+            // Run Mermaid to process the new content
+            mermaid.run({ nodes: [newDiv] });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initial rendering
+            updateDiagram();
+
+            // Listen for changes in the textarea
+            document.getElementById('input_01').addEventListener('input', updateDiagram);
+
+        });
+
+    </script>
 <!--
 Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
 
@@ -344,7 +384,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h2 class="anchored" data-anchor-id="chens-notation-in-er-diagrams">Chen’s Notation in ER Diagrams</h2>
 <p>Chen’s notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:40%;">
 <ul>
 <li><strong>Entities</strong> are represented by rectangles.</li>
 <li><strong>Attributes</strong> are connected to entities by lines and are depicted as ovals.</li>
@@ -352,8 +392,163 @@ Entities represent real-world objects or concepts, while attributes describe the
 <li><strong>Primary Key attributes</strong> are underlined to signify their role in uniquely identifying entity instances.</li>
 <li><strong>Weak entities</strong> are represented with double rectangles, indicating their dependence on other entities.</li>
 </ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 360.04 447.65" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 443.65)">
+<title>ER</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-443.65 356.04,-443.65 356.04,4 -4,4"></polygon>
+<text text-anchor="middle" x="176.02" y="-34" font-family="Helvetica,Arial,sans-serif" font-size="20.00">Entity Relation Diagram</text>
+<text text-anchor="middle" x="176.02" y="-10" font-family="Helvetica,Arial,sans-serif" font-size="20.00">drawn by NEATO</text>
+<!-- course -->
+<g id="node1" class="node">
+<title>course</title>
+<polygon fill="none" stroke="black" points="126.28,-300.72 72.28,-300.72 72.28,-264.72 126.28,-264.72 126.28,-300.72"></polygon>
+<text text-anchor="middle" x="99.28" y="-278.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">course</text>
+</g>
+<!-- C&#45;I -->
+<g id="node10" class="node">
+<title>C-I</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="145.04,-371.89 111.41,-353.89 145.04,-335.89 178.66,-353.89 145.04,-371.89"></polygon>
+<text text-anchor="middle" x="145.04" y="-349.69" font-family="Helvetica,Arial,sans-serif" font-size="14.00">C-I</text>
+</g>
+<!-- course&#45;&#45;C&#45;I -->
+<g id="edge3" class="edge">
+<title>course--C-I</title>
+<path fill="none" stroke="black" d="M111.06,-301.05C118.9,-313.24 129.03,-328.99 136.18,-340.12"></path>
+<text text-anchor="middle" x="120.12" y="-307.98" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
+</g>
+<!-- institute -->
+<g id="node2" class="node">
+<title>institute</title>
+<polygon fill="none" stroke="black" points="258.02,-371.4 196.8,-371.4 196.8,-335.4 258.02,-335.4 258.02,-371.4"></polygon>
+<text text-anchor="middle" x="227.41" y="-349.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">institute</text>
+</g>
+<!-- name1 -->
+<g id="node5" class="node">
+<title>name1</title>
+<ellipse fill="none" stroke="black" cx="266.67" cy="-421.65" rx="31.9" ry="18"></ellipse>
+<text text-anchor="middle" x="266.67" y="-417.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+</g>
+<!-- institute&#45;&#45;name1 -->
+<g id="edge5" class="edge">
+<title>institute--name1</title>
+<path fill="none" stroke="black" d="M237.93,-371.69C243.75,-381.8 250.93,-394.29 256.66,-404.25"></path>
+</g>
+<!-- S&#45;I -->
+<g id="node12" class="node">
+<title>S-I</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="263.69,-297.72 231.59,-279.72 263.69,-261.72 295.79,-279.72 263.69,-297.72"></polygon>
+<text text-anchor="middle" x="263.69" y="-275.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">S-I</text>
+</g>
+<!-- institute&#45;&#45;S&#45;I -->
+<g id="edge6" class="edge">
+<title>institute--S-I</title>
+<path fill="none" stroke="black" d="M236.38,-335.19C242.59,-322.57 250.75,-306.01 256.53,-294.27"></path>
+<text text-anchor="middle" x="242.95" y="-318.93" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1</text>
+</g>
+<!-- student -->
+<g id="node3" class="node">
+<title>student</title>
+<polygon fill="none" stroke="black" points="264.94,-217.45 208.05,-217.45 208.05,-181.45 264.94,-181.45 264.94,-217.45"></polygon>
+<text text-anchor="middle" x="236.49" y="-195.25" font-family="Helvetica,Arial,sans-serif" font-size="14.00">student</text>
+</g>
+<!-- name2 -->
+<g id="node6" class="node">
+<title>name2</title>
+<ellipse fill="none" stroke="black" cx="320.09" cy="-197.48" rx="31.9" ry="18"></ellipse>
+<text text-anchor="middle" x="320.09" y="-193.28" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+</g>
+<!-- student&#45;&#45;name2 -->
+<g id="edge9" class="edge">
+<title>student--name2</title>
+<path fill="none" stroke="black" d="M264.8,-198.78C272.28,-198.61 280.41,-198.41 288.08,-198.23"></path>
+</g>
+<!-- grade -->
+<g id="node8" class="node">
+<title>grade</title>
+<ellipse fill="none" stroke="black" cx="280.34" cy="-131.72" rx="32.46" ry="18"></ellipse>
+<text text-anchor="middle" x="280.34" y="-127.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">grade</text>
+</g>
+<!-- student&#45;&#45;grade -->
+<g id="edge8" class="edge">
+<title>student--grade</title>
+<path fill="none" stroke="black" d="M248.24,-181.3C254.74,-171.27 262.76,-158.87 269.16,-148.99"></path>
+</g>
+<!-- number -->
+<g id="node9" class="node">
+<title>number</title>
+<ellipse fill="none" stroke="black" cx="204.72" cy="-122" rx="40.57" ry="18"></ellipse>
+<text text-anchor="middle" x="204.72" y="-117.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">number</text>
+</g>
+<!-- student&#45;&#45;number -->
+<g id="edge10" class="edge">
+<title>student--number</title>
+<path fill="none" stroke="black" d="M228.97,-181.1C223.86,-168.66 217.16,-152.31 212.09,-139.96"></path>
+</g>
+<!-- S&#45;C -->
+<g id="node11" class="node">
+<title>S-C</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="154.08,-237.29 117.36,-219.29 154.08,-201.29 190.8,-219.29 154.08,-237.29"></polygon>
+<text text-anchor="middle" x="154.08" y="-215.09" font-family="Helvetica,Arial,sans-serif" font-size="14.00">S-C</text>
+</g>
+<!-- student&#45;&#45;S&#45;C -->
+<g id="edge11" class="edge">
+<title>student--S-C</title>
+<path fill="none" stroke="black" d="M208.13,-206.28C198.63,-208.56 188.12,-211.09 178.91,-213.31"></path>
+<text text-anchor="middle" x="198.97" y="-213.99" font-family="Helvetica,Arial,sans-serif" font-size="14.00">m</text>
+</g>
+<!-- name0 -->
+<g id="node4" class="node">
+<title>name0</title>
+<ellipse fill="none" stroke="black" cx="35.44" cy="-332.13" rx="31.9" ry="18"></ellipse>
+<text text-anchor="middle" x="35.44" y="-327.93" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+</g>
+<!-- name0&#45;&#45;course -->
+<g id="edge1" class="edge">
+<title>name0--course</title>
+<path fill="none" stroke="black" d="M54.25,-317.57C61.01,-312.33 68.73,-306.36 75.85,-300.86"></path>
+</g>
+<!-- code -->
+<g id="node7" class="node">
+<title>code</title>
+<ellipse fill="none" stroke="black" cx="29.27" cy="-240.25" rx="29.03" ry="18"></ellipse>
+<text text-anchor="middle" x="29.27" y="-236.05" font-family="Helvetica,Arial,sans-serif" font-size="14.00">code</text>
+</g>
+<!-- code&#45;&#45;course -->
+<g id="edge2" class="edge">
+<title>code--course</title>
+<path fill="none" stroke="black" d="M50.27,-252.99C57.12,-257.15 64.82,-261.82 72.06,-266.21"></path>
+</g>
+<!-- C&#45;I&#45;&#45;institute -->
+<g id="edge4" class="edge">
+<title>C-I--institute</title>
+<path fill="none" stroke="black" d="M178.54,-353.69C184.6,-353.65 190.89,-353.62 196.85,-353.58"></path>
+<text text-anchor="middle" x="184.2" y="-357.83" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1</text>
+</g>
+<!-- S&#45;C&#45;&#45;course -->
+<g id="edge12" class="edge">
+<title>S-C--course</title>
+<path fill="none" stroke="black" d="M142.99,-232.13C134.98,-241.39 124.06,-254.04 115.13,-264.38"></path>
+<text text-anchor="middle" x="132.56" y="-252.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
+</g>
+<!-- S&#45;I&#45;&#45;student -->
+<g id="edge7" class="edge">
+<title>S-I--student</title>
+<path fill="none" stroke="black" d="M258.45,-264.24C253.94,-250.94 247.43,-231.74 242.67,-217.69"></path>
+<text text-anchor="middle" x="247.06" y="-245.17" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <p><em>Chen’s notation provides a clear and detailed way to represent complex data relationships.</em></p>
@@ -375,6 +570,41 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <p><em>Crow’s Foot notation is favored for its simplicity and clarity in representing database relationships.</em></p>
+</section>
+<section id="example-of-crows-foot-notation" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-crows-foot-notation">Example of Crow’s Foot Notation</h2>
+<div class="columns">
+<div class="column">
+<textarea id="input_01" rows="25" cols="30">erDiagram
+    CUSTOMER {
+        int customer_id PK
+        string name
+        string email
+        string phone
+    }
+
+    ORDER {
+        int order_id PK
+        date order_date
+        float total_amount
+        int customer_id FK
+    }
+
+    PRODUCT {
+        int product_id PK
+        string product_name
+        float price
+    }
+
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--o{ PRODUCT : contains
+
+</textarea>
+</div><div class="column">
+    <!-- Container for the Diagram -->
+    <div id="diagram_01"></div>
+</div>
+</div>
 </section>
 <section id="differences-between-chens-and-crows-foot-notations" class="level2">
 <h2 class="anchored" data-anchor-id="differences-between-chens-and-crows-foot-notations">Differences Between Chen’s and Crow’s Foot Notations</h2>

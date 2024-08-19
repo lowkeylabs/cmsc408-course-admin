@@ -424,7 +424,7 @@
     "href": "er-models/er-diagramming.html#chens-notation-in-er-diagrams",
     "title": "ER Diagramming",
     "section": "Chen’s Notation in ER Diagrams",
-    "text": "Chen’s Notation in ER Diagrams\nChen’s notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.\n\n\n\nEntities are represented by rectangles.\nAttributes are connected to entities by lines and are depicted as ovals.\nRelationships between entities are shown using diamonds.\nPrimary Key attributes are underlined to signify their role in uniquely identifying entity instances.\nWeak entities are represented with double rectangles, indicating their dependence on other entities.\n\n\n \n\n\nChen’s notation provides a clear and detailed way to represent complex data relationships.",
+    "text": "Chen’s Notation in ER Diagrams\nChen’s notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.\n\n\n\nEntities are represented by rectangles.\nAttributes are connected to entities by lines and are depicted as ovals.\nRelationships between entities are shown using diamonds.\nPrimary Key attributes are underlined to signify their role in uniquely identifying entity instances.\nWeak entities are represented with double rectangles, indicating their dependence on other entities.\n\n\n\n\n\n\n\n\n\nER\n\nEntity Relation Diagram\ndrawn by NEATO\n\n\ncourse\n\ncourse\n\n\n\nC-I\n\nC-I\n\n\n\ncourse--C-I\n\nn\n\n\n\ninstitute\n\ninstitute\n\n\n\nname1\n\nname\n\n\n\ninstitute--name1\n\n\n\n\nS-I\n\nS-I\n\n\n\ninstitute--S-I\n\n1\n\n\n\nstudent\n\nstudent\n\n\n\nname2\n\nname\n\n\n\nstudent--name2\n\n\n\n\ngrade\n\ngrade\n\n\n\nstudent--grade\n\n\n\n\nnumber\n\nnumber\n\n\n\nstudent--number\n\n\n\n\nS-C\n\nS-C\n\n\n\nstudent--S-C\n\nm\n\n\n\nname0\n\nname\n\n\n\nname0--course\n\n\n\n\ncode\n\ncode\n\n\n\ncode--course\n\n\n\n\nC-I--institute\n\n1\n\n\n\nS-C--course\n\nn\n\n\n\nS-I--student\n\nn\n\n\n\n\n\n\n\n\n\n\nChen’s notation provides a clear and detailed way to represent complex data relationships.",
     "crumbs": [
       "Home",
       "ER Modeling",
@@ -1216,5 +1216,29 @@
     "title": "CMSC 408 - Databases Study Guide",
     "section": "",
     "text": "Entity-Relationship Models\nRelational Algebra\nNormal Forms and Normalization\nStructured Query Language"
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#example-of-crows-foot-notation",
+    "href": "er-models/er-diagramming.html#example-of-crows-foot-notation",
+    "title": "ER Diagramming",
+    "section": "Example of Crow’s Foot Notation",
+    "text": "Example of Crow’s Foot Notation\n\n\nerDiagram\n    CUSTOMER {\n        int customer_id PK\n        string name\n        string email\n        string phone\n    }\n\n    ORDER {\n        int order_id PK\n        date order_date\n        float total_amount\n        int customer_id FK\n    }\n\n    PRODUCT {\n        int product_id PK\n        string product_name\n        float price\n    }\n\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--o{ PRODUCT : contains",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#edit-a-live-chen-diagram",
+    "href": "er-models/er-diagramming.html#edit-a-live-chen-diagram",
+    "title": "ER Diagramming",
+    "section": "Edit a live Chen Diagram",
+    "text": "Edit a live Chen Diagram\n\n\n            digraph ER {\n            node [shape=record, fontname=Helvetica, fontsize=10];\n\n            Customer [label=\"{Customer|+ customerID : integer PK\\\\l+ name : string\\\\l+ address : string\\\\l}\"];\n            Order [label=\"{Order|+ orderID : integer PK\\\\l+ orderDate : date\\\\l+ customerID : integer FK\\\\l}\"];\n            Product [label=\"{Product|+ productID : integer PK\\\\l+ name : string\\\\l+ price : float\\\\l}\"];\n            OrderDetail [label=\"{OrderDetail|+ orderID : integer FK\\\\l+ productID : integer FK\\\\l+ quantity : integer\\\\l}\"];\n\n            Customer -&gt; Order [label=\"places\"];\n            Order -&gt; OrderDetail [label=\"contains\"];\n            Product -&gt; OrderDetail [label=\"is part of\"];\n        }",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming"
+    ]
   }
 ]

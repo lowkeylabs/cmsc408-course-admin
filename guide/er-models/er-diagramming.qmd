@@ -2,6 +2,48 @@
 title: ER Diagramming
 ---
 
+```{=html}
+ <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+            
+        mermaid.initialize({ startOnLoad: true });
+
+        // Function to update the diagram
+        function updateDiagram() {
+            const code = document.getElementById('input_01').value;
+            const diagramContainer = document.getElementById('diagram_01');
+
+            // Clear the diagram container
+            diagramContainer.innerHTML = '';
+
+            // Create a new div for the Mermaid code
+            const newDiv = document.createElement('div');
+            newDiv.className = 'mermaid';
+            newDiv.innerHTML = code;
+
+            // Append the new div to the container
+            diagramContainer.appendChild(newDiv);
+
+            // Remove the "data-processed" attribute if it exists
+            newDiv.removeAttribute("data-processed");
+
+            // Run Mermaid to process the new content
+            mermaid.run({ nodes: [newDiv] });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initial rendering
+            updateDiagram();
+
+            // Listen for changes in the textarea
+            document.getElementById('input_01').addEventListener('input', updateDiagram);
+
+        });
+
+    </script>
+```
+
 <!--
 Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
 
@@ -116,19 +158,48 @@ ER diagrams use standard symbols to represent entities, relationships, and attri
 Chen's notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.
 
 :::: {.columns}
-::: {.column width=95%}
+::: {.column width=40%}
 - **Entities** are represented by rectangles.
 - **Attributes** are connected to entities by lines and are depicted as ovals.
 - **Relationships** between entities are shown using diamonds.
 - **Primary Key attributes** are underlined to signify their role in uniquely identifying entity instances.
 - **Weak entities** are represented with double rectangles, indicating their dependence on other entities.
 :::
-::: {.column width=5%}
-&nbsp;
+::: {.column width=60%}
+```{dot}
+//| echo: false
+graph ER {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+	layout=neato
+	node [shape=box]; course; institute; student;
+	node [shape=ellipse]; {node [label="name"] name0; name1; name2;}
+		code; grade; number;
+	node [shape=diamond,style=filled,color=lightgrey]; "C-I"; "S-C"; "S-I";
+
+	name0 -- course;
+	code -- course;
+	course -- "C-I" [label="n",len=1.00];
+	"C-I" -- institute [label="1",len=1.00];
+	institute -- name1;
+	institute -- "S-I" [label="1",len=1.00];
+	"S-I" -- student [label="n",len=1.00];
+	student -- grade;
+	student -- name2;
+	student -- number;
+	student -- "S-C" [label="m",len=1.00];
+	"S-C" -- course [label="n",len=1.00];
+
+	label = "\n\nEntity Relation Diagram\ndrawn by NEATO";
+	fontsize=20;
+}
+```
 :::
 ::::
 
 *Chen's notation provides a clear and detailed way to represent complex data relationships.*
+
 
 ## Crow's Foot Notation in ER Diagrams
 
@@ -148,6 +219,49 @@ Crow's Foot notation is a more modern approach that focuses on simplifying the r
 ::::
 
 *Crow's Foot notation is favored for its simplicity and clarity in representing database relationships.*
+
+## Example of Crow's Foot Notation
+
+:::: {.columns}
+::: {.column}
+
+```{=html}
+<textarea id="input_01" rows="25" cols="30">
+erDiagram
+    CUSTOMER {
+        int customer_id PK
+        string name
+        string email
+        string phone
+    }
+
+    ORDER {
+        int order_id PK
+        date order_date
+        float total_amount
+        int customer_id FK
+    }
+
+    PRODUCT {
+        int product_id PK
+        string product_name
+        float price
+    }
+
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--o{ PRODUCT : contains
+
+</textarea>
+```
+:::
+
+::: {.column}
+```{=html}
+    <!-- Container for the Diagram -->
+    <div id="diagram_01"></div>
+```
+:::
+::::
 
 ## Differences Between Chen’s and Crow's Foot Notations
 
