@@ -48,11 +48,10 @@ print("</div>")
 #print("</div>")
 
 
-#print("<div class='item-list'>")
-#print("<div class='item'>[Gallery SP2023](../gallery/index.html){target='_blank'}</div>")
-#print("<div class='item'>[Gallery SP2024](/gallery-sp2024/index.html){target='_blank'}</div>")
-#print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
-#print("</div>")
+print("<div class='item-list'>")
+print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
+print("<div class='item'>[Topics](../topics/index.html){target='_blank'}</div>")
+print("</div>")
 
 ```
 
