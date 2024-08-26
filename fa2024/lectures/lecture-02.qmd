@@ -12,22 +12,30 @@ n_rows = 8
 
 housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
+housekeeping_right_column_width="35%"
 
-housekeeping_vertical_spacer = "25px"
+housekeeping_vertical_spacer = "1px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'Finish up your intros (deliverable 1)',
+    'Form those teams! Watch Discord (deliverable 2)',
+    '[Question: all weeks or just current plus one?](https://virginiacommonwealth.instructure.com/courses/105097)',
+    '[Question: announcements at top of home page?](https://virginiacommonwealth.instructure.com/courses/105097)',
+    '[Finish the pre-class survey (Quiz 1)](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199280/statistics)',
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 1](#homework-1---fall-2024)',
+    '[Intro to DB design](#database-design-process)',
+    '[Intro to ER Models](#introduction-to-er-models)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-{{< include ../../topics/_intro-to-er-models.qmd >}}
+{{< include ../../topics/_homework-1-fall-2024.qmd >}}
+{{< include ../../topics/_database-design-process.qmd >}}
+{{< include ../../topics/_intro-to-er-models.qmd >}} 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

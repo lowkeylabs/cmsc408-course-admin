@@ -268,7 +268,19 @@
     "href": "er-models/intro-to-er-models.html",
     "title": "Introduction to ER Models",
     "section": "",
-    "text": "Entity-Relationship (ER) models are a method for designing and visualizing the structure of a database by identifying key entities, their attributes, and the relationships between them. These models use ER diagrams, where entities are represented as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. ER models serve as a blueprint for the database, ensuring that it accurately captures the complexities of real-world data and their interconnections. By clarifying the database’s structure, ER models help in reducing redundancy and improving the efficiency of database design and implementation.\nHere’s how the 10 slides covering “Introduction to Entity-Relationship Models” would look formatted according to your instructions:",
+    "text": "Entity-Relationship (ER) models are a method for designing and visualizing the structure of a database by identifying key entities, their attributes, and the relationships between them. These models use ER diagrams, where entities are represented as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. ER models serve as a blueprint for the database, ensuring that it accurately captures the complexities of real-world data and their interconnections. By clarifying the database’s structure, ER models help in reducing redundancy and improving the efficiency of database design and implementation.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
+    "href": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
+    "title": "Introduction to ER Models",
+    "section": "Conceptual, Logical, and Physical Data Models",
+    "text": "Conceptual, Logical, and Physical Data Models\nData models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.\n\n\n\nConceptual Model: High-level, abstract model focusing on the entities and relationships.\nLogical Model: Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.\nPhysical Model: Focuses on the actual implementation, including tables, columns, and data types.\nConceptual models are often created during the initial database design phase.\nLogical models help in the creation of relational schemas.\n\n\n \n\n\nDifferent types of data models address various stages of database design, from conceptualization to implementation.",
     "crumbs": [
       "Home",
       "ER Modeling",
@@ -288,23 +300,11 @@
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#components-of-er-models-entities-relationships-and-attributes",
-    "href": "er-models/intro-to-er-models.html#components-of-er-models-entities-relationships-and-attributes",
+    "objectID": "er-models/intro-to-er-models.html#components-of-entity-relationship-models",
+    "href": "er-models/intro-to-er-models.html#components-of-entity-relationship-models",
     "title": "Introduction to ER Models",
-    "section": "Components of ER Models: Entities, Relationships, and Attributes",
-    "text": "Components of ER Models: Entities, Relationships, and Attributes\nER models consist of three key components: entities, relationships, and attributes. These components work together to define the structure and behavior of the database.\n\n\n\nEntities are objects or concepts that have a distinct existence in the database.\nRelationships define how entities are connected to each other.\nAttributes are characteristics that describe entities or relationships.\nEntities are usually represented by rectangles in ER diagrams.\nRelationships are depicted as diamonds, while attributes are ovals.\n\n\n \n\n\nEntities, relationships, and attributes are the building blocks of an ER model.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
-    "href": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
-    "title": "Introduction to ER Models",
-    "section": "Conceptual, Logical, and Physical Data Models",
-    "text": "Conceptual, Logical, and Physical Data Models\nData models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.\n\n\n\nConceptual Model: High-level, abstract model focusing on the entities and relationships.\nLogical Model: Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.\nPhysical Model: Focuses on the actual implementation, including tables, columns, and data types.\nConceptual models are often created during the initial database design phase.\nLogical models help in the creation of relational schemas.\n\n\n \n\n\nDifferent types of data models address various stages of database design, from conceptualization to implementation.",
+    "section": "Components of Entity-Relationship Models",
+    "text": "Components of Entity-Relationship Models\n\n\n\nEntities, Relationships, and Attributes\n\nEntities\n\nThese represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.\n\nAttributes\n\nAttributes are properties or characteristics that describe the entities. For example, if you’re modeling a Customer entity, attributes could include CustomerID, Name, Email, etc.\n\nRelationships\n\nRelationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.\n\n\n\n\n\nExample\nImagine a college campus with buildings and rooms.\nEach building can can be located with an address, city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.\nIdentify the entities, attributes and relationships",
     "crumbs": [
       "Home",
       "ER Modeling",
@@ -352,7 +352,19 @@
     "href": "er-models/intro-to-er-models.html#cardinality-in-relationships",
     "title": "Introduction to ER Models",
     "section": "Cardinality in Relationships",
-    "text": "Cardinality in Relationships\nCardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.\n\n\n\nCardinality types include one-to-one, one-to-many, and many-to-many.\nOne-to-one: Each instance of one entity relates to a single instance of another entity.\nOne-to-many: One entity instance relates to multiple instances of another entity.\nMany-to-many: Multiple instances of one entity relate to multiple instances of another entity.\nCardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.\n\n\n \n\n\nCardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.",
+    "text": "Cardinality in Relationships\nCardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.\n\n\n\nCardinality types include one-to-one, one-to-many, and many-to-many.\nOne-to-one: Each instance of one entity relates to a single instance of another entity.\nOne-to-many: One entity instance relates to multiple instances of another entity.\nMany-to-many: Multiple instances of one entity relate to multiple instances of another entity.\nCardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nCardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#participation-in-relationships",
+    "href": "er-models/intro-to-er-models.html#participation-in-relationships",
+    "title": "Introduction to ER Models",
+    "section": "Participation in Relationships",
+    "text": "Participation in Relationships\nParticipation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.\n\n\n\nParticipation types include total participation and partial participation.\nTotal Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.\nPartial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.\nParticipation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nParticipation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.",
     "crumbs": [
       "Home",
       "ER Modeling",
@@ -365,6 +377,30 @@
     "title": "Introduction to ER Models",
     "section": "ER Diagram Notations",
     "text": "ER Diagram Notations\nER diagrams use specific notations to represent entities, relationships, and attributes. Understanding these notations is essential for creating and interpreting ER models effectively.\n\n\n\nChen’s Notation: Uses rectangles for entities, diamonds for relationships, and ovals for attributes.\nCrow’s Foot Notation: Represents relationships with lines and ‘crow’s feet’ to indicate cardinality.\nEntities are often depicted with their primary keys underlined.\nRelationships may include roles and participation constraints.\nNotations help in communicating the structure and details of the ER model.\n\n\n \n\n\nMastering ER diagram notations is key to effectively designing and interpreting database models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#chen-notation",
+    "href": "er-models/intro-to-er-models.html#chen-notation",
+    "title": "Introduction to ER Models",
+    "section": "Chen notation",
+    "text": "Chen notation\n\n\n\ngraph ER {\n    layout=neato;\n  scale=1.1;\n    node [shape=box]; building; room;\n    node [shape=ellipse]; address, city, state, occupant, room_number\n    node [shape=diamond,style=filled,color=lightgrey]; has\n    \n    building -- has [label=\"1\",len=1.00]\n    has -- room [label=\"n\",len=1.00]\n    \n    building -- address\n    building -- city\n    building -- state\n  room -- room_number\n    room -- occupant\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nbuilding\n\nbuilding\n\n\n\naddress\n\naddress\n\n\n\nbuilding--address\n\n\n\n\ncity\n\ncity\n\n\n\nbuilding--city\n\n\n\n\nstate\n\nstate\n\n\n\nbuilding--state\n\n\n\n\nhas\n\nhas\n\n\n\nbuilding--has\n\n1\n\n\n\nroom\n\nroom\n\n\n\noccupant\n\noccupant\n\n\n\nroom--occupant\n\n\n\n\nroom_number\n\nroom_number\n\n\n\nroom--room_number\n\n\n\n\nhas--room\n\nn\n\n\n\n\n\n\n\n\n\n\nLink to graphviz on-line editor",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#crows-foot-notation",
+    "href": "er-models/intro-to-er-models.html#crows-foot-notation",
+    "title": "Introduction to ER Models",
+    "section": "Crow’s Foot notation",
+    "text": "Crow’s Foot notation\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupants\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nLink to mermaid live",
     "crumbs": [
       "Home",
       "ER Modeling",
@@ -437,6 +473,18 @@
     "title": "ER Diagramming",
     "section": "Crow’s Foot Notation in ER Diagrams",
     "text": "Crow’s Foot Notation in ER Diagrams\nCrow’s Foot notation is a more modern approach that focuses on simplifying the representation of relationships and cardinality in ER diagrams.\n\n\n\nEntities are shown as rectangles with the entity name inside.\nAttributes are listed inside the entity box, with primary keys at the top.\nRelationships are indicated with lines connecting entities, with crow’s foot symbols denoting cardinality.\nCardinality symbols at the ends of relationships show the number of instances involved (e.g., one-to-many).\nOptional relationships are represented with a circle at the end of a relationship line.\n\n\n \n\n\nCrow’s Foot notation is favored for its simplicity and clarity in representing database relationships.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#example-of-crows-foot-notation",
+    "href": "er-models/er-diagramming.html#example-of-crows-foot-notation",
+    "title": "ER Diagramming",
+    "section": "Example of Crow’s Foot Notation",
+    "text": "Example of Crow’s Foot Notation\n\n\nerDiagram\n    CUSTOMER {\n        int customer_id PK\n        string name\n        string email\n        string phone\n    }\n\n    ORDER {\n        int order_id PK\n        date order_date\n        float total_amount\n        int customer_id FK\n    }\n\n    PRODUCT {\n        int product_id PK\n        string product_name\n        float price\n    }\n\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--o{ PRODUCT : contains",
     "crumbs": [
       "Home",
       "ER Modeling",
@@ -1216,29 +1264,5 @@
     "title": "CMSC 408 - Databases Study Guide",
     "section": "",
     "text": "Entity-Relationship Models\nRelational Algebra\nNormal Forms and Normalization\nStructured Query Language"
-  },
-  {
-    "objectID": "er-models/er-diagramming.html#example-of-crows-foot-notation",
-    "href": "er-models/er-diagramming.html#example-of-crows-foot-notation",
-    "title": "ER Diagramming",
-    "section": "Example of Crow’s Foot Notation",
-    "text": "Example of Crow’s Foot Notation\n\n\nerDiagram\n    CUSTOMER {\n        int customer_id PK\n        string name\n        string email\n        string phone\n    }\n\n    ORDER {\n        int order_id PK\n        date order_date\n        float total_amount\n        int customer_id FK\n    }\n\n    PRODUCT {\n        int product_id PK\n        string product_name\n        float price\n    }\n\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--o{ PRODUCT : contains",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "ER Diagramming"
-    ]
-  },
-  {
-    "objectID": "er-models/er-diagramming.html#edit-a-live-chen-diagram",
-    "href": "er-models/er-diagramming.html#edit-a-live-chen-diagram",
-    "title": "ER Diagramming",
-    "section": "Edit a live Chen Diagram",
-    "text": "Edit a live Chen Diagram\n\n\n            digraph ER {\n            node [shape=record, fontname=Helvetica, fontsize=10];\n\n            Customer [label=\"{Customer|+ customerID : integer PK\\\\l+ name : string\\\\l+ address : string\\\\l}\"];\n            Order [label=\"{Order|+ orderID : integer PK\\\\l+ orderDate : date\\\\l+ customerID : integer FK\\\\l}\"];\n            Product [label=\"{Product|+ productID : integer PK\\\\l+ name : string\\\\l+ price : float\\\\l}\"];\n            OrderDetail [label=\"{OrderDetail|+ orderID : integer FK\\\\l+ productID : integer FK\\\\l+ quantity : integer\\\\l}\"];\n\n            Customer -&gt; Order [label=\"places\"];\n            Order -&gt; OrderDetail [label=\"contains\"];\n            Product -&gt; OrderDetail [label=\"is part of\"];\n        }",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "ER Diagramming"
-    ]
   }
 ]

@@ -14,7 +14,7 @@ Monday - Aug 26, 2024
 
 ### Discussion items
 
-- This is a placeholder Lecture.
+- 
 
 </div>
 
@@ -22,7 +22,11 @@ Monday - Aug 26, 2024
 
 ### Lecture topics
 
-- When ready, the complete lecture will replace this one.
+- Homework 1
+
+- Intro to DB design
+
+- Intro to ER Models
 
 </div>
 
@@ -34,30 +38,25 @@ Monday - Aug 26, 2024
 
 </div>
 
-<div>
-
     <style></style>
     <div class='upcoming-calendar'>
 
-|     Module      | Week | Date | Day | Lectures                               | Deliverables/Notes                       |
-|:---------------:|:----:|:----:|:---:|----------------------------------------|------------------------------------------|
-|    ER Models    |  2   | 8/26 | Mon | MTG2: L2 (Entity-relation models 1)    | Last day to add/drop                     |
-|    ER Models    |  2   | 8/28 | Wed | MTG3: L3 (Entity-relation models 2)    |                                          |
-|    ER Models    |  2   | 8/30 | Fri |                                        | PrjDel 3 due (Team reflection)           |
-|    ER Models    |  2   | 9/1  | Sun |                                        | HW1 due (DE Tool Review)                 |
-|    ER Models    |  3   | 9/2  | Mon |                                        | NO CLASS - University closed (Labor day) |
-|    ER Models    |  3   | 9/4  | Wed | MTG4: L4 (ER Models)                   | Quiz 2 due (Entity-relation models)      |
-|    ER Models    |  3   | 9/6  | Fri |                                        | PrjDel 4 due (Team reflection)           |
-| Relational Alg. |  4   | 9/9  | Mon | MTG5: L5 (DDL / DML / SQLLite / MySQL) |                                          |
+| Module | Week | Date | Day | Lectures | Deliverables/Notes |
+|:--:|:--:|:--:|:--:|----|----|
+| ER Models | 2 | 8/26 | Mon | MTG2: L2 (Entity-relation models 1) | Last day to add/drop |
+| ER Models | 2 | 8/28 | Wed | MTG3: L3 (Entity-relation models 2) |  |
+| ER Models | 2 | 8/30 | Fri |  | PrjDel 3 due (Team reflection) |
+| ER Models | 2 | 9/1 | Sun |  | HW1 due (DE Tool Review) |
+| ER Models | 3 | 9/2 | Mon |  | NO CLASS - University closed (Labor day) |
+| ER Models | 3 | 9/4 | Wed | MTG4: L4 (ER Models) | Quiz 2 due (Entity-relation models) |
+| ER Models | 3 | 9/6 | Fri |  | PrjDel 4 due (Team reflection) |
+| Relational Alg. | 4 | 9/9 | Mon | MTG5: L5 (DDL / DML / SQLLite / MySQL) |  |
 
 </div>
-
-</div>
-
-## You are here
-
-<img src="lecture-02_files\figure-commonmark\mermaid-figure-1.png"
-style="width:8.17in;height:2.54in" />
+<!-- {{< include "./_template-lecture-gantt.qmd" >}} -->
+<!-- {{< include ../../topics/_homework-2-discussion.qmd >}} -->
+<!-- {{< include ../../topics/_database-design-process.qmd >}} -->
+<!-- {{< include ../../topics/_entities-attributes-and-relationships-and-the-er-diagram.qmd >}} -->
 
 # Introduction to ER Models
 
@@ -272,6 +271,38 @@ the database.
 *Cardinality is critical to ensuring that database relationships
 accurately reflect real-world scenarios.*
 
+## Participation in Relationships
+
+Participation indicates whether all or only some instances of an entity
+are involved in a relationship. Understanding participation is crucial
+for accurately modeling the mandatory or optional nature of
+relationships in a database.
+
+<div class="columns">
+
+<div class="column" width="95%">
+
+- Participation types include total participation and partial
+  participation.
+- Total Participation (Mandatory): Every instance of an entity must be
+  involved in a relationship with instances of another entity.
+- Partial Participation (Optional): Some instances of an entity may not
+  be involved in a relationship with instances of another entity.
+- Participation constraints are often represented in ER diagrams by
+  solid lines (for total participation) or dashed lines (for partial
+  participation).
+
+</div>
+
+<div class="column" width="5%">
+
+</div>
+
+</div>
+
+*Participation helps define the essential and optional relationships,
+ensuring the integrity and accuracy of the database model.*
+
 ## ER Diagram Notations
 
 ER diagrams use specific notations to represent entities, relationships,
@@ -375,7 +406,7 @@ implementing the database design in a relational database system.*
 
 ### Discussion items
 
-- This is a placeholder Lecture.
+- 
 
 </div>
 
@@ -383,7 +414,11 @@ implementing the database design in a relational database system.*
 
 ### Lecture topics
 
-- When ready, the complete lecture will replace this one.
+- Homework 1
+
+- Intro to DB design
+
+- Intro to ER Models
 
 </div>
 
@@ -395,22 +430,18 @@ implementing the database design in a relational database system.*
 
 </div>
 
-<div>
-
     <style></style>
     <div class='upcoming-calendar'>
 
-|     Module      | Week | Date | Day | Lectures                               | Deliverables/Notes                       |
-|:---------------:|:----:|:----:|:---:|----------------------------------------|------------------------------------------|
-|    ER Models    |  2   | 8/26 | Mon | MTG2: L2 (Entity-relation models 1)    | Last day to add/drop                     |
-|    ER Models    |  2   | 8/28 | Wed | MTG3: L3 (Entity-relation models 2)    |                                          |
-|    ER Models    |  2   | 8/30 | Fri |                                        | PrjDel 3 due (Team reflection)           |
-|    ER Models    |  2   | 9/1  | Sun |                                        | HW1 due (DE Tool Review)                 |
-|    ER Models    |  3   | 9/2  | Mon |                                        | NO CLASS - University closed (Labor day) |
-|    ER Models    |  3   | 9/4  | Wed | MTG4: L4 (ER Models)                   | Quiz 2 due (Entity-relation models)      |
-|    ER Models    |  3   | 9/6  | Fri |                                        | PrjDel 4 due (Team reflection)           |
-| Relational Alg. |  4   | 9/9  | Mon | MTG5: L5 (DDL / DML / SQLLite / MySQL) |                                          |
-
-</div>
+| Module | Week | Date | Day | Lectures | Deliverables/Notes |
+|:--:|:--:|:--:|:--:|----|----|
+| ER Models | 2 | 8/26 | Mon | MTG2: L2 (Entity-relation models 1) | Last day to add/drop |
+| ER Models | 2 | 8/28 | Wed | MTG3: L3 (Entity-relation models 2) |  |
+| ER Models | 2 | 8/30 | Fri |  | PrjDel 3 due (Team reflection) |
+| ER Models | 2 | 9/1 | Sun |  | HW1 due (DE Tool Review) |
+| ER Models | 3 | 9/2 | Mon |  | NO CLASS - University closed (Labor day) |
+| ER Models | 3 | 9/4 | Wed | MTG4: L4 (ER Models) | Quiz 2 due (Entity-relation models) |
+| ER Models | 3 | 9/6 | Fri |  | PrjDel 4 due (Team reflection) |
+| Relational Alg. | 4 | 9/9 | Mon | MTG5: L5 (DDL / DML / SQLLite / MySQL) |  |
 
 </div>

@@ -11,7 +11,7 @@
 <script src="lecture-02_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-02_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-02_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Entity-relation models 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-02_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -353,23 +418,27 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Finish up your intros (deliverable 1)</p></li>
+<li><p>Form those teams! Watch Discord (deliverable 2)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097">Question: all weeks or just current plus one?</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097">Question: announcements at top of home page?</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199280/statistics">Finish the pre-class survey (Quiz 1)</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:35%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/homework-1---fall-2024">Homework 1</a></p></li>
+<li><p><a href="#/database-design-process">Intro to DB design</a></p></li>
+<li><p><a href="#/introduction-to-er-models">Intro to ER Models</a></p></li>
 </ul>
-</div>
-</div>
-<div style="margin-top:25px">
+</div></div>
+<div style="margin-top:1px">
 <p>&nbsp;</p>
 </div>
-<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -447,7 +516,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </section>
 <section id="you-are-here" class="slide level2">
@@ -478,45 +546,276 @@
 </div>
 </section>
 <section>
+<section id="homework-1---fall-2024" class="title-slide slide level1 center">
+<h1>Homework 1 - Fall 2024</h1>
+
+</section>
+<section id="homework-1---fall-2024-1" class="slide level2">
+<h2>Homework 1 - Fall 2024</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="overview">Overview</h3>
+<ul>
+<li>Homeworks 1, 2 and 3 focus on ER diagrams</li>
+<li>Homework 1 focuses on the tools and workflow.</li>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966515">Link to Homework 1</a></li>
+</ul>
+<h3 id="general-homework-workflow">General homework workflow</h3>
+<ul>
+<li>Download assignment repository</li>
+<li>Edit files using VS code</li>
+<li>Commit and push changes to GITHUB
+<ul>
+<li>Submit HTML to Canvas</li>
+<li>Submit repo to Gradescope</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The focus of this assignment is on <em>installing</em> and <em>testing</em> the tools.</li>
+<li>Please allow plenty of time!</li>
+<li>Don’t get frustrated. Use <em>Discord</em> to get help.</li>
+<li>Break away from your GUI and try the command line.</li>
+<li>All future assignments will use these same tools.</li>
+</ul>
+</div></div>
+</section>
+<section id="homework-1---tools" class="slide level2">
+<h2>Homework 1 - Tools</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="tools-used">Tools used</h3>
+<p>Below is a list of tools for HW1 and download URLs.</p>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads">GIT</a></li>
+<li><a href="https://cli.github.com/">GH CLI</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto</a></li>
+</ul>
+<p>When installed properly, all these tools should run directly from the command line!</p>
+</div><div class="column" style="width:50%;">
+<h3 id="my-tool-versions">My tool versions</h3>
+<p><img data-src="assets/hw1-fa2024-software-versions.png"></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If the tools don’t run from CLI, you need to update your PATH environment variable. Ask <a href="https://chatgpt.com/">ChatGPT</a>!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---command-line-interface" class="slide level2">
+<h2>Homework 1 - Command line interface</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<h3 id="windows-powershell">Windows (Powershell)</h3>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/FpRGRLI8Fy8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br> <a href="https://www.youtube.com/watch?v=FpRGRLI8Fy8">https://www.youtube.com/watch?v=FpRGRLI8Fy8</a></p>
+</div><div class="column" style="width:2%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:49%;">
+<h3 id="mac-zsh">Mac (zsh)</h3>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/FfT8OfMpARM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br> <a href="https://www.youtube.com/watch?v=FfT8OfMpARM">https://www.youtube.com/watch?v=FfT8OfMpARM</a></p>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Invest the time to get comfy with the CLI!</em> Direct use of the command line will save you <em>tons</em> of confusion in the long run!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---quarto-and-rendering" class="slide level2">
+<h2>Homework 1 - Quarto and rendering</h2>
+<p>Quarto is a <em>document compiler</em>, MUCH like compiling a source file to create an executable file. Quarto is a wrapper around <em>Jupyter</em> and <em>Pandoc</em>.</p>
+<p><img data-src="assets/quarto-qmd-how-it-works.png"></p>
+<p>For this assignment, you’ll be modifying an existing <em>qmd</em> file, adding your content, rendering the qmd to html and uploading the HTML to Canvas.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>I definitely recommend the <a href="https://quarto.org/docs/get-started/hello/vscode.html">Quarto getting started tutorial</a>! Don’t forget to <em>render</em> the samples I provide in the <em>repository</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---walkthrough" class="slide level2">
+<h2>Homework 1 - Walkthrough</h2>
+<p>Use this as a checklist to complete the assignment. Try ALL of the activities.</p>
+<div class="columns">
+<div class="column" style="width:28%;">
+<h3 id="install-the-tools">Install the tools</h3>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads">GIT</a></li>
+<li><a href="https://cli.github.com/">GH CLI</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto</a></li>
+</ul>
+</div><div class="column" style="width:36%;">
+<h3 id="work-the-cli">Work the CLI</h3>
+<ul>
+<li>Run each tool from the CLI</li>
+<li>Verify versions</li>
+<li>Clone repo using GH</li>
+<li><em>cd</em> into repository</li>
+<li>Render sample QMD files.</li>
+<li>Edit README.md</li>
+<li>Edit <em>report.qmd</em> and <em>render</em></li>
+<li>Commit and push changes</li>
+</ul>
+</div><div class="column" style="width:36%;">
+<h3 id="inside-vs-code">Inside VS code</h3>
+<ul>
+<li>Install Quarto extension</li>
+<li>Make a change</li>
+<li>Commit and push changes within VSC</li>
+<li>Render document within VSC</li>
+</ul>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong><em>Spend time experimenting!</em></strong> This assignment allows you to focus on the tools and workflow. You’ll save time later by investing time now.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="database-design-process" class="title-slide slide level1 center">
+<h1>Database design process</h1>
+
+</section>
+<section id="database-design-process---overview" class="slide level2 scrollable">
+<h2>Database design process - overview</h2>
+<div class="columns">
+<div class="column">
+<h3 id="database-design-process-1">Database design process</h3>
+<ol type="1">
+<li><p>Understanding requirements</p></li>
+<li><p>Conceptual design</p></li>
+<li><p>Logical design</p></li>
+<li><p>Physical design</p></li>
+<li><p>Implementation</p></li>
+</ol>
+</div><div class="column">
+<h3 id="notes-1">Notes</h3>
+<ul>
+<li>The basic steps are listed on the left.</li>
+<li>There are many different approaches, some more complicated than others.</li>
+<li>Watch the videos, you’ll see different approaches, but also see what’s similar.</li>
+<li>Don’t overthink it.</li>
+<li>Iterate and spiralize the process. Don’t expect perfection.</li>
+</ul>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>These steps map nicely with the <a href="https://virginiacommonwealth.instructure.com/courses/105097/pages/resource-week-2-semester-project?module_item_id=3767574">Semester Project</a> deliverables! <em>Deliverable 8</em> represents the first three steps of the design.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="database-design-process---some-details" class="slide level2 scrollable">
+<h2>Database design process - some details</h2>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li>Understanding requirements
+<ul>
+<li>Problem domain,</li>
+<li>Need,</li>
+<li>Context, scope and perspective,</li>
+<li>Uses cases, user roles</li>
+<li>Security, privacy</li>
+<li>Use cases, specific queries</li>
+</ul></li>
+<li>Conceptual design
+<ul>
+<li>Entities, attributes, relationships</li>
+<li>ER diagrams</li>
+</ul></li>
+<li>Logical design
+<ul>
+<li>converting entities, attributes and relations, and other odd features to tables.</li>
+<li>Normalization and functional analysis</li>
+</ul></li>
+</ol>
+</div><div class="column">
+<ol start="4" type="1">
+<li>Physical design
+<ul>
+<li>Explicitly defining tables</li>
+<li>Adding integrity constraints, triggers</li>
+<li>Reporting: adding views</li>
+<li>Maintenance: adding procedures</li>
+<li>Considering access: defining an API layer</li>
+</ul></li>
+<li>Implementation and iteration
+<ul>
+<li>code it up,</li>
+<li>load it up,</li>
+<li>test it up,</li>
+<li>see where you screwed it up,</li>
+<li>iterate it up.</li>
+</ul></li>
+</ol>
+</div></div>
+</section>
+<section id="database-design-process---sharing-your-design" class="slide level2">
+<h2>Database design process - sharing your design</h2>
+<dl>
+<dt>Understanding requirements</dt>
+<dd>
+We’ll be using <em>quarto</em> to describe in words the various attributes. We’ll get practice creating requirements. These can get more complicated as one iterates.
+</dd>
+<dt>Conceptual design</dt>
+<dd>
+We’ll be using <a href="https://dl.acm.org/doi/10.1145/320434.320440">Chen diagrams</a> to document our conceptual design. In Quarto we’ll be using <em>graphviz</em> to describe and render these diagrams.
+</dd>
+<dt>Logical design</dt>
+<dd>
+We’ll be using [Crows-foot diagrams] to document our logical design. In Quarto we’ll be using <em>mermaid</em> to describe and render these diagrams.
+</dd>
+<dt>Physical design</dt>
+<dd>
+We’ll be using SQL to document our physical design.
+</dd>
+</dl>
+</section></section>
+<section>
 <section id="introduction-to-er-models" class="title-slide slide level1 center">
 <h1>Introduction to ER Models</h1>
 
-</section>
-<section id="importance-of-er-models-in-database-design" class="slide level2">
-<h2>Importance of ER Models in Database Design</h2>
-<p>Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li>ER models offer a visual representation of the database structure.</li>
-<li>They help in identifying and organizing data requirements.</li>
-<li>ER models reduce the complexity of database design.</li>
-<li>They support the identification of entities, attributes, and relationships.</li>
-<li>ER models guide the transition from conceptual design to logical design.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-
-</div>
-</div>
-<p><em>Understanding ER models is crucial for effective database design and implementation.</em></p>
-</section>
-<section id="components-of-er-models-entities-relationships-and-attributes" class="slide level2">
-<h2>Components of ER Models: Entities, Relationships, and Attributes</h2>
-<p>ER models consist of three key components: entities, relationships, and attributes. These components work together to define the structure and behavior of the database.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li>Entities are objects or concepts that have a distinct existence in the database.</li>
-<li>Relationships define how entities are connected to each other.</li>
-<li>Attributes are characteristics that describe entities or relationships.</li>
-<li>Entities are usually represented by rectangles in ER diagrams.</li>
-<li>Relationships are depicted as diamonds, while attributes are ovals.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-
-</div>
-</div>
-<p><em>Entities, relationships, and attributes are the building blocks of an ER model.</em></p>
 </section>
 <section id="conceptual-logical-and-physical-data-models" class="slide level2">
 <h2>Conceptual, Logical, and Physical Data Models</h2>
@@ -532,9 +831,51 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Different types of data models address various stages of database design, from conceptualization to implementation.</em></p>
+</section>
+<section id="importance-of-er-models-in-database-design" class="slide level2">
+<h2>Importance of ER Models in Database Design</h2>
+<p>Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>ER models offer a visual representation of the database structure.</li>
+<li>They help in identifying and organizing data requirements.</li>
+<li>ER models reduce the complexity of database design.</li>
+<li>They support the identification of entities, attributes, and relationships.</li>
+<li>ER models guide the transition from conceptual design to logical design.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Understanding ER models is crucial for effective database design and implementation.</em></p>
+</section>
+<section id="components-of-entity-relationship-models" class="slide level2">
+<h2>Components of Entity-Relationship Models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="entities-relationships-and-attributes">Entities, Relationships, and Attributes</h3>
+<dl>
+<dt>Entities</dt>
+<dd>
+These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
+</dd>
+<dt>Attributes</dt>
+<dd>
+Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.
+</dd>
+<dt>Relationships</dt>
+<dd>
+Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
+</dd>
+</dl>
+</div><div class="column" style="width:50%;">
+<h3 id="example">Example</h3>
+<p>Imagine a college campus with buildings and rooms.</p>
+<p>Each building can can be located with an address, city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.</p>
+<p><strong>Identify the entities, attributes and relationships</strong></p>
+</div></div>
 </section>
 <section id="entities-in-er-models" class="slide level2">
 <h2>Entities in ER Models</h2>
@@ -550,8 +891,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Entities form the core of the database, representing key objects or concepts in the system.</em></p>
 </section>
 <section id="relationships-in-er-models" class="slide level2">
@@ -568,8 +908,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Relationships ensure that the database reflects the interactions between different entities in the system.</em></p>
 </section>
 <section id="attributes-in-er-models" class="slide level2">
@@ -586,15 +925,14 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Attributes are key to defining the details and constraints of entities and relationships in the database.</em></p>
 </section>
 <section id="cardinality-in-relationships" class="slide level2">
 <h2>Cardinality in Relationships</h2>
 <p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:70%;">
 <ul>
 <li>Cardinality types include one-to-one, one-to-many, and many-to-many.</li>
 <li>One-to-one: Each instance of one entity relates to a single instance of another entity.</li>
@@ -602,11 +940,72 @@
 <li>Many-to-many: Multiple instances of one entity relate to multiple instances of another entity.</li>
 <li>Cardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.</li>
 </ul>
-</div><div class="column" style="width:5%;">
+</div><div class="column" style="width:30%;">
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
 
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
 </div>
 </div>
+</div>
+</div></div>
 <p><em>Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.</em></p>
+</section>
+<section id="participation-in-relationships" class="slide level2">
+<h2>Participation in Relationships</h2>
+<p>Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li>Participation types include total participation and partial participation.</li>
+<li>Total Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.</li>
+<li>Partial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.</li>
+<li>Participation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+<p><em>Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.</em></p>
 </section>
 <section id="er-diagram-notations" class="slide level2">
 <h2>ER Diagram Notations</h2>
@@ -622,9 +1021,143 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Mastering ER diagram notations is key to effectively designing and interpreting database models.</em></p>
+</section>
+<section id="chen-notation" class="slide level2">
+<h2>Chen notation</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href=""></a><span class="va">graph</span> <span class="va">ER</span> <span class="ot">{</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">    </span><span class="va">layout</span><span class="ot">=</span><span class="va">neato</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href=""></a><span class="co">  </span><span class="va">scale</span><span class="ot">=</span><span class="dv">1.1</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">];</span><span class="co"> </span><span class="va">building</span><span class="ot">;</span><span class="co"> </span><span class="va">room</span><span class="ot">;</span></span>
+<span id="cb1-5"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">ellipse</span><span class="ot">];</span><span class="co"> </span><span class="va">address</span><span class="co">, </span><span class="va">city</span><span class="co">, </span><span class="va">state</span><span class="co">, </span><span class="va">occupant</span><span class="co">, </span><span class="va">room_number</span></span>
+<span id="cb1-6"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">diamond</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">lightgrey</span><span class="ot">];</span><span class="co"> </span><span class="va">has</span></span>
+<span id="cb1-7"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-8"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">has</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-9"><a href=""></a><span class="co">    </span><span class="va">has</span><span class="co"> -- </span><span class="va">room</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"n"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-10"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-11"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">address</span></span>
+<span id="cb1-12"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">city</span></span>
+<span id="cb1-13"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">state</span></span>
+<span id="cb1-14"><a href=""></a><span class="co">  </span><span class="va">room</span><span class="co"> -- </span><span class="va">room_number</span></span>
+<span id="cb1-15"><a href=""></a><span class="co">    </span><span class="va">room</span><span class="co"> -- </span><span class="va">occupant</span></span>
+<span id="cb1-16"><a href=""></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:59%;">
+<div class="cell" data-eval="true" data-fig-width="500px" data-fig-height="240px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="500" height="240" viewbox="0.00 0.00 394.19 234.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.21)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-230.21 390.19,-230.21 390.19,4 -4,4"></polygon>
+<!-- building -->
+<g id="node1" class="node">
+<title>building</title>
+<polygon fill="none" stroke="black" points="140.37,-136.32 84.36,-136.32 84.36,-100.32 140.37,-100.32 140.37,-136.32"></polygon>
+<text text-anchor="middle" x="112.36" y="-114.72" font-family="Times,serif" font-size="12.00">building</text>
+</g>
+<!-- address -->
+<g id="node3" class="node">
+<title>address</title>
+<ellipse fill="none" stroke="black" cx="74.68" cy="-36.21" rx="33.41" ry="18"></ellipse>
+<text text-anchor="middle" x="74.68" y="-32.61" font-family="Times,serif" font-size="12.00">address</text>
+</g>
+<!-- building&#45;&#45;address -->
+<g id="edge3" class="edge">
+<title>building--address</title>
+<path fill="none" stroke="black" d="M104,-100.09C97.67,-86.3 89.02,-67.46 82.76,-53.82"></path>
+</g>
+<!-- city -->
+<g id="node4" class="node">
+<title>city</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-133.06" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-129.46" font-family="Times,serif" font-size="12.00">city</text>
+</g>
+<!-- building&#45;&#45;city -->
+<g id="edge4" class="edge">
+<title>building--city</title>
+<path fill="none" stroke="black" d="M83.94,-123.23C74.04,-124.93 63,-126.84 53.28,-128.52"></path>
+</g>
+<!-- state -->
+<g id="node5" class="node">
+<title>state</title>
+<ellipse fill="none" stroke="black" cx="103.09" cy="-208.21" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="103.09" y="-204.61" font-family="Times,serif" font-size="12.00">state</text>
+</g>
+<!-- building&#45;&#45;state -->
+<g id="edge5" class="edge">
+<title>building--state</title>
+<path fill="none" stroke="black" d="M110.49,-136.51C108.88,-152.1 106.57,-174.46 104.96,-190.04"></path>
+</g>
+<!-- has -->
+<g id="node8" class="node">
+<title>has</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="199.29,-121.71 170.49,-103.71 199.29,-85.71 228.09,-103.71 199.29,-121.71"></polygon>
+<text text-anchor="middle" x="199.29" y="-100.11" font-family="Times,serif" font-size="12.00">has</text>
+</g>
+<!-- building&#45;&#45;has -->
+<g id="edge1" class="edge">
+<title>building--has</title>
+<path fill="none" stroke="black" d="M140.83,-113.53C152.41,-111.59 165.62,-109.37 176.55,-107.53"></path>
+<text text-anchor="middle" x="155.19" y="-114.73" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- room -->
+<g id="node2" class="node">
+<title>room</title>
+<polygon fill="none" stroke="black" points="312.11,-110.53 258.11,-110.53 258.11,-74.53 312.11,-74.53 312.11,-110.53"></polygon>
+<text text-anchor="middle" x="285.11" y="-88.93" font-family="Times,serif" font-size="12.00">room</text>
+</g>
+<!-- occupant -->
+<g id="node6" class="node">
+<title>occupant</title>
+<ellipse fill="none" stroke="black" cx="348.31" cy="-152.48" rx="37.77" ry="18"></ellipse>
+<text text-anchor="middle" x="348.31" y="-148.88" font-family="Times,serif" font-size="12.00">occupant</text>
+</g>
+<!-- room&#45;&#45;occupant -->
+<g id="edge7" class="edge">
+<title>room--occupant</title>
+<path fill="none" stroke="black" d="M304.41,-110.84C312.98,-118.97 322.97,-128.45 331.26,-136.31"></path>
+</g>
+<!-- room_number -->
+<g id="node7" class="node">
+<title>room_number</title>
+<ellipse fill="none" stroke="black" cx="329.91" cy="-18" rx="53.78" ry="18"></ellipse>
+<text text-anchor="middle" x="329.91" y="-14.4" font-family="Times,serif" font-size="12.00">room_number</text>
+</g>
+<!-- room&#45;&#45;room_number -->
+<g id="edge6" class="edge">
+<title>room--room_number</title>
+<path fill="none" stroke="black" d="M295.95,-74.49C303,-62.77 312.14,-47.56 319.16,-35.88"></path>
+</g>
+<!-- has&#45;&#45;room -->
+<g id="edge2" class="edge">
+<title>has--room</title>
+<path fill="none" stroke="black" d="M223.19,-100.6C234.01,-99.19 246.84,-97.52 258,-96.06"></path>
+<text text-anchor="middle" x="237.1" y="-102.53" font-family="Times,serif" font-size="14.00">n</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+<p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
 </section>
 <section id="specialization-and-generalization-in-er-models" class="slide level2">
 <h2>Specialization and Generalization in ER Models</h2>
@@ -640,8 +1173,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Specialization and generalization are powerful tools for managing complexity in ER models.</em></p>
 </section>
 <section id="translating-er-models-to-relational-schema" class="slide level2">
@@ -658,8 +1190,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Translating ER models to relational schemas is essential for implementing the database design in a relational database system.</em></p>
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -670,23 +1201,27 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Finish up your intros (deliverable 1)</p></li>
+<li><p>Form those teams! Watch Discord (deliverable 2)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097">Question: all weeks or just current plus one?</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097">Question: announcements at top of home page?</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199280/statistics">Finish the pre-class survey (Quiz 1)</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:35%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/homework-1---fall-2024">Homework 1</a></p></li>
+<li><p><a href="#/database-design-process">Intro to DB design</a></p></li>
+<li><p><a href="#/introduction-to-er-models">Intro to ER Models</a></p></li>
 </ul>
-</div>
-</div>
-<div style="margin-top:25px">
+</div></div>
+<div style="margin-top:1px">
 <p>&nbsp;</p>
 </div>
-<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -764,7 +1299,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -1034,18 +1568,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1077,7 +1600,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1085,7 +1630,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

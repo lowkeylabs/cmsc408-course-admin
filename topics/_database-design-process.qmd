@@ -5,20 +5,6 @@
 
 :::: {.columns}
 ::: {.column}
-### Overview
-
-- Basic steps are on the right.
-- There are many different approaches.
-- Watch the videos, you'll see different approaches.
-- Can be as hard or simple as you want to make it.
-- Iterate!
-
-- *Note: the Microsoft approach (on Canvas) jumps more
-quickly to logical design and implementation.*
-
-:::
-::: {.column}
-
 ### Database design process
 
 1. Understanding requirements
@@ -32,9 +18,23 @@ quickly to logical design and implementation.*
 5. Implementation
 
 :::
+::: {.column}
+### Notes
+
+- The basic steps are listed on the left.
+- There are many different approaches, some more complicated than others.
+- Watch the videos, you'll see different approaches, but also see what's similar.
+- Don't overthink it.
+- Iterate and spiralize the process.  Don't expect perfection.
+:::
 ::::
 
-## Database design process - more detail
+::: {.callout-note}
+These steps map nicely with the [Semester Project](https://virginiacommonwealth.instructure.com/courses/105097/pages/resource-week-2-semester-project?module_item_id=3767574) deliverables!  *Deliverable 8* represents the first three steps of the design.
+:::
+
+
+## Database design process - some details
 
 :::: {.columns}
 ::: {.column}
@@ -56,12 +56,12 @@ quickly to logical design and implementation.*
 :::
 ::: {.column}
 4. Physical design
-    * More fully defining tables
+    * Explicitly defining tables
     * Adding integrity constraints, triggers
     * Reporting: adding views
     * Maintenance: adding procedures
-    * Considering access: defining the API
-5. Implementation
+    * Considering access: defining an API layer
+5. Implementation and iteration
     * code it up,
     * load it up, 
     * test it up,
@@ -70,41 +70,18 @@ quickly to logical design and implementation.*
 :::
 ::::
 
-<center>*This maps nicely with the [Semester Project](https://virginiacommonwealth.instructure.com/courses/85746/pages/project-overview-and-deliverable-summary) deliverables!*</center>
+## Database design process - sharing your design
 
-## Database design process - normalization
+Understanding requirements
+: We'll be using *quarto* to describe in words the various attributes.  We'll get practice
+creating requirements.  These can get more complicated as one iterates.
 
-*Normalization* is the process of reorganizing the columns and tables of a relational database to minimize data redundancy and avoid inconsistencies
+Conceptual design
+: We'll be using [Chen diagrams ](https://dl.acm.org/doi/10.1145/320434.320440) to document our conceptual design.  In Quarto we'll be using *graphviz* to describe and render these diagrams.
 
-*Normalization* decomposes a table into smaller tables without losing information
+Logical design
+: We'll be using [Crows-foot diagrams] to document our logical design. In Quarto we'll be using *mermaid* to describe and render these diagrams.
 
-*Normalization* is iterative, don’t *expect* perfection the first time through!
-
-*Normalization* is iterative, don’t *try* to achieve perfection the first time through.  Relax!
-
-*Normalization* Theory provides simple tests to determine a “good design”
-
-
-## Database design process - ER diagrams
-
-It's all about sharing your database design. How do you share your design with others?
-
-An entity-relationship (ER) model was first proposed by [Peter Chen in 1976](https://dl.acm.org/doi/10.1145/320434.320440)
-
-<p/>
-
-* Highlights the conceptual features (schema) of a database.
-
-* Maps the meanings and interactions of real-world entities to a conceptual schema
-
-* Focuses on portraying relations between entities, attributes, and relationships in a graphical fashion.
-
-* Different notions to support different needs.
-
-* Quarto supports at least two notations. We'll use both!
-
-* Tons of other tools to draw ER diagrams using different notations.
-
-* THERE IS NO STANDARD!
-
+Physical design
+: We'll be using SQL to document our physical design.
 
