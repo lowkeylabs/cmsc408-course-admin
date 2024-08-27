@@ -11,7 +11,7 @@
 <script src="advanced-concepts_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="advanced-concepts_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="advanced-concepts_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.55">
 
   <title>Advanced ER Modeling Concepts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -357,8 +357,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Specialization and generalization are powerful tools for creating more organized and understandable ER models.</em></p>
 </section>
 <section id="aggregation-in-er-models" class="slide level2">
@@ -375,8 +374,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Aggregation helps to encapsulate complexity in ER models, making them more manageable.</em></p>
 </section>
 <section id="composition-in-er-models" class="slide level2">
@@ -393,8 +391,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Composition clarifies the dependency relationships in ER models, reinforcing the connection between entities.</em></p>
 </section>
 <section id="understanding-inheritance-in-er-models" class="slide level2">
@@ -411,8 +408,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Inheritance promotes reusability and organization within ER models by leveraging commonalities across entities.</em></p>
 </section>
 <section id="specialization-constraints" class="slide level2">
@@ -429,8 +425,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Specialization constraints are essential for accurately representing hierarchical relationships in ER models.</em></p>
 </section>
 <section id="generalization-constraints" class="slide level2">
@@ -447,8 +442,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Generalization constraints are key to successfully abstracting and unifying entities in ER models.</em></p>
 </section>
 <section id="best-practices-for-advanced-er-modeling" class="slide level2">
@@ -465,8 +459,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Following best practices in advanced ER modeling leads to more robust and maintainable database designs.</em></p>
 </section>
 <section id="common-pitfalls-in-advanced-er-modeling" class="slide level2">
@@ -483,8 +476,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Avoiding common pitfalls in advanced ER modeling improves the accuracy and utility of the models.</em></p>
 </section>
 <section id="real-world-applications-of-advanced-er-concepts" class="slide level2">
@@ -501,8 +493,7 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div>
-</div>
+</div></div>
 <p><em>Understanding real-world applications of advanced ER concepts enhances their practical utility in database design.</em></p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -772,18 +763,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -815,7 +795,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -823,7 +825,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

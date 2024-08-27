@@ -38,6 +38,10 @@ ER diagrams use standard symbols to represent entities, relationships, and attri
 
 
 
+
+
+
+
 ## Practice: Creating ER Diagrams with Chen’s Notation
 
 Hands-on practice with Chen’s notation helps solidify understanding of entities, relationships, and attributes, and how they are visually represented in ER diagrams.

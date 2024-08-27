@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CMSC 408 - Databases Study Guide - Introduction to ER Models</title>
+<title>Introduction to ER Models – CMSC 408 - Databases Study Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,6 +101,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../guide.css">
@@ -84,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -103,17 +140,17 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/intro-to-er-models.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/intro-to-er-models.html">Introduction</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -126,9 +163,9 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">ER Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -199,14 +236,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#importance-of-er-models-in-database-design" id="toc-importance-of-er-models-in-database-design" class="nav-link active" data-scroll-target="#importance-of-er-models-in-database-design">Importance of ER Models in Database Design</a></li>
-  <li><a href="#components-of-er-models-entities-relationships-and-attributes" id="toc-components-of-er-models-entities-relationships-and-attributes" class="nav-link" data-scroll-target="#components-of-er-models-entities-relationships-and-attributes">Components of ER Models: Entities, Relationships, and Attributes</a></li>
-  <li><a href="#conceptual-logical-and-physical-data-models" id="toc-conceptual-logical-and-physical-data-models" class="nav-link" data-scroll-target="#conceptual-logical-and-physical-data-models">Conceptual, Logical, and Physical Data Models</a></li>
+  <li><a href="#conceptual-logical-and-physical-data-models" id="toc-conceptual-logical-and-physical-data-models" class="nav-link active" data-scroll-target="#conceptual-logical-and-physical-data-models">Conceptual, Logical, and Physical Data Models</a></li>
+  <li><a href="#importance-of-er-models-in-database-design" id="toc-importance-of-er-models-in-database-design" class="nav-link" data-scroll-target="#importance-of-er-models-in-database-design">Importance of ER Models in Database Design</a></li>
+  <li><a href="#components-of-entity-relationship-models" id="toc-components-of-entity-relationship-models" class="nav-link" data-scroll-target="#components-of-entity-relationship-models">Components of Entity-Relationship Models</a></li>
   <li><a href="#entities-in-er-models" id="toc-entities-in-er-models" class="nav-link" data-scroll-target="#entities-in-er-models">Entities in ER Models</a></li>
   <li><a href="#relationships-in-er-models" id="toc-relationships-in-er-models" class="nav-link" data-scroll-target="#relationships-in-er-models">Relationships in ER Models</a></li>
   <li><a href="#attributes-in-er-models" id="toc-attributes-in-er-models" class="nav-link" data-scroll-target="#attributes-in-er-models">Attributes in ER Models</a></li>
   <li><a href="#cardinality-in-relationships" id="toc-cardinality-in-relationships" class="nav-link" data-scroll-target="#cardinality-in-relationships">Cardinality in Relationships</a></li>
+  <li><a href="#participation-in-relationships" id="toc-participation-in-relationships" class="nav-link" data-scroll-target="#participation-in-relationships">Participation in Relationships</a></li>
   <li><a href="#er-diagram-notations" id="toc-er-diagram-notations" class="nav-link" data-scroll-target="#er-diagram-notations">ER Diagram Notations</a></li>
+  <li><a href="#chen-notation" id="toc-chen-notation" class="nav-link" data-scroll-target="#chen-notation">Chen notation</a></li>
+  <li><a href="#crows-foot-notation" id="toc-crows-foot-notation" class="nav-link" data-scroll-target="#crows-foot-notation">Crow’s Foot notation</a></li>
   <li><a href="#specialization-and-generalization-in-er-models" id="toc-specialization-and-generalization-in-er-models" class="nav-link" data-scroll-target="#specialization-and-generalization-in-er-models">Specialization and Generalization in ER Models</a></li>
   <li><a href="#translating-er-models-to-relational-schema" id="toc-translating-er-models-to-relational-schema" class="nav-link" data-scroll-target="#translating-er-models-to-relational-schema">Translating ER Models to Relational Schema</a></li>
   </ul>
@@ -322,7 +362,24 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 -->
 <p>Entity-Relationship (ER) models are a method for designing and visualizing the structure of a database by identifying key entities, their attributes, and the relationships between them. These models use ER diagrams, where entities are represented as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. ER models serve as a blueprint for the database, ensuring that it accurately captures the complexities of real-world data and their interconnections. By clarifying the database’s structure, ER models help in reducing redundancy and improving the efficiency of database design and implementation.</p>
-<p>Here’s how the 10 slides covering “Introduction to Entity-Relationship Models” would look formatted according to your instructions:</p>
+<section id="conceptual-logical-and-physical-data-models" class="level2">
+<h2 class="anchored" data-anchor-id="conceptual-logical-and-physical-data-models">Conceptual, Logical, and Physical Data Models</h2>
+<p>Data models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li><strong>Conceptual Model:</strong> High-level, abstract model focusing on the entities and relationships.</li>
+<li><strong>Logical Model:</strong> Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.</li>
+<li><strong>Physical Model:</strong> Focuses on the actual implementation, including tables, columns, and data types.</li>
+<li>Conceptual models are often created during the initial database design phase.</li>
+<li>Logical models help in the creation of relational schemas.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div>
+</div>
+<p><em>Different types of data models address various stages of database design, from conceptualization to implementation.</em></p>
+</section>
 <section id="importance-of-er-models-in-database-design" class="level2">
 <h2 class="anchored" data-anchor-id="importance-of-er-models-in-database-design">Importance of ER Models in Database Design</h2>
 <p>Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.</p>
@@ -341,41 +398,36 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <p><em>Understanding ER models is crucial for effective database design and implementation.</em></p>
 </section>
-<section id="components-of-er-models-entities-relationships-and-attributes" class="level2">
-<h2 class="anchored" data-anchor-id="components-of-er-models-entities-relationships-and-attributes">Components of ER Models: Entities, Relationships, and Attributes</h2>
-<p>ER models consist of three key components: entities, relationships, and attributes. These components work together to define the structure and behavior of the database.</p>
+<section id="components-of-entity-relationship-models" class="level2">
+<h2 class="anchored" data-anchor-id="components-of-entity-relationship-models">Components of Entity-Relationship Models</h2>
 <div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li>Entities are objects or concepts that have a distinct existence in the database.</li>
-<li>Relationships define how entities are connected to each other.</li>
-<li>Attributes are characteristics that describe entities or relationships.</li>
-<li>Entities are usually represented by rectangles in ER diagrams.</li>
-<li>Relationships are depicted as diamonds, while attributes are ovals.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Entities, relationships, and attributes are the building blocks of an ER model.</em></p>
+<div class="column" style="width:50%;">
+<section id="entities-relationships-and-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="entities-relationships-and-attributes">Entities, Relationships, and Attributes</h3>
+<dl>
+<dt>Entities</dt>
+<dd>
+These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
+</dd>
+<dt>Attributes</dt>
+<dd>
+Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.
+</dd>
+<dt>Relationships</dt>
+<dd>
+Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
+</dd>
+</dl>
 </section>
-<section id="conceptual-logical-and-physical-data-models" class="level2">
-<h2 class="anchored" data-anchor-id="conceptual-logical-and-physical-data-models">Conceptual, Logical, and Physical Data Models</h2>
-<p>Data models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li><strong>Conceptual Model:</strong> High-level, abstract model focusing on the entities and relationships.</li>
-<li><strong>Logical Model:</strong> Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.</li>
-<li><strong>Physical Model:</strong> Focuses on the actual implementation, including tables, columns, and data types.</li>
-<li>Conceptual models are often created during the initial database design phase.</li>
-<li>Logical models help in the creation of relational schemas.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
+</div><div class="column" style="width:50%;">
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Imagine a college campus with buildings and rooms.</p>
+<p>Each building can can be located with an address, city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.</p>
+<p><strong>Identify the entities, attributes and relationships</strong></p>
+</section>
 </div>
 </div>
-<p><em>Different types of data models address various stages of database design, from conceptualization to implementation.</em></p>
 </section>
 <section id="entities-in-er-models" class="level2">
 <h2 class="anchored" data-anchor-id="entities-in-er-models">Entities in ER Models</h2>
@@ -435,7 +487,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h2 class="anchored" data-anchor-id="cardinality-in-relationships">Cardinality in Relationships</h2>
 <p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:70%;">
 <ul>
 <li>Cardinality types include one-to-one, one-to-many, and many-to-many.</li>
 <li>One-to-one: Each instance of one entity relates to a single instance of another entity.</li>
@@ -443,11 +495,74 @@ Entities represent real-world objects or concepts, while attributes describe the
 <li>Many-to-many: Multiple instances of one entity relate to multiple instances of another entity.</li>
 <li>Cardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.</li>
 </ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <p><em>Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.</em></p>
+</section>
+<section id="participation-in-relationships" class="level2">
+<h2 class="anchored" data-anchor-id="participation-in-relationships">Participation in Relationships</h2>
+<p>Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li>Participation types include total participation and partial participation.</li>
+<li>Total Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.</li>
+<li>Partial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.</li>
+<li>Participation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><em>Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.</em></p>
 </section>
 <section id="er-diagram-notations" class="level2">
 <h2 class="anchored" data-anchor-id="er-diagram-notations">ER Diagram Notations</h2>
@@ -466,6 +581,199 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <p><em>Mastering ER diagram notations is key to effectively designing and interpreting database models.</em></p>
+</section>
+<section id="chen-notation" class="level2">
+<h2 class="anchored" data-anchor-id="chen-notation">Chen notation</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">graph</span> <span class="va">ER</span> <span class="ot">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">layout</span><span class="ot">=</span><span class="va">neato</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="va">scale</span><span class="ot">=</span><span class="dv">1.1</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">];</span><span class="co"> </span><span class="va">building</span><span class="ot">;</span><span class="co"> </span><span class="va">room</span><span class="ot">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">ellipse</span><span class="ot">];</span><span class="co"> </span><span class="va">address</span><span class="co">, </span><span class="va">city</span><span class="co">, </span><span class="va">state</span><span class="co">, </span><span class="va">occupant</span><span class="co">, </span><span class="va">room_number</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">diamond</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">lightgrey</span><span class="ot">];</span><span class="co"> </span><span class="va">has</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">has</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">has</span><span class="co"> -- </span><span class="va">room</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"n"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">address</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">city</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">state</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="va">room</span><span class="co"> -- </span><span class="va">room_number</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">room</span><span class="co"> -- </span><span class="va">occupant</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:59%;">
+<div class="cell" data-eval="true" data-fig-width="500px" data-fig-height="240px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="500" height="240" viewbox="0.00 0.00 394.19 234.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.21)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-230.21 390.19,-230.21 390.19,4 -4,4"></polygon>
+<!-- building -->
+<g id="node1" class="node">
+<title>building</title>
+<polygon fill="none" stroke="black" points="140.37,-136.32 84.36,-136.32 84.36,-100.32 140.37,-100.32 140.37,-136.32"></polygon>
+<text text-anchor="middle" x="112.36" y="-114.72" font-family="Times,serif" font-size="12.00">building</text>
+</g>
+<!-- address -->
+<g id="node3" class="node">
+<title>address</title>
+<ellipse fill="none" stroke="black" cx="74.68" cy="-36.21" rx="33.41" ry="18"></ellipse>
+<text text-anchor="middle" x="74.68" y="-32.61" font-family="Times,serif" font-size="12.00">address</text>
+</g>
+<!-- building&#45;&#45;address -->
+<g id="edge3" class="edge">
+<title>building--address</title>
+<path fill="none" stroke="black" d="M104,-100.09C97.67,-86.3 89.02,-67.46 82.76,-53.82"></path>
+</g>
+<!-- city -->
+<g id="node4" class="node">
+<title>city</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-133.06" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-129.46" font-family="Times,serif" font-size="12.00">city</text>
+</g>
+<!-- building&#45;&#45;city -->
+<g id="edge4" class="edge">
+<title>building--city</title>
+<path fill="none" stroke="black" d="M83.94,-123.23C74.04,-124.93 63,-126.84 53.28,-128.52"></path>
+</g>
+<!-- state -->
+<g id="node5" class="node">
+<title>state</title>
+<ellipse fill="none" stroke="black" cx="103.09" cy="-208.21" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="103.09" y="-204.61" font-family="Times,serif" font-size="12.00">state</text>
+</g>
+<!-- building&#45;&#45;state -->
+<g id="edge5" class="edge">
+<title>building--state</title>
+<path fill="none" stroke="black" d="M110.49,-136.51C108.88,-152.1 106.57,-174.46 104.96,-190.04"></path>
+</g>
+<!-- has -->
+<g id="node8" class="node">
+<title>has</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="199.29,-121.71 170.49,-103.71 199.29,-85.71 228.09,-103.71 199.29,-121.71"></polygon>
+<text text-anchor="middle" x="199.29" y="-100.11" font-family="Times,serif" font-size="12.00">has</text>
+</g>
+<!-- building&#45;&#45;has -->
+<g id="edge1" class="edge">
+<title>building--has</title>
+<path fill="none" stroke="black" d="M140.83,-113.53C152.41,-111.59 165.62,-109.37 176.55,-107.53"></path>
+<text text-anchor="middle" x="155.19" y="-114.73" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- room -->
+<g id="node2" class="node">
+<title>room</title>
+<polygon fill="none" stroke="black" points="312.11,-110.53 258.11,-110.53 258.11,-74.53 312.11,-74.53 312.11,-110.53"></polygon>
+<text text-anchor="middle" x="285.11" y="-88.93" font-family="Times,serif" font-size="12.00">room</text>
+</g>
+<!-- occupant -->
+<g id="node6" class="node">
+<title>occupant</title>
+<ellipse fill="none" stroke="black" cx="348.31" cy="-152.48" rx="37.77" ry="18"></ellipse>
+<text text-anchor="middle" x="348.31" y="-148.88" font-family="Times,serif" font-size="12.00">occupant</text>
+</g>
+<!-- room&#45;&#45;occupant -->
+<g id="edge7" class="edge">
+<title>room--occupant</title>
+<path fill="none" stroke="black" d="M304.41,-110.84C312.98,-118.97 322.97,-128.45 331.26,-136.31"></path>
+</g>
+<!-- room_number -->
+<g id="node7" class="node">
+<title>room_number</title>
+<ellipse fill="none" stroke="black" cx="329.91" cy="-18" rx="53.78" ry="18"></ellipse>
+<text text-anchor="middle" x="329.91" y="-14.4" font-family="Times,serif" font-size="12.00">room_number</text>
+</g>
+<!-- room&#45;&#45;room_number -->
+<g id="edge6" class="edge">
+<title>room--room_number</title>
+<path fill="none" stroke="black" d="M295.95,-74.49C303,-62.77 312.14,-47.56 319.16,-35.88"></path>
+</g>
+<!-- has&#45;&#45;room -->
+<g id="edge2" class="edge">
+<title>has--room</title>
+<path fill="none" stroke="black" d="M223.19,-100.6C234.01,-99.19 246.84,-97.52 258,-96.06"></path>
+<text text-anchor="middle" x="237.1" y="-102.53" font-family="Times,serif" font-size="14.00">n</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
+</section>
+<section id="crows-foot-notation" class="level2">
+<h2 class="anchored" data-anchor-id="crows-foot-notation">Crow’s Foot notation</h2>
+<div class="columns">
+<div class="column">
+<div class="cell" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>erDiagram</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>BUILDING ||--|{ ROOM : contains</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>BUILDING{</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  string address</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  string city</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  string state</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ROOM {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  string room_number</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  string occupants</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><a href="https://mermaid.live/edit">Link to mermaid live</a></p>
 </section>
 <section id="specialization-and-generalization-in-er-models" class="level2">
 <h2 class="anchored" data-anchor-id="specialization-and-generalization-in-er-models">Specialization and Generalization in ER Models</h2>
@@ -542,18 +850,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -585,7 +882,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -593,7 +912,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
