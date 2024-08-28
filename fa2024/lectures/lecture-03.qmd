@@ -17,17 +17,21 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'Finish up your intros (deliverable 1)',
+    'Form those teams! Watch Discord (deliverable 2)',
+    '[ER Models Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/)'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Overview of DB design](#overview-of-database-design)',
+    '[Intro to ER Models](#introduction-to-er-models)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-
+{{< include ../../topics/_overview-of-database-design.qmd >}}
+{{< include ../../topics/_intro-to-er-models.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -264,171 +264,566 @@
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html",
-    "href": "er-models/intro-to-er-models.html",
-    "title": "Introduction to ER Models",
+    "objectID": "er-models/keys-and-identifiers.html",
+    "href": "er-models/keys-and-identifiers.html",
+    "title": "Keys and Identifiers",
     "section": "",
-    "text": "Entity-Relationship (ER) models are a method for designing and visualizing the structure of a database by identifying key entities, their attributes, and the relationships between them. These models use ER diagrams, where entities are represented as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. ER models serve as a blueprint for the database, ensuring that it accurately captures the complexities of real-world data and their interconnections. By clarifying the database’s structure, ER models help in reducing redundancy and improving the efficiency of database design and implementation.",
+    "text": "Keys and identifiers are crucial in database design as they uniquely distinguish each record in a table, ensuring data integrity and facilitating relationships between tables. Primary keys, candidate keys, and composite keys serve different roles in maintaining uniqueness, while surrogate and natural keys offer options depending on the data characteristics and system requirements. Proper selection and use of keys are essential for efficient query performance and preventing data duplication.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
-    "href": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
-    "title": "Introduction to ER Models",
-    "section": "Conceptual, Logical, and Physical Data Models",
-    "text": "Conceptual, Logical, and Physical Data Models\nData models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.\n\n\n\nConceptual Model: High-level, abstract model focusing on the entities and relationships.\nLogical Model: Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.\nPhysical Model: Focuses on the actual implementation, including tables, columns, and data types.\nConceptual models are often created during the initial database design phase.\nLogical models help in the creation of relational schemas.\n\n\n \n\n\nDifferent types of data models address various stages of database design, from conceptualization to implementation.",
+    "objectID": "er-models/keys-and-identifiers.html#importance-of-keys-in-database-design",
+    "href": "er-models/keys-and-identifiers.html#importance-of-keys-in-database-design",
+    "title": "Keys and Identifiers",
+    "section": "Importance of Keys in Database Design",
+    "text": "Importance of Keys in Database Design\nKeys are essential in database design as they ensure the uniqueness of records and help establish relationships between tables. Understanding different types of keys is fundamental for maintaining data integrity.\n\n\n\nKeys are attributes or sets of attributes that uniquely identify a record in a table.\nWithout keys, there would be no way to distinguish between two identical records.\nKeys play a crucial role in indexing, which speeds up query performance.\nThey help maintain data integrity by enforcing uniqueness.\nProper use of keys prevents data duplication and ensures accurate retrieval.\n\n\n \n\n\nKeys are the cornerstone of data integrity and efficient query performance in databases.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#importance-of-er-models-in-database-design",
-    "href": "er-models/intro-to-er-models.html#importance-of-er-models-in-database-design",
-    "title": "Introduction to ER Models",
-    "section": "Importance of ER Models in Database Design",
-    "text": "Importance of ER Models in Database Design\nEntity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.\n\n\n\nER models offer a visual representation of the database structure.\nThey help in identifying and organizing data requirements.\nER models reduce the complexity of database design.\nThey support the identification of entities, attributes, and relationships.\nER models guide the transition from conceptual design to logical design.\n\n\n \n\n\nUnderstanding ER models is crucial for effective database design and implementation.",
+    "objectID": "er-models/keys-and-identifiers.html#primary-keys-the-foundation-of-uniqueness",
+    "href": "er-models/keys-and-identifiers.html#primary-keys-the-foundation-of-uniqueness",
+    "title": "Keys and Identifiers",
+    "section": "Primary Keys: The Foundation of Uniqueness",
+    "text": "Primary Keys: The Foundation of Uniqueness\nA primary key is a unique identifier for each record in a table. It is crucial for ensuring that no two records can have the same primary key value.\n\n\n\nA primary key is a column or a set of columns that uniquely identifies each row in a table.\nNo two rows in a table can have the same primary key value.\nPrimary keys cannot contain NULL values.\nThey are automatically indexed to improve query performance.\nIn relational databases, primary keys are the basis for establishing relationships between tables.\n\n\n \n\n\nPrimary keys ensure the uniqueness and integrity of data in a database table.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#components-of-entity-relationship-models",
-    "href": "er-models/intro-to-er-models.html#components-of-entity-relationship-models",
-    "title": "Introduction to ER Models",
-    "section": "Components of Entity-Relationship Models",
-    "text": "Components of Entity-Relationship Models\n\n\n\nEntities, Relationships, and Attributes\n\nEntities\n\nThese represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.\n\nAttributes\n\nAttributes are properties or characteristics that describe the entities. For example, if you’re modeling a Customer entity, attributes could include CustomerID, Name, Email, etc.\n\nRelationships\n\nRelationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.\n\n\n\n\n\nExample\nImagine a college campus with buildings and rooms.\nEach building can can be located with an address, city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.\nIdentify the entities, attributes and relationships",
+    "objectID": "er-models/keys-and-identifiers.html#candidate-keys-potential-primary-keys",
+    "href": "er-models/keys-and-identifiers.html#candidate-keys-potential-primary-keys",
+    "title": "Keys and Identifiers",
+    "section": "Candidate Keys: Potential Primary Keys",
+    "text": "Candidate Keys: Potential Primary Keys\nCandidate keys are those that could potentially serve as a primary key. Understanding candidate keys is important for choosing the most appropriate primary key.\n\n\n\nA candidate key is any column or combination of columns that can uniquely identify a row in a table.\nEvery table can have multiple candidate keys.\nOut of all candidate keys, one is chosen as the primary key.\nCandidate keys must be unique and not contain NULL values.\nThey serve as alternative unique identifiers for records.\n\n\n \n\n\nCandidate keys offer flexibility in choosing the most suitable primary key for a table.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#entities-in-er-models",
-    "href": "er-models/intro-to-er-models.html#entities-in-er-models",
-    "title": "Introduction to ER Models",
-    "section": "Entities in ER Models",
-    "text": "Entities in ER Models\nEntities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.\n\n\n\nEntities are things that can be distinctly identified.\nExamples of entities include people, products, events, and locations.\nEntities have attributes that provide details about them.\nEach entity type is represented by a set of instances in the database.\nEntity types are often mapped to tables in the relational model.\n\n\n \n\n\nEntities form the core of the database, representing key objects or concepts in the system.",
+    "objectID": "er-models/keys-and-identifiers.html#composite-keys-combining-multiple-attributes",
+    "href": "er-models/keys-and-identifiers.html#composite-keys-combining-multiple-attributes",
+    "title": "Keys and Identifiers",
+    "section": "Composite Keys: Combining Multiple Attributes",
+    "text": "Composite Keys: Combining Multiple Attributes\nComposite keys are formed by combining two or more attributes to create a unique identifier. They are useful when a single attribute is not sufficient to identify a record.\n\n\n\nA composite key is a primary key composed of two or more columns.\nIt is used when no single attribute can uniquely identify a record.\nAll columns in the composite key together must be unique.\nComposite keys are often used in junction tables to link two or more tables.\nThey enforce multi-attribute uniqueness in relational databases.\n\n\n \n\n\nComposite keys are essential for uniquely identifying records in complex tables.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#relationships-in-er-models",
-    "href": "er-models/intro-to-er-models.html#relationships-in-er-models",
-    "title": "Introduction to ER Models",
-    "section": "Relationships in ER Models",
-    "text": "Relationships in ER Models\nRelationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.\n\n\n\nRelationships represent associations between two or more entities.\nThey can be categorized as one-to-one, one-to-many, or many-to-many.\nRelationships have attributes that describe the nature of the association.\nIn ER diagrams, relationships are depicted as diamonds connecting entities.\nProperly defining relationships helps in maintaining data integrity.\n\n\n \n\n\nRelationships ensure that the database reflects the interactions between different entities in the system.",
+    "objectID": "er-models/keys-and-identifiers.html#surrogate-keys-a-unique-system-generated-identifier",
+    "href": "er-models/keys-and-identifiers.html#surrogate-keys-a-unique-system-generated-identifier",
+    "title": "Keys and Identifiers",
+    "section": "Surrogate Keys: A Unique System-Generated Identifier",
+    "text": "Surrogate Keys: A Unique System-Generated Identifier\nSurrogate keys are artificial keys that are not derived from application data. They are commonly used when no natural primary key exists.\n\n\n\nA surrogate key is an artificially generated identifier used as the primary key.\nSurrogate keys are typically numeric and auto-incremented by the database system.\nThey are not derived from business data, ensuring their immutability.\nSurrogate keys simplify indexing and improve performance in large databases.\nThey are particularly useful in scenarios where natural keys are too complex or change frequently.\n\n\n \n\n\nSurrogate keys provide a simple and efficient way to uniquely identify records in a database.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#attributes-in-er-models",
-    "href": "er-models/intro-to-er-models.html#attributes-in-er-models",
-    "title": "Introduction to ER Models",
-    "section": "Attributes in ER Models",
-    "text": "Attributes in ER Models\nAttributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.\n\n\n\nAttributes provide specific details about entities, such as name, ID, or age.\nThey can be simple (indivisible), composite (consisting of multiple components), or derived (calculated from other attributes).\nEach attribute belongs to a specific domain, which defines the set of possible values.\nAttributes are represented as ovals connected to their respective entities or relationships in ER diagrams.\nProper attribute selection is crucial for accurate data representation.\n\n\n \n\n\nAttributes are key to defining the details and constraints of entities and relationships in the database.",
+    "objectID": "er-models/keys-and-identifiers.html#natural-keys-using-business-data-for-identification",
+    "href": "er-models/keys-and-identifiers.html#natural-keys-using-business-data-for-identification",
+    "title": "Keys and Identifiers",
+    "section": "Natural Keys: Using Business Data for Identification",
+    "text": "Natural Keys: Using Business Data for Identification\nNatural keys are keys that are derived from business data, such as a social security number or email address. They have real-world meaning but may have drawbacks in certain scenarios.\n\n\n\nA natural key is an attribute that has a real-world meaning and is used as a primary key.\nExamples include social security numbers, email addresses, or product codes.\nNatural keys can simplify data understanding for end users.\nThey are prone to change, which can complicate database design and maintenance.\nUsing natural keys can introduce dependencies on external data sources.\n\n\n \n\n\nNatural keys provide meaningful identifiers but can introduce complexity and dependencies.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#cardinality-in-relationships",
-    "href": "er-models/intro-to-er-models.html#cardinality-in-relationships",
-    "title": "Introduction to ER Models",
-    "section": "Cardinality in Relationships",
-    "text": "Cardinality in Relationships\nCardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.\n\n\n\nCardinality types include one-to-one, one-to-many, and many-to-many.\nOne-to-one: Each instance of one entity relates to a single instance of another entity.\nOne-to-many: One entity instance relates to multiple instances of another entity.\nMany-to-many: Multiple instances of one entity relate to multiple instances of another entity.\nCardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nCardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.",
+    "objectID": "er-models/keys-and-identifiers.html#choosing-between-surrogate-and-natural-keys",
+    "href": "er-models/keys-and-identifiers.html#choosing-between-surrogate-and-natural-keys",
+    "title": "Keys and Identifiers",
+    "section": "Choosing Between Surrogate and Natural Keys",
+    "text": "Choosing Between Surrogate and Natural Keys\nDeciding between surrogate and natural keys is a critical design choice that can affect the performance and maintainability of a database.\n\n\n\nSurrogate keys offer simplicity, especially in complex or large-scale databases.\nNatural keys provide meaningful identifiers but may require careful handling of changes.\nThe choice depends on factors like data stability, performance needs, and system complexity.\nSurrogate keys are preferred when natural keys are prone to change or have a large data size.\nConsider using natural keys when the key has inherent business significance and low volatility.\n\n\n \n\n\nThe choice between surrogate and natural keys should be guided by data characteristics and system requirements.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#participation-in-relationships",
-    "href": "er-models/intro-to-er-models.html#participation-in-relationships",
-    "title": "Introduction to ER Models",
-    "section": "Participation in Relationships",
-    "text": "Participation in Relationships\nParticipation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.\n\n\n\nParticipation types include total participation and partial participation.\nTotal Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.\nPartial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.\nParticipation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nParticipation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.",
+    "objectID": "er-models/keys-and-identifiers.html#ensuring-uniqueness-constraints-and-indexes",
+    "href": "er-models/keys-and-identifiers.html#ensuring-uniqueness-constraints-and-indexes",
+    "title": "Keys and Identifiers",
+    "section": "Ensuring Uniqueness: Constraints and Indexes",
+    "text": "Ensuring Uniqueness: Constraints and Indexes\nUniqueness constraints and indexes are critical for enforcing the uniqueness of keys and improving the performance of queries.\n\n\n\nUniqueness constraints ensure that key values are not duplicated across records.\nPrimary keys automatically enforce uniqueness and create an index.\nUnique constraints can be applied to any column, not just the primary key.\nIndexes improve query performance by speeding up data retrieval.\nProper indexing strategies are essential for maintaining fast and efficient databases.\n\n\n \n\n\nUniqueness constraints and indexes are vital for maintaining data integrity and optimizing query performance.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#er-diagram-notations",
-    "href": "er-models/intro-to-er-models.html#er-diagram-notations",
-    "title": "Introduction to ER Models",
-    "section": "ER Diagram Notations",
-    "text": "ER Diagram Notations\nER diagrams use specific notations to represent entities, relationships, and attributes. Understanding these notations is essential for creating and interpreting ER models effectively.\n\n\n\nChen’s Notation: Uses rectangles for entities, diamonds for relationships, and ovals for attributes.\nCrow’s Foot Notation: Represents relationships with lines and ‘crow’s feet’ to indicate cardinality.\nEntities are often depicted with their primary keys underlined.\nRelationships may include roles and participation constraints.\nNotations help in communicating the structure and details of the ER model.\n\n\n \n\n\nMastering ER diagram notations is key to effectively designing and interpreting database models.",
+    "objectID": "er-models/keys-and-identifiers.html#keys-in-relationships-establishing-links-between-tables",
+    "href": "er-models/keys-and-identifiers.html#keys-in-relationships-establishing-links-between-tables",
+    "title": "Keys and Identifiers",
+    "section": "Keys in Relationships: Establishing Links Between Tables",
+    "text": "Keys in Relationships: Establishing Links Between Tables\nKeys are essential for establishing relationships between tables in a relational database. Understanding foreign keys is key to effective database normalization.\n\n\n\nForeign keys are columns that establish a link between two tables.\nA foreign key in one table points to the primary key in another table.\nForeign keys enforce referential integrity, ensuring consistent relationships.\nProper use of foreign keys prevents orphaned records and maintains data integrity.\nRelationships between tables are fundamental to database normalization and data integrity.\n\n\n \n\n\nForeign keys are crucial for maintaining relationships and data integrity in relational databases.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#chen-notation",
-    "href": "er-models/intro-to-er-models.html#chen-notation",
-    "title": "Introduction to ER Models",
-    "section": "Chen notation",
-    "text": "Chen notation\n\n\n\ngraph ER {\n    layout=neato;\n  scale=1.1;\n    node [shape=box]; building; room;\n    node [shape=ellipse]; address, city, state, occupant, room_number\n    node [shape=diamond,style=filled,color=lightgrey]; has\n    \n    building -- has [label=\"1\",len=1.00]\n    has -- room [label=\"n\",len=1.00]\n    \n    building -- address\n    building -- city\n    building -- state\n  room -- room_number\n    room -- occupant\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nbuilding\n\nbuilding\n\n\n\naddress\n\naddress\n\n\n\nbuilding--address\n\n\n\n\ncity\n\ncity\n\n\n\nbuilding--city\n\n\n\n\nstate\n\nstate\n\n\n\nbuilding--state\n\n\n\n\nhas\n\nhas\n\n\n\nbuilding--has\n\n1\n\n\n\nroom\n\nroom\n\n\n\noccupant\n\noccupant\n\n\n\nroom--occupant\n\n\n\n\nroom_number\n\nroom_number\n\n\n\nroom--room_number\n\n\n\n\nhas--room\n\nn\n\n\n\n\n\n\n\n\n\n\nLink to graphviz on-line editor",
+    "objectID": "er-models/keys-and-identifiers.html#summary-of-keys-and-identifiers",
+    "href": "er-models/keys-and-identifiers.html#summary-of-keys-and-identifiers",
+    "title": "Keys and Identifiers",
+    "section": "Summary of Keys and Identifiers",
+    "text": "Summary of Keys and Identifiers\nKeys and identifiers are the backbone of relational databases, ensuring the uniqueness and integrity of data. Understanding the different types of keys and their applications is essential for effective database design.\n\n\n\nKeys uniquely identify records and prevent duplication.\nPrimary keys, candidate keys, and composite keys serve different roles in database design.\nSurrogate keys simplify indexing and are used when natural keys are inadequate.\nNatural keys carry real-world meaning but may introduce complexities.\nChoosing the right key type is critical for ensuring data integrity and database performance.\n\n\n \n\n\nEffective use of keys and identifiers is essential for building reliable and efficient databases.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Keys and Identifiers"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#crows-foot-notation",
-    "href": "er-models/intro-to-er-models.html#crows-foot-notation",
-    "title": "Introduction to ER Models",
-    "section": "Crow’s Foot notation",
-    "text": "Crow’s Foot notation\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupants\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nLink to mermaid live",
+    "objectID": "er-models/index.html",
+    "href": "er-models/index.html",
+    "title": "Overview of Entity relationship models",
+    "section": "",
+    "text": "Entity-Relationship (ER) modeling is a conceptual framework used to represent the data structure of a database system. It involves identifying entities (objects or concepts), attributes (properties of entities), and relationships (associations between entities) within the system. ER models are typically depicted using ER diagrams, which visually represent entities as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. These models are foundational in database design, helping to ensure that the database accurately reflects the real-world scenarios it is intended to represent."
+  },
+  {
+    "objectID": "er-models/index.html#topics-in-this-unit",
+    "href": "er-models/index.html#topics-in-this-unit",
+    "title": "Overview of Entity relationship models",
+    "section": "Topics in this unit",
+    "text": "Topics in this unit\n\nOverview of Database Design\n\nDefinition and purpose of database design.\nOverview of key design phases.\nEnsuring data integrity, scalability, and alignment with business goals.\n\nIntroduction to Entity-Relationship Models\n\nDefinition and importance of ER models in database design.\nOverview of components: entities, relationships, and attributes.\nDifferences between conceptual, logical, and physical data models.\n\nEntities and Attributes\n\nDefinition and examples of entities.\nUnderstanding attributes and their types (simple, composite, derived).\nAttribute domains and constraints.\n\nRelationships and Cardinality\n\nDefinition and examples of relationships.\nTypes of relationships: one-to-one, one-to-many, many-to-many.\nUnderstanding and depicting cardinality and participation constraints.\n\nKeys and Identifiers\n\nImportance of keys in database design.\nPrimary keys, candidate keys, and composite keys.\nSurrogate keys vs. natural keys.\n\nER Diagrams: Symbols and Notation\n\nStandard symbols and notations used in ER diagrams.\nDifferences between Chen’s notation and Crow’s Foot notation.\nPractice creating ER diagrams using different notations.\n\nWeak Entities and Strong Entities\n\nDefinition and examples of weak entities.\nIdentifying weak entities and their relationships to strong entities.\nUse of partial keys and identifying relationships.\n\nAdvanced ER Modeling Concepts\n\nSpecialization and generalization.\nAggregation and composition.\nUnderstanding inheritance in ER models.\n\nER Modeling Best Practices and Common Pitfalls\n\nGuidelines for effective ER modeling.\nCommon mistakes to avoid in ER modeling.\nCase studies and real-world examples.\n\nTranslating ER Models to Relational Schema\n\nConverting ER diagrams to relational schemas.\nMapping entities, relationships, and attributes.\nHandling complex relationships and constraints in the relational model."
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html",
+    "href": "er-models/entities-and-attributes.html",
+    "title": "Entities and Attributes",
+    "section": "",
+    "text": "Entities and attributes are fundamental components in database design. Entities represent distinct real-world objects or concepts, while attributes describe their specific characteristics or properties. Together, they form the core structure of a database, enabling the organization and categorization of data.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Entities and Attributes"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#specialization-and-generalization-in-er-models",
-    "href": "er-models/intro-to-er-models.html#specialization-and-generalization-in-er-models",
-    "title": "Introduction to ER Models",
-    "section": "Specialization and Generalization in ER Models",
-    "text": "Specialization and Generalization in ER Models\nSpecialization and generalization are advanced ER modeling techniques used to represent inheritance and hierarchy among entities. These techniques enhance the expressiveness of ER models.\n\n\n\nSpecialization: Process of defining a set of subclasses from a superclass based on distinguishing attributes.\nGeneralization: The reverse process, where multiple subclasses are combined into a single superclass.\nBoth techniques help in modeling inheritance and shared characteristics.\nThese concepts are depicted in ER diagrams using triangle symbols.\nProper use of specialization and generalization can simplify complex ER models.\n\n\n \n\n\nSpecialization and generalization are powerful tools for managing complexity in ER models.",
+    "objectID": "er-models/entities-and-attributes.html#definition-of-entities",
+    "href": "er-models/entities-and-attributes.html#definition-of-entities",
+    "title": "Entities and Attributes",
+    "section": "Definition of Entities",
+    "text": "Definition of Entities\nEntities are the fundamental building blocks in a database, representing real-world objects or concepts. Understanding entities helps in structuring the database effectively.\n\n\n\nEntities are distinct objects or concepts in the real world.\nExamples include a student, a course, a product, or an employee.\nEntities are typically nouns that represent something we need to store information about.\nEach entity has an independent existence and can be uniquely identified.\nEntities form the core elements around which the database is designed.\n\n\n \n\n\nEntities are essential for organizing information in a structured database.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Entities and Attributes"
     ]
   },
   {
-    "objectID": "er-models/intro-to-er-models.html#translating-er-models-to-relational-schema",
-    "href": "er-models/intro-to-er-models.html#translating-er-models-to-relational-schema",
-    "title": "Introduction to ER Models",
-    "section": "Translating ER Models to Relational Schema",
-    "text": "Translating ER Models to Relational Schema\nThe final step in ER modeling is translating the ER model into a relational schema. This process involves mapping entities, relationships, and attributes into tables, columns, and keys.\n\n\n\nEntities are typically mapped to tables, with attributes becoming columns.\nRelationships may result in foreign keys or separate join tables.\nPrimary keys ensure each table has a unique identifier for its rows.\nMapping complex relationships may require additional tables or constraints.\nThe translation process ensures that the conceptual design is accurately implemented in the database.\n\n\n \n\n\nTranslating ER models to relational schemas is essential for implementing the database design in a relational database system.",
+    "objectID": "er-models/entities-and-attributes.html#examples-of-entities",
+    "href": "er-models/entities-and-attributes.html#examples-of-entities",
+    "title": "Entities and Attributes",
+    "section": "Examples of Entities",
+    "text": "Examples of Entities\nEntities can vary widely depending on the context of the database. Recognizing and defining entities correctly is crucial in the initial stages of database design.\n\n\n\nIn a university database, entities might include Students, Professors, and Courses.\nIn an e-commerce database, entities could include Customers, Orders, and Products.\nIn a hospital database, entities might include Patients, Doctors, and Appointments.\nEach entity is an object about which data is stored.\nIdentifying key entities helps in setting up the database schema.\n\n\n \n\n\nEntities vary depending on the domain of the database.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Introduction"
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#understanding-attributes",
+    "href": "er-models/entities-and-attributes.html#understanding-attributes",
+    "title": "Entities and Attributes",
+    "section": "Understanding Attributes",
+    "text": "Understanding Attributes\nAttributes are the specific details or characteristics that define or describe an entity. Proper identification of attributes is vital for accurate data representation.\n\n\n\nAttributes are properties or characteristics of an entity.\nFor a Student entity, attributes might include Name, ID, and Date of Birth.\nEach attribute describes a particular aspect of the entity.\nAttributes are often analogous to columns in a table in a relational database.\nCorrectly identifying attributes is crucial for data integrity and accuracy.\n\n\n \n\n\nAttributes provide specific details that describe entities in the database.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#simple-attributes",
+    "href": "er-models/entities-and-attributes.html#simple-attributes",
+    "title": "Entities and Attributes",
+    "section": "Simple Attributes",
+    "text": "Simple Attributes\nSimple attributes are atomic and cannot be divided further. They represent the most basic level of detail for an entity in a database.\n\n\n\nSimple attributes are indivisible and represent a single value.\nExamples include a person’s Name, ID, or Birthdate.\nThese attributes are directly associated with an entity.\nSimple attributes provide clear and concise information.\nThey are easy to manage and query in a database.\n\n\n \n\n\nSimple attributes are the basic, indivisible characteristics of an entity.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#composite-attributes",
+    "href": "er-models/entities-and-attributes.html#composite-attributes",
+    "title": "Entities and Attributes",
+    "section": "Composite Attributes",
+    "text": "Composite Attributes\nComposite attributes consist of multiple components that can be subdivided into smaller parts. They provide a way to structure more complex information about an entity.\n\n\n\nComposite attributes are made up of multiple simple attributes.\nAn example is an Address, which may include Street, City, State, and Zip Code.\nEach component of a composite attribute can be used independently.\nComposite attributes allow for more detailed data representation.\nThey help to structure complex information in an organized way.\n\n\n \n\n\nComposite attributes allow detailed structuring of related information about an entity.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#derived-attributes",
+    "href": "er-models/entities-and-attributes.html#derived-attributes",
+    "title": "Entities and Attributes",
+    "section": "Derived Attributes",
+    "text": "Derived Attributes\nDerived attributes are not stored directly in the database but are calculated or inferred from other stored attributes. These attributes help in optimizing storage and processing.\n\n\n\nDerived attributes are computed from other attributes.\nAn example is calculating Age from Date of Birth.\nThese attributes are not stored directly in the database.\nDerived attributes can simplify queries and reduce storage needs.\nThey are used when real-time calculation is required for certain values.\n\n\n \n\n\nDerived attributes optimize storage and provide computed information as needed.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#attribute-domains",
+    "href": "er-models/entities-and-attributes.html#attribute-domains",
+    "title": "Entities and Attributes",
+    "section": "Attribute Domains",
+    "text": "Attribute Domains\nAttribute domains define the possible values that an attribute can take. They set the rules and constraints for the data associated with each attribute.\n\n\n\nAn attribute domain is the set of valid values for an attribute.\nExamples include numerical ranges, specific sets of values, or data types.\nDomains help ensure data integrity and consistency.\nThey act as constraints that restrict the possible values for an attribute.\nProperly defined domains prevent invalid data entry and maintain data quality.\n\n\n \n\n\nAttribute domains enforce rules on data, ensuring consistency and integrity.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#attribute-constraints",
+    "href": "er-models/entities-and-attributes.html#attribute-constraints",
+    "title": "Entities and Attributes",
+    "section": "Attribute Constraints",
+    "text": "Attribute Constraints\nConstraints on attributes define the rules and limitations for data entry and manipulation. These ensure that the data remains valid and meaningful.\n\n\n\nConstraints restrict the type, format, or value of an attribute.\nExamples include NOT NULL constraints, unique constraints, and value ranges.\nConstraints help enforce data accuracy and reliability.\nThey ensure that data adheres to specific business rules or logic.\nConstraints can be applied at the database schema level to automate validation.\n\n\n \n\n\nAttribute constraints are essential for maintaining high-quality, reliable data.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#attributes-and-their-role-in-database-design",
+    "href": "er-models/entities-and-attributes.html#attributes-and-their-role-in-database-design",
+    "title": "Entities and Attributes",
+    "section": "Attributes and Their Role in Database Design",
+    "text": "Attributes and Their Role in Database Design\nAttributes play a critical role in database design, defining the specific data that will be stored about each entity. Properly identifying and structuring attributes is essential.\n\n\n\nAttributes define the details of each entity in the database.\nThey determine what data will be captured and how it will be stored.\nProperly identifying attributes is crucial for accurate data representation.\nAttributes help in organizing and categorizing data within the database.\nWell-structured attributes contribute to an efficient and scalable database design.\n\n\n \n\n\nAttributes are central to defining the data structure and ensuring the database meets its intended purpose.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/entities-and-attributes.html#summary-of-entities-and-attributes",
+    "href": "er-models/entities-and-attributes.html#summary-of-entities-and-attributes",
+    "title": "Entities and Attributes",
+    "section": "Summary of Entities and Attributes",
+    "text": "Summary of Entities and Attributes\nEntities and attributes are foundational concepts in database design. Understanding these components allows for the creation of well-structured and efficient databases.\n\n\n\nEntities represent the real-world objects or concepts in a database.\nAttributes describe the characteristics of these entities.\nSimple, composite, and derived attributes offer different levels of detail.\nAttribute domains and constraints ensure data integrity.\nTogether, entities and attributes form the core structure of a database.\n\n\n \n\n\nMastering entities and attributes is key to effective database design.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Entities and Attributes"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html",
+    "href": "er-models/advanced-concepts.html",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "",
+    "text": "Advanced ER Modeling Concepts involve specialized techniques for creating more nuanced and structured entity-relationship models. These concepts include specialization and generalization, which define hierarchical relationships between entities, and aggregation and composition, which model complex relationships and dependencies. Understanding and applying these concepts helps in designing accurate, organized, and maintainable databases.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#specialization-and-generalization",
+    "href": "er-models/advanced-concepts.html#specialization-and-generalization",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Specialization and Generalization",
+    "text": "Specialization and Generalization\nSpecialization and generalization are two important concepts in ER modeling that help to define hierarchical relationships between entities. These concepts allow for the modeling of shared and unique attributes across different entities.\n\n\n\nSpecialization is the process of defining a set of subclasses from a superclass, where each subclass inherits attributes of the superclass.\nGeneralization is the reverse process, where multiple entities are combined into a higher-level superclass.\nSpecialization allows for the distinction of unique attributes or relationships specific to a subclass.\nGeneralization groups entities that share common attributes or relationships.\nThese concepts help in structuring data efficiently, reducing redundancy, and enhancing clarity.\n\n\n \n\n\nSpecialization and generalization are powerful tools for creating more organized and understandable ER models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#aggregation-in-er-models",
+    "href": "er-models/advanced-concepts.html#aggregation-in-er-models",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Aggregation in ER Models",
+    "text": "Aggregation in ER Models\nAggregation is a modeling concept used to represent a relationship as an entity. This concept is useful when dealing with complex relationships that involve multiple entities and relationships.\n\n\n\nAggregation is a higher-level abstraction that treats a relationship between entities as a single entity.\nThis is particularly useful for modeling complex scenarios where a relationship itself has attributes or participates in other relationships.\nAggregation allows for the simplification of ER diagrams by encapsulating multiple related entities and relationships.\nIt helps in avoiding unnecessary complexity in the ER model.\nAggregated entities can interact with other entities or relationships as a single unit.\n\n\n \n\n\nAggregation helps to encapsulate complexity in ER models, making them more manageable.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#composition-in-er-models",
+    "href": "er-models/advanced-concepts.html#composition-in-er-models",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Composition in ER Models",
+    "text": "Composition in ER Models\nComposition is a stronger form of aggregation where the existence of one entity is dependent on another. It emphasizes the “whole-part” relationship between entities.\n\n\n\nComposition is a specific type of aggregation that denotes a strong ownership and dependency relationship between entities.\nIn composition, the “part” entity cannot exist independently of the “whole” entity.\nThis concept is used to model entities that are inherently dependent on another entity.\nComposition is often used to represent physical containment relationships, such as a library and its books.\nIt is depicted in ER diagrams with a filled diamond to indicate the dependent relationship.\n\n\n \n\n\nComposition clarifies the dependency relationships in ER models, reinforcing the connection between entities.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#understanding-inheritance-in-er-models",
+    "href": "er-models/advanced-concepts.html#understanding-inheritance-in-er-models",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Understanding Inheritance in ER Models",
+    "text": "Understanding Inheritance in ER Models\nInheritance allows entities to inherit attributes and relationships from other entities, enabling the reuse of common data and relationships. This concept helps in creating a more structured and maintainable ER model.\n\n\n\nInheritance is a mechanism where a subclass inherits attributes and relationships from its superclass.\nThis concept allows for the reuse of common attributes and relationships, reducing redundancy.\nSubclasses can also define additional attributes or override inherited ones.\nInheritance is depicted in ER diagrams using a hierarchy, with arrows pointing from the subclass to the superclass.\nIt helps in organizing entities into more manageable hierarchies based on shared characteristics.\n\n\n \n\n\nInheritance promotes reusability and organization within ER models by leveraging commonalities across entities.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#specialization-constraints",
+    "href": "er-models/advanced-concepts.html#specialization-constraints",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Specialization Constraints",
+    "text": "Specialization Constraints\nSpecialization constraints define how entities in a superclass can participate in subclasses. These constraints ensure that the model accurately reflects the real-world scenario being modeled.\n\n\n\nDisjointness Constraint specifies whether an entity can be a member of more than one subclass.\nCompleteness Constraint indicates whether all possible subclasses are accounted for in the specialization.\nDisjoint Specialization: An entity can belong to only one subclass at a time.\nOverlapping Specialization: An entity can belong to multiple subclasses simultaneously.\nTotal Specialization: Every entity in the superclass must belong to a subclass.\n\n\n \n\n\nSpecialization constraints are essential for accurately representing hierarchical relationships in ER models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#generalization-constraints",
+    "href": "er-models/advanced-concepts.html#generalization-constraints",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Generalization Constraints",
+    "text": "Generalization Constraints\nGeneralization constraints determine how entities from multiple classes are generalized into a single superclass. These constraints guide the abstraction process in ER modeling.\n\n\n\nGeneralization constraints ensure that entities from different classes can be effectively combined into a superclass.\nThey help in defining the criteria for merging entities into a single higher-level entity.\nDisjoint Generalization: Entities from different classes do not overlap in the superclass.\nOverlapping Generalization: Entities can belong to more than one subclass and thus be part of multiple generalizations.\nTotal Generalization: All entities from the subclasses are included in the superclass.\n\n\n \n\n\nGeneralization constraints are key to successfully abstracting and unifying entities in ER models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#aggregation-vs.-composition",
+    "href": "er-models/advanced-concepts.html#aggregation-vs.-composition",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Aggregation vs. Composition",
+    "text": "Aggregation vs. Composition\nAggregation and composition are often confused concepts, but they serve different purposes in ER modeling. Understanding their differences is crucial for accurately modeling relationships.\n\n\n\nAggregation represents a “has-a” relationship where entities are linked but can exist independently.\nComposition represents a “part-of” relationship where one entity’s existence is dependent on the other.\nAggregation is used when the “part” can exist separately from the “whole”.\nComposition is used when the “part” cannot exist without the “whole”.\nUnderstanding the context and dependency helps in choosing between aggregation and composition.\n\n\n \n\n\nDifferentiating between aggregation and composition helps in selecting the appropriate relationship type in ER models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#best-practices-for-advanced-er-modeling",
+    "href": "er-models/advanced-concepts.html#best-practices-for-advanced-er-modeling",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Best Practices for Advanced ER Modeling",
+    "text": "Best Practices for Advanced ER Modeling\nAdvanced ER modeling involves using concepts like specialization, generalization, and inheritance effectively. Adhering to best practices ensures that the models are both accurate and maintainable.\n\n\n\nClearly define when to use specialization and generalization to avoid confusion.\nUse inheritance only when there is a clear hierarchical relationship between entities.\nApply aggregation and composition judiciously to manage complexity.\nRegularly review and validate ER models to ensure they reflect real-world scenarios.\nDocument all advanced modeling decisions to maintain clarity and consistency.\n\n\n \n\n\nFollowing best practices in advanced ER modeling leads to more robust and maintainable database designs.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#common-pitfalls-in-advanced-er-modeling",
+    "href": "er-models/advanced-concepts.html#common-pitfalls-in-advanced-er-modeling",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Common Pitfalls in Advanced ER Modeling",
+    "text": "Common Pitfalls in Advanced ER Modeling\nEven experienced modelers can fall into common traps when dealing with advanced ER concepts. Being aware of these pitfalls helps to avoid costly mistakes.\n\n\n\nOverusing inheritance, leading to unnecessary complexity.\nConfusing aggregation with composition, resulting in incorrect modeling of relationships.\nFailing to enforce specialization constraints, leading to ambiguous models.\nIgnoring the importance of clear documentation for advanced concepts.\nNeglecting to validate models against real-world requirements.\n\n\n \n\n\nAvoiding common pitfalls in advanced ER modeling improves the accuracy and utility of the models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "er-models/advanced-concepts.html#real-world-applications-of-advanced-er-concepts",
+    "href": "er-models/advanced-concepts.html#real-world-applications-of-advanced-er-concepts",
+    "title": "Advanced ER Modeling Concepts",
+    "section": "Real-World Applications of Advanced ER Concepts",
+    "text": "Real-World Applications of Advanced ER Concepts\nAdvanced ER concepts are not just theoretical; they have practical applications in complex database systems. Understanding these applications can bridge the gap between theory and practice.\n\n\n\nLarge-scale enterprise databases often use specialization and generalization to manage diverse data.\nAggregation is used in complex systems like supply chain management to simplify relationships.\nComposition is common in systems where parts cannot function independently, such as inventory management.\nInheritance is leveraged in object-relational databases to map class hierarchies.\nReal-world case studies highlight the importance of these concepts in solving complex database challenges.\n\n\n \n\n\nUnderstanding real-world applications of advanced ER concepts enhances their practical utility in database design.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Advanced Concepts"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this guide",
+    "section": "",
+    "text": "ChatGPT was used to help curate content for this study guide. Below are examples of individual prompts and an overview of teh workflow.\nChatGPT version 4o was used.\nChatGPT output, copied using the copy button, is formatted as markdown. The markdown content from ChatGPT assembed into one or more QMD (quarto) files and rendered to produce this/these HTML files.\n\n\nHey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered.\n\n\n\nHey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of relational algebra. As a first step, please provide 9 high-level topics to be covered."
+  },
+  {
+    "objectID": "about.html#entity-relationship-models",
+    "href": "about.html#entity-relationship-models",
+    "title": "About this guide",
+    "section": "",
+    "text": "Hey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered."
+  },
+  {
+    "objectID": "about.html#relational-algebra",
+    "href": "about.html#relational-algebra",
+    "title": "About this guide",
+    "section": "",
+    "text": "Hey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of relational algebra. As a first step, please provide 9 high-level topics to be covered."
+  },
+  {
+    "objectID": "er-models/best-practices.html",
+    "href": "er-models/best-practices.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "ER modeling best practices involve creating a clear and concise representation of a database’s structure while capturing all necessary details. It includes simplifying the model to avoid unnecessary complexity, ensuring consistency in notation, and thoroughly documenting the model for future reference. Adhering to these practices results in a more robust, maintainable, and scalable database design.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#guidelines-for-effective-er-modeling",
+    "href": "er-models/best-practices.html#guidelines-for-effective-er-modeling",
+    "title": "Best Practices",
+    "section": "Guidelines for Effective ER Modeling",
+    "text": "Guidelines for Effective ER Modeling\nEffective ER modeling is essential for creating databases that are scalable, maintainable, and easy to understand. Following best practices can help avoid common design issues.\n\n\n\nStart with a clear understanding of the requirements before modeling.\nKeep the model as simple as possible while capturing all necessary details.\nUse standard symbols and notation to ensure consistency.\nAlways identify and document all entities and relationships.\nEnsure that all attributes have clearly defined domains and constraints.\n\n\n \n\n\nFollowing these guidelines ensures a strong foundation for database design.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#importance-of-documentation-in-er-modeling",
+    "href": "er-models/best-practices.html#importance-of-documentation-in-er-modeling",
+    "title": "Best Practices",
+    "section": "Importance of Documentation in ER Modeling",
+    "text": "Importance of Documentation in ER Modeling\nDocumenting the ER model is crucial for communication and future maintenance. Proper documentation helps ensure that the model is understood by all stakeholders.\n\n\n\nClearly label all entities, attributes, and relationships in the diagram.\nProvide detailed descriptions for complex relationships and constraints.\nInclude a glossary of terms used in the ER model.\nMaintain version control for the ER diagrams and related documentation.\nEnsure that all assumptions and decisions are documented.\n\n\n \n\n\nWell-documented ER models facilitate better understanding and collaboration.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#avoiding-redundancy-in-er-models",
+    "href": "er-models/best-practices.html#avoiding-redundancy-in-er-models",
+    "title": "Best Practices",
+    "section": "Avoiding Redundancy in ER Models",
+    "text": "Avoiding Redundancy in ER Models\nRedundancy in ER models can lead to data anomalies and increased maintenance effort. Identifying and eliminating redundancy is key to a robust database design.\n\n\n\nAvoid repeating the same data in multiple entities.\nUse relationships to connect related entities instead of duplicating data.\nNormalize the ER model to minimize redundancy.\nBe cautious of introducing redundancy when denormalizing for performance.\nReview the model regularly to identify potential areas of redundancy.\n\n\n \n\n\nReducing redundancy leads to a cleaner and more efficient database design.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#managing-complex-relationships",
+    "href": "er-models/best-practices.html#managing-complex-relationships",
+    "title": "Best Practices",
+    "section": "Managing Complex Relationships",
+    "text": "Managing Complex Relationships\nComplex relationships can make an ER model difficult to understand and implement. Properly managing these relationships ensures clarity and functionality.\n\n\n\nClearly define the roles of entities in complex relationships.\nUse associative entities to handle many-to-many relationships.\nDocument the participation and cardinality constraints.\nBreak down complex relationships into simpler components if necessary.\nEnsure that the model remains easy to understand despite complexity.\n\n\n \n\n\nHandling complex relationships effectively is crucial for a clear and functional ER model.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#handling-specialization-and-generalization",
+    "href": "er-models/best-practices.html#handling-specialization-and-generalization",
+    "title": "Best Practices",
+    "section": "Handling Specialization and Generalization",
+    "text": "Handling Specialization and Generalization\nSpecialization and generalization are advanced ER modeling concepts that allow for the creation of more flexible and reusable models. Proper use of these concepts is essential.\n\n\n\nUse specialization to model entities that are subtypes of a more general entity.\nGeneralization can help reduce redundancy by identifying common attributes.\nClearly document the inheritance hierarchy in the ER model.\nEnsure that specialized entities only inherit relevant attributes and relationships.\nAvoid unnecessary complexity by overusing specialization/generalization.\n\n\n \n\n\nSpecialization and generalization add flexibility but must be used judiciously.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#common-mistakes-to-avoid-in-er-modeling",
+    "href": "er-models/best-practices.html#common-mistakes-to-avoid-in-er-modeling",
+    "title": "Best Practices",
+    "section": "Common Mistakes to Avoid in ER Modeling",
+    "text": "Common Mistakes to Avoid in ER Modeling\nUnderstanding common mistakes in ER modeling can help avoid costly design errors. Awareness of these pitfalls ensures a more reliable and maintainable database design.\n\n\n\nFailing to capture all requirements before starting the ER model.\nOvercomplicating the model with unnecessary entities or relationships.\nIgnoring the need for proper documentation and version control.\nNot properly defining primary keys and unique constraints.\nOverlooking the importance of normalization in avoiding redundancy.\n\n\n \n\n\nAvoiding these common mistakes leads to a more effective and maintainable ER model.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#case-study-a-real-world-er-model",
+    "href": "er-models/best-practices.html#case-study-a-real-world-er-model",
+    "title": "Best Practices",
+    "section": "Case Study: A Real-World ER Model",
+    "text": "Case Study: A Real-World ER Model\nAnalyzing a real-world case study helps illustrate best practices and common pitfalls in ER modeling. Learning from practical examples solidifies understanding.\n\n\n\nReview the business requirements before starting the ER model.\nIdentify and define all entities, relationships, and attributes.\nConsider potential issues like redundancy and complex relationships.\nEnsure that the ER model is documented and reviewed regularly.\nReflect on what went well and what could be improved in the model.\n\n\n \n\n\nReal-world examples provide valuable insights into effective ER modeling.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#best-practices-for-er-diagram-notation",
+    "href": "er-models/best-practices.html#best-practices-for-er-diagram-notation",
+    "title": "Best Practices",
+    "section": "Best Practices for ER Diagram Notation",
+    "text": "Best Practices for ER Diagram Notation\nUsing consistent and clear notation in ER diagrams is crucial for effective communication. Adopting best practices ensures that your ER diagrams are understandable by all.\n\n\n\nStick to one notation style, such as Chen’s or Crow’s Foot.\nUse clear and distinct symbols for entities, relationships, and attributes.\nLabel all elements of the diagram for clarity.\nMaintain a consistent layout to enhance readability.\nAvoid clutter by keeping the diagram simple and focused.\n\n\n \n\n\nClear notation is essential for creating understandable and effective ER diagrams.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#effective-use-of-er-modeling-tools",
+    "href": "er-models/best-practices.html#effective-use-of-er-modeling-tools",
+    "title": "Best Practices",
+    "section": "Effective Use of ER Modeling Tools",
+    "text": "Effective Use of ER Modeling Tools\nER modeling tools can greatly enhance the design process, but they must be used effectively. Understanding their capabilities and limitations is key to successful modeling.\n\n\n\nChoose a tool that supports the notation style you plan to use.\nTake advantage of built-in validation features to check for errors.\nUse the tool’s documentation features to keep track of design decisions.\nRegularly back up your work to avoid data loss.\nEnsure that the tool integrates well with your overall design workflow.\n\n\n \n\n\nUsing ER modeling tools effectively can streamline the design process.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
+    ]
+  },
+  {
+    "objectID": "er-models/best-practices.html#summary-of-er-modeling-best-practices",
+    "href": "er-models/best-practices.html#summary-of-er-modeling-best-practices",
+    "title": "Best Practices",
+    "section": "Summary of ER Modeling Best Practices",
+    "text": "Summary of ER Modeling Best Practices\nFollowing best practices in ER modeling leads to more effective and maintainable database designs. Avoiding common pitfalls ensures that the final model is robust and scalable.\n\n\n\nStart with clear requirements and maintain documentation.\nSimplify the model while capturing all necessary details.\nAvoid redundancy and properly manage complex relationships.\nUse consistent notation and take advantage of ER modeling tools.\nRegularly review and refine the model to ensure it meets all needs.\n\n\n \n\n\nAdhering to best practices and avoiding common mistakes ensures a strong ER model.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Best Practices"
     ]
   },
   {
@@ -564,566 +959,291 @@
     ]
   },
   {
-    "objectID": "er-models/best-practices.html",
-    "href": "er-models/best-practices.html",
-    "title": "Best Practices",
+    "objectID": "er-models/intro-to-er-models.html",
+    "href": "er-models/intro-to-er-models.html",
+    "title": "Introduction to ER Models",
     "section": "",
-    "text": "ER modeling best practices involve creating a clear and concise representation of a database’s structure while capturing all necessary details. It includes simplifying the model to avoid unnecessary complexity, ensuring consistency in notation, and thoroughly documenting the model for future reference. Adhering to these practices results in a more robust, maintainable, and scalable database design.",
+    "text": "Entity-Relationship (ER) models are a method for designing and visualizing the structure of a database by identifying key entities, their attributes, and the relationships between them. These models use ER diagrams, where entities are represented as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. ER models serve as a blueprint for the database, ensuring that it accurately captures the complexities of real-world data and their interconnections. By clarifying the database’s structure, ER models help in reducing redundancy and improving the efficiency of database design and implementation.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#guidelines-for-effective-er-modeling",
-    "href": "er-models/best-practices.html#guidelines-for-effective-er-modeling",
-    "title": "Best Practices",
-    "section": "Guidelines for Effective ER Modeling",
-    "text": "Guidelines for Effective ER Modeling\nEffective ER modeling is essential for creating databases that are scalable, maintainable, and easy to understand. Following best practices can help avoid common design issues.\n\n\n\nStart with a clear understanding of the requirements before modeling.\nKeep the model as simple as possible while capturing all necessary details.\nUse standard symbols and notation to ensure consistency.\nAlways identify and document all entities and relationships.\nEnsure that all attributes have clearly defined domains and constraints.\n\n\n \n\n\nFollowing these guidelines ensures a strong foundation for database design.",
+    "objectID": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
+    "href": "er-models/intro-to-er-models.html#conceptual-logical-and-physical-data-models",
+    "title": "Introduction to ER Models",
+    "section": "Conceptual, Logical, and Physical Data Models",
+    "text": "Conceptual, Logical, and Physical Data Models\nData models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.\n\n\nConceptual Model: High-level, abstract model focusing on the entities and relationships. Conceptual models are often created during the initial database design phase.\nLogical Model: Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage. Logical models help in the creation of relational schemas.\nPhysical Model: Focuses on the actual implementation, including tables, columns, and data types. Physical models are usually coded in SQL and include commands for fine tuning, optimization, and storage strategies.\n\nDifferent types of data models address various stages of database design, from conceptualization to implementation.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#importance-of-documentation-in-er-modeling",
-    "href": "er-models/best-practices.html#importance-of-documentation-in-er-modeling",
-    "title": "Best Practices",
-    "section": "Importance of Documentation in ER Modeling",
-    "text": "Importance of Documentation in ER Modeling\nDocumenting the ER model is crucial for communication and future maintenance. Proper documentation helps ensure that the model is understood by all stakeholders.\n\n\n\nClearly label all entities, attributes, and relationships in the diagram.\nProvide detailed descriptions for complex relationships and constraints.\nInclude a glossary of terms used in the ER model.\nMaintain version control for the ER diagrams and related documentation.\nEnsure that all assumptions and decisions are documented.\n\n\n \n\n\nWell-documented ER models facilitate better understanding and collaboration.",
+    "objectID": "er-models/intro-to-er-models.html#importance-of-er-models-in-database-design",
+    "href": "er-models/intro-to-er-models.html#importance-of-er-models-in-database-design",
+    "title": "Introduction to ER Models",
+    "section": "Importance of ER Models in Database Design",
+    "text": "Importance of ER Models in Database Design\n\n\nEntity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.\n\nER models offer a visual representation of the database structure.\nThey help in identifying and organizing data requirements.\nER models reduce the complexity of database design.\nThey support the identification of entities, attributes, and relationships.\nER models guide the transition from conceptual design to logical design.\n\nUnderstanding ER models is crucial for effective database design and implementation.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#avoiding-redundancy-in-er-models",
-    "href": "er-models/best-practices.html#avoiding-redundancy-in-er-models",
-    "title": "Best Practices",
-    "section": "Avoiding Redundancy in ER Models",
-    "text": "Avoiding Redundancy in ER Models\nRedundancy in ER models can lead to data anomalies and increased maintenance effort. Identifying and eliminating redundancy is key to a robust database design.\n\n\n\nAvoid repeating the same data in multiple entities.\nUse relationships to connect related entities instead of duplicating data.\nNormalize the ER model to minimize redundancy.\nBe cautious of introducing redundancy when denormalizing for performance.\nReview the model regularly to identify potential areas of redundancy.\n\n\n \n\n\nReducing redundancy leads to a cleaner and more efficient database design.",
+    "objectID": "er-models/intro-to-er-models.html#components-of-entity-relationship-models",
+    "href": "er-models/intro-to-er-models.html#components-of-entity-relationship-models",
+    "title": "Introduction to ER Models",
+    "section": "Components of Entity-Relationship Models",
+    "text": "Components of Entity-Relationship Models\n\n\n\nEntities\n\nThese represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.\n\nAttributes\n\nAttributes are properties or characteristics that describe the entities. For example, if you’re modeling a Customer entity, attributes could include CustomerID, Name, Email, etc.\n\nRelationships\n\nRelationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#managing-complex-relationships",
-    "href": "er-models/best-practices.html#managing-complex-relationships",
-    "title": "Best Practices",
-    "section": "Managing Complex Relationships",
-    "text": "Managing Complex Relationships\nComplex relationships can make an ER model difficult to understand and implement. Properly managing these relationships ensures clarity and functionality.\n\n\n\nClearly define the roles of entities in complex relationships.\nUse associative entities to handle many-to-many relationships.\nDocument the participation and cardinality constraints.\nBreak down complex relationships into simpler components if necessary.\nEnsure that the model remains easy to understand despite complexity.\n\n\n \n\n\nHandling complex relationships effectively is crucial for a clear and functional ER model.",
+    "objectID": "er-models/intro-to-er-models.html#entities-in-er-models",
+    "href": "er-models/intro-to-er-models.html#entities-in-er-models",
+    "title": "Introduction to ER Models",
+    "section": "Entities in ER Models",
+    "text": "Entities in ER Models\n\n\nEntities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.\n\nEntities are things that can be distinctly identified.\nExamples of entities include people, products, events, and locations.\nEntities have attributes that provide details about them.\nEach entity type is represented by a set of instances in the database.\nEntity types are often mapped to tables in the relational model.\n\nEntities form the core of the database, representing key objects or concepts in the system.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#handling-specialization-and-generalization",
-    "href": "er-models/best-practices.html#handling-specialization-and-generalization",
-    "title": "Best Practices",
-    "section": "Handling Specialization and Generalization",
-    "text": "Handling Specialization and Generalization\nSpecialization and generalization are advanced ER modeling concepts that allow for the creation of more flexible and reusable models. Proper use of these concepts is essential.\n\n\n\nUse specialization to model entities that are subtypes of a more general entity.\nGeneralization can help reduce redundancy by identifying common attributes.\nClearly document the inheritance hierarchy in the ER model.\nEnsure that specialized entities only inherit relevant attributes and relationships.\nAvoid unnecessary complexity by overusing specialization/generalization.\n\n\n \n\n\nSpecialization and generalization add flexibility but must be used judiciously.",
+    "objectID": "er-models/intro-to-er-models.html#attributes-in-er-models",
+    "href": "er-models/intro-to-er-models.html#attributes-in-er-models",
+    "title": "Introduction to ER Models",
+    "section": "Attributes in ER Models",
+    "text": "Attributes in ER Models\n\n\nAttributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.\n\nAttributes provide specific details about entities, such as name, ID, or age.\nThey can be simple (indivisible), composite (consisting of multiple components), or derived (calculated from other attributes).\nEach attribute belongs to a specific domain, which defines the set of possible values.\nAttributes are represented as ovals connected to their respective entities or relationships in ER diagrams.\nProper attribute selection is crucial for accurate data representation.\n\nAttributes are key to defining the details and constraints of entities and relationships in the database.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#common-mistakes-to-avoid-in-er-modeling",
-    "href": "er-models/best-practices.html#common-mistakes-to-avoid-in-er-modeling",
-    "title": "Best Practices",
-    "section": "Common Mistakes to Avoid in ER Modeling",
-    "text": "Common Mistakes to Avoid in ER Modeling\nUnderstanding common mistakes in ER modeling can help avoid costly design errors. Awareness of these pitfalls ensures a more reliable and maintainable database design.\n\n\n\nFailing to capture all requirements before starting the ER model.\nOvercomplicating the model with unnecessary entities or relationships.\nIgnoring the need for proper documentation and version control.\nNot properly defining primary keys and unique constraints.\nOverlooking the importance of normalization in avoiding redundancy.\n\n\n \n\n\nAvoiding these common mistakes leads to a more effective and maintainable ER model.",
+    "objectID": "er-models/intro-to-er-models.html#relationships-in-er-models",
+    "href": "er-models/intro-to-er-models.html#relationships-in-er-models",
+    "title": "Introduction to ER Models",
+    "section": "Relationships in ER Models",
+    "text": "Relationships in ER Models\n\n\nRelationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.\n\nRelationships represent associations between two or more entities.\nThey can be categorized as one-to-one, one-to-many, or many-to-many.\nRelationships have attributes that describe the nature of the association.\nIn ER diagrams, relationships are depicted as diamonds connecting entities.\nProperly defining relationships helps in maintaining data integrity.\n\nRelationships ensure that the database reflects the interactions between different entities in the system.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#case-study-a-real-world-er-model",
-    "href": "er-models/best-practices.html#case-study-a-real-world-er-model",
-    "title": "Best Practices",
-    "section": "Case Study: A Real-World ER Model",
-    "text": "Case Study: A Real-World ER Model\nAnalyzing a real-world case study helps illustrate best practices and common pitfalls in ER modeling. Learning from practical examples solidifies understanding.\n\n\n\nReview the business requirements before starting the ER model.\nIdentify and define all entities, relationships, and attributes.\nConsider potential issues like redundancy and complex relationships.\nEnsure that the ER model is documented and reviewed regularly.\nReflect on what went well and what could be improved in the model.\n\n\n \n\n\nReal-world examples provide valuable insights into effective ER modeling.",
+    "objectID": "er-models/intro-to-er-models.html#cardinality-in-relationships",
+    "href": "er-models/intro-to-er-models.html#cardinality-in-relationships",
+    "title": "Introduction to ER Models",
+    "section": "Cardinality in Relationships",
+    "text": "Cardinality in Relationships\n\n\nCardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.\n\nCardinality types include one-to-one, one-to-many, and many-to-many.\nOne-to-one: Each instance of one entity relates to a single instance of another entity.\nOne-to-many: One entity instance relates to multiple instances of another entity.\nMany-to-many: Multiple instances of one entity relate to multiple instances of another entity.\nCardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.\n\nCardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#best-practices-for-er-diagram-notation",
-    "href": "er-models/best-practices.html#best-practices-for-er-diagram-notation",
-    "title": "Best Practices",
-    "section": "Best Practices for ER Diagram Notation",
-    "text": "Best Practices for ER Diagram Notation\nUsing consistent and clear notation in ER diagrams is crucial for effective communication. Adopting best practices ensures that your ER diagrams are understandable by all.\n\n\n\nStick to one notation style, such as Chen’s or Crow’s Foot.\nUse clear and distinct symbols for entities, relationships, and attributes.\nLabel all elements of the diagram for clarity.\nMaintain a consistent layout to enhance readability.\nAvoid clutter by keeping the diagram simple and focused.\n\n\n \n\n\nClear notation is essential for creating understandable and effective ER diagrams.",
+    "objectID": "er-models/intro-to-er-models.html#participation-in-relationships",
+    "href": "er-models/intro-to-er-models.html#participation-in-relationships",
+    "title": "Introduction to ER Models",
+    "section": "Participation in Relationships",
+    "text": "Participation in Relationships\n\n\nParticipation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.\n\nParticipation types include total participation and partial participation.\nTotal Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.\nPartial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.\nParticipation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).\n\nParticipation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#effective-use-of-er-modeling-tools",
-    "href": "er-models/best-practices.html#effective-use-of-er-modeling-tools",
-    "title": "Best Practices",
-    "section": "Effective Use of ER Modeling Tools",
-    "text": "Effective Use of ER Modeling Tools\nER modeling tools can greatly enhance the design process, but they must be used effectively. Understanding their capabilities and limitations is key to successful modeling.\n\n\n\nChoose a tool that supports the notation style you plan to use.\nTake advantage of built-in validation features to check for errors.\nUse the tool’s documentation features to keep track of design decisions.\nRegularly back up your work to avoid data loss.\nEnsure that the tool integrates well with your overall design workflow.\n\n\n \n\n\nUsing ER modeling tools effectively can streamline the design process.",
+    "objectID": "er-models/intro-to-er-models.html#er-diagram-notations",
+    "href": "er-models/intro-to-er-models.html#er-diagram-notations",
+    "title": "Introduction to ER Models",
+    "section": "ER Diagram Notations",
+    "text": "ER Diagram Notations\nER diagrams use specific notations to represent entities, relationships, and attributes. Understanding these notations is essential for creating and interpreting ER models effectively.\n\n\n\nChen’s Notation: Uses rectangles for entities, diamonds for relationships, and ovals for attributes.\nCrow’s Foot Notation: Represents relationships with lines and ‘crow’s feet’ to indicate cardinality.\nEntities are often depicted with their primary keys underlined.\nRelationships may include roles and participation constraints.\nNotations help in communicating the structure and details of the ER model.\n\n\n \n\n\nMastering ER diagram notations is key to effectively designing and interpreting database models.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "er-models/best-practices.html#summary-of-er-modeling-best-practices",
-    "href": "er-models/best-practices.html#summary-of-er-modeling-best-practices",
-    "title": "Best Practices",
-    "section": "Summary of ER Modeling Best Practices",
-    "text": "Summary of ER Modeling Best Practices\nFollowing best practices in ER modeling leads to more effective and maintainable database designs. Avoiding common pitfalls ensures that the final model is robust and scalable.\n\n\n\nStart with clear requirements and maintain documentation.\nSimplify the model while capturing all necessary details.\nAvoid redundancy and properly manage complex relationships.\nUse consistent notation and take advantage of ER modeling tools.\nRegularly review and refine the model to ensure it meets all needs.\n\n\n \n\n\nAdhering to best practices and avoiding common mistakes ensures a strong ER model.",
+    "objectID": "er-models/intro-to-er-models.html#chen-notation",
+    "href": "er-models/intro-to-er-models.html#chen-notation",
+    "title": "Introduction to ER Models",
+    "section": "Chen notation",
+    "text": "Chen notation\n\n\n\ngraph ER {\n    fontname=\"Helvetica,Arial,sans-serif\"\n    fontsize=8;  // Reduced font size for the entire graph\n    node [fontname=\"Helvetica,Arial,sans-serif\", fontsize=8, width=0.5, height=0.3, style=filled, fillcolor=white] // Default: smaller font size, reduced node size, shaded\n    edge [fontname=\"Helvetica,Arial,sans-serif\", fontsize=8] // Reduced font size for edges\n    layout=neato\n    nodesep=2.0;  // Increased separation between nodes on the same level\n    ranksep=1.5;  // Increased separation between nodes on different levels\n    size=\"6,6\";   // Specify desired size in inches\n    ratio=compress; // Allow Graphviz to compress the layout to fit the size\n    dpi=60;  // Set DPI for higher resolution output\n    center=false;\n    \n    node [shape=box,style=filled,color=black,fillcolor=lightblue]; course; student;\n\n    node [shape=ellipse,style=filled,color=black,fillcolor=white]; {node [label=\"name\"] name0; name2;}\n    id; grade;\n\n    // Define the \"S-C\" node with smaller size, white fill color, black border, and label \"has\"\n    node [shape=diamond, style=filled, color=black, fillcolor=white width=0.3, height=0.2, fontsize=6, label=\"has\"]; \n    \"S-C\"\n\n    { rank=same; course; student; } // Place course and student on the same rank\n\n    name0 -- course [len=0.7];  // Set edge length between name0 and course\n    id -- course [len=0.7];     // Set edge length between id and course\n    student -- grade [len=0.7]; // Set edge length between student and grade\n    student -- name2 [len=0.7]; // Set edge length between student and name2\n    student -- \"S-C\" [len=0.7]; // Set edge length between student and S-C\n    \"S-C\" -- course [len=0.7];  // Set edge length between S-C and course\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLink to graphviz on-line editor",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Best Practices"
+      "Intro to ER models*"
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About this guide",
+    "objectID": "er-models/intro-to-er-models.html#crows-foot-notation",
+    "href": "er-models/intro-to-er-models.html#crows-foot-notation",
+    "title": "Introduction to ER Models",
+    "section": "Crows Foot notation",
+    "text": "Crows Foot notation\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupants\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nerDiagram\nBUILDING ||--|{ ROOM : contains\n\nBUILDING{\n  string address\n  string city\n  string state\n}\n\nROOM {\n  string room_number\n  string occupant\n}\n\n\n\n\n\n\n\n\nLink to mermaid live",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Intro to ER models*"
+    ]
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#specialization-and-generalization-in-er-models",
+    "href": "er-models/intro-to-er-models.html#specialization-and-generalization-in-er-models",
+    "title": "Introduction to ER Models",
+    "section": "Specialization and Generalization in ER Models",
+    "text": "Specialization and Generalization in ER Models\nSpecialization and generalization are advanced ER modeling techniques used to represent inheritance and hierarchy among entities. These techniques enhance the expressiveness of ER models.\n\n\n\nSpecialization: Process of defining a set of subclasses from a superclass based on distinguishing attributes.\nGeneralization: The reverse process, where multiple subclasses are combined into a single superclass.\nBoth techniques help in modeling inheritance and shared characteristics.\nThese concepts are depicted in ER diagrams using triangle symbols.\nProper use of specialization and generalization can simplify complex ER models.\n\n\n \n\n\nSpecialization and generalization are powerful tools for managing complexity in ER models.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Intro to ER models*"
+    ]
+  },
+  {
+    "objectID": "er-models/intro-to-er-models.html#translating-er-models-to-relational-schema",
+    "href": "er-models/intro-to-er-models.html#translating-er-models-to-relational-schema",
+    "title": "Introduction to ER Models",
+    "section": "Translating ER Models to Relational Schema",
+    "text": "Translating ER Models to Relational Schema\nThe final step in ER modeling is translating the ER model into a relational schema. This process involves mapping entities, relationships, and attributes into tables, columns, and keys.\n\n\n\nEntities are typically mapped to tables, with attributes becoming columns.\nRelationships may result in foreign keys or separate join tables.\nPrimary keys ensure each table has a unique identifier for its rows.\nMapping complex relationships may require additional tables or constraints.\nThe translation process ensures that the conceptual design is accurately implemented in the database.\n\n\n \n\n\nTranslating ER models to relational schemas is essential for implementing the database design in a relational database system.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Intro to ER models*"
+    ]
+  },
+  {
+    "objectID": "er-models/overview-of-database-design.html",
+    "href": "er-models/overview-of-database-design.html",
+    "title": "Overview of Database Design",
     "section": "",
-    "text": "ChatGPT was used to help curate content for this study guide. Below are examples of individual prompts and an overview of teh workflow.\nChatGPT version 4o was used.\nChatGPT output, copied using the copy button, is formatted as markdown. The markdown content from ChatGPT assembed into one or more QMD (quarto) files and rendered to produce this/these HTML files.\n\n\nHey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered.\n\n\n\nHey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of relational algebra. As a first step, please provide 9 high-level topics to be covered."
+    "text": "Database design is a structured process that translates business requirements into a database system. It involves understanding the data needs and creating an appropriate data model to meet those needs.\n\n\nUsing graphvix, create a circular diagram with the following nodes: - understanding requirements - conceptual design - logical design - physical design - implementation - testing and validation - maintenance and optimization\n\n\nUnderstanding Requirements: Gathering and analyzing business requirements to define the purpose and scope of the database.\nConceptual Design: Creating high-level data models, such as ER diagrams, to visualize the structure and relationships of the data.\nLogical Design: Translating the conceptual model into a logical structure that defines tables, fields, and relationships without concern for physical implementation.\nPhysical Design: Deciding on the physical storage of the data, including indexing, partitioning, and optimization strategies for performance.\nImplementation: Actual creation of the database using SQL, setting up tables, constraints, and relationships as defined in the logical and physical design stages.\nTesting and Validation: Ensuring the database meets the requirements through testing, validation, and adjustments as necessary.\nMaintenance and Optimization: Ongoing tuning and maintenance to ensure the database performs efficiently and scales with business needs.\n\nDatabase design is a multi-step process that ensures a robust, scalable, and efficient database system.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Database Design*"
+    ]
   },
   {
-    "objectID": "about.html#entity-relationship-models",
-    "href": "about.html#entity-relationship-models",
-    "title": "About this guide",
+    "objectID": "er-models/overview-of-database-design.html#overview-of-database-design",
+    "href": "er-models/overview-of-database-design.html#overview-of-database-design",
+    "title": "Overview of Database Design",
     "section": "",
-    "text": "Hey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of entity-relationship models. As a first step, please provide 9 high-level topics to be covered."
-  },
-  {
-    "objectID": "about.html#relational-algebra",
-    "href": "about.html#relational-algebra",
-    "title": "About this guide",
-    "section": "",
-    "text": "Hey Chatgpt. I’d you to play the role of a professor teaching an undergraduate computer science course covering databases. The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.\nI need your assistance developing materials for 9 20-min long lectures covering the topic of relational algebra. As a first step, please provide 9 high-level topics to be covered."
-  },
-  {
-    "objectID": "er-models/advanced-concepts.html",
-    "href": "er-models/advanced-concepts.html",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "",
-    "text": "Advanced ER Modeling Concepts involve specialized techniques for creating more nuanced and structured entity-relationship models. These concepts include specialization and generalization, which define hierarchical relationships between entities, and aggregation and composition, which model complex relationships and dependencies. Understanding and applying these concepts helps in designing accurate, organized, and maintainable databases.",
+    "text": "Database design is a structured process that translates business requirements into a database system. It involves understanding the data needs and creating an appropriate data model to meet those needs.\n\n\nUsing graphvix, create a circular diagram with the following nodes: - understanding requirements - conceptual design - logical design - physical design - implementation - testing and validation - maintenance and optimization\n\n\nUnderstanding Requirements: Gathering and analyzing business requirements to define the purpose and scope of the database.\nConceptual Design: Creating high-level data models, such as ER diagrams, to visualize the structure and relationships of the data.\nLogical Design: Translating the conceptual model into a logical structure that defines tables, fields, and relationships without concern for physical implementation.\nPhysical Design: Deciding on the physical storage of the data, including indexing, partitioning, and optimization strategies for performance.\nImplementation: Actual creation of the database using SQL, setting up tables, constraints, and relationships as defined in the logical and physical design stages.\nTesting and Validation: Ensuring the database meets the requirements through testing, validation, and adjustments as necessary.\nMaintenance and Optimization: Ongoing tuning and maintenance to ensure the database performs efficiently and scales with business needs.\n\nDatabase design is a multi-step process that ensures a robust, scalable, and efficient database system.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#specialization-and-generalization",
-    "href": "er-models/advanced-concepts.html#specialization-and-generalization",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Specialization and Generalization",
-    "text": "Specialization and Generalization\nSpecialization and generalization are two important concepts in ER modeling that help to define hierarchical relationships between entities. These concepts allow for the modeling of shared and unique attributes across different entities.\n\n\n\nSpecialization is the process of defining a set of subclasses from a superclass, where each subclass inherits attributes of the superclass.\nGeneralization is the reverse process, where multiple entities are combined into a higher-level superclass.\nSpecialization allows for the distinction of unique attributes or relationships specific to a subclass.\nGeneralization groups entities that share common attributes or relationships.\nThese concepts help in structuring data efficiently, reducing redundancy, and enhancing clarity.\n\n\n \n\n\nSpecialization and generalization are powerful tools for creating more organized and understandable ER models.",
+    "objectID": "er-models/overview-of-database-design.html#understanding-requirements",
+    "href": "er-models/overview-of-database-design.html#understanding-requirements",
+    "title": "Overview of Database Design",
+    "section": "Understanding Requirements",
+    "text": "Understanding Requirements\nThe first step in database design is understanding the data needs and requirements. This phase ensures that the database aligns with business goals and user needs.\n\n\nBusiness Requirements: Identifying what the business needs from the database, including what data to store and how it will be used.\nUser Requirements: Understanding who will use the database and their specific needs.\nData Requirements: Determining what data is necessary to fulfill the business and user requirements.\nFunctional Requirements: Identifying operations that the database must support, such as queries, updates, and reporting.\nNon-functional Requirements: Considering performance, security, and scalability needs.\nScope Definition: Clearly defining the boundaries of what the database will and will not cover.\n\nUnderstanding requirements is crucial for aligning the database with business objectives and user needs.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#aggregation-in-er-models",
-    "href": "er-models/advanced-concepts.html#aggregation-in-er-models",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Aggregation in ER Models",
-    "text": "Aggregation in ER Models\nAggregation is a modeling concept used to represent a relationship as an entity. This concept is useful when dealing with complex relationships that involve multiple entities and relationships.\n\n\n\nAggregation is a higher-level abstraction that treats a relationship between entities as a single entity.\nThis is particularly useful for modeling complex scenarios where a relationship itself has attributes or participates in other relationships.\nAggregation allows for the simplification of ER diagrams by encapsulating multiple related entities and relationships.\nIt helps in avoiding unnecessary complexity in the ER model.\nAggregated entities can interact with other entities or relationships as a single unit.\n\n\n \n\n\nAggregation helps to encapsulate complexity in ER models, making them more manageable.",
+    "objectID": "er-models/overview-of-database-design.html#conceptual-design",
+    "href": "er-models/overview-of-database-design.html#conceptual-design",
+    "title": "Overview of Database Design",
+    "section": "Conceptual Design",
+    "text": "Conceptual Design\nConceptual design involves creating a high-level representation of the database structure. It uses ER models to capture and communicate the essential data and relationships.\n\n\nER Modeling: Creating Entity-Relationship (ER) diagrams to represent entities, attributes, and relationships.\nIdentifying Entities: Defining major objects in the business domain (e.g., customer, order, product).\nDefining Relationships: Establishing how entities are related to each other (e.g., a customer places an order).\nAttributes Identification: Listing key attributes for each entity to capture necessary details.\nConceptual Schema: Developing a schema that visually represents the data model.\nValidation: Reviewing the conceptual model with stakeholders to ensure accuracy.\n\nConceptual design provides a visual representation of the database structure, making it easier to understand and communicate.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#composition-in-er-models",
-    "href": "er-models/advanced-concepts.html#composition-in-er-models",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Composition in ER Models",
-    "text": "Composition in ER Models\nComposition is a stronger form of aggregation where the existence of one entity is dependent on another. It emphasizes the “whole-part” relationship between entities.\n\n\n\nComposition is a specific type of aggregation that denotes a strong ownership and dependency relationship between entities.\nIn composition, the “part” entity cannot exist independently of the “whole” entity.\nThis concept is used to model entities that are inherently dependent on another entity.\nComposition is often used to represent physical containment relationships, such as a library and its books.\nIt is depicted in ER diagrams with a filled diamond to indicate the dependent relationship.\n\n\n \n\n\nComposition clarifies the dependency relationships in ER models, reinforcing the connection between entities.",
+    "objectID": "er-models/overview-of-database-design.html#logical-design",
+    "href": "er-models/overview-of-database-design.html#logical-design",
+    "title": "Overview of Database Design",
+    "section": "Logical Design",
+    "text": "Logical Design\nLogical design translates the conceptual model into a logical structure, focusing on how the data is organized without regard to physical storage.\n\n\nRelational Model: Converting ER diagrams into relational tables.\nNormalization: Applying normalization techniques to reduce data redundancy and improve integrity.\nDefining Tables and Columns: Specifying tables, columns, and data types based on entities and attributes.\nPrimary and Foreign Keys: Establishing primary keys for unique identification and foreign keys for relationships.\nConstraints: Defining rules for data validation (e.g., NOT NULL, UNIQUE).\nLogical Schema: Creating a detailed schema that outlines the logical structure of the database.\n\nLogical design focuses on the structure of the data, ensuring integrity and consistency within the database.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#understanding-inheritance-in-er-models",
-    "href": "er-models/advanced-concepts.html#understanding-inheritance-in-er-models",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Understanding Inheritance in ER Models",
-    "text": "Understanding Inheritance in ER Models\nInheritance allows entities to inherit attributes and relationships from other entities, enabling the reuse of common data and relationships. This concept helps in creating a more structured and maintainable ER model.\n\n\n\nInheritance is a mechanism where a subclass inherits attributes and relationships from its superclass.\nThis concept allows for the reuse of common attributes and relationships, reducing redundancy.\nSubclasses can also define additional attributes or override inherited ones.\nInheritance is depicted in ER diagrams using a hierarchy, with arrows pointing from the subclass to the superclass.\nIt helps in organizing entities into more manageable hierarchies based on shared characteristics.\n\n\n \n\n\nInheritance promotes reusability and organization within ER models by leveraging commonalities across entities.",
+    "objectID": "er-models/overview-of-database-design.html#physical-design",
+    "href": "er-models/overview-of-database-design.html#physical-design",
+    "title": "Overview of Database Design",
+    "section": "Physical Design",
+    "text": "Physical Design\nPhysical design involves the actual implementation details for storing and retrieving data efficiently. It focuses on performance optimization and storage management.\n\n\nStorage Management: Deciding how and where to store data physically on the storage medium.\nIndexing: Creating indexes to speed up data retrieval operations.\nPartitioning: Dividing large tables into smaller, manageable pieces to improve performance.\nData Compression: Using techniques to reduce storage space and improve efficiency.\nHardware Considerations: Selecting appropriate hardware resources (e.g., SSDs, memory) for optimal performance.\nBackup and Recovery: Planning for data protection and recovery in case of failures.\n\nPhysical design ensures efficient data storage and retrieval, optimizing the database for performance and reliability.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#specialization-constraints",
-    "href": "er-models/advanced-concepts.html#specialization-constraints",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Specialization Constraints",
-    "text": "Specialization Constraints\nSpecialization constraints define how entities in a superclass can participate in subclasses. These constraints ensure that the model accurately reflects the real-world scenario being modeled.\n\n\n\nDisjointness Constraint specifies whether an entity can be a member of more than one subclass.\nCompleteness Constraint indicates whether all possible subclasses are accounted for in the specialization.\nDisjoint Specialization: An entity can belong to only one subclass at a time.\nOverlapping Specialization: An entity can belong to multiple subclasses simultaneously.\nTotal Specialization: Every entity in the superclass must belong to a subclass.\n\n\n \n\n\nSpecialization constraints are essential for accurately representing hierarchical relationships in ER models.",
+    "objectID": "er-models/overview-of-database-design.html#implementation",
+    "href": "er-models/overview-of-database-design.html#implementation",
+    "title": "Overview of Database Design",
+    "section": "Implementation",
+    "text": "Implementation\nImplementation is the process of building the database using SQL and other database management tools. It involves setting up the schema, populating data, and configuring the environment.\n\n\nSchema Creation: Defining tables, columns, and relationships using SQL.\nData Population: Loading initial data into the database.\nDatabase Configuration: Setting up configuration parameters (e.g., memory allocation, cache size).\nUser Accounts and Permissions: Creating user accounts and assigning appropriate permissions.\nTrigger and Stored Procedures: Implementing business logic at the database level.\nTesting Environment: Setting up a testing environment to validate the database implementation.\n\nImplementation turns the design into a working database system, ready for use and further testing.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#generalization-constraints",
-    "href": "er-models/advanced-concepts.html#generalization-constraints",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Generalization Constraints",
-    "text": "Generalization Constraints\nGeneralization constraints determine how entities from multiple classes are generalized into a single superclass. These constraints guide the abstraction process in ER modeling.\n\n\n\nGeneralization constraints ensure that entities from different classes can be effectively combined into a superclass.\nThey help in defining the criteria for merging entities into a single higher-level entity.\nDisjoint Generalization: Entities from different classes do not overlap in the superclass.\nOverlapping Generalization: Entities can belong to more than one subclass and thus be part of multiple generalizations.\nTotal Generalization: All entities from the subclasses are included in the superclass.\n\n\n \n\n\nGeneralization constraints are key to successfully abstracting and unifying entities in ER models.",
+    "objectID": "er-models/overview-of-database-design.html#testing-and-validation",
+    "href": "er-models/overview-of-database-design.html#testing-and-validation",
+    "title": "Overview of Database Design",
+    "section": "Testing and Validation",
+    "text": "Testing and Validation\nTesting and validation ensure that the database meets the requirements and functions correctly. This phase includes performance testing, security testing, and data validation.\n\n\nUnit Testing: Checking individual components (e.g., tables, queries) for correctness.\nIntegration Testing: Ensuring different parts of the database work together as expected.\nPerformance Testing: Measuring response time, throughput, and scalability.\nSecurity Testing: Verifying that the database is protected against unauthorized access and vulnerabilities.\nData Validation: Ensuring data integrity and accuracy by validating inputs and outputs.\nFeedback and Iteration: Gathering feedback and making necessary adjustments to the design or implementation.\n\nTesting and validation are crucial steps to ensure the database system is reliable, secure, and meets user expectations.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#aggregation-vs.-composition",
-    "href": "er-models/advanced-concepts.html#aggregation-vs.-composition",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Aggregation vs. Composition",
-    "text": "Aggregation vs. Composition\nAggregation and composition are often confused concepts, but they serve different purposes in ER modeling. Understanding their differences is crucial for accurately modeling relationships.\n\n\n\nAggregation represents a “has-a” relationship where entities are linked but can exist independently.\nComposition represents a “part-of” relationship where one entity’s existence is dependent on the other.\nAggregation is used when the “part” can exist separately from the “whole”.\nComposition is used when the “part” cannot exist without the “whole”.\nUnderstanding the context and dependency helps in choosing between aggregation and composition.\n\n\n \n\n\nDifferentiating between aggregation and composition helps in selecting the appropriate relationship type in ER models.",
+    "objectID": "er-models/overview-of-database-design.html#maintenance-and-optimization",
+    "href": "er-models/overview-of-database-design.html#maintenance-and-optimization",
+    "title": "Overview of Database Design",
+    "section": "Maintenance and Optimization",
+    "text": "Maintenance and Optimization\nOnce the database is in production, ongoing maintenance and optimization are required to ensure continuous performance and scalability.\n\n\nPerformance Tuning: Regularly reviewing and optimizing queries, indexing, and storage strategies.\nMonitoring: Using monitoring tools to track database performance and detect issues.\nBackup and Recovery: Implementing regular backups and testing recovery procedures.\nSecurity Updates: Applying security patches and updates to protect against vulnerabilities.\nData Archiving: Implementing strategies to archive old or unused data to free up space and improve performance.\nScalability: Planning and implementing changes to handle growing amounts of data and users.\n\nMaintenance and optimization ensure the database remains efficient, secure, and capable of handling future growth.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
+      "Database Design*"
     ]
   },
   {
-    "objectID": "er-models/advanced-concepts.html#best-practices-for-advanced-er-modeling",
-    "href": "er-models/advanced-concepts.html#best-practices-for-advanced-er-modeling",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Best Practices for Advanced ER Modeling",
-    "text": "Best Practices for Advanced ER Modeling\nAdvanced ER modeling involves using concepts like specialization, generalization, and inheritance effectively. Adhering to best practices ensures that the models are both accurate and maintainable.\n\n\n\nClearly define when to use specialization and generalization to avoid confusion.\nUse inheritance only when there is a clear hierarchical relationship between entities.\nApply aggregation and composition judiciously to manage complexity.\nRegularly review and validate ER models to ensure they reflect real-world scenarios.\nDocument all advanced modeling decisions to maintain clarity and consistency.\n\n\n \n\n\nFollowing best practices in advanced ER modeling leads to more robust and maintainable database designs.",
+    "objectID": "er-models/overview-of-database-design.html#summary-of-the-database-design-process",
+    "href": "er-models/overview-of-database-design.html#summary-of-the-database-design-process",
+    "title": "Overview of Database Design",
+    "section": "Summary of the Database Design Process",
+    "text": "Summary of the Database Design Process\nThe database design process is iterative and involves several stages, each with specific goals and outputs. A well-designed database meets business needs, ensures data integrity, and supports scalability and performance.\n\n\nIterative Process: Design, implementation, testing, and maintenance are ongoing and iterative.\nAlignment with Business Goals: The design should align with and support business objectives.\nFocus on Data Integrity: Ensuring accuracy, consistency, and reliability of data is paramount.\nPerformance Optimization: Design choices should consider efficiency and speed of data retrieval.\nScalability and Flexibility: A good design allows for future growth and changes.\nSecurity and Compliance: Protecting data from unauthorized access and ensuring compliance with regulations.\n\nEffective database design is critical for creating systems that are reliable, scalable, and secure.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Advanced Concepts"
-    ]
-  },
-  {
-    "objectID": "er-models/advanced-concepts.html#common-pitfalls-in-advanced-er-modeling",
-    "href": "er-models/advanced-concepts.html#common-pitfalls-in-advanced-er-modeling",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Common Pitfalls in Advanced ER Modeling",
-    "text": "Common Pitfalls in Advanced ER Modeling\nEven experienced modelers can fall into common traps when dealing with advanced ER concepts. Being aware of these pitfalls helps to avoid costly mistakes.\n\n\n\nOverusing inheritance, leading to unnecessary complexity.\nConfusing aggregation with composition, resulting in incorrect modeling of relationships.\nFailing to enforce specialization constraints, leading to ambiguous models.\nIgnoring the importance of clear documentation for advanced concepts.\nNeglecting to validate models against real-world requirements.\n\n\n \n\n\nAvoiding common pitfalls in advanced ER modeling improves the accuracy and utility of the models.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Advanced Concepts"
-    ]
-  },
-  {
-    "objectID": "er-models/advanced-concepts.html#real-world-applications-of-advanced-er-concepts",
-    "href": "er-models/advanced-concepts.html#real-world-applications-of-advanced-er-concepts",
-    "title": "Advanced ER Modeling Concepts",
-    "section": "Real-World Applications of Advanced ER Concepts",
-    "text": "Real-World Applications of Advanced ER Concepts\nAdvanced ER concepts are not just theoretical; they have practical applications in complex database systems. Understanding these applications can bridge the gap between theory and practice.\n\n\n\nLarge-scale enterprise databases often use specialization and generalization to manage diverse data.\nAggregation is used in complex systems like supply chain management to simplify relationships.\nComposition is common in systems where parts cannot function independently, such as inventory management.\nInheritance is leveraged in object-relational databases to map class hierarchies.\nReal-world case studies highlight the importance of these concepts in solving complex database challenges.\n\n\n \n\n\nUnderstanding real-world applications of advanced ER concepts enhances their practical utility in database design.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Advanced Concepts"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html",
-    "href": "er-models/entities-and-attributes.html",
-    "title": "Entities and Attributes",
-    "section": "",
-    "text": "Entities and attributes are fundamental components in database design. Entities represent distinct real-world objects or concepts, while attributes describe their specific characteristics or properties. Together, they form the core structure of a database, enabling the organization and categorization of data.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#definition-of-entities",
-    "href": "er-models/entities-and-attributes.html#definition-of-entities",
-    "title": "Entities and Attributes",
-    "section": "Definition of Entities",
-    "text": "Definition of Entities\nEntities are the fundamental building blocks in a database, representing real-world objects or concepts. Understanding entities helps in structuring the database effectively.\n\n\n\nEntities are distinct objects or concepts in the real world.\nExamples include a student, a course, a product, or an employee.\nEntities are typically nouns that represent something we need to store information about.\nEach entity has an independent existence and can be uniquely identified.\nEntities form the core elements around which the database is designed.\n\n\n \n\n\nEntities are essential for organizing information in a structured database.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#examples-of-entities",
-    "href": "er-models/entities-and-attributes.html#examples-of-entities",
-    "title": "Entities and Attributes",
-    "section": "Examples of Entities",
-    "text": "Examples of Entities\nEntities can vary widely depending on the context of the database. Recognizing and defining entities correctly is crucial in the initial stages of database design.\n\n\n\nIn a university database, entities might include Students, Professors, and Courses.\nIn an e-commerce database, entities could include Customers, Orders, and Products.\nIn a hospital database, entities might include Patients, Doctors, and Appointments.\nEach entity is an object about which data is stored.\nIdentifying key entities helps in setting up the database schema.\n\n\n \n\n\nEntities vary depending on the domain of the database.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#understanding-attributes",
-    "href": "er-models/entities-and-attributes.html#understanding-attributes",
-    "title": "Entities and Attributes",
-    "section": "Understanding Attributes",
-    "text": "Understanding Attributes\nAttributes are the specific details or characteristics that define or describe an entity. Proper identification of attributes is vital for accurate data representation.\n\n\n\nAttributes are properties or characteristics of an entity.\nFor a Student entity, attributes might include Name, ID, and Date of Birth.\nEach attribute describes a particular aspect of the entity.\nAttributes are often analogous to columns in a table in a relational database.\nCorrectly identifying attributes is crucial for data integrity and accuracy.\n\n\n \n\n\nAttributes provide specific details that describe entities in the database.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#simple-attributes",
-    "href": "er-models/entities-and-attributes.html#simple-attributes",
-    "title": "Entities and Attributes",
-    "section": "Simple Attributes",
-    "text": "Simple Attributes\nSimple attributes are atomic and cannot be divided further. They represent the most basic level of detail for an entity in a database.\n\n\n\nSimple attributes are indivisible and represent a single value.\nExamples include a person’s Name, ID, or Birthdate.\nThese attributes are directly associated with an entity.\nSimple attributes provide clear and concise information.\nThey are easy to manage and query in a database.\n\n\n \n\n\nSimple attributes are the basic, indivisible characteristics of an entity.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#composite-attributes",
-    "href": "er-models/entities-and-attributes.html#composite-attributes",
-    "title": "Entities and Attributes",
-    "section": "Composite Attributes",
-    "text": "Composite Attributes\nComposite attributes consist of multiple components that can be subdivided into smaller parts. They provide a way to structure more complex information about an entity.\n\n\n\nComposite attributes are made up of multiple simple attributes.\nAn example is an Address, which may include Street, City, State, and Zip Code.\nEach component of a composite attribute can be used independently.\nComposite attributes allow for more detailed data representation.\nThey help to structure complex information in an organized way.\n\n\n \n\n\nComposite attributes allow detailed structuring of related information about an entity.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#derived-attributes",
-    "href": "er-models/entities-and-attributes.html#derived-attributes",
-    "title": "Entities and Attributes",
-    "section": "Derived Attributes",
-    "text": "Derived Attributes\nDerived attributes are not stored directly in the database but are calculated or inferred from other stored attributes. These attributes help in optimizing storage and processing.\n\n\n\nDerived attributes are computed from other attributes.\nAn example is calculating Age from Date of Birth.\nThese attributes are not stored directly in the database.\nDerived attributes can simplify queries and reduce storage needs.\nThey are used when real-time calculation is required for certain values.\n\n\n \n\n\nDerived attributes optimize storage and provide computed information as needed.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#attribute-domains",
-    "href": "er-models/entities-and-attributes.html#attribute-domains",
-    "title": "Entities and Attributes",
-    "section": "Attribute Domains",
-    "text": "Attribute Domains\nAttribute domains define the possible values that an attribute can take. They set the rules and constraints for the data associated with each attribute.\n\n\n\nAn attribute domain is the set of valid values for an attribute.\nExamples include numerical ranges, specific sets of values, or data types.\nDomains help ensure data integrity and consistency.\nThey act as constraints that restrict the possible values for an attribute.\nProperly defined domains prevent invalid data entry and maintain data quality.\n\n\n \n\n\nAttribute domains enforce rules on data, ensuring consistency and integrity.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#attribute-constraints",
-    "href": "er-models/entities-and-attributes.html#attribute-constraints",
-    "title": "Entities and Attributes",
-    "section": "Attribute Constraints",
-    "text": "Attribute Constraints\nConstraints on attributes define the rules and limitations for data entry and manipulation. These ensure that the data remains valid and meaningful.\n\n\n\nConstraints restrict the type, format, or value of an attribute.\nExamples include NOT NULL constraints, unique constraints, and value ranges.\nConstraints help enforce data accuracy and reliability.\nThey ensure that data adheres to specific business rules or logic.\nConstraints can be applied at the database schema level to automate validation.\n\n\n \n\n\nAttribute constraints are essential for maintaining high-quality, reliable data.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#attributes-and-their-role-in-database-design",
-    "href": "er-models/entities-and-attributes.html#attributes-and-their-role-in-database-design",
-    "title": "Entities and Attributes",
-    "section": "Attributes and Their Role in Database Design",
-    "text": "Attributes and Their Role in Database Design\nAttributes play a critical role in database design, defining the specific data that will be stored about each entity. Properly identifying and structuring attributes is essential.\n\n\n\nAttributes define the details of each entity in the database.\nThey determine what data will be captured and how it will be stored.\nProperly identifying attributes is crucial for accurate data representation.\nAttributes help in organizing and categorizing data within the database.\nWell-structured attributes contribute to an efficient and scalable database design.\n\n\n \n\n\nAttributes are central to defining the data structure and ensuring the database meets its intended purpose.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/entities-and-attributes.html#summary-of-entities-and-attributes",
-    "href": "er-models/entities-and-attributes.html#summary-of-entities-and-attributes",
-    "title": "Entities and Attributes",
-    "section": "Summary of Entities and Attributes",
-    "text": "Summary of Entities and Attributes\nEntities and attributes are foundational concepts in database design. Understanding these components allows for the creation of well-structured and efficient databases.\n\n\n\nEntities represent the real-world objects or concepts in a database.\nAttributes describe the characteristics of these entities.\nSimple, composite, and derived attributes offer different levels of detail.\nAttribute domains and constraints ensure data integrity.\nTogether, entities and attributes form the core structure of a database.\n\n\n \n\n\nMastering entities and attributes is key to effective database design.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Entities and Attributes"
-    ]
-  },
-  {
-    "objectID": "er-models/index.html",
-    "href": "er-models/index.html",
-    "title": "Overview of Entity relationship models",
-    "section": "",
-    "text": "Entity-Relationship (ER) modeling is a conceptual framework used to represent the data structure of a database system. It involves identifying entities (objects or concepts), attributes (properties of entities), and relationships (associations between entities) within the system. ER models are typically depicted using ER diagrams, which visually represent entities as rectangles, attributes as ovals, and relationships as diamonds, connected by lines. These models are foundational in database design, helping to ensure that the database accurately reflects the real-world scenarios it is intended to represent."
-  },
-  {
-    "objectID": "er-models/index.html#topics-in-this-unit",
-    "href": "er-models/index.html#topics-in-this-unit",
-    "title": "Overview of Entity relationship models",
-    "section": "Topics in this unit",
-    "text": "Topics in this unit\n\nIntroduction to Entity-Relationship Models\n\nDefinition and importance of ER models in database design.\nOverview of components: entities, relationships, and attributes.\nDifferences between conceptual, logical, and physical data models.\n\nEntities and Attributes\n\nDefinition and examples of entities.\nUnderstanding attributes and their types (simple, composite, derived).\nAttribute domains and constraints.\n\nRelationships and Cardinality\n\nDefinition and examples of relationships.\nTypes of relationships: one-to-one, one-to-many, many-to-many.\nUnderstanding and depicting cardinality and participation constraints.\n\nKeys and Identifiers\n\nImportance of keys in database design.\nPrimary keys, candidate keys, and composite keys.\nSurrogate keys vs. natural keys.\n\nER Diagrams: Symbols and Notation\n\nStandard symbols and notations used in ER diagrams.\nDifferences between Chen’s notation and Crow’s Foot notation.\nPractice creating ER diagrams using different notations.\n\nWeak Entities and Strong Entities\n\nDefinition and examples of weak entities.\nIdentifying weak entities and their relationships to strong entities.\nUse of partial keys and identifying relationships.\n\nAdvanced ER Modeling Concepts\n\nSpecialization and generalization.\nAggregation and composition.\nUnderstanding inheritance in ER models.\n\nER Modeling Best Practices and Common Pitfalls\n\nGuidelines for effective ER modeling.\nCommon mistakes to avoid in ER modeling.\nCase studies and real-world examples.\n\nTranslating ER Models to Relational Schema\n\nConverting ER diagrams to relational schemas.\nMapping entities, relationships, and attributes.\nHandling complex relationships and constraints in the relational model."
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html",
-    "href": "er-models/keys-and-identifiers.html",
-    "title": "Keys and Identifiers",
-    "section": "",
-    "text": "Keys and identifiers are crucial in database design as they uniquely distinguish each record in a table, ensuring data integrity and facilitating relationships between tables. Primary keys, candidate keys, and composite keys serve different roles in maintaining uniqueness, while surrogate and natural keys offer options depending on the data characteristics and system requirements. Proper selection and use of keys are essential for efficient query performance and preventing data duplication.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#importance-of-keys-in-database-design",
-    "href": "er-models/keys-and-identifiers.html#importance-of-keys-in-database-design",
-    "title": "Keys and Identifiers",
-    "section": "Importance of Keys in Database Design",
-    "text": "Importance of Keys in Database Design\nKeys are essential in database design as they ensure the uniqueness of records and help establish relationships between tables. Understanding different types of keys is fundamental for maintaining data integrity.\n\n\n\nKeys are attributes or sets of attributes that uniquely identify a record in a table.\nWithout keys, there would be no way to distinguish between two identical records.\nKeys play a crucial role in indexing, which speeds up query performance.\nThey help maintain data integrity by enforcing uniqueness.\nProper use of keys prevents data duplication and ensures accurate retrieval.\n\n\n \n\n\nKeys are the cornerstone of data integrity and efficient query performance in databases.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#primary-keys-the-foundation-of-uniqueness",
-    "href": "er-models/keys-and-identifiers.html#primary-keys-the-foundation-of-uniqueness",
-    "title": "Keys and Identifiers",
-    "section": "Primary Keys: The Foundation of Uniqueness",
-    "text": "Primary Keys: The Foundation of Uniqueness\nA primary key is a unique identifier for each record in a table. It is crucial for ensuring that no two records can have the same primary key value.\n\n\n\nA primary key is a column or a set of columns that uniquely identifies each row in a table.\nNo two rows in a table can have the same primary key value.\nPrimary keys cannot contain NULL values.\nThey are automatically indexed to improve query performance.\nIn relational databases, primary keys are the basis for establishing relationships between tables.\n\n\n \n\n\nPrimary keys ensure the uniqueness and integrity of data in a database table.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#candidate-keys-potential-primary-keys",
-    "href": "er-models/keys-and-identifiers.html#candidate-keys-potential-primary-keys",
-    "title": "Keys and Identifiers",
-    "section": "Candidate Keys: Potential Primary Keys",
-    "text": "Candidate Keys: Potential Primary Keys\nCandidate keys are those that could potentially serve as a primary key. Understanding candidate keys is important for choosing the most appropriate primary key.\n\n\n\nA candidate key is any column or combination of columns that can uniquely identify a row in a table.\nEvery table can have multiple candidate keys.\nOut of all candidate keys, one is chosen as the primary key.\nCandidate keys must be unique and not contain NULL values.\nThey serve as alternative unique identifiers for records.\n\n\n \n\n\nCandidate keys offer flexibility in choosing the most suitable primary key for a table.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#composite-keys-combining-multiple-attributes",
-    "href": "er-models/keys-and-identifiers.html#composite-keys-combining-multiple-attributes",
-    "title": "Keys and Identifiers",
-    "section": "Composite Keys: Combining Multiple Attributes",
-    "text": "Composite Keys: Combining Multiple Attributes\nComposite keys are formed by combining two or more attributes to create a unique identifier. They are useful when a single attribute is not sufficient to identify a record.\n\n\n\nA composite key is a primary key composed of two or more columns.\nIt is used when no single attribute can uniquely identify a record.\nAll columns in the composite key together must be unique.\nComposite keys are often used in junction tables to link two or more tables.\nThey enforce multi-attribute uniqueness in relational databases.\n\n\n \n\n\nComposite keys are essential for uniquely identifying records in complex tables.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#surrogate-keys-a-unique-system-generated-identifier",
-    "href": "er-models/keys-and-identifiers.html#surrogate-keys-a-unique-system-generated-identifier",
-    "title": "Keys and Identifiers",
-    "section": "Surrogate Keys: A Unique System-Generated Identifier",
-    "text": "Surrogate Keys: A Unique System-Generated Identifier\nSurrogate keys are artificial keys that are not derived from application data. They are commonly used when no natural primary key exists.\n\n\n\nA surrogate key is an artificially generated identifier used as the primary key.\nSurrogate keys are typically numeric and auto-incremented by the database system.\nThey are not derived from business data, ensuring their immutability.\nSurrogate keys simplify indexing and improve performance in large databases.\nThey are particularly useful in scenarios where natural keys are too complex or change frequently.\n\n\n \n\n\nSurrogate keys provide a simple and efficient way to uniquely identify records in a database.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#natural-keys-using-business-data-for-identification",
-    "href": "er-models/keys-and-identifiers.html#natural-keys-using-business-data-for-identification",
-    "title": "Keys and Identifiers",
-    "section": "Natural Keys: Using Business Data for Identification",
-    "text": "Natural Keys: Using Business Data for Identification\nNatural keys are keys that are derived from business data, such as a social security number or email address. They have real-world meaning but may have drawbacks in certain scenarios.\n\n\n\nA natural key is an attribute that has a real-world meaning and is used as a primary key.\nExamples include social security numbers, email addresses, or product codes.\nNatural keys can simplify data understanding for end users.\nThey are prone to change, which can complicate database design and maintenance.\nUsing natural keys can introduce dependencies on external data sources.\n\n\n \n\n\nNatural keys provide meaningful identifiers but can introduce complexity and dependencies.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#choosing-between-surrogate-and-natural-keys",
-    "href": "er-models/keys-and-identifiers.html#choosing-between-surrogate-and-natural-keys",
-    "title": "Keys and Identifiers",
-    "section": "Choosing Between Surrogate and Natural Keys",
-    "text": "Choosing Between Surrogate and Natural Keys\nDeciding between surrogate and natural keys is a critical design choice that can affect the performance and maintainability of a database.\n\n\n\nSurrogate keys offer simplicity, especially in complex or large-scale databases.\nNatural keys provide meaningful identifiers but may require careful handling of changes.\nThe choice depends on factors like data stability, performance needs, and system complexity.\nSurrogate keys are preferred when natural keys are prone to change or have a large data size.\nConsider using natural keys when the key has inherent business significance and low volatility.\n\n\n \n\n\nThe choice between surrogate and natural keys should be guided by data characteristics and system requirements.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#ensuring-uniqueness-constraints-and-indexes",
-    "href": "er-models/keys-and-identifiers.html#ensuring-uniqueness-constraints-and-indexes",
-    "title": "Keys and Identifiers",
-    "section": "Ensuring Uniqueness: Constraints and Indexes",
-    "text": "Ensuring Uniqueness: Constraints and Indexes\nUniqueness constraints and indexes are critical for enforcing the uniqueness of keys and improving the performance of queries.\n\n\n\nUniqueness constraints ensure that key values are not duplicated across records.\nPrimary keys automatically enforce uniqueness and create an index.\nUnique constraints can be applied to any column, not just the primary key.\nIndexes improve query performance by speeding up data retrieval.\nProper indexing strategies are essential for maintaining fast and efficient databases.\n\n\n \n\n\nUniqueness constraints and indexes are vital for maintaining data integrity and optimizing query performance.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#keys-in-relationships-establishing-links-between-tables",
-    "href": "er-models/keys-and-identifiers.html#keys-in-relationships-establishing-links-between-tables",
-    "title": "Keys and Identifiers",
-    "section": "Keys in Relationships: Establishing Links Between Tables",
-    "text": "Keys in Relationships: Establishing Links Between Tables\nKeys are essential for establishing relationships between tables in a relational database. Understanding foreign keys is key to effective database normalization.\n\n\n\nForeign keys are columns that establish a link between two tables.\nA foreign key in one table points to the primary key in another table.\nForeign keys enforce referential integrity, ensuring consistent relationships.\nProper use of foreign keys prevents orphaned records and maintains data integrity.\nRelationships between tables are fundamental to database normalization and data integrity.\n\n\n \n\n\nForeign keys are crucial for maintaining relationships and data integrity in relational databases.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
-    ]
-  },
-  {
-    "objectID": "er-models/keys-and-identifiers.html#summary-of-keys-and-identifiers",
-    "href": "er-models/keys-and-identifiers.html#summary-of-keys-and-identifiers",
-    "title": "Keys and Identifiers",
-    "section": "Summary of Keys and Identifiers",
-    "text": "Summary of Keys and Identifiers\nKeys and identifiers are the backbone of relational databases, ensuring the uniqueness and integrity of data. Understanding the different types of keys and their applications is essential for effective database design.\n\n\n\nKeys uniquely identify records and prevent duplication.\nPrimary keys, candidate keys, and composite keys serve different roles in database design.\nSurrogate keys simplify indexing and are used when natural keys are inadequate.\nNatural keys carry real-world meaning but may introduce complexities.\nChoosing the right key type is critical for ensuring data integrity and database performance.\n\n\n \n\n\nEffective use of keys and identifiers is essential for building reliable and efficient databases.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Keys and Identifiers"
+      "Database Design*"
     ]
   },
   {
@@ -1263,6 +1383,6 @@
     "href": "index.html",
     "title": "CMSC 408 - Databases Study Guide",
     "section": "",
-    "text": "Entity-Relationship Models\nRelational Algebra\nNormal Forms and Normalization\nStructured Query Language"
+    "text": "Entity-Relationship Models\nRelational Algebra (not yet created)\nNormal Forms and Normalization (not yet created)\nStructured Query Language (not yet created)"
   }
 ]

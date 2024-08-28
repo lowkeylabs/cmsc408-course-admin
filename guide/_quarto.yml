@@ -22,12 +22,14 @@ website:
       - href: about.qmd
         text: About
   sidebar:
-    collapse-level: 1
+    # collapse-level: 1
     contents:
       - section: ER Modeling
         contents:
+        - href: ./er-models/overview-of-database-design.qmd
+          text: Database Design*
         - href: ./er-models/intro-to-er-models.qmd
-          text: Introduction
+          text: Intro to ER models*
         - href: er-models/entities-and-attributes.qmd
           text: Entities and Attributes
         - href: er-models/relationships-and-cardinality.qmd

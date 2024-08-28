@@ -26,8 +26,7 @@ discussion_items = [
 
 lecture_topics = [
     '[Homework 1](#homework-1---fall-2024)',
-    '[Intro to DB design](#database-design-process)',
-    '[Intro to ER Models](#introduction-to-er-models)',
+    '[Intro to DB design](#database-design-process)'
 ]
 ```
 
@@ -36,6 +35,5 @@ lecture_topics = [
 
 {{< include ../../topics/_homework-1-fall-2024.qmd >}}
 {{< include ../../topics/_database-design-process.qmd >}}
-{{< include ../../topics/_intro-to-er-models.qmd >}} 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

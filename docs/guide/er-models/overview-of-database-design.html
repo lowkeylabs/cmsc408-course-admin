@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.55">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Overview of Database Design – CMSC 408 - Databases Study Guide</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../er-models/intro-to-er-models.html" rel="next">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../guide.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CMSC 408 - Databases Study Guide</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../er-models/index.html" target="_blank"> 
+<span class="menu-text">ER Models</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">Database Design*</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">ER Modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/overview-of-database-design.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Database Design*</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/intro-to-er-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to ER models*</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/entities-and-attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Entities and Attributes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/relationships-and-cardinality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relations and Cardinality</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/keys-and-identifiers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Keys and Identifiers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/er-diagramming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ER Diagramming</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/weak-and-strong-entities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weak and Strong Entities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/advanced-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/best-practices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Best Practices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../er-models/translating-to-relational-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Translation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview-of-database-design" id="toc-overview-of-database-design" class="nav-link active" data-scroll-target="#overview-of-database-design">Overview of Database Design</a></li>
+  <li><a href="#understanding-requirements" id="toc-understanding-requirements" class="nav-link" data-scroll-target="#understanding-requirements">Understanding Requirements</a></li>
+  <li><a href="#conceptual-design" id="toc-conceptual-design" class="nav-link" data-scroll-target="#conceptual-design">Conceptual Design</a></li>
+  <li><a href="#logical-design" id="toc-logical-design" class="nav-link" data-scroll-target="#logical-design">Logical Design</a></li>
+  <li><a href="#physical-design" id="toc-physical-design" class="nav-link" data-scroll-target="#physical-design">Physical Design</a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
+  <li><a href="#testing-and-validation" id="toc-testing-and-validation" class="nav-link" data-scroll-target="#testing-and-validation">Testing and Validation</a></li>
+  <li><a href="#maintenance-and-optimization" id="toc-maintenance-and-optimization" class="nav-link" data-scroll-target="#maintenance-and-optimization">Maintenance and Optimization</a></li>
+  <li><a href="#summary-of-the-database-design-process" id="toc-summary-of-the-database-design-process" class="nav-link" data-scroll-target="#summary-of-the-database-design-process">Summary of the Database Design Process</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">Database Design*</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Overview of Database Design</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
+
+Here are nine 20-min or so lectures.
+
+1. **Introduction to Entity-Relationship Models**
+   - Definition and importance of ER models in database design.
+   - Overview of components: entities, relationships, and attributes.
+   - Differences between conceptual, logical, and physical data models.
+
+2. **Entities and Attributes**
+   - Definition and examples of entities.
+   - Understanding attributes and their types (simple, composite, derived).
+   - Attribute domains and constraints.
+
+3. **Relationships and Cardinality**
+   - Definition and examples of relationships.
+   - Types of relationships: one-to-one, one-to-many, many-to-many.
+   - Understanding and depicting cardinality and participation constraints.
+
+4. **Keys and Identifiers**
+   - Importance of keys in database design.
+   - Primary keys, candidate keys, and composite keys.
+   - Surrogate keys vs. natural keys.
+
+5. **ER Diagrams: Symbols and Notation**
+   - Standard symbols and notations used in ER diagrams.
+   - Differences between Chen’s notation and Crow's Foot notation.
+   - Practice creating ER diagrams using different notations.
+
+6. **Weak Entities and Strong Entities**
+   - Definition and examples of weak entities.
+   - Identifying weak entities and their relationships to strong entities.
+   - Use of partial keys and identifying relationships.
+
+7. **Advanced ER Modeling Concepts**
+   - Specialization and generalization.
+   - Aggregation and composition.
+   - Understanding inheritance in ER models.
+
+8. **ER Modeling Best Practices and Common Pitfalls**
+   - Guidelines for effective ER modeling.
+   - Common mistakes to avoid in ER modeling.
+   - Case studies and real-world examples.
+
+9. **Translating ER Models to Relational Schema**
+   - Converting ER diagrams to relational schemas.
+   - Mapping entities, relationships, and attributes.
+   - Handling complex relationships and constraints in the relational model.
+
+Please prepare a 20-min that would lead off the preceding 9 modules convering the topic of database design, touching on:
+1. Understanding requirements
+2. Conceptual design
+3. Logical design
+4. Physical design
+5. Implementation
+
+
+Formatting of each slide is important.  Here are detailed instruction for the formatting of each slide.
+1. Each slide should consist of a title denoted in markdown header level 2 (##).
+1. Each title should describe the slide contents.  The title should not be numbered, just labeled.
+1. Each slide should lead off with 2 sentences summarizing the content of the slide.
+1. Each slide should contain 5-7 bullets. The bullets should be included in a special pandoc markdown format as shown below.
+1. Each slide should end with an unbolded sentence summarizing the slide.
+
+Below is an example of the formatting:
+---<start-example>
+## Introduction to Entities and Attributes
+
+Entities represent real-world objects or concepts, while attributes describe their characteristics. Understanding these concepts is crucial for effective database design.
+
+:::: {.columns}
+::: {.column width=95%}
+- Entities are objects or things in the real world that have a distinct existence.
+- Examples include a student, a course, a product, or an employee.
+- Attributes are the properties or characteristics of entities.
+- Each entity is represented by a set of attributes.
+- Attributes describe details like the name, age, or ID of an entity.
+:::
+::: {.column width=5%}
+&nbsp;
+:::
+::::
+
+*Entities and attributes form the foundation of the data model in database design.*
+---<end-example>
+
+-->
+<section id="overview-of-database-design" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="overview-of-database-design">Overview of Database Design</h2>
+<p>Database design is a structured process that translates business requirements into a database system. It involves understanding the data needs and creating an appropriate data model to meet those needs.</p>
+<p><img src="./assets/circular_design_process.png" class="guide-image-generated img-fluid"></p>
+<div class="guide-image-description">
+<p>Using graphvix, create a circular diagram with the following nodes: - understanding requirements - conceptual design - logical design - physical design - implementation - testing and validation - maintenance and optimization</p>
+</div>
+<ul>
+<li><strong>Understanding Requirements:</strong> Gathering and analyzing business requirements to define the purpose and scope of the database.</li>
+<li><strong>Conceptual Design:</strong> Creating high-level data models, such as ER diagrams, to visualize the structure and relationships of the data.</li>
+<li><strong>Logical Design:</strong> Translating the conceptual model into a logical structure that defines tables, fields, and relationships without concern for physical implementation.</li>
+<li><strong>Physical Design:</strong> Deciding on the physical storage of the data, including indexing, partitioning, and optimization strategies for performance.</li>
+<li><strong>Implementation:</strong> Actual creation of the database using SQL, setting up tables, constraints, and relationships as defined in the logical and physical design stages.</li>
+<li><strong>Testing and Validation:</strong> Ensuring the database meets the requirements through testing, validation, and adjustments as necessary.</li>
+<li><strong>Maintenance and Optimization:</strong> Ongoing tuning and maintenance to ensure the database performs efficiently and scales with business needs.</li>
+</ul>
+<p><em>Database design is a multi-step process that ensures a robust, scalable, and efficient database system.</em></p>
+</section>
+<section id="understanding-requirements" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="understanding-requirements">Understanding Requirements</h2>
+<p>The first step in database design is understanding the data needs and requirements. This phase ensures that the database aligns with business goals and user needs.</p>
+<p><img src="./assets/circular_design_process_shaded_1.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Business Requirements:</strong> Identifying what the business needs from the database, including what data to store and how it will be used.</li>
+<li><strong>User Requirements:</strong> Understanding who will use the database and their specific needs.</li>
+<li><strong>Data Requirements:</strong> Determining what data is necessary to fulfill the business and user requirements.</li>
+<li><strong>Functional Requirements:</strong> Identifying operations that the database must support, such as queries, updates, and reporting.</li>
+<li><strong>Non-functional Requirements:</strong> Considering performance, security, and scalability needs.</li>
+<li><strong>Scope Definition:</strong> Clearly defining the boundaries of what the database will and will not cover.</li>
+</ul>
+<p><em>Understanding requirements is crucial for aligning the database with business objectives and user needs.</em></p>
+</section>
+<section id="conceptual-design" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="conceptual-design">Conceptual Design</h2>
+<p>Conceptual design involves creating a high-level representation of the database structure. It uses ER models to capture and communicate the essential data and relationships.</p>
+<p><img src="./assets/circular_design_process_shaded_2.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>ER Modeling:</strong> Creating Entity-Relationship (ER) diagrams to represent entities, attributes, and relationships.</li>
+<li><strong>Identifying Entities:</strong> Defining major objects in the business domain (e.g., customer, order, product).</li>
+<li><strong>Defining Relationships:</strong> Establishing how entities are related to each other (e.g., a customer places an order).</li>
+<li><strong>Attributes Identification:</strong> Listing key attributes for each entity to capture necessary details.</li>
+<li><strong>Conceptual Schema:</strong> Developing a schema that visually represents the data model.</li>
+<li><strong>Validation:</strong> Reviewing the conceptual model with stakeholders to ensure accuracy.</li>
+</ul>
+<p><em>Conceptual design provides a visual representation of the database structure, making it easier to understand and communicate.</em></p>
+</section>
+<section id="logical-design" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="logical-design">Logical Design</h2>
+<p>Logical design translates the conceptual model into a logical structure, focusing on how the data is organized without regard to physical storage.</p>
+<p><img src="./assets/circular_design_process_shaded_3.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Relational Model:</strong> Converting ER diagrams into relational tables.</li>
+<li><strong>Normalization:</strong> Applying normalization techniques to reduce data redundancy and improve integrity.</li>
+<li><strong>Defining Tables and Columns:</strong> Specifying tables, columns, and data types based on entities and attributes.</li>
+<li><strong>Primary and Foreign Keys:</strong> Establishing primary keys for unique identification and foreign keys for relationships.</li>
+<li><strong>Constraints:</strong> Defining rules for data validation (e.g., NOT NULL, UNIQUE).</li>
+<li><strong>Logical Schema:</strong> Creating a detailed schema that outlines the logical structure of the database.</li>
+</ul>
+<p><em>Logical design focuses on the structure of the data, ensuring integrity and consistency within the database.</em></p>
+</section>
+<section id="physical-design" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="physical-design">Physical Design</h2>
+<p>Physical design involves the actual implementation details for storing and retrieving data efficiently. It focuses on performance optimization and storage management.</p>
+<p><img src="./assets/circular_design_process_shaded_4.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Storage Management:</strong> Deciding how and where to store data physically on the storage medium.</li>
+<li><strong>Indexing:</strong> Creating indexes to speed up data retrieval operations.</li>
+<li><strong>Partitioning:</strong> Dividing large tables into smaller, manageable pieces to improve performance.</li>
+<li><strong>Data Compression:</strong> Using techniques to reduce storage space and improve efficiency.</li>
+<li><strong>Hardware Considerations:</strong> Selecting appropriate hardware resources (e.g., SSDs, memory) for optimal performance.</li>
+<li><strong>Backup and Recovery:</strong> Planning for data protection and recovery in case of failures.</li>
+</ul>
+<p><em>Physical design ensures efficient data storage and retrieval, optimizing the database for performance and reliability.</em></p>
+</section>
+<section id="implementation" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="implementation">Implementation</h2>
+<p>Implementation is the process of building the database using SQL and other database management tools. It involves setting up the schema, populating data, and configuring the environment.</p>
+<p><img src="./assets/circular_design_process_shaded_5.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Schema Creation:</strong> Defining tables, columns, and relationships using SQL.</li>
+<li><strong>Data Population:</strong> Loading initial data into the database.</li>
+<li><strong>Database Configuration:</strong> Setting up configuration parameters (e.g., memory allocation, cache size).</li>
+<li><strong>User Accounts and Permissions:</strong> Creating user accounts and assigning appropriate permissions.</li>
+<li><strong>Trigger and Stored Procedures:</strong> Implementing business logic at the database level.</li>
+<li><strong>Testing Environment:</strong> Setting up a testing environment to validate the database implementation.</li>
+</ul>
+<p><em>Implementation turns the design into a working database system, ready for use and further testing.</em></p>
+</section>
+<section id="testing-and-validation" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="testing-and-validation">Testing and Validation</h2>
+<p>Testing and validation ensure that the database meets the requirements and functions correctly. This phase includes performance testing, security testing, and data validation.</p>
+<p><img src="./assets/circular_design_process_shaded_6.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Unit Testing:</strong> Checking individual components (e.g., tables, queries) for correctness.</li>
+<li><strong>Integration Testing:</strong> Ensuring different parts of the database work together as expected.</li>
+<li><strong>Performance Testing:</strong> Measuring response time, throughput, and scalability.</li>
+<li><strong>Security Testing:</strong> Verifying that the database is protected against unauthorized access and vulnerabilities.</li>
+<li><strong>Data Validation:</strong> Ensuring data integrity and accuracy by validating inputs and outputs.</li>
+<li><strong>Feedback and Iteration:</strong> Gathering feedback and making necessary adjustments to the design or implementation.</li>
+</ul>
+<p><em>Testing and validation are crucial steps to ensure the database system is reliable, secure, and meets user expectations.</em></p>
+</section>
+<section id="maintenance-and-optimization" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="maintenance-and-optimization">Maintenance and Optimization</h2>
+<p>Once the database is in production, ongoing maintenance and optimization are required to ensure continuous performance and scalability.</p>
+<p><img src="./assets/circular_design_process_shaded_7.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Performance Tuning:</strong> Regularly reviewing and optimizing queries, indexing, and storage strategies.</li>
+<li><strong>Monitoring:</strong> Using monitoring tools to track database performance and detect issues.</li>
+<li><strong>Backup and Recovery:</strong> Implementing regular backups and testing recovery procedures.</li>
+<li><strong>Security Updates:</strong> Applying security patches and updates to protect against vulnerabilities.</li>
+<li><strong>Data Archiving:</strong> Implementing strategies to archive old or unused data to free up space and improve performance.</li>
+<li><strong>Scalability:</strong> Planning and implementing changes to handle growing amounts of data and users.</li>
+</ul>
+<p><em>Maintenance and optimization ensure the database remains efficient, secure, and capable of handling future growth.</em></p>
+</section>
+<section id="summary-of-the-database-design-process" class="level2 slide-template-bullet-walk">
+<h2 class="slide-template-bullet-walk anchored" data-anchor-id="summary-of-the-database-design-process">Summary of the Database Design Process</h2>
+<p>The database design process is iterative and involves several stages, each with specific goals and outputs. A well-designed database meets business needs, ensures data integrity, and supports scalability and performance.</p>
+<p><img src="./assets/circular_design_process.png" class="guide-image-generated img-fluid"></p>
+<ul>
+<li><strong>Iterative Process:</strong> Design, implementation, testing, and maintenance are ongoing and iterative.</li>
+<li><strong>Alignment with Business Goals:</strong> The design should align with and support business objectives.</li>
+<li><strong>Focus on Data Integrity:</strong> Ensuring accuracy, consistency, and reliability of data is paramount.</li>
+<li><strong>Performance Optimization:</strong> Design choices should consider efficiency and speed of data retrieval.</li>
+<li><strong>Scalability and Flexibility:</strong> A good design allows for future growth and changes.</li>
+<li><strong>Security and Compliance:</strong> Protecting data from unauthorized access and ensuring compliance with regulations.</li>
+</ul>
+<p><em>Effective database design is critical for creating systems that are reliable, scalable, and secure.</em></p>
+<!--
+# This code was clipped from ChatGPT diagram tool.  It provided
+# python to create these images!
+
+# Create a directed graph
+dot = Digraph(comment='Circular Design Process with Node 7 Shaded', format='png')
+
+# Add the nodes to the graph with "Maintenance and Optimization" shaded
+for node in nodes:
+    if node == 'Maintenance and Optimization':
+        dot.node(node, style='filled', fillcolor='lightgrey')
+    else:
+        dot.node(node)
+
+# Add the edges to the graph
+for edge in edges:
+    dot.edge(*edge)
+
+# Render the diagram with shading for node 7
+shaded_diagram_path_node7 = '/mnt/data/circular_design_process_shaded_7'
+dot.render(shaded_diagram_path_node7, view=False)
+
+shaded_diagram_path_node7 + '.png'
+-->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../er-models/intro-to-er-models.html" class="pagination-link" aria-label="Intro to ER models*">
+        <span class="nav-page-text">Intro to ER models*</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
