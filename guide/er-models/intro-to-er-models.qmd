@@ -374,7 +374,7 @@ graph ER {
 :::
 ::::
 
-[Link to graphviz on-line editor](https://dreampuf.github.io/GraphvizOnline/)
+[Link to graphviz on-line editor](https://dreampuf.github.io/GraphvizOnline/){target="_blank"}
 
 
 ## Crows Foot notation
@@ -421,7 +421,7 @@ ROOM {
 :::
 ::::
 
-[Link to mermaid live](https://mermaid.live/edit)
+[Link to mermaid live](https://mermaid.live/edit){target="_blank"}
 
 ## Specialization and Generalization in ER Models
 

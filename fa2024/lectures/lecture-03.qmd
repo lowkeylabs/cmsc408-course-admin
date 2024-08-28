@@ -19,7 +19,8 @@ housekeeping_vertical_spacer = "25px"
 discussion_items = [
     'Finish up your intros (deliverable 1)',
     'Form those teams! Watch Discord (deliverable 2)',
-    '[ER Models Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/)'
+    '[Keep working on Homework 1](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966515?module_item_id=3618722){target="_blank"}',
+    '[ER Models Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/){target="_blank"}'
 ]
 
 lecture_topics = [
