@@ -1,0 +1,104 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Process teaming file\n",
+        "author:\n",
+        "    - name: John Leonard\n",
+        "      email: jdleonard@vcu.edu\n",
+        "format:\n",
+        "    html:\n",
+        "        embed-resources: true\n",
+        "        html-math-method: katex\n",
+        "        theme: spacelab\n",
+        "        toc: true\n",
+        "---\n",
+        "\n",
+        "\n",
+        "This program processes the teaming survey from CMSC 408 and\n",
+        "sets things up for analysis.\n",
+        "\n",
+        "## List of columns \n",
+        "\n",
+        "### Columns prior to renaming"
+      ],
+      "id": "62ec4d1f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "\n",
+        "import pandas as pd\n",
+        "import sqlite3\n",
+        "from cnvsapi import config\n",
+        "\n",
+        "def format_column_names(df):\n",
+        "    results = []\n",
+        "    for i,column in enumerate(df.columns):\n",
+        "        results.append(f\"'{column}' : '{column}',\")\n",
+        "    return \"\\n\".join( results )\n",
+        "\n",
+        "# Load the xlsx file into a pandas dataframe\n",
+        "df = pd.read_excel('teaming.xlsx')\n",
+        "\n",
+        "print(format_column_names(df))\n",
+        "\n",
+        "# Rename columns (assuming you know the new column names)\n",
+        "# Replace 'old_col1', 'old_col2', etc., with your actual column names\n",
+        "# Replace 'new_col1', 'new_col2', etc., with the desired new column names\n",
+        "df.rename(columns={\n",
+        "    'Unnamed: 0' : 'row_id',\n",
+        "    'sortable_name' : 'sortable_name',\n",
+        "    'email' : 'partner_0_email',\n",
+        "    'sis_user_id/vid' : 'partner_0_vid',\n",
+        "    'Fill in the name of your team:' : 'team_name',\n",
+        "    'Enter name of your partner:' : 'partner_1_name',\n",
+        "    'Enter VCU email of your partner:' : 'partner_1_email',\n",
+        "    'OPTIONAL: Enter name of partner 2:' : 'partner_2_name',\n",
+        "    'OPTIONAL: Enter VCU email of partner 2:' : 'partner_2_email',\n",
+        "    'count' : 'count',\n",
+        "}, inplace=True)\n",
+        "\n",
+        "# Connect to the SQLite database (or create it if it doesn't exist)\n",
+        "conn = sqlite3.connect('teaming.db')\n",
+        "df.to_sql('raw_table', conn, if_exists='replace', index=False)\n",
+        "conn.close()"
+      ],
+      "id": "cea2de70",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Columns after renaming"
+      ],
+      "id": "97c7d6a9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.columns"
+      ],
+      "id": "191c270f",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
