@@ -11,7 +11,7 @@
 <script src="lecture-03_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-03_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-03_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Entity-relation models 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-03_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -353,21 +418,27 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Homework 1 - Due Sunday night</p></li>
+<li><p>Teams should be formed and submitted</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Intro to ER Models</p></li>
+<li><p>Entities and Attributes</p></li>
+<li><p>Relationships and Cardinalty</p></li>
+<li><p>Keys and Identifiers</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
+<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -445,6 +516,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </section>
 <section id="you-are-here" class="slide level2">
@@ -474,6 +546,936 @@
 </div>
 </div>
 </section>
+<section>
+<section id="introduction-to-er-models" class="title-slide slide level1 center">
+<h1>Introduction to ER Models</h1>
+
+</section>
+<section id="conceptual-logical-and-physical-data-models" class="slide level2">
+<h2>Conceptual, Logical, and Physical Data Models</h2>
+<p>Data models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li><strong>Conceptual Model:</strong> High-level, abstract model focusing on the entities and relationships.</li>
+<li><strong>Logical Model:</strong> Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.</li>
+<li><strong>Physical Model:</strong> Focuses on the actual implementation, including tables, columns, and data types.</li>
+<li>Conceptual models are often created during the initial database design phase.</li>
+<li>Logical models help in the creation of relational schemas.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Different types of data models address various stages of database design, from conceptualization to implementation.</em></p>
+</section>
+<section id="importance-of-er-models-in-database-design" class="slide level2">
+<h2>Importance of ER Models in Database Design</h2>
+<p>Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>ER models offer a visual representation of the database structure.</li>
+<li>They help in identifying and organizing data requirements.</li>
+<li>ER models reduce the complexity of database design.</li>
+<li>They support the identification of entities, attributes, and relationships.</li>
+<li>ER models guide the transition from conceptual design to logical design.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Understanding ER models is crucial for effective database design and implementation.</em></p>
+</section>
+<section id="components-of-entity-relationship-models" class="slide level2">
+<h2>Components of Entity-Relationship Models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="entities-relationships-and-attributes">Entities, Relationships, and Attributes</h3>
+<dl>
+<dt>Entities</dt>
+<dd>
+These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
+</dd>
+<dt>Attributes</dt>
+<dd>
+Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.
+</dd>
+<dt>Relationships</dt>
+<dd>
+Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
+</dd>
+</dl>
+</div><div class="column" style="width:50%;">
+<h3 id="example">Example</h3>
+<p>Imagine a college campus with buildings and rooms.</p>
+<p>Each building can can be located with an address, city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.</p>
+<p><strong>Identify the entities, attributes and relationships</strong></p>
+</div>
+</div>
+</section>
+<section id="entities-in-er-models" class="slide level2">
+<h2>Entities in ER Models</h2>
+<p>Entities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Entities are things that can be distinctly identified.</li>
+<li>Examples of entities include people, products, events, and locations.</li>
+<li>Entities have attributes that provide details about them.</li>
+<li>Each entity type is represented by a set of instances in the database.</li>
+<li>Entity types are often mapped to tables in the relational model.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Entities form the core of the database, representing key objects or concepts in the system.</em></p>
+</section>
+<section id="relationships-in-er-models" class="slide level2">
+<h2>Relationships in ER Models</h2>
+<p>Relationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Relationships represent associations between two or more entities.</li>
+<li>They can be categorized as one-to-one, one-to-many, or many-to-many.</li>
+<li>Relationships have attributes that describe the nature of the association.</li>
+<li>In ER diagrams, relationships are depicted as diamonds connecting entities.</li>
+<li>Properly defining relationships helps in maintaining data integrity.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Relationships ensure that the database reflects the interactions between different entities in the system.</em></p>
+</section>
+<section id="attributes-in-er-models" class="slide level2">
+<h2>Attributes in ER Models</h2>
+<p>Attributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Attributes provide specific details about entities, such as name, ID, or age.</li>
+<li>They can be simple (indivisible), composite (consisting of multiple components), or derived (calculated from other attributes).</li>
+<li>Each attribute belongs to a specific domain, which defines the set of possible values.</li>
+<li>Attributes are represented as ovals connected to their respective entities or relationships in ER diagrams.</li>
+<li>Proper attribute selection is crucial for accurate data representation.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Attributes are key to defining the details and constraints of entities and relationships in the database.</em></p>
+</section>
+<section id="cardinality-in-relationships" class="slide level2">
+<h2>Cardinality in Relationships</h2>
+<p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li>Cardinality types include one-to-one, one-to-many, and many-to-many.</li>
+<li>One-to-one: Each instance of one entity relates to a single instance of another entity.</li>
+<li>One-to-many: One entity instance relates to multiple instances of another entity.</li>
+<li>Many-to-many: Multiple instances of one entity relate to multiple instances of another entity.</li>
+<li>Cardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><em>Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.</em></p>
+</section>
+<section id="participation-in-relationships" class="slide level2">
+<h2>Participation in Relationships</h2>
+<p>Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li>Participation types include total participation and partial participation.</li>
+<li>Total Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.</li>
+<li>Partial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.</li>
+<li>Participation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><em>Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.</em></p>
+</section>
+<section id="er-diagram-notations" class="slide level2">
+<h2>ER Diagram Notations</h2>
+<p>ER diagrams use specific notations to represent entities, relationships, and attributes. Understanding these notations is essential for creating and interpreting ER models effectively.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li><strong>Chen’s Notation:</strong> Uses rectangles for entities, diamonds for relationships, and ovals for attributes.</li>
+<li><strong>Crow’s Foot Notation:</strong> Represents relationships with lines and ‘crow’s feet’ to indicate cardinality.</li>
+<li>Entities are often depicted with their primary keys underlined.</li>
+<li>Relationships may include roles and participation constraints.</li>
+<li>Notations help in communicating the structure and details of the ER model.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Mastering ER diagram notations is key to effectively designing and interpreting database models.</em></p>
+</section>
+<section id="chen-notation" class="slide level2">
+<h2>Chen notation</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href=""></a><span class="va">graph</span> <span class="va">ER</span> <span class="ot">{</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">    </span><span class="va">layout</span><span class="ot">=</span><span class="va">neato</span><span class="ot">;</span></span>
+<span id="cb1-3"><a href=""></a><span class="co">  </span><span class="va">scale</span><span class="ot">=</span><span class="dv">1.1</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">];</span><span class="co"> </span><span class="va">building</span><span class="ot">;</span><span class="co"> </span><span class="va">room</span><span class="ot">;</span></span>
+<span id="cb1-5"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">ellipse</span><span class="ot">];</span><span class="co"> </span><span class="va">address</span><span class="co">, </span><span class="va">city</span><span class="co">, </span><span class="va">state</span><span class="co">, </span><span class="va">occupant</span><span class="co">, </span><span class="va">room_number</span></span>
+<span id="cb1-6"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">diamond</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">lightgrey</span><span class="ot">];</span><span class="co"> </span><span class="va">has</span></span>
+<span id="cb1-7"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-8"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">has</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-9"><a href=""></a><span class="co">    </span><span class="va">has</span><span class="co"> -- </span><span class="va">room</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"n"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
+<span id="cb1-10"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-11"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">address</span></span>
+<span id="cb1-12"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">city</span></span>
+<span id="cb1-13"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">state</span></span>
+<span id="cb1-14"><a href=""></a><span class="co">  </span><span class="va">room</span><span class="co"> -- </span><span class="va">room_number</span></span>
+<span id="cb1-15"><a href=""></a><span class="co">    </span><span class="va">room</span><span class="co"> -- </span><span class="va">occupant</span></span>
+<span id="cb1-16"><a href=""></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:59%;">
+<div class="cell" data-eval="true" data-fig-width="500px" data-fig-height="240px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="500" height="240" viewbox="0.00 0.00 394.19 234.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.21)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-230.21 390.19,-230.21 390.19,4 -4,4"></polygon>
+<!-- building -->
+<g id="node1" class="node">
+<title>building</title>
+<polygon fill="none" stroke="black" points="140.37,-136.32 84.36,-136.32 84.36,-100.32 140.37,-100.32 140.37,-136.32"></polygon>
+<text text-anchor="middle" x="112.36" y="-114.72" font-family="Times,serif" font-size="12.00">building</text>
+</g>
+<!-- address -->
+<g id="node3" class="node">
+<title>address</title>
+<ellipse fill="none" stroke="black" cx="74.68" cy="-36.21" rx="33.41" ry="18"></ellipse>
+<text text-anchor="middle" x="74.68" y="-32.61" font-family="Times,serif" font-size="12.00">address</text>
+</g>
+<!-- building&#45;&#45;address -->
+<g id="edge3" class="edge">
+<title>building--address</title>
+<path fill="none" stroke="black" d="M104,-100.09C97.67,-86.3 89.02,-67.46 82.76,-53.82"></path>
+</g>
+<!-- city -->
+<g id="node4" class="node">
+<title>city</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-133.06" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-129.46" font-family="Times,serif" font-size="12.00">city</text>
+</g>
+<!-- building&#45;&#45;city -->
+<g id="edge4" class="edge">
+<title>building--city</title>
+<path fill="none" stroke="black" d="M83.94,-123.23C74.04,-124.93 63,-126.84 53.28,-128.52"></path>
+</g>
+<!-- state -->
+<g id="node5" class="node">
+<title>state</title>
+<ellipse fill="none" stroke="black" cx="103.09" cy="-208.21" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="103.09" y="-204.61" font-family="Times,serif" font-size="12.00">state</text>
+</g>
+<!-- building&#45;&#45;state -->
+<g id="edge5" class="edge">
+<title>building--state</title>
+<path fill="none" stroke="black" d="M110.49,-136.51C108.88,-152.1 106.57,-174.46 104.96,-190.04"></path>
+</g>
+<!-- has -->
+<g id="node8" class="node">
+<title>has</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="199.29,-121.71 170.49,-103.71 199.29,-85.71 228.09,-103.71 199.29,-121.71"></polygon>
+<text text-anchor="middle" x="199.29" y="-100.11" font-family="Times,serif" font-size="12.00">has</text>
+</g>
+<!-- building&#45;&#45;has -->
+<g id="edge1" class="edge">
+<title>building--has</title>
+<path fill="none" stroke="black" d="M140.83,-113.53C152.41,-111.59 165.62,-109.37 176.55,-107.53"></path>
+<text text-anchor="middle" x="155.19" y="-114.73" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- room -->
+<g id="node2" class="node">
+<title>room</title>
+<polygon fill="none" stroke="black" points="312.11,-110.53 258.11,-110.53 258.11,-74.53 312.11,-74.53 312.11,-110.53"></polygon>
+<text text-anchor="middle" x="285.11" y="-88.93" font-family="Times,serif" font-size="12.00">room</text>
+</g>
+<!-- occupant -->
+<g id="node6" class="node">
+<title>occupant</title>
+<ellipse fill="none" stroke="black" cx="348.31" cy="-152.48" rx="37.77" ry="18"></ellipse>
+<text text-anchor="middle" x="348.31" y="-148.88" font-family="Times,serif" font-size="12.00">occupant</text>
+</g>
+<!-- room&#45;&#45;occupant -->
+<g id="edge7" class="edge">
+<title>room--occupant</title>
+<path fill="none" stroke="black" d="M304.41,-110.84C312.98,-118.97 322.97,-128.45 331.26,-136.31"></path>
+</g>
+<!-- room_number -->
+<g id="node7" class="node">
+<title>room_number</title>
+<ellipse fill="none" stroke="black" cx="329.91" cy="-18" rx="53.78" ry="18"></ellipse>
+<text text-anchor="middle" x="329.91" y="-14.4" font-family="Times,serif" font-size="12.00">room_number</text>
+</g>
+<!-- room&#45;&#45;room_number -->
+<g id="edge6" class="edge">
+<title>room--room_number</title>
+<path fill="none" stroke="black" d="M295.95,-74.49C303,-62.77 312.14,-47.56 319.16,-35.88"></path>
+</g>
+<!-- has&#45;&#45;room -->
+<g id="edge2" class="edge">
+<title>has--room</title>
+<path fill="none" stroke="black" d="M223.19,-100.6C234.01,-99.19 246.84,-97.52 258,-96.06"></path>
+<text text-anchor="middle" x="237.1" y="-102.53" font-family="Times,serif" font-size="14.00">n</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
+</section>
+<section id="specialization-and-generalization-in-er-models" class="slide level2">
+<h2>Specialization and Generalization in ER Models</h2>
+<p>Specialization and generalization are advanced ER modeling techniques used to represent inheritance and hierarchy among entities. These techniques enhance the expressiveness of ER models.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li><strong>Specialization:</strong> Process of defining a set of subclasses from a superclass based on distinguishing attributes.</li>
+<li><strong>Generalization:</strong> The reverse process, where multiple subclasses are combined into a single superclass.</li>
+<li>Both techniques help in modeling inheritance and shared characteristics.</li>
+<li>These concepts are depicted in ER diagrams using triangle symbols.</li>
+<li>Proper use of specialization and generalization can simplify complex ER models.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Specialization and generalization are powerful tools for managing complexity in ER models.</em></p>
+</section>
+<section id="translating-er-models-to-relational-schema" class="slide level2">
+<h2>Translating ER Models to Relational Schema</h2>
+<p>The final step in ER modeling is translating the ER model into a relational schema. This process involves mapping entities, relationships, and attributes into tables, columns, and keys.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Entities are typically mapped to tables, with attributes becoming columns.</li>
+<li>Relationships may result in foreign keys or separate join tables.</li>
+<li>Primary keys ensure each table has a unique identifier for its rows.</li>
+<li>Mapping complex relationships may require additional tables or constraints.</li>
+<li>The translation process ensures that the conceptual design is accurately implemented in the database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Translating ER models to relational schemas is essential for implementing the database design in a relational database system.</em></p>
+</section></section>
+<section>
+<section id="entities-and-attributes" class="title-slide slide level1 center">
+<h1>Entities and Attributes</h1>
+
+</section>
+<section id="definition-of-entities" class="slide level2">
+<h2>Definition of Entities</h2>
+<p>Entities are the fundamental building blocks in a database, representing real-world objects or concepts. Understanding entities helps in structuring the database effectively.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Entities are distinct objects or concepts in the real world.</li>
+<li>Examples include a student, a course, a product, or an employee.</li>
+<li>Entities are typically nouns that represent something we need to store information about.</li>
+<li>Each entity has an independent existence and can be uniquely identified.</li>
+<li>Entities form the core elements around which the database is designed.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Entities are essential for organizing information in a structured database.</em></p>
+</section>
+<section id="examples-of-entities" class="slide level2">
+<h2>Examples of Entities</h2>
+<p>Entities can vary widely depending on the context of the database. Recognizing and defining entities correctly is crucial in the initial stages of database design.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>In a university database, entities might include Students, Professors, and Courses.</li>
+<li>In an e-commerce database, entities could include Customers, Orders, and Products.</li>
+<li>In a hospital database, entities might include Patients, Doctors, and Appointments.</li>
+<li>Each entity is an object about which data is stored.</li>
+<li>Identifying key entities helps in setting up the database schema.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Entities vary depending on the domain of the database.</em></p>
+</section>
+<section id="understanding-attributes" class="slide level2">
+<h2>Understanding Attributes</h2>
+<p>Attributes are the specific details or characteristics that define or describe an entity. Proper identification of attributes is vital for accurate data representation.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Attributes are properties or characteristics of an entity.</li>
+<li>For a Student entity, attributes might include Name, ID, and Date of Birth.</li>
+<li>Each attribute describes a particular aspect of the entity.</li>
+<li>Attributes are often analogous to columns in a table in a relational database.</li>
+<li>Correctly identifying attributes is crucial for data integrity and accuracy.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Attributes provide specific details that describe entities in the database.</em></p>
+</section>
+<section id="simple-attributes" class="slide level2">
+<h2>Simple Attributes</h2>
+<p>Simple attributes are atomic and cannot be divided further. They represent the most basic level of detail for an entity in a database.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Simple attributes are indivisible and represent a single value.</li>
+<li>Examples include a person’s Name, ID, or Birthdate.</li>
+<li>These attributes are directly associated with an entity.</li>
+<li>Simple attributes provide clear and concise information.</li>
+<li>They are easy to manage and query in a database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Simple attributes are the basic, indivisible characteristics of an entity.</em></p>
+</section>
+<section id="composite-attributes" class="slide level2">
+<h2>Composite Attributes</h2>
+<p>Composite attributes consist of multiple components that can be subdivided into smaller parts. They provide a way to structure more complex information about an entity.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Composite attributes are made up of multiple simple attributes.</li>
+<li>An example is an Address, which may include Street, City, State, and Zip Code.</li>
+<li>Each component of a composite attribute can be used independently.</li>
+<li>Composite attributes allow for more detailed data representation.</li>
+<li>They help to structure complex information in an organized way.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Composite attributes allow detailed structuring of related information about an entity.</em></p>
+</section>
+<section id="derived-attributes" class="slide level2">
+<h2>Derived Attributes</h2>
+<p>Derived attributes are not stored directly in the database but are calculated or inferred from other stored attributes. These attributes help in optimizing storage and processing.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Derived attributes are computed from other attributes.</li>
+<li>An example is calculating Age from Date of Birth.</li>
+<li>These attributes are not stored directly in the database.</li>
+<li>Derived attributes can simplify queries and reduce storage needs.</li>
+<li>They are used when real-time calculation is required for certain values.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Derived attributes optimize storage and provide computed information as needed.</em></p>
+</section>
+<section id="attribute-domains" class="slide level2">
+<h2>Attribute Domains</h2>
+<p>Attribute domains define the possible values that an attribute can take. They set the rules and constraints for the data associated with each attribute.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>An attribute domain is the set of valid values for an attribute.</li>
+<li>Examples include numerical ranges, specific sets of values, or data types.</li>
+<li>Domains help ensure data integrity and consistency.</li>
+<li>They act as constraints that restrict the possible values for an attribute.</li>
+<li>Properly defined domains prevent invalid data entry and maintain data quality.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Attribute domains enforce rules on data, ensuring consistency and integrity.</em></p>
+</section>
+<section id="attribute-constraints" class="slide level2">
+<h2>Attribute Constraints</h2>
+<p>Constraints on attributes define the rules and limitations for data entry and manipulation. These ensure that the data remains valid and meaningful.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Constraints restrict the type, format, or value of an attribute.</li>
+<li>Examples include NOT NULL constraints, unique constraints, and value ranges.</li>
+<li>Constraints help enforce data accuracy and reliability.</li>
+<li>They ensure that data adheres to specific business rules or logic.</li>
+<li>Constraints can be applied at the database schema level to automate validation.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Attribute constraints are essential for maintaining high-quality, reliable data.</em></p>
+</section>
+<section id="attributes-and-their-role-in-database-design" class="slide level2">
+<h2>Attributes and Their Role in Database Design</h2>
+<p>Attributes play a critical role in database design, defining the specific data that will be stored about each entity. Properly identifying and structuring attributes is essential.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Attributes define the details of each entity in the database.</li>
+<li>They determine what data will be captured and how it will be stored.</li>
+<li>Properly identifying attributes is crucial for accurate data representation.</li>
+<li>Attributes help in organizing and categorizing data within the database.</li>
+<li>Well-structured attributes contribute to an efficient and scalable database design.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Attributes are central to defining the data structure and ensuring the database meets its intended purpose.</em></p>
+</section>
+<section id="summary-of-entities-and-attributes" class="slide level2">
+<h2>Summary of Entities and Attributes</h2>
+<p>Entities and attributes are foundational concepts in database design. Understanding these components allows for the creation of well-structured and efficient databases.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Entities represent the real-world objects or concepts in a database.</li>
+<li>Attributes describe the characteristics of these entities.</li>
+<li>Simple, composite, and derived attributes offer different levels of detail.</li>
+<li>Attribute domains and constraints ensure data integrity.</li>
+<li>Together, entities and attributes form the core structure of a database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Mastering entities and attributes is key to effective database design.</em></p>
+</section></section>
+<section>
+<section id="relationships-and-cardinality" class="title-slide slide level1 center">
+<h1>Relationships and Cardinality</h1>
+
+</section>
+<section id="understanding-relationships-in-databases" class="slide level2">
+<h2>Understanding Relationships in Databases</h2>
+<p>Relationships connect entities in a database, defining how data points relate to one another. These connections are fundamental to structuring data meaningfully.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Relationships link two or more entities together in a database.</li>
+<li>They describe how entities are associated with one another.</li>
+<li>Examples include a student enrolled in a course or a customer placing an order.</li>
+<li>Relationships can involve two entities (binary), three entities (ternary), or more.</li>
+<li>They help establish connections between different tables in a relational database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Relationships are the glue that binds different entities in a database model.</em></p>
+</section>
+<section id="types-of-relationships-one-to-one" class="slide level2">
+<h2>Types of Relationships: One-to-One</h2>
+<p>One-to-one relationships link one instance of an entity to one instance of another entity. This type of relationship is relatively rare in database design.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A one-to-one relationship exists when a single instance of one entity is associated with a single instance of another.</li>
+<li>Examples include a person and their social security number or a country and its capital city.</li>
+<li>These relationships can be mandatory or optional.</li>
+<li>In many cases, one-to-one relationships are combined into a single table.</li>
+<li>They simplify data retrieval by ensuring a direct link between two specific entities.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>One-to-one relationships provide direct connections between pairs of entities.</em></p>
+</section>
+<section id="types-of-relationships-one-to-many" class="slide level2">
+<h2>Types of Relationships: One-to-Many</h2>
+<p>One-to-many relationships are the most common type in database design, linking one entity to multiple instances of another entity.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A one-to-many relationship occurs when a single instance of one entity is associated with multiple instances of another.</li>
+<li>Examples include a teacher and the students they teach or a department and its employees.</li>
+<li>These relationships are depicted with a single line connecting the “one” side to multiple lines on the “many” side.</li>
+<li>The “one” side often contains a foreign key that points to the primary key on the “many” side.</li>
+<li>One-to-many relationships organize data hierarchically and are essential for relational databases.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>One-to-many relationships structure data so that a single entity can relate to multiple others.</em></p>
+</section>
+<section id="types-of-relationships-many-to-many" class="slide level2">
+<h2>Types of Relationships: Many-to-Many</h2>
+<p>Many-to-many relationships occur when multiple instances of one entity are related to multiple instances of another entity, necessitating an associative entity to manage the relationship.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A many-to-many relationship links multiple instances of one entity to multiple instances of another.</li>
+<li>Examples include students enrolled in multiple courses or customers purchasing multiple products.</li>
+<li>These relationships require a junction or associative table to handle the connections.</li>
+<li>The associative table contains foreign keys referencing the primary keys of the related entities.</li>
+<li>Many-to-many relationships allow for flexible and complex data connections within a database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Many-to-many relationships are crucial for managing complex associations between entities.</em></p>
+</section>
+<section id="cardinality-defining-relationship-multiplicity" class="slide level2">
+<h2>Cardinality: Defining Relationship Multiplicity</h2>
+<p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity, playing a critical role in relationship modeling.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Cardinality specifies the number of instances of an entity that can participate in a relationship.</li>
+<li>It is expressed as one-to-one, one-to-many, or many-to-many.</li>
+<li>Cardinality constraints help enforce data integrity and structure.</li>
+<li>They are depicted in ER diagrams using various notations, such as lines and symbols.</li>
+<li>Understanding cardinality is essential for accurately modeling database relationships.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Cardinality defines the limits and scope of relationships in database design.</em></p>
+</section>
+<section id="depicting-relationships-in-er-diagrams" class="slide level2">
+<h2>Depicting Relationships in ER Diagrams</h2>
+<p>ER diagrams visually represent relationships between entities, using standardized symbols and notations to convey cardinality and participation constraints.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>ER diagrams use lines to depict relationships between entities.</li>
+<li>Cardinality is shown with symbols like “1” and “M” or crow’s foot notation.</li>
+<li>Participation constraints are indicated by solid or dashed lines.</li>
+<li>Chen’s notation uses diamonds for relationships, while Crow’s Foot uses simple lines.</li>
+<li>Accurate depiction of relationships in ER diagrams is crucial for effective database design.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>ER diagrams provide a visual representation of how entities in a database are interconnected.</em></p>
+</section>
+<section id="mapping-relationships-to-relational-tables" class="slide level2">
+<h2>Mapping Relationships to Relational Tables</h2>
+<p>Mapping relationships from an ER model to a relational schema involves translating relationships into foreign keys, ensuring data integrity across tables.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Relationships in an ER model are translated into foreign keys in the relational schema.</li>
+<li>One-to-one relationships often result in a foreign key in one table.</li>
+<li>One-to-many relationships map a primary key in the “one” side to a foreign key in the “many” side.</li>
+<li>Many-to-many relationships require a junction table with foreign keys referencing both entities.</li>
+<li>Proper mapping ensures the logical integrity and normalization of the database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Mapping relationships correctly is key to creating a well-structured relational database.</em></p>
+</section>
+<section id="examples-of-common-relationships-in-databases" class="slide level2">
+<h2>Examples of Common Relationships in Databases</h2>
+<p>Examples of real-world relationships illustrate how different entities are connected in databases, helping students understand the application of these concepts.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A customer placing multiple orders (one-to-many relationship).</li>
+<li>Students enrolling in multiple courses (many-to-many relationship).</li>
+<li>An employee having one unique ID number (one-to-one relationship).</li>
+<li>A book being published by multiple authors (many-to-many relationship).</li>
+<li>A department managing several employees (one-to-many relationship).</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Real-world examples help clarify the application of relationships in database design.</em></p>
+</section>
+<section id="common-pitfalls-in-modeling-relationships" class="slide level2">
+<h2>Common Pitfalls in Modeling Relationships</h2>
+<p>Mistakes in modeling relationships can lead to inefficient or incorrect database designs, so understanding these pitfalls is essential for effective database modeling.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Failing to identify the correct cardinality between entities.</li>
+<li>Overcomplicating relationships with unnecessary entities or attributes.</li>
+<li>Ignoring participation constraints, leading to data integrity issues.</li>
+<li>Misusing one-to-one relationships when one-to-many would suffice.</li>
+<li>Overlooking the need for junction tables in many-to-many relationships.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Avoiding common pitfalls in relationship modeling ensures a robust and efficient database design.</em></p>
+</section></section>
+<section>
+<section id="keys-and-identifiers" class="title-slide slide level1 center">
+<h1>Keys and Identifiers</h1>
+
+</section>
+<section id="importance-of-keys-in-database-design" class="slide level2">
+<h2>Importance of Keys in Database Design</h2>
+<p>Keys are essential in database design as they ensure the uniqueness of records and help establish relationships between tables. Understanding different types of keys is fundamental for maintaining data integrity.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Keys are attributes or sets of attributes that uniquely identify a record in a table.</li>
+<li>Without keys, there would be no way to distinguish between two identical records.</li>
+<li>Keys play a crucial role in indexing, which speeds up query performance.</li>
+<li>They help maintain data integrity by enforcing uniqueness.</li>
+<li>Proper use of keys prevents data duplication and ensures accurate retrieval.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Keys are the cornerstone of data integrity and efficient query performance in databases.</em></p>
+</section>
+<section id="primary-keys-the-foundation-of-uniqueness" class="slide level2">
+<h2>Primary Keys: The Foundation of Uniqueness</h2>
+<p>A primary key is a unique identifier for each record in a table. It is crucial for ensuring that no two records can have the same primary key value.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A primary key is a column or a set of columns that uniquely identifies each row in a table.</li>
+<li>No two rows in a table can have the same primary key value.</li>
+<li>Primary keys cannot contain NULL values.</li>
+<li>They are automatically indexed to improve query performance.</li>
+<li>In relational databases, primary keys are the basis for establishing relationships between tables.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Primary keys ensure the uniqueness and integrity of data in a database table.</em></p>
+</section>
+<section id="candidate-keys-potential-primary-keys" class="slide level2">
+<h2>Candidate Keys: Potential Primary Keys</h2>
+<p>Candidate keys are those that could potentially serve as a primary key. Understanding candidate keys is important for choosing the most appropriate primary key.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A candidate key is any column or combination of columns that can uniquely identify a row in a table.</li>
+<li>Every table can have multiple candidate keys.</li>
+<li>Out of all candidate keys, one is chosen as the primary key.</li>
+<li>Candidate keys must be unique and not contain NULL values.</li>
+<li>They serve as alternative unique identifiers for records.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Candidate keys offer flexibility in choosing the most suitable primary key for a table.</em></p>
+</section>
+<section id="composite-keys-combining-multiple-attributes" class="slide level2">
+<h2>Composite Keys: Combining Multiple Attributes</h2>
+<p>Composite keys are formed by combining two or more attributes to create a unique identifier. They are useful when a single attribute is not sufficient to identify a record.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A composite key is a primary key composed of two or more columns.</li>
+<li>It is used when no single attribute can uniquely identify a record.</li>
+<li>All columns in the composite key together must be unique.</li>
+<li>Composite keys are often used in junction tables to link two or more tables.</li>
+<li>They enforce multi-attribute uniqueness in relational databases.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Composite keys are essential for uniquely identifying records in complex tables.</em></p>
+</section>
+<section id="surrogate-keys-a-unique-system-generated-identifier" class="slide level2">
+<h2>Surrogate Keys: A Unique System-Generated Identifier</h2>
+<p>Surrogate keys are artificial keys that are not derived from application data. They are commonly used when no natural primary key exists.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A surrogate key is an artificially generated identifier used as the primary key.</li>
+<li>Surrogate keys are typically numeric and auto-incremented by the database system.</li>
+<li>They are not derived from business data, ensuring their immutability.</li>
+<li>Surrogate keys simplify indexing and improve performance in large databases.</li>
+<li>They are particularly useful in scenarios where natural keys are too complex or change frequently.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Surrogate keys provide a simple and efficient way to uniquely identify records in a database.</em></p>
+</section>
+<section id="natural-keys-using-business-data-for-identification" class="slide level2">
+<h2>Natural Keys: Using Business Data for Identification</h2>
+<p>Natural keys are keys that are derived from business data, such as a social security number or email address. They have real-world meaning but may have drawbacks in certain scenarios.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A natural key is an attribute that has a real-world meaning and is used as a primary key.</li>
+<li>Examples include social security numbers, email addresses, or product codes.</li>
+<li>Natural keys can simplify data understanding for end users.</li>
+<li>They are prone to change, which can complicate database design and maintenance.</li>
+<li>Using natural keys can introduce dependencies on external data sources.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Natural keys provide meaningful identifiers but can introduce complexity and dependencies.</em></p>
+</section>
+<section id="choosing-between-surrogate-and-natural-keys" class="slide level2">
+<h2>Choosing Between Surrogate and Natural Keys</h2>
+<p>Deciding between surrogate and natural keys is a critical design choice that can affect the performance and maintainability of a database.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Surrogate keys offer simplicity, especially in complex or large-scale databases.</li>
+<li>Natural keys provide meaningful identifiers but may require careful handling of changes.</li>
+<li>The choice depends on factors like data stability, performance needs, and system complexity.</li>
+<li>Surrogate keys are preferred when natural keys are prone to change or have a large data size.</li>
+<li>Consider using natural keys when the key has inherent business significance and low volatility.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>The choice between surrogate and natural keys should be guided by data characteristics and system requirements.</em></p>
+</section>
+<section id="ensuring-uniqueness-constraints-and-indexes" class="slide level2">
+<h2>Ensuring Uniqueness: Constraints and Indexes</h2>
+<p>Uniqueness constraints and indexes are critical for enforcing the uniqueness of keys and improving the performance of queries.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Uniqueness constraints ensure that key values are not duplicated across records.</li>
+<li>Primary keys automatically enforce uniqueness and create an index.</li>
+<li>Unique constraints can be applied to any column, not just the primary key.</li>
+<li>Indexes improve query performance by speeding up data retrieval.</li>
+<li>Proper indexing strategies are essential for maintaining fast and efficient databases.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Uniqueness constraints and indexes are vital for maintaining data integrity and optimizing query performance.</em></p>
+</section>
+<section id="keys-in-relationships-establishing-links-between-tables" class="slide level2">
+<h2>Keys in Relationships: Establishing Links Between Tables</h2>
+<p>Keys are essential for establishing relationships between tables in a relational database. Understanding foreign keys is key to effective database normalization.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Foreign keys are columns that establish a link between two tables.</li>
+<li>A foreign key in one table points to the primary key in another table.</li>
+<li>Foreign keys enforce referential integrity, ensuring consistent relationships.</li>
+<li>Proper use of foreign keys prevents orphaned records and maintains data integrity.</li>
+<li>Relationships between tables are fundamental to database normalization and data integrity.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Foreign keys are crucial for maintaining relationships and data integrity in relational databases.</em></p>
+</section>
+<section id="summary-of-keys-and-identifiers" class="slide level2">
+<h2>Summary of Keys and Identifiers</h2>
+<p>Keys and identifiers are the backbone of relational databases, ensuring the uniqueness and integrity of data. Understanding the different types of keys and their applications is essential for effective database design.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Keys uniquely identify records and prevent duplication.</li>
+<li>Primary keys, candidate keys, and composite keys serve different roles in database design.</li>
+<li>Surrogate keys simplify indexing and are used when natural keys are inadequate.</li>
+<li>Natural keys carry real-world meaning but may introduce complexities.</li>
+<li>Choosing the right key type is critical for ensuring data integrity and database performance.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div>
+</div>
+<p><em>Effective use of keys and identifiers is essential for building reliable and efficient databases.</em></p>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,21 +1484,27 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Homework 1 - Due Sunday night</p></li>
+<li><p>Teams should be formed and submitted</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Intro to ER Models</p></li>
+<li><p>Entities and Attributes</p></li>
+<li><p>Relationships and Cardinalty</p></li>
+<li><p>Keys and Identifiers</p></li>
 </ul>
-</div></div>
+</div>
+</div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
+<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -575,6 +1583,7 @@
 </tbody>
 </table>
 </div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -595,7 +1604,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -843,7 +1852,18 @@
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -875,29 +1895,7 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -905,7 +1903,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
