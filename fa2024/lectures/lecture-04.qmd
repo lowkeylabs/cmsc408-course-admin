@@ -17,17 +17,25 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'Quiz 2 - ER Modeling, due 9/4 (tonight!)',
+    'Deliverable 4 - reflection, due 9/6',
+    'Homework 2 - ER Modeling, due 9/10',
+    'Deliverable 5 - pitch video, due 9/15'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 2](#homework-2-fall-2024)',
+    '[ER Diagramming](#er-diagramming)',
+    '[Weak and Strong Entities](#weak-and-strong-entities)'
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+{{< include ../../topics/_homework-2-fall-2024.qmd >}}
+{{< include ../../topics/_er-diagramming.qmd >}}
+{{< include ../../topics/_weak-and-strong-entities.qmd >}}
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

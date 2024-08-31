@@ -72,12 +72,40 @@ The relationship between a weak entity and its strong entity is crucial for main
 
 
 
+## Weak and Strong Entities - Examples
+
+:::: {.columns}
+::: {.column width=60%}
+
+### Consider
+
+Consider a stack of invoices.  Each invoice has a primary company address,
+a customer billing address, and a customer ship-to address.  These addresses might be stored in a separate list of addresses for reuse.  These addresses are *strong entities*, that can exist without the invoice.
+
+Each invoice contains a list of items to be purchased.  Each item has a item description, quantity, unit price and a total price. Item descriptions may be stored separately and connected to the invoice by an item id.
+
+An item is a strong entity.  It can live without an invoice, for example in a table of items to create a product catalog.
+
+*Invoice Line Items* are entities, too. BUT, they can't live independently of an invoice.  Their data (quantity, total price) are unique to this particular link in the invoice.  Thus, these are called **weak entities**.
+
+:::
+::: {.column width=40%}
+
+### Invoice example
+
+![](assets/weak-entity-invoice-example.png){.lightbox}
+:::
+::::
+
+
+
+
 ## Partial Keys and Their Role
 
 Partial keys, also known as discriminator attributes, are used to distinguish between instances of a weak entity in the context of its related strong entity.
 
 :::: {.columns}
-::: {.column width=95%}
+::: {.column width=50%}
 
 - A partial key is an attribute or a set of attributes that uniquely identify a weak entity for a given strong entity.
 - Partial keys are combined with the primary key of the strong entity to create a unique identifier.
@@ -85,8 +113,8 @@ Partial keys, also known as discriminator attributes, are used to distinguish be
 - Partial keys are often underlined with a dotted line in ER diagrams.
 - Ensuring accurate definition of partial keys is critical for data integrity.
 :::
-::: {.column width=5%}
-
+::: {.column width=50%}
+  ![](assets/weak-entity-invoice-example.png){.lightbox}
 :::
 ::::
 
@@ -102,11 +130,10 @@ Practical examples of weak entities help in understanding their application and 
 :::: {.columns}
 ::: {.column width=95%}
 
-- 'Invoice Line Items' are weak entities that rely on the 'Invoice' entity.
 - 'Employee Dependents' are weak entities related to an 'Employee' strong entity.
 - 'Order Items' require an associated 'Order' entity for their identification.
 - 'Class Enrollments' are weak entities dependent on a 'Course' entity.
-- 'Apartment Units' might depend on a 'Building' entity for their unique identification.
+- 'Apartment Units' or 'Rooms' might depend on a 'Building' entity for their unique identification.
 :::
 ::: {.column width=5%}
 
@@ -160,29 +187,6 @@ Identifying relationships are fundamental in ensuring that weak entities are pro
 ::::
 
 *Identifying relationships are essential for maintaining the integrity and meaning of weak entities.*
-
-
-
-
-## Case Study: Modeling Weak Entities
-
-Understanding weak entities through real-world case studies helps solidify the concept and its application in database design.
-
-:::: {.columns}
-::: {.column width=95%}
-
-- Consider a retail scenario where 'Order Items' depend on an 'Order.'
-- Each 'Order Item' has a unique line number (partial key) combined with an order number.
-- The 'Order Item' cannot exist without an associated 'Order.'
-- This scenario illustrates how weak entities represent dependent data.
-- Proper modeling ensures that 'Order Items' are always tied to an 'Order,' reflecting real-world constraints.
-:::
-::: {.column width=5%}
-
-:::
-::::
-
-*Case studies provide practical examples of how weak entities are used in database design.*
 
 
 

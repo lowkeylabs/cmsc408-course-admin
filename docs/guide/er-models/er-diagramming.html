@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ER Diagramming – CMSC 408 - Databases Study Guide</title>
+<title>CMSC 408 - Databases Study Guide - ER Diagramming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../guide.css">
@@ -85,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -104,17 +107,17 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/er-diagramming.html">ER Diagramming</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/er-diagramming.html">ER Diagramming*</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -127,9 +130,9 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">ER Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -167,13 +170,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../er-models/er-diagramming.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">ER Diagramming</span></a>
+ <span class="menu-text">ER Diagramming*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../er-models/weak-and-strong-entities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Weak and Strong Entities</span></a>
+ <span class="menu-text">Weak and Strong Entities*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,13 +210,16 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#standard-symbols-in-er-diagrams" id="toc-standard-symbols-in-er-diagrams" class="nav-link active" data-scroll-target="#standard-symbols-in-er-diagrams">Standard Symbols in ER Diagrams</a></li>
-  <li><a href="#chens-notation-in-er-diagrams" id="toc-chens-notation-in-er-diagrams" class="nav-link" data-scroll-target="#chens-notation-in-er-diagrams">Chen’s Notation in ER Diagrams</a></li>
-  <li><a href="#crows-foot-notation-in-er-diagrams" id="toc-crows-foot-notation-in-er-diagrams" class="nav-link" data-scroll-target="#crows-foot-notation-in-er-diagrams">Crow’s Foot Notation in ER Diagrams</a></li>
-  <li><a href="#example-of-crows-foot-notation" id="toc-example-of-crows-foot-notation" class="nav-link" data-scroll-target="#example-of-crows-foot-notation">Example of Crow’s Foot Notation</a></li>
-  <li><a href="#differences-between-chens-and-crows-foot-notations" id="toc-differences-between-chens-and-crows-foot-notations" class="nav-link" data-scroll-target="#differences-between-chens-and-crows-foot-notations">Differences Between Chen’s and Crow’s Foot Notations</a></li>
-  <li><a href="#practice-creating-er-diagrams-with-chens-notation" id="toc-practice-creating-er-diagrams-with-chens-notation" class="nav-link" data-scroll-target="#practice-creating-er-diagrams-with-chens-notation">Practice: Creating ER Diagrams with Chen’s Notation</a></li>
-  <li><a href="#practice-creating-er-diagrams-with-crows-foot-notation" id="toc-practice-creating-er-diagrams-with-crows-foot-notation" class="nav-link" data-scroll-target="#practice-creating-er-diagrams-with-crows-foot-notation">Practice: Creating ER Diagrams with Crow’s Foot Notation</a></li>
-  <li><a href="#converting-er-diagrams-chens-to-crows-foot-notation" id="toc-converting-er-diagrams-chens-to-crows-foot-notation" class="nav-link" data-scroll-target="#converting-er-diagrams-chens-to-crows-foot-notation">Converting ER Diagrams: Chen’s to Crow’s Foot Notation</a></li>
+  <li><a href="#chens-notation-in-er-diagrams" id="toc-chens-notation-in-er-diagrams" class="nav-link" data-scroll-target="#chens-notation-in-er-diagrams">Chens Notation in ER Diagrams</a></li>
+  <li><a href="#practice-creating-er-diagrams-with-chens-notation" id="toc-practice-creating-er-diagrams-with-chens-notation" class="nav-link" data-scroll-target="#practice-creating-er-diagrams-with-chens-notation">Practice: Creating ER Diagrams with Chens Notation</a></li>
+  <li><a href="#practice-chens-notation-example-1" id="toc-practice-chens-notation-example-1" class="nav-link" data-scroll-target="#practice-chens-notation-example-1">Practice: Chens notation example 1</a></li>
+  <li><a href="#practice-chens-notation-example-2" id="toc-practice-chens-notation-example-2" class="nav-link" data-scroll-target="#practice-chens-notation-example-2">Practice: Chens notation example 2</a></li>
+  <li><a href="#crows-foot-notation-in-er-diagrams" id="toc-crows-foot-notation-in-er-diagrams" class="nav-link" data-scroll-target="#crows-foot-notation-in-er-diagrams">Crows Foot Notation in ER Diagrams</a></li>
+  <li><a href="#practice-creating-er-diagrams-with-crows-foot-notation" id="toc-practice-creating-er-diagrams-with-crows-foot-notation" class="nav-link" data-scroll-target="#practice-creating-er-diagrams-with-crows-foot-notation">Practice: Creating ER Diagrams with Crows Foot Notation</a></li>
+  <li><a href="#practice-crows-foot-notation-example-1" id="toc-practice-crows-foot-notation-example-1" class="nav-link" data-scroll-target="#practice-crows-foot-notation-example-1">Practice: Crows Foot Notation example 1</a></li>
+  <li><a href="#practice-crows-foot-notation-example-2" id="toc-practice-crows-foot-notation-example-2" class="nav-link" data-scroll-target="#practice-crows-foot-notation-example-2">Practice: Crows Foot Notation example 2</a></li>
+  <li><a href="#differences-between-chens-and-crows-foot-notations" id="toc-differences-between-chens-and-crows-foot-notations" class="nav-link" data-scroll-target="#differences-between-chens-and-crows-foot-notations">Differences Between Chens and Crows Foot Notations</a></li>
+  <li><a href="#converting-er-diagrams-chens-to-crows-foot-notation" id="toc-converting-er-diagrams-chens-to-crows-foot-notation" class="nav-link" data-scroll-target="#converting-er-diagrams-chens-to-crows-foot-notation">Converting ER Diagrams: Chens to Crows Foot Notation</a></li>
   <li><a href="#choosing-the-right-notation-for-your-project" id="toc-choosing-the-right-notation-for-your-project" class="nav-link" data-scroll-target="#choosing-the-right-notation-for-your-project">Choosing the Right Notation for Your Project</a></li>
   <li><a href="#summary-of-er-diagram-notations" id="toc-summary-of-er-diagram-notations" class="nav-link" data-scroll-target="#summary-of-er-diagram-notations">Summary of ER Diagram Notations</a></li>
   </ul>
@@ -222,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/er-diagramming.html">ER Diagramming</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/er-diagramming.html">ER Diagramming*</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">ER Diagramming</h1>
 </div>
@@ -241,45 +247,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
- <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-
-            
-        mermaid.initialize({ startOnLoad: true });
-
-        // Function to update the diagram
-        function updateDiagram() {
-            const code = document.getElementById('input_01').value;
-            const diagramContainer = document.getElementById('diagram_01');
-
-            // Clear the diagram container
-            diagramContainer.innerHTML = '';
-
-            // Create a new div for the Mermaid code
-            const newDiv = document.createElement('div');
-            newDiv.className = 'mermaid';
-            newDiv.innerHTML = code;
-
-            // Append the new div to the container
-            diagramContainer.appendChild(newDiv);
-
-            // Remove the "data-processed" attribute if it exists
-            newDiv.removeAttribute("data-processed");
-
-            // Run Mermaid to process the new content
-            mermaid.run({ nodes: [newDiv] });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            // Initial rendering
-            updateDiagram();
-
-            // Listen for changes in the textarea
-            document.getElementById('input_01').addEventListener('input', updateDiagram);
-
-        });
-
-    </script>
 <!--
 Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
 
@@ -387,7 +354,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <p><em>The use of standardized symbols ensures clarity and consistency in ER diagrams.</em></p>
 </section>
 <section id="chens-notation-in-er-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="chens-notation-in-er-diagrams">Chen’s Notation in ER Diagrams</h2>
+<h2 class="anchored" data-anchor-id="chens-notation-in-er-diagrams">Chens Notation in ER Diagrams</h2>
 <p>Chen’s notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.</p>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -399,154 +366,151 @@ Entities represent real-world objects or concepts, while attributes describe the
 <li><strong>Weak entities</strong> are represented with double rectangles, indicating their dependence on other entities.</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="cell" data-layout-align="default">
+<div class="cell" data-fig-width="60%" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 360.04 447.65" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 443.65)">
+<svg width="NaN" height="480" viewbox="0.00 0.00 360.04 343.65" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 339.65)">
 <title>ER</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-443.65 356.04,-443.65 356.04,4 -4,4"></polygon>
-<text text-anchor="middle" x="176.02" y="-34" font-family="Helvetica,Arial,sans-serif" font-size="20.00">Entity Relation Diagram</text>
-<text text-anchor="middle" x="176.02" y="-10" font-family="Helvetica,Arial,sans-serif" font-size="20.00">drawn by NEATO</text>
 <!-- course -->
 <g id="node1" class="node">
 <title>course</title>
-<polygon fill="none" stroke="black" points="126.28,-300.72 72.28,-300.72 72.28,-264.72 126.28,-264.72 126.28,-300.72"></polygon>
-<text text-anchor="middle" x="99.28" y="-278.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">course</text>
+<polygon fill="none" stroke="black" points="126.28,-196.72 72.28,-196.72 72.28,-160.72 126.28,-160.72 126.28,-196.72"></polygon>
+<text text-anchor="middle" x="99.28" y="-174.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">course</text>
 </g>
 <!-- C&#45;I -->
 <g id="node10" class="node">
 <title>C-I</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="145.04,-371.89 111.41,-353.89 145.04,-335.89 178.66,-353.89 145.04,-371.89"></polygon>
-<text text-anchor="middle" x="145.04" y="-349.69" font-family="Helvetica,Arial,sans-serif" font-size="14.00">C-I</text>
+<polygon fill="lightgrey" stroke="lightgrey" points="145.04,-267.89 111.41,-249.89 145.04,-231.89 178.66,-249.89 145.04,-267.89"></polygon>
+<text text-anchor="middle" x="145.04" y="-245.69" font-family="Helvetica,Arial,sans-serif" font-size="14.00">C-I</text>
 </g>
 <!-- course&#45;&#45;C&#45;I -->
 <g id="edge3" class="edge">
 <title>course--C-I</title>
-<path fill="none" stroke="black" d="M111.06,-301.05C118.9,-313.24 129.03,-328.99 136.18,-340.12"></path>
-<text text-anchor="middle" x="120.12" y="-307.98" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
+<path fill="none" stroke="black" d="M111.06,-197.05C118.9,-209.24 129.03,-224.99 136.18,-236.12"></path>
+<text text-anchor="middle" x="120.12" y="-203.98" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
 </g>
 <!-- institute -->
 <g id="node2" class="node">
 <title>institute</title>
-<polygon fill="none" stroke="black" points="258.02,-371.4 196.8,-371.4 196.8,-335.4 258.02,-335.4 258.02,-371.4"></polygon>
-<text text-anchor="middle" x="227.41" y="-349.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">institute</text>
+<polygon fill="none" stroke="black" points="258.02,-267.4 196.8,-267.4 196.8,-231.4 258.02,-231.4 258.02,-267.4"></polygon>
+<text text-anchor="middle" x="227.41" y="-245.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">institute</text>
 </g>
 <!-- name1 -->
 <g id="node5" class="node">
 <title>name1</title>
-<ellipse fill="none" stroke="black" cx="266.67" cy="-421.65" rx="31.9" ry="18"></ellipse>
-<text text-anchor="middle" x="266.67" y="-417.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+<ellipse fill="none" stroke="black" cx="266.67" cy="-317.65" rx="31.9" ry="18"></ellipse>
+<text text-anchor="middle" x="266.67" y="-313.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
 </g>
 <!-- institute&#45;&#45;name1 -->
 <g id="edge5" class="edge">
 <title>institute--name1</title>
-<path fill="none" stroke="black" d="M237.93,-371.69C243.75,-381.8 250.93,-394.29 256.66,-404.25"></path>
+<path fill="none" stroke="black" d="M237.93,-267.69C243.75,-277.8 250.93,-290.29 256.66,-300.25"></path>
 </g>
 <!-- S&#45;I -->
 <g id="node12" class="node">
 <title>S-I</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="263.69,-297.72 231.59,-279.72 263.69,-261.72 295.79,-279.72 263.69,-297.72"></polygon>
-<text text-anchor="middle" x="263.69" y="-275.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">S-I</text>
+<polygon fill="lightgrey" stroke="lightgrey" points="263.69,-193.72 231.59,-175.72 263.69,-157.72 295.79,-175.72 263.69,-193.72"></polygon>
+<text text-anchor="middle" x="263.69" y="-171.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">S-I</text>
 </g>
 <!-- institute&#45;&#45;S&#45;I -->
 <g id="edge6" class="edge">
 <title>institute--S-I</title>
-<path fill="none" stroke="black" d="M236.38,-335.19C242.59,-322.57 250.75,-306.01 256.53,-294.27"></path>
-<text text-anchor="middle" x="242.95" y="-318.93" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M236.38,-231.19C242.59,-218.57 250.75,-202.01 256.53,-190.27"></path>
+<text text-anchor="middle" x="242.95" y="-214.93" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1</text>
 </g>
 <!-- student -->
 <g id="node3" class="node">
 <title>student</title>
-<polygon fill="none" stroke="black" points="264.94,-217.45 208.05,-217.45 208.05,-181.45 264.94,-181.45 264.94,-217.45"></polygon>
-<text text-anchor="middle" x="236.49" y="-195.25" font-family="Helvetica,Arial,sans-serif" font-size="14.00">student</text>
+<polygon fill="none" stroke="black" points="264.94,-113.45 208.05,-113.45 208.05,-77.45 264.94,-77.45 264.94,-113.45"></polygon>
+<text text-anchor="middle" x="236.49" y="-91.25" font-family="Helvetica,Arial,sans-serif" font-size="14.00">student</text>
 </g>
 <!-- name2 -->
 <g id="node6" class="node">
 <title>name2</title>
-<ellipse fill="none" stroke="black" cx="320.09" cy="-197.48" rx="31.9" ry="18"></ellipse>
-<text text-anchor="middle" x="320.09" y="-193.28" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+<ellipse fill="none" stroke="black" cx="320.09" cy="-93.48" rx="31.9" ry="18"></ellipse>
+<text text-anchor="middle" x="320.09" y="-89.28" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
 </g>
 <!-- student&#45;&#45;name2 -->
 <g id="edge9" class="edge">
 <title>student--name2</title>
-<path fill="none" stroke="black" d="M264.8,-198.78C272.28,-198.61 280.41,-198.41 288.08,-198.23"></path>
+<path fill="none" stroke="black" d="M264.8,-94.78C272.28,-94.61 280.41,-94.41 288.08,-94.23"></path>
 </g>
 <!-- grade -->
 <g id="node8" class="node">
 <title>grade</title>
-<ellipse fill="none" stroke="black" cx="280.34" cy="-131.72" rx="32.46" ry="18"></ellipse>
-<text text-anchor="middle" x="280.34" y="-127.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">grade</text>
+<ellipse fill="none" stroke="black" cx="280.34" cy="-27.72" rx="32.46" ry="18"></ellipse>
+<text text-anchor="middle" x="280.34" y="-23.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">grade</text>
 </g>
 <!-- student&#45;&#45;grade -->
 <g id="edge8" class="edge">
 <title>student--grade</title>
-<path fill="none" stroke="black" d="M248.24,-181.3C254.74,-171.27 262.76,-158.87 269.16,-148.99"></path>
+<path fill="none" stroke="black" d="M248.24,-77.3C254.74,-67.27 262.76,-54.87 269.16,-44.99"></path>
 </g>
 <!-- number -->
 <g id="node9" class="node">
 <title>number</title>
-<ellipse fill="none" stroke="black" cx="204.72" cy="-122" rx="40.57" ry="18"></ellipse>
-<text text-anchor="middle" x="204.72" y="-117.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">number</text>
+<ellipse fill="none" stroke="black" cx="204.72" cy="-18" rx="40.57" ry="18"></ellipse>
+<text text-anchor="middle" x="204.72" y="-13.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">number</text>
 </g>
 <!-- student&#45;&#45;number -->
 <g id="edge10" class="edge">
 <title>student--number</title>
-<path fill="none" stroke="black" d="M228.97,-181.1C223.86,-168.66 217.16,-152.31 212.09,-139.96"></path>
+<path fill="none" stroke="black" d="M228.97,-77.1C223.86,-64.66 217.16,-48.31 212.09,-35.96"></path>
 </g>
 <!-- S&#45;C -->
 <g id="node11" class="node">
 <title>S-C</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="154.08,-237.29 117.36,-219.29 154.08,-201.29 190.8,-219.29 154.08,-237.29"></polygon>
-<text text-anchor="middle" x="154.08" y="-215.09" font-family="Helvetica,Arial,sans-serif" font-size="14.00">S-C</text>
+<polygon fill="lightgrey" stroke="lightgrey" points="154.08,-133.29 117.36,-115.29 154.08,-97.29 190.8,-115.29 154.08,-133.29"></polygon>
+<text text-anchor="middle" x="154.08" y="-111.09" font-family="Helvetica,Arial,sans-serif" font-size="14.00">S-C</text>
 </g>
 <!-- student&#45;&#45;S&#45;C -->
 <g id="edge11" class="edge">
 <title>student--S-C</title>
-<path fill="none" stroke="black" d="M208.13,-206.28C198.63,-208.56 188.12,-211.09 178.91,-213.31"></path>
-<text text-anchor="middle" x="198.97" y="-213.99" font-family="Helvetica,Arial,sans-serif" font-size="14.00">m</text>
+<path fill="none" stroke="black" d="M208.13,-102.28C198.63,-104.56 188.12,-107.09 178.91,-109.31"></path>
+<text text-anchor="middle" x="198.97" y="-109.99" font-family="Helvetica,Arial,sans-serif" font-size="14.00">m</text>
 </g>
 <!-- name0 -->
 <g id="node4" class="node">
 <title>name0</title>
-<ellipse fill="none" stroke="black" cx="35.44" cy="-332.13" rx="31.9" ry="18"></ellipse>
-<text text-anchor="middle" x="35.44" y="-327.93" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+<ellipse fill="none" stroke="black" cx="35.44" cy="-228.13" rx="31.9" ry="18"></ellipse>
+<text text-anchor="middle" x="35.44" y="-223.93" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
 </g>
 <!-- name0&#45;&#45;course -->
 <g id="edge1" class="edge">
 <title>name0--course</title>
-<path fill="none" stroke="black" d="M54.25,-317.57C61.01,-312.33 68.73,-306.36 75.85,-300.86"></path>
+<path fill="none" stroke="black" d="M54.25,-213.57C61.01,-208.33 68.73,-202.36 75.85,-196.86"></path>
 </g>
 <!-- code -->
 <g id="node7" class="node">
 <title>code</title>
-<ellipse fill="none" stroke="black" cx="29.27" cy="-240.25" rx="29.03" ry="18"></ellipse>
-<text text-anchor="middle" x="29.27" y="-236.05" font-family="Helvetica,Arial,sans-serif" font-size="14.00">code</text>
+<ellipse fill="none" stroke="black" cx="29.27" cy="-136.25" rx="29.03" ry="18"></ellipse>
+<text text-anchor="middle" x="29.27" y="-132.05" font-family="Helvetica,Arial,sans-serif" font-size="14.00">code</text>
 </g>
 <!-- code&#45;&#45;course -->
 <g id="edge2" class="edge">
 <title>code--course</title>
-<path fill="none" stroke="black" d="M50.27,-252.99C57.12,-257.15 64.82,-261.82 72.06,-266.21"></path>
+<path fill="none" stroke="black" d="M50.27,-148.99C57.12,-153.15 64.82,-157.82 72.06,-162.21"></path>
 </g>
 <!-- C&#45;I&#45;&#45;institute -->
 <g id="edge4" class="edge">
 <title>C-I--institute</title>
-<path fill="none" stroke="black" d="M178.54,-353.69C184.6,-353.65 190.89,-353.62 196.85,-353.58"></path>
-<text text-anchor="middle" x="184.2" y="-357.83" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M178.54,-249.69C184.6,-249.65 190.89,-249.62 196.85,-249.58"></path>
+<text text-anchor="middle" x="184.2" y="-253.83" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1</text>
 </g>
 <!-- S&#45;C&#45;&#45;course -->
 <g id="edge12" class="edge">
 <title>S-C--course</title>
-<path fill="none" stroke="black" d="M142.99,-232.13C134.98,-241.39 124.06,-254.04 115.13,-264.38"></path>
-<text text-anchor="middle" x="132.56" y="-252.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
+<path fill="none" stroke="black" d="M142.99,-128.13C134.98,-137.39 124.06,-150.04 115.13,-160.38"></path>
+<text text-anchor="middle" x="132.56" y="-148.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
 </g>
 <!-- S&#45;I&#45;&#45;student -->
 <g id="edge7" class="edge">
 <title>S-I--student</title>
-<path fill="none" stroke="black" d="M258.45,-264.24C253.94,-250.94 247.43,-231.74 242.67,-217.69"></path>
-<text text-anchor="middle" x="247.06" y="-245.17" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
+<path fill="none" stroke="black" d="M258.45,-160.24C253.94,-146.94 247.43,-127.74 242.67,-113.69"></path>
+<text text-anchor="middle" x="247.06" y="-141.17" font-family="Helvetica,Arial,sans-serif" font-size="14.00">n</text>
 </g>
 </g>
 </svg>
@@ -559,79 +523,8 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <p><em>Chen’s notation provides a clear and detailed way to represent complex data relationships.</em></p>
 </section>
-<section id="crows-foot-notation-in-er-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="crows-foot-notation-in-er-diagrams">Crow’s Foot Notation in ER Diagrams</h2>
-<p>Crow’s Foot notation is a more modern approach that focuses on simplifying the representation of relationships and cardinality in ER diagrams.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li><strong>Entities</strong> are shown as rectangles with the entity name inside.</li>
-<li><strong>Attributes</strong> are listed inside the entity box, with primary keys at the top.</li>
-<li><strong>Relationships</strong> are indicated with lines connecting entities, with crow’s foot symbols denoting cardinality.</li>
-<li><strong>Cardinality</strong> symbols at the ends of relationships show the number of instances involved (e.g., one-to-many).</li>
-<li><strong>Optional relationships</strong> are represented with a circle at the end of a relationship line.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Crow’s Foot notation is favored for its simplicity and clarity in representing database relationships.</em></p>
-</section>
-<section id="example-of-crows-foot-notation" class="level2">
-<h2 class="anchored" data-anchor-id="example-of-crows-foot-notation">Example of Crow’s Foot Notation</h2>
-<div class="columns">
-<div class="column">
-<textarea id="input_01" rows="25" cols="30">erDiagram
-    CUSTOMER {
-        int customer_id PK
-        string name
-        string email
-        string phone
-    }
-
-    ORDER {
-        int order_id PK
-        date order_date
-        float total_amount
-        int customer_id FK
-    }
-
-    PRODUCT {
-        int product_id PK
-        string product_name
-        float price
-    }
-
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--o{ PRODUCT : contains
-
-</textarea>
-</div><div class="column">
-    <!-- Container for the Diagram -->
-    <div id="diagram_01"></div>
-</div>
-</div>
-</section>
-<section id="differences-between-chens-and-crows-foot-notations" class="level2">
-<h2 class="anchored" data-anchor-id="differences-between-chens-and-crows-foot-notations">Differences Between Chen’s and Crow’s Foot Notations</h2>
-<p>Chen’s and Crow’s Foot notations serve similar purposes but differ in their visual representation of ER diagrams. Choosing the right notation depends on the complexity and needs of the database design.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li><strong>Chen’s notation</strong> emphasizes the detailed depiction of entities, attributes, and relationships.</li>
-<li><strong>Crow’s Foot notation</strong> simplifies the representation by focusing on relationships and cardinality.</li>
-<li><strong>Attribute depiction</strong> differs: Chen’s uses ovals, while Crow’s Foot lists them within the entity rectangle.</li>
-<li><strong>Cardinality representation</strong> is more explicit in Crow’s Foot notation with symbols like crows’ feet, while Chen’s uses numbers or descriptions.</li>
-<li><strong>Ease of use</strong>: Crow’s Foot is often easier for quick, high-level diagramming, whereas Chen’s is preferred for more detailed designs.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Understanding the differences helps in selecting the appropriate notation for a given project.</em></p>
-</section>
 <section id="practice-creating-er-diagrams-with-chens-notation" class="level2">
-<h2 class="anchored" data-anchor-id="practice-creating-er-diagrams-with-chens-notation">Practice: Creating ER Diagrams with Chen’s Notation</h2>
+<h2 class="anchored" data-anchor-id="practice-creating-er-diagrams-with-chens-notation">Practice: Creating ER Diagrams with Chens Notation</h2>
 <p>Hands-on practice with Chen’s notation helps solidify understanding of entities, relationships, and attributes, and how they are visually represented in ER diagrams.</p>
 <div class="columns">
 <div class="column" style="width:95%;">
@@ -648,8 +541,399 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <p><em>Practicing ER diagram creation builds confidence in applying Chen’s notation.</em></p>
 </section>
+<section id="practice-chens-notation-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="practice-chens-notation-example-1">Practice: Chens notation example 1</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="online-shopping-system" class="level3">
+<h3 class="anchored" data-anchor-id="online-shopping-system">Online Shopping System</h3>
+<p>Picture an online shopping platform that needs to manage products, customers, and orders.</p>
+<p>Each product has a product ID, name, and price.</p>
+<p>Customers have a customer ID, name, and email.</p>
+<p>Orders have an order ID, order date, and shipping address.</p>
+<p>A customer can place multiple orders, and each order can include multiple products.</p>
+<p>Each product can be part of multiple orders over time.</p>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-eval="true" data-fig-width="50%" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="NaN" height="480" viewbox="0.00 0.00 72.00 126.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.140298 0.140298) rotate(0) translate(4 745.65)">
+<title>online_shopping</title>
+<!-- product -->
+<g id="node1" class="node">
+<title>product</title>
+<polygon fill="lightgray" stroke="black" points="203.78,-625.25 131.78,-625.25 131.78,-589.25 203.78,-589.25 203.78,-625.25"></polygon>
+<text text-anchor="middle" x="167.78" y="-603.05" font-family="Helvetica,Arial,sans-serif" font-size="14.00">product</text>
+</g>
+<!-- id -->
+<g id="node4" class="node">
+<title>id</title>
+<ellipse fill="white" stroke="black" cx="51.04" cy="-656.74" rx="36" ry="18"></ellipse>
+<text text-anchor="start" x="45.6" y="-653.54" font-family="Helvetica,Arial,sans-serif" text-decoration="underline" font-size="14.00">id</text>
+</g>
+<!-- product&#45;&#45;id -->
+<g id="edge1" class="edge">
+<title>product--id</title>
+<path fill="none" stroke="black" d="M131.48,-622.64C114.48,-629.85 94.55,-638.3 78.78,-644.98"></path>
+</g>
+<!-- name1 -->
+<g id="node5" class="node">
+<title>name1</title>
+<ellipse fill="white" stroke="black" cx="282.99" cy="-659.27" rx="36.56" ry="18"></ellipse>
+<text text-anchor="middle" x="282.99" y="-655.07" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name1</text>
+</g>
+<!-- product&#45;&#45;name1 -->
+<g id="edge2" class="edge">
+<title>product--name1</title>
+<path fill="none" stroke="black" d="M203.92,-623.57C220.68,-631.14 240.27,-639.98 255.76,-646.98"></path>
+</g>
+<!-- price -->
+<g id="node6" class="node">
+<title>price</title>
+<ellipse fill="white" stroke="black" cx="166.28" cy="-723.65" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="166.28" y="-719.45" font-family="Helvetica,Arial,sans-serif" font-size="14.00">price</text>
+</g>
+<!-- product&#45;&#45;price -->
+<g id="edge3" class="edge">
+<title>product--price</title>
+<path fill="none" stroke="black" d="M167.54,-625.44C167.26,-647.3 166.79,-683.78 166.51,-705.59"></path>
+</g>
+<!-- customer -->
+<g id="node2" class="node">
+<title>customer</title>
+<polygon fill="lightgray" stroke="black" points="292.68,-145.23 220.68,-145.23 220.68,-109.23 292.68,-109.23 292.68,-145.23"></polygon>
+<text text-anchor="middle" x="256.68" y="-123.03" font-family="Helvetica,Arial,sans-serif" font-size="14.00">customer</text>
+</g>
+<!-- id2 -->
+<g id="node7" class="node">
+<title>id2</title>
+<ellipse fill="white" stroke="black" cx="165.44" cy="-39.2" rx="36" ry="18"></ellipse>
+<text text-anchor="start" x="159.99" y="-36" font-family="Helvetica,Arial,sans-serif" text-decoration="underline" font-size="14.00">id</text>
+</g>
+<!-- customer&#45;&#45;id2 -->
+<g id="edge4" class="edge">
+<title>customer--id2</title>
+<path fill="none" stroke="black" d="M237.78,-108.99C221.39,-93.17 197.89,-70.51 182.17,-55.34"></path>
+</g>
+<!-- name2 -->
+<g id="node8" class="node">
+<title>name2</title>
+<ellipse fill="white" stroke="black" cx="382.89" cy="-119.89" rx="36.56" ry="18"></ellipse>
+<text text-anchor="middle" x="382.89" y="-115.69" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name2</text>
+</g>
+<!-- customer&#45;&#45;name2 -->
+<g id="edge5" class="edge">
+<title>customer--name2</title>
+<path fill="none" stroke="black" d="M292.85,-125.13C309.6,-124.15 329.47,-123 346.28,-122.02"></path>
+</g>
+<!-- email -->
+<g id="node9" class="node">
+<title>email</title>
+<ellipse fill="white" stroke="black" cx="296.95" cy="-18" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="296.95" y="-13.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">email</text>
+</g>
+<!-- customer&#45;&#45;email -->
+<g id="edge6" class="edge">
+<title>customer--email</title>
+<path fill="none" stroke="black" d="M263.33,-109.19C270.79,-88.95 282.83,-56.31 290.29,-36.06"></path>
+</g>
+<!-- order -->
+<g id="node3" class="node">
+<title>order</title>
+<polygon fill="lightgray" stroke="black" points="193.65,-375.11 121.65,-375.11 121.65,-339.11 193.65,-339.11 193.65,-375.11"></polygon>
+<text text-anchor="middle" x="157.65" y="-352.91" font-family="Helvetica,Arial,sans-serif" font-size="14.00">order</text>
+</g>
+<!-- id3 -->
+<g id="node10" class="node">
+<title>id3</title>
+<ellipse fill="white" stroke="black" cx="276.44" cy="-379.16" rx="36" ry="18"></ellipse>
+<text text-anchor="start" x="270.99" y="-375.96" font-family="Helvetica,Arial,sans-serif" text-decoration="underline" font-size="14.00">id</text>
+</g>
+<!-- order&#45;&#45;id3 -->
+<g id="edge7" class="edge">
+<title>order--id3</title>
+<path fill="none" stroke="black" d="M193.94,-363.85C209.36,-366.71 227.24,-370.03 242.4,-372.85"></path>
+</g>
+<!-- date -->
+<g id="node11" class="node">
+<title>date</title>
+<ellipse fill="white" stroke="black" cx="36" cy="-379.62" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="36" y="-375.42" font-family="Helvetica,Arial,sans-serif" font-size="14.00">date</text>
+</g>
+<!-- order&#45;&#45;date -->
+<g id="edge8" class="edge">
+<title>order--date</title>
+<path fill="none" stroke="black" d="M121.48,-363.81C105.23,-366.81 86.16,-370.34 70.15,-373.3"></path>
+</g>
+<!-- address -->
+<g id="node12" class="node">
+<title>address</title>
+<ellipse fill="white" stroke="black" cx="52.09" cy="-292.62" rx="40" ry="18"></ellipse>
+<text text-anchor="middle" x="52.09" y="-288.42" font-family="Helvetica,Arial,sans-serif" font-size="14.00">address</text>
+</g>
+<!-- order&#45;&#45;address -->
+<g id="edge9" class="edge">
+<title>order--address</title>
+<path fill="none" stroke="black" d="M127.96,-338.98C111.5,-328.92 91.3,-316.57 75.88,-307.16"></path>
+</g>
+<!-- has1 -->
+<g id="node13" class="node">
+<title>has1</title>
+<polygon fill="white" stroke="black" points="211.36,-259.63 170.58,-241.63 211.36,-223.63 252.15,-241.63 211.36,-259.63"></polygon>
+<text text-anchor="middle" x="211.36" y="-237.43" font-family="Helvetica,Arial,sans-serif" font-size="14.00">has1</text>
+</g>
+<!-- order&#45;&#45;has1 -->
+<g id="edge10" class="edge">
+<title>order--has1</title>
+<path fill="none" stroke="black" d="M166.04,-339.07C176.61,-316.36 194.55,-277.77 204.4,-256.61"></path>
+</g>
+<!-- has2 -->
+<g id="node14" class="node">
+<title>has2</title>
+<polygon fill="white" stroke="black" points="166.44,-502.2 125.65,-484.2 166.44,-466.2 207.22,-484.2 166.44,-502.2"></polygon>
+<text text-anchor="middle" x="166.44" y="-480" font-family="Helvetica,Arial,sans-serif" font-size="14.00">has2</text>
+</g>
+<!-- order&#45;&#45;has2 -->
+<g id="edge12" class="edge">
+<title>order--has2</title>
+<path fill="none" stroke="black" d="M158.91,-375.32C160.59,-399.62 163.54,-442.36 165.21,-466.43"></path>
+</g>
+<!-- has1&#45;&#45;customer -->
+<g id="edge11" class="edge">
+<title>has1--customer</title>
+<path fill="none" stroke="black" d="M217.48,-226.21C225.79,-205.22 240.63,-167.76 249.47,-145.43"></path>
+</g>
+<!-- has2&#45;&#45;product -->
+<g id="edge13" class="edge">
+<title>has2--product</title>
+<path fill="none" stroke="black" d="M166.64,-502.35C166.89,-525.62 167.33,-565.72 167.58,-589.02"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-chens-notation-example-2" class="level2">
+<h2 class="anchored" data-anchor-id="practice-chens-notation-example-2">Practice: Chens notation example 2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="car-rental-system" class="level3">
+<h3 class="anchored" data-anchor-id="car-rental-system">Car Rental System</h3>
+<p>Envision a car rental service that wants to manage cars, customers, and rentals.</p>
+<p>Each car has a car ID, make, model, and year.</p>
+<p>Customers have a customer ID, name, and driver’s license number.</p>
+<p>Rentals have a rental ID, start date, and end date.</p>
+<p>A customer can rent multiple cars over time, and each car can be rented by multiple customers.</p>
+<p>Each rental is associated with one customer and one car.</p>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-eval="true" data-fig-width="50%" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="NaN" height="480" viewbox="0.00 0.00 510.36 649.91" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.972222 0.972222) rotate(0) translate(4 645.91)">
+<title>CarRentalService</title>
+<!-- Car -->
+<g id="node1" class="node">
+<title>Car</title>
+<polygon fill="lightgray" stroke="black" points="170.8,-129.34 98.8,-129.34 98.8,-93.34 170.8,-93.34 170.8,-129.34"></polygon>
+<text text-anchor="middle" x="134.8" y="-107.14" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Car</text>
+</g>
+<!-- id2 -->
+<g id="node7" class="node">
+<title>id2</title>
+<ellipse fill="white" stroke="black" cx="36" cy="-124.56" rx="36" ry="18"></ellipse>
+<text text-anchor="start" x="30.56" y="-121.36" font-family="Helvetica,Arial,sans-serif" text-decoration="underline" font-size="14.00">id</text>
+</g>
+<!-- Car&#45;&#45;id2 -->
+<g id="edge8" class="edge">
+<title>Car--id2</title>
+<path fill="none" stroke="black" d="M98.57,-116.19C89.54,-117.4 79.87,-118.69 70.91,-119.89"></path>
+</g>
+<!-- make -->
+<g id="node8" class="node">
+<title>make</title>
+<ellipse fill="white" stroke="black" cx="227.7" cy="-76.94" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="227.7" y="-72.74" font-family="Helvetica,Arial,sans-serif" font-size="14.00">make</text>
+</g>
+<!-- Car&#45;&#45;make -->
+<g id="edge9" class="edge">
+<title>Car--make</title>
+<path fill="none" stroke="black" d="M170.98,-97.94C180.15,-94.54 189.88,-90.94 198.65,-87.69"></path>
+</g>
+<!-- model -->
+<g id="node9" class="node">
+<title>model</title>
+<ellipse fill="white" stroke="black" cx="67.29" cy="-41.77" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="67.29" y="-37.57" font-family="Helvetica,Arial,sans-serif" font-size="14.00">model</text>
+</g>
+<!-- Car&#45;&#45;model -->
+<g id="edge10" class="edge">
+<title>Car--model</title>
+<path fill="none" stroke="black" d="M117.06,-93.06C106.59,-82.27 93.45,-68.72 83.29,-58.26"></path>
+</g>
+<!-- year -->
+<g id="node10" class="node">
+<title>year</title>
+<ellipse fill="white" stroke="black" cx="164.4" cy="-18" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="164.4" y="-13.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">year</text>
+</g>
+<!-- Car&#45;&#45;year -->
+<g id="edge11" class="edge">
+<title>Car--year</title>
+<path fill="none" stroke="black" d="M140.65,-92.9C145.87,-76.43 153.47,-52.45 158.66,-36.09"></path>
+</g>
+<!-- Customer -->
+<g id="node2" class="node">
+<title>Customer</title>
+<polygon fill="lightgray" stroke="black" points="411.48,-550.77 339.48,-550.77 339.48,-514.77 411.48,-514.77 411.48,-550.77"></polygon>
+<text text-anchor="middle" x="375.48" y="-528.57" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Customer</text>
+</g>
+<!-- id3 -->
+<g id="node11" class="node">
+<title>id3</title>
+<ellipse fill="white" stroke="black" cx="466.36" cy="-491.89" rx="36" ry="18"></ellipse>
+<text text-anchor="start" x="460.92" y="-488.69" font-family="Helvetica,Arial,sans-serif" text-decoration="underline" font-size="14.00">id</text>
+</g>
+<!-- Customer&#45;&#45;id3 -->
+<g id="edge12" class="edge">
+<title>Customer--id3</title>
+<path fill="none" stroke="black" d="M411.66,-516.49C420.97,-512.31 430.81,-507.88 439.55,-503.95"></path>
+</g>
+<!-- name -->
+<g id="node12" class="node">
+<title>name</title>
+<ellipse fill="white" stroke="black" cx="335.32" cy="-623.91" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="335.32" y="-619.71" font-family="Helvetica,Arial,sans-serif" font-size="14.00">name</text>
+</g>
+<!-- Customer&#45;&#45;name -->
+<g id="edge13" class="edge">
+<title>Customer--name</title>
+<path fill="none" stroke="black" d="M367.55,-550.77C360.46,-566.85 350.14,-590.27 343.1,-606.25"></path>
+</g>
+<!-- license -->
+<g id="node13" class="node">
+<title>license</title>
+<ellipse fill="white" stroke="black" cx="443.22" cy="-597.02" rx="37.7" ry="18"></ellipse>
+<text text-anchor="middle" x="443.22" y="-592.82" font-family="Helvetica,Arial,sans-serif" font-size="14.00">license</text>
+</g>
+<!-- Customer&#45;&#45;license -->
+<g id="edge14" class="edge">
+<title>Customer--license</title>
+<path fill="none" stroke="black" d="M394.71,-551.01C404.57,-560.36 416.47,-571.65 426.02,-580.71"></path>
+</g>
+<!-- has2 -->
+<g id="node15" class="node">
+<title>has2</title>
+<polygon fill="white" stroke="black" points="283.48,-468.72 242.7,-450.72 283.48,-432.72 324.27,-450.72 283.48,-468.72"></polygon>
+<text text-anchor="middle" x="283.48" y="-446.52" font-family="Helvetica,Arial,sans-serif" font-size="14.00">has2</text>
+</g>
+<!-- Customer&#45;&#45;has2 -->
+<g id="edge6" class="edge">
+<title>Customer--has2</title>
+<path fill="none" stroke="black" d="M355.06,-514.56C337.38,-498.79 312.31,-476.43 297.01,-462.78"></path>
+</g>
+<!-- Rental -->
+<g id="node3" class="node">
+<title>Rental</title>
+<polygon fill="lightgray" stroke="black" points="221.49,-381.68 149.49,-381.68 149.49,-345.68 221.49,-345.68 221.49,-381.68"></polygon>
+<text text-anchor="middle" x="185.49" y="-359.48" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Rental</text>
+</g>
+<!-- id -->
+<g id="node4" class="node">
+<title>id</title>
+<ellipse fill="white" stroke="black" cx="131.59" cy="-442.84" rx="36" ry="18"></ellipse>
+<text text-anchor="start" x="126.14" y="-439.64" font-family="Helvetica,Arial,sans-serif" text-decoration="underline" font-size="14.00">id</text>
+</g>
+<!-- Rental&#45;&#45;id -->
+<g id="edge2" class="edge">
+<title>Rental--id</title>
+<path fill="none" stroke="black" d="M172.99,-382.04C164.03,-395.2 152.05,-412.79 143.29,-425.67"></path>
+</g>
+<!-- start -->
+<g id="node5" class="node">
+<title>start</title>
+<ellipse fill="white" stroke="black" cx="264.62" cy="-324.29" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="264.62" y="-320.09" font-family="Helvetica,Arial,sans-serif" font-size="14.00">start</text>
+</g>
+<!-- Rental&#45;&#45;start -->
+<g id="edge3" class="edge">
+<title>Rental--start</title>
+<path fill="none" stroke="black" d="M221.82,-345.6C227.5,-342.77 233.28,-339.89 238.68,-337.21"></path>
+</g>
+<!-- end -->
+<g id="node6" class="node">
+<title>end</title>
+<ellipse fill="white" stroke="black" cx="89.75" cy="-377.86" rx="36" ry="18"></ellipse>
+<text text-anchor="middle" x="89.75" y="-373.66" font-family="Helvetica,Arial,sans-serif" font-size="14.00">end</text>
+</g>
+<!-- Rental&#45;&#45;end -->
+<g id="edge4" class="edge">
+<title>Rental--end</title>
+<path fill="none" stroke="black" d="M149.3,-369.04C141.14,-370.25 132.5,-371.53 124.41,-372.73"></path>
+</g>
+<!-- has1 -->
+<g id="node14" class="node">
+<title>has1</title>
+<polygon fill="white" stroke="black" points="161.02,-253.46 120.24,-235.46 161.02,-217.46 201.81,-235.46 161.02,-253.46"></polygon>
+<text text-anchor="middle" x="161.02" y="-231.26" font-family="Helvetica,Arial,sans-serif" font-size="14.00">has1</text>
+</g>
+<!-- Rental&#45;&#45;has1 -->
+<g id="edge1" class="edge">
+<title>Rental--has1</title>
+<path fill="none" stroke="black" d="M182.04,-345.58C177.3,-320.73 168.83,-276.38 164.23,-252.24"></path>
+</g>
+<!-- has1&#45;&#45;Car -->
+<g id="edge5" class="edge">
+<title>has1--Car</title>
+<path fill="none" stroke="black" d="M157.54,-218.97C152.64,-195.76 143.73,-153.59 138.64,-129.5"></path>
+</g>
+<!-- has2&#45;&#45;Rental -->
+<g id="edge7" class="edge">
+<title>has2--Rental</title>
+<path fill="none" stroke="black" d="M269.86,-438.62C253.24,-423.86 225,-398.77 205.81,-381.73"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="crows-foot-notation-in-er-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="crows-foot-notation-in-er-diagrams">Crows Foot Notation in ER Diagrams</h2>
+<p>Crow’s Foot notation is a more modern approach that focuses on simplifying the representation of relationships and cardinality in ER diagrams.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li><strong>Entities</strong> are shown as rectangles with the entity name inside.</li>
+<li><strong>Attributes</strong> are listed inside the entity box, with primary keys at the top.</li>
+<li><strong>Relationships</strong> are indicated with lines connecting entities, with crow’s foot symbols denoting cardinality.</li>
+<li><strong>Cardinality</strong> symbols at the ends of relationships show the number of instances involved (e.g., one-to-many).</li>
+<li><strong>Optional relationships</strong> are represented with a circle at the end of a relationship line.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div>
+</div>
+<p><em>Crow’s Foot notation is favored for its simplicity and clarity in representing database relationships.</em></p>
+</section>
 <section id="practice-creating-er-diagrams-with-crows-foot-notation" class="level2">
-<h2 class="anchored" data-anchor-id="practice-creating-er-diagrams-with-crows-foot-notation">Practice: Creating ER Diagrams with Crow’s Foot Notation</h2>
+<h2 class="anchored" data-anchor-id="practice-creating-er-diagrams-with-crows-foot-notation">Practice: Creating ER Diagrams with Crows Foot Notation</h2>
 <p>Creating ER diagrams using Crow’s Foot notation offers an opportunity to simplify and streamline database designs, especially for large or complex systems.</p>
 <div class="columns">
 <div class="column" style="width:95%;">
@@ -666,8 +950,123 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <p><em>Using Crow’s Foot notation can make large-scale ER diagrams more readable and easier to understand.</em></p>
 </section>
+<section id="practice-crows-foot-notation-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="practice-crows-foot-notation-example-1">Practice: Crows Foot Notation example 1</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="hospital-patient-management-system" class="level3">
+<h3 class="anchored" data-anchor-id="hospital-patient-management-system">Hospital Patient Management System</h3>
+<p>Consider a hospital that needs to manage doctors, patients, and appointments.</p>
+<p>Each doctor has a doctor ID, name, and specialty.</p>
+<p>Patients have a patient ID, name, and date of birth.</p>
+<p>Appointments have an appointment ID, appointment date, and time.</p>
+<p>A patient can have multiple appointments, and each appointment is with a single doctor. A doctor can see multiple patients over time.</p>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    DOCTOR {
+        string doctorID PK
+        string name
+        string specialty
+    }
+    PATIENT {
+        string patientID PK
+        string name
+        date dateOfBirth
+    }
+    APPOINTMENT {
+        string appointmentID PK
+        date appointmentDate
+        time appointmentTime
+        string doctorID FK
+        string patientID FK
+    }
+
+    DOCTOR ||--o{ APPOINTMENT : "has"
+    PATIENT ||--o{ APPOINTMENT : "books"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-crows-foot-notation-example-2" class="level2">
+<h2 class="anchored" data-anchor-id="practice-crows-foot-notation-example-2">Practice: Crows Foot Notation example 2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="university-library-borrowing-system" class="level3">
+<h3 class="anchored" data-anchor-id="university-library-borrowing-system">University Library Borrowing System</h3>
+<p>Imagine a university library that needs to track books, students, and borrowings.</p>
+<p>Each book has a book ID, title, and author.</p>
+<p>Students have a student ID, name, and major.</p>
+<p>Borrowings have a borrowing ID, borrowing date, and due date.</p>
+<p>A student can borrow multiple books, and each book can be borrowed by multiple students over time.</p>
+<p>Each borrowing record is associated with one student borrowing one book.</p>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    BOOK {
+        string bookID PK
+        string title
+        string author
+    }
+    STUDENT {
+        string studentID PK
+        string name
+        string major
+    }
+    BORROWING {
+        string borrowingID PK
+        date borrowingDate
+        date dueDate
+        string bookID FK
+        string studentID FK
+    }
+
+    BOOK ||--o{ BORROWING : "is borrowed in"
+    STUDENT ||--o{ BORROWING : "makes"
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="differences-between-chens-and-crows-foot-notations" class="level2">
+<h2 class="anchored" data-anchor-id="differences-between-chens-and-crows-foot-notations">Differences Between Chens and Crows Foot Notations</h2>
+<p>Chen’s and Crow’s Foot notations serve similar purposes but differ in their visual representation of ER diagrams. Choosing the right notation depends on the complexity and needs of the database design.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li><strong>Chen’s notation</strong> emphasizes the detailed depiction of entities, attributes, and relationships.</li>
+<li><strong>Crow’s Foot notation</strong> simplifies the representation by focusing on relationships and cardinality.</li>
+<li><strong>Attribute depiction</strong> differs: Chen’s uses ovals, while Crow’s Foot lists them within the entity rectangle.</li>
+<li><strong>Cardinality representation</strong> is more explicit in Crow’s Foot notation with symbols like crows’ feet, while Chen’s uses numbers or descriptions.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div>
+</div>
+<p><em>Understanding the differences helps in selecting the appropriate notation for a given project.</em></p>
+</section>
 <section id="converting-er-diagrams-chens-to-crows-foot-notation" class="level2">
-<h2 class="anchored" data-anchor-id="converting-er-diagrams-chens-to-crows-foot-notation">Converting ER Diagrams: Chen’s to Crow’s Foot Notation</h2>
+<h2 class="anchored" data-anchor-id="converting-er-diagrams-chens-to-crows-foot-notation">Converting ER Diagrams: Chens to Crows Foot Notation</h2>
 <p>Converting an ER diagram from Chen’s to Crow’s Foot notation demonstrates the flexibility in database modeling and the ability to represent the same information in different ways.</p>
 <div class="columns">
 <div class="column" style="width:95%;">
@@ -691,8 +1090,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <div class="column" style="width:95%;">
 <ul>
 <li><strong>Chen’s notation</strong> is ideal for detailed, conceptual models where attributes and relationships need to be explicitly shown.</li>
-<li><strong>Crow’s Foot notation</strong> excels in high-level designs, particularly where relationships and cardinality are the primary focus.</li>
-<li><strong>Complexity of the database</strong> should guide the choice: use Chen’s for more detailed modeling and Crow’s Foot for simpler, more intuitive diagrams.</li>
+<li><strong>Crow’s Foot notation</strong> excels in logical designs, particularly where relationships and cardinality are the primary focus.</li>
 <li><strong>Audience understanding</strong>: Consider the familiarity of your audience with each notation when presenting your diagrams.</li>
 <li><strong>Tool availability</strong>: Some diagramming tools may support one notation better than the other, influencing your choice.</li>
 </ul>
@@ -759,7 +1157,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -791,29 +1200,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -821,7 +1208,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1151,8 +1538,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../er-models/weak-and-strong-entities.html" class="pagination-link" aria-label="Weak and Strong Entities">
-        <span class="nav-page-text">Weak and Strong Entities</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../er-models/weak-and-strong-entities.html" class="pagination-link" aria-label="Weak and Strong Entities*">
+        <span class="nav-page-text">Weak and Strong Entities*</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -26,23 +26,60 @@ ER diagrams use standard symbols to represent entities, relationships, and attri
 
 
 
+## Chens Notation in ER Diagrams
+
+Chen's notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.
+
+:::: {.columns}
+::: {.column width=40%}
+
+- **Entities** are represented by rectangles.
+- **Attributes** are connected to entities by lines and are depicted as ovals.
+- **Relationships** between entities are shown using diamonds.
+- **Primary Key attributes** are underlined to signify their role in uniquely identifying entity instances.
+- **Weak entities** are represented with double rectangles, indicating their dependence on other entities.
+:::
+::: {.column width=60%}
+
+```{dot}
+//| echo: false
+//| fig-width: 60%
+graph ER {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+    bgcolor="transparent"
+	layout=neato
+	node [shape=box]; course; institute; student;
+	node [shape=ellipse]; {node [label="name"] name0; name1; name2;}
+		code; grade; number;
+	node [shape=diamond,style=filled,color=lightgrey]; "C-I"; "S-C"; "S-I";
+
+	name0 -- course;
+	code -- course;
+	course -- "C-I" [label="n",len=1.00];
+	"C-I" -- institute [label="1",len=1.00];
+	institute -- name1;
+	institute -- "S-I" [label="1",len=1.00];
+	"S-I" -- student [label="n",len=1.00];
+	student -- grade;
+	student -- name2;
+	student -- number;
+	student -- "S-C" [label="m",len=1.00];
+	"S-C" -- course [label="n",len=1.00];
+	fontsize=20;
+}
+```
+
+:::
+::::
+
+*Chen's notation provides a clear and detailed way to represent complex data relationships.*
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Practice: Creating ER Diagrams with Chen’s Notation
+## Practice: Creating ER Diagrams with Chens Notation
 
 Hands-on practice with Chen’s notation helps solidify understanding of entities, relationships, and attributes, and how they are visually represented in ER diagrams.
 
@@ -65,10 +102,356 @@ Hands-on practice with Chen’s notation helps solidify understanding of entitie
 
 
 
+## Practice: Chens notation example 1
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Online Shopping System
+
+Picture an online shopping platform that needs to manage products, customers, and orders.
+
+Each product has a product ID, name, and price.
+
+Customers have a customer ID, name, and email.
+
+Orders have an order ID, order date, and shipping address.
+
+A customer can place multiple orders, and each order can include multiple products.
+
+Each product can be part of multiple orders over time.
+:::
+::: {.column width=50%}
+
+```{dot}
+//| echo: false
+//| eval: true
+//| fig-width: 50%
+graph online_shopping {
+    fontname="Helvetica,Arial,sans-serif"
+    node [fontname="Helvetica,Arial,sans-serif"]
+    edge [fontname="Helvetica,Arial,sans-serif", len=1.5] // Set default edge length
+    layout=neato;
+    bgcolor="transparent";
+    dpi=60;
+
+    margin=0;
+    center=false;
+    size="1,4"; // Adjust this size to control the bounding box, '!' keeps the aspect ratio
+    //ratio=fill; // Ensures the diagram fills the specified size
+
+    // Define entities
+    node [shape=rectangle, style=filled, fillcolor=lightgray, width=1.0, height=0.5];
+    product;
+    customer;
+    order;
+
+    // Define smaller circle nodes for attributes
+    node [shape=ellipse, style=filled, fillcolor=white, width=1.0, height=0.5];
+    id  [label=<<U>id</U>>]; name1; price;
+    id2 [label=<<U>id</U>>]; name2; email;
+    id3 [label=<<U>id</U>>]; date; address;
+
+    // Define relationship
+    node [shape=diamond, style=filled, fillcolor=white, color=black, width=1.0, height=0.5];
+    has1;
+    has2;
+
+    // Connect entities with their attributes with longer edges
+    product -- id;
+    product -- name1;
+    product -- price;
+    
+    customer -- id2;
+    customer -- name2;
+    customer -- email;
+    
+    order -- id3;
+    order -- date;
+    order -- address;
+    
+    order -- has1;
+    has1 -- customer;
+    
+    order -- has2;
+    has2 -- product;
+}
+```
+
+:::
+::::
 
 
 
 
+## Practice: Chens notation example 2
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Car Rental System
+
+Envision a car rental service that wants to manage cars, customers, and rentals.
+
+Each car has a car ID, make, model, and year.
+
+Customers have a customer ID, name, and driver’s license number.
+
+Rentals have a rental ID, start date, and end date.
+
+A customer can rent multiple cars over time, and each car can be rented by multiple customers.
+
+Each rental is associated with one customer and one car.
+:::
+::: {.column width=50%}
+
+```{dot}
+//| echo: false
+//| eval: true
+//| fig-width: 50%
+graph CarRentalService {
+    fontname="Helvetica,Arial,sans-serif"
+    node [fontname="Helvetica,Arial,sans-serif"]
+    edge [fontname="Helvetica,Arial,sans-serif", len=1.5] // Set default edge length
+    layout=neato;
+    bgcolor="transparent";
+    margin=0;
+    center=false;
+    dpi=70;
+
+    // Define entities
+    node [shape=rectangle, style=filled, fillcolor=lightgray, width=1.0, height=0.5];
+    Car;
+    Customer;
+    Rental;
+
+    // Define smaller circle nodes for attributes
+    node [shape=ellipse, style=filled, fillcolor=white, width=1.0, height=0.5];
+    id  [label=<<U>id</U>>]; start; end;
+    id2 [label=<<U>id</U>>]; make; model; year;
+    id3 [label=<<U>id</U>>]; name; license;
+
+    // Define relationship
+    node [shape=diamond, style=filled, fillcolor=white, color=black, width=1.0, height=0.5];
+    has1;
+    has2;
+
+    // Connect entities with their attributes with longer edges
+    Rental -- has1 [len=1.5];
+    Rental -- id [len=1.2];
+    Rental -- start [len=1.2];
+    Rental -- end [len=1.2];
+    has1 -- Car [len=1.5];
+    Customer -- has2 [len=1.5];
+    has2 -- Rental [len=1.5];
+    Car -- id2 [len=1.2];
+    Car -- make [len=1.2];
+    Car -- model [len=1.2];
+    Car -- year [len=1.2];
+    Customer -- id3 [len=1.2];
+    Customer -- name [len=1.2];
+    Customer -- license [len=1.2];
+}
+```
+
+:::
+::::
+
+
+
+
+## Crows Foot Notation in ER Diagrams
+
+Crow's Foot notation is a more modern approach that focuses on simplifying the representation of relationships and cardinality in ER diagrams.
+
+:::: {.columns}
+::: {.column width=95%}
+
+- **Entities** are shown as rectangles with the entity name inside.
+- **Attributes** are listed inside the entity box, with primary keys at the top.
+- **Relationships** are indicated with lines connecting entities, with crow's foot symbols denoting cardinality.
+- **Cardinality** symbols at the ends of relationships show the number of instances involved (e.g., one-to-many).
+- **Optional relationships** are represented with a circle at the end of a relationship line.
+:::
+::: {.column width=5%}
+
+:::
+::::
+
+*Crow's Foot notation is favored for its simplicity and clarity in representing database relationships.*
+
+
+
+
+## Practice: Creating ER Diagrams with Crows Foot Notation
+
+Creating ER diagrams using Crow's Foot notation offers an opportunity to simplify and streamline database designs, especially for large or complex systems.
+
+:::: {.columns}
+::: {.column width=95%}
+
+- **List entities** and their attributes directly within rectangles.
+- **Determine relationships** and represent them with connecting lines and crow's foot symbols.
+- **Indicate cardinality** for each relationship, ensuring accuracy in one-to-one, one-to-many, or many-to-many relationships.
+- **Simplify attributes** by focusing on primary and foreign keys within the entity boxes.
+- **Validate** the diagram by checking the relationships and cardinality representations for correctness.
+:::
+::: {.column width=5%}
+
+:::
+::::
+
+*Using Crow's Foot notation can make large-scale ER diagrams more readable and easier to understand.*
+
+
+
+
+## Practice: Crows Foot Notation example 1
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Hospital Patient Management System
+
+Consider a hospital that needs to manage doctors, patients, and appointments.
+
+Each doctor has a doctor ID, name, and specialty.
+
+Patients have a patient ID, name, and date of birth.
+
+Appointments have an appointment ID, appointment date, and time.
+
+A patient can have multiple appointments, and each appointment is with a single doctor. A doctor can see multiple patients over time.
+:::
+::: {.column width=50%}
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+erDiagram
+    DOCTOR {
+        string doctorID PK
+        string name
+        string specialty
+    }
+    PATIENT {
+        string patientID PK
+        string name
+        date dateOfBirth
+    }
+    APPOINTMENT {
+        string appointmentID PK
+        date appointmentDate
+        time appointmentTime
+        string doctorID FK
+        string patientID FK
+    }
+
+    DOCTOR ||--o{ APPOINTMENT : "has"
+    PATIENT ||--o{ APPOINTMENT : "books"
+```
+
+:::
+::::
+
+
+
+
+## Practice: Crows Foot Notation example 2
+
+:::: {.columns}
+::: {.column width=50%}
+
+### University Library Borrowing System
+
+Imagine a university library that needs to track books, students, and borrowings.
+
+Each book has a book ID, title, and author.
+
+Students have a student ID, name, and major.
+
+Borrowings have a borrowing ID, borrowing date, and due date.
+
+A student can borrow multiple books, and each book can be borrowed by multiple students over time.
+
+Each borrowing record is associated with one student borrowing one book.
+:::
+::: {.column width=50%}
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+erDiagram
+    BOOK {
+        string bookID PK
+        string title
+        string author
+    }
+    STUDENT {
+        string studentID PK
+        string name
+        string major
+    }
+    BORROWING {
+        string borrowingID PK
+        date borrowingDate
+        date dueDate
+        string bookID FK
+        string studentID FK
+    }
+
+    BOOK ||--o{ BORROWING : "is borrowed in"
+    STUDENT ||--o{ BORROWING : "makes"
+
+```
+
+:::
+::::
+
+
+
+
+## Differences Between Chens and Crows Foot Notations
+
+Chen’s and Crow's Foot notations serve similar purposes but differ in their visual representation of ER diagrams. Choosing the right notation depends on the complexity and needs of the database design.
+
+:::: {.columns}
+::: {.column width=95%}
+
+- **Chen’s notation** emphasizes the detailed depiction of entities, attributes, and relationships.
+- **Crow's Foot notation** simplifies the representation by focusing on relationships and cardinality.
+- **Attribute depiction** differs: Chen’s uses ovals, while Crow's Foot lists them within the entity rectangle.
+- **Cardinality representation** is more explicit in Crow's Foot notation with symbols like crows’ feet, while Chen’s uses numbers or descriptions.
+:::
+::: {.column width=5%}
+
+:::
+::::
+
+*Understanding the differences helps in selecting the appropriate notation for a given project.*
+
+
+
+
+## Converting ER Diagrams: Chens to Crows Foot Notation
+
+Converting an ER diagram from Chen’s to Crow's Foot notation demonstrates the flexibility in database modeling and the ability to represent the same information in different ways.
+
+:::: {.columns}
+::: {.column width=95%}
+
+- **Identify key components** from the Chen’s diagram, including entities, relationships, and attributes.
+- **Redraw entities** as rectangles in Crow's Foot notation, listing attributes inside.
+- **Translate relationships** by connecting entities with lines, using crow's feet to denote cardinality.
+- **Adjust attributes** by focusing on primary keys and simplifying the diagram layout.
+- **Compare** the original Chen’s diagram with the new Crow's Foot diagram to ensure all information is preserved.
+:::
+::: {.column width=5%}
+
+:::
+::::
+
+*Converting between notations enhances understanding of how different diagramming techniques convey the same data.*
 
 
 
@@ -81,8 +464,7 @@ Selecting between Chen’s and Crow's Foot notations depends on the specific nee
 ::: {.column width=95%}
 
 - **Chen’s notation** is ideal for detailed, conceptual models where attributes and relationships need to be explicitly shown.
-- **Crow's Foot notation** excels in high-level designs, particularly where relationships and cardinality are the primary focus.
-- **Complexity of the database** should guide the choice: use Chen’s for more detailed modeling and Crow's Foot for simpler, more intuitive diagrams.
+- **Crow's Foot notation** excels in logical designs, particularly where relationships and cardinality are the primary focus.
 - **Audience understanding**: Consider the familiarity of your audience with each notation when presenting your diagrams.
 - **Tool availability**: Some diagramming tools may support one notation better than the other, influencing your choice.
 :::

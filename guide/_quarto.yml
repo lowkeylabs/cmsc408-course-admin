@@ -37,9 +37,9 @@ website:
         - href: er-models/keys-and-identifiers.qmd
           text: Keys and Identifiers
         - href: er-models/er-diagramming.qmd
-          text: ER Diagramming
+          text: ER Diagramming*
         - href: er-models/weak-and-strong-entities.qmd
-          text: Weak and Strong Entities
+          text: Weak and Strong Entities*
         - href: er-models/advanced-concepts.qmd
           text: Advanced Concepts
         - href: er-models/best-practices.qmd

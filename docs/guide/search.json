@@ -8,7 +8,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -20,7 +20,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -32,7 +32,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -44,7 +44,19 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
+    ]
+  },
+  {
+    "objectID": "er-models/weak-and-strong-entities.html#weak-and-strong-entities---examples",
+    "href": "er-models/weak-and-strong-entities.html#weak-and-strong-entities---examples",
+    "title": "Weak and Strong Entities",
+    "section": "Weak and Strong Entities - Examples",
+    "text": "Weak and Strong Entities - Examples\n\n\n\nConsider\nConsider a stack of invoices. Each invoice has a primary company address, a customer billing address, and a customer ship-to address. These addresses might be stored in a separate list of addresses for reuse. These addresses are strong entities, that can exist without the invoice.\nEach invoice contains a list of items to be purchased. Each item has a item description, quantity, unit price and a total price. Item descriptions may be stored separately and connected to the invoice by an item id.\nAn item is a strong entity. It can live without an invoice, for example in a table of items to create a product catalog.\nInvoice Line Items are entities, too. BUT, they can’t live independently of an invoice. Their data (quantity, total price) are unique to this particular link in the invoice. Thus, these are called weak entities.\n\n\n\nInvoice example",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -52,11 +64,11 @@
     "href": "er-models/weak-and-strong-entities.html#partial-keys-and-their-role",
     "title": "Weak and Strong Entities",
     "section": "Partial Keys and Their Role",
-    "text": "Partial Keys and Their Role\nPartial keys, also known as discriminator attributes, are used to distinguish between instances of a weak entity in the context of its related strong entity.\n\n\n\nA partial key is an attribute or a set of attributes that uniquely identify a weak entity for a given strong entity.\nPartial keys are combined with the primary key of the strong entity to create a unique identifier.\nExample: In an ‘Invoice Line Item,’ the line number is a partial key, while the invoice number is the key from the strong entity.\nPartial keys are often underlined with a dotted line in ER diagrams.\nEnsuring accurate definition of partial keys is critical for data integrity.\n\n\n \n\n\nPartial keys help uniquely identify weak entity instances in the context of their strong entities.",
+    "text": "Partial Keys and Their Role\nPartial keys, also known as discriminator attributes, are used to distinguish between instances of a weak entity in the context of its related strong entity.\n\n\n\nA partial key is an attribute or a set of attributes that uniquely identify a weak entity for a given strong entity.\nPartial keys are combined with the primary key of the strong entity to create a unique identifier.\nExample: In an ‘Invoice Line Item,’ the line number is a partial key, while the invoice number is the key from the strong entity.\nPartial keys are often underlined with a dotted line in ER diagrams.\nEnsuring accurate definition of partial keys is critical for data integrity.\n\n\n\n\n\nPartial keys help uniquely identify weak entity instances in the context of their strong entities.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -64,11 +76,11 @@
     "href": "er-models/weak-and-strong-entities.html#examples-of-weak-entities",
     "title": "Weak and Strong Entities",
     "section": "Examples of Weak Entities",
-    "text": "Examples of Weak Entities\nPractical examples of weak entities help in understanding their application and importance in database design.\n\n\n\n‘Invoice Line Items’ are weak entities that rely on the ‘Invoice’ entity.\n‘Employee Dependents’ are weak entities related to an ‘Employee’ strong entity.\n‘Order Items’ require an associated ‘Order’ entity for their identification.\n‘Class Enrollments’ are weak entities dependent on a ‘Course’ entity.\n‘Apartment Units’ might depend on a ‘Building’ entity for their unique identification.\n\n\n \n\n\nReal-world examples illustrate how weak entities are essential in various relational models.",
+    "text": "Examples of Weak Entities\nPractical examples of weak entities help in understanding their application and importance in database design.\n\n\n\n‘Employee Dependents’ are weak entities related to an ‘Employee’ strong entity.\n‘Order Items’ require an associated ‘Order’ entity for their identification.\n‘Class Enrollments’ are weak entities dependent on a ‘Course’ entity.\n‘Apartment Units’ or ‘Rooms’ might depend on a ‘Building’ entity for their unique identification.\n\n\n \n\n\nReal-world examples illustrate how weak entities are essential in various relational models.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -80,7 +92,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -92,19 +104,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
-    ]
-  },
-  {
-    "objectID": "er-models/weak-and-strong-entities.html#case-study-modeling-weak-entities",
-    "href": "er-models/weak-and-strong-entities.html#case-study-modeling-weak-entities",
-    "title": "Weak and Strong Entities",
-    "section": "Case Study: Modeling Weak Entities",
-    "text": "Case Study: Modeling Weak Entities\nUnderstanding weak entities through real-world case studies helps solidify the concept and its application in database design.\n\n\n\nConsider a retail scenario where ‘Order Items’ depend on an ‘Order.’\nEach ‘Order Item’ has a unique line number (partial key) combined with an order number.\nThe ‘Order Item’ cannot exist without an associated ‘Order.’\nThis scenario illustrates how weak entities represent dependent data.\nProper modeling ensures that ‘Order Items’ are always tied to an ‘Order,’ reflecting real-world constraints.\n\n\n \n\n\nCase studies provide practical examples of how weak entities are used in database design.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -116,7 +116,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -128,7 +128,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "Weak and Strong Entities"
+      "Weak and Strong Entities*"
     ]
   },
   {
@@ -835,7 +835,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
     ]
   },
   {
@@ -847,91 +847,127 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
     ]
   },
   {
     "objectID": "er-models/er-diagramming.html#chens-notation-in-er-diagrams",
     "href": "er-models/er-diagramming.html#chens-notation-in-er-diagrams",
     "title": "ER Diagramming",
-    "section": "Chen’s Notation in ER Diagrams",
-    "text": "Chen’s Notation in ER Diagrams\nChen’s notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.\n\n\n\nEntities are represented by rectangles.\nAttributes are connected to entities by lines and are depicted as ovals.\nRelationships between entities are shown using diamonds.\nPrimary Key attributes are underlined to signify their role in uniquely identifying entity instances.\nWeak entities are represented with double rectangles, indicating their dependence on other entities.\n\n\n\n\n\n\n\n\n\nER\n\nEntity Relation Diagram\ndrawn by NEATO\n\n\ncourse\n\ncourse\n\n\n\nC-I\n\nC-I\n\n\n\ncourse--C-I\n\nn\n\n\n\ninstitute\n\ninstitute\n\n\n\nname1\n\nname\n\n\n\ninstitute--name1\n\n\n\n\nS-I\n\nS-I\n\n\n\ninstitute--S-I\n\n1\n\n\n\nstudent\n\nstudent\n\n\n\nname2\n\nname\n\n\n\nstudent--name2\n\n\n\n\ngrade\n\ngrade\n\n\n\nstudent--grade\n\n\n\n\nnumber\n\nnumber\n\n\n\nstudent--number\n\n\n\n\nS-C\n\nS-C\n\n\n\nstudent--S-C\n\nm\n\n\n\nname0\n\nname\n\n\n\nname0--course\n\n\n\n\ncode\n\ncode\n\n\n\ncode--course\n\n\n\n\nC-I--institute\n\n1\n\n\n\nS-C--course\n\nn\n\n\n\nS-I--student\n\nn\n\n\n\n\n\n\n\n\n\n\nChen’s notation provides a clear and detailed way to represent complex data relationships.",
+    "section": "Chens Notation in ER Diagrams",
+    "text": "Chens Notation in ER Diagrams\nChen’s notation is one of the most traditional and widely used methods for creating ER diagrams. It emphasizes the relationships between entities and their attributes.\n\n\n\nEntities are represented by rectangles.\nAttributes are connected to entities by lines and are depicted as ovals.\nRelationships between entities are shown using diamonds.\nPrimary Key attributes are underlined to signify their role in uniquely identifying entity instances.\nWeak entities are represented with double rectangles, indicating their dependence on other entities.\n\n\n\n\n\n\n\n\n\nER\n\n\ncourse\n\ncourse\n\n\n\nC-I\n\nC-I\n\n\n\ncourse--C-I\n\nn\n\n\n\ninstitute\n\ninstitute\n\n\n\nname1\n\nname\n\n\n\ninstitute--name1\n\n\n\n\nS-I\n\nS-I\n\n\n\ninstitute--S-I\n\n1\n\n\n\nstudent\n\nstudent\n\n\n\nname2\n\nname\n\n\n\nstudent--name2\n\n\n\n\ngrade\n\ngrade\n\n\n\nstudent--grade\n\n\n\n\nnumber\n\nnumber\n\n\n\nstudent--number\n\n\n\n\nS-C\n\nS-C\n\n\n\nstudent--S-C\n\nm\n\n\n\nname0\n\nname\n\n\n\nname0--course\n\n\n\n\ncode\n\ncode\n\n\n\ncode--course\n\n\n\n\nC-I--institute\n\n1\n\n\n\nS-C--course\n\nn\n\n\n\nS-I--student\n\nn\n\n\n\n\n\n\n\n\n\n\nChen’s notation provides a clear and detailed way to represent complex data relationships.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
-    ]
-  },
-  {
-    "objectID": "er-models/er-diagramming.html#crows-foot-notation-in-er-diagrams",
-    "href": "er-models/er-diagramming.html#crows-foot-notation-in-er-diagrams",
-    "title": "ER Diagramming",
-    "section": "Crow’s Foot Notation in ER Diagrams",
-    "text": "Crow’s Foot Notation in ER Diagrams\nCrow’s Foot notation is a more modern approach that focuses on simplifying the representation of relationships and cardinality in ER diagrams.\n\n\n\nEntities are shown as rectangles with the entity name inside.\nAttributes are listed inside the entity box, with primary keys at the top.\nRelationships are indicated with lines connecting entities, with crow’s foot symbols denoting cardinality.\nCardinality symbols at the ends of relationships show the number of instances involved (e.g., one-to-many).\nOptional relationships are represented with a circle at the end of a relationship line.\n\n\n \n\n\nCrow’s Foot notation is favored for its simplicity and clarity in representing database relationships.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "ER Diagramming"
-    ]
-  },
-  {
-    "objectID": "er-models/er-diagramming.html#example-of-crows-foot-notation",
-    "href": "er-models/er-diagramming.html#example-of-crows-foot-notation",
-    "title": "ER Diagramming",
-    "section": "Example of Crow’s Foot Notation",
-    "text": "Example of Crow’s Foot Notation\n\n\nerDiagram\n    CUSTOMER {\n        int customer_id PK\n        string name\n        string email\n        string phone\n    }\n\n    ORDER {\n        int order_id PK\n        date order_date\n        float total_amount\n        int customer_id FK\n    }\n\n    PRODUCT {\n        int product_id PK\n        string product_name\n        float price\n    }\n\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--o{ PRODUCT : contains",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "ER Diagramming"
-    ]
-  },
-  {
-    "objectID": "er-models/er-diagramming.html#differences-between-chens-and-crows-foot-notations",
-    "href": "er-models/er-diagramming.html#differences-between-chens-and-crows-foot-notations",
-    "title": "ER Diagramming",
-    "section": "Differences Between Chen’s and Crow’s Foot Notations",
-    "text": "Differences Between Chen’s and Crow’s Foot Notations\nChen’s and Crow’s Foot notations serve similar purposes but differ in their visual representation of ER diagrams. Choosing the right notation depends on the complexity and needs of the database design.\n\n\n\nChen’s notation emphasizes the detailed depiction of entities, attributes, and relationships.\nCrow’s Foot notation simplifies the representation by focusing on relationships and cardinality.\nAttribute depiction differs: Chen’s uses ovals, while Crow’s Foot lists them within the entity rectangle.\nCardinality representation is more explicit in Crow’s Foot notation with symbols like crows’ feet, while Chen’s uses numbers or descriptions.\nEase of use: Crow’s Foot is often easier for quick, high-level diagramming, whereas Chen’s is preferred for more detailed designs.\n\n\n \n\n\nUnderstanding the differences helps in selecting the appropriate notation for a given project.",
-    "crumbs": [
-      "Home",
-      "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
     ]
   },
   {
     "objectID": "er-models/er-diagramming.html#practice-creating-er-diagrams-with-chens-notation",
     "href": "er-models/er-diagramming.html#practice-creating-er-diagrams-with-chens-notation",
     "title": "ER Diagramming",
-    "section": "Practice: Creating ER Diagrams with Chen’s Notation",
-    "text": "Practice: Creating ER Diagrams with Chen’s Notation\nHands-on practice with Chen’s notation helps solidify understanding of entities, relationships, and attributes, and how they are visually represented in ER diagrams.\n\n\n\nIdentify entities and determine their primary keys.\nDefine relationships between entities, noting any cardinality and participation constraints.\nAssign attributes to each entity, considering which are multi-valued or derived.\nDraw the diagram using rectangles for entities, ovals for attributes, and diamonds for relationships.\nReview the diagram for completeness, ensuring all necessary components are included and accurately represented.\n\n\n \n\n\nPracticing ER diagram creation builds confidence in applying Chen’s notation.",
+    "section": "Practice: Creating ER Diagrams with Chens Notation",
+    "text": "Practice: Creating ER Diagrams with Chens Notation\nHands-on practice with Chen’s notation helps solidify understanding of entities, relationships, and attributes, and how they are visually represented in ER diagrams.\n\n\n\nIdentify entities and determine their primary keys.\nDefine relationships between entities, noting any cardinality and participation constraints.\nAssign attributes to each entity, considering which are multi-valued or derived.\nDraw the diagram using rectangles for entities, ovals for attributes, and diamonds for relationships.\nReview the diagram for completeness, ensuring all necessary components are included and accurately represented.\n\n\n \n\n\nPracticing ER diagram creation builds confidence in applying Chen’s notation.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#practice-chens-notation-example-1",
+    "href": "er-models/er-diagramming.html#practice-chens-notation-example-1",
+    "title": "ER Diagramming",
+    "section": "Practice: Chens notation example 1",
+    "text": "Practice: Chens notation example 1\n\n\n\nOnline Shopping System\nPicture an online shopping platform that needs to manage products, customers, and orders.\nEach product has a product ID, name, and price.\nCustomers have a customer ID, name, and email.\nOrders have an order ID, order date, and shipping address.\nA customer can place multiple orders, and each order can include multiple products.\nEach product can be part of multiple orders over time.\n\n\n\n\n\n\n\n\n\nonline_shopping\n\n\nproduct\n\nproduct\n\n\n\nid\n\nid\n\n\n\nproduct--id\n\n\n\n\nname1\n\nname1\n\n\n\nproduct--name1\n\n\n\n\nprice\n\nprice\n\n\n\nproduct--price\n\n\n\n\ncustomer\n\ncustomer\n\n\n\nid2\n\nid\n\n\n\ncustomer--id2\n\n\n\n\nname2\n\nname2\n\n\n\ncustomer--name2\n\n\n\n\nemail\n\nemail\n\n\n\ncustomer--email\n\n\n\n\norder\n\norder\n\n\n\nid3\n\nid\n\n\n\norder--id3\n\n\n\n\ndate\n\ndate\n\n\n\norder--date\n\n\n\n\naddress\n\naddress\n\n\n\norder--address\n\n\n\n\nhas1\n\nhas1\n\n\n\norder--has1\n\n\n\n\nhas2\n\nhas2\n\n\n\norder--has2\n\n\n\n\nhas1--customer\n\n\n\n\nhas2--product",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming*"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#practice-chens-notation-example-2",
+    "href": "er-models/er-diagramming.html#practice-chens-notation-example-2",
+    "title": "ER Diagramming",
+    "section": "Practice: Chens notation example 2",
+    "text": "Practice: Chens notation example 2\n\n\n\nCar Rental System\nEnvision a car rental service that wants to manage cars, customers, and rentals.\nEach car has a car ID, make, model, and year.\nCustomers have a customer ID, name, and driver’s license number.\nRentals have a rental ID, start date, and end date.\nA customer can rent multiple cars over time, and each car can be rented by multiple customers.\nEach rental is associated with one customer and one car.\n\n\n\n\n\n\n\n\n\nCarRentalService\n\n\nCar\n\nCar\n\n\n\nid2\n\nid\n\n\n\nCar--id2\n\n\n\n\nmake\n\nmake\n\n\n\nCar--make\n\n\n\n\nmodel\n\nmodel\n\n\n\nCar--model\n\n\n\n\nyear\n\nyear\n\n\n\nCar--year\n\n\n\n\nCustomer\n\nCustomer\n\n\n\nid3\n\nid\n\n\n\nCustomer--id3\n\n\n\n\nname\n\nname\n\n\n\nCustomer--name\n\n\n\n\nlicense\n\nlicense\n\n\n\nCustomer--license\n\n\n\n\nhas2\n\nhas2\n\n\n\nCustomer--has2\n\n\n\n\nRental\n\nRental\n\n\n\nid\n\nid\n\n\n\nRental--id\n\n\n\n\nstart\n\nstart\n\n\n\nRental--start\n\n\n\n\nend\n\nend\n\n\n\nRental--end\n\n\n\n\nhas1\n\nhas1\n\n\n\nRental--has1\n\n\n\n\nhas1--Car\n\n\n\n\nhas2--Rental",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming*"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#crows-foot-notation-in-er-diagrams",
+    "href": "er-models/er-diagramming.html#crows-foot-notation-in-er-diagrams",
+    "title": "ER Diagramming",
+    "section": "Crows Foot Notation in ER Diagrams",
+    "text": "Crows Foot Notation in ER Diagrams\nCrow’s Foot notation is a more modern approach that focuses on simplifying the representation of relationships and cardinality in ER diagrams.\n\n\n\nEntities are shown as rectangles with the entity name inside.\nAttributes are listed inside the entity box, with primary keys at the top.\nRelationships are indicated with lines connecting entities, with crow’s foot symbols denoting cardinality.\nCardinality symbols at the ends of relationships show the number of instances involved (e.g., one-to-many).\nOptional relationships are represented with a circle at the end of a relationship line.\n\n\n \n\n\nCrow’s Foot notation is favored for its simplicity and clarity in representing database relationships.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming*"
     ]
   },
   {
     "objectID": "er-models/er-diagramming.html#practice-creating-er-diagrams-with-crows-foot-notation",
     "href": "er-models/er-diagramming.html#practice-creating-er-diagrams-with-crows-foot-notation",
     "title": "ER Diagramming",
-    "section": "Practice: Creating ER Diagrams with Crow’s Foot Notation",
-    "text": "Practice: Creating ER Diagrams with Crow’s Foot Notation\nCreating ER diagrams using Crow’s Foot notation offers an opportunity to simplify and streamline database designs, especially for large or complex systems.\n\n\n\nList entities and their attributes directly within rectangles.\nDetermine relationships and represent them with connecting lines and crow’s foot symbols.\nIndicate cardinality for each relationship, ensuring accuracy in one-to-one, one-to-many, or many-to-many relationships.\nSimplify attributes by focusing on primary and foreign keys within the entity boxes.\nValidate the diagram by checking the relationships and cardinality representations for correctness.\n\n\n \n\n\nUsing Crow’s Foot notation can make large-scale ER diagrams more readable and easier to understand.",
+    "section": "Practice: Creating ER Diagrams with Crows Foot Notation",
+    "text": "Practice: Creating ER Diagrams with Crows Foot Notation\nCreating ER diagrams using Crow’s Foot notation offers an opportunity to simplify and streamline database designs, especially for large or complex systems.\n\n\n\nList entities and their attributes directly within rectangles.\nDetermine relationships and represent them with connecting lines and crow’s foot symbols.\nIndicate cardinality for each relationship, ensuring accuracy in one-to-one, one-to-many, or many-to-many relationships.\nSimplify attributes by focusing on primary and foreign keys within the entity boxes.\nValidate the diagram by checking the relationships and cardinality representations for correctness.\n\n\n \n\n\nUsing Crow’s Foot notation can make large-scale ER diagrams more readable and easier to understand.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#practice-crows-foot-notation-example-1",
+    "href": "er-models/er-diagramming.html#practice-crows-foot-notation-example-1",
+    "title": "ER Diagramming",
+    "section": "Practice: Crows Foot Notation example 1",
+    "text": "Practice: Crows Foot Notation example 1\n\n\n\nHospital Patient Management System\nConsider a hospital that needs to manage doctors, patients, and appointments.\nEach doctor has a doctor ID, name, and specialty.\nPatients have a patient ID, name, and date of birth.\nAppointments have an appointment ID, appointment date, and time.\nA patient can have multiple appointments, and each appointment is with a single doctor. A doctor can see multiple patients over time.\n\n\n\n\n\n\n\nerDiagram\n    DOCTOR {\n        string doctorID PK\n        string name\n        string specialty\n    }\n    PATIENT {\n        string patientID PK\n        string name\n        date dateOfBirth\n    }\n    APPOINTMENT {\n        string appointmentID PK\n        date appointmentDate\n        time appointmentTime\n        string doctorID FK\n        string patientID FK\n    }\n\n    DOCTOR ||--o{ APPOINTMENT : \"has\"\n    PATIENT ||--o{ APPOINTMENT : \"books\"",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming*"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#practice-crows-foot-notation-example-2",
+    "href": "er-models/er-diagramming.html#practice-crows-foot-notation-example-2",
+    "title": "ER Diagramming",
+    "section": "Practice: Crows Foot Notation example 2",
+    "text": "Practice: Crows Foot Notation example 2\n\n\n\nUniversity Library Borrowing System\nImagine a university library that needs to track books, students, and borrowings.\nEach book has a book ID, title, and author.\nStudents have a student ID, name, and major.\nBorrowings have a borrowing ID, borrowing date, and due date.\nA student can borrow multiple books, and each book can be borrowed by multiple students over time.\nEach borrowing record is associated with one student borrowing one book.\n\n\n\n\n\n\n\nerDiagram\n    BOOK {\n        string bookID PK\n        string title\n        string author\n    }\n    STUDENT {\n        string studentID PK\n        string name\n        string major\n    }\n    BORROWING {\n        string borrowingID PK\n        date borrowingDate\n        date dueDate\n        string bookID FK\n        string studentID FK\n    }\n\n    BOOK ||--o{ BORROWING : \"is borrowed in\"\n    STUDENT ||--o{ BORROWING : \"makes\"",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming*"
+    ]
+  },
+  {
+    "objectID": "er-models/er-diagramming.html#differences-between-chens-and-crows-foot-notations",
+    "href": "er-models/er-diagramming.html#differences-between-chens-and-crows-foot-notations",
+    "title": "ER Diagramming",
+    "section": "Differences Between Chens and Crows Foot Notations",
+    "text": "Differences Between Chens and Crows Foot Notations\nChen’s and Crow’s Foot notations serve similar purposes but differ in their visual representation of ER diagrams. Choosing the right notation depends on the complexity and needs of the database design.\n\n\n\nChen’s notation emphasizes the detailed depiction of entities, attributes, and relationships.\nCrow’s Foot notation simplifies the representation by focusing on relationships and cardinality.\nAttribute depiction differs: Chen’s uses ovals, while Crow’s Foot lists them within the entity rectangle.\nCardinality representation is more explicit in Crow’s Foot notation with symbols like crows’ feet, while Chen’s uses numbers or descriptions.\n\n\n \n\n\nUnderstanding the differences helps in selecting the appropriate notation for a given project.",
+    "crumbs": [
+      "Home",
+      "ER Modeling",
+      "ER Diagramming*"
     ]
   },
   {
     "objectID": "er-models/er-diagramming.html#converting-er-diagrams-chens-to-crows-foot-notation",
     "href": "er-models/er-diagramming.html#converting-er-diagrams-chens-to-crows-foot-notation",
     "title": "ER Diagramming",
-    "section": "Converting ER Diagrams: Chen’s to Crow’s Foot Notation",
-    "text": "Converting ER Diagrams: Chen’s to Crow’s Foot Notation\nConverting an ER diagram from Chen’s to Crow’s Foot notation demonstrates the flexibility in database modeling and the ability to represent the same information in different ways.\n\n\n\nIdentify key components from the Chen’s diagram, including entities, relationships, and attributes.\nRedraw entities as rectangles in Crow’s Foot notation, listing attributes inside.\nTranslate relationships by connecting entities with lines, using crow’s feet to denote cardinality.\nAdjust attributes by focusing on primary keys and simplifying the diagram layout.\nCompare the original Chen’s diagram with the new Crow’s Foot diagram to ensure all information is preserved.\n\n\n \n\n\nConverting between notations enhances understanding of how different diagramming techniques convey the same data.",
+    "section": "Converting ER Diagrams: Chens to Crows Foot Notation",
+    "text": "Converting ER Diagrams: Chens to Crows Foot Notation\nConverting an ER diagram from Chen’s to Crow’s Foot notation demonstrates the flexibility in database modeling and the ability to represent the same information in different ways.\n\n\n\nIdentify key components from the Chen’s diagram, including entities, relationships, and attributes.\nRedraw entities as rectangles in Crow’s Foot notation, listing attributes inside.\nTranslate relationships by connecting entities with lines, using crow’s feet to denote cardinality.\nAdjust attributes by focusing on primary keys and simplifying the diagram layout.\nCompare the original Chen’s diagram with the new Crow’s Foot diagram to ensure all information is preserved.\n\n\n \n\n\nConverting between notations enhances understanding of how different diagramming techniques convey the same data.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
     ]
   },
   {
@@ -939,11 +975,11 @@
     "href": "er-models/er-diagramming.html#choosing-the-right-notation-for-your-project",
     "title": "ER Diagramming",
     "section": "Choosing the Right Notation for Your Project",
-    "text": "Choosing the Right Notation for Your Project\nSelecting between Chen’s and Crow’s Foot notations depends on the specific needs of your project. Each notation has its strengths and is better suited for different aspects of database design.\n\n\n\nChen’s notation is ideal for detailed, conceptual models where attributes and relationships need to be explicitly shown.\nCrow’s Foot notation excels in high-level designs, particularly where relationships and cardinality are the primary focus.\nComplexity of the database should guide the choice: use Chen’s for more detailed modeling and Crow’s Foot for simpler, more intuitive diagrams.\nAudience understanding: Consider the familiarity of your audience with each notation when presenting your diagrams.\nTool availability: Some diagramming tools may support one notation better than the other, influencing your choice.\n\n\n \n\n\nSelecting the appropriate notation enhances both the design process and communication with stakeholders.",
+    "text": "Choosing the Right Notation for Your Project\nSelecting between Chen’s and Crow’s Foot notations depends on the specific needs of your project. Each notation has its strengths and is better suited for different aspects of database design.\n\n\n\nChen’s notation is ideal for detailed, conceptual models where attributes and relationships need to be explicitly shown.\nCrow’s Foot notation excels in logical designs, particularly where relationships and cardinality are the primary focus.\nAudience understanding: Consider the familiarity of your audience with each notation when presenting your diagrams.\nTool availability: Some diagramming tools may support one notation better than the other, influencing your choice.\n\n\n \n\n\nSelecting the appropriate notation enhances both the design process and communication with stakeholders.",
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
     ]
   },
   {
@@ -955,7 +991,7 @@
     "crumbs": [
       "Home",
       "ER Modeling",
-      "ER Diagramming"
+      "ER Diagramming*"
     ]
   },
   {

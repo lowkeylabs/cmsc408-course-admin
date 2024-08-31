@@ -1,0 +1,34 @@
+# Homework 2 - Fall 2024
+
+## Homework 2 - Fall 2024
+:::: {.columns}
+
+::: {.column width="50%"}
+### Overview
+
+* Homeworks 1 and 2 focus on ER diagrams
+* Homework 2 offers practice creating ER diagrams.
+* [Link to Homework 2](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966518)
+
+### General homework workflow
+* *Same as homework 1!*
+* Download assignment repository
+* Edit files using VS code
+* Commit and push changes to GITHUB
+    * Submit HTML to Canvas
+    * Submit repo to Gradescope
+
+:::
+::: {.column width="50%"}
+### Notes
+* The focus of this assignment creating ER diagrams in Quarto using mermaid and graphviz.
+* Please allow plenty of time!
+* Don't get frustrated.  Use *Discord* and *ChatGPT* to get help.
+* Use the command line to render, and commit.
+* Watch the lecture!!!
+
+<p>&nbsp;</p>
+<center>***Do quick homework 2 walkthrough ...***</center>
+:::
+::::
+

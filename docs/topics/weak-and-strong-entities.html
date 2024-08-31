@@ -10,8 +10,11 @@
 <link href="weak-and-strong-entities_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="weak-and-strong-entities_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="weak-and-strong-entities_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="weak-and-strong-entities_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+<link href="weak-and-strong-entities_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="weak-and-strong-entities_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="weak-and-strong-entities_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="weak-and-strong-entities_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Weak and Strong Entities</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -357,7 +360,8 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Weak entities depend on strong entities for their identification and existence in the database.</em></p>
 </section>
 <section id="identifying-weak-entities" class="slide level2">
@@ -374,7 +378,8 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Recognizing weak entities helps in correctly modeling real-world dependencies in a database.</em></p>
 </section>
 <section id="relationships-between-weak-and-strong-entities" class="slide level2">
@@ -391,14 +396,30 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Relationships between weak and strong entities ensure dependent data is accurately modeled and constrained.</em></p>
+</section>
+<section id="weak-and-strong-entities---examples" class="slide level2">
+<h2>Weak and Strong Entities - Examples</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="consider">Consider</h3>
+<p>Consider a stack of invoices. Each invoice has a primary company address, a customer billing address, and a customer ship-to address. These addresses might be stored in a separate list of addresses for reuse. These addresses are <em>strong entities</em>, that can exist without the invoice.</p>
+<p>Each invoice contains a list of items to be purchased. Each item has a item description, quantity, unit price and a total price. Item descriptions may be stored separately and connected to the invoice by an item id.</p>
+<p>An item is a strong entity. It can live without an invoice, for example in a table of items to create a product catalog.</p>
+<p><em>Invoice Line Items</em> are entities, too. BUT, they can’t live independently of an invoice. Their data (quantity, total price) are unique to this particular link in the invoice. Thus, these are called <strong>weak entities</strong>.</p>
+</div><div class="column" style="width:40%;">
+<h3 id="invoice-example">Invoice example</h3>
+<p><a href="assets/weak-entity-invoice-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="assets/weak-entity-invoice-example.png"></a></p>
+</div>
+</div>
 </section>
 <section id="partial-keys-and-their-role" class="slide level2">
 <h2>Partial Keys and Their Role</h2>
 <p>Partial keys, also known as discriminator attributes, are used to distinguish between instances of a weak entity in the context of its related strong entity.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:50%;">
 <ul>
 <li>A partial key is an attribute or a set of attributes that uniquely identify a weak entity for a given strong entity.</li>
 <li>Partial keys are combined with the primary key of the strong entity to create a unique identifier.</li>
@@ -406,9 +427,10 @@
 <li>Partial keys are often underlined with a dotted line in ER diagrams.</li>
 <li>Ensuring accurate definition of partial keys is critical for data integrity.</li>
 </ul>
-</div><div class="column" style="width:5%;">
-
-</div></div>
+</div><div class="column" style="width:50%;">
+<p><a href="assets/weak-entity-invoice-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="assets/weak-entity-invoice-example.png"></a></p>
+</div>
+</div>
 <p><em>Partial keys help uniquely identify weak entity instances in the context of their strong entities.</em></p>
 </section>
 <section id="examples-of-weak-entities" class="slide level2">
@@ -417,15 +439,15 @@
 <div class="columns">
 <div class="column" style="width:95%;">
 <ul>
-<li>‘Invoice Line Items’ are weak entities that rely on the ‘Invoice’ entity.</li>
 <li>‘Employee Dependents’ are weak entities related to an ‘Employee’ strong entity.</li>
 <li>‘Order Items’ require an associated ‘Order’ entity for their identification.</li>
 <li>‘Class Enrollments’ are weak entities dependent on a ‘Course’ entity.</li>
-<li>‘Apartment Units’ might depend on a ‘Building’ entity for their unique identification.</li>
+<li>‘Apartment Units’ or ‘Rooms’ might depend on a ‘Building’ entity for their unique identification.</li>
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Real-world examples illustrate how weak entities are essential in various relational models.</em></p>
 </section>
 <section id="symbolism-and-notation-in-er-diagrams" class="slide level2">
@@ -442,7 +464,8 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Understanding these symbols and notations is key to correctly interpreting and designing ER diagrams.</em></p>
 </section>
 <section id="importance-of-identifying-relationships" class="slide level2">
@@ -459,25 +482,9 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Identifying relationships are essential for maintaining the integrity and meaning of weak entities.</em></p>
-</section>
-<section id="case-study-modeling-weak-entities" class="slide level2">
-<h2>Case Study: Modeling Weak Entities</h2>
-<p>Understanding weak entities through real-world case studies helps solidify the concept and its application in database design.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li>Consider a retail scenario where ‘Order Items’ depend on an ‘Order.’</li>
-<li>Each ‘Order Item’ has a unique line number (partial key) combined with an order number.</li>
-<li>The ‘Order Item’ cannot exist without an associated ‘Order.’</li>
-<li>This scenario illustrates how weak entities represent dependent data.</li>
-<li>Proper modeling ensures that ‘Order Items’ are always tied to an ‘Order,’ reflecting real-world constraints.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-
-</div></div>
-<p><em>Case studies provide practical examples of how weak entities are used in database design.</em></p>
 </section>
 <section id="common-mistakes-with-weak-entities" class="slide level2">
 <h2>Common Mistakes with Weak Entities</h2>
@@ -493,7 +500,8 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Avoiding these common mistakes ensures that weak entities are accurately and effectively modeled.</em></p>
 </section>
 <section id="best-practices-for-modeling-weak-entities" class="slide level2">
@@ -510,7 +518,8 @@
 </ul>
 </div><div class="column" style="width:5%;">
 
-</div></div>
+</div>
+</div>
 <p><em>Best practices guide the effective modeling of weak entities, ensuring database integrity.</em></p>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -780,7 +789,18 @@
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -812,29 +832,7 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -842,7 +840,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
@@ -935,6 +933,31 @@
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+    window.onload = () => {
+      lightboxQuarto.on('slide_before_load', (data) => {
+        const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+        const href = trigger.getAttribute('href');
+        if (href !== null) {
+          const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+          if (imgEl !== null) {
+            const srcAttr = imgEl.getAttribute("src");
+            if (srcAttr && srcAttr.startsWith("data:")) {
+              slideConfig.href = srcAttr;
+            }
+          }
+        } 
+      });
+
+      lightboxQuarto.on('slide_after_load', (data) => {
+        const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(slideNode);
+        }
+      });
+
+    };
+              </script>
     
 
 </body></html>
