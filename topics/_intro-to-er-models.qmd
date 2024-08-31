@@ -5,46 +5,72 @@
 
 ## Conceptual, Logical, and Physical Data Models
 
-Data models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.
-
 :::: {.columns}
-::: {.column width=95%}
-
-- **Conceptual Model:** High-level, abstract model focusing on the entities and relationships.
-- **Logical Model:** Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.
-- **Physical Model:** Focuses on the actual implementation, including tables, columns, and data types.
-- Conceptual models are often created during the initial database design phase.
-- Logical models help in the creation of relational schemas.
+::: {.column width=30%}
+- **Conceptual Model**
+- Logical Model
+- Physical Model
 :::
-::: {.column width=5%}
-
+::: {.column width=40%}
+<p> High-level, abstract model focusing on the entities and relationships. Conceptual models are often created during the initial database design phase.</p>
+:::
+::: {.column width=30%}
+![](assets/conceptual-shade-0.png)
 :::
 ::::
 
-*Different types of data models address various stages of database design, from conceptualization to implementation.*
+## Conceptual, Logical, and Physical Data Models
 
+:::: {.columns}
+::: {.column width=30%}
+- Conceptual Model
+- **Logical Model**
+- Physical Model
+:::
+::: {.column width=40%}
+<p> Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage. Logical models help in the creation of relational schemas.</p>
+:::
+::: {.column width=30%}
+![](assets/conceptual-shade-0.png)
+:::
+::::
+
+## Conceptual, Logical, and Physical Data Models
+
+:::: {.columns}
+::: {.column width=30%}
+- Conceptual Model
+- Logical Model
+- **Physical Model**
+:::
+::: {.column width=40%}
+<p> Focuses on the actual implementation, including tables, columns, and data types. Physical models are usually coded in SQL and include commands for fine tuning, optimization, and storage strategies.</p>
+:::
+::: {.column width=30%}
+![](assets/conceptual-shade-0.png)
+:::
+::::
 
 
 
 ## Importance of ER Models in Database Design
 
-Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.
-
 :::: {.columns}
-::: {.column width=95%}
+::: {.column width=70%}
+Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.
 
 - ER models offer a visual representation of the database structure.
 - They help in identifying and organizing data requirements.
 - ER models reduce the complexity of database design.
 - They support the identification of entities, attributes, and relationships.
 - ER models guide the transition from conceptual design to logical design.
-:::
-::: {.column width=5%}
-
-:::
-::::
 
 *Understanding ER models is crucial for effective database design and implementation.*
+:::
+::: {.column width=30%}
+![](assets/conceptual-shade-1.png)
+:::
+::::
 
 
 
@@ -52,9 +78,7 @@ Entity-Relationship (ER) models are essential tools for designing databases as t
 ## Components of Entity-Relationship Models
 
 :::: {.columns}
-::: {.column width=50%}
-
-### Entities, Relationships, and Attributes
+::: {.column width=75%}
 
 Entities
 : These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
@@ -64,107 +88,132 @@ Attributes
 
 Relationships
 : Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
-
 :::
-::: {.column width=50%}
-
-### Example
-
-Imagine a college campus with buildings and rooms.
-
-Each building can can be located with an address,
-city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.
-
-**Identify the entities, attributes and relationships**
+::: {.column width=25%}
+![](assets/er-diagram-shade-none.png)
 :::
 ::::
+
+<!-- code used to create ER diagram above
+graph ER {
+    fontname="Helvetica,Arial,sans-serif"
+    fontsize=8;  // Reduced font size for the entire graph
+    node [fontname="Helvetica,Arial,sans-serif", fontsize=8, width=0.5, height=0.3, style=filled, fillcolor=white] // Default: smaller font size, reduced node size, shaded
+    edge [fontname="Helvetica,Arial,sans-serif", fontsize=8] // Reduced font size for edges
+    layout=neato
+    nodesep=2.0;  // Increased separation between nodes on the same level
+    ranksep=1.5;  // Increased separation between nodes on different levels
+    size="6,6";   // Specify desired size in inches
+    ratio=compress; // Allow Graphviz to compress the layout to fit the size
+    dpi=60;  // Set DPI for higher resolution output
+    center=false;
+    
+    node [shape=box,style=filled,color=black,fillcolor=lightblue]; course; student;
+
+    node [shape=ellipse,style=filled,color=black,fillcolor=white]; {node [label="name"] name0; name2;}
+    id; grade;
+
+    // Define the "S-C" node with smaller size, white fill color, black border, and label "has"
+    node [shape=diamond, style=filled, color=black, fillcolor=white width=0.3, height=0.2, fontsize=6, label="has"]; 
+    "S-C"
+
+    { rank=same; course; student; } // Place course and student on the same rank
+
+    name0 -- course [len=0.7];  // Set edge length between name0 and course
+    id -- course [len=0.7];     // Set edge length between id and course
+    student -- grade [len=0.7]; // Set edge length between student and grade
+    student -- name2 [len=0.7]; // Set edge length between student and name2
+    student -- "S-C" [len=0.7]; // Set edge length between student and S-C
+    "S-C" -- course [len=0.7];  // Set edge length between S-C and course
+}
+
+-->
 
 
 
 
 ## Entities in ER Models
 
-Entities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.
-
 :::: {.columns}
-::: {.column width=95%}
+::: {.column width=75%}
+Entities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.
 
 - Entities are things that can be distinctly identified.
 - Examples of entities include people, products, events, and locations.
 - Entities have attributes that provide details about them.
 - Each entity type is represented by a set of instances in the database.
 - Entity types are often mapped to tables in the relational model.
-:::
-::: {.column width=5%}
-
-:::
-::::
 
 *Entities form the core of the database, representing key objects or concepts in the system.*
 
-
-
-
-## Relationships in ER Models
-
-Relationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.
-
-:::: {.columns}
-::: {.column width=95%}
-
-- Relationships represent associations between two or more entities.
-- They can be categorized as one-to-one, one-to-many, or many-to-many.
-- Relationships have attributes that describe the nature of the association.
-- In ER diagrams, relationships are depicted as diamonds connecting entities.
-- Properly defining relationships helps in maintaining data integrity.
 :::
-::: {.column width=5%}
-
+::: {.column width=25%}
+![](assets/er-diagram-shade-entities.png)
 :::
 ::::
-
-*Relationships ensure that the database reflects the interactions between different entities in the system.*
 
 
 
 
 ## Attributes in ER Models
 
-Attributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.
-
 :::: {.columns}
-::: {.column width=95%}
+::: {.column width=75%}
+Attributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.
 
 - Attributes provide specific details about entities, such as name, ID, or age.
 - They can be simple (indivisible), composite (consisting of multiple components), or derived (calculated from other attributes).
 - Each attribute belongs to a specific domain, which defines the set of possible values.
 - Attributes are represented as ovals connected to their respective entities or relationships in ER diagrams.
 - Proper attribute selection is crucial for accurate data representation.
-:::
-::: {.column width=5%}
 
+*Attributes are key to defining the details and constraints of entities and relationships in the database.*
+:::
+::: {.column width=25%}
+![](assets/er-diagram-shade-attributes.png)
 :::
 ::::
 
-*Attributes are key to defining the details and constraints of entities and relationships in the database.*
+
+
+
+## Relationships in ER Models
+
+:::: {.columns}
+::: {.column width=75%}
+Relationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.
+
+- Relationships represent associations between two or more entities.
+- They can be categorized as one-to-one, one-to-many, or many-to-many.
+- Relationships have attributes that describe the nature of the association.
+- In ER diagrams, relationships are depicted as diamonds connecting entities.
+- Properly defining relationships helps in maintaining data integrity.
+
+*Relationships ensure that the database reflects the interactions between different entities in the system.*
+:::
+::: {.column width=25%}
+![](assets/er-diagram-shade-relationships.png)
+:::
+::::
 
 
 
 
 ## Cardinality in Relationships
 
-Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.
-
 :::: {.columns}
-::: {.column width=70%}
+::: {.column width=75%}
+Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.
 
 - Cardinality types include one-to-one, one-to-many, and many-to-many.
 - One-to-one: Each instance of one entity relates to a single instance of another entity.
 - One-to-many: One entity instance relates to multiple instances of another entity.
 - Many-to-many: Multiple instances of one entity relate to multiple instances of another entity.
 - Cardinality constraints are depicted in ER diagrams by numerical notation or Crow's Foot symbols.
+
+*Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.*
 :::
-::: {.column width=30%}
+::: {.column width=25%}
 
 ```{mermaid}
 %%| echo: false
@@ -186,25 +235,24 @@ ROOM {
 
 :::
 ::::
-
-*Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.*
 
 
 
 
 ## Participation in Relationships
 
-Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.
-
 :::: {.columns}
-::: {.column width=70%}
+::: {.column width=75%}
+Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.
 
 - Participation types include total participation and partial participation.
 - Total Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.
 - Partial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.
 - Participation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).
+
+*Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.*
 :::
-::: {.column width=30%}
+::: {.column width=25%}
 
 ```{mermaid}
 %%| echo: false
@@ -226,8 +274,6 @@ ROOM {
 
 :::
 ::::
-
-*Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.*
 
 
 
@@ -258,62 +304,103 @@ ER diagrams use specific notations to represent entities, relationships, and att
 ## Chen notation
 
 :::: {.columns}
-::: {.column width="40%"}
+::: {.column width="70%"}
 
 ```{dot}
 //| echo: true
 //| eval: false
 graph ER {
-	layout=neato;
-  scale=1.1;
-	node [shape=box]; building; room;
-	node [shape=ellipse]; address, city, state, occupant, room_number
-	node [shape=diamond,style=filled,color=lightgrey]; has
-	
-	building -- has [label="1",len=1.00]
-	has -- room [label="n",len=1.00]
-	
-	building -- address
-	building -- city
-	building -- state
-  room -- room_number
-	room -- occupant
+    fontname="Helvetica,Arial,sans-serif"
+    fontsize=8;  // Reduced font size for the entire graph
+    node [fontname="Helvetica,Arial,sans-serif", fontsize=8, width=0.5, height=0.3, style=filled, fillcolor=white] // Default: smaller font size, reduced node size, shaded
+    edge [fontname="Helvetica,Arial,sans-serif", fontsize=8] // Reduced font size for edges
+    layout=neato
+    nodesep=2.0;  // Increased separation between nodes on the same level
+    ranksep=1.5;  // Increased separation between nodes on different levels
+    size="6,6";   // Specify desired size in inches
+    ratio=compress; // Allow Graphviz to compress the layout to fit the size
+    dpi=60;  // Set DPI for higher resolution output
+    center=false;
+    
+    node [shape=box,style=filled,color=black,fillcolor=lightblue]; course; student;
+
+    node [shape=ellipse,style=filled,color=black,fillcolor=white]; {node [label="name"] name0; name2;}
+    id; grade;
+
+    // Define the "S-C" node with smaller size, white fill color, black border, and label "has"
+    node [shape=diamond, style=filled, color=black, fillcolor=white width=0.3, height=0.2, fontsize=6, label="has"]; 
+    "S-C"
+
+    { rank=same; course; student; } // Place course and student on the same rank
+
+    name0 -- course [len=0.7];  // Set edge length between name0 and course
+    id -- course [len=0.7];     // Set edge length between id and course
+    student -- grade [len=0.7]; // Set edge length between student and grade
+    student -- name2 [len=0.7]; // Set edge length between student and name2
+    student -- "S-C" [len=0.7]; // Set edge length between student and S-C
+    "S-C" -- course [len=0.7];  // Set edge length between S-C and course
 }
 ```
 
 :::
-::: {.column width="59%"}
-
-```{dot}
-//| echo: false
-//| eval: true
-//| fig-width: 500px
-//| fig-height: 240px
-graph {
-	layout=neato;
-  scale=1.1;
-	node [shape=box,fontsize=12]; building; room;
-	node [shape=ellipse,fontsize=12]; address, city, state, occupant, room_number
-	node [shape=diamond,fontsize=12,style=filled,color=lightgrey]; has
-	
-	building -- has [label="1",len=1.00]
-	has -- room [label="n",len=1.00]
-	
-	building -- address
-	building -- city
-	building -- state
-  room -- room_number
-	room -- occupant
-}
-```
-
+::: {.column width="30%"}
+![](assets/er-diagram-shade-none.png)
 :::
 ::::
+
 [Link to graphviz on-line editor](https://dreampuf.github.io/GraphvizOnline/)
 
 
 
 
+## Crows Foot notation
+
+:::: {.columns}
+::: {.column}
+
+```{mermaid}
+%%| echo: true
+%%| eval: false
+erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupants
+}
+```
+
+:::
+::: {.column}
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+```
+
+:::
+::::
+
+[Link to mermaid live](https://mermaid.live/edit)
 
 
 

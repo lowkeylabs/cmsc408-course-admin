@@ -413,26 +413,60 @@
 </section>
 <section id="conceptual-logical-and-physical-data-models" class="slide level2">
 <h2>Conceptual, Logical, and Physical Data Models</h2>
-<p>Data models can be categorized into three types: conceptual, logical, and physical. Each type serves a different purpose in the database design process, from high-level planning to implementation.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:30%;">
 <ul>
-<li><strong>Conceptual Model:</strong> High-level, abstract model focusing on the entities and relationships.</li>
-<li><strong>Logical Model:</strong> Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage.</li>
-<li><strong>Physical Model:</strong> Focuses on the actual implementation, including tables, columns, and data types.</li>
-<li>Conceptual models are often created during the initial database design phase.</li>
-<li>Logical models help in the creation of relational schemas.</li>
+<li><strong>Conceptual Model</strong></li>
+<li>Logical Model</li>
+<li>Physical Model</li>
 </ul>
-</div><div class="column" style="width:5%;">
-
+</div><div class="column" style="width:40%;">
+<p>
+High-level, abstract model focusing on the entities and relationships. Conceptual models are often created during the initial database design phase.
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/conceptual-shade-0.png"></p>
 </div></div>
-<p><em>Different types of data models address various stages of database design, from conceptualization to implementation.</em></p>
+</section>
+<section id="conceptual-logical-and-physical-data-models-1" class="slide level2">
+<h2>Conceptual, Logical, and Physical Data Models</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Conceptual Model</li>
+<li><strong>Logical Model</strong></li>
+<li>Physical Model</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p>
+Translates the conceptual model into a more detailed structure, specifying entities, attributes, and relationships without considering physical storage. Logical models help in the creation of relational schemas.
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/conceptual-shade-0.png"></p>
+</div></div>
+</section>
+<section id="conceptual-logical-and-physical-data-models-2" class="slide level2">
+<h2>Conceptual, Logical, and Physical Data Models</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Conceptual Model</li>
+<li>Logical Model</li>
+<li><strong>Physical Model</strong></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p>
+Focuses on the actual implementation, including tables, columns, and data types. Physical models are usually coded in SQL and include commands for fine tuning, optimization, and storage strategies.
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/conceptual-shade-0.png"></p>
+</div></div>
 </section>
 <section id="importance-of-er-models-in-database-design" class="slide level2">
 <h2>Importance of ER Models in Database Design</h2>
-<p>Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:70%;">
+<p>Entity-Relationship (ER) models are essential tools for designing databases as they provide a clear structure of data and its relationships. ER models help in organizing data and ensuring that databases are efficient, accurate, and scalable.</p>
 <ul>
 <li>ER models offer a visual representation of the database structure.</li>
 <li>They help in identifying and organizing data requirements.</li>
@@ -440,16 +474,15 @@
 <li>They support the identification of entities, attributes, and relationships.</li>
 <li>ER models guide the transition from conceptual design to logical design.</li>
 </ul>
-</div><div class="column" style="width:5%;">
-
-</div></div>
 <p><em>Understanding ER models is crucial for effective database design and implementation.</em></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/conceptual-shade-1.png"></p>
+</div></div>
 </section>
 <section id="components-of-entity-relationship-models" class="slide level2">
 <h2>Components of Entity-Relationship Models</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="entities-relationships-and-attributes">Entities, Relationships, and Attributes</h3>
+<div class="column" style="width:75%;">
 <dl>
 <dt>Entities</dt>
 <dd>
@@ -464,18 +497,49 @@ Attributes are properties or characteristics that describe the entities. For exa
 Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
 </dd>
 </dl>
-</div><div class="column" style="width:50%;">
-<h3 id="example">Example</h3>
-<p>Imagine a college campus with buildings and rooms.</p>
-<p>Each building can can be located with an address, city, and state. Rooms have room_numbers and occupants. A building consists of one or more rooms.</p>
-<p><strong>Identify the entities, attributes and relationships</strong></p>
+</div><div class="column" style="width:25%;">
+<p><img data-src="assets/er-diagram-shade-none.png"></p>
 </div></div>
+<!-- code used to create ER diagram above
+graph ER {
+    fontname="Helvetica,Arial,sans-serif"
+    fontsize=8;  // Reduced font size for the entire graph
+    node [fontname="Helvetica,Arial,sans-serif", fontsize=8, width=0.5, height=0.3, style=filled, fillcolor=white] // Default: smaller font size, reduced node size, shaded
+    edge [fontname="Helvetica,Arial,sans-serif", fontsize=8] // Reduced font size for edges
+    layout=neato
+    nodesep=2.0;  // Increased separation between nodes on the same level
+    ranksep=1.5;  // Increased separation between nodes on different levels
+    size="6,6";   // Specify desired size in inches
+    ratio=compress; // Allow Graphviz to compress the layout to fit the size
+    dpi=60;  // Set DPI for higher resolution output
+    center=false;
+    
+    node [shape=box,style=filled,color=black,fillcolor=lightblue]; course; student;
+
+    node [shape=ellipse,style=filled,color=black,fillcolor=white]; {node [label="name"] name0; name2;}
+    id; grade;
+
+    // Define the "S-C" node with smaller size, white fill color, black border, and label "has"
+    node [shape=diamond, style=filled, color=black, fillcolor=white width=0.3, height=0.2, fontsize=6, label="has"]; 
+    "S-C"
+
+    { rank=same; course; student; } // Place course and student on the same rank
+
+    name0 -- course [len=0.7];  // Set edge length between name0 and course
+    id -- course [len=0.7];     // Set edge length between id and course
+    student -- grade [len=0.7]; // Set edge length between student and grade
+    student -- name2 [len=0.7]; // Set edge length between student and name2
+    student -- "S-C" [len=0.7]; // Set edge length between student and S-C
+    "S-C" -- course [len=0.7];  // Set edge length between S-C and course
+}
+
+-->
 </section>
 <section id="entities-in-er-models" class="slide level2">
 <h2>Entities in ER Models</h2>
-<p>Entities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:75%;">
+<p>Entities represent real-world objects or concepts that are stored in the database. Identifying entities correctly is vital for the success of the database design.</p>
 <ul>
 <li>Entities are things that can be distinctly identified.</li>
 <li>Examples of entities include people, products, events, and locations.</li>
@@ -483,33 +547,16 @@ Relationships illustrate how entities are related to each other. Relationships c
 <li>Each entity type is represented by a set of instances in the database.</li>
 <li>Entity types are often mapped to tables in the relational model.</li>
 </ul>
-</div><div class="column" style="width:5%;">
-
-</div></div>
 <p><em>Entities form the core of the database, representing key objects or concepts in the system.</em></p>
-</section>
-<section id="relationships-in-er-models" class="slide level2">
-<h2>Relationships in ER Models</h2>
-<p>Relationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li>Relationships represent associations between two or more entities.</li>
-<li>They can be categorized as one-to-one, one-to-many, or many-to-many.</li>
-<li>Relationships have attributes that describe the nature of the association.</li>
-<li>In ER diagrams, relationships are depicted as diamonds connecting entities.</li>
-<li>Properly defining relationships helps in maintaining data integrity.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-
+</div><div class="column" style="width:25%;">
+<p><img data-src="assets/er-diagram-shade-entities.png"></p>
 </div></div>
-<p><em>Relationships ensure that the database reflects the interactions between different entities in the system.</em></p>
 </section>
 <section id="attributes-in-er-models" class="slide level2">
 <h2>Attributes in ER Models</h2>
-<p>Attributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.</p>
 <div class="columns">
-<div class="column" style="width:95%;">
+<div class="column" style="width:75%;">
+<p>Attributes describe the properties or characteristics of entities and relationships. They are fundamental to defining the structure and constraints of the database.</p>
 <ul>
 <li>Attributes provide specific details about entities, such as name, ID, or age.</li>
 <li>They can be simple (indivisible), composite (consisting of multiple components), or derived (calculated from other attributes).</li>
@@ -517,16 +564,33 @@ Relationships illustrate how entities are related to each other. Relationships c
 <li>Attributes are represented as ovals connected to their respective entities or relationships in ER diagrams.</li>
 <li>Proper attribute selection is crucial for accurate data representation.</li>
 </ul>
-</div><div class="column" style="width:5%;">
-
-</div></div>
 <p><em>Attributes are key to defining the details and constraints of entities and relationships in the database.</em></p>
+</div><div class="column" style="width:25%;">
+<p><img data-src="assets/er-diagram-shade-attributes.png"></p>
+</div></div>
+</section>
+<section id="relationships-in-er-models" class="slide level2">
+<h2>Relationships in ER Models</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<p>Relationships define how entities interact with each other within the database. Understanding these connections is critical to accurately modeling real-world interactions.</p>
+<ul>
+<li>Relationships represent associations between two or more entities.</li>
+<li>They can be categorized as one-to-one, one-to-many, or many-to-many.</li>
+<li>Relationships have attributes that describe the nature of the association.</li>
+<li>In ER diagrams, relationships are depicted as diamonds connecting entities.</li>
+<li>Properly defining relationships helps in maintaining data integrity.</li>
+</ul>
+<p><em>Relationships ensure that the database reflects the interactions between different entities in the system.</em></p>
+</div><div class="column" style="width:25%;">
+<p><img data-src="assets/er-diagram-shade-relationships.png"></p>
+</div></div>
 </section>
 <section id="cardinality-in-relationships" class="slide level2">
 <h2>Cardinality in Relationships</h2>
-<p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.</p>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:75%;">
+<p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.</p>
 <ul>
 <li>Cardinality types include one-to-one, one-to-many, and many-to-many.</li>
 <li>One-to-one: Each instance of one entity relates to a single instance of another entity.</li>
@@ -534,7 +598,8 @@ Relationships illustrate how entities are related to each other. Relationships c
 <li>Many-to-many: Multiple instances of one entity relate to multiple instances of another entity.</li>
 <li>Cardinality constraints are depicted in ER diagrams by numerical notation or Crow’s Foot symbols.</li>
 </ul>
-</div><div class="column" style="width:30%;">
+<p><em>Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.</em></p>
+</div><div class="column" style="width:25%;">
 <div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -560,20 +625,20 @@ ROOM {
 </div>
 </div>
 </div></div>
-<p><em>Cardinality is critical to ensuring that database relationships accurately reflect real-world scenarios.</em></p>
 </section>
 <section id="participation-in-relationships" class="slide level2">
 <h2>Participation in Relationships</h2>
-<p>Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.</p>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:75%;">
+<p>Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.</p>
 <ul>
 <li>Participation types include total participation and partial participation.</li>
 <li>Total Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.</li>
 <li>Partial Participation (Optional): Some instances of an entity may not be involved in a relationship with instances of another entity.</li>
 <li>Participation constraints are often represented in ER diagrams by solid lines (for total participation) or dashed lines (for partial participation).</li>
 </ul>
-</div><div class="column" style="width:30%;">
+<p><em>Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.</em></p>
+</div><div class="column" style="width:25%;">
 <div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -599,7 +664,6 @@ ROOM {
 </div>
 </div>
 </div></div>
-<p><em>Participation helps define the essential and optional relationships, ensuring the integrity and accuracy of the database model.</em></p>
 </section>
 <section id="er-diagram-notations" class="slide level2">
 <h2>ER Diagram Notations</h2>
@@ -621,24 +685,39 @@ ROOM {
 <section id="chen-notation" class="slide level2">
 <h2>Chen notation</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:70%;">
 <div class="cell" data-eval="false" data-layout-align="default">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href=""></a><span class="va">graph</span> <span class="va">ER</span> <span class="ot">{</span></span>
-<span id="cb1-2"><a href=""></a><span class="co">    </span><span class="va">layout</span><span class="ot">=</span><span class="va">neato</span><span class="ot">;</span></span>
-<span id="cb1-3"><a href=""></a><span class="co">  </span><span class="va">scale</span><span class="ot">=</span><span class="dv">1.1</span><span class="ot">;</span></span>
-<span id="cb1-4"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">];</span><span class="co"> </span><span class="va">building</span><span class="ot">;</span><span class="co"> </span><span class="va">room</span><span class="ot">;</span></span>
-<span id="cb1-5"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">ellipse</span><span class="ot">];</span><span class="co"> </span><span class="va">address</span><span class="co">, </span><span class="va">city</span><span class="co">, </span><span class="va">state</span><span class="co">, </span><span class="va">occupant</span><span class="co">, </span><span class="va">room_number</span></span>
-<span id="cb1-6"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">diamond</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">lightgrey</span><span class="ot">];</span><span class="co"> </span><span class="va">has</span></span>
-<span id="cb1-7"><a href=""></a><span class="co">    </span></span>
-<span id="cb1-8"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">has</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
-<span id="cb1-9"><a href=""></a><span class="co">    </span><span class="va">has</span><span class="co"> -- </span><span class="va">room</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"n"</span><span class="co">,</span><span class="va">len</span><span class="ot">=</span><span class="dv">1.00</span><span class="ot">]</span></span>
-<span id="cb1-10"><a href=""></a><span class="co">    </span></span>
-<span id="cb1-11"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">address</span></span>
-<span id="cb1-12"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">city</span></span>
-<span id="cb1-13"><a href=""></a><span class="co">    </span><span class="va">building</span><span class="co"> -- </span><span class="va">state</span></span>
-<span id="cb1-14"><a href=""></a><span class="co">  </span><span class="va">room</span><span class="co"> -- </span><span class="va">room_number</span></span>
-<span id="cb1-15"><a href=""></a><span class="co">    </span><span class="va">room</span><span class="co"> -- </span><span class="va">occupant</span></span>
-<span id="cb1-16"><a href=""></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href=""></a><span class="co">    </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica,Arial,sans-serif"</span></span>
+<span id="cb1-3"><a href=""></a><span class="co">    </span><span class="at">fontsize</span><span class="ot">=</span><span class="dv">8</span><span class="ot">;</span><span class="co">  // Reduced font size for the entire graph</span></span>
+<span id="cb1-4"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica,Arial,sans-serif"</span><span class="co">, </span><span class="at">fontsize</span><span class="ot">=</span><span class="dv">8</span><span class="co">, </span><span class="at">width</span><span class="ot">=</span><span class="dv">0.5</span><span class="co">, </span><span class="at">height</span><span class="ot">=</span><span class="dv">0.3</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">white</span><span class="ot">]</span><span class="co"> // Default: smaller font size, reduced node size, shaded</span></span>
+<span id="cb1-5"><a href=""></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica,Arial,sans-serif"</span><span class="co">, </span><span class="at">fontsize</span><span class="ot">=</span><span class="dv">8</span><span class="ot">]</span><span class="co"> // Reduced font size for edges</span></span>
+<span id="cb1-6"><a href=""></a><span class="co">    </span><span class="va">layout</span><span class="ot">=</span><span class="va">neato</span></span>
+<span id="cb1-7"><a href=""></a><span class="co">    </span><span class="at">nodesep</span><span class="ot">=</span><span class="dv">2.0</span><span class="ot">;</span><span class="co">  // Increased separation between nodes on the same level</span></span>
+<span id="cb1-8"><a href=""></a><span class="co">    </span><span class="at">ranksep</span><span class="ot">=</span><span class="dv">1.5</span><span class="ot">;</span><span class="co">  // Increased separation between nodes on different levels</span></span>
+<span id="cb1-9"><a href=""></a><span class="co">    </span><span class="at">size</span><span class="ot">=</span><span class="st">"6,6"</span><span class="ot">;</span><span class="co">   // Specify desired size in inches</span></span>
+<span id="cb1-10"><a href=""></a><span class="co">    </span><span class="at">ratio</span><span class="ot">=</span><span class="va">compress</span><span class="ot">;</span><span class="co"> // Allow Graphviz to compress the layout to fit the size</span></span>
+<span id="cb1-11"><a href=""></a><span class="co">    </span><span class="va">dpi</span><span class="ot">=</span><span class="dv">60</span><span class="ot">;</span><span class="co">  // Set DPI for higher resolution output</span></span>
+<span id="cb1-12"><a href=""></a><span class="co">    </span><span class="at">center</span><span class="ot">=</span><span class="va">false</span><span class="ot">;</span></span>
+<span id="cb1-13"><a href=""></a><span class="co">    </span></span>
+<span id="cb1-14"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">black</span><span class="co">,</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">lightblue</span><span class="ot">];</span><span class="co"> </span><span class="va">course</span><span class="ot">;</span><span class="co"> </span><span class="va">student</span><span class="ot">;</span></span>
+<span id="cb1-15"><a href=""></a></span>
+<span id="cb1-16"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">ellipse</span><span class="co">,</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">black</span><span class="co">,</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">white</span><span class="ot">];</span><span class="co"> </span><span class="ot">{</span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"name"</span><span class="ot">]</span><span class="co"> </span><span class="va">name0</span><span class="ot">;</span><span class="co"> </span><span class="va">name2</span><span class="ot">;}</span></span>
+<span id="cb1-17"><a href=""></a><span class="co">    </span><span class="va">id</span><span class="ot">;</span><span class="co"> </span><span class="va">grade</span><span class="ot">;</span></span>
+<span id="cb1-18"><a href=""></a></span>
+<span id="cb1-19"><a href=""></a><span class="co">    // Define the "S-C" node with smaller size, white fill color, black border, and label "has"</span></span>
+<span id="cb1-20"><a href=""></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">diamond</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="va">black</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">white</span><span class="co"> </span><span class="at">width</span><span class="ot">=</span><span class="dv">0.3</span><span class="co">, </span><span class="at">height</span><span class="ot">=</span><span class="dv">0.2</span><span class="co">, </span><span class="at">fontsize</span><span class="ot">=</span><span class="dv">6</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"has"</span><span class="ot">];</span><span class="co"> </span></span>
+<span id="cb1-21"><a href=""></a><span class="co">    </span><span class="st">"S-C"</span></span>
+<span id="cb1-22"><a href=""></a></span>
+<span id="cb1-23"><a href=""></a><span class="co">    </span><span class="ot">{</span><span class="co"> </span><span class="at">rank</span><span class="ot">=</span><span class="va">same</span><span class="ot">;</span><span class="co"> </span><span class="va">course</span><span class="ot">;</span><span class="co"> </span><span class="va">student</span><span class="ot">;</span><span class="co"> </span><span class="ot">}</span><span class="co"> // Place course and student on the same rank</span></span>
+<span id="cb1-24"><a href=""></a></span>
+<span id="cb1-25"><a href=""></a><span class="co">    </span><span class="va">name0</span><span class="co"> -- </span><span class="va">course</span><span class="co"> </span><span class="ot">[</span><span class="va">len</span><span class="ot">=</span><span class="dv">0.7</span><span class="ot">];</span><span class="co">  // Set edge length between name0 and course</span></span>
+<span id="cb1-26"><a href=""></a><span class="co">    </span><span class="va">id</span><span class="co"> -- </span><span class="va">course</span><span class="co"> </span><span class="ot">[</span><span class="va">len</span><span class="ot">=</span><span class="dv">0.7</span><span class="ot">];</span><span class="co">     // Set edge length between id and course</span></span>
+<span id="cb1-27"><a href=""></a><span class="co">    </span><span class="va">student</span><span class="co"> -- </span><span class="va">grade</span><span class="co"> </span><span class="ot">[</span><span class="va">len</span><span class="ot">=</span><span class="dv">0.7</span><span class="ot">];</span><span class="co"> // Set edge length between student and grade</span></span>
+<span id="cb1-28"><a href=""></a><span class="co">    </span><span class="va">student</span><span class="co"> -- </span><span class="va">name2</span><span class="co"> </span><span class="ot">[</span><span class="va">len</span><span class="ot">=</span><span class="dv">0.7</span><span class="ot">];</span><span class="co"> // Set edge length between student and name2</span></span>
+<span id="cb1-29"><a href=""></a><span class="co">    </span><span class="va">student</span><span class="co"> -- </span><span class="st">"S-C"</span><span class="co"> </span><span class="ot">[</span><span class="va">len</span><span class="ot">=</span><span class="dv">0.7</span><span class="ot">];</span><span class="co"> // Set edge length between student and S-C</span></span>
+<span id="cb1-30"><a href=""></a><span class="co">    </span><span class="st">"S-C"</span><span class="co"> -- </span><span class="va">course</span><span class="co"> </span><span class="ot">[</span><span class="va">len</span><span class="ot">=</span><span class="dv">0.7</span><span class="ot">];</span><span class="co">  // Set edge length between S-C and course</span></span>
+<span id="cb1-31"><a href=""></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -649,109 +728,66 @@ ROOM {
 </div>
 </div>
 </div>
-</div><div class="column" style="width:59%;">
-<div class="cell" data-eval="true" data-fig-width="500px" data-fig-height="240px" data-layout-align="default">
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/er-diagram-shade-none.png"></p>
+</div></div>
+<p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
+</section>
+<section id="crows-foot-notation" class="slide level2">
+<h2>Crows Foot notation</h2>
+<div class="columns">
+<div class="column">
+<div class="cell" data-reveal="true" data-eval="false" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href=""></a>erDiagram</span>
+<span id="cb2-2"><a href=""></a>BUILDING ||--|{ ROOM : contains</span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>BUILDING{</span>
+<span id="cb2-5"><a href=""></a>  string address</span>
+<span id="cb2-6"><a href=""></a>  string city</span>
+<span id="cb2-7"><a href=""></a>  string state</span>
+<span id="cb2-8"><a href=""></a>}</span>
+<span id="cb2-9"><a href=""></a></span>
+<span id="cb2-10"><a href=""></a>ROOM {</span>
+<span id="cb2-11"><a href=""></a>  string room_number</span>
+<span id="cb2-12"><a href=""></a>  string occupants</span>
+<span id="cb2-13"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<svg width="500" height="240" viewbox="0.00 0.00 394.19 234.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.21)">
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-230.21 390.19,-230.21 390.19,4 -4,4"></polygon>
-<!-- building -->
-<g id="node1" class="node">
-<title>building</title>
-<polygon fill="none" stroke="black" points="140.37,-136.32 84.36,-136.32 84.36,-100.32 140.37,-100.32 140.37,-136.32"></polygon>
-<text text-anchor="middle" x="112.36" y="-114.72" font-family="Times,serif" font-size="12.00">building</text>
-</g>
-<!-- address -->
-<g id="node3" class="node">
-<title>address</title>
-<ellipse fill="none" stroke="black" cx="74.68" cy="-36.21" rx="33.41" ry="18"></ellipse>
-<text text-anchor="middle" x="74.68" y="-32.61" font-family="Times,serif" font-size="12.00">address</text>
-</g>
-<!-- building&#45;&#45;address -->
-<g id="edge3" class="edge">
-<title>building--address</title>
-<path fill="none" stroke="black" d="M104,-100.09C97.67,-86.3 89.02,-67.46 82.76,-53.82"></path>
-</g>
-<!-- city -->
-<g id="node4" class="node">
-<title>city</title>
-<ellipse fill="none" stroke="black" cx="27" cy="-133.06" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="27" y="-129.46" font-family="Times,serif" font-size="12.00">city</text>
-</g>
-<!-- building&#45;&#45;city -->
-<g id="edge4" class="edge">
-<title>building--city</title>
-<path fill="none" stroke="black" d="M83.94,-123.23C74.04,-124.93 63,-126.84 53.28,-128.52"></path>
-</g>
-<!-- state -->
-<g id="node5" class="node">
-<title>state</title>
-<ellipse fill="none" stroke="black" cx="103.09" cy="-208.21" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="103.09" y="-204.61" font-family="Times,serif" font-size="12.00">state</text>
-</g>
-<!-- building&#45;&#45;state -->
-<g id="edge5" class="edge">
-<title>building--state</title>
-<path fill="none" stroke="black" d="M110.49,-136.51C108.88,-152.1 106.57,-174.46 104.96,-190.04"></path>
-</g>
-<!-- has -->
-<g id="node8" class="node">
-<title>has</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="199.29,-121.71 170.49,-103.71 199.29,-85.71 228.09,-103.71 199.29,-121.71"></polygon>
-<text text-anchor="middle" x="199.29" y="-100.11" font-family="Times,serif" font-size="12.00">has</text>
-</g>
-<!-- building&#45;&#45;has -->
-<g id="edge1" class="edge">
-<title>building--has</title>
-<path fill="none" stroke="black" d="M140.83,-113.53C152.41,-111.59 165.62,-109.37 176.55,-107.53"></path>
-<text text-anchor="middle" x="155.19" y="-114.73" font-family="Times,serif" font-size="14.00">1</text>
-</g>
-<!-- room -->
-<g id="node2" class="node">
-<title>room</title>
-<polygon fill="none" stroke="black" points="312.11,-110.53 258.11,-110.53 258.11,-74.53 312.11,-74.53 312.11,-110.53"></polygon>
-<text text-anchor="middle" x="285.11" y="-88.93" font-family="Times,serif" font-size="12.00">room</text>
-</g>
-<!-- occupant -->
-<g id="node6" class="node">
-<title>occupant</title>
-<ellipse fill="none" stroke="black" cx="348.31" cy="-152.48" rx="37.77" ry="18"></ellipse>
-<text text-anchor="middle" x="348.31" y="-148.88" font-family="Times,serif" font-size="12.00">occupant</text>
-</g>
-<!-- room&#45;&#45;occupant -->
-<g id="edge7" class="edge">
-<title>room--occupant</title>
-<path fill="none" stroke="black" d="M304.41,-110.84C312.98,-118.97 322.97,-128.45 331.26,-136.31"></path>
-</g>
-<!-- room_number -->
-<g id="node7" class="node">
-<title>room_number</title>
-<ellipse fill="none" stroke="black" cx="329.91" cy="-18" rx="53.78" ry="18"></ellipse>
-<text text-anchor="middle" x="329.91" y="-14.4" font-family="Times,serif" font-size="12.00">room_number</text>
-</g>
-<!-- room&#45;&#45;room_number -->
-<g id="edge6" class="edge">
-<title>room--room_number</title>
-<path fill="none" stroke="black" d="M295.95,-74.49C303,-62.77 312.14,-47.56 319.16,-35.88"></path>
-</g>
-<!-- has&#45;&#45;room -->
-<g id="edge2" class="edge">
-<title>has--room</title>
-<path fill="none" stroke="black" d="M223.19,-100.6C234.01,-99.19 246.84,-97.52 258,-96.06"></path>
-<text text-anchor="middle" x="237.1" y="-102.53" font-family="Times,serif" font-size="14.00">n</text>
-</g>
-</g>
-</svg>
+
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell" data-reveal="true" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+BUILDING ||--|{ ROOM : contains
+
+BUILDING{
+  string address
+  string city
+  string state
+}
+
+ROOM {
+  string room_number
+  string occupant
+}
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
 </div></div>
-<p><a href="https://dreampuf.github.io/GraphvizOnline/">Link to graphviz on-line editor</a></p>
+<p><a href="https://mermaid.live/edit">Link to mermaid live</a></p>
 </section>
 <section id="specialization-and-generalization-in-er-models" class="slide level2">
 <h2>Specialization and Generalization in ER Models</h2>

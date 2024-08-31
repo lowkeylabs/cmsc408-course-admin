@@ -1,0 +1,1074 @@
+
+# Overview of Database Design
+
+
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- **Understanding Requirements**
+- Conceptual Design
+- Logical Design
+- Physical Design
+- Implementation
+- Testing and Validation
+- Maintenance and Optimization
+:::
+::: {.column width=40%}
+<p> Gathering and analyzing business requirements to define the purpose and scope of the database.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Understanding Requirements
+- **Conceptual Design**
+- Logical Design
+- Physical Design
+- Implementation
+- Testing and Validation
+- Maintenance and Optimization
+:::
+::: {.column width=40%}
+<p> Creating high-level data models, such as ER diagrams, to visualize the structure and relationships of the data.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Understanding Requirements
+- Conceptual Design
+- **Logical Design**
+- Physical Design
+- Implementation
+- Testing and Validation
+- Maintenance and Optimization
+:::
+::: {.column width=40%}
+<p> Translating the conceptual model into a logical structure that defines tables, fields, and relationships without concern for physical implementation.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Understanding Requirements
+- Conceptual Design
+- Logical Design
+- **Physical Design**
+- Implementation
+- Testing and Validation
+- Maintenance and Optimization
+:::
+::: {.column width=40%}
+<p> Deciding on the physical storage of the data, including indexing, partitioning, and optimization strategies for performance.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Understanding Requirements
+- Conceptual Design
+- Logical Design
+- Physical Design
+- **Implementation**
+- Testing and Validation
+- Maintenance and Optimization
+:::
+::: {.column width=40%}
+<p> Actual creation of the database using SQL, setting up tables, constraints, and relationships as defined in the logical and physical design stages.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Understanding Requirements
+- Conceptual Design
+- Logical Design
+- Physical Design
+- Implementation
+- **Testing and Validation**
+- Maintenance and Optimization
+:::
+::: {.column width=40%}
+<p> Ensuring the database meets the requirements through testing, validation, and adjustments as necessary.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Overview of Database Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Understanding Requirements
+- Conceptual Design
+- Logical Design
+- Physical Design
+- Implementation
+- Testing and Validation
+- **Maintenance and Optimization**
+:::
+::: {.column width=40%}
+<p> Ongoing tuning and maintenance to ensure the database performs efficiently and scales with business needs.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+
+
+## Understanding Requirements
+
+:::: {.columns}
+::: {.column width=30%}
+- **Business Requirements**
+- User Requirements
+- Data Requirements
+- Functional Requirements
+- Non-functional Requirements
+- Scope Definition
+:::
+::: {.column width=40%}
+<p> Identifying what the business needs from the database, including what data to store and how it will be used.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_1.png)
+:::
+::::
+
+## Understanding Requirements
+
+:::: {.columns}
+::: {.column width=30%}
+- Business Requirements
+- **User Requirements**
+- Data Requirements
+- Functional Requirements
+- Non-functional Requirements
+- Scope Definition
+:::
+::: {.column width=40%}
+<p> Understanding who will use the database and their specific needs.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_1.png)
+:::
+::::
+
+## Understanding Requirements
+
+:::: {.columns}
+::: {.column width=30%}
+- Business Requirements
+- User Requirements
+- **Data Requirements**
+- Functional Requirements
+- Non-functional Requirements
+- Scope Definition
+:::
+::: {.column width=40%}
+<p> Determining what data is necessary to fulfill the business and user requirements.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_1.png)
+:::
+::::
+
+## Understanding Requirements
+
+:::: {.columns}
+::: {.column width=30%}
+- Business Requirements
+- User Requirements
+- Data Requirements
+- **Functional Requirements**
+- Non-functional Requirements
+- Scope Definition
+:::
+::: {.column width=40%}
+<p> Identifying operations that the database must support, such as queries, updates, and reporting.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_1.png)
+:::
+::::
+
+## Understanding Requirements
+
+:::: {.columns}
+::: {.column width=30%}
+- Business Requirements
+- User Requirements
+- Data Requirements
+- Functional Requirements
+- **Non-functional Requirements**
+- Scope Definition
+:::
+::: {.column width=40%}
+<p> Considering performance, security, and scalability needs.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_1.png)
+:::
+::::
+
+## Understanding Requirements
+
+:::: {.columns}
+::: {.column width=30%}
+- Business Requirements
+- User Requirements
+- Data Requirements
+- Functional Requirements
+- Non-functional Requirements
+- **Scope Definition**
+:::
+::: {.column width=40%}
+<p> Clearly defining the boundaries of what the database will and will not cover.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_1.png)
+:::
+::::
+
+
+
+## Conceptual Design
+
+:::: {.columns}
+::: {.column width=30%}
+- **ER Modeling**
+- Identifying Entities
+- Defining Relationships
+- Attributes Identification
+- Conceptual Schema
+- Validation
+:::
+::: {.column width=40%}
+<p> Creating Entity-Relationship (ER) diagrams to represent entities, attributes, and relationships.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_2.png)
+:::
+::::
+
+## Conceptual Design
+
+:::: {.columns}
+::: {.column width=30%}
+- ER Modeling
+- **Identifying Entities**
+- Defining Relationships
+- Attributes Identification
+- Conceptual Schema
+- Validation
+:::
+::: {.column width=40%}
+<p> Defining major objects in the business domain (e.g., customer, order, product).</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_2.png)
+:::
+::::
+
+## Conceptual Design
+
+:::: {.columns}
+::: {.column width=30%}
+- ER Modeling
+- Identifying Entities
+- **Defining Relationships**
+- Attributes Identification
+- Conceptual Schema
+- Validation
+:::
+::: {.column width=40%}
+<p> Establishing how entities are related to each other (e.g., a customer places an order).</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_2.png)
+:::
+::::
+
+## Conceptual Design
+
+:::: {.columns}
+::: {.column width=30%}
+- ER Modeling
+- Identifying Entities
+- Defining Relationships
+- **Attributes Identification**
+- Conceptual Schema
+- Validation
+:::
+::: {.column width=40%}
+<p> Listing key attributes for each entity to capture necessary details.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_2.png)
+:::
+::::
+
+## Conceptual Design
+
+:::: {.columns}
+::: {.column width=30%}
+- ER Modeling
+- Identifying Entities
+- Defining Relationships
+- Attributes Identification
+- **Conceptual Schema**
+- Validation
+:::
+::: {.column width=40%}
+<p> Developing a schema that visually represents the data model.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_2.png)
+:::
+::::
+
+## Conceptual Design
+
+:::: {.columns}
+::: {.column width=30%}
+- ER Modeling
+- Identifying Entities
+- Defining Relationships
+- Attributes Identification
+- Conceptual Schema
+- **Validation**
+:::
+::: {.column width=40%}
+<p> Reviewing the conceptual model with stakeholders to ensure accuracy.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_2.png)
+:::
+::::
+
+
+
+## Logical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- **Relational Model**
+- Normalization
+- Defining Tables and Columns
+- Primary and Foreign Keys
+- Constraints
+- Logical Schema
+:::
+::: {.column width=40%}
+<p> Converting ER diagrams into relational tables.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_3.png)
+:::
+::::
+
+## Logical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Relational Model
+- **Normalization**
+- Defining Tables and Columns
+- Primary and Foreign Keys
+- Constraints
+- Logical Schema
+:::
+::: {.column width=40%}
+<p> Applying normalization techniques to reduce data redundancy and improve integrity.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_3.png)
+:::
+::::
+
+## Logical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Relational Model
+- Normalization
+- **Defining Tables and Columns**
+- Primary and Foreign Keys
+- Constraints
+- Logical Schema
+:::
+::: {.column width=40%}
+<p> Specifying tables, columns, and data types based on entities and attributes.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_3.png)
+:::
+::::
+
+## Logical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Relational Model
+- Normalization
+- Defining Tables and Columns
+- **Primary and Foreign Keys**
+- Constraints
+- Logical Schema
+:::
+::: {.column width=40%}
+<p> Establishing primary keys for unique identification and foreign keys for relationships.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_3.png)
+:::
+::::
+
+## Logical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Relational Model
+- Normalization
+- Defining Tables and Columns
+- Primary and Foreign Keys
+- **Constraints**
+- Logical Schema
+:::
+::: {.column width=40%}
+<p> Defining rules for data validation (e.g., NOT NULL, UNIQUE).</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_3.png)
+:::
+::::
+
+## Logical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Relational Model
+- Normalization
+- Defining Tables and Columns
+- Primary and Foreign Keys
+- Constraints
+- **Logical Schema**
+:::
+::: {.column width=40%}
+<p> Creating a detailed schema that outlines the logical structure of the database.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_3.png)
+:::
+::::
+
+
+
+## Physical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- **Storage Management**
+- Indexing
+- Partitioning
+- Data Compression
+- Hardware Considerations
+- Backup and Recovery
+:::
+::: {.column width=40%}
+<p> Deciding how and where to store data physically on the storage medium.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_4.png)
+:::
+::::
+
+## Physical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Storage Management
+- **Indexing**
+- Partitioning
+- Data Compression
+- Hardware Considerations
+- Backup and Recovery
+:::
+::: {.column width=40%}
+<p> Creating indexes to speed up data retrieval operations.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_4.png)
+:::
+::::
+
+## Physical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Storage Management
+- Indexing
+- **Partitioning**
+- Data Compression
+- Hardware Considerations
+- Backup and Recovery
+:::
+::: {.column width=40%}
+<p> Dividing large tables into smaller, manageable pieces to improve performance.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_4.png)
+:::
+::::
+
+## Physical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Storage Management
+- Indexing
+- Partitioning
+- **Data Compression**
+- Hardware Considerations
+- Backup and Recovery
+:::
+::: {.column width=40%}
+<p> Using techniques to reduce storage space and improve efficiency.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_4.png)
+:::
+::::
+
+## Physical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Storage Management
+- Indexing
+- Partitioning
+- Data Compression
+- **Hardware Considerations**
+- Backup and Recovery
+:::
+::: {.column width=40%}
+<p> Selecting appropriate hardware resources (e.g., SSDs, memory) for optimal performance.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_4.png)
+:::
+::::
+
+## Physical Design
+
+:::: {.columns}
+::: {.column width=30%}
+- Storage Management
+- Indexing
+- Partitioning
+- Data Compression
+- Hardware Considerations
+- **Backup and Recovery**
+:::
+::: {.column width=40%}
+<p> Planning for data protection and recovery in case of failures.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_4.png)
+:::
+::::
+
+
+
+## Implementation
+
+:::: {.columns}
+::: {.column width=30%}
+- **Schema Creation**
+- Data Population
+- Database Configuration
+- User Accounts and Permissions
+- Trigger and Stored Procedures
+- Testing Environment
+:::
+::: {.column width=40%}
+<p> Defining tables, columns, and relationships using SQL.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_5.png)
+:::
+::::
+
+## Implementation
+
+:::: {.columns}
+::: {.column width=30%}
+- Schema Creation
+- **Data Population**
+- Database Configuration
+- User Accounts and Permissions
+- Trigger and Stored Procedures
+- Testing Environment
+:::
+::: {.column width=40%}
+<p> Loading initial data into the database.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_5.png)
+:::
+::::
+
+## Implementation
+
+:::: {.columns}
+::: {.column width=30%}
+- Schema Creation
+- Data Population
+- **Database Configuration**
+- User Accounts and Permissions
+- Trigger and Stored Procedures
+- Testing Environment
+:::
+::: {.column width=40%}
+<p> Setting up configuration parameters (e.g., memory allocation, cache size).</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_5.png)
+:::
+::::
+
+## Implementation
+
+:::: {.columns}
+::: {.column width=30%}
+- Schema Creation
+- Data Population
+- Database Configuration
+- **User Accounts and Permissions**
+- Trigger and Stored Procedures
+- Testing Environment
+:::
+::: {.column width=40%}
+<p> Creating user accounts and assigning appropriate permissions.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_5.png)
+:::
+::::
+
+## Implementation
+
+:::: {.columns}
+::: {.column width=30%}
+- Schema Creation
+- Data Population
+- Database Configuration
+- User Accounts and Permissions
+- **Trigger and Stored Procedures**
+- Testing Environment
+:::
+::: {.column width=40%}
+<p> Implementing business logic at the database level.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_5.png)
+:::
+::::
+
+## Implementation
+
+:::: {.columns}
+::: {.column width=30%}
+- Schema Creation
+- Data Population
+- Database Configuration
+- User Accounts and Permissions
+- Trigger and Stored Procedures
+- **Testing Environment**
+:::
+::: {.column width=40%}
+<p> Setting up a testing environment to validate the database implementation.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_5.png)
+:::
+::::
+
+
+
+## Testing and Validation
+
+:::: {.columns}
+::: {.column width=30%}
+- **Unit Testing**
+- Integration Testing
+- Performance Testing
+- Security Testing
+- Data Validation
+- Feedback and Iteration
+:::
+::: {.column width=40%}
+<p> Checking individual components (e.g., tables, queries) for correctness.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_6.png)
+:::
+::::
+
+## Testing and Validation
+
+:::: {.columns}
+::: {.column width=30%}
+- Unit Testing
+- **Integration Testing**
+- Performance Testing
+- Security Testing
+- Data Validation
+- Feedback and Iteration
+:::
+::: {.column width=40%}
+<p> Ensuring different parts of the database work together as expected.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_6.png)
+:::
+::::
+
+## Testing and Validation
+
+:::: {.columns}
+::: {.column width=30%}
+- Unit Testing
+- Integration Testing
+- **Performance Testing**
+- Security Testing
+- Data Validation
+- Feedback and Iteration
+:::
+::: {.column width=40%}
+<p> Measuring response time, throughput, and scalability.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_6.png)
+:::
+::::
+
+## Testing and Validation
+
+:::: {.columns}
+::: {.column width=30%}
+- Unit Testing
+- Integration Testing
+- Performance Testing
+- **Security Testing**
+- Data Validation
+- Feedback and Iteration
+:::
+::: {.column width=40%}
+<p> Verifying that the database is protected against unauthorized access and vulnerabilities.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_6.png)
+:::
+::::
+
+## Testing and Validation
+
+:::: {.columns}
+::: {.column width=30%}
+- Unit Testing
+- Integration Testing
+- Performance Testing
+- Security Testing
+- **Data Validation**
+- Feedback and Iteration
+:::
+::: {.column width=40%}
+<p> Ensuring data integrity and accuracy by validating inputs and outputs.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_6.png)
+:::
+::::
+
+## Testing and Validation
+
+:::: {.columns}
+::: {.column width=30%}
+- Unit Testing
+- Integration Testing
+- Performance Testing
+- Security Testing
+- Data Validation
+- **Feedback and Iteration**
+:::
+::: {.column width=40%}
+<p> Gathering feedback and making necessary adjustments to the design or implementation.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_6.png)
+:::
+::::
+
+
+
+## Maintenance and Optimization
+
+:::: {.columns}
+::: {.column width=30%}
+- **Performance Tuning**
+- Monitoring
+- Backup and Recovery
+- Security Updates
+- Data Archiving
+- Scalability
+:::
+::: {.column width=40%}
+<p> Regularly reviewing and optimizing queries, indexing, and storage strategies.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_7.png)
+:::
+::::
+
+## Maintenance and Optimization
+
+:::: {.columns}
+::: {.column width=30%}
+- Performance Tuning
+- **Monitoring**
+- Backup and Recovery
+- Security Updates
+- Data Archiving
+- Scalability
+:::
+::: {.column width=40%}
+<p> Using monitoring tools to track database performance and detect issues.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_7.png)
+:::
+::::
+
+## Maintenance and Optimization
+
+:::: {.columns}
+::: {.column width=30%}
+- Performance Tuning
+- Monitoring
+- **Backup and Recovery**
+- Security Updates
+- Data Archiving
+- Scalability
+:::
+::: {.column width=40%}
+<p> Implementing regular backups and testing recovery procedures.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_7.png)
+:::
+::::
+
+## Maintenance and Optimization
+
+:::: {.columns}
+::: {.column width=30%}
+- Performance Tuning
+- Monitoring
+- Backup and Recovery
+- **Security Updates**
+- Data Archiving
+- Scalability
+:::
+::: {.column width=40%}
+<p> Applying security patches and updates to protect against vulnerabilities.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_7.png)
+:::
+::::
+
+## Maintenance and Optimization
+
+:::: {.columns}
+::: {.column width=30%}
+- Performance Tuning
+- Monitoring
+- Backup and Recovery
+- Security Updates
+- **Data Archiving**
+- Scalability
+:::
+::: {.column width=40%}
+<p> Implementing strategies to archive old or unused data to free up space and improve performance.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_7.png)
+:::
+::::
+
+## Maintenance and Optimization
+
+:::: {.columns}
+::: {.column width=30%}
+- Performance Tuning
+- Monitoring
+- Backup and Recovery
+- Security Updates
+- Data Archiving
+- **Scalability**
+:::
+::: {.column width=40%}
+<p> Planning and implementing changes to handle growing amounts of data and users.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process_shaded_7.png)
+:::
+::::
+
+
+
+## Summary of the Database Design Process
+
+:::: {.columns}
+::: {.column width=30%}
+- **Iterative Process**
+- Alignment with Business Goals
+- Focus on Data Integrity
+- Performance Optimization
+- Scalability and Flexibility
+- Security and Compliance
+:::
+::: {.column width=40%}
+<p> Design, implementation, testing, and maintenance are ongoing and iterative.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Summary of the Database Design Process
+
+:::: {.columns}
+::: {.column width=30%}
+- Iterative Process
+- **Alignment with Business Goals**
+- Focus on Data Integrity
+- Performance Optimization
+- Scalability and Flexibility
+- Security and Compliance
+:::
+::: {.column width=40%}
+<p> The design should align with and support business objectives.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Summary of the Database Design Process
+
+:::: {.columns}
+::: {.column width=30%}
+- Iterative Process
+- Alignment with Business Goals
+- **Focus on Data Integrity**
+- Performance Optimization
+- Scalability and Flexibility
+- Security and Compliance
+:::
+::: {.column width=40%}
+<p> Ensuring accuracy, consistency, and reliability of data is paramount.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Summary of the Database Design Process
+
+:::: {.columns}
+::: {.column width=30%}
+- Iterative Process
+- Alignment with Business Goals
+- Focus on Data Integrity
+- **Performance Optimization**
+- Scalability and Flexibility
+- Security and Compliance
+:::
+::: {.column width=40%}
+<p> Design choices should consider efficiency and speed of data retrieval.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Summary of the Database Design Process
+
+:::: {.columns}
+::: {.column width=30%}
+- Iterative Process
+- Alignment with Business Goals
+- Focus on Data Integrity
+- Performance Optimization
+- **Scalability and Flexibility**
+- Security and Compliance
+:::
+::: {.column width=40%}
+<p> A good design allows for future growth and changes.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+## Summary of the Database Design Process
+
+:::: {.columns}
+::: {.column width=30%}
+- Iterative Process
+- Alignment with Business Goals
+- Focus on Data Integrity
+- Performance Optimization
+- Scalability and Flexibility
+- **Security and Compliance**
+:::
+::: {.column width=40%}
+<p> Protecting data from unauthorized access and ensuring compliance with regulations.</p>
+:::
+::: {.column width=30%}
+![](./assets/circular_design_process.png)
+:::
+::::
+
+

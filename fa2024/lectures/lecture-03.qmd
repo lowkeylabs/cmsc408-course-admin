@@ -17,25 +17,22 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'Homework 1 - Due Sunday night',
-    'Teams should be formed and submitted',
+    'Finish up your intros (deliverable 1)',
+    'Form those teams! Watch Discord (deliverable 2)',
+    '[Keep working on Homework 1](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966515?module_item_id=3618722){target="_blank"}',
+    '[ER Models Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/){target="_blank"}'
 ]
 
 lecture_topics = [
-    'Intro to ER Models',
-    'Entities and Attributes',
-    'Relationships and Cardinalty',
-    'Keys and Identifiers'
+    '[Overview of DB design](#overview-of-database-design)',
+    '[Intro to ER Models](#introduction-to-er-models)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-{{< include ../../topics/_intro-to-er-models.qmd >}} 
-{{< include ../../topics/_entities-and-attributes.qmd >}} 
-{{< include ../../topics/_relationships-and-cardinality.qmd >}} 
-{{< include ../../topics/_keys-and-identifiers.qmd >}} 
-
+{{< include ../../topics/_overview-of-database-design.qmd >}}
+{{< include ../../topics/_intro-to-er-models.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
