@@ -26,6 +26,7 @@
 * Don't get frustrated.  Use *Discord* and *ChatGPT* to get help.
 * Use the command line to render, and commit.
 * Watch the lecture!!!
+* Read the QMD and MD files in the REPO!
 
 <p>&nbsp;</p>
 <center>***Do quick homework 2 walkthrough ...***</center>
