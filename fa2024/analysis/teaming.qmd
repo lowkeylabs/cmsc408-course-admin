@@ -1,0 +1,304 @@
+---
+title: Clean and store teaming file
+author:
+    - name: John Leonard
+      email: jdleonard@vcu.edu
+format:
+    html:
+        embed-resources: true
+        html-math-method: katex
+        theme: spacelab
+        toc: true
+---
+
+Process teams and prepare a clean teaming workbook.
+
+1. Download Canvas Survey that prompts for team names.  *teaming.xlsx*
+1. Download Group Import template created by Canvas: *cmsc408-fa2024-semester-project-upload.csv*
+
+## Load the data and prepare the data
+
+### Columns prior to renaming
+
+```{python}
+#| echo: false
+import sys
+import pandas as pd
+import sqlite3
+from IPython.display import Markdown
+from cnvsapi import config
+
+def format_column_names(df):
+    results = []
+    for i,column in enumerate(df.columns):
+        results.append(f"'{column}' : '{column}',")
+    return "\n".join( results )
+
+# Load the xlsx file into a pandas dataframe
+df = pd.read_excel('teaming1.xlsx')
+
+if (0):
+    print(format_column_names(df))
+
+# Rename columns (assuming you know the new column names)
+# Replace 'old_col1', 'old_col2', etc., with your actual column names
+# Replace 'new_col1', 'new_col2', etc., with the desired new column names
+df.rename(columns={
+    'name' : 'name',
+    'id' : 'id',
+    'sis_id' : 'sis_id',
+    'section' : 'section',
+    'section_id' : 'section_id',
+    'section_sis_id' : 'section_sis_id',
+    'submitted' : 'submitted',
+    'attempt' : 'attempt',
+    '2520242: Fill in the name of your team:' : 'team_name',
+    1 : 'cnt1',
+    '2507102: Enter name of your partner:' : 'partner_2_name',
+    '1.1' : 'cnt2',
+    '2507103: Enter VCU email of your partner:' : 'partner_2_email',
+    '1.2' : 'cnt3',
+    '2507104: OPTIONAL: Enter name of partner 2:' : 'partner_3_name',
+    '1.3' : 'cnt4',
+    '2507105: OPTIONAL: Enter VCU email of partner 2:' : 'partner_3_email',
+    '1.4' : 'cnt5',
+    'n correct' : 'n_correct',
+    'n incorrect' : 'n_incorrect',
+    'score' : 'score',
+}, inplace=True)
+
+# Keep only rows with the largest "attempt" value
+max_attempt_indices = df.groupby('name')['attempt'].idxmax()
+df = df.loc[max_attempt_indices]
+
+df = df.drop(['section','section_id','section_sis_id','submitted','attempt','cnt1','cnt2','cnt3','cnt4','cnt5','n_correct','n_incorrect','score'], axis=1)
+
+df.columns
+```
+
+### Store dataframe to data base
+```{python}
+# Connect to the SQLite database (or create it if it doesn't exist)
+conn = sqlite3.connect('teaming.db')
+df.to_sql('raw_table', conn, if_exists='replace', index=False)
+conn.close()
+```
+
+## Clean the dataframe
+
+```{python}
+#| echo: false
+
+cleaned_df = df.copy()
+
+cleaned_df.loc[cleaned_df['team_name']=='; DROP TABLE Users;','team_name'] = '; DROP TABLE Users;'
+cleaned_df.loc[cleaned_df['team_name']=='ACID Alliance','team_name'] = 'ACID Alliance'
+cleaned_df.loc[cleaned_df['team_name']=='Agere','team_name'] = 'Agere'
+cleaned_df.loc[cleaned_df['team_name']=='Alaskan Bull Worm','team_name'] = 'Alaskan Bullworms'
+cleaned_df.loc[cleaned_df['team_name']=='Alaskan Bullworms','team_name'] = 'Alaskan Bullworms'
+cleaned_df.loc[cleaned_df['team_name']=='Amethyst Nation','team_name'] = 'Amethyst Nation'
+cleaned_df.loc[cleaned_df['team_name']=='Baker Hossain','team_name'] = 'Baker Hossain'
+cleaned_df.loc[cleaned_df['team_name']=='Ballot Bros','team_name'] = 'Ballot Bros'
+cleaned_df.loc[cleaned_df['team_name']=='Ballot Bros (formerly Poll protectors)','team_name'] = 'Ballot Bros'
+cleaned_df.loc[cleaned_df['team_name']=='Beetle Bytes','team_name'] = 'Beetle Bytes'
+cleaned_df.loc[cleaned_df['team_name']=='Better Than Never','team_name'] = 'Better Than Never'
+cleaned_df.loc[cleaned_df['team_name']=='BiblioFile','team_name'] = 'BiblioFile'
+cleaned_df.loc[cleaned_df['team_name']=='BiblioFIle','team_name'] = 'BiblioFile'
+cleaned_df.loc[cleaned_df['team_name']=='Blue','team_name'] = 'Blue'
+cleaned_df.loc[cleaned_df['team_name']=='Box Combo Bandits','team_name'] = 'Box Combo Bandits'
+cleaned_df.loc[cleaned_df['team_name']=='busy bots','team_name'] = 'Busy Bots'
+cleaned_df.loc[cleaned_df['team_name']=='Busy Bots','team_name'] = 'Busy Bots'
+cleaned_df.loc[cleaned_df['team_name']=='Caitlin & Vy','team_name'] = 'Caitlin and Vy'
+cleaned_df.loc[cleaned_df['team_name']=='Caitlin and Vy','team_name'] = 'Caitlin and Vy'
+cleaned_df.loc[cleaned_df['team_name']=='Chaewon Fan Club','team_name'] = 'Chaewon Fan Club'
+cleaned_df.loc[cleaned_df['team_name']=='CityBite DB','team_name'] = 'CityBite DB'
+cleaned_df.loc[cleaned_df['team_name']=='Cuisine creators','team_name'] = 'Cuisine Creators'
+cleaned_df.loc[cleaned_df['team_name']=='Cuisine Creators','team_name'] = 'Cuisine Creators'
+cleaned_df.loc[cleaned_df['team_name']=='Dabugs','team_name'] = 'Dabugs'
+cleaned_df.loc[cleaned_df['team_name']=='Data Detectives','team_name'] = 'Data Detectives'
+cleaned_df.loc[cleaned_df['team_name']=='Data Divas','team_name'] = 'Data Divas'
+cleaned_df.loc[cleaned_df['team_name']=='data duo','team_name'] = 'Data Duo'
+cleaned_df.loc[cleaned_df['team_name']=='Data Duo','team_name'] = 'Data Duo'
+cleaned_df.loc[cleaned_df['team_name']=='Data dynamos','team_name'] = 'Data Dynamos'
+cleaned_df.loc[cleaned_df['team_name']=='Data Dynamos','team_name'] = 'Data Dynamos'
+cleaned_df.loc[cleaned_df['team_name']=='Data Fried Base','team_name'] = 'Data Fried Base'
+cleaned_df.loc[cleaned_df['team_name']=='Data Mario Bros','team_name'] = 'Data Mario Bros'
+cleaned_df.loc[cleaned_df['team_name']=='Databaes','team_name'] = 'Databaes'
+cleaned_df.loc[cleaned_df['team_name']=='Database Defenders','team_name'] = 'Database Defenders'
+cleaned_df.loc[cleaned_df['team_name']=='databased on what','team_name'] = 'databased on what'
+cleaned_df.loc[cleaned_df['team_name']=='Databases 2: the SQL','team_name'] = 'Databases 2: the SQL'
+cleaned_df.loc[cleaned_df['team_name']=='DataHive','team_name'] = 'DataHive'
+cleaned_df.loc[cleaned_df['team_name']=='Dex Devs','team_name'] = 'Dex Devs'
+cleaned_df.loc[cleaned_df['team_name']=='Dungeons and Dashboards','team_name'] = 'Dungeons and Dashboards'
+cleaned_df.loc[cleaned_df['team_name']=='Edson and Zoe''s team','team_name'] = 'Edson and Zoe''s team'
+cleaned_df.loc[cleaned_df['team_name']=='Eri-Lone','team_name'] = 'Eri-Lone'
+cleaned_df.loc[cleaned_df['team_name']=='Erilone','team_name'] = 'Eri-Lone'
+cleaned_df.loc[cleaned_df['team_name']=='Fashizzle my Nizzle','team_name'] = 'Fashizzle My Nizzle'
+cleaned_df.loc[cleaned_df['team_name']=='Fashizzle My Nizzle','team_name'] = 'Fashizzle My Nizzle'
+cleaned_df.loc[cleaned_df['team_name']=='Fei','team_name'] = 'Team Fei'
+cleaned_df.loc[cleaned_df['team_name']=='Fitlog','team_name'] = 'FitLog'
+cleaned_df.loc[cleaned_df['team_name']=='FitLog','team_name'] = 'FitLog'
+cleaned_df.loc[cleaned_df['team_name']=='Full Steam Ahead','team_name'] = 'Full Steam Ahead'
+cleaned_df.loc[cleaned_df['team_name']=='Git Pushers','team_name'] = 'Git Pushers'
+cleaned_df.loc[cleaned_df['team_name']=='Grakta','team_name'] = 'Team Grakta'
+cleaned_df.loc[cleaned_df['team_name']=='Harmony Trove','team_name'] = 'Harmony Trove'
+cleaned_df.loc[cleaned_df['team_name']=='HelpIForgotThePassword!','team_name'] = 'HelpIForgotThePassword!'
+cleaned_df.loc[cleaned_df['team_name']=='Join Table Junkies','team_name'] = 'Join Table Junkies'
+cleaned_df.loc[cleaned_df['team_name']=='Key Lime Pi','team_name'] = 'Key Lime Pi'
+cleaned_df.loc[cleaned_df['team_name']=='Last Minute','team_name'] = 'Last Minute'
+cleaned_df.loc[cleaned_df['team_name']=='LDJ','team_name'] = 'LDJ'
+cleaned_df.loc[cleaned_df['team_name']=='MangoDBz','team_name'] = 'MangoDBz'
+cleaned_df.loc[cleaned_df['team_name']=='mangoDBz','team_name'] = 'MangoDBz'
+cleaned_df.loc[cleaned_df['team_name']=='mantle','team_name'] = 'mantle'
+cleaned_df.loc[cleaned_df['team_name']=='Mills E. Godwin','team_name'] = 'Mills E. Godwin'
+cleaned_df.loc[cleaned_df['team_name']=='Money Trees','team_name'] = 'Money Trees'
+cleaned_df.loc[cleaned_df['team_name']=='Nah, I''d win','team_name'] = 'Nah, I''d win'
+cleaned_df.loc[cleaned_df['team_name']=='Next Gen Innovators','team_name'] = 'NextGen Innovators'
+cleaned_df.loc[cleaned_df['team_name']=='NextGen Innovators','team_name']  = 'NextGen Innovators'
+cleaned_df.loc[cleaned_df['team_name']=='NEXUS INTELLIGENCE','team_name'] = 'NEXUS INTELLIGENCE'
+cleaned_df.loc[cleaned_df['team_name']=='OTTDB','team_name'] = 'OTTDB'
+cleaned_df.loc[cleaned_df['team_name']=='Paladins of SQL','team_name'] = 'Paladins of SQL'
+cleaned_df.loc[cleaned_df['team_name']=='Pear Computer','team_name'] = 'WizKidz'
+cleaned_df.loc[cleaned_df['team_name']=='Programmer Pizza','team_name'] = 'Programmer Pizza'
+cleaned_df.loc[cleaned_df['team_name']=='RamsNationData','team_name'] = 'RamsNationData'
+cleaned_df.loc[cleaned_df['team_name']=='Rhythmic Minds','team_name'] = 'Rhythmic Minds'
+cleaned_df.loc[cleaned_df['team_name']=='Schema Squad','team_name'] = 'Schema Squad'
+cleaned_df.loc[cleaned_df['team_name']=='SELECT * FROM Swag','team_name'] = 'SELECT * FROM Swag'
+cleaned_df.loc[cleaned_df['team_name']=='SIS Inc.','team_name'] = 'SIS Inc.'
+cleaned_df.loc[cleaned_df['team_name']=='SQL Avengers','team_name'] = 'SQL Avengers'
+cleaned_df.loc[cleaned_df['team_name']=='SQL FC','team_name'] = 'SQL FC'
+cleaned_df.loc[cleaned_df['team_name']=='SQL Sorcerers','team_name'] = 'SQL Sorcerers'
+cleaned_df.loc[cleaned_df['team_name']=='SQLts','team_name'] = 'The SQLites'
+cleaned_df.loc[cleaned_df['team_name']=='SQLuxe','team_name'] = 'SQLuxe'
+cleaned_df.loc[cleaned_df['team_name']=='Syntax Sorcerers','team_name'] = 'Syntax Sorcerers'
+cleaned_df.loc[cleaned_df['team_name']=='TableTitans','team_name'] = 'TableTitans'
+cleaned_df.loc[cleaned_df['team_name']=='Team Business','team_name'] = 'Team Business'
+cleaned_df.loc[cleaned_df['team_name']=='team business','team_name'] = 'Team Business'
+cleaned_df.loc[cleaned_df['team_name']=='Team Fei','team_name'] = 'Team Fei'
+cleaned_df.loc[cleaned_df['team_name']=='Team Grakta','team_name'] = 'Team Grakta'
+cleaned_df.loc[cleaned_df['team_name']=='TEAM NAME','team_name'] = 'TEAM NAME'
+cleaned_df.loc[cleaned_df['team_name']=='Team Rocket','team_name'] = 'Team Rocket'
+cleaned_df.loc[cleaned_df['team_name']=='team team','team_name'] = 'Team Team'
+cleaned_df.loc[cleaned_df['team_name']=='Team Team','team_name'] = 'Team Team'
+cleaned_df.loc[cleaned_df['team_name']=='Tech Titans','team_name'] = 'Tech Titans'
+cleaned_df.loc[cleaned_df['team_name']=='The Based Data Databasers','team_name'] = 'The Based Data Databasers'
+cleaned_df.loc[cleaned_df['team_name']=='The BioTechs','team_name'] = 'The BioTechs'
+cleaned_df.loc[cleaned_df['team_name']=='The Cancelled Flight','team_name'] = 'The Cancelled Flight'
+cleaned_df.loc[cleaned_df['team_name']=='The Data Duo','team_name'] = 'The Data Duo'
+cleaned_df.loc[cleaned_df['team_name']=='The Girls Room','team_name'] = 'The Girls Room'
+cleaned_df.loc[cleaned_df['team_name']=='The SQL Guys','team_name'] = 'The SQL Guys'
+cleaned_df.loc[cleaned_df['team_name']=='The SQLites','team_name'] = 'The SQLites'
+cleaned_df.loc[cleaned_df['team_name']=='Third School''s a Charm','team_name'] = 'Third School''s a Charm'
+cleaned_df.loc[cleaned_df['team_name']=='Totally Not Spyware','team_name'] = 'Totally Not Spyware'
+cleaned_df.loc[cleaned_df['team_name']=='TotallyNotSpyware','team_name'] = 'Totally Not Spyware'
+cleaned_df.loc[cleaned_df['team_name']=='Wizkids','team_name'] = 'WizKidz'
+cleaned_df.loc[cleaned_df['team_name']=='WizKidz','team_name'] = 'WizKidz'
+
+
+cleaned_df.loc[cleaned_df['name']=='Ghulam Mujtaba Qasimi','team_name'] = 'Data Detectives'
+cleaned_df.loc[cleaned_df['name']=='Erin Anderson','team_name'] = 'RamsNationData'
+cleaned_df.loc[cleaned_df['name']=='Chris Hoang','team_name'] = 'Alaskan Bullworms'
+cleaned_df.loc[cleaned_df['name']=='Noor Tabanjeh','team_name'] = 'The Girls Room'
+
+cleaned_df.loc[cleaned_df['name']=='Diya Ram Mohan','team_name'] = 'Tech Titans Redux'
+cleaned_df.loc[cleaned_df['name']=='Houda Lahrouz','team_name'] = 'Tech Titans Redux'
+
+```
+
+### Add missing records
+
+```{python}
+# Add missing records from a later step!
+
+new_row_df = pd.DataFrame({'name':['Yash Upadhyay'], 'sis_id': ['V00903976'] ,'team_name': ['mantle']})
+cleaned_df = pd.concat([cleaned_df, new_row_df], ignore_index=True)
+
+## Uncomment these to list out code (above) that can be used for data cleaning
+
+if (0):
+    unique_team_names = cleaned_df['team_name'].unique().tolist()
+    unique_team_names = [str(name) for name in unique_team_names]
+    sorted_team_names = sorted(unique_team_names, key=lambda x: x.lower())
+    for team_name in sorted_team_names:
+        print(f"cleaned_df.loc[cleaned_df['team_name']=='{team_name}','team_name'] = '{team_name}'")
+
+if (0):
+    for index, row in cleaned_df[ (cleaned_df['team_name'].isna()) | (cleaned_df['team_name']=='nan') ].iterrows():
+        print(f"cleaned_df.loc[cleaned_df['name']=='{row['name']}','team_name'] = 'nan'")
+
+```
+
+### Current table after cleaning
+```{python}
+if (0):
+    Markdown( cleaned_df.sort_values(by="team_name").to_markdown( index=False) )
+```
+
+### Store the cleaned dataframe to data base
+```{python}
+# Connect to the SQLite database (or create it if it doesn't exist)
+conn = sqlite3.connect('teaming.db')
+cleaned_df.to_sql('clean_teams', conn, if_exists='replace', index=False)
+conn.close()
+
+cleaned_df.to_excel('teams_clean.xlsx', index=False)
+```
+
+## Explore the data
+
+```{python}
+# Group by 'team_name' and count the number of members per team
+team_sizes = cleaned_df.groupby('team_name').size()
+
+# Count the occurrences of each team size
+team_size_counts = team_sizes.value_counts().sort_index()
+
+# Convert the result to a DataFrame for display
+team_size_table = team_size_counts.reset_index()
+team_size_table.columns = ['team_size', 'number_of_teams']
+
+# Display the table
+Markdown(team_size_table.to_markdown( index=False ))
+```
+
+### Teams with one member
+
+```{python}
+#| echo: false
+team_sizes = cleaned_df.groupby('team_name').size().reset_index(name='team_size')
+teams_of_size_x = team_sizes[team_sizes['team_size'].isin([1])]
+Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] ) ].to_markdown( index=False) )
+```
+
+### Teams with four members
+
+```{python}
+#| echo: false
+team_sizes = cleaned_df.groupby('team_name').size().reset_index(name='team_size')
+teams_of_size_x = team_sizes[team_sizes['team_size'].isin([4,5,6])]
+Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] )].sort_values(by='team_name').to_markdown( index=False) )
+```
+
+### Merge with group data
+
+List any users without a group
+
+```{python}
+canvas_df = pd.read_csv('CMSC408-FA2024-Semester-project-upload.csv')
+#Markdown( canvas_df.to_markdown( index=False) )
+
+merged_df = pd.merge(canvas_df, cleaned_df, left_on='user_id', right_on='sis_id',  how='left')
+no_match_df = merged_df[merged_df['sis_id'].isna()]
+Markdown( no_match_df.to_markdown( index=False) )
+```
+
+### Save merged file to export CSV for importing into Canvas
+
+```{python}
+merged_df = merged_df[ ['name_x','canvas_user_id','user_id','login_id','sections','team_name']]
+merged_df.rename(columns={
+    'name_x' : 'name',
+    'team_name' : 'group_name'
+}, inplace=True)
+merged_df.sort_values(by='group_name').to_csv('export.csv',index=False)
+```
