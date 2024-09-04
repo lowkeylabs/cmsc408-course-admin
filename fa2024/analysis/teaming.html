@@ -3085,22 +3085,25 @@ vertical-align: -.125em;
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#load-the-data-and-prepare-the-data" id="toc-load-the-data-and-prepare-the-data" class="nav-link active" data-scroll-target="#load-the-data-and-prepare-the-data">Load the data and prepare the data</a>
+  <li><a href="#working-with-the-data" id="toc-working-with-the-data" class="nav-link active" data-scroll-target="#working-with-the-data">Working with the data</a>
   <ul class="collapse">
-  <li><a href="#columns-prior-to-renaming" id="toc-columns-prior-to-renaming" class="nav-link" data-scroll-target="#columns-prior-to-renaming">Columns prior to renaming</a></li>
+  <li><a href="#load-the-workbook" id="toc-load-the-workbook" class="nav-link" data-scroll-target="#load-the-workbook">Load the workbook</a></li>
   <li><a href="#store-dataframe-to-data-base" id="toc-store-dataframe-to-data-base" class="nav-link" data-scroll-target="#store-dataframe-to-data-base">Store dataframe to data base</a></li>
   </ul></li>
   <li><a href="#clean-the-dataframe" id="toc-clean-the-dataframe" class="nav-link" data-scroll-target="#clean-the-dataframe">Clean the dataframe</a>
   <ul class="collapse">
   <li><a href="#add-missing-records" id="toc-add-missing-records" class="nav-link" data-scroll-target="#add-missing-records">Add missing records</a></li>
-  <li><a href="#current-table-after-cleaning" id="toc-current-table-after-cleaning" class="nav-link" data-scroll-target="#current-table-after-cleaning">Current table after cleaning</a></li>
+  <li><a href="#helper-codes" id="toc-helper-codes" class="nav-link" data-scroll-target="#helper-codes">Helper codes</a></li>
+  <li><a href="#final-mapping-of-students-to-groups." id="toc-final-mapping-of-students-to-groups." class="nav-link" data-scroll-target="#final-mapping-of-students-to-groups.">Final mapping of students to groups.</a></li>
   <li><a href="#store-the-cleaned-dataframe-to-data-base" id="toc-store-the-cleaned-dataframe-to-data-base" class="nav-link" data-scroll-target="#store-the-cleaned-dataframe-to-data-base">Store the cleaned dataframe to data base</a></li>
   </ul></li>
-  <li><a href="#explore-the-data" id="toc-explore-the-data" class="nav-link" data-scroll-target="#explore-the-data">Explore the data</a>
+  <li><a href="#explore-the-cleaned-data" id="toc-explore-the-cleaned-data" class="nav-link" data-scroll-target="#explore-the-cleaned-data">Explore the cleaned data</a>
   <ul class="collapse">
   <li><a href="#teams-with-one-member" id="toc-teams-with-one-member" class="nav-link" data-scroll-target="#teams-with-one-member">Teams with one member</a></li>
   <li><a href="#teams-with-four-members" id="toc-teams-with-four-members" class="nav-link" data-scroll-target="#teams-with-four-members">Teams with four members</a></li>
-  <li><a href="#merge-with-group-data" id="toc-merge-with-group-data" class="nav-link" data-scroll-target="#merge-with-group-data">Merge with group data</a></li>
+  </ul></li>
+  <li><a href="#merge-with-group-data" id="toc-merge-with-group-data" class="nav-link" data-scroll-target="#merge-with-group-data">Merge with group data</a>
+  <ul class="collapse">
   <li><a href="#save-merged-file-to-export-csv-for-importing-into-canvas" id="toc-save-merged-file-to-export-csv-for-importing-into-canvas" class="nav-link" data-scroll-target="#save-merged-file-to-export-csv-for-importing-into-canvas">Save merged file to export CSV for importing into Canvas</a></li>
   </ul></li>
   </ul>
@@ -3135,15 +3138,41 @@ vertical-align: -.125em;
 
 <p>Process teams and prepare a clean teaming workbook.</p>
 <ol type="1">
-<li>Download Canvas Survey that prompts for team names. <em>teaming.xlsx</em></li>
-<li>Download Group Import template created by Canvas: <em>cmsc408-fa2024-semester-project-upload.csv</em></li>
+<li>Each students completes survey identifying their team name and partners</li>
+<li>This file is downloaded from Canvas. Most recent submissions are kept.</li>
+<li>Data are cleaned. Students input different group names, or don’t add a team name.</li>
+<li>Download Canvas seed file that is used to define groups for loading into canvas.</li>
+<li>Map canvas seed file to cleaned group data.</li>
+<li>Store new mapping to file for upload to canvas.</li>
 </ol>
-<section id="load-the-data-and-prepare-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-the-data-and-prepare-the-data">Load the data and prepare the data</h2>
-<section id="columns-prior-to-renaming" class="level3">
-<h3 class="anchored" data-anchor-id="columns-prior-to-renaming">Columns prior to renaming</h3>
-<div id="449b28cb" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="37">
+<p><strong>Key parameters for this report</strong></p>
+<div id="b8348895" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SQLITE_DB_FILE <span class="op">=</span> <span class="st">&quot;teaming.db&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>SOURCE_SURVEY_RESULTS <span class="op">=</span> <span class="st">&quot;teaming1.xlsx&quot;</span>  <span class="co"># this file is downloaded from Canvas</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>CLEAN_GROUP_MAPPING_FILE <span class="op">=</span> <span class="st">&quot;teams_clean.xlsx&quot;</span>  <span class="co"># an interim file for potential later use</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>CANVAS_GROUP_SEED_FILE <span class="op">=</span> <span class="st">&quot;CMSC408-FA2024-Semester-project-download.csv&quot;</span>  <span class="co"># downloaded from Canvas for editing</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>CANVAS_GROUP_UPLOAD_FILE <span class="op">=</span> <span class="st">&quot;CMSC408-FA2024-Semester-project-upload.csv&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="working-with-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-the-data">Working with the data</h2>
+<section id="load-the-workbook" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-workbook">Load the workbook</h3>
+<p>Load the file. Note that we’re using <em>teaming1.xlsx</em>. Canvas creates different files depending on something, but I’m not sure what.</p>
+<div id="ee07026c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the xlsx file into a pandas dataframe</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel( SOURCE_SURVEY_RESULTS )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Keep only the last attempts. Drop unnecessary columns. Show the columns</p>
+<div id="c58e7e62" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows with the largest &quot;attempt&quot; value</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>max_attempt_indices <span class="op">=</span> df.groupby(<span class="st">&#39;name&#39;</span>)[<span class="st">&#39;attempt&#39;</span>].idxmax()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.loc[max_attempt_indices]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">&#39;section&#39;</span>,<span class="st">&#39;section_id&#39;</span>,<span class="st">&#39;section_sis_id&#39;</span>,<span class="st">&#39;submitted&#39;</span>,<span class="st">&#39;attempt&#39;</span>,<span class="st">&#39;cnt1&#39;</span>,<span class="st">&#39;cnt2&#39;</span>,<span class="st">&#39;cnt3&#39;</span>,<span class="st">&#39;cnt4&#39;</span>,<span class="st">&#39;cnt5&#39;</span>,<span class="st">&#39;n_correct&#39;</span>,<span class="st">&#39;n_incorrect&#39;</span>,<span class="st">&#39;score&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>Index([&#39;name&#39;, &#39;id&#39;, &#39;sis_id&#39;, &#39;team_name&#39;, &#39;partner_2_name&#39;,
        &#39;partner_2_email&#39;, &#39;partner_3_name&#39;, &#39;partner_3_email&#39;],
       dtype=&#39;object&#39;)</code></pre>
@@ -3152,73 +3181,200 @@ vertical-align: -.125em;
 </section>
 <section id="store-dataframe-to-data-base" class="level3">
 <h3 class="anchored" data-anchor-id="store-dataframe-to-data-base">Store dataframe to data base</h3>
-<div id="fe556177" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">&#39;teaming.db&#39;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.to_sql(<span class="st">&#39;raw_table&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Store the uncleaned, raw data to the database.</p>
+<div id="7a98fdd0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>( SQLITE_DB_FILE )</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df.to_sql(<span class="st">&#39;raw_table&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="clean-the-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="clean-the-dataframe">Clean the dataframe</h2>
+<p>To clean the dataframe, we autocreate a series of python commands to rename each and every group as found in the file, sorted by team_name. Then, each group name can be reassigned to an appropriate name across the team names.</p>
+<p>In addition to renaming team names, we sometimes need to directly assign students to teams. This happens when a student doesn’t input the correct name, or forgot to add their team name.</p>
 <section id="add-missing-records" class="level3">
 <h3 class="anchored" data-anchor-id="add-missing-records">Add missing records</h3>
-<div id="663c80b6" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add missing records from a later step!</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>new_row_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;name&#39;</span>:[<span class="st">&#39;Yash Upadhyay&#39;</span>], <span class="st">&#39;sis_id&#39;</span>: [<span class="st">&#39;V00903976&#39;</span>] ,<span class="st">&#39;team_name&#39;</span>: [<span class="st">&#39;mantle&#39;</span>]})</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cleaned_df <span class="op">=</span> pd.concat([cleaned_df, new_row_df], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Uncomment these to list out code (above) that can be used for data cleaning</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">0</span>):</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> cleaned_df[<span class="st">&#39;team_name&#39;</span>].unique().tolist()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> [<span class="bu">str</span>(name) <span class="cf">for</span> name <span class="kw">in</span> unique_team_names]</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    sorted_team_names <span class="op">=</span> <span class="bu">sorted</span>(unique_team_names, key<span class="op">=</span><span class="kw">lambda</span> x: x.lower())</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> team_name <span class="kw">in</span> sorted_team_names:</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;&quot;</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">0</span>):</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> cleaned_df[ (cleaned_df[<span class="st">&#39;team_name&#39;</span>].isna()) <span class="op">|</span> (cleaned_df[<span class="st">&#39;team_name&#39;</span>]<span class="op">==</span><span class="st">&#39;nan&#39;</span>) ].iterrows():</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;name&#39;]==&#39;</span><span class="sc">{</span>row[<span class="st">&#39;name&#39;</span>]<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;nan&#39;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, some students didn’t submit a survey, so they’ve got to be manually added. These missing records are discovered when the survey data are mapped to the import/export file which contains a reference one-record-per-student.</p>
+<div id="5de13009" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add missing records from a later step!</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>new_row_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;name&#39;</span>:[<span class="st">&#39;Yash Upadhyay&#39;</span>], <span class="st">&#39;sis_id&#39;</span>: [<span class="st">&#39;V00903976&#39;</span>] ,<span class="st">&#39;team_name&#39;</span>: [<span class="st">&#39;mantle&#39;</span>]})</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>cleaned_df <span class="op">=</span> pd.concat([cleaned_df, new_row_df], ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="current-table-after-cleaning" class="level3">
-<h3 class="anchored" data-anchor-id="current-table-after-cleaning">Current table after cleaning</h3>
-<div id="e93d5162" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">0</span>):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    Markdown( cleaned_df.sort_values(by<span class="op">=</span><span class="st">&quot;team_name&quot;</span>).to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="helper-codes" class="level3">
+<h3 class="anchored" data-anchor-id="helper-codes">Helper codes</h3>
+<p>The two blocks of code below generate python that can be pasted in this report. They python can then be edited to clean the data.</p>
+<div id="5a733147" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Uncomment these to list out code (above) that can be used for data cleaning</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">0</span>):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> cleaned_df[<span class="st">&#39;team_name&#39;</span>].unique().tolist()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> [<span class="bu">str</span>(name) <span class="cf">for</span> name <span class="kw">in</span> unique_team_names]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    sorted_team_names <span class="op">=</span> <span class="bu">sorted</span>(unique_team_names, key<span class="op">=</span><span class="kw">lambda</span> x: x.lower())</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> team_name <span class="kw">in</span> sorted_team_names:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;&quot;</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">0</span>):</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> cleaned_df[ (cleaned_df[<span class="st">&#39;team_name&#39;</span>].isna()) <span class="op">|</span> (cleaned_df[<span class="st">&#39;team_name&#39;</span>]<span class="op">==</span><span class="st">&#39;nan&#39;</span>) ].iterrows():</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;name&#39;]==&#39;</span><span class="sc">{</span>row[<span class="st">&#39;name&#39;</span>]<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;nan&#39;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="final-mapping-of-students-to-groups." class="level3">
+<h3 class="anchored" data-anchor-id="final-mapping-of-students-to-groups.">Final mapping of students to groups.</h3>
+<p>Here is a list of the first 10 records of the resulting, cleaned dataframe.</p>
+<div id="1b474e4d" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Markdown( cleaned_df.sort_values(by<span class="op">=</span><span class="st">&quot;team_name&quot;</span>).head(<span class="dv">10</span>).to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="59">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">sis_id</th>
+<th style="text-align: left;">team_name</th>
+<th style="text-align: left;">partner_2_name</th>
+<th style="text-align: left;">partner_2_email</th>
+<th style="text-align: left;">partner_3_name</th>
+<th style="text-align: left;">partner_3_email</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Kennedy Martin</td>
+<td style="text-align: right;">146197</td>
+<td style="text-align: left;">V00909624</td>
+<td style="text-align: left;">; DROP TABLE Users;</td>
+<td style="text-align: left;">Ethan Leyden</td>
+<td style="text-align: left;">leydene@vcu.edu</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ethan Leyden</td>
+<td style="text-align: right;">86220</td>
+<td style="text-align: left;">V00999100</td>
+<td style="text-align: left;">; DROP TABLE Users;</td>
+<td style="text-align: left;">Kennedy Martin</td>
+<td style="text-align: left;">martink6@vcu.edu</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ken Mikawa</td>
+<td style="text-align: right;">164936</td>
+<td style="text-align: left;">V00962164</td>
+<td style="text-align: left;">ACID Alliance</td>
+<td style="text-align: left;">Nate Eldering</td>
+<td style="text-align: left;">elderingn@vcu.edu</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nate Eldering</td>
+<td style="text-align: right;">73308</td>
+<td style="text-align: left;">V00987626</td>
+<td style="text-align: left;">ACID Alliance</td>
+<td style="text-align: left;">Ken Mikawa</td>
+<td style="text-align: left;">mikawakc@vcu.edu</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Daniel Gubay</td>
+<td style="text-align: right;">66520</td>
+<td style="text-align: left;">V00980301</td>
+<td style="text-align: left;">Agere</td>
+<td style="text-align: left;">Ebenezer Hailu</td>
+<td style="text-align: left;">hailuea@vcu.edu</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ebenezer Hailu</td>
+<td style="text-align: right;">73490</td>
+<td style="text-align: left;">V00977544</td>
+<td style="text-align: left;">Agere</td>
+<td style="text-align: left;">Daniel Gubay</td>
+<td style="text-align: left;">gubaydd@vcu.edu</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Isaac Lyu</td>
+<td style="text-align: right;">61696</td>
+<td style="text-align: left;">V00977637</td>
+<td style="text-align: left;">Alaskan Bullworms</td>
+<td style="text-align: left;">Jessica Choi</td>
+<td style="text-align: left;">Choijs5@vcu.edu</td>
+<td style="text-align: left;">Chris Hoang</td>
+<td style="text-align: left;">hoangc3@vcu.edu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jessica Choi</td>
+<td style="text-align: right;">115858</td>
+<td style="text-align: left;">V01027946</td>
+<td style="text-align: left;">Alaskan Bullworms</td>
+<td style="text-align: left;">Chris Hoang</td>
+<td style="text-align: left;">hoangc3@vcu.edu</td>
+<td style="text-align: left;">Isaac Lyu</td>
+<td style="text-align: left;">lyuid@vcu.edu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chris Hoang</td>
+<td style="text-align: right;">30925</td>
+<td style="text-align: left;">V00962867</td>
+<td style="text-align: left;">Alaskan Bullworms</td>
+<td style="text-align: left;">Isaac Lyu</td>
+<td style="text-align: left;">lyuid@vcu.edu</td>
+<td style="text-align: left;">Jessica Choi</td>
+<td style="text-align: left;">choijs5@vcu.edu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ziad Kashef</td>
+<td style="text-align: right;">68833</td>
+<td style="text-align: left;">V00990248</td>
+<td style="text-align: left;">Amethyst Nation</td>
+<td style="text-align: left;">Tariq Gafar</td>
+<td style="text-align: left;">gafarta@vcu.edu</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </section>
 <section id="store-the-cleaned-dataframe-to-data-base" class="level3">
 <h3 class="anchored" data-anchor-id="store-the-cleaned-dataframe-to-data-base">Store the cleaned dataframe to data base</h3>
-<div id="7ad4c424" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">&#39;teaming.db&#39;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_sql(<span class="st">&#39;clean_teams&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_excel(<span class="st">&#39;teams_clean.xlsx&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Store the cleaned dataframe into a SQL table and into a XLSX file.</p>
+<div id="b4ce6e5a" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>( SQLITE_DB_FILE )</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_sql(<span class="st">&#39;clean_teams&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_excel( CLEAN_GROUP_MAPPING_FILE, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="explore-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="explore-the-data">Explore the data</h2>
-<div id="3d18e7b7" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by &#39;team_name&#39; and count the number of members per team</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>team_sizes <span class="op">=</span> cleaned_df.groupby(<span class="st">&#39;team_name&#39;</span>).size()</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the occurrences of each team size</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>team_size_counts <span class="op">=</span> team_sizes.value_counts().sort_index()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the result to a DataFrame for display</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>team_size_table <span class="op">=</span> team_size_counts.reset_index()</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>team_size_table.columns <span class="op">=</span> [<span class="st">&#39;team_size&#39;</span>, <span class="st">&#39;number_of_teams&#39;</span>]</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the table</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Markdown(team_size_table.to_markdown( index<span class="op">=</span><span class="va">False</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="43">
+<section id="explore-the-cleaned-data" class="level2">
+<h2 class="anchored" data-anchor-id="explore-the-cleaned-data">Explore the cleaned data</h2>
+<p>As these tables are reviewed, they should reveal changes to be made to the python code above.<br>
+Iterate over this review and mods above until the data are clean!</p>
+<div id="ff0f0008" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="61">
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
@@ -3241,131 +3397,53 @@ vertical-align: -.125em;
 </div>
 <section id="teams-with-one-member" class="level3">
 <h3 class="anchored" data-anchor-id="teams-with-one-member">Teams with one member</h3>
-<div id="7dae5f77" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="44">
-<table class="caption-top">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 11%">
-<col style="width: 16%">
-<col style="width: 17%">
-<col style="width: 16%">
-<col style="width: 17%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>name</th>
-<th>id</th>
-<th>sis_id</th>
-<th>team_name</th>
-<th>partner_2_name</th>
-<th>partner_2_email</th>
-<th>partner_3_name</th>
-<th>partner_3_email</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<p>Details of any teams with</p>
+<div id="d615219d" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-stdout">
+<pre><code>**All clean!  No teams of size 1**</code></pre>
 </div>
 </div>
 </section>
 <section id="teams-with-four-members" class="level3">
 <h3 class="anchored" data-anchor-id="teams-with-four-members">Teams with four members</h3>
-<div id="ef579a66" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="45">
-<table class="caption-top">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 11%">
-<col style="width: 16%">
-<col style="width: 17%">
-<col style="width: 16%">
-<col style="width: 17%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>name</th>
-<th>id</th>
-<th>sis_id</th>
-<th>team_name</th>
-<th>partner_2_name</th>
-<th>partner_2_email</th>
-<th>partner_3_name</th>
-<th>partner_3_email</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<p>List any teams with more than three members. If these are found, there are probably two fixes required:</p>
+<ul>
+<li>Check to see if you’re only selecting the most recent records. If a student submits the survey more than once there will be multiple records for that student and that team.</li>
+<li>Check to see if two or more teams are sharing the same name. If this is the case you need to rename one or more of the teams.</li>
+</ul>
+<div id="22de1a89" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-stdout">
+<pre><code>**All clean!  No teams of sizes 4, 5 or 6.**</code></pre>
 </div>
 </div>
 </section>
-<section id="merge-with-group-data" class="level3">
-<h3 class="anchored" data-anchor-id="merge-with-group-data">Merge with group data</h3>
-<p>List any users without a group</p>
-<div id="6fc60e6b" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>canvas_df <span class="op">=</span> pd.read_csv(<span class="st">&#39;CMSC408-FA2024-Semester-project-upload.csv&#39;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Markdown( canvas_df.to_markdown( index=False) )</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> pd.merge(canvas_df, cleaned_df, left_on<span class="op">=</span><span class="st">&#39;user_id&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;sis_id&#39;</span>,  how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>no_match_df <span class="op">=</span> merged_df[merged_df[<span class="st">&#39;sis_id&#39;</span>].isna()]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Markdown( no_match_df.to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="46">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 3%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 9%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>name_x</th>
-<th>canvas_user_id</th>
-<th>user_id</th>
-<th>login_id</th>
-<th>sections</th>
-<th>group_name</th>
-<th>name_y</th>
-<th>id</th>
-<th>sis_id</th>
-<th>team_name</th>
-<th>partner_2_name</th>
-<th>partner_2_email</th>
-<th>partner_3_name</th>
-<th>partner_3_email</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
 </section>
+<section id="merge-with-group-data" class="level2">
+<h2 class="anchored" data-anchor-id="merge-with-group-data">Merge with group data</h2>
+<p>Finally, we’ll merge the survey results with the import/export seed file from Canvas.</p>
+<p>Any errors will reveal students missing the submission.</p>
+<div id="11a25316" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>canvas_df <span class="op">=</span> pd.read_csv( CANVAS_GROUP_SEED_FILE )</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> pd.merge(canvas_df, cleaned_df, left_on<span class="op">=</span><span class="st">&#39;user_id&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;sis_id&#39;</span>,  how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>no_match_df <span class="op">=</span> merged_df[merged_df[<span class="st">&#39;sis_id&#39;</span>].isna()]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> no_match_df.shape[<span class="dv">0</span>]<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    Markdown( no_match_df.to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;**All students submitted a survey.**&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>**All students submitted a survey.**</code></pre>
+</div>
+</div>
 <section id="save-merged-file-to-export-csv-for-importing-into-canvas" class="level3">
 <h3 class="anchored" data-anchor-id="save-merged-file-to-export-csv-for-importing-into-canvas">Save merged file to export CSV for importing into Canvas</h3>
-<div id="0c34ad3b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> merged_df[ [<span class="st">&#39;name_x&#39;</span>,<span class="st">&#39;canvas_user_id&#39;</span>,<span class="st">&#39;user_id&#39;</span>,<span class="st">&#39;login_id&#39;</span>,<span class="st">&#39;sections&#39;</span>,<span class="st">&#39;team_name&#39;</span>]]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>merged_df.rename(columns<span class="op">=</span>{</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;name_x&#39;</span> : <span class="st">&#39;name&#39;</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;team_name&#39;</span> : <span class="st">&#39;group_name&#39;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>merged_df.sort_values(by<span class="op">=</span><span class="st">&#39;group_name&#39;</span>).to_csv(<span class="st">&#39;export.csv&#39;</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="afbd9e3b" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> merged_df[ [<span class="st">&#39;name_x&#39;</span>,<span class="st">&#39;canvas_user_id&#39;</span>,<span class="st">&#39;user_id&#39;</span>,<span class="st">&#39;login_id&#39;</span>,<span class="st">&#39;sections&#39;</span>,<span class="st">&#39;team_name&#39;</span>]]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>merged_df.rename(columns<span class="op">=</span>{</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;name_x&#39;</span> : <span class="st">&#39;name&#39;</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;team_name&#39;</span> : <span class="st">&#39;group_name&#39;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>merged_df.sort_values(by<span class="op">=</span><span class="st">&#39;group_name&#39;</span>).to_csv( CANVAS_GROUP_UPLOAD_FILE ,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

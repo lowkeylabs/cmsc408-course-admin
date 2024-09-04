@@ -14,18 +14,19 @@ housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
-housekeeping_vertical_spacer = "25px"
+housekeeping_vertical_spacer = "1px"
 
 discussion_items = [
-    'Quiz 2 - ER Modeling, due 9/4 (tonight!)',
-    'Deliverable 4 - reflection, due 9/6',
-    'Homework 2 - ER Modeling, due 9/10',
-    'Deliverable 5 - pitch video, due 9/15'
+    '[Quiz 2 - ER Modeling, due 9/4 (tonight!)](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199269){target="_blank"}',
+    '[Deliverable 4 - reflection, due 9/6](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199282){target="_blank"}',
+    '[Homework 2 - ER Modeling, due 9/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966518){target="_blank"}',
+    '[Groups review - verify your group!](https://virginiacommonwealth.instructure.com/courses/105097/groups#tab-18557){target="_blank"}',
+    '[Deliverable 5 - pitch video, due 9/15](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1021368){target="_blank"}'
 ]
 
 lecture_topics = [
-    '[Homework 2](#homework-2-fall-2024)',
     '[ER Diagramming](#er-diagramming)',
+    '[Homework 2](#homework-2---fall-2024)',
     '[Weak and Strong Entities](#weak-and-strong-entities)'
 ]
 ```
@@ -33,8 +34,8 @@ lecture_topics = [
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-{{< include ../../topics/_homework-2-fall-2024.qmd >}}
 {{< include ../../topics/_er-diagramming.qmd >}}
+{{< include ../../topics/_homework-2-fall-2024.qmd >}}
 {{< include ../../topics/_weak-and-strong-entities.qmd >}}
 
 

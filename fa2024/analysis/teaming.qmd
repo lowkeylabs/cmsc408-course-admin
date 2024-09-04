@@ -13,12 +13,25 @@ format:
 
 Process teams and prepare a clean teaming workbook.
 
-1. Download Canvas Survey that prompts for team names.  *teaming.xlsx*
-1. Download Group Import template created by Canvas: *cmsc408-fa2024-semester-project-upload.csv*
+1. Each students completes survey identifying their team name and partners
+1. This file is downloaded from Canvas.  Most recent submissions are kept.
+1. Data are cleaned.  Students input different group names, or don't add a team name.
+1. Download Canvas seed file that is used to define groups for loading into canvas.
+1. Map canvas seed file to cleaned group data.
+1. Store new mapping to file for upload to canvas.
 
-## Load the data and prepare the data
+**Key parameters for this report**
+```{python}
 
-### Columns prior to renaming
+SQLITE_DB_FILE = "teaming.db"
+SOURCE_SURVEY_RESULTS = "teaming1.xlsx"  # this file is downloaded from Canvas
+CLEAN_GROUP_MAPPING_FILE = "teams_clean.xlsx"  # an interim file for potential later use
+CANVAS_GROUP_SEED_FILE = "CMSC408-FA2024-Semester-project-download.csv"  # downloaded from Canvas for editing
+CANVAS_GROUP_UPLOAD_FILE = "CMSC408-FA2024-Semester-project-upload.csv"
+
+```
+
+## Working with the data
 
 ```{python}
 #| echo: false
@@ -33,9 +46,25 @@ def format_column_names(df):
     for i,column in enumerate(df.columns):
         results.append(f"'{column}' : '{column}',")
     return "\n".join( results )
+```
 
+### Load the workbook
+
+Load the file.  Note that we're using *`{python} SOURCE_SURVEY_RESULTS`*.  Canvas creates different
+files depending on something, but I'm not sure what.
+
+```{python}
 # Load the xlsx file into a pandas dataframe
-df = pd.read_excel('teaming1.xlsx')
+df = pd.read_excel( SOURCE_SURVEY_RESULTS )
+```
+
+```{python}
+#| echo: false
+
+
+# uncomment this to generate a list (see below) for
+# renaming columns.  This function generates python
+# that can be replaced in this file
 
 if (0):
     print(format_column_names(df))
@@ -67,7 +96,13 @@ df.rename(columns={
     'score' : 'score',
 }, inplace=True)
 
+```
+
+Keep only the last attempts.  Drop unnecessary columns. Show the columns
+
+```{python}
 # Keep only rows with the largest "attempt" value
+
 max_attempt_indices = df.groupby('name')['attempt'].idxmax()
 df = df.loc[max_attempt_indices]
 
@@ -77,14 +112,23 @@ df.columns
 ```
 
 ### Store dataframe to data base
+
+Store the uncleaned, raw data to the database.
 ```{python}
 # Connect to the SQLite database (or create it if it doesn't exist)
-conn = sqlite3.connect('teaming.db')
+conn = sqlite3.connect( SQLITE_DB_FILE )
 df.to_sql('raw_table', conn, if_exists='replace', index=False)
 conn.close()
 ```
 
 ## Clean the dataframe
+
+To clean the dataframe, we autocreate a series of python commands to rename each and every group
+as found in the file, sorted by team_name.  Then, each group name can be reassigned to
+an appropriate name across the team names.
+
+In addition to renaming team names, we sometimes need to directly assign students to teams. This
+happens when a student doesn't input the correct name, or forgot to add their team name.
 
 ```{python}
 #| echo: false
@@ -194,11 +238,14 @@ cleaned_df.loc[cleaned_df['team_name']=='TotallyNotSpyware','team_name'] = 'Tota
 cleaned_df.loc[cleaned_df['team_name']=='Wizkids','team_name'] = 'WizKidz'
 cleaned_df.loc[cleaned_df['team_name']=='WizKidz','team_name'] = 'WizKidz'
 
+## Assigning students to teams
 
 cleaned_df.loc[cleaned_df['name']=='Ghulam Mujtaba Qasimi','team_name'] = 'Data Detectives'
 cleaned_df.loc[cleaned_df['name']=='Erin Anderson','team_name'] = 'RamsNationData'
 cleaned_df.loc[cleaned_df['name']=='Chris Hoang','team_name'] = 'Alaskan Bullworms'
 cleaned_df.loc[cleaned_df['name']=='Noor Tabanjeh','team_name'] = 'The Girls Room'
+
+## Renaming this team because two groups used it
 
 cleaned_df.loc[cleaned_df['name']=='Diya Ram Mohan','team_name'] = 'Tech Titans Redux'
 cleaned_df.loc[cleaned_df['name']=='Houda Lahrouz','team_name'] = 'Tech Titans Redux'
@@ -207,11 +254,22 @@ cleaned_df.loc[cleaned_df['name']=='Houda Lahrouz','team_name'] = 'Tech Titans R
 
 ### Add missing records
 
+Finally, some students didn't submit a survey, so they've got to be manually added.  These
+missing records are discovered when the survey data are mapped to the import/export file which
+contains a reference one-record-per-student.
+
 ```{python}
 # Add missing records from a later step!
-
 new_row_df = pd.DataFrame({'name':['Yash Upadhyay'], 'sis_id': ['V00903976'] ,'team_name': ['mantle']})
 cleaned_df = pd.concat([cleaned_df, new_row_df], ignore_index=True)
+```
+
+### Helper codes
+
+The two blocks of code below generate python that can be pasted in this report.  They python
+can then be edited to clean the data.
+
+```{python}
 
 ## Uncomment these to list out code (above) that can be used for data cleaning
 
@@ -228,25 +286,36 @@ if (0):
 
 ```
 
-### Current table after cleaning
+### Final mapping of students to groups.
+
+Here is a list of the first 10 records of the resulting, cleaned dataframe.
+
 ```{python}
-if (0):
-    Markdown( cleaned_df.sort_values(by="team_name").to_markdown( index=False) )
+Markdown( cleaned_df.sort_values(by="team_name").head(10).to_markdown( index=False) )
 ```
 
 ### Store the cleaned dataframe to data base
+
+Store the cleaned dataframe into a SQL table and into a XLSX file.
+
 ```{python}
 # Connect to the SQLite database (or create it if it doesn't exist)
-conn = sqlite3.connect('teaming.db')
+conn = sqlite3.connect( SQLITE_DB_FILE )
 cleaned_df.to_sql('clean_teams', conn, if_exists='replace', index=False)
 conn.close()
 
-cleaned_df.to_excel('teams_clean.xlsx', index=False)
+cleaned_df.to_excel( CLEAN_GROUP_MAPPING_FILE, index=False)
 ```
 
-## Explore the data
+## Explore the cleaned data
+
+As these tables are reviewed, they should reveal changes to be made to the python code above.  
+Iterate over this review and mods above until the data are clean!
 
 ```{python}
+#| echo: false
+
+
 # Group by 'team_name' and count the number of members per team
 team_sizes = cleaned_df.groupby('team_name').size()
 
@@ -263,33 +332,50 @@ Markdown(team_size_table.to_markdown( index=False ))
 
 ### Teams with one member
 
+Details of any teams with
 ```{python}
 #| echo: false
 team_sizes = cleaned_df.groupby('team_name').size().reset_index(name='team_size')
 teams_of_size_x = team_sizes[team_sizes['team_size'].isin([1])]
-Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] ) ].to_markdown( index=False) )
+if len(teams_of_size_x)>0:
+    Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] ) ].to_markdown( index=False) )
+else:
+    print(f"**All clean!  No teams of size 1**")
 ```
 
 ### Teams with four members
+
+List any teams with more than three members.  If these are found, there are probably two fixes required:
+
+* Check to see if you're only selecting the most recent records.  If a student submits the survey more than once there will be
+multiple records for that student and that team.
+* Check to see if two or more teams are sharing the same name.  If this is the case you need to rename one or more of the teams.
 
 ```{python}
 #| echo: false
 team_sizes = cleaned_df.groupby('team_name').size().reset_index(name='team_size')
 teams_of_size_x = team_sizes[team_sizes['team_size'].isin([4,5,6])]
-Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] )].sort_values(by='team_name').to_markdown( index=False) )
+if len(teams_of_size_x)>0:
+    Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] )].sort_values(by='team_name').to_markdown( index=False) )
+else:
+    print(f"**All clean!  No teams of sizes 4, 5 or 6.**")
 ```
 
-### Merge with group data
+## Merge with group data
 
-List any users without a group
+Finally, we'll merge the survey results with the import/export seed file from Canvas.
+
+Any errors will reveal students missing the submission.
 
 ```{python}
-canvas_df = pd.read_csv('CMSC408-FA2024-Semester-project-upload.csv')
-#Markdown( canvas_df.to_markdown( index=False) )
+canvas_df = pd.read_csv( CANVAS_GROUP_SEED_FILE )
 
 merged_df = pd.merge(canvas_df, cleaned_df, left_on='user_id', right_on='sis_id',  how='left')
 no_match_df = merged_df[merged_df['sis_id'].isna()]
-Markdown( no_match_df.to_markdown( index=False) )
+if no_match_df.shape[0]>0:
+    Markdown( no_match_df.to_markdown( index=False) )
+else:
+    print("**All students submitted a survey.**")
 ```
 
 ### Save merged file to export CSV for importing into Canvas
@@ -300,5 +386,5 @@ merged_df.rename(columns={
     'name_x' : 'name',
     'team_name' : 'group_name'
 }, inplace=True)
-merged_df.sort_values(by='group_name').to_csv('export.csv',index=False)
+merged_df.sort_values(by='group_name').to_csv( CANVAS_GROUP_UPLOAD_FILE ,index=False)
 ```
