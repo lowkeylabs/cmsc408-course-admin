@@ -18,6 +18,10 @@
     * Submit HTML to Canvas
     * Submit repo to Gradescope
 
+### Safety Tips
+* [Watch the lecture!!!](https://virginiacommonwealth.instructure.com/courses/105097/pages/lecture-4-video-9){target="_blank"}
+* Read the QMD and MD files in the REPO!
+
 :::
 ::: {.column width="50%"}
 ### Notes
@@ -25,11 +29,10 @@
 * Please allow plenty of time!
 * Don't get frustrated.  Use *Discord* and *ChatGPT* to get help.
 * Use the command line to render, and commit.
-* Watch the lecture!!!
-* Read the QMD and MD files in the REPO!
 
-<p>&nbsp;</p>
-<center>***Do quick homework 2 walkthrough ...***</center>
+### Worked example: Comic Book Management System  
+Consider a comic book store that wants to manage comic books, authors, and customers. Each comic book has a comic ID, title, genre, and publication date. Authors have an author ID, name, and biography. Customers have a customer ID, name, and contact information. A comic book can be written by multiple authors, and each author can contribute to multiple comic books. A customer can purchase multiple comic books, and each purchase involves a single customer and one or more comic books. Purchases have a purchase ID, date, and total amount.
+
 :::
 ::::
 
