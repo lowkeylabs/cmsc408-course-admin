@@ -24,6 +24,7 @@ discussion_items = [
     '[Deliverable 5 - pitch video, due 9/15](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1021368){target="_blank"}'
 ]
 
+
 lecture_topics = [
     '[ER Diagramming](#er-diagramming)',
     '[Homework 2](#homework-2---fall-2024)',
