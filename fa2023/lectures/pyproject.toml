@@ -4,9 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["John Leonard <jdleonard@vcu.edu>"]
 readme = "README.md"
+package-mode = false 
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.12,<4.0"
 ipython = "^8.14.0"
 tabulate = "^0.9.0"
 gspread = "^5.10.0"
@@ -15,7 +16,7 @@ pandas = "^2.0.3"
 numpy = "^1.25.2"
 loguru = "^0.7.0"
 python-frontmatter = "^1.0.0"
-cmsc-canvas-tools = {path = "../../ssg-canvas-cli/dist/cmsc_canvas_tools-0.3.0-py3-none-any.whl"}
+cnvsapi = {path = "../../helpers/cnvsapi-0.7.9-py3-none-any.whl"}
 jupyter = "^1.0.0"
 nbformat = "^5.9.2"
 matplotlib = "^3.8.0"

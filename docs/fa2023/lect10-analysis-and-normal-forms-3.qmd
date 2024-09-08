@@ -1,0 +1,31 @@
+---
+date: 10/4/2023
+lecture-id: 10
+title: Analysis and Normal Forms 3
+---
+
+```{python}
+#| echo: false
+lecture_id = 10
+n_rows = 8
+```
+
+## Housekeeping
+
+- Today: [Homework 5](https://virginiacommonwealth.instructure.com/courses/85746/assignments/732261?module_item_id=2903763) walk through (due Sun, 10/8)
+- Monday: Quiz review
+- Next Wednesday: Quiz 3 (10/11)
+- Project Deliverable 4 - Project Design Doc (due Sun, 10/15)
+
+<p>&nbsp;</p>
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+## Project 5
+
+[project 5 URL](https://virginiacommonwealth.instructure.com/courses/85746/assignments/732261?module_item_id=2903763)

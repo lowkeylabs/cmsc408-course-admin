@@ -1,0 +1,28 @@
+---
+date: 10/9/2023
+lecture-id: 11
+title: Quiz review session
+---
+
+```{python}
+#| echo: false
+lecture_id = 11
+n_rows = 8
+```
+
+## Housekeeping
+
+- [Homework 5](https://virginiacommonwealth.instructure.com/courses/85746/assignments/732261) due date extended to next Sunday, 10/15.
+- [Project deliverable 5](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725440) is due next Sunday, 10/15.
+- A [practice quiz](https://virginiacommonwealth.instructure.com/courses/85746/quizzes/175828) is available on the Canvas.
+- Quiz 3 is scheduled for this Wednesday, 10/11.
+
+
+- The class is dedicated to a discuss of homework 5 and the practice quiz. (No additional slides)
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```

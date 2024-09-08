@@ -1,5 +1,5 @@
 ---
-title: "Index of course materials"
+title: "CMSC 408 - Fall 2024 - Index of course materials"
 lecture-id: 0
 date: last-modified
 format:
@@ -30,9 +30,46 @@ format:
 #| output: asis
 #| label: lectures
 
+import os
+import glob
+import frontmatter
+from loguru import logger
+from datetime import datetime
+
+def get_lect_qmd_files():
+    # Get the current directory
+    current_directory = os.getcwd()
+    # Use glob to find all files matching the pattern
+    file_pattern = os.path.join(current_directory, "lect*.qmd")
+    return glob.glob(file_pattern)
+
+def filename_to_html( file_name ):
+    file_name = os.path.basename( lecture_file )
+    file_name_without_ext, _ = os.path.splitext(file_name)
+    file_name_with_html = f"{file_name_without_ext}.html"
+    return file_name_with_html
+
+def get_date_from_frontmatter(filename):
+    with open(filename, 'r', encoding='utf-8', errors='replace') as f:
+        post = frontmatter.load(f)
+        return post.get('date')
+
+def get_day_of_week(date_string):
+    # Convert the string to a datetime object
+    if date_string:
+        date_object = datetime.strptime(date_string, '%m/%d/%Y')
+        return date_object.strftime('%a')
+    return "x"
+
+lecture_files = get_lect_qmd_files()
+
 print("<div class='item-list'>")
-for i in range(1,30):
-    print(f"<div class='item'>[Lecture {i:2}](./lecture-{i:02}.html)"+"{target='_blank'}</div>")
+for i,lecture_file in enumerate( lecture_files ):
+    filename = filename_to_html( lecture_file )
+    date = get_date_from_frontmatter( os.path.basename(lecture_file) )
+    dow = get_day_of_week( date )
+    line = f"<div class='item'>[Lecture {(i+1):2}](./{filename})" + f"{{target='_blank'}}<br/>{dow} {date}</div>" 
+    print(line)
 print("</div>")
 ```
 
@@ -49,6 +86,7 @@ print("</div>")
 
 
 print("<div class='item-list'>")
+print("<div class='item'>[Fall 2023](../fa2023/index.html){target='_blank'}</div>")
 print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
 print("<div class='item'>[Topics](../topics/index.html){target='_blank'}</div>")
 print("</div>")

@@ -1,0 +1,29 @@
+---
+date: 12/11/2023
+lecture-id: 25
+title: Last day - no lecture
+---
+
+```{python}
+#| echo: false
+lecture_id = 25
+n_rows = 8
+```
+
+## Housekeeping
+
+:pizza:  today is a pizza day! :pizza:
+
+No class or lecture ... just :pizza:!!!!
+
+<p>&nbsp;</p>
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+
+## {background-color="black"}

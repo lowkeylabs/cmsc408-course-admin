@@ -1,0 +1,774 @@
+---
+date: 10/18/2023
+lecture-id: 13
+title: SQL Selects
+---
+
+```{python}
+#| echo: false
+lecture_id = 13
+n_rows = 8
+```
+
+## Housekeeping
+
+- Focus on getting everything to work!
+- YES - you MUST be able render explore.qmd. 
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+# Homework 6 - connecting to DBMS
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=50%}
+###  Overview of the assignment
+
+* We're using mysql DBMS.
+* There are multiple ways to connect
+* Lots of tools to install
+
+*Each approach is handy for one aspect of development. You need to use all the ways!*
+
+:::
+::: {.column width=50%}
+### Ways to connect
+
+1. phpMyAdmin - via the web
+1. ssh - to a linux terminal
+1. vscode - using SQLTools extension
+1. python - using a connection
+
+:::
+::::
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=50%}
+###  1. phpmyadmin
+
+* <http://cmcs508.com/phpmyadmin>
+<p>&nbsp;</p>
+* Username:  23FA_<eid>, 23FA_jdleonard
+<p>&nbsp;</p>
+* Password: Shout4_<eid>_GOME
+<p>&nbsp;</p>
+* for example, Shout4_jdleonard_GOME
+<p>&nbsp;</p>
+*This approach is most useful for managing the DBMS but NOT very useful for development.*
+
+:::
+::: {.column width=50%}
+### 2. SSH to the server
+
+* Open a terminal window on your local machine.
+
+* Enter these commands on your terminal.
+
+```sql
+ssh 23FA_jdleonard@cmsc508.com
+password: <your EID goes here>
+
+mysql -p
+password: <your Shout4 GOME password>
+```
+
+<p>&nbsp;</p>
+*This is the quickest and most efficient approach for directly managing the DBMS but not very useful for development.*
+
+:::
+::::
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=50%}
+###  3. Visual Studio Code
+
+* Install:
+
+    * SQLTOOLS extension
+    * SQLTOOLS mysql connector
+
+* You should see a DB icon on the left
+
+* See the connection screen!
+
+<p>&nbsp;</p>
+*This approach is most useful for directly building and coding SQL code.  Lots of cutting and pasting commands through an DB window.*
+
+:::
+::: {.column width=50%}
+
+
+![](assets/L13-vscode-db-connect.png)
+
+:::
+::::
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=40%}
+### 4. Python code
+
+* Create your hw6 repository
+
+* Install pyenv, poetry, quarto
+
+* Install libraries
+
+    * Auto: using poetry
+    * Manually using pip
+    * matplotlib jupyter plotly
+    * python-dotenv sqlalchemy pymysql
+
+* Create a .env file
+
+* Create your python code
+
+:::
+::: {.column width=60%}
+### See explorer.qmd for details!
+
+```{python}
+#| eval: true
+#| echo: true
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("HW6_USER"),
+  'password': os.getenv("HW6_PASSWORD"),
+  'host': os.getenv("HW6_HOST"),
+  'database': os.getenv("HW6_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+<p>&nbsp;</p>
+*This approach is most useful for developing the wrapper application around the SQL code.*
+
+:::
+::::
+
+# MySQL DBMS
+
+## MYSQL DBMS
+
+:::: {.columns}
+::: {.column width=55%}
+###  Leveraging the power
+
+What not simply use 2-D arrays or other data structures in our programs? Why use a data base at all?
+
+* The DBMS will DO LOTS OF WORK for us AUTOMATICALLY.
+We simply need to know how to tell it what we want it to do.
+
+* We can provide these management and operating rules when tables are created.
+
+* The DBMS will enforce the rules in real-time behind the scenes.
+
+* The DBMS maintains several databases specifically
+for the management of the database itself!
+
+:::
+::: {.column width=45%}
+
+![](assets/L13-dbms-overview.png){height=400 fig-align="center"}
+
+:::
+::::
+
+## MySQL DBMS
+
+:::: {.columns}
+::: {.column width=25%}
+
+![](assets/L13-mysql-col1.png)
+
+:::
+::: {.column width=30%}
+
+![](assets/L13-mysql-col2.png)
+
+:::
+::: {.column width=45%}
+### MYSQL Documentation
+
+![](assets/L13-mysql-col3.png)
+
+### Two types of statements:
+
+* Data Definition Statement (DDL)
+* Data Manipulation Statements (DML)
+
+<https://dev.mysql.com/doc/refman/8.0/en/>
+
+:::
+::::
+
+## DDL - Data Definition Language
+
+![](assets/L13-mysql-ddl.png)
+
+## DML - Data Manipulation Language
+
+![](assets/L13-mysql-dml.png)
+
+# SELECT statement
+
+## SELECT clause
+
+:::: {.columns}
+::: {.column width=50%}
+A *SELECT* query is the one of the most fundamental
+statements in SQL.
+
+A *SELECT* statement describe a request to perform operations within the database and return a *result set*.  
+
+This *result set* is a relation.
+
+This *result* can be used in subsequent operations or stored back into the DB as a new table.
+
+A SQL query is relational algebra:
+
+$\Pi_{A_1, A_2, ... A_n}(\sigma_{P}(R_1 \times R_2 \times ... \times R_n) )$
+
+:::
+::: {.column width=50%}
+**SELECT** A1, A2, A3
+
+**FROM** R1,R2
+
+**WHERE** P
+
+**ORDER BY** A2,A3,A1
+
+* A* represents an attribute (column), a literal, a function, or an operation
+* R* represents a relation (table), cartesian project, or join
+* P is a predicate, conditions or filters
+
+:::
+::::
+
+## SELECT clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+
+* The select clause lists the attributes desired in the result of a query, corresponds to the projection operation of the relational algebra
+
+* SQL names are case insensitive
+
+* SQL allows duplicates in relations as well as in query results
+
+* To force the elimination of duplicates, use the keyword distinct
+
+* An asterisk in the select clause denotes “all attributes”
+
+* May rename columns using alias
+
+:::
+::: {.column width=50%}
+
+```{sql}
+-- this is syntax
+SELECT [distinct] {*, column [[as] alias], ...}
+FROM table {or tables}
+
+-- this is a real statement (and comment!)
+SELECT
+  *
+FROM
+  REGIONS
+
+-- indents are not managed
+-- comments stop processing of line
+
+```
+
+:::
+::::
+
+## SELECT clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### Using * to select all columns
+```{python}
+result = pd.read_sql("""
+select * from regions
+""",cnx)
+result
+```
+
+:::
+::: {.column width=50%}
+### Selecting only one attribute
+```{python}
+result = pd.read_sql("""
+select
+  region_name
+from
+  regions
+""",cnx)
+result
+```
+
+:::
+::::
+
+## SELECT clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### Gathering all last names
+```{python}
+result = pd.read_sql("""
+select last_name from employees
+""",cnx)
+result
+```
+
+:::
+::: {.column width=50%}
+### Eliminating duplicates with DISTINCT
+```{python}
+result = pd.read_sql("""
+select distinct last_name from employees
+""",cnx)
+result
+```
+
+:::
+::::
+
+## SELECT clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### Combining last and first names
+```{python}
+result = pd.read_sql("""
+select concat(last_name,',',first_name)
+from employees
+""",cnx)
+result.head(7)
+```
+
+:::
+::: {.column width=50%}
+### Then renaming the column
+```{python}
+result = pd.read_sql("""
+select concat(last_name,',',first_name) as full_name
+from employees
+""",cnx)
+result.head(7)
+```
+
+:::
+::::
+
+## SELECT clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### attribute can be literal or function
+```{python}
+
+result = pd.read_sql("""
+
+select
+  27 as "Literal",
+  now() as "Current Time" 
+from
+  dual
+
+""",cnx)
+result.head(7)
+```
+<p>&nbsp;</p>
+Note that we're using a built-in table named *dual* that 
+returns what you put in as a table that can be used
+in subsequent operations.
+
+:::
+::: {.column width=50%}
+### Doing computations
+
+The attribute can be a function or arithmetic operation
+```{python}
+result = pd.read_sql("""
+select concat(last_name,',',first_name) as full_name,
+salary*12 as "Annual Salary"
+from employees
+""",cnx)
+result.head(5)
+```
+
+:::
+::::
+
+## WHERE clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+
+* The WHERE clause specifies conditions that the results must satisfy, correspoding to the $\sigma$ predicate in relational algebra.
+
+* An individual WHERE element returns TRUE or FALSE for every row.  This is applied during the query and will return only rows that evaluate TRUE in the where clause.
+
+* Attributes in where clause can be compared using relational operators: <  <=  =  >=  >
+* WHERE elements can be combined using *AND*, *OR* and *NOT* logical operators.
+
+* WHERE also uses special operators: *BETWEEN*, *IN* and *IS NULL*
+
+:::
+::: {.column width=50%}
+
+```{python}
+result = pd.read_sql("""
+-- note that this is a monthly salary!
+SELECT
+  last_name, first_name, salary
+FROM
+  employees
+WHERE
+  salary > 10000
+""",cnx)
+result.head(5)
+
+```
+
+:::
+::::
+
+
+
+
+## WHERE clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### Selecting a department
+```{python}
+result = pd.read_sql("""
+select last_name,department_id
+from employees
+where department_id=110;
+""",cnx)
+result.head(7)
+```
+<p>&nbsp;</p>
+Data types matter.  You'll get an error
+if you set *department_id='110'*
+
+:::
+::: {.column width=50%}
+### Using BETWEEN
+The attribute can be a function or arithmetic operation
+```{python}
+result = pd.read_sql("""
+select concat(last_name,',',first_name) as full_name, salary
+from employees
+where salary BETWEEN 10000 and 12000;
+""",cnx)
+result.head(5)
+```
+
+:::
+::::
+
+## WHERE clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### Using IN
+```{python}
+result = pd.read_sql("""
+select last_name,department_id
+from employees
+where department_id in (100,145,146)
+""",cnx)
+result.head(7)
+```
+<p>&nbsp;</p>
+
+:::
+::: {.column width=50%}
+### The long way
+```{python}
+result = pd.read_sql("""
+select last_name,department_id
+from employees
+where department_id=30 or department_id=70 or department_id=120
+""",cnx)
+result
+```
+<p>&nbsp;</p>
+
+:::
+::::
+
+## WHERE clause and examples
+
+:::: {.columns}
+::: {.column width=50%}
+### What are all the department IDs?
+```{python}
+result = pd.read_sql("""
+select distinct department_id
+from employees
+order by department_id
+""",cnx)
+result
+```
+<p>&nbsp;</p>
+
+:::
+::: {.column width=50%}
+### Who is missing a manager?
+```{python}
+result = pd.read_sql("""
+select last_name,job_id,manager_id
+from employees
+where manager_id is NULL
+""",cnx)
+result.head(7)
+```
+<p>&nbsp;</p>
+
+NULL must be all caps!!
+
+:::
+::::
+
+## Computations
+
+:::: {.columns}
+::: {.column width=50%}
+### Calculating commissions
+```{python}
+#| echo: true
+#| eval: false
+result = pd.read_sql("""
+
+select 
+  concat(last_name,',',first_name) as "Name",
+  salary as "Monthly",
+  12.0*salary+commission_pct*salary as "With/Commission"
+from
+  employees
+order by
+  last_name,
+  first_name
+
+""",cnx)
+result
+```
+<p>&nbsp;</p>
+What are the NaN "not a number" entries?
+
+How do we remove the NaN (not a number) from
+list? 
+
+:::
+::: {.column width=50%}
+### Calculating commissions
+```{python}
+#| echo: false
+#| eval: true
+result = pd.read_sql("""
+select 
+  concat(last_name,',',first_name) as "Name",
+  salary as "Monthly",
+  12.0*salary+commission_pct*salary as "With/Commission"
+from employees
+order by last_name, first_name
+""",cnx)
+result
+```
+:::
+::::
+
+## IFNULL operator
+
+:::: {.columns}
+::: {.column width=50%}
+### The IFNULL operator
+
+IFNULL( expr1, expr2 ) replaces NULL with a value.
+
+* IF expr1 is NOT NULL then returns expr1
+
+* IF expr1 IS NULL, then returns expr2.
+
+:::
+::: {.column width=50%}
+### Calculating commissions
+```{python}
+#| echo: true
+#| eval: false
+result = pd.read_sql("""
+select 
+  concat(last_name,',',first_name) as "Name",
+  salary as "Monthly",
+  IFNULL(12.0*salary+commission_pct*salary,0.0) as "With/Commission"
+from employees
+order by last_name, first_name
+""",cnx)
+result
+```
+:::
+::::
+
+## IFNULL operator
+
+:::: {.columns}
+::: {.column width=50%}
+### IFNULL( expr1, 0.0)
+```{python}
+#| echo: false
+#| eval: true
+result = pd.read_sql("""
+
+select 
+  concat(last_name,',',first_name) as "Name",
+  salary as "Monthly",
+  IFNULL(12.0*salary+commission_pct*salary,0.0) as "With/Commission"
+from
+  employees
+order by
+  last_name,
+  first_name
+
+""",cnx)
+result
+```
+:::
+::: {.column width=50%}
+### IFNULL( expr1, 'missing')
+```{python}
+#| echo: false
+#| eval: true
+result = pd.read_sql("""
+select 
+  concat(last_name,',',first_name) as "Name",
+  salary as "Monthly",
+  IFNULL(12.0*salary+commission_pct*salary,'missing') as "With/Commission"
+from employees
+order by last_name, first_name
+""",cnx)
+result
+```
+:::
+::::
+
+## String operations
+
+The operator *LIKE* uses patterns (case insensitive) (use *LIKE BINARY* for case sensitive) for string-matching operations using two special characters:
+
+    * percentage ( % ) matches any substring (none or many characters)
+    * underscore ( _ ) matches any single character
+
+Examples:
+
+'Intro%' 		matches any string beginning with “Intro”
+
+'%Comp%' 	matches any string containing “Comp” as a substring
+
+'_ _ _' 		matches any string of exactly three characters
+
+'_ _ _ %' 		matches any string of at least three characters
+
+'%_ a _ ' 		same as before but the second to the last letter is 'a'
+
+## String operations
+
+:::: {.columns}
+::: {.column width=50%}
+### DOUBLE %% when using Python
+```{python}
+#| echo: true
+#| eval: true
+result = pd.read_sql("""
+select last_name from employees
+where last_name like 'MC%%'
+""",cnx)
+result
+```
+:::
+::: {.column width=50%}
+### DOUBLE %% when using Python
+```{python}
+#| echo: true
+#| eval: true
+result = pd.read_sql("""
+SELECT phone_number FROM employees
+WHERE phone_number LIKE '%%123%%';
+""",cnx)
+result
+```
+:::
+::::
+
+## ORDER BY clause
+
+:::: {.columns}
+::: {.column width=50%}
+*ORDER BY* is used to specify
+the sort order in the result set.
+
+The result set is sorted by the first attribute listed in the *ORDER BY*.
+
+If there is a tie, *ORDER BY* moves to the second attribute, and so on.
+
+Attribute expression may be modified with ASC (the default) or DESC (for descending)
+
+Attributes in *ORDER BY* can be computed!
+
+:::
+::: {.column width=50%}
+### Example
+```{python}
+#| echo: true
+#| eval: true
+result = pd.read_sql("""
+select 
+  concat(last_name,',',first_name) as "Full Name", salary as "Monthly"
+from employees
+order by
+  salary desc,
+  last_name, first_name
+""",cnx)
+result
+```
+:::
+::::
+
+## Housekeeping
+
+- Focus on getting everything to work!
+- YES - you MUST be able render explore.qmd. 
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```

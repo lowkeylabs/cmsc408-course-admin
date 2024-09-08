@@ -1,0 +1,40 @@
+---
+date: 10/16/2023
+lecture-id: 12
+title: Intro to SQL
+---
+
+```{python}
+#| echo: false
+lecture_id = 12
+n_rows = 8
+```
+## Housekeeping
+
+- Homework 6 due next Sunday, Oct. 22
+- Midterm grades will be submitted by Friday, 10/20
+- Withdraw day is next Friday, 10/27
+
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+## Homework 6 - Getting started with mysql and python
+
+- Overall idea: given credentials to a database, reverse engineer the documentation.
+
+- Focus on tables, fields, relations, keys and some DBMS highlights.
+
+- Focus on getting all the tools to work.  THIS IS TRICKY!
+
+## Another test slide.
+
+this is a test of the emergency broadcast system.
+
+## Another test slide.
+
+this is a test of the emergency broadcast system.

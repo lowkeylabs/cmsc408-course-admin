@@ -1,0 +1,160 @@
+---
+date: 9/18/2023
+lecture-id: 6
+title: Relational Algebra 1
+---
+
+```{python}
+#| echo: false
+lecture_id = 6
+n_rows = 8
+```
+
+## Housekeeping
+
+- Project deliverable 3 (video)
+- Homework assignment 4 (due Sunday night)
+- Quiz 2 (next Monday, just as before)
+- Practice quiz 2 (available now!)
+
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+# Query languages
+
+## Query Language Family Tree
+
+:::: {.columns}
+::: {.column}
+### Relational Algebra
+
+- Expressions are applied as a series of
+steps to achieve a specific result.
+- The order of the steps matters.
+
+### Relational Calculus
+
+- Non-procedural.  Tells you what the result
+should be without providing steps
+- Can be converted to relational algebra
+
+### SQL
+
+- A modified, practical implementation of Relational Algebra.
+- Not exact, but close enough and VERY useful!
+
+:::
+
+::: {.column}
+
+```{dot}
+//| echo: false
+//| eval: true
+//| fig-width: 400px
+//| fig-height: 350px
+digraph family_tree {
+    bgcolor="transparent";
+    node [shape=box];
+    "Query Language" -> "Procedural";
+    "Query Language" -> "Non-Procedural";
+    "Procedural" -> "Relational Algebra";
+    "Relational Algebra" -> "SQL";
+    "Non-Procedural" -> "Relational Calculus";
+    "Relational Calculus" -> "Tuple RC";
+    "Relational Calculus" -> "Domain RC";
+}
+```
+
+:::
+::::
+
+# Relational Algebra
+
+## Relational Algebraic Operators and Operations
+
+:::: {.columns}
+::: {.column width=33%}
+### Relational Operators
+
+- Selection  σ
+- Projection  π
+- Rename  ρ
+
+:::
+::: {.column width=33%}
+### Set Operators
+
+- Union  ∪
+- Intersection  ∩
+- Difference  -
+
+### Logical Operators
+
+- And  ∧
+- Or  ∨
+- Not  ¬
+
+:::
+
+::: {.column width=33%}
+### Joins and Products
+
+- Natural join $\bowtie$
+- Theta join $\bowtie_{\theta}$
+- Left outer join ⟕  
+- Right outer join ⟖
+- Full outer join ⟗
+- Cartesian product  ⨯
+- Division ÷
+
+:::
+:::
+
+#### Additional Resources
+
+- Relational Algebra Calculator : <https://dbis-uibk.github.io/relax/landing>
+- Practice Exercises (HTML): <http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html>
+- [More practice exercises (PDF)](http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf)
+
+# Set Operators
+
+## Set Operators
+
+```{python}
+#| echo: false
+#| eval: true
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2, venn3
+
+# For a 2-set Venn diagram
+venn = venn2(subsets=(5, 5, 2 ),set_labels=("","") )
+
+venn.get_label_by_id('10').set_text('A')
+venn.get_label_by_id('10').set_fontsize(20)
+venn.get_label_by_id('10').set_color('white')
+venn.get_label_by_id('01').set_text('B')
+venn.get_label_by_id('01').set_fontsize(20)
+venn.get_label_by_id('11').set_text('')
+
+venn.get_patch_by_id('10').set_color('red')
+venn.get_patch_by_id('10').set_edgecolor('black')
+venn.get_patch_by_id('10').set_linewidth(4)
+venn.get_patch_by_id('01').set_color('white')
+venn.get_patch_by_id('01').set_edgecolor('black')
+venn.get_patch_by_id('11').set_color('white')
+venn.get_patch_by_id('11').set_edgecolor('black')
+
+# Uncomment the following lines for a 3-set Venn diagram
+# venn3(subsets=(10, 8, 12, 5, 3, 2, 1), set_labels=('Set A', 'Set B', 'Set C'))
+
+# Display the plot
+plt.gca().set_facecolor('none')
+plt.gcf().patch.set_facecolor('none')
+plt.show()
+
+```

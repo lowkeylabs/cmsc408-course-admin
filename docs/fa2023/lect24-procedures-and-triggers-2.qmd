@@ -1,0 +1,70 @@
+---
+date: 12/6/2023
+lecture-id: 24
+title: SQL Grab Bag (2)
+---
+
+```{python}
+#| echo: false
+lecture_id = 24
+n_rows = 8
+```
+
+## Housekeeping
+
+:::: {.columns}
+::: {.column}
+- Stuff still due:  HW9, Semester Project
+- Course Evaluation: HW10, Due Monday
+- No in-class final!
+:::
+::: {.column}
+- Self- and Team- evaluation. Due Monday
+- Pizza RSVP and order - Due Sunday!
+:::
+::::
+<p>&nbsp;</p>
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+## Quick reviews of deliverable 4
+
+* Use a YAML header in your QMD.  It will make it pretty!
+* Use proper links "<>" around your video and github links
+* (Show speed grader)
+<p>&nbsp;</p>
+* If you have grade questions - use Canvas!  It keeps me organized
+
+# Homework 9 - w24
+
+## Homework 9
+
+We'll keep working on homework 9
+
+# Course summary and closing thoughts
+
+## Housekeeping
+
+:::: {.columns}
+::: {.column}
+- Stuff still due:  HW9, Semester Project
+- Course Evaluation: HW10, Due Monday
+- No in-class final!
+:::
+::: {.column}
+- Self- and Team- evaluation. Due Monday
+- Pizza RSVP and order - Due Sunday!
+:::
+::::
+<p>&nbsp;</p>
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```

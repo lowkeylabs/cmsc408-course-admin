@@ -1,0 +1,32 @@
+---
+date: 11/29/2023
+lecture-id: 22
+title: Subqueries and WITH #2
+---
+
+```{python}
+#| echo: false
+lecture_id = 22
+n_rows = 8
+```
+
+## Housekeeping
+
+- Final project - [discuss rubric](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725436?module_item_id=2822715)
+
+- Homework 9 - start assignment
+
+- Final project - flask connections
+
+<p>&nbsp;</p>
+
+```{python}
+#| echo: false
+from src.utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+upcoming_calendar( lecture_id, n_rows )
+```
+
+
+# Rest of class spent in demonstrations
+
