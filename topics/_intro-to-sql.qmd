@@ -8,6 +8,16 @@ Interacting with a **Database Management System (DBMS)** and a **database** invo
 
 *SQL* (structured query language) is the computer language we use to interact with the DBMS.
 
+## SQL (Structured Query Language )
+
+**SQL (Structured Query Language)**: is a standardized language used for managing and querying relational databases. It provides commands for defining, manipulating, controlling, and retrieving data in databases.
+
+- **ANSI SQL Standard**: ANSI (American National Standards Institute) defines the core SQL standard, ensuring a common foundation for relational database operations across different systems, though specific features may vary by vendor.
+The most recent version of the SQL standard is SQL:2023, formally adopted in June 2023.
+
+- **SQL Dialects by Vendor**: While adhering to ANSI SQL, many database vendors (like **MySQL**, **PostgreSQL**, **Oracle**, **SQL Server**) extend SQL with proprietary features (e.g., Oracle’s PL/SQL, Microsoft’s T-SQL) to support additional functionalities unique to their systems.
+
+
 ## SQL command groups
 
 SQL commands are grouped based on what they do to/for the DBMS.  We sometimes refer to these groups as separate *languages*: **DDL**, **DML**, **DCL**, and **TCL**.
