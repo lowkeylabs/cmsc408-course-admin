@@ -29,11 +29,10 @@
 :::
 ::::
 
-
 ### Next up:
 
-- Physical design
-    * Bridging the gap between design and implementation
-    * Converting multivalued attributes and relations to entities
-    * Converting entities to tables and connecting them up
+- DBMS, SQL and the Relational Model
+    * Understanding the DBMS platform
+    * Interacting with a DBMS
+    * Bridging the gap between ER-diagrams and SQL
 

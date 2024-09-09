@@ -1,5 +1,5 @@
 ---
-title: Translating logical designs to SQL
+title: Brief intro to relational model
 tasl:
     source: fa2023\lectures\lect04-ddl-dml-sqllite-mysql.qmd
     tags:
@@ -8,6 +8,6 @@ tasl:
     topic: Translating logical designs to SQL
 ---
 
-{{< include '_translating-logical-designs-to-sql.qmd' >}}
+{{< include '_brief-intro-to-relational-model.qmd' >}}
 
     

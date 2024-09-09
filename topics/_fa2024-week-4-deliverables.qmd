@@ -1,0 +1,36 @@
+
+# Week 4 deliverables
+
+## Project deliverable 5 - video proposal
+
+- Easiest may be to record in ZOOM
+- LOG IN to zoom using SSO and your VCU account
+- If your video isn't saved, then manually move it to Kaltura
+- Submit the Kaltura URL to Canvas.
+
+## Quiz 2 results and commentary
+
+![](assets/fa2024-quiz-2-results.png){width=800 fig-align="center"}
+
+<https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199269/statistics>
+
+## Homework 3 - ER Diagrams
+
+:::: {.columns}
+::: {.column}
+- General workflow:
+    1. create your copy of assignment repo
+    2. clone repo to local machine
+    3. begin to develop solutions
+    4. render document and view it in your browser.
+    5. commit iterim results to GITHUB
+    6. iterate steps 3-6 until done.
+:::
+::: {.column}
+- Deadline is tomorrow midnight, Tuesday, Sept. 10
+- SUBMIT the rendered HTML file as an attachment to Canvas
+- SUBMIT your repo to canvas for autograding
+- DON'T restructure the document, your score will be lower.
+:::
+::::
+<center>***Your focus is on the translation of the words to er-diagrams***</center>

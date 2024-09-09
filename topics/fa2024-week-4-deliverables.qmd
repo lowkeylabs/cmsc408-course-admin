@@ -1,0 +1,13 @@
+---
+title: FA2024 week 4 deliverables
+tasl:
+    source: fa2023\lectures\lect04-ddl-dml-sqllite-mysql.qmd
+    tags:
+    - lecture
+    - lecture-04
+    topic: Fall 2024 - week 4 deliverables
+---
+
+{{< include '_fa2024-week-4-deliverables.qmd' >}}
+
+    

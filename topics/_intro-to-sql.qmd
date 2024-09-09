@@ -1,0 +1,119 @@
+# Intro to SQL
+
+## Interacting with the database
+
+A **DBMS** is software that manages databases, providing an interface between users, applications, and the database. The DBMS handles the internal mechanics of data storage, querying, transaction management, and access control. When users or applications issue commands, the DBMS processes these commands and ensures that the database remains consistent, efficient, and secure.
+
+Interacting with a **Database Management System (DBMS)** and a **database** involves several layers of operations, each designed to handle a specific aspect of how data is stored, managed, secured, and retrieved.
+
+*SQL* (structured query language) is the computer language we use to interact with the DBMS.
+
+## SQL command groups
+
+SQL commands are grouped based on what they do to/for the DBMS.  We sometimes refer to these groups as separate *languages*: **DDL**, **DML**, **DCL**, and **TCL**.
+
+* **Design and Structure (DDL)**: When building a database, DDL is the first interaction, defining how data will be stored and structured. This foundational step ensures the database can efficiently support future operations.
+
+* **Manipulating and Retrieving Data (DML)**: The core daily interactions with the database happen through DML. Whether adding new entries, retrieving data, or updating records, these operations are what end-users experience.
+
+* **Security and Permissions (DCL)**: Modern databases are often accessed by multiple users and applications. Ensuring that data access is controlled and secure is essential, and DCL ensures that only the right users have the appropriate access levels.
+
+* **Maintaining Data Integrity (TCL)**: In multi-user environments or where transactions involve complex steps (e.g., financial transactions, inventory updates), TCL ensures that the database remains in a consistent state even when failures or conflicts occur.
+
+## DDL (Data Definition Language)
+
+- **Purpose**: Defines the structure and organization of the database.
+- **Role**: DDL commands interact directly with the **DBMS** to create, modify, or delete database objects such as tables, indexes, and schemas.
+- **Example**: When creating a new table, the **DBMS** allocates the necessary storage and manages the metadata that defines the table structure. DDL commands ensure that the database schema evolves as the application grows.
+- **Use Cases**:
+  - Creating a new table to store user data.
+  - Altering the structure of an existing table to accommodate new fields.
+
+## DDL (Data Definition Language)
+
+Key DDL commands include:
+
+1. **`CREATE`**: Used to create new database objects like tables, indexes, views, or databases.
+2. **`ALTER`**: Used to modify the structure of an existing database object (e.g., adding or removing columns in a table).
+3. **`DROP`**: Used to delete database objects like tables, indexes, or entire databases.
+4. **`TRUNCATE`**: Removes all records from a table, but keeps the table structure intact.
+5. **`RENAME`**: Used to rename database objects.
+
+DDL commands define and change the structure or schema of a database, unlike DML, which focuses on manipulating the data within those structures.
+
+## DDL (Data Definition Language)
+
+:::: {.columns}
+::: {.column}
+* DDL compiler generates a set of tables stored in a data dictionary
+* Data dictionary contains metadata about:
+    - Database tables, fields and data types
+    - Primary and foreign keys
+    - Data integrity constrants
+    - Referential integrity
+    - Access and authorization rules
+:::
+::: {.column}
+### Example
+
+```{sql}
+CREATE TABLE person (
+    person_id INT PRIMARY KEY,
+    person_first_name VARCHAR(50),
+    person_last_name VARCHAR(50),
+    person_city VARCHAR(50)
+);
+
+```
+
+### Notes
+
+1. Fields are strongly typed,
+1. INT, VARCHAR(width), (lots more!)
+1. Additional attributed can be defined:
+    * PRIMARY KEY, FOREIGN KEY, etc.
+
+:::
+::::
+
+
+## DML (Data Manipulation Language)
+
+- **Purpose**: Manages the actual data within the database.
+- **Role**: DML commands interact with the **DB** to insert, retrieve, update, and delete data. The **DBMS** processes these requests and ensures the data is accessed efficiently and accurately.
+- **Example**: When querying data (e.g., `SELECT`), the **DBMS** retrieves the requested information from the database, handles the query optimizations, and returns results to the user or application.
+- **Use Cases**:
+  - Retrieving customer data for an e-commerce application.
+  - Inserting new product information into a database.
+
+
+## DCL (Data Control Language)
+
+- **Purpose**: Controls access to the data within the database.
+- **Role**: DCL commands interact with the **DBMS** to manage user permissions and security. This ensures that only authorized users can access or modify specific parts of the database.
+- **Example**: Granting access to a developer to only read the data while restricting their ability to modify or delete it.
+- **Use Cases**:
+  - Granting access to specific tables for an application.
+  - Revoking permissions from users who should no longer access the database.
+
+## TCL (Transaction Control Language)
+
+- **Purpose**: Manages and controls database transactions.
+- **Role**: TCL commands work closely with the **DBMS** to ensure that changes made to the database maintain **ACID (Atomicity, Consistency, Isolation, Durability)** properties. This ensures that transactions are processed reliably.
+- **Example**: When performing a `COMMIT` after multiple `INSERT` operations, the **DBMS** makes the changes permanent. If any part of the transaction fails, a `ROLLBACK` can undo all the changes to ensure data integrity.
+- **Use Cases**:
+  - Performing multiple updates to an inventory system and committing them only when all changes are successfully made.
+  - Rolling back a transaction if a bank transfer fails midway, ensuring no partial changes occur.
+
+## SQL Summary
+
+SQL is the overarching language for interacting with the relational database management system.
+
+SQL commands are organized into *languages* that play a distinct roles in the overall functioning of the DBMS. Together, they allow the applications programmer to:
+
+- **Define the structure** (DDL),
+- **Manipulate the data** (DML),
+- **Secure the database** (DCL), and
+- **Ensure reliable transactions** (TCL).
+
+By interacting with these layers, the DBMS provides a seamless, powerful way to manage data efficiently, ensuring that applications can scale, users can access information securely, and data integrity is maintained across transactions.

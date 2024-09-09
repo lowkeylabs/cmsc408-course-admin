@@ -1,7 +1,7 @@
 ---
 date: 9/9/2024
 lecture-id: 5
-title: DDL / DML / SQLLite / MySQL
+title: Relational Models 1
 ---
 
 ```{python}
@@ -14,20 +14,29 @@ housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
-housekeeping_vertical_spacer = "25px"
+housekeeping_vertical_spacer = "10px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 2 - ER Modeling, due tomorrow, 9/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966518){target="_blank"}',
+    '[Deliverable 5 - pitch video, due Sunday, 9/15](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1021368){target="_blank"}'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Week 4 deliverables](#week-4-deliverables)',
+    '[Taking stock](#catching-our-collective-breaths-and-taking-stock)',
+    '[Databases and DBMS](#databases-and-database-management-systems)',
+    '[Intro to SQL](#intro-to-sql)',
+    '[Relational model](#brief-intro-to-relational-model)'
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-
+{{< include  ../../topics/_fa2024-week-4-deliverables.qmd >}}
+{{< include  ../../topics/_taking-stock-after-er-models.qmd >}}
+{{< include  ../../topics/_databases-and-database-management-systems.qmd >}}
+{{< include  ../../topics/_intro-to-sql.qmd >}}
+{{< include  ../../topics/_brief-intro-to-relational-model.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

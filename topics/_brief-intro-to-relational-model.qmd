@@ -1,5 +1,5 @@
 
-# Translating logical designs to SQL
+# Brief intro to relational model
 
 ## Relational Database Model
 
