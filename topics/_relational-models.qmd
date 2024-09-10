@@ -72,7 +72,7 @@ in the student-courses table represent pairs of students and courses or "student
 
 Tables or entities can be represents in **relation notation**,
 
-* *relationName (ID, Att1, �, AttN)*
+* *relationName (ID, Att1, ... , AttN)*
 
 For example:
 
@@ -127,7 +127,7 @@ digraph RelationalDataModel {
     <tr><td align="left">Chen Wei</td><td>1978</td><td port="r3">3</td></tr>
     <tr><td align="left">Olga Petrova</td><td>NULL</td><td port="r4">4</td></tr>
     <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td port="r5">5</td></tr>
-    <tr><td align="left">Luc�a Gonz�lez</td><td>1980</td><td port="r6">6</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td port="r6">6</td></tr>
 </table>
     >];
 
@@ -200,7 +200,7 @@ digraph RelationalDataModel {
     <tr><td align="left">Chen Wei</td><td>1978</td><td port="r3">3</td></tr>
     <tr><td align="left">Olga Petrova</td><td>NULL</td><td port="r4">4</td></tr>
     <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td port="r5">5</td></tr>
-    <tr><td align="left">Luc�a Gonz�lez</td><td>1980</td><td port="r6">6</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td port="r6">6</td></tr>
 </table>
     >];
 

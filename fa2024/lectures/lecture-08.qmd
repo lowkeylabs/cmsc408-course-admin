@@ -17,17 +17,23 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'Homework 3 - personal study guide is due',
+    'Quiz 3 (Relational Algebra) is due'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    'Practice session'
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+## Worked problems for Practice quiz
+
+During class we worked questions from the practice quiz 3.
+
+Refer to the video for details.
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

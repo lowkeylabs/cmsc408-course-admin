@@ -353,12 +353,14 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Homework 3</p></li>
+<li><p>Quiz 3</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Query Languages</p></li>
+<li><p>Relational Algebra</p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -473,6 +475,191 @@
 </div>
 </div>
 </div>
+<!-- query languages serves as a bridge between ER diagrams/relational models and SQL
+The shift occurs when we start talking about records inside tables.
+How do we describe the operations? -->
+</section>
+<section>
+<section id="query-languages" class="title-slide slide level1 center">
+<h1>Query languages</h1>
+
+</section>
+<section id="query-language-family-tree" class="slide level2">
+<h2>Query Language Family Tree</h2>
+<div class="columns">
+<div class="column">
+<h3 id="relational-algebra">Relational Algebra</h3>
+<ul>
+<li>Expressions are applied as a series of steps to achieve a specific result.</li>
+<li>The order of the steps matters.</li>
+</ul>
+<h3 id="relational-calculus">Relational Calculus</h3>
+<ul>
+<li>Non-procedural. Tells you what the result should be without providing steps</li>
+<li>Can be converted to relational algebra</li>
+</ul>
+<h3 id="sql">SQL</h3>
+<ul>
+<li>A modified, practical implementation of Relational Algebra.</li>
+<li>Not exact, but close enough and VERY useful!</li>
+</ul>
+</div><div class="column">
+<div class="cell" data-eval="true" data-fig-width="400px" data-fig-height="350px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="350" viewbox="0.00 0.00 316.70 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>family_tree</title>
+<!-- Query Language -->
+<g id="node1" class="node">
+<title>Query Language</title>
+<polygon fill="none" stroke="black" points="185.74,-252 76.38,-252 76.38,-216 185.74,-216 185.74,-252"></polygon>
+<text text-anchor="middle" x="131.06" y="-229.8" font-family="Times,serif" font-size="14.00">Query Language</text>
+</g>
+<!-- Procedural -->
+<g id="node2" class="node">
+<title>Procedural</title>
+<polygon fill="none" stroke="black" points="115.21,-180 38.92,-180 38.92,-144 115.21,-144 115.21,-180"></polygon>
+<text text-anchor="middle" x="77.06" y="-157.8" font-family="Times,serif" font-size="14.00">Procedural</text>
+</g>
+<!-- Query Language&#45;&gt;Procedural -->
+<g id="edge1" class="edge">
+<title>Query Language-&gt;Procedural</title>
+<path fill="none" stroke="black" d="M117.72,-215.7C111.31,-207.39 103.51,-197.28 96.46,-188.14"></path>
+<polygon fill="black" stroke="black" points="99.14,-185.88 90.26,-180.1 93.6,-190.16 99.14,-185.88"></polygon>
+</g>
+<!-- Non&#45;Procedural -->
+<g id="node3" class="node">
+<title>Non-Procedural</title>
+<polygon fill="none" stroke="black" points="246.98,-180 141.15,-180 141.15,-144 246.98,-144 246.98,-180"></polygon>
+<text text-anchor="middle" x="194.06" y="-157.8" font-family="Times,serif" font-size="14.00">Non-Procedural</text>
+</g>
+<!-- Query Language&#45;&gt;Non&#45;Procedural -->
+<g id="edge2" class="edge">
+<title>Query Language-&gt;Non-Procedural</title>
+<path fill="none" stroke="black" d="M146.64,-215.7C154.27,-207.22 163.59,-196.86 171.94,-187.58"></path>
+<polygon fill="black" stroke="black" points="174.58,-189.88 178.67,-180.1 169.38,-185.2 174.58,-189.88"></polygon>
+</g>
+<!-- Relational Algebra -->
+<g id="node4" class="node">
+<title>Relational Algebra</title>
+<polygon fill="none" stroke="black" points="122.19,-108 -0.06,-108 -0.06,-72 122.19,-72 122.19,-108"></polygon>
+<text text-anchor="middle" x="61.06" y="-85.8" font-family="Times,serif" font-size="14.00">Relational Algebra</text>
+</g>
+<!-- Procedural&#45;&gt;Relational Algebra -->
+<g id="edge3" class="edge">
+<title>Procedural-&gt;Relational Algebra</title>
+<path fill="none" stroke="black" d="M73.11,-143.7C71.35,-135.98 69.23,-126.71 67.26,-118.11"></path>
+<polygon fill="black" stroke="black" points="70.61,-117.07 64.97,-108.1 63.79,-118.63 70.61,-117.07"></polygon>
+</g>
+<!-- Relational Calculus -->
+<g id="node6" class="node">
+<title>Relational Calculus</title>
+<polygon fill="none" stroke="black" points="266.1,-108 140.03,-108 140.03,-72 266.1,-72 266.1,-108"></polygon>
+<text text-anchor="middle" x="203.06" y="-85.8" font-family="Times,serif" font-size="14.00">Relational Calculus</text>
+</g>
+<!-- Non&#45;Procedural&#45;&gt;Relational Calculus -->
+<g id="edge5" class="edge">
+<title>Non-Procedural-&gt;Relational Calculus</title>
+<path fill="none" stroke="black" d="M196.29,-143.7C197.28,-135.98 198.47,-126.71 199.58,-118.11"></path>
+<polygon fill="black" stroke="black" points="203.06,-118.47 200.86,-108.1 196.12,-117.58 203.06,-118.47"></polygon>
+</g>
+<!-- SQL -->
+<g id="node5" class="node">
+<title>SQL</title>
+<polygon fill="none" stroke="black" points="88.06,-36 34.06,-36 34.06,0 88.06,0 88.06,-36"></polygon>
+<text text-anchor="middle" x="61.06" y="-13.8" font-family="Times,serif" font-size="14.00">SQL</text>
+</g>
+<!-- Relational Algebra&#45;&gt;SQL -->
+<g id="edge4" class="edge">
+<title>Relational Algebra-&gt;SQL</title>
+<path fill="none" stroke="black" d="M61.06,-71.7C61.06,-63.98 61.06,-54.71 61.06,-46.11"></path>
+<polygon fill="black" stroke="black" points="64.56,-46.1 61.06,-36.1 57.56,-46.1 64.56,-46.1"></polygon>
+</g>
+<!-- Tuple RC -->
+<g id="node7" class="node">
+<title>Tuple RC</title>
+<polygon fill="none" stroke="black" points="207.4,-36 136.73,-36 136.73,0 207.4,0 207.4,-36"></polygon>
+<text text-anchor="middle" x="172.06" y="-13.8" font-family="Times,serif" font-size="14.00">Tuple RC</text>
+</g>
+<!-- Relational Calculus&#45;&gt;Tuple RC -->
+<g id="edge6" class="edge">
+<title>Relational Calculus-&gt;Tuple RC</title>
+<path fill="none" stroke="black" d="M195.4,-71.7C191.87,-63.73 187.61,-54.1 183.7,-45.26"></path>
+<polygon fill="black" stroke="black" points="186.89,-43.83 179.64,-36.1 180.49,-46.67 186.89,-43.83"></polygon>
+</g>
+<!-- Domain RC -->
+<g id="node8" class="node">
+<title>Domain RC</title>
+<polygon fill="none" stroke="black" points="308.84,-36 225.28,-36 225.28,0 308.84,0 308.84,-36"></polygon>
+<text text-anchor="middle" x="267.06" y="-13.8" font-family="Times,serif" font-size="14.00">Domain RC</text>
+</g>
+<!-- Relational Calculus&#45;&gt;Domain RC -->
+<g id="edge7" class="edge">
+<title>Relational Calculus-&gt;Domain RC</title>
+<path fill="none" stroke="black" d="M218.88,-71.7C226.63,-63.22 236.1,-52.86 244.59,-43.58"></path>
+<polygon fill="black" stroke="black" points="247.26,-45.85 251.43,-36.1 242.09,-41.12 247.26,-45.85"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+<!-- This conversation is more abstract, focusing on the operators and their operations
+and eventually, what it means to records and tables.-->
+</section></section>
+<section>
+<section id="relational-algebra-1" class="title-slide slide level1 center">
+<h1>Relational Algebra</h1>
+
+</section>
+<section id="relational-algebraic-operators-and-operations" class="slide level2">
+<h2>Relational Algebraic Operators and Operations</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="relational-operators">Relational Operators</h3>
+<ul>
+<li>Selection σ</li>
+<li>Projection π</li>
+<li>Rename ρ</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="set-operators">Set Operators</h3>
+<ul>
+<li>Union ∪</li>
+<li>Intersection ∩</li>
+<li>Difference -</li>
+</ul>
+<h3 id="logical-operators">Logical Operators</h3>
+<ul>
+<li>And ∧</li>
+<li>Or ∨</li>
+<li>Not ¬</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="joins-and-products">Joins and Products</h3>
+<ul>
+<li>Natural join <span class="math inline">\(\bowtie\)</span></li>
+<li>Theta join <span class="math inline">\(\bowtie_{\theta}\)</span></li>
+<li>Left outer join ⟕<br>
+</li>
+<li>Right outer join ⟖</li>
+<li>Full outer join ⟗</li>
+<li>Cartesian product ⨯</li>
+<li>Division ÷</li>
+</ul>
+</div></div>
+<h4 id="additional-resources">Additional Resources</h4>
+<ul>
+<li>Relational Algebra Calculator : <a href="https://dbis-uibk.github.io/relax/landing" class="uri">https://dbis-uibk.github.io/relax/landing</a></li>
+<li>Practice Exercises (HTML): <a href="http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html" class="uri">http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html</a></li>
+<li><a href="http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf">More practice exercises (PDF)</a></li>
+</ul>
 </section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
@@ -482,12 +669,14 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Homework 3</p></li>
+<li><p>Quiz 3</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Query Languages</p></li>
+<li><p>Relational Algebra</p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -595,7 +784,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
