@@ -17,7 +17,8 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    '[Deliverable 5 - pitch video, due Sunday, 9/15](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1021368){target="_blank"}'
+    '[Deliverable 5 - pitch video, due Sunday, 9/15](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1021368){target="_blank"}',
+    '[TA Office Hours](https://virginiacommonwealth.instructure.com/courses/105097/pages/resource-week-welcome-meet-your-instructor-dot-dot-dot)'
 ]
 
 lecture_topics = [
