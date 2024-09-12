@@ -19,6 +19,9 @@ website:
       - href: ./er-models/index.qmd
         text: ER Models
         target: "_blank"
+      - href: ./relational-models/index.qmd
+        text: Relational Models
+        target: "_blank"
       - href: about.qmd
         text: About
   sidebar:
@@ -46,3 +49,23 @@ website:
           text: Best Practices
         - href: er-models/translating-to-relational-schema.qmd
           text: Translation
+      - section: Relational Models
+        contents:
+        - href: ./relational-models/intro-to-relational-models.qmd
+          text: Intro to relational models
+        - href: ./relational-models/schemas-and-keys.qmd
+          text: Schemas and Keys
+        - href: ./relational-models/basic-operations.qmd
+          text: Basic Operations
+        - href: ./relational-models/set-operations.qmd
+          text: Set Operations
+        - href: ./relational-models/join-operations.qmd
+          text: Join Operations
+        - href: ./relational-models/renaming-and-division.qmd
+          text: Renaming and Division
+        - href: ./relational-models/relational-algebra-vs-sql.qmd
+          text: Relational algebra vs SQL
+        - href: ./relational-models/advanced-queries.qmd
+          text: Advanced Queries
+        - href: ./relational-models/practical-applications.qmd
+          text: Practical Applications

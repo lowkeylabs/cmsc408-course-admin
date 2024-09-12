@@ -1,0 +1,69 @@
+---
+title: Overview of Entity relationship models
+---
+
+<!--
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational model and relational algebra, normal forms and normalization, and SQL.
+
+I need your assistance developing materials for 9 20-min long lectures covering the topic of the relational model and relational algebra. As a first step, please provide 9 high-level topics to be covered.
+
+I'd like your response carefully formatted using markdown.  Here is my prescribed format template:
+-example-begin-
+1. [**Overview of Database Design**](overview-of-database-design.qmd)
+   - Definition and purpose of database design.
+   - Overview of key design phases.
+   - Ensuring data integrity, scalability, and alignment with business goals.
+-example-end-
+
+-->
+
+The relational model and relational algebra form the foundation of modern relational databases, providing a framework for data organization and manipulation. These modules will introduce students to the core concepts of the relational model, including relations, keys, and schemas, and guide them through the essential operations of relational algebra. By the end of this series, students will gain the skills to perform complex queries and understand the practical applications of relational databases in real-world scenarios.
+
+
+## Topics in this unit
+
+1. [**Introduction to the Relational Model**](intro-to-relational-models.qmd)
+   - Definition of the relational model.  
+   - Key components: relations, tuples, attributes, domains.  
+   - The importance of the relational model in modern databases.  
+
+2. [**Relational Schemas and Keys**](schemas-and-keys.qmd)  
+   - Defining relational schemas.  
+   - Primary keys, candidate keys, and foreign keys.  
+   - The role of keys in ensuring data integrity.  
+
+3. [**Relational Algebra: Basic Operations**](basic-operations.qmd)  
+   - Introduction to relational algebra.  
+   - Core operations: selection, projection, and union.  
+   - Examples and practical applications of these operations.  
+
+4. [**Set Operations in Relational Algebra**](set-operations.qmd)  
+   - Set theory basics and their application in relational algebra.  
+   - Intersection, difference, and Cartesian product operations.  
+   - Combining relations using set operations.  
+
+5. [**Join Operations in Relational Algebra**](join-operations.qmd)  
+   - Inner join, outer join, and their types (left, right, full).  
+   - Natural join and theta join.  
+   - Use cases and examples of different join operations.  
+
+6. [**Renaming and Division in Relational Algebra**](renaming-and-division.qmd)  
+   - The renaming operation and its use in query design.  
+   - Division operation: definition and examples.  
+   - Application of division in relational queries.  
+
+7. [**Relational Algebra vs SQL**](relational-algebra-vs-sql.qmd)  
+   - Mapping relational algebra operations to SQL.  
+   - Differences between procedural relational algebra and declarative SQL.  
+   - Practical examples demonstrating the use of both.  
+
+8. [**Advanced Relational Algebra Queries**](advanced-queries.qmd)  
+   - Nested queries and complex relational algebra operations.  
+   - Handling multiple relations and subqueries.  
+   - Performance considerations in advanced queries.  
+
+9. [**Practical Applications of the Relational Model**](practical-applications.qmd)  
+   - Real-world use cases of the relational model.  
+   - The role of relational databases in enterprise and cloud environments.  
+   - Limitations of the relational model and when to consider alternatives.  
+

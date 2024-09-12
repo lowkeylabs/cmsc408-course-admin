@@ -2,7 +2,7 @@
 title: CMSC 408 - Databases Study Guide
 ---
 
-* [Entity-Relationship Models](er-models/index.qmd)
-* Relational Algebra (not yet created)
+* [Entity-Relationship Models](./er-models/index.qmd)
+* [Relational Models and Relational Algebra](./relational-models/index.qmd)
 * Normal Forms and Normalization (not yet created)
 * Structured Query Language (not yet created)

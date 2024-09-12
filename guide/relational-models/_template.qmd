@@ -1,0 +1,90 @@
+---
+title: Intro to the relational model
+---
+<!--
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational model and relational algebra, normal forms and normalization, and SQL.
+
+The unit covering relational models and relational algebra includes the following topics:
+
+The relational model and relational algebra form the foundation of modern relational databases, providing a framework for data organization and manipulation. These modules will introduce students to the core concepts of the relational model, including relations, keys, and schemas, and guide them through the essential operations of relational algebra. By the end of this series, students will gain the skills to perform complex queries and understand the practical applications of relational databases in real-world scenarios.
+
+
+1. [**Introduction to the Relational Model**](intro-to-relational-model.qmd)
+   - Definition of the relational model.  
+   - Key components: relations, tuples, attributes, domains.  
+   - The importance of the relational model in modern databases.  
+
+2. [**Relational Schemas and Keys**](relational-schemas-and-keys.qmd)  
+   - Defining relational schemas.  
+   - Primary keys, candidate keys, and foreign keys.  
+   - The role of keys in ensuring data integrity.  
+
+3. [**Relational Algebra: Basic Operations**](relational-algebra-basic-operations.qmd)  
+   - Introduction to relational algebra.  
+   - Core operations: selection, projection, and union.  
+   - Examples and practical applications of these operations.  
+
+4. [**Set Operations in Relational Algebra**](set-operations-in-relational-algebra.qmd)  
+   - Set theory basics and their application in relational algebra.  
+   - Intersection, difference, and Cartesian product operations.  
+   - Combining relations using set operations.  
+
+5. [**Join Operations in Relational Algebra**](join-operations-in-relational-algebra.qmd)  
+   - Inner join, outer join, and their types (left, right, full).  
+   - Natural join and theta join.  
+   - Use cases and examples of different join operations.  
+
+6. [**Renaming and Division in Relational Algebra**](renaming-and-division-in-relational-algebra.qmd)  
+   - The renaming operation and its use in query design.  
+   - Division operation: definition and examples.  
+   - Application of division in relational queries.  
+
+7. [**Relational Algebra vs SQL**](relational-algebra-vs-sql.qmd)  
+   - Mapping relational algebra operations to SQL.  
+   - Differences between procedural relational algebra and declarative SQL.  
+   - Practical examples demonstrating the use of both.  
+
+8. [**Advanced Relational Algebra Queries**](advanced-relational-algebra-queries.qmd)  
+   - Nested queries and complex relational algebra operations.  
+   - Handling multiple relations and subqueries.  
+   - Performance considerations in advanced queries.  
+
+9. [**Practical Applications of the Relational Model**](practical-applications-of-the-relational-model.qmd)  
+   - Real-world use cases of the relational model.  
+   - The role of relational databases in enterprise and cloud environments.  
+   - Limitations of the relational model and when to consider alternatives.  
+
+I'd like you to create 10 slides covering the following topics:
+
+1. [**Introduction to the Relational Model**](intro-to-relational-model.qmd)
+   - Definition of the relational model.  
+   - Key components: relations, tuples, attributes, domains.  
+   - The importance of the relational model in modern databases.  
+
+Formatting of each slide is important.  Here are detailed instruction for the formatting of each slide.
+1. Each slide should consist of a title denoted in markdown header level 2 (##).
+1. Each title should describe the slide contents.  The title should not be numbered, just labeled.
+1. Each slide should lead off with 2 sentences summarizing the content of the slide.
+1. Each slide should contain 5-7 bullets. The bullets should be included in a special pandoc markdown format as shown below.
+1. Each slide should end with an unbolded sentence summarizing the slide.
+
+Below is an example of the formatting:
+---<start-example>
+## Introduction to Entities and Attributes
+
+Entities represent real-world objects or concepts, while attributes describe their characteristics. Understanding these concepts is crucial for effective database design.
+
+::: {.guide-block-left}
+- Entities are objects or things in the real world that have a distinct existence.
+- Examples include a student, a course, a product, or an employee.
+- Attributes are the properties or characteristics of entities.
+- Each entity is represented by a set of attributes.
+- Attributes describe details like the name, age, or ID of an entity.
+:::
+::: {.guide-block-right}
+:::
+
+*Entities and attributes form the foundation of the data model in database design.*
+---<end-example>
+
+-->

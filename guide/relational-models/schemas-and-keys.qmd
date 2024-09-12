@@ -1,0 +1,261 @@
+---
+title: Schemas and keys
+---
+<!--
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational model and relational algebra, normal forms and normalization, and SQL.
+
+The unit covering relational models and relational algebra includes the following topics:
+
+The relational model and relational algebra form the foundation of modern relational databases, providing a framework for data organization and manipulation. These modules will introduce students to the core concepts of the relational model, including relations, keys, and schemas, and guide them through the essential operations of relational algebra. By the end of this series, students will gain the skills to perform complex queries and understand the practical applications of relational databases in real-world scenarios.
+
+
+1. [**Introduction to the Relational Model**](intro-to-relational-model.qmd)
+   - Definition of the relational model.  
+   - Key components: relations, tuples, attributes, domains.  
+   - The importance of the relational model in modern databases.  
+
+2. [**Relational Schemas and Keys**](relational-schemas-and-keys.qmd)  
+   - Defining relational schemas.  
+   - Primary keys, candidate keys, and foreign keys.  
+   - The role of keys in ensuring data integrity.  
+
+3. [**Relational Algebra: Basic Operations**](relational-algebra-basic-operations.qmd)  
+   - Introduction to relational algebra.  
+   - Core operations: selection, projection, and union.  
+   - Examples and practical applications of these operations.  
+
+4. [**Set Operations in Relational Algebra**](set-operations-in-relational-algebra.qmd)  
+   - Set theory basics and their application in relational algebra.  
+   - Intersection, difference, and Cartesian product operations.  
+   - Combining relations using set operations.  
+
+5. [**Join Operations in Relational Algebra**](join-operations-in-relational-algebra.qmd)  
+   - Inner join, outer join, and their types (left, right, full).  
+   - Natural join and theta join.  
+   - Use cases and examples of different join operations.  
+
+6. [**Renaming and Division in Relational Algebra**](renaming-and-division-in-relational-algebra.qmd)  
+   - The renaming operation and its use in query design.  
+   - Division operation: definition and examples.  
+   - Application of division in relational queries.  
+
+7. [**Relational Algebra vs SQL**](relational-algebra-vs-sql.qmd)  
+   - Mapping relational algebra operations to SQL.  
+   - Differences between procedural relational algebra and declarative SQL.  
+   - Practical examples demonstrating the use of both.  
+
+8. [**Advanced Relational Algebra Queries**](advanced-relational-algebra-queries.qmd)  
+   - Nested queries and complex relational algebra operations.  
+   - Handling multiple relations and subqueries.  
+   - Performance considerations in advanced queries.  
+
+9. [**Practical Applications of the Relational Model**](practical-applications-of-the-relational-model.qmd)  
+   - Real-world use cases of the relational model.  
+   - The role of relational databases in enterprise and cloud environments.  
+   - Limitations of the relational model and when to consider alternatives.  
+
+I'd like you to create 10 slides covering the following topics:
+
+2. [**Relational Schemas and Keys**](relational-schemas-and-keys.qmd)  
+   - Defining relational schemas.  
+   - Primary keys, candidate keys, and foreign keys.  
+   - The role of keys in ensuring data integrity.  
+
+Formatting of each slide is important.  Here are detailed instruction for the formatting of each slide.
+1. Each slide should consist of a title denoted in markdown header level 2 (##).
+1. Each title should describe the slide contents.  The title should not be numbered, just labeled.
+1. Each slide should lead off with 2 sentences summarizing the content of the slide.
+1. Each slide should contain 5-7 bullets. The bullets should be included in a special pandoc markdown format as shown below.
+1. Each slide should end with an unbolded sentence summarizing the slide.
+
+Below is an example of the formatting:
+<start-example>
+## Introduction to Entities and Attributes
+
+Entities represent real-world objects or concepts, while attributes describe their characteristics. Understanding these concepts is crucial for effective database design.
+
+::: {.guide-block-left}
+- Entities are objects or things in the real world that have a distinct existence.
+- Examples include a student, a course, a product, or an employee.
+- Attributes are the properties or characteristics of entities.
+- Each entity is represented by a set of attributes.
+- Attributes describe details like the name, age, or ID of an entity.
+:::
+::: {.guide-block-right}
+:::
+
+*Entities and attributes form the foundation of the data model in database design.*
+<end-example>
+
+-->
+
+Relational schemas and keys are fundamental to organizing data in a relational database, ensuring its integrity and accessibility. Schemas define the structure of tables, while keys—such as primary, candidate, and foreign keys—uniquely identify records and establish relationships between tables. These concepts are crucial for maintaining data integrity, preventing redundancy, and supporting complex queries. A solid understanding of schemas and keys is essential for effective database design and management.
+
+## Defining Relational Schemas
+
+Relational schemas provide the blueprint for how data is organized in a relational database. Understanding schemas is key to effectively designing and structuring data.
+
+::: {.guide-block-left}
+- A relational schema defines the structure of a relation (table) in the database.
+- It specifies the table name, its attributes, and their data types.
+- Each table in a database corresponds to a specific relational schema.
+- Attributes represent columns in the table, holding specific types of data.
+- Relational schemas establish constraints on how data is entered and stored.
+:::
+::: {.guide-block-right}
+:::
+
+*A well-defined schema is essential for consistent and efficient data storage.*
+
+
+## Understanding Primary Keys
+
+Primary keys uniquely identify each record in a relational table, ensuring there are no duplicates. They are fundamental to maintaining data integrity and supporting relationships between tables.
+
+::: {.guide-block-left}
+- A primary key is a column (or a set of columns) in a table that uniquely identifies each row.
+- No two rows can have the same primary key value.
+- The primary key cannot contain null values.
+- It serves as the unique identifier for the records in the table.
+- Each relational table should have a defined primary key to ensure data integrity.
+:::
+::: {.guide-block-right}
+:::
+
+*Primary keys play a crucial role in maintaining the uniqueness of records in relational databases.*
+
+
+## Exploring Candidate Keys
+
+Candidate keys are potential primary keys in a table, and one of them is chosen as the primary key. Understanding candidate keys helps in identifying the best unique identifier for a table.
+
+::: {.guide-block-left}
+- A candidate key is any set of columns that can uniquely identify rows in a table.
+- Each table can have multiple candidate keys.
+- A candidate key must have unique values and cannot contain nulls.
+- The primary key is selected from the candidate keys.
+- If no primary key is defined, the system might use one of the candidate keys.
+:::
+::: {.guide-block-right}
+:::
+
+*Candidate keys provide alternative options for uniquely identifying rows in a relational table.*
+
+
+## Role of Foreign Keys
+
+Foreign keys establish relationships between tables in a relational database, linking records in one table to records in another. They ensure referential integrity across the database.
+
+::: {.guide-block-left}
+- A foreign key is a column (or set of columns) in a table that refers to a primary key in another table.
+- It establishes a link between two tables based on shared data.
+- Foreign keys ensure referential integrity by restricting the deletion of referenced rows.
+- They help maintain consistency in the database by enforcing relationships.
+- Foreign keys allow for the creation of more complex queries by combining related tables.
+:::
+::: {.guide-block-right}
+:::
+
+*Foreign keys are essential for managing relationships and ensuring data integrity between tables.*
+
+
+## Enforcing Referential Integrity with Keys
+
+Keys, particularly foreign and primary keys, help ensure that data across tables remains consistent and valid. Enforcing referential integrity prevents orphaned records and broken links in the database.
+
+::: {.guide-block-left}
+- Referential integrity ensures that relationships between tables remain valid.
+- It is maintained using foreign keys to link tables.
+- Deleting or updating a record referenced by a foreign key is restricted to avoid broken links.
+- Keys ensure that the database remains logically coherent.
+- Violating referential integrity could lead to data inconsistencies and errors.
+:::
+::: {.guide-block-right}
+:::
+
+*Referential integrity ensures the accuracy and consistency of data across related tables.*
+
+
+## Defining Composite Keys
+
+Composite keys consist of two or more columns that, together, form a unique identifier for a table's rows. They are used when no single attribute is sufficient to uniquely identify a row.
+
+::: {.guide-block-left}
+- A composite key is a combination of two or more columns used to uniquely identify a record.
+- It is used when a single column cannot provide uniqueness.
+- Composite keys are common in many-to-many relationships between tables.
+- They must meet the same requirements as primary keys: unique and non-null.
+- Composite keys allow for complex relationships that cannot be handled by a single attribute.
+:::
+::: {.guide-block-right}
+:::
+
+*Composite keys provide a way to uniquely identify rows when no single attribute can do so.*
+
+
+## Importance of Keys in Data Integrity
+
+Keys, including primary, candidate, and foreign keys, are critical for ensuring the accuracy and consistency of data in relational databases. They enforce rules that maintain the integrity of the database.
+
+::: {.guide-block-left}
+- Keys enforce unique constraints, preventing duplicate rows.
+- They establish relationships between tables, maintaining referential integrity.
+- Primary keys ensure that each record is uniquely identifiable.
+- Foreign keys ensure that relationships between tables remain consistent.
+- Without keys, data integrity would be difficult to maintain in relational databases.
+:::
+::: {.guide-block-right}
+:::
+
+*Keys are fundamental to maintaining data integrity and consistency in relational databases.*
+
+
+## Normalization and Keys
+
+Normalization uses keys to organize data into multiple related tables, reducing redundancy and dependency. Keys help in identifying relationships between these normalized tables.
+
+::: {.guide-block-left}
+- Normalization breaks down data into related tables to minimize redundancy.
+- Keys play a central role in linking these tables and maintaining relationships.
+- Primary keys ensure that each record in a normalized table is unique.
+- Foreign keys link normalized tables, preserving relationships without redundancy.
+- Normalization simplifies data structures while preserving integrity through keys.
+:::
+::: {.guide-block-right}
+:::
+
+*Keys are vital to the normalization process, ensuring well-structured and efficient data storage.*
+
+
+## Designing Effective Relational Schemas
+
+Effective schema design relies on identifying the correct keys and structuring the data accordingly. Good design simplifies database management and ensures data integrity.
+
+::: {.guide-block-left}
+- Schema design involves defining the table structure and identifying the correct keys.
+- Primary keys should be carefully chosen to ensure efficient access and data integrity.
+- Foreign keys must be properly defined to enforce relationships between tables.
+- Good schema design minimizes redundancy and optimizes query performance.
+- Thoughtful design prevents issues such as data anomalies and update conflicts.
+:::
+::: {.guide-block-right}
+:::
+
+*Effective schema design is essential for maintaining data integrity and optimizing database performance.*
+
+
+## Summary of Relational Schemas and Keys
+
+Relational schemas and keys are central to organizing and maintaining data in relational databases. Keys ensure the uniqueness of records, preserve relationships, and support data integrity.
+
+::: {.guide-block-left}
+- Relational schemas define the structure of tables in the database.
+- Primary keys uniquely identify each row in a table.
+- Candidate keys provide alternative options for identifying rows.
+- Foreign keys maintain relationships between tables.
+- Good schema design relies on proper use of keys to maintain data integrity.
+:::
+::: {.guide-block-right}
+:::
+
+*Understanding relational schemas and keys is essential for designing efficient, reliable relational databases.*

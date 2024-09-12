@@ -1,0 +1,253 @@
+---
+title: Basic Operations
+---
+<!--
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational model and relational algebra, normal forms and normalization, and SQL.
+
+The unit covering relational models and relational algebra includes the following topics:
+
+The relational model and relational algebra form the foundation of modern relational databases, providing a framework for data organization and manipulation. These modules will introduce students to the core concepts of the relational model, including relations, keys, and schemas, and guide them through the essential operations of relational algebra. By the end of this series, students will gain the skills to perform complex queries and understand the practical applications of relational databases in real-world scenarios.
+
+
+1. [**Introduction to the Relational Model**](intro-to-relational-model.qmd)
+   - Definition of the relational model.  
+   - Key components: relations, tuples, attributes, domains.  
+   - The importance of the relational model in modern databases.  
+
+2. [**Relational Schemas and Keys**](relational-schemas-and-keys.qmd)  
+   - Defining relational schemas.  
+   - Primary keys, candidate keys, and foreign keys.  
+   - The role of keys in ensuring data integrity.  
+
+3. [**Relational Algebra: Basic Operations**](relational-algebra-basic-operations.qmd)  
+   - Introduction to relational algebra.  
+   - Core operations: selection, projection, and union.  
+   - Examples and practical applications of these operations.  
+
+4. [**Set Operations in Relational Algebra**](set-operations-in-relational-algebra.qmd)  
+   - Set theory basics and their application in relational algebra.  
+   - Intersection, difference, and Cartesian product operations.  
+   - Combining relations using set operations.  
+
+5. [**Join Operations in Relational Algebra**](join-operations-in-relational-algebra.qmd)  
+   - Inner join, outer join, and their types (left, right, full).  
+   - Natural join and theta join.  
+   - Use cases and examples of different join operations.  
+
+6. [**Renaming and Division in Relational Algebra**](renaming-and-division-in-relational-algebra.qmd)  
+   - The renaming operation and its use in query design.  
+   - Division operation: definition and examples.  
+   - Application of division in relational queries.  
+
+7. [**Relational Algebra vs SQL**](relational-algebra-vs-sql.qmd)  
+   - Mapping relational algebra operations to SQL.  
+   - Differences between procedural relational algebra and declarative SQL.  
+   - Practical examples demonstrating the use of both.  
+
+8. [**Advanced Relational Algebra Queries**](advanced-relational-algebra-queries.qmd)  
+   - Nested queries and complex relational algebra operations.  
+   - Handling multiple relations and subqueries.  
+   - Performance considerations in advanced queries.  
+
+9. [**Practical Applications of the Relational Model**](practical-applications-of-the-relational-model.qmd)  
+   - Real-world use cases of the relational model.  
+   - The role of relational databases in enterprise and cloud environments.  
+   - Limitations of the relational model and when to consider alternatives.  
+
+I'd like you to create 10 slides covering the following topics:
+
+3. [**Relational Algebra: Basic Operations**](relational-algebra-basic-operations.qmd)  
+   - Introduction to relational algebra.  
+   - Core operations: selection, projection, and union.  
+   - Examples and practical applications of these operations.  
+
+Formatting of each slide is important.  Here are detailed instruction for the formatting of each slide.
+1. Each slide should consist of a title denoted in markdown header level 2 (##).
+1. Each title should describe the slide contents.  The title should not be numbered, just labeled.
+1. Each slide should lead off with 2 sentences summarizing the content of the slide.
+1. Each slide should contain 5-7 bullets. The bullets should be included in a special pandoc markdown format as shown below.
+1. Each slide should end with an unbolded sentence summarizing the slide.
+
+Below is an example of the formatting:
+
+<start-example>
+## Introduction to Entities and Attributes
+
+Entities represent real-world objects or concepts, while attributes describe their characteristics. Understanding these concepts is crucial for effective database design.
+
+::: {.guide-block-left}
+- Entities are objects or things in the real world that have a distinct existence.
+- Examples include a student, a course, a product, or an employee.
+- Attributes are the properties or characteristics of entities.
+- Each entity is represented by a set of attributes.
+- Attributes describe details like the name, age, or ID of an entity.
+:::
+::: {.guide-block-right}
+:::
+
+*Entities and attributes form the foundation of the data model in database design.*
+<end-example>
+
+-->
+
+The slides introduce the fundamental concepts of relational algebra, focusing on the core operations of selection, projection, and union. Each operation is explained with practical examples, demonstrating their use in querying and manipulating relational databases. These operations form the foundation for more advanced database queries and serve as the basis for SQL and other query languages.
+
+## Introduction to Relational Algebra
+
+Relational algebra is a formal system for manipulating relations, foundational for querying relational databases. This section introduces the core principles and significance of relational algebra in database systems.
+
+::: {.guide-block-left}
+- Relational algebra is a procedural query language.
+- It provides the formal foundation for relational database operations.
+- Operations in relational algebra manipulate sets of tuples.
+- The basic operations include selection, projection, and union.
+- Understanding relational algebra is crucial for effective query optimization.
+:::
+::: {.guide-block-right}
+:::
+
+*Relational algebra underpins the structure and functionality of modern relational databases.*
+
+## Selection Operation in Relational Algebra
+
+The selection operation retrieves rows from a relation that meet specified conditions. It allows narrowing down data based on predicates, forming a key part of querying in relational databases.
+
+::: {.guide-block-left}
+- Selection filters rows based on a condition (predicate).
+- The result includes only those tuples that satisfy the predicate.
+- Denoted as σ(condition)(Relation).
+- It's a unary operation, meaning it operates on a single relation.
+- Selection is often used in conjunction with other operations like projection.
+:::
+::: {.guide-block-right}
+:::
+
+*The selection operation is essential for isolating relevant data in relational databases.*
+
+## Projection Operation in Relational Algebra
+
+The projection operation retrieves specific columns from a relation. It enables focusing on certain attributes while discarding others, making it a key operation in relational queries.
+
+::: {.guide-block-left}
+- Projection reduces the relation to specific columns (attributes).
+- Denoted as Π(attribute1, attribute2,...)(Relation).
+- It's used to eliminate unnecessary or redundant data.
+- Like selection, projection is a unary operation.
+- Projection can be combined with other operations for complex queries.
+:::
+::: {.guide-block-right}
+:::
+
+*Projection helps streamline query results by focusing on relevant attributes.*
+
+## Union Operation in Relational Algebra
+
+The union operation combines tuples from two relations, eliminating duplicates. It's an essential set operation in relational algebra, used for merging query results.
+
+::: {.guide-block-left}
+- Union combines two relations into a single relation.
+- Both relations must be union-compatible (same number of attributes and domains).
+- Denoted as R ∪ S.
+- Duplicates are automatically removed from the result.
+- Union is a binary operation, meaning it operates on two relations.
+:::
+::: {.guide-block-right}
+:::
+
+*The union operation enables the merging of datasets in a relational context.*
+
+## Practical Example: Selection Operation
+
+The selection operation can filter data based on specified conditions, such as selecting students with grades above a certain threshold. This example illustrates its practical application.
+
+::: {.guide-block-left}
+- Suppose we have a relation Students(Name, Grade).
+- Selection query: σ(Grade > 75)(Students).
+- The result includes all students with grades above 75.
+- Selection allows filtering based on conditions relevant to the query.
+- It’s commonly used in real-world database applications, such as reporting or analytics.
+:::
+::: {.guide-block-right}
+:::
+
+*Selection is a practical tool for retrieving specific subsets of data in databases.*
+
+## Practical Example: Projection Operation
+
+The projection operation can reduce data to essential attributes, such as selecting only student names from a larger dataset. This example demonstrates its use.
+
+::: {.guide-block-left}
+- Suppose we have a relation Students(Name, Grade).
+- Projection query: Π(Name)(Students).
+- The result includes only the names of students, excluding their grades.
+- Projection helps focus on relevant data when full details aren’t needed.
+- It's useful in reporting and data analysis tasks.
+:::
+::: {.guide-block-right}
+:::
+
+*Projection simplifies query results by narrowing down the columns in the output.*
+
+## Practical Example: Union Operation
+
+The union operation can merge data from two different relations, such as combining two classes’ student lists. This example shows how it’s used in practice.
+
+::: {.guide-block-left}
+- Suppose we have two relations: ClassA(Name), ClassB(Name).
+- Union query: ClassA ∪ ClassB.
+- The result includes all students from both classes, with duplicates removed.
+- Union is commonly used to combine results from separate queries.
+- It simplifies merging similar datasets in databases.
+:::
+::: {.guide-block-right}
+:::
+
+*Union is a powerful operation for combining multiple datasets in relational databases.*
+
+## Combining Selection and Projection
+
+In real-world queries, selection and projection are often combined to both filter and reduce data. This allows for more refined and efficient query results.
+
+::: {.guide-block-left}
+- Suppose we have a relation Students(Name, Grade).
+- Query: Π(Name)(σ(Grade > 75)(Students)).
+- The result includes only the names of students with grades above 75.
+- Combining operations allows for more complex and specific queries.
+- Selection and projection together form the backbone of query design.
+:::
+::: {.guide-block-right}
+:::
+
+*Combining operations enables precise and targeted query results in relational databases.*
+
+## Practical Application: Reporting System
+
+Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. This slide explores how basic operations are applied in practice.
+
+::: {.guide-block-left}
+- Example: Generating a list of employees eligible for a bonus.
+- Selection operation to filter eligible employees based on criteria (e.g., performance).
+- Projection to display only relevant fields (e.g., Name, Department).
+- Union to combine results from different departments.
+- Relational algebra operations underpin practical reporting tools.
+:::
+::: {.guide-block-right}
+:::
+
+*Relational algebra operations provide a foundation for building dynamic and flexible reporting systems.*
+
+## Conclusion: Mastering Basic Relational Algebra
+
+Understanding the basic operations of relational algebra is crucial for working with relational databases. These operations enable effective data querying, filtering, and combination.
+
+::: {.guide-block-left}
+- Selection, projection, and union are foundational operations.
+- Each operation serves a specific purpose in querying relational data.
+- Combining operations enables more complex and powerful queries.
+- Mastering these operations is essential for advanced database management.
+- Relational algebra forms the core of SQL and other query languages.
+:::
+::: {.guide-block-right}
+:::
+
+*Mastering relational algebra is key to becoming proficient in database management and query design.*

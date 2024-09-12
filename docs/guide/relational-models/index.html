@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Translating to Relational Schema – CMSC 408 - Databases Study Guide</title>
+<title>Overview of Entity relationship models – CMSC 408 - Databases Study Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../relational-models/intro-to-relational-models.html" rel="next">
-<link href="../er-models/best-practices.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">ER Models</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../relational-models/index.html" target="_blank"> 
+    <a class="nav-link active" href="../relational-models/index.html" target="_blank" aria-current="page"> 
 <span class="menu-text">Relational Models</span></a>
   </li>  
   <li class="nav-item">
@@ -117,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/translating-to-relational-schema.html">Translation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Overview of Entity relationship models</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -194,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../er-models/translating-to-relational-schema.html" class="sidebar-item-text sidebar-link active">
+  <a href="../er-models/translating-to-relational-schema.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Translation</span></a>
   </div>
 </li>
@@ -275,25 +273,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#converting-er-diagrams-to-relational-schemas" id="toc-converting-er-diagrams-to-relational-schemas" class="nav-link active" data-scroll-target="#converting-er-diagrams-to-relational-schemas">Converting ER Diagrams to Relational Schemas</a></li>
-  <li><a href="#mapping-entities-to-tables" id="toc-mapping-entities-to-tables" class="nav-link" data-scroll-target="#mapping-entities-to-tables">Mapping Entities to Tables</a></li>
-  <li><a href="#mapping-relationships-to-foreign-keys" id="toc-mapping-relationships-to-foreign-keys" class="nav-link" data-scroll-target="#mapping-relationships-to-foreign-keys">Mapping Relationships to Foreign Keys</a></li>
-  <li><a href="#handling-composite-attributes" id="toc-handling-composite-attributes" class="nav-link" data-scroll-target="#handling-composite-attributes">Handling Composite Attributes</a></li>
-  <li><a href="#dealing-with-multivalued-attributes" id="toc-dealing-with-multivalued-attributes" class="nav-link" data-scroll-target="#dealing-with-multivalued-attributes">Dealing with Multivalued Attributes</a></li>
-  <li><a href="#mapping-weak-entities" id="toc-mapping-weak-entities" class="nav-link" data-scroll-target="#mapping-weak-entities">Mapping Weak Entities</a></li>
-  <li><a href="#handling-many-to-many-relationships" id="toc-handling-many-to-many-relationships" class="nav-link" data-scroll-target="#handling-many-to-many-relationships">Handling Many-to-Many Relationships</a></li>
-  <li><a href="#mapping-generalization-and-specialization" id="toc-mapping-generalization-and-specialization" class="nav-link" data-scroll-target="#mapping-generalization-and-specialization">Mapping Generalization and Specialization</a></li>
-  <li><a href="#managing-constraints-and-complex-relationships" id="toc-managing-constraints-and-complex-relationships" class="nav-link" data-scroll-target="#managing-constraints-and-complex-relationships">Managing Constraints and Complex Relationships</a></li>
-  <li><a href="#summary-of-er-to-relational-schema-translation" id="toc-summary-of-er-to-relational-schema-translation" class="nav-link" data-scroll-target="#summary-of-er-to-relational-schema-translation">Summary of ER to Relational Schema Translation</a></li>
+  <li><a href="#topics-in-this-unit" id="toc-topics-in-this-unit" class="nav-link active" data-scroll-target="#topics-in-this-unit">Topics in this unit</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../er-models/overview-of-database-design.html">ER Modeling</a></li><li class="breadcrumb-item"><a href="../er-models/translating-to-relational-schema.html">Translation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Translating to Relational Schema</h1>
+<h1 class="title">Overview of Entity relationship models</h1>
 </div>
 
 
@@ -311,282 +300,96 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!--
-Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational algebra, normal forms and normalization, and SQL.
+Hey Chatgpt.  I'd you to play the role of a professor teaching an undergraduate computer science course covering databases.  The course consists of several modules including: entity-relationship models, relational model and relational algebra, normal forms and normalization, and SQL.
 
-Here are nine 20-min or so lectures.
+I need your assistance developing materials for 9 20-min long lectures covering the topic of the relational model and relational algebra. As a first step, please provide 9 high-level topics to be covered.
 
-1. **Introduction to Entity-Relationship Models**
-   - Definition and importance of ER models in database design.
-   - Overview of components: entities, relationships, and attributes.
-   - Differences between conceptual, logical, and physical data models.
-
-2. **Entities and Attributes**
-   - Definition and examples of entities.
-   - Understanding attributes and their types (simple, composite, derived).
-   - Attribute domains and constraints.
-
-3. **Relationships and Cardinality**
-   - Definition and examples of relationships.
-   - Types of relationships: one-to-one, one-to-many, many-to-many.
-   - Understanding and depicting cardinality and participation constraints.
-
-4. **Keys and Identifiers**
-   - Importance of keys in database design.
-   - Primary keys, candidate keys, and composite keys.
-   - Surrogate keys vs. natural keys.
-
-5. **ER Diagrams: Symbols and Notation**
-   - Standard symbols and notations used in ER diagrams.
-   - Differences between Chen’s notation and Crow's Foot notation.
-   - Practice creating ER diagrams using different notations.
-
-6. **Weak Entities and Strong Entities**
-   - Definition and examples of weak entities.
-   - Identifying weak entities and their relationships to strong entities.
-   - Use of partial keys and identifying relationships.
-
-7. **Advanced ER Modeling Concepts**
-   - Specialization and generalization.
-   - Aggregation and composition.
-   - Understanding inheritance in ER models.
-
-8. **ER Modeling Best Practices and Common Pitfalls**
-   - Guidelines for effective ER modeling.
-   - Common mistakes to avoid in ER modeling.
-   - Case studies and real-world examples.
-
-9. **Translating ER Models to Relational Schema**
-   - Converting ER diagrams to relational schemas.
-   - Mapping entities, relationships, and attributes.
-   - Handling complex relationships and constraints in the relational model.
-
-I'd like you to create 10 slides covering the following topics:
-
-9. **Translating ER Models to Relational Schema**
-   - Converting ER diagrams to relational schemas.
-   - Mapping entities, relationships, and attributes.
-   - Handling complex relationships and constraints in the relational model.
-
-Formatting of each slide is important.  Here are detailed instruction for the formatting of each slide.
-1. Each slide should consist of a title denoted in markdown header level 2 (##).
-1. Each title should describe the slide contents.  The title should not be numbered, just labeled.
-1. Each slide should lead off with 2 sentences summarizing the content of the slide.
-1. Each slide should contain 5-7 bullets. The bullets should be included in a special pandoc markdown format as shown below.
-1. Each slide should end with an unbolded sentence summarizing the slide.
-
-Below is an example of the formatting:
----<start-example>
-## Introduction to Entities and Attributes
-
-Entities represent real-world objects or concepts, while attributes describe their characteristics. Understanding these concepts is crucial for effective database design.
-
-:::: {.columns}
-::: {.column width=95%}
-- Entities are objects or things in the real world that have a distinct existence.
-- Examples include a student, a course, a product, or an employee.
-- Attributes are the properties or characteristics of entities.
-- Each entity is represented by a set of attributes.
-- Attributes describe details like the name, age, or ID of an entity.
-:::
-::: {.column width=5%}
-&nbsp;
-:::
-::::
-
-*Entities and attributes form the foundation of the data model in database design.*
----<end-example>
+I'd like your response carefully formatted using markdown.  Here is my prescribed format template:
+-example-begin-
+1. [**Overview of Database Design**](overview-of-database-design.qmd)
+   - Definition and purpose of database design.
+   - Overview of key design phases.
+   - Ensuring data integrity, scalability, and alignment with business goals.
+-example-end-
 
 -->
-<p>Translating ER diagrams to relational schemas involves converting the conceptual design of a database into a logical structure that can be implemented in a relational database. This process includes mapping entities to tables, attributes to columns, and relationships to foreign keys, ensuring that the logical schema accurately represents the relationships and constraints defined in the ER model. Proper translation is essential for maintaining data integrity and supporting the intended queries and operations on the database.</p>
-<section id="converting-er-diagrams-to-relational-schemas" class="level2">
-<h2 class="anchored" data-anchor-id="converting-er-diagrams-to-relational-schemas">Converting ER Diagrams to Relational Schemas</h2>
-<p>Translating ER diagrams into relational schemas is a fundamental step in database design. This process involves converting entities, relationships, and attributes into tables, columns, and constraints.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<p>The relational model and relational algebra form the foundation of modern relational databases, providing a framework for data organization and manipulation. These modules will introduce students to the core concepts of the relational model, including relations, keys, and schemas, and guide them through the essential operations of relational algebra. By the end of this series, students will gain the skills to perform complex queries and understand the practical applications of relational databases in real-world scenarios.</p>
+<section id="topics-in-this-unit" class="level2">
+<h2 class="anchored" data-anchor-id="topics-in-this-unit">Topics in this unit</h2>
+<ol type="1">
+<li><a href="../relational-models/intro-to-relational-models.html"><strong>Introduction to the Relational Model</strong></a>
 <ul>
-<li>Entities in the ER diagram typically become tables in the relational schema.</li>
-<li>Each attribute of an entity maps to a column in the corresponding table.</li>
-<li>Relationships between entities often become foreign keys in the relational schema.</li>
-<li>For many-to-many relationships, an associative entity or junction table is created.</li>
-<li>Primary keys from the ER model are carried over as primary keys in the relational schema.</li>
-<li>Composite attributes are typically flattened into individual columns in the table.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Converting ER diagrams to relational schemas is essential for implementing the logical structure of a database.</em></p>
-</section>
-<section id="mapping-entities-to-tables" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-entities-to-tables">Mapping Entities to Tables</h2>
-<p>Mapping entities to tables involves creating a table for each entity in the ER model. Each table consists of columns that represent the attributes of the entity.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Definition of the relational model.<br>
+</li>
+<li>Key components: relations, tuples, attributes, domains.<br>
+</li>
+<li>The importance of the relational model in modern databases.</li>
+</ul></li>
+<li><a href="../relational-models/schemas-and-keys.html"><strong>Relational Schemas and Keys</strong></a>
 <ul>
-<li>Each entity in the ER model becomes a table in the relational schema.</li>
-<li>The table’s columns correspond to the entity’s attributes.</li>
-<li>The primary key of the entity becomes the primary key of the table.</li>
-<li>Composite attributes are divided into separate columns.</li>
-<li>Derived attributes are not typically included as columns in the table.</li>
-<li>Multivalued attributes require special handling, often involving separate tables.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Mapping entities to tables is the first step in creating a relational schema from an ER model.</em></p>
-</section>
-<section id="mapping-relationships-to-foreign-keys" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-relationships-to-foreign-keys">Mapping Relationships to Foreign Keys</h2>
-<p>Relationships in the ER model are implemented using foreign keys in the relational schema. Foreign keys enforce referential integrity between related tables.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Defining relational schemas.<br>
+</li>
+<li>Primary keys, candidate keys, and foreign keys.<br>
+</li>
+<li>The role of keys in ensuring data integrity.</li>
+</ul></li>
+<li><a href="../relational-models/basic-operations.html"><strong>Relational Algebra: Basic Operations</strong></a>
 <ul>
-<li>One-to-one relationships may result in a foreign key in either of the related tables.</li>
-<li>One-to-many relationships are implemented with a foreign key in the “many” side table.</li>
-<li>Many-to-many relationships are implemented with a junction table that includes foreign keys from both related tables.</li>
-<li>Foreign keys maintain the referential integrity between tables.</li>
-<li>Constraints such as ON DELETE CASCADE can be used to manage related records.</li>
-<li>Proper indexing of foreign keys improves query performance.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Foreign keys are crucial for maintaining the relationships defined in the ER model.</em></p>
-</section>
-<section id="handling-composite-attributes" class="level2">
-<h2 class="anchored" data-anchor-id="handling-composite-attributes">Handling Composite Attributes</h2>
-<p>Composite attributes need to be flattened into individual columns in the relational schema. This ensures that each column stores a single, atomic value.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Introduction to relational algebra.<br>
+</li>
+<li>Core operations: selection, projection, and union.<br>
+</li>
+<li>Examples and practical applications of these operations.</li>
+</ul></li>
+<li><a href="../relational-models/set-operations.html"><strong>Set Operations in Relational Algebra</strong></a>
 <ul>
-<li>Composite attributes are attributes that can be divided into smaller subparts.</li>
-<li>Each subpart of a composite attribute is represented as a separate column.</li>
-<li>For example, a “Full Name” attribute might be split into “First Name” and “Last Name.”</li>
-<li>The original composite attribute does not appear as a separate column in the table.</li>
-<li>Flattening ensures compliance with the principles of normalization.</li>
-<li>This process helps avoid redundancy and improves data consistency.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Flattening composite attributes is essential for adhering to relational database design principles.</em></p>
-</section>
-<section id="dealing-with-multivalued-attributes" class="level2">
-<h2 class="anchored" data-anchor-id="dealing-with-multivalued-attributes">Dealing with Multivalued Attributes</h2>
-<p>Multivalued attributes, which can have multiple values for a single entity, are handled by creating separate tables. This ensures that each value is stored in its own record.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Set theory basics and their application in relational algebra.<br>
+</li>
+<li>Intersection, difference, and Cartesian product operations.<br>
+</li>
+<li>Combining relations using set operations.</li>
+</ul></li>
+<li><a href="../relational-models/join-operations.html"><strong>Join Operations in Relational Algebra</strong></a>
 <ul>
-<li>Multivalued attributes allow an entity to have multiple values for a single attribute.</li>
-<li>In the relational schema, multivalued attributes require a separate table.</li>
-<li>The separate table typically includes a foreign key referencing the original entity’s table.</li>
-<li>Each record in the new table represents one value of the multivalued attribute.</li>
-<li>This approach avoids repeating groups and maintains data normalization.</li>
-<li>Example: A “Phone Numbers” attribute might become a separate table linked to the “Person” table.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Handling multivalued attributes with separate tables ensures the schema remains normalized and manageable.</em></p>
-</section>
-<section id="mapping-weak-entities" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-weak-entities">Mapping Weak Entities</h2>
-<p>Weak entities, which depend on other entities for their existence, require special handling in relational schemas. They are typically implemented using a combination of primary and foreign keys.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Inner join, outer join, and their types (left, right, full).<br>
+</li>
+<li>Natural join and theta join.<br>
+</li>
+<li>Use cases and examples of different join operations.</li>
+</ul></li>
+<li><a href="../relational-models/renaming-and-division.html"><strong>Renaming and Division in Relational Algebra</strong></a>
 <ul>
-<li>Weak entities lack a primary key of their own and rely on a “strong” entity for identification.</li>
-<li>In the relational schema, weak entities are represented by tables that include a foreign key from the strong entity.</li>
-<li>The primary key of the weak entity’s table is often a composite key including the foreign key.</li>
-<li>This approach ensures that each instance of the weak entity is uniquely identifiable.</li>
-<li>Relationships between weak and strong entities must be carefully mapped to maintain integrity.</li>
-<li>Example: A “Dependent” table might include a foreign key to the “Employee” table, along with a partial key like “Dependent ID.”</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Mapping weak entities requires careful consideration to ensure they are correctly represented in the relational schema.</em></p>
-</section>
-<section id="handling-many-to-many-relationships" class="level2">
-<h2 class="anchored" data-anchor-id="handling-many-to-many-relationships">Handling Many-to-Many Relationships</h2>
-<p>Many-to-many relationships in the ER model are converted into relational schemas by creating a junction table. This table holds foreign keys from both participating entities.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>The renaming operation and its use in query design.<br>
+</li>
+<li>Division operation: definition and examples.<br>
+</li>
+<li>Application of division in relational queries.</li>
+</ul></li>
+<li><a href="../relational-models/relational-algebra-vs-sql.html"><strong>Relational Algebra vs SQL</strong></a>
 <ul>
-<li>Many-to-many relationships involve multiple instances of two entities relating to each other.</li>
-<li>A junction table is used to represent the many-to-many relationship in the relational schema.</li>
-<li>The junction table includes foreign keys from both related tables.</li>
-<li>The primary key of the junction table is typically a composite key made up of the two foreign keys.</li>
-<li>Additional attributes of the relationship can also be stored in the junction table.</li>
-<li>This approach ensures that the many-to-many relationship is correctly implemented without redundancy.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Junction tables are essential for accurately representing many-to-many relationships in a relational schema.</em></p>
-</section>
-<section id="mapping-generalization-and-specialization" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-generalization-and-specialization">Mapping Generalization and Specialization</h2>
-<p>Generalization and specialization in ER models are mapped to relational schemas using either a single table or multiple tables, depending on the approach.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Mapping relational algebra operations to SQL.<br>
+</li>
+<li>Differences between procedural relational algebra and declarative SQL.<br>
+</li>
+<li>Practical examples demonstrating the use of both.</li>
+</ul></li>
+<li><a href="../relational-models/advanced-queries.html"><strong>Advanced Relational Algebra Queries</strong></a>
 <ul>
-<li>Generalization involves combining multiple entities into a single, generalized entity.</li>
-<li>Specialization involves breaking down a generalized entity into more specific entities.</li>
-<li>A single-table approach involves creating one table with columns for all attributes, including a type discriminator.</li>
-<li>A multi-table approach involves creating separate tables for each specialized entity, with a shared primary key from the generalized entity.</li>
-<li>The choice between these approaches depends on factors like redundancy and performance.</li>
-<li>Proper handling ensures that inheritance is correctly represented in the relational schema.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Choosing the right approach for mapping generalization and specialization is critical for maintaining an efficient and normalized relational schema.</em></p>
-</section>
-<section id="managing-constraints-and-complex-relationships" class="level2">
-<h2 class="anchored" data-anchor-id="managing-constraints-and-complex-relationships">Managing Constraints and Complex Relationships</h2>
-<p>Complex relationships and constraints in the ER model, such as participation constraints, need careful consideration when translating to relational schemas. This ensures that the database enforces the required business rules.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
+<li>Nested queries and complex relational algebra operations.<br>
+</li>
+<li>Handling multiple relations and subqueries.<br>
+</li>
+<li>Performance considerations in advanced queries.</li>
+</ul></li>
+<li><a href="../relational-models/practical-applications.html"><strong>Practical Applications of the Relational Model</strong></a>
 <ul>
-<li>Participation constraints define whether all or only some instances of an entity participate in a relationship.</li>
-<li>Total participation may require the use of foreign key constraints that enforce the presence of related records.</li>
-<li>Partial participation allows some flexibility, with foreign keys being optional in certain contexts.</li>
-<li>Complex relationships, such as ternary relationships, require careful schema design to maintain integrity.</li>
-<li>Constraints like UNIQUE and NOT NULL enforce the rules defined in the ER model.</li>
-<li>Implementing these correctly is crucial for maintaining the integrity of the relational schema.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>Carefully managing constraints and complex relationships ensures that the relational schema accurately reflects the rules of the ER model.</em></p>
-</section>
-<section id="summary-of-er-to-relational-schema-translation" class="level2">
-<h2 class="anchored" data-anchor-id="summary-of-er-to-relational-schema-translation">Summary of ER to Relational Schema Translation</h2>
-<p>Translating ER models to relational schemas involves careful mapping of entities, relationships, and attributes into tables, keys, and constraints. This process ensures that the database accurately reflects the design intent of the ER model.</p>
-<div class="columns">
-<div class="column" style="width:95%;">
-<ul>
-<li>Converting ER diagrams to relational schemas is a multi-step process that starts with mapping entities to tables.</li>
-<li>Relationships are translated into foreign keys, with many-to-many relationships requiring junction tables.</li>
-<li>Special handling is needed for composite, multivalued, and derived attributes to ensure schema normalization.</li>
-<li>Weak entities rely on strong entities for identification and are mapped accordingly.</li>
-<li>Generalization and specialization can be represented using single or multiple table approaches.</li>
-<li>Properly managing constraints and complex relationships ensures data integrity and adherence to business rules.</li>
-</ul>
-</div><div class="column" style="width:5%;">
-<p>&nbsp;</p>
-</div>
-</div>
-<p><em>The process of translating ER models to relational schemas is fundamental to implementing a robust and effective database design.</em></p>
+<li>Real-world use cases of the relational model.<br>
+</li>
+<li>The role of relational databases in enterprise and cloud environments.<br>
+</li>
+<li>Limitations of the relational model and when to consider alternatives.</li>
+</ul></li>
+</ol>
 
 
 </section>
@@ -1012,18 +815,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../er-models/best-practices.html" class="pagination-link" aria-label="Best Practices">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Best Practices</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../relational-models/intro-to-relational-models.html" class="pagination-link" aria-label="Intro to relational models">
-        <span class="nav-page-text">Intro to relational models</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
