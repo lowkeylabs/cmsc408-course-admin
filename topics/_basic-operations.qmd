@@ -1,0 +1,657 @@
+
+# Basic Operations
+
+
+
+## Introduction to Relational Algebra
+
+
+Relational algebra is a formal system for manipulating relations, foundational for querying relational databases. This section introduces the core principles and significance of relational algebra in database systems.
+
+```{=html}
+<style>
+.guide-block-right .quarto-float-fig {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 15px;
+</style>
+```
+
+
+:::: {.columns}
+::: {.column width=47%}
+- Relational algebra is a procedural query language.
+- It provides the formal foundation for relational database operations.
+- Operations in relational algebra manipulate sets of tuples.
+- The basic operations include ***selection***, ***projection***, and ***union***.
+- Understanding relational algebra is crucial for effective query optimization.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+![](./assets/relational-algebra-overview.jpg){fig-align="center" width=25% .lightbox .quarto-float-fig}
+:::
+::::
+
+
+<!-- -->
+
+*Relational algebra underpins the structure and functionality of modern relational databases.*
+
+```{python}
+#| echo: false
+import pandas as pd
+from tabulate import tabulate
+from IPython.display import display, Markdown, HTML
+
+# Define the DataFrame
+data = {
+    'ID': [1, 2, 3, 4, 5],
+    'Course': ['CMSC301', 'CMSC408', 'CMSC445', 'CMSC475', 'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024','Fall 2024','Fall 2024','Fall 2023'],
+    'Enrl': [220, 175, 37, 128, 125]
+}
+
+df = pd.DataFrame(data)
+
+def select_rows(df, column, value):
+    # Filter the DataFrame based on the given column and value
+    return df[df[column] == value]
+
+def show_df( df, width="80%" ):
+#   display(Markdown(df.to_markdown(index=False)))
+#   print("<center>")
+#   print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False))   
+#   print("</center>")
+   html_table = df.drop_duplicates().to_html(index=False)
+
+   # Define the HTML with centered table and 75% width
+   html_content = f"""
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: {width};">
+         {html_table}
+      </div>
+   </div>
+"""
+   display(HTML(html_content))
+
+```
+
+
+
+## Selection Operation in Relational Algebra
+
+
+The selection operation retrieves rows from a relation that meet specified conditions. It allows narrowing down data based on predicates, forming a key part of querying in relational databases.
+
+
+:::: {.columns}
+::: {.column width=47%}
+**σ - Selection (sigma)**
+
+- Selection filters rows based on a condition (predicate).
+- The result includes only those tuples that satisfy the predicate.
+- Denoted as σ(condition)(Relation)
+- It's a unary operation, meaning it operates on a single relation.
+- The result of a selection can be used as input into subsequent operations.
+- Selection is often used in conjunction with other operations like projection.
+- *condition* can contain any relational operator (e.g., =, \<, >=, etc.)
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Examples**
+
+1. σ(ID=3)(Courses)
+
+1. σ(Course='CMSC408')(Courses)
+
+1. σ(Enrl\<=100)(Courses)
+:::
+::::
+
+<!-- -->
+
+*The selection operation is essential for isolating relevant data in relational databases.*
+
+
+
+## Selection - σ - Example 1
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df( df )
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+σ(ID=3)(Courses) returns:
+
+```{python}
+#| echo: false
+new_df = select_rows(df,"ID",3 )
+show_df( new_df )
+```
+:::
+::::
+
+
+<!-- -->
+
+
+
+## Selection - σ - Example 2
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+σ(Course='CMSC408')(Courses) returns:
+
+```{python}
+#| echo: false
+new_df = select_rows(df,"Course","CMSC408" )
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Selection - σ - Example 3
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+σ(Enrl\<=100)(Courses) returns:
+
+```{python}
+#| echo: false
+new_df = df[ df["Enrl"]<=100 ]
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Projection Operation in Relational Algebra
+
+
+The projection operation retrieves specific columns from a relation. It enables focusing on certain attributes while discarding others, making it a key operation in relational queries.
+
+
+:::: {.columns}
+::: {.column width=47%}
+**Π - Projection operator**
+
+- Projection reduces the relation to specific columns (attributes).
+- Denoted as Π(attribute1, attribute2,...)(Relation).
+- It's used to eliminate unnecessary or redundant data.
+- Like selection, projection is a unary operation.
+- Projection also drops duplicate records (SQL doesn't!)!
+- Projection can be combined with other operations for complex queries.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Examples**
+
+1. Π(ID,Course):
+
+1. Π(Course):
+
+1. Π(Term):
+
+1. Π(Term,ID):
+:::
+::::
+
+<!-- -->
+
+*Projection helps streamline query results by focusing on relevant attributes.*
+
+
+
+## Projection - Π - Example 1
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Π(ID,Course) returns:
+
+```{python}
+#| echo: false
+new_df = df[ ["ID","Course"] ]
+show_df( new_df, width="50%" )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Projection - Π - Example 2
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Π(Course) returns:
+
+```{python}
+#| echo: false
+new_df = df[ ["Course"] ]
+show_df( new_df, width="50%" )
+```
+:::
+::::
+
+<!-- -->
+
+## Projection - Π - Example 3
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Π(Term) returns:
+
+```{python}
+#| echo: false
+new_df = df[ ["Term"] ]
+show_df( new_df, width="50%" )
+```
+:::
+::::
+
+<!-- -->
+
+#
+
+## Projection - Π - Example 4
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given the *Courses(ID,Course,Term,Enrl)* below:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Π(Term,ID) returns:
+
+```{python}
+#| echo: false
+new_df = df[ ["Term","ID"] ]
+show_df( new_df, width="50%" )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Union Operation in Relational Algebra
+
+
+```{python}
+#| echo: false
+d1 = {
+    'Course': ['CMSC301', 'CMSC408',  'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024', 'Fall 2023'],
+}
+d2 = {
+    'Course': ['CMSC110', 'CMSC201',  'CMSC475', 'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024', 'Fall 2023','Fall 2024'],
+}
+d3 = {
+   'Term': ['Fall 2022','Fall 2023','Fall 2024'],
+   'Term_code': ['202310','202410','202510']
+}
+
+df1 = pd.DataFrame( d1 )
+df2 = pd.DataFrame( d2 )
+df3 = pd.DataFrame( d3 )
+
+```
+
+The union operation combines tuples from two relations, eliminating duplicates. It's an essential set operation in relational algebra, used for merging query results.
+
+
+:::: {.columns}
+::: {.column width=47%}
+**∪ - Union Operator**
+
+- Union combines two relations into a single relation.
+- Both relations must be union-compatible (same number of attributes and domains).
+- Denoted as R ∪ S.
+- Duplicates are automatically removed from the result.
+- Union is a binary operation, meaning it operates on two relations.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Examples**
+
+1. *Courses1* ∪ *Courses2*
+
+1. *Courses1* ∪ *Courses3*
+:::
+::::
+
+<!-- -->
+
+*The union operation enables the merging of datasets in a relational context.*
+
+
+
+## Union - ∪ - Example 1
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Courses1( Course,Term)*:
+
+```{python}
+#| echo: false
+show_df(df1)
+```
+
+and *Courses2( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df2)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Courses1* ∪ *Courses2* returns:
+
+```{python}
+#| echo: false
+new_df = pd.concat( [df1, df2] )
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Union - ∪ - Example 2
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Courses1( Course,Term)*:
+
+```{python}
+#| echo: false
+show_df(df1)
+```
+
+and *Courses3( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df3)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Courses1* ∪ *Courses3* returns:
+
+<center>*Invalid*</center>
+<p>&nbsp;</p>
+
+Because the schema for Courses1 and Courses3 are different, that is, the number, names, and domains of the columns don't match exactly,
+the two relations cannot be combined.
+
+The term *Union Compatible* is used to describe two relations with the same number, names, and domains of columns.
+:::
+::::
+
+<!-- -->
+
+
+
+## Combining Selection and Projection
+
+
+In real-world queries, selection and projection are often combined to both filter and reduce data. This allows for more refined and efficient query results.
+
+In relational algebra operations can be chained, that is, the results from one operation can be directly used inside another operation.
+
+
+:::: {.columns}
+::: {.column width=47%}
+- Suppose we have a relation Students(Name, Grade).
+- Query: Π(Name)(σ(Grade > 75)(Students)).
+- The result includes only the names of students with grades above 75.
+- Combining operations allows for more complex and specific queries.
+- Selection and projection together form the backbone of query design.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+- Relational operations are ordered from the inside to the outside.
+- Given this query: Π(Name)(σ(Grade > 75)(Students))
+  - First, the selection operation is performed, resulting in a subset of the original relation,
+  - then, the projection operation is performed, reducing the number of columns in the result.
+:::
+::::
+
+<!-- -->
+
+*Combining operations enables precise and targeted query results in relational databases.*
+
+```{python}
+#| echo: false
+# Create the Students table as a pandas DataFrame
+data = {
+    'ID': ['V10101','V10102','V10103','V10104'],
+    'Name': ['Alice', 'Bob', 'Carol', 'Dave'],
+    'Major': ['CS', 'Math', 'CS', 'Physics'],
+    'GPA': [3.5, 3.8, 3.2, 3.9],
+    'Grad_Year': [2024, 2023, 2025, 2023]
+}
+
+df = pd.DataFrame(data)
+```
+
+
+
+## Combined Example 1
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Students( ID,Name,Major,GPA,Grad_Year)*:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Find the Names and GPAs of all students who are expected to graduate in 2023.
+
+```{python}
+#| echo: false
+new_df = df
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Combined Example 2
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Students( ID,Name,Major,GPA,Grad_Year)*:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Find the majors of all students with a GPA greater than 3.5
+
+```{python}
+#| echo: false
+new_df = df
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+## Combined Example 3
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Students( ID,Name,Major,GPA,Grad_Year)*:
+
+```{python}
+#| echo: false
+show_df(df)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Find the ID and Names of all students in computer science.
+
+```{python}
+#| echo: false
+new_df = df
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
+
+
+## Conclusion: Mastering Basic Relational Algebra
+
+
+Understanding the basic operations of relational algebra is crucial for working with relational databases. These operations enable effective data querying, filtering, and combination.
+
+
+:::: {.columns}
+::: {.column width=98%}
+- Selection, projection, and union are foundational operations.
+- Each operation serves a specific purpose in querying relational data.
+- Combining operations enables more complex and powerful queries.
+- Mastering these operations is essential for advanced database management.
+- Relational algebra forms the core of SQL and other query languages.
+:::
+::: {.column width=1%}
+:::
+::: {.column width=1%}
+
+:::
+::::
+
+<!-- -->
+
+*Mastering relational algebra is key to becoming proficient in database management and query design.*
+
+

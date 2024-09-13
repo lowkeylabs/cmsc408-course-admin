@@ -276,7 +276,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction-to-set-theory-and-relational-algebra" id="toc-introduction-to-set-theory-and-relational-algebra" class="nav-link active" data-scroll-target="#introduction-to-set-theory-and-relational-algebra">Introduction to Set Theory and Relational Algebra</a></li>
-  <li><a href="#intersection-in-relational-algebra" id="toc-intersection-in-relational-algebra" class="nav-link" data-scroll-target="#intersection-in-relational-algebra">Intersection in Relational Algebra</a></li>
+  <li><a href="#intersection-operation-in-relational-algebra" id="toc-intersection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#intersection-operation-in-relational-algebra">Intersection Operation in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#intersection-----example-1" id="toc-intersection-----example-1" class="nav-link" data-scroll-target="#intersection-----example-1">Intersection - ∩ - Example 1</a></li>
+  <li><a href="#intersection-----example-1-1" id="toc-intersection-----example-1-1" class="nav-link" data-scroll-target="#intersection-----example-1-1">Intersection - ∩ - Example 1</a></li>
+  <li><a href="#intersection-----example-1-2" id="toc-intersection-----example-1-2" class="nav-link" data-scroll-target="#intersection-----example-1-2">Intersection - ∩ - Example 1</a></li>
+  </ul></li>
   <li><a href="#difference-in-relational-algebra" id="toc-difference-in-relational-algebra" class="nav-link" data-scroll-target="#difference-in-relational-algebra">Difference in Relational Algebra</a></li>
   <li><a href="#cartesian-product-in-relational-algebra" id="toc-cartesian-product-in-relational-algebra" class="nav-link" data-scroll-target="#cartesian-product-in-relational-algebra">Cartesian Product in Relational Algebra</a></li>
   <li><a href="#union-in-relational-algebra" id="toc-union-in-relational-algebra" class="nav-link" data-scroll-target="#union-in-relational-algebra">Union in Relational Algebra</a></li>
@@ -410,27 +415,44 @@ Entities represent real-world objects or concepts, while attributes describe the
 <li>Set operations are performed on relations that have the same schema.</li>
 </ul>
 </div>
-<div class="guide-block-right">
-
-</div>
 <p><em>Set theory is essential for understanding how relational algebra manipulates and combines relations.</em></p>
+<div class="guide-block-right">
+<p><a href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf"><img src=".//assets/codd_acm_article.png" class="img-fluid"></a></p>
+</div>
 </section>
-<section id="intersection-in-relational-algebra" class="level2">
-<h2 class="anchored" data-anchor-id="intersection-in-relational-algebra">Intersection in Relational Algebra</h2>
-<p>Intersection in relational algebra allows you to find the common data between two relations. It returns tuples that are present in both relations.</p>
+<section id="intersection-operation-in-relational-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="intersection-operation-in-relational-algebra">Intersection Operation in Relational Algebra</h2>
+<p>The intersection operation retrieves rows that are common to two relations. It is used to find data that appears in both relations, making it useful when comparing datasets or finding shared entries between relations.</p>
 <div class="guide-block-left">
+<p><strong>∩ - Intersection</strong></p>
 <ul>
-<li>Intersection returns the rows that appear in both of the input relations.</li>
-<li>It can only be performed between two relations with the same schema.</li>
-<li>This operation is used to find common data points between two datasets.</li>
-<li>The result relation has the same schema as the input relations.</li>
-<li>Intersection can help identify matching records across two tables.</li>
+<li>Intersection finds common tuples between two relations.</li>
+<li>The result includes only those tuples that appear in both relations.</li>
+<li>Denoted as Relation1 ∩ Relation2</li>
+<li>It’s a binary operation, meaning it operates on two relations.</li>
+<li>Both relations must be <em>union-compatible</em>, meaning they have the same set of attributes and data types.</li>
+<li>Intersection is often used in conjunction with other set-based operations like union and difference.</li>
 </ul>
 </div>
 <div class="guide-block-right">
-
+<p><img src="./assets/venn-intersection.png" class="img-fluid"></p>
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p>Students ∩ Registered</p></li>
+<li><p>Courses ∩ OfferedCourses</p></li>
+<li><p>Employees ∩ Managers</p></li>
+</ol>
 </div>
 <p><em>Intersection is useful for finding commonality between two sets of data in relational databases.</em></p>
+<section id="intersection-----example-1" class="level3">
+<h3 class="anchored" data-anchor-id="intersection-----example-1">Intersection - ∩ - Example 1</h3>
+</section>
+<section id="intersection-----example-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="intersection-----example-1-1">Intersection - ∩ - Example 1</h3>
+</section>
+<section id="intersection-----example-1-2" class="level3">
+<h3 class="anchored" data-anchor-id="intersection-----example-1-2">Intersection - ∩ - Example 1</h3>
+</section>
 </section>
 <section id="difference-in-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="difference-in-relational-algebra">Difference in Relational Algebra</h2>

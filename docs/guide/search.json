@@ -1961,7 +1961,7 @@
     "href": "relational-models/basic-operations.html",
     "title": "Basic Operations",
     "section": "",
-    "text": "The slides introduce the fundamental concepts of relational algebra, focusing on the core operations of selection, projection, and union. Each operation is explained with practical examples, demonstrating their use in querying and manipulating relational databases. These operations form the foundation for more advanced database queries and serve as the basis for SQL and other query languages.",
+    "text": "Relational algebra is a formal system used to manipulate and query relational databases. The foundational operations of relational algebra—selection, projection, and union—enable users to filter, narrow, and combine data sets in efficient ways. These operations are critical for building complex queries and are the basis for modern query languages like SQL. By mastering these basic concepts, individuals can optimize their database queries and gain deeper insights into relational data management.",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -1973,7 +1973,7 @@
     "href": "relational-models/basic-operations.html#introduction-to-relational-algebra",
     "title": "Basic Operations",
     "section": "Introduction to Relational Algebra",
-    "text": "Introduction to Relational Algebra\nRelational algebra is a formal system for manipulating relations, foundational for querying relational databases. This section introduces the core principles and significance of relational algebra in database systems.\n\n\nRelational algebra is a procedural query language.\nIt provides the formal foundation for relational database operations.\nOperations in relational algebra manipulate sets of tuples.\nThe basic operations include selection, projection, and union.\nUnderstanding relational algebra is crucial for effective query optimization.\n\n\n\n\n\nRelational algebra underpins the structure and functionality of modern relational databases.",
+    "text": "Introduction to Relational Algebra\nRelational algebra is a formal system for manipulating relations, foundational for querying relational databases. This section introduces the core principles and significance of relational algebra in database systems.\n\n\n\n\n\n\n\n\n\n\n\nRelational algebra is a procedural query language.\nIt provides the formal foundation for relational database operations.\nOperations in relational algebra manipulate sets of tuples.\nThe basic operations include selection, projection, and union.\nUnderstanding relational algebra is crucial for effective query optimization.\n\n\n\nRelational algebra underpins the structure and functionality of modern relational databases.",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -1985,7 +1985,7 @@
     "href": "relational-models/basic-operations.html#selection-operation-in-relational-algebra",
     "title": "Basic Operations",
     "section": "Selection Operation in Relational Algebra",
-    "text": "Selection Operation in Relational Algebra\nThe selection operation retrieves rows from a relation that meet specified conditions. It allows narrowing down data based on predicates, forming a key part of querying in relational databases.\n\n\nSelection filters rows based on a condition (predicate).\nThe result includes only those tuples that satisfy the predicate.\nDenoted as σ(condition)(Relation).\nIt’s a unary operation, meaning it operates on a single relation.\nSelection is often used in conjunction with other operations like projection.\n\n\n\n\n\nThe selection operation is essential for isolating relevant data in relational databases.",
+    "text": "Selection Operation in Relational Algebra\nThe selection operation retrieves rows from a relation that meet specified conditions. It allows narrowing down data based on predicates, forming a key part of querying in relational databases.\n\nσ - Selection (sigma)\n\nSelection filters rows based on a condition (predicate).\nThe result includes only those tuples that satisfy the predicate.\nDenoted as σ(condition)(Relation)\nIt’s a unary operation, meaning it operates on a single relation.\nThe result of a selection can be used as input into subsequent operations.\nSelection is often used in conjunction with other operations like projection.\ncondition can contain any relational operator (e.g., =, &lt;, &gt;=, etc.)\n\n\n\nExamples\n\nσ(ID=3)(Courses)\nσ(Course=‘CMSC408’)(Courses)\nσ(Enrl&lt;=100)(Courses)\n\n\nThe selection operation is essential for isolating relevant data in relational databases.\n\nSelection - σ - Example 1\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nσ(ID=3)(Courses) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n\n\n      \n   \n\n\n\n\n\nSelection - σ - Example 2\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nσ(Course=‘CMSC408’)(Courses) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\n\nSelection - σ - Example 3\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nσ(Enrl&lt;=100)(Courses) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n3\nCMSC445\nFall 2024\n37",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -1997,7 +1997,7 @@
     "href": "relational-models/basic-operations.html#projection-operation-in-relational-algebra",
     "title": "Basic Operations",
     "section": "Projection Operation in Relational Algebra",
-    "text": "Projection Operation in Relational Algebra\nThe projection operation retrieves specific columns from a relation. It enables focusing on certain attributes while discarding others, making it a key operation in relational queries.\n\n\nProjection reduces the relation to specific columns (attributes).\nDenoted as Π(attribute1, attribute2,…)(Relation).\nIt’s used to eliminate unnecessary or redundant data.\nLike selection, projection is a unary operation.\nProjection can be combined with other operations for complex queries.\n\n\n\n\n\nProjection helps streamline query results by focusing on relevant attributes.",
+    "text": "Projection Operation in Relational Algebra\nThe projection operation retrieves specific columns from a relation. It enables focusing on certain attributes while discarding others, making it a key operation in relational queries.\n\nΠ - Projection operator\n\nProjection reduces the relation to specific columns (attributes).\nDenoted as Π(attribute1, attribute2,…)(Relation).\nIt’s used to eliminate unnecessary or redundant data.\nLike selection, projection is a unary operation.\nProjection also drops duplicate records (SQL doesn’t!)!\nProjection can be combined with other operations for complex queries.\n\n\n\nExamples\n\nΠ(ID,Course):\nΠ(Course):\nΠ(Term):\nΠ(Term,ID):\n\n\nProjection helps streamline query results by focusing on relevant attributes.\n\nProjection - Π - Example 1\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(ID,Course) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\n\n\n\n\n1\nCMSC301\n\n\n2\nCMSC408\n\n\n3\nCMSC445\n\n\n4\nCMSC475\n\n\n5\nCMSC408\n\n\n\n\n      \n   \n\n\n\n\n\nProjection - Π - Example 2\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Course) returns:\n\n\n\n   \n      \n         \n\n\n\nCourse\n\n\n\n\nCMSC301\n\n\nCMSC408\n\n\nCMSC445\n\n\nCMSC475\n\n\n\n\n      \n   \n\n\n\n\n\nProjection - Π - Example 3\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Term) returns:\n\n\n\n   \n      \n         \n\n\n\nTerm\n\n\n\n\nFall 2024\n\n\nFall 2023\n\n\n\n\n      \n   \n\n\n\n\n\nProjection - Π - Example 4\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Term,ID) returns:\n\n\n\n   \n      \n         \n\n\n\nTerm\nID\n\n\n\n\nFall 2024\n1\n\n\nFall 2024\n2\n\n\nFall 2024\n3\n\n\nFall 2024\n4\n\n\nFall 2023\n5",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -2009,7 +2009,7 @@
     "href": "relational-models/basic-operations.html#union-operation-in-relational-algebra",
     "title": "Basic Operations",
     "section": "Union Operation in Relational Algebra",
-    "text": "Union Operation in Relational Algebra\nThe union operation combines tuples from two relations, eliminating duplicates. It’s an essential set operation in relational algebra, used for merging query results.\n\n\nUnion combines two relations into a single relation.\nBoth relations must be union-compatible (same number of attributes and domains).\nDenoted as R ∪ S.\nDuplicates are automatically removed from the result.\nUnion is a binary operation, meaning it operates on two relations.\n\n\n\n\n\nThe union operation enables the merging of datasets in a relational context.",
+    "text": "Union Operation in Relational Algebra\nThe union operation combines tuples from two relations, eliminating duplicates. It’s an essential set operation in relational algebra, used for merging query results.\n\n∪ - Union Operator\n\nUnion combines two relations into a single relation.\nBoth relations must be union-compatible (same number of attributes and domains).\nDenoted as R ∪ S.\nDuplicates are automatically removed from the result.\nUnion is a binary operation, meaning it operates on two relations.\n\n\n\nExamples\n\nCourses1 ∪ Courses2\nCourses1 ∪ Courses3\n\n\nThe union operation enables the merging of datasets in a relational context.\n\nUnion - ∪ - Example 1\n\nGiven Courses1( Course,Term):\n\n\n\n   \n      \n         \n\n\n\nCourse\nTerm\n\n\n\n\nCMSC301\nFall 2024\n\n\nCMSC408\nFall 2024\n\n\nCMSC408\nFall 2023\n\n\n\n\n      \n   \n\n\nand Courses2( Course,Term ):\n\n\n\n   \n      \n         \n\n\n\nCourse\nTerm\n\n\n\n\nCMSC110\nFall 2024\n\n\nCMSC201\nFall 2024\n\n\nCMSC475\nFall 2023\n\n\nCMSC408\nFall 2024\n\n\n\n\n      \n   \n\n\n\n\nCourses1 ∪ Courses2 returns:\n\n\n\n   \n      \n         \n\n\n\nCourse\nTerm\n\n\n\n\nCMSC301\nFall 2024\n\n\nCMSC408\nFall 2024\n\n\nCMSC408\nFall 2023\n\n\nCMSC110\nFall 2024\n\n\nCMSC201\nFall 2024\n\n\nCMSC475\nFall 2023",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -2057,7 +2057,7 @@
     "href": "relational-models/basic-operations.html#combining-selection-and-projection",
     "title": "Basic Operations",
     "section": "Combining Selection and Projection",
-    "text": "Combining Selection and Projection\nIn real-world queries, selection and projection are often combined to both filter and reduce data. This allows for more refined and efficient query results.\n\n\nSuppose we have a relation Students(Name, Grade).\nQuery: Π(Name)(σ(Grade &gt; 75)(Students)).\nThe result includes only the names of students with grades above 75.\nCombining operations allows for more complex and specific queries.\nSelection and projection together form the backbone of query design.\n\n\n\n\n\nCombining operations enables precise and targeted query results in relational databases.",
+    "text": "Combining Selection and Projection\nIn real-world queries, selection and projection are often combined to both filter and reduce data. This allows for more refined and efficient query results.\nIn relational algebra operations can be chained, that is, the results from one operation can be directly used inside another operation.\n\n\nSuppose we have a relation Students(Name, Grade).\nQuery: Π(Name)(σ(Grade &gt; 75)(Students)).\nThe result includes only the names of students with grades above 75.\nCombining operations allows for more complex and specific queries.\nSelection and projection together form the backbone of query design.\n\n\n\n\nRelational operations are ordered from the inside to the outside.\nGiven this query: Π(Name)(σ(Grade &gt; 75)(Students))\n\nFirst, the selection operation is performed, resulting in a subset of the original relation,\nthen, the projection operation is performed, reducing the number of columns in the result.\n\n\n\nCombining operations enables precise and targeted query results in relational databases.\n\nCombined Example 1\n\nGiven Students( ID,Name,Major,GPA,Grad_Year):\n\n\n\n   \n      \n         \n\n\n\nID\nName\nMajor\nGPA\nGrad_Year\n\n\n\n\nV10101\nAlice\nCS\n3.5\n2024\n\n\nV10102\nBob\nMath\n3.8\n2023\n\n\nV10103\nCarol\nCS\n3.2\n2025\n\n\nV10104\nDave\nPhysics\n3.9\n2023\n\n\n\n\n      \n   \n\n\n\n\nFind the Names and GPAs of all students who are expected to graduate in 2023.\n\n\n\n   \n      \n         \n\n\n\nID\nName\nMajor\nGPA\nGrad_Year\n\n\n\n\nV10101\nAlice\nCS\n3.5\n2024\n\n\nV10102\nBob\nMath\n3.8\n2023\n\n\nV10103\nCarol\nCS\n3.2\n2025\n\n\nV10104\nDave\nPhysics\n3.9\n2023\n\n\n\n\n      \n   \n\n\n\n\n\nCombined Example 2\n\nGiven Students( ID,Name,Major,GPA,Grad_Year):\n\n\n\n   \n      \n         \n\n\n\nID\nName\nMajor\nGPA\nGrad_Year\n\n\n\n\nV10101\nAlice\nCS\n3.5\n2024\n\n\nV10102\nBob\nMath\n3.8\n2023\n\n\nV10103\nCarol\nCS\n3.2\n2025\n\n\nV10104\nDave\nPhysics\n3.9\n2023\n\n\n\n\n      \n   \n\n\n\n\nFind the majors of all students with a GPA greater than 3.5\n\n\n\n   \n      \n         \n\n\n\nID\nName\nMajor\nGPA\nGrad_Year\n\n\n\n\nV10101\nAlice\nCS\n3.5\n2024\n\n\nV10102\nBob\nMath\n3.8\n2023\n\n\nV10103\nCarol\nCS\n3.2\n2025\n\n\nV10104\nDave\nPhysics\n3.9\n2023\n\n\n\n\n      \n   \n\n\n\n\n\nCombined Example 3\n\nGiven Students( ID,Name,Major,GPA,Grad_Year):\n\n\n\n   \n      \n         \n\n\n\nID\nName\nMajor\nGPA\nGrad_Year\n\n\n\n\nV10101\nAlice\nCS\n3.5\n2024\n\n\nV10102\nBob\nMath\n3.8\n2023\n\n\nV10103\nCarol\nCS\n3.2\n2025\n\n\nV10104\nDave\nPhysics\n3.9\n2023\n\n\n\n\n      \n   \n\n\n\n\nFind the ID and Names of all students in computer science.\n\n\n\n   \n      \n         \n\n\n\nID\nName\nMajor\nGPA\nGrad_Year\n\n\n\n\nV10101\nAlice\nCS\n3.5\n2024\n\n\nV10102\nBob\nMath\n3.8\n2023\n\n\nV10103\nCarol\nCS\n3.2\n2025\n\n\nV10104\nDave\nPhysics\n3.9\n2023",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -2501,7 +2501,7 @@
     "href": "relational-models/set-operations.html#introduction-to-set-theory-and-relational-algebra",
     "title": "Set Operations",
     "section": "Introduction to Set Theory and Relational Algebra",
-    "text": "Introduction to Set Theory and Relational Algebra\nSet theory is a fundamental concept in relational algebra, providing the basis for operations that manipulate relations. These operations enable combining and filtering data effectively in relational databases.\n\n\nSet theory deals with the mathematical concept of sets, collections of distinct elements.\nRelational algebra applies set theory to relations (tables) in databases.\nCommon operations include union, intersection, difference, and Cartesian product.\nThese operations allow manipulation of data across multiple relations.\nSet operations are performed on relations that have the same schema.\n\n\n\n\n\nSet theory is essential for understanding how relational algebra manipulates and combines relations.",
+    "text": "Introduction to Set Theory and Relational Algebra\nSet theory is a fundamental concept in relational algebra, providing the basis for operations that manipulate relations. These operations enable combining and filtering data effectively in relational databases.\n\n\nSet theory deals with the mathematical concept of sets, collections of distinct elements.\nRelational algebra applies set theory to relations (tables) in databases.\nCommon operations include union, intersection, difference, and Cartesian product.\nThese operations allow manipulation of data across multiple relations.\nSet operations are performed on relations that have the same schema.\n\n\nSet theory is essential for understanding how relational algebra manipulates and combines relations.",
     "crumbs": [
       "Home",
       "Relational Models",
@@ -2622,5 +2622,185 @@
     "title": "Overview of Entity relationship models",
     "section": "Topics in this unit",
     "text": "Topics in this unit\n\nIntroduction to the Relational Model\n\nDefinition of the relational model.\n\nKey components: relations, tuples, attributes, domains.\n\nThe importance of the relational model in modern databases.\n\nRelational Schemas and Keys\n\nDefining relational schemas.\n\nPrimary keys, candidate keys, and foreign keys.\n\nThe role of keys in ensuring data integrity.\n\nRelational Algebra: Basic Operations\n\nIntroduction to relational algebra.\n\nCore operations: selection, projection, and union.\n\nExamples and practical applications of these operations.\n\nSet Operations in Relational Algebra\n\nSet theory basics and their application in relational algebra.\n\nIntersection, difference, and Cartesian product operations.\n\nCombining relations using set operations.\n\nJoin Operations in Relational Algebra\n\nInner join, outer join, and their types (left, right, full).\n\nNatural join and theta join.\n\nUse cases and examples of different join operations.\n\nRenaming and Division in Relational Algebra\n\nThe renaming operation and its use in query design.\n\nDivision operation: definition and examples.\n\nApplication of division in relational queries.\n\nRelational Algebra vs SQL\n\nMapping relational algebra operations to SQL.\n\nDifferences between procedural relational algebra and declarative SQL.\n\nPractical examples demonstrating the use of both.\n\nAdvanced Relational Algebra Queries\n\nNested queries and complex relational algebra operations.\n\nHandling multiple relations and subqueries.\n\nPerformance considerations in advanced queries.\n\nPractical Applications of the Relational Model\n\nReal-world use cases of the relational model.\n\nThe role of relational databases in enterprise and cloud environments.\n\nLimitations of the relational model and when to consider alternatives."
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#π---projection---example-1",
+    "href": "relational-models/basic-operations.html#π---projection---example-1",
+    "title": "Basic Operations",
+    "section": "Π - Projection - Example 1",
+    "text": "Π - Projection - Example 1\n\nGiven the Courses table below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(ID,Course) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\n\n\n\n\n1\nCMSC301\n\n\n2\nCMSC408\n\n\n3\nCMSC445\n\n\n4\nCMSC475\n\n\n5\nCMSC408",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#example-1---π---projection",
+    "href": "relational-models/basic-operations.html#example-1---π---projection",
+    "title": "Basic Operations",
+    "section": "Example 1 - Π - Projection",
+    "text": "Example 1 - Π - Projection\n\nGiven the Courses table below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(ID,Course) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\n\n\n\n\n1\nCMSC301\n\n\n2\nCMSC408\n\n\n3\nCMSC445\n\n\n4\nCMSC475\n\n\n5\nCMSC408",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#example-2---π---projection",
+    "href": "relational-models/basic-operations.html#example-2---π---projection",
+    "title": "Basic Operations",
+    "section": "Example 2 - Π - Projection",
+    "text": "Example 2 - Π - Projection\n\nGiven the Courses table below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Course) returns:\n\n\n\n   \n      \n         \n\n\n\nCourse\n\n\n\n\nCMSC301\n\n\nCMSC408\n\n\nCMSC445\n\n\nCMSC475",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#example-3---π---projection",
+    "href": "relational-models/basic-operations.html#example-3---π---projection",
+    "title": "Basic Operations",
+    "section": "Example 3 - Π - Projection",
+    "text": "Example 3 - Π - Projection\n\nGiven the Courses table below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Term) returns:\n\n\n\n   \n      \n         \n\n\n\nTerm\n\n\n\n\nFall 2024\n\n\nFall 2023",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#example-4---π---projection",
+    "href": "relational-models/basic-operations.html#example-4---π---projection",
+    "title": "Basic Operations",
+    "section": "Example 4 - Π - Projection",
+    "text": "Example 4 - Π - Projection\n\nGiven the Courses table below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Term,ID) returns:\n\n\n\n   \n      \n         \n\n\n\nTerm\nID\n\n\n\n\nFall 2024\n1\n\n\nFall 2024\n2\n\n\nFall 2024\n3\n\n\nFall 2024\n4\n\n\nFall 2023\n5",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#selection---σ---example-1",
+    "href": "relational-models/basic-operations.html#selection---σ---example-1",
+    "title": "Basic Operations",
+    "section": "Selection - σ - Example 1",
+    "text": "Selection - σ - Example 1\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nσ(ID=3)(Courses) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n3\nCMSC445\nFall 2024\n37",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#selection---σ---example-2",
+    "href": "relational-models/basic-operations.html#selection---σ---example-2",
+    "title": "Basic Operations",
+    "section": "Selection - σ - Example 2",
+    "text": "Selection - σ - Example 2\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nσ(Course=‘CMSC408’)(Courses) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n5\nCMSC408\nFall 2023\n125",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#selection---σ---example-3",
+    "href": "relational-models/basic-operations.html#selection---σ---example-3",
+    "title": "Basic Operations",
+    "section": "Selection - σ - Example 3",
+    "text": "Selection - σ - Example 3\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nσ(Enrl&lt;=100)(Courses) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n3\nCMSC445\nFall 2024\n37",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#projection---π---example-1",
+    "href": "relational-models/basic-operations.html#projection---π---example-1",
+    "title": "Basic Operations",
+    "section": "Projection - Π - Example 1",
+    "text": "Projection - Π - Example 1\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(ID,Course) returns:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\n\n\n\n\n1\nCMSC301\n\n\n2\nCMSC408\n\n\n3\nCMSC445\n\n\n4\nCMSC475\n\n\n5\nCMSC408",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#projection---π---example-2",
+    "href": "relational-models/basic-operations.html#projection---π---example-2",
+    "title": "Basic Operations",
+    "section": "Projection - Π - Example 2",
+    "text": "Projection - Π - Example 2\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Course) returns:\n\n\n\n   \n      \n         \n\n\n\nCourse\n\n\n\n\nCMSC301\n\n\nCMSC408\n\n\nCMSC445\n\n\nCMSC475",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#projection---π---example-3",
+    "href": "relational-models/basic-operations.html#projection---π---example-3",
+    "title": "Basic Operations",
+    "section": "Projection - Π - Example 3",
+    "text": "Projection - Π - Example 3\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Term) returns:\n\n\n\n   \n      \n         \n\n\n\nTerm\n\n\n\n\nFall 2024\n\n\nFall 2023",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#projection---π---example-4",
+    "href": "relational-models/basic-operations.html#projection---π---example-4",
+    "title": "Basic Operations",
+    "section": "Projection - Π - Example 4",
+    "text": "Projection - Π - Example 4\n\nGiven the Courses(ID,Course,Term,Enrl) below:\n\n\n\n   \n      \n         \n\n\n\nID\nCourse\nTerm\nEnrl\n\n\n\n\n1\nCMSC301\nFall 2024\n220\n\n\n2\nCMSC408\nFall 2024\n175\n\n\n3\nCMSC445\nFall 2024\n37\n\n\n4\nCMSC475\nFall 2024\n128\n\n\n5\nCMSC408\nFall 2023\n125\n\n\n\n\n      \n   \n\n\n\n\nΠ(Term,ID) returns:\n\n\n\n   \n      \n         \n\n\n\nTerm\nID\n\n\n\n\nFall 2024\n1\n\n\nFall 2024\n2\n\n\nFall 2024\n3\n\n\nFall 2024\n4\n\n\nFall 2023\n5",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#union-----example-2",
+    "href": "relational-models/basic-operations.html#union-----example-2",
+    "title": "Basic Operations",
+    "section": "Union - ∪ - Example 2",
+    "text": "Union - ∪ - Example 2\n\nGiven Courses1( Course,Term):\n\n\n\n   \n      \n         \n\n\n\nCourse\nTerm\n\n\n\n\nCMSC301\nFall 2024\n\n\nCMSC408\nFall 2024\n\n\nCMSC408\nFall 2023\n\n\n\n\n      \n   \n\n\nand Courses3( Course,Term ):\n\n\n\n   \n      \n         \n\n\n\nTerm\nTerm_code\n\n\n\n\nFall 2022\n202310\n\n\nFall 2023\n202410\n\n\nFall 2024\n202510\n\n\n\n\n      \n   \n\n\n\n\nCourses1 ∪ Courses3 returns:\n\nInvalid\n\n\n \n\nBecause the schema for Courses1 and Courses3 are different, that is, the number, names, and domains of the columns don’t match exactly, the two relations cannot be combined.\nThe term Union Compatible is used to describe two relations with the same number, names, and domains of columns.",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/basic-operations.html#larger-reporting-system",
+    "href": "relational-models/basic-operations.html#larger-reporting-system",
+    "title": "Basic Operations",
+    "section": "Larger Reporting System",
+    "text": "Larger Reporting System\nRelational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.\n\n\nExample: Generating a list of employees eligible for a bonus.\n\nSelection operation to filter eligible employees based on criteria (e.g., performance).\nProjection to display only relevant fields (e.g., Name, Department).\nUnion to combine results from different departments.\n\nExample: Generating a report of products sold by specific vendors.\n\nSelection to filter products by vendor ID.\nProjection to display product name and vendor details.\nCartesian product to cross-reference products with vendor data.\n\n\n\n\n\nExample: Compiling a list of employees not assigned to any projects.\n\nAnti-join to find employees not in the project assignment table.\nProjection to show employee names and departments.\nSet difference to exclude employees with assignments from the employee list.\n\nExample: Producing a report of sales trends over time.\n\nSelection to filter sales data by date range.\nAggregation to calculate sales totals by month or quarter.\nJoin to merge sales data with product or category details.\n\n\n\nNote that these examples introduce additional operators to complement the Selection, Projection and Union already discussed. That’s what we’ll discuss next!\nEach of these examples is considered a single query even though they contains multiple single relational operations.\nYour semester long project must document 20 unique queries. To accomplish this, you’ll need plenty of entities (tables).",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "relational-models/set-operations.html#intersection-operation-in-relational-algebra",
+    "href": "relational-models/set-operations.html#intersection-operation-in-relational-algebra",
+    "title": "Set Operations",
+    "section": "Intersection Operation in Relational Algebra",
+    "text": "Intersection Operation in Relational Algebra\nThe intersection operation retrieves rows that are common to two relations. It is used to find data that appears in both relations, making it useful when comparing datasets or finding shared entries between relations.\n\n∩ - Intersection\n\nIntersection finds common tuples between two relations.\nThe result includes only those tuples that appear in both relations.\nDenoted as Relation1 ∩ Relation2\nIt’s a binary operation, meaning it operates on two relations.\nBoth relations must be union-compatible, meaning they have the same set of attributes and data types.\nIntersection is often used in conjunction with other set-based operations like union and difference.\n\n\n\n\nExamples\n\nStudents ∩ Registered\nCourses ∩ OfferedCourses\nEmployees ∩ Managers\n\n\nIntersection is useful for finding commonality between two sets of data in relational databases.\n\nIntersection - ∩ - Example 1\n\n\nIntersection - ∩ - Example 1\n\n\nIntersection - ∩ - Example 1",
+    "crumbs": [
+      "Home",
+      "Relational Models",
+      "Set Operations"
+    ]
   }
 ]

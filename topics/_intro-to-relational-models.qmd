@@ -1,0 +1,204 @@
+
+# Intro to the relational model
+
+
+
+## Definition of the Relational Model
+
+The relational model provides a systematic way to organize and manage data using relations. It forms the basis of modern relational databases and is essential for ensuring consistency and accuracy in data processing.
+
+::: {.guide-block-left}
+
+- The relational model organizes data into structured tables, known as relations.
+- Each relation is composed of rows (tuples) and columns (attributes).
+- Relations must have unique names and clear definitions for each column.
+- Attributes hold specific values derived from domains (data types).
+- Relations are fundamental to querying and manipulating data.
+:::
+::: {.guide-block-right}
+:::
+
+*The relational model standardizes how data is represented and handled in databases.*
+
+
+
+
+## Key Components of the Relational Model
+
+Understanding the key components of the relational model helps us design databases effectively. Each component plays a specific role in defining and structuring data.
+
+::: {.guide-block-left}
+
+- **Relation**: A table with rows and columns that represents an entity or concept.
+- **Tuple**: A single row in a relation, representing a unique data instance.
+- **Attribute**: A column in a relation that stores specific information about tuples.
+- **Domain**: A set of allowable values for an attribute (e.g., integers, strings).
+- **Schema**: The structure that defines the organization of relations and attributes.
+:::
+::: {.guide-block-right}
+:::
+
+*Relations, tuples, attributes, and domains together define the structure of relational databases.*
+
+
+
+
+## Importance of the Relational Model in Databases
+
+The relational model underpins the functionality of most databases today. Its rules ensure data integrity and efficient query processing, making it indispensable for businesses and applications.
+
+::: {.guide-block-left}
+
+- It provides a clear framework for organizing and storing data.
+- Enforces data consistency through relationships between tables.
+- Simplifies query operations using structured queries (e.g., SQL).
+- Promotes data independence by separating physical storage from logical structure.
+- Ensures data integrity using keys and constraints.
+:::
+::: {.guide-block-right}
+:::
+
+*The relational model's structure and rules ensure data remains accurate and accessible.*
+
+
+
+
+## Relations: Tables in the Relational Model
+
+Relations, or tables, are the basic units of data organization in the relational model. Understanding their structure is essential for managing data in a relational database.
+
+::: {.guide-block-left}
+
+- A relation is a table that organizes data into rows and columns.
+- Each row (tuple) in a relation is unique and represents a specific data item.
+- Columns (attributes) store data about different aspects of each row.
+- The order of rows and columns is not significant in relational theory.
+- Tables are used to model real-world entities like customers, products, or transactions.
+:::
+::: {.guide-block-right}
+:::
+
+*Relations represent entities and are fundamental to structuring data in a relational database.*
+
+
+
+
+## Tuples: Rows in a Relation
+
+Tuples represent individual data instances in a relation. Each tuple corresponds to a unique real-world entity or event and provides complete information about it.
+
+::: {.guide-block-left}
+
+- A tuple is a single, ordered set of values in a relation (table).
+- Each tuple is a unique row, representing a real-world entity or event.
+- Tuples consist of attribute values that describe the entity in question.
+- Tuples are unordered in relational theory but have a logical order in databases.
+- The uniqueness of tuples is enforced by primary keys.
+:::
+::: {.guide-block-right}
+:::
+
+*Tuples store unique instances of data, providing essential information about real-world entities.*
+
+
+
+
+## Attributes: Columns in a Relation
+
+Attributes define the properties of tuples in a relation. They hold the values that describe entities and are essential for defining the structure of relational databases.
+
+::: {.guide-block-left}
+
+- Attributes are columns in a relation that store specific data points.
+- Each attribute represents one aspect of the data (e.g., name, age, price).
+- Attributes must belong to a predefined domain, which dictates the data type.
+- Attribute values for each tuple must be atomic (indivisible).
+- Attributes play a key role in query operations, allowing for filtering and sorting.
+:::
+::: {.guide-block-right}
+:::
+
+*Attributes define the characteristics of the data stored in tuples, allowing for detailed queries and analysis.*
+
+
+
+
+## Domains: Valid Data Values for Attributes
+
+Domains define the set of possible values that an attribute can hold. They ensure that data entered into the database is valid and consistent.
+
+::: {.guide-block-left}
+
+- A domain is the set of valid values an attribute can take.
+- Each attribute must have an associated domain (e.g., integer, string).
+- Domains enforce data integrity by limiting what values can be inserted.
+- Example: A "date of birth" attribute may have a domain restricted to valid dates.
+- Domains help maintain data consistency and prevent incorrect data entry.
+:::
+::: {.guide-block-right}
+:::
+
+*Domains play a crucial role in ensuring that data adheres to the defined rules and constraints of the database.*
+
+
+
+
+## Role of Relations in Organizing Data
+
+Relations organize data in a structured, efficient manner, allowing databases to store large amounts of information while maintaining clarity and accessibility.
+
+::: {.guide-block-left}
+
+- Relations group data into easily manageable tables.
+- They allow for systematic storage, retrieval, and management of data.
+- Relations help define clear relationships between entities (e.g., customers and orders).
+- Each relation can be linked to other relations through keys and constraints.
+- They simplify complex data operations by using structured queries.
+:::
+::: {.guide-block-right}
+:::
+
+*Relations are at the core of data organization, enabling systematic management of large datasets.*
+
+
+
+
+## Importance of Keys in the Relational Model
+
+Keys are essential for maintaining data integrity and ensuring that data in relations can be efficiently queried, updated, and maintained.
+
+::: {.guide-block-left}
+
+- **Primary key**: Uniquely identifies each tuple in a relation.
+- **Candidate key**: A set of attributes that could serve as a primary key.
+- **Foreign key**: Establishes relationships between two relations.
+- Keys ensure no duplicate tuples exist in a relation.
+- They also enforce referential integrity between related tables.
+:::
+::: {.guide-block-right}
+:::
+
+*Keys ensure that data remains unique and relational integrity is preserved within and across tables.*
+
+
+
+
+## The Relational Model: Foundation of Modern Databases
+
+The relational model's structure and operations have made it the most widely used model for databases today. It ensures data is organized, accessible, and secure.
+
+::: {.guide-block-left}
+
+- The relational model structures data in a way that is intuitive and scalable.
+- It forms the basis for most modern databases, including MySQL and PostgreSQL.
+- Its rules for data integrity and consistency are crucial in enterprise systems.
+- Provides a foundation for complex query languages like SQL.
+- It is scalable and adaptable to different business needs and applications.
+:::
+::: {.guide-block-right}
+:::
+
+*The relational model provides the backbone for database systems, ensuring data is efficiently stored and manipulated.*
+
+
+

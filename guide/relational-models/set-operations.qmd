@@ -102,27 +102,49 @@ Set theory is a fundamental concept in relational algebra, providing the basis f
 - These operations allow manipulation of data across multiple relations.
 - Set operations are performed on relations that have the same schema.
 :::
-::: {.guide-block-right}
-:::
 
 *Set theory is essential for understanding how relational algebra manipulates and combines relations.*
 
+::: {.guide-block-right}
+[![](.//assets/codd_acm_article.png)](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
+:::
 
-## Intersection in Relational Algebra
+## Intersection Operation in Relational Algebra
 
-Intersection in relational algebra allows you to find the common data between two relations. It returns tuples that are present in both relations.
+The intersection operation retrieves rows that are common to two relations. It is used to find data that appears in both relations, making it useful when comparing datasets or finding shared entries between relations.
 
 ::: {.guide-block-left}
-- Intersection returns the rows that appear in both of the input relations.
-- It can only be performed between two relations with the same schema.
-- This operation is used to find common data points between two datasets.
-- The result relation has the same schema as the input relations.
-- Intersection can help identify matching records across two tables.
+**∩ - Intersection**
+
+- Intersection finds common tuples between two relations.
+- The result includes only those tuples that appear in both relations.
+- Denoted as Relation1 ∩ Relation2
+- It's a binary operation, meaning it operates on two relations.
+- Both relations must be *union-compatible*, meaning they have the same set of attributes and data types.
+- Intersection is often used in conjunction with other set-based operations like union and difference.
 :::
 ::: {.guide-block-right}
+![](./assets/venn-intersection.png)
+
+**Examples**
+
+1. Students ∩ Registered
+
+2. Courses ∩ OfferedCourses
+
+3. Employees ∩ Managers
+
 :::
 
 *Intersection is useful for finding commonality between two sets of data in relational databases.*
+
+### Intersection - ∩ - Example 1
+
+
+### Intersection - ∩ - Example 2
+
+
+### Intersection - ∩ - Example 3
 
 
 ## Difference in Relational Algebra

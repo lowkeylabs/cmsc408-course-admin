@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +71,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../guide.css">
@@ -276,14 +282,31 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction-to-relational-algebra" id="toc-introduction-to-relational-algebra" class="nav-link active" data-scroll-target="#introduction-to-relational-algebra">Introduction to Relational Algebra</a></li>
-  <li><a href="#selection-operation-in-relational-algebra" id="toc-selection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#selection-operation-in-relational-algebra">Selection Operation in Relational Algebra</a></li>
-  <li><a href="#projection-operation-in-relational-algebra" id="toc-projection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#projection-operation-in-relational-algebra">Projection Operation in Relational Algebra</a></li>
-  <li><a href="#union-operation-in-relational-algebra" id="toc-union-operation-in-relational-algebra" class="nav-link" data-scroll-target="#union-operation-in-relational-algebra">Union Operation in Relational Algebra</a></li>
-  <li><a href="#practical-example-selection-operation" id="toc-practical-example-selection-operation" class="nav-link" data-scroll-target="#practical-example-selection-operation">Practical Example: Selection Operation</a></li>
-  <li><a href="#practical-example-projection-operation" id="toc-practical-example-projection-operation" class="nav-link" data-scroll-target="#practical-example-projection-operation">Practical Example: Projection Operation</a></li>
-  <li><a href="#practical-example-union-operation" id="toc-practical-example-union-operation" class="nav-link" data-scroll-target="#practical-example-union-operation">Practical Example: Union Operation</a></li>
-  <li><a href="#combining-selection-and-projection" id="toc-combining-selection-and-projection" class="nav-link" data-scroll-target="#combining-selection-and-projection">Combining Selection and Projection</a></li>
-  <li><a href="#practical-application-reporting-system" id="toc-practical-application-reporting-system" class="nav-link" data-scroll-target="#practical-application-reporting-system">Practical Application: Reporting System</a></li>
+  <li><a href="#selection-operation-in-relational-algebra" id="toc-selection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#selection-operation-in-relational-algebra">Selection Operation in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#selection---σ---example-1" id="toc-selection---σ---example-1" class="nav-link" data-scroll-target="#selection---σ---example-1">Selection - σ - Example 1</a></li>
+  <li><a href="#selection---σ---example-2" id="toc-selection---σ---example-2" class="nav-link" data-scroll-target="#selection---σ---example-2">Selection - σ - Example 2</a></li>
+  <li><a href="#selection---σ---example-3" id="toc-selection---σ---example-3" class="nav-link" data-scroll-target="#selection---σ---example-3">Selection - σ - Example 3</a></li>
+  </ul></li>
+  <li><a href="#projection-operation-in-relational-algebra" id="toc-projection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#projection-operation-in-relational-algebra">Projection Operation in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#projection---π---example-1" id="toc-projection---π---example-1" class="nav-link" data-scroll-target="#projection---π---example-1">Projection - Π - Example 1</a></li>
+  <li><a href="#projection---π---example-2" id="toc-projection---π---example-2" class="nav-link" data-scroll-target="#projection---π---example-2">Projection - Π - Example 2</a></li>
+  <li><a href="#projection---π---example-3" id="toc-projection---π---example-3" class="nav-link" data-scroll-target="#projection---π---example-3">Projection - Π - Example 3</a></li>
+  <li><a href="#projection---π---example-4" id="toc-projection---π---example-4" class="nav-link" data-scroll-target="#projection---π---example-4">Projection - Π - Example 4</a></li>
+  </ul></li>
+  <li><a href="#union-operation-in-relational-algebra" id="toc-union-operation-in-relational-algebra" class="nav-link" data-scroll-target="#union-operation-in-relational-algebra">Union Operation in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#union-----example-1" id="toc-union-----example-1" class="nav-link" data-scroll-target="#union-----example-1">Union - ∪ - Example 1</a></li>
+  </ul></li>
+  <li><a href="#union-----example-2" id="toc-union-----example-2" class="nav-link" data-scroll-target="#union-----example-2">Union - ∪ - Example 2</a></li>
+  <li><a href="#combining-selection-and-projection" id="toc-combining-selection-and-projection" class="nav-link" data-scroll-target="#combining-selection-and-projection">Combining Selection and Projection</a>
+  <ul class="collapse">
+  <li><a href="#combined-example-1" id="toc-combined-example-1" class="nav-link" data-scroll-target="#combined-example-1">Combined Example 1</a></li>
+  <li><a href="#combined-example-2" id="toc-combined-example-2" class="nav-link" data-scroll-target="#combined-example-2">Combined Example 2</a></li>
+  <li><a href="#combined-example-3" id="toc-combined-example-3" class="nav-link" data-scroll-target="#combined-example-3">Combined Example 3</a></li>
+  </ul></li>
+  <li><a href="#larger-reporting-system" id="toc-larger-reporting-system" class="nav-link" data-scroll-target="#larger-reporting-system">Larger Reporting System</a></li>
   <li><a href="#conclusion-mastering-basic-relational-algebra" id="toc-conclusion-mastering-basic-relational-algebra" class="nav-link" data-scroll-target="#conclusion-mastering-basic-relational-algebra">Conclusion: Mastering Basic Relational Algebra</a></li>
   </ul>
 </nav>
@@ -398,21 +421,33 @@ Entities represent real-world objects or concepts, while attributes describe the
 <end-example>
 
 -->
-<p>The slides introduce the fundamental concepts of relational algebra, focusing on the core operations of selection, projection, and union. Each operation is explained with practical examples, demonstrating their use in querying and manipulating relational databases. These operations form the foundation for more advanced database queries and serve as the basis for SQL and other query languages.</p>
+<p><a href="https://en.wikipedia.org/wiki/Relational_algebra">Relational algebra</a> is a formal system used to manipulate and query relational databases. The foundational operations of relational algebra—selection, projection, and union—enable users to filter, narrow, and combine data sets in efficient ways. These operations are critical for building complex queries and are the basis for modern query languages like SQL. By mastering these basic concepts, individuals can optimize their database queries and gain deeper insights into relational data management.</p>
 <section id="introduction-to-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-relational-algebra">Introduction to Relational Algebra</h2>
 <p>Relational algebra is a formal system for manipulating relations, foundational for querying relational databases. This section introduces the core principles and significance of relational algebra in database systems.</p>
+<style>
+.guide-block-right .quarto-float-fig {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 15px;
+</style>
+<div class="guide-block">
+<div class="guide-block-right">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/relational-algebra-overview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./assets/relational-algebra-overview.jpg" class="quarto-float-fig img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></a></p>
+</figure>
+</div>
+</div>
 <div class="guide-block-left">
 <ul>
 <li>Relational algebra is a procedural query language.</li>
 <li>It provides the formal foundation for relational database operations.</li>
 <li>Operations in relational algebra manipulate sets of tuples.</li>
-<li>The basic operations include selection, projection, and union.</li>
+<li>The basic operations include <strong><em>selection</em></strong>, <strong><em>projection</em></strong>, and <strong><em>union</em></strong>.</li>
 <li>Understanding relational algebra is crucial for effective query optimization.</li>
 </ul>
 </div>
-<div class="guide-block-right">
-
 </div>
 <p><em>Relational algebra underpins the structure and functionality of modern relational databases.</em></p>
 </section>
@@ -420,40 +455,724 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h2 class="anchored" data-anchor-id="selection-operation-in-relational-algebra">Selection Operation in Relational Algebra</h2>
 <p>The selection operation retrieves rows from a relation that meet specified conditions. It allows narrowing down data based on predicates, forming a key part of querying in relational databases.</p>
 <div class="guide-block-left">
+<p><strong>σ - Selection (sigma)</strong></p>
 <ul>
 <li>Selection filters rows based on a condition (predicate).</li>
 <li>The result includes only those tuples that satisfy the predicate.</li>
-<li>Denoted as σ(condition)(Relation).</li>
+<li>Denoted as σ(condition)(Relation)</li>
 <li>It’s a unary operation, meaning it operates on a single relation.</li>
+<li>The result of a selection can be used as input into subsequent operations.</li>
 <li>Selection is often used in conjunction with other operations like projection.</li>
+<li><em>condition</em> can contain any relational operator (e.g., =, &lt;, &gt;=, etc.)</li>
 </ul>
 </div>
 <div class="guide-block-right">
-
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p>σ(ID=3)(Courses)</p></li>
+<li><p>σ(Course=‘CMSC408’)(Courses)</p></li>
+<li><p>σ(Enrl&lt;=100)(Courses)</p></li>
+</ol>
 </div>
 <p><em>The selection operation is essential for isolating relevant data in relational databases.</em></p>
+<section id="selection---σ---example-1" class="level3">
+<h3 class="anchored" data-anchor-id="selection---σ---example-1">Selection - σ - Example 1</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="25d711bb" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>σ(ID=3)(Courses) returns:</p>
+<div id="47ff06b0" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="selection---σ---example-2" class="level3">
+<h3 class="anchored" data-anchor-id="selection---σ---example-2">Selection - σ - Example 2</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="b7361da1" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>σ(Course=‘CMSC408’)(Courses) returns:</p>
+<div id="9a485d25" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="selection---σ---example-3" class="level3">
+<h3 class="anchored" data-anchor-id="selection---σ---example-3">Selection - σ - Example 3</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="92fbabc0" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>σ(Enrl&lt;=100)(Courses) returns:</p>
+<div id="dff930c3" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="projection-operation-in-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="projection-operation-in-relational-algebra">Projection Operation in Relational Algebra</h2>
 <p>The projection operation retrieves specific columns from a relation. It enables focusing on certain attributes while discarding others, making it a key operation in relational queries.</p>
 <div class="guide-block-left">
+<p><strong>Π - Projection operator</strong></p>
 <ul>
 <li>Projection reduces the relation to specific columns (attributes).</li>
 <li>Denoted as Π(attribute1, attribute2,…)(Relation).</li>
 <li>It’s used to eliminate unnecessary or redundant data.</li>
 <li>Like selection, projection is a unary operation.</li>
+<li>Projection also drops duplicate records (SQL doesn’t!)!</li>
 <li>Projection can be combined with other operations for complex queries.</li>
 </ul>
 </div>
 <div class="guide-block-right">
-
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p>Π(ID,Course):</p></li>
+<li><p>Π(Course):</p></li>
+<li><p>Π(Term):</p></li>
+<li><p>Π(Term,ID):</p></li>
+</ol>
 </div>
 <p><em>Projection helps streamline query results by focusing on relevant attributes.</em></p>
+<section id="projection---π---example-1" class="level3">
+<h3 class="anchored" data-anchor-id="projection---π---example-1">Projection - Π - Example 1</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="f5e13dc9" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Π(ID,Course) returns:</p>
+<div id="9ca3cf80" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="projection---π---example-2" class="level3">
+<h3 class="anchored" data-anchor-id="projection---π---example-2">Projection - Π - Example 2</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="93f55a01" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Π(Course) returns:</p>
+<div id="0bab5d13" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+</tr>
+<tr class="odd">
+<td>CMSC445</td>
+</tr>
+<tr class="even">
+<td>CMSC475</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="projection---π---example-3" class="level3">
+<h3 class="anchored" data-anchor-id="projection---π---example-3">Projection - Π - Example 3</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="a676af49" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Π(Term) returns:</p>
+<div id="b1aede10" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="projection---π---example-4" class="level3">
+<h3 class="anchored" data-anchor-id="projection---π---example-4">Projection - Π - Example 4</h3>
+<div class="guide-block-left">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="ba1cfdee" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Π(Term,ID) returns:</p>
+<div id="6c05d97f" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2024</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Fall 2024</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Fall 2024</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Fall 2024</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Fall 2023</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="union-operation-in-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="union-operation-in-relational-algebra">Union Operation in Relational Algebra</h2>
 <p>The union operation combines tuples from two relations, eliminating duplicates. It’s an essential set operation in relational algebra, used for merging query results.</p>
 <div class="guide-block-left">
+<p><strong>∪ - Union Operator</strong></p>
 <ul>
 <li>Union combines two relations into a single relation.</li>
 <li>Both relations must be union-compatible (same number of attributes and domains).</li>
@@ -463,64 +1182,227 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ul>
 </div>
 <div class="guide-block-right">
-
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p><em>Courses1</em> ∪ <em>Courses2</em></p></li>
+<li><p><em>Courses1</em> ∪ <em>Courses3</em></p></li>
+</ol>
 </div>
 <p><em>The union operation enables the merging of datasets in a relational context.</em></p>
-</section>
-<section id="practical-example-selection-operation" class="level2">
-<h2 class="anchored" data-anchor-id="practical-example-selection-operation">Practical Example: Selection Operation</h2>
-<p>The selection operation can filter data based on specified conditions, such as selecting students with grades above a certain threshold. This example illustrates its practical application.</p>
+<section id="union-----example-1" class="level3">
+<h3 class="anchored" data-anchor-id="union-----example-1">Union - ∪ - Example 1</h3>
 <div class="guide-block-left">
-<ul>
-<li>Suppose we have a relation Students(Name, Grade).</li>
-<li>Selection query: σ(Grade &gt; 75)(Students).</li>
-<li>The result includes all students with grades above 75.</li>
-<li>Selection allows filtering based on conditions relevant to the query.</li>
-<li>It’s commonly used in real-world database applications, such as reporting or analytics.</li>
-</ul>
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="2b07c43d" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses2( Course,Term )</em>:</p>
+<div id="25a889dc" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
 </div>
 <div class="guide-block-right">
+<p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
+<div id="b0c6550c" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
 
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
 </div>
-<p><em>Selection is a practical tool for retrieving specific subsets of data in databases.</em></p>
+</div>
+</div>
 </section>
-<section id="practical-example-projection-operation" class="level2">
-<h2 class="anchored" data-anchor-id="practical-example-projection-operation">Practical Example: Projection Operation</h2>
-<p>The projection operation can reduce data to essential attributes, such as selecting only student names from a larger dataset. This example demonstrates its use.</p>
+</section>
+<section id="union-----example-2" class="level2">
+<h2 class="anchored" data-anchor-id="union-----example-2">Union - ∪ - Example 2</h2>
 <div class="guide-block-left">
-<ul>
-<li>Suppose we have a relation Students(Name, Grade).</li>
-<li>Projection query: Π(Name)(Students).</li>
-<li>The result includes only the names of students, excluding their grades.</li>
-<li>Projection helps focus on relevant data when full details aren’t needed.</li>
-<li>It’s useful in reporting and data analysis tasks.</li>
-</ul>
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="5145be1a" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses3( Course,Term )</em>:</p>
+<div id="42b40966" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Term_code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2022</td>
+<td>202310</td>
+</tr>
+<tr class="even">
+<td>Fall 2023</td>
+<td>202410</td>
+</tr>
+<tr class="odd">
+<td>Fall 2024</td>
+<td>202510</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
 </div>
 <div class="guide-block-right">
-
+<p><em>Courses1</em> ∪ <em>Courses3</em> returns:</p>
+<center>
+<em>Invalid</em>
+</center>
+<p>
+&nbsp;
+</p>
+<p>Because the schema for Courses1 and Courses3 are different, that is, the number, names, and domains of the columns don’t match exactly, the two relations cannot be combined.</p>
+<p>The term <em>Union Compatible</em> is used to describe two relations with the same number, names, and domains of columns.</p>
 </div>
-<p><em>Projection simplifies query results by narrowing down the columns in the output.</em></p>
-</section>
-<section id="practical-example-union-operation" class="level2">
-<h2 class="anchored" data-anchor-id="practical-example-union-operation">Practical Example: Union Operation</h2>
-<p>The union operation can merge data from two different relations, such as combining two classes’ student lists. This example shows how it’s used in practice.</p>
-<div class="guide-block-left">
-<ul>
-<li>Suppose we have two relations: ClassA(Name), ClassB(Name).</li>
-<li>Union query: ClassA ∪ ClassB.</li>
-<li>The result includes all students from both classes, with duplicates removed.</li>
-<li>Union is commonly used to combine results from separate queries.</li>
-<li>It simplifies merging similar datasets in databases.</li>
-</ul>
-</div>
-<div class="guide-block-right">
-
-</div>
-<p><em>Union is a powerful operation for combining multiple datasets in relational databases.</em></p>
 </section>
 <section id="combining-selection-and-projection" class="level2">
 <h2 class="anchored" data-anchor-id="combining-selection-and-projection">Combining Selection and Projection</h2>
 <p>In real-world queries, selection and projection are often combined to both filter and reduce data. This allows for more refined and efficient query results.</p>
+<p>In relational algebra operations can be chained, that is, the results from one operation can be directly used inside another operation.</p>
 <div class="guide-block-left">
 <ul>
 <li>Suppose we have a relation Students(Name, Grade).</li>
@@ -531,26 +1413,394 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ul>
 </div>
 <div class="guide-block-right">
-
+<ul>
+<li>Relational operations are ordered from the inside to the outside.</li>
+<li>Given this query: Π(Name)(σ(Grade &gt; 75)(Students))
+<ul>
+<li>First, the selection operation is performed, resulting in a subset of the original relation,</li>
+<li>then, the projection operation is performed, reducing the number of columns in the result.</li>
+</ul></li>
+</ul>
 </div>
 <p><em>Combining operations enables precise and targeted query results in relational databases.</em></p>
-</section>
-<section id="practical-application-reporting-system" class="level2">
-<h2 class="anchored" data-anchor-id="practical-application-reporting-system">Practical Application: Reporting System</h2>
-<p>Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. This slide explores how basic operations are applied in practice.</p>
+<section id="combined-example-1" class="level3">
+<h3 class="anchored" data-anchor-id="combined-example-1">Combined Example 1</h3>
 <div class="guide-block-left">
+<p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
+<div id="d7165d18" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
+<div id="45aae29d" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="combined-example-2" class="level3">
+<h3 class="anchored" data-anchor-id="combined-example-2">Combined Example 2</h3>
+<div class="guide-block-left">
+<p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
+<div id="c9381aa8" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Find the majors of all students with a GPA greater than 3.5</p>
+<div id="bf614f8f" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="combined-example-3" class="level3">
+<h3 class="anchored" data-anchor-id="combined-example-3">Combined Example 3</h3>
+<div class="guide-block-left">
+<p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
+<div id="3b35bc71" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Find the ID and Names of all students in computer science.</p>
+<div id="bf34e19e" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 75%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="larger-reporting-system" class="level2">
+<h2 class="anchored" data-anchor-id="larger-reporting-system">Larger Reporting System</h2>
+<p>Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.</p>
+<div class="guide-block-left">
+<ol type="1">
+<li>Example: Generating a list of employees eligible for a bonus.
 <ul>
-<li>Example: Generating a list of employees eligible for a bonus.</li>
 <li>Selection operation to filter eligible employees based on criteria (e.g., performance).</li>
 <li>Projection to display only relevant fields (e.g., Name, Department).</li>
 <li>Union to combine results from different departments.</li>
-<li>Relational algebra operations underpin practical reporting tools.</li>
-</ul>
+</ul></li>
+<li>Example: Generating a report of products sold by specific vendors.
+<ul>
+<li>Selection to filter products by vendor ID.</li>
+<li>Projection to display product name and vendor details.</li>
+<li>Cartesian product to cross-reference products with vendor data.</li>
+</ul></li>
+</ol>
 </div>
 <div class="guide-block-right">
-
+<ol start="3" type="1">
+<li>Example: Compiling a list of employees not assigned to any projects.
+<ul>
+<li>Anti-join to find employees not in the project assignment table.</li>
+<li>Projection to show employee names and departments.</li>
+<li>Set difference to exclude employees with assignments from the employee list.</li>
+</ul></li>
+<li>Example: Producing a report of sales trends over time.
+<ul>
+<li>Selection to filter sales data by date range.</li>
+<li>Aggregation to calculate sales totals by month or quarter.</li>
+<li>Join to merge sales data with product or category details.</li>
+</ul></li>
+</ol>
 </div>
-<p><em>Relational algebra operations provide a foundation for building dynamic and flexible reporting systems.</em></p>
+<p>Note that these examples introduce additional operators to complement the <em>Selection</em>, <em>Projection</em> and <em>Union</em> already discussed. That’s what we’ll discuss next!</p>
+<p>Each of these examples is considered a single query even though they contains multiple single relational operations.</p>
+<p>Your semester long project must document 20 unique queries. To accomplish this, you’ll need plenty of entities (tables).</p>
 </section>
 <section id="conclusion-mastering-basic-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion-mastering-basic-relational-algebra">Conclusion: Mastering Basic Relational Algebra</h2>
@@ -1006,6 +2256,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

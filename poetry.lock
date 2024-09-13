@@ -475,12 +475,12 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "cnvsapi"
-version = "0.7.10"
+version = "0.7.11"
 description = "Canvas utilities"
 optional = false
 python-versions = ">=3.12,<4.0"
 files = [
-    {file = "cnvsapi-0.7.10-py3-none-any.whl", hash = "sha256:0741ed3e64b75a54fdf9561dc926470cf34f7a532be3303d44b83b298b1f7d10"},
+    {file = "cnvsapi-0.7.11-py3-none-any.whl", hash = "sha256:38044d170b8c13677bee92dc64d641f82300339339ffbde47e77af170f969f5e"},
 ]
 
 [package.dependencies]
@@ -513,7 +513,7 @@ tomlkit = ">=0.11.8,<0.12.0"
 
 [package.source]
 type = "file"
-url = "helpers/cnvsapi-0.7.10-py3-none-any.whl"
+url = "helpers/cnvsapi-0.7.11-py3-none-any.whl"
 
 [[package]]
 name = "colorama"
@@ -3725,12 +3725,12 @@ widechars = ["wcwidth"]
 
 [[package]]
 name = "tasl"
-version = "0.2.1"
+version = "0.2.2"
 description = ""
 optional = false
 python-versions = ">=3.12,<4.0"
 files = [
-    {file = "tasl-0.2.1-py3-none-any.whl", hash = "sha256:25a44613104aff994bb9e71cc787fd2e7685dc31cfa525876110f71da0ebfa84"},
+    {file = "tasl-0.2.2-py3-none-any.whl", hash = "sha256:a06a645f20883ee4fa69d4bebdbfaf7c608fcdb528d4b7e05bcd23c9901c11e3"},
 ]
 
 [package.dependencies]
@@ -3750,7 +3750,7 @@ pyyaml = ">=6.0.1,<7.0.0"
 
 [package.source]
 type = "file"
-url = "helpers/tasl-0.2.1-py3-none-any.whl"
+url = "helpers/tasl-0.2.2-py3-none-any.whl"
 
 [[package]]
 name = "tenacity"
@@ -4048,4 +4048,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "ca8075b80e13c6aa7df1aa54b1e5f644fbadad5d4025d7ea164f8969eb943e95"
+content-hash = "21b841c9148e8d1ab3ad43868fe72eafdfdc38d12211e3e50c278fc4cf4a22ba"
