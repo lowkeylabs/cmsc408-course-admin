@@ -10,7 +10,10 @@
 <link href="lecture-07_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-07_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-07_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-07_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
+<link href="lecture-07_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-07_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-07_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-07_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <title>Relational Algebra 1</title>
@@ -660,6 +663,2946 @@ and eventually, what it means to records and tables.-->
 <li>Practice Exercises (HTML): <a href="http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html" class="uri">http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html</a></li>
 <li><a href="http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf">More practice exercises (PDF)</a></li>
 </ul>
+</section></section>
+<section>
+<section id="basic-operations" class="title-slide slide level1 center">
+<h1>Basic Operations</h1>
+
+</section>
+<section id="introduction-to-relational-algebra" class="slide level2">
+<h2>Introduction to Relational Algebra</h2>
+<p>Relational algebra is a formal system for manipulating relations, foundational for querying relational databases. This section introduces the core principles and significance of relational algebra in database systems.</p>
+<style>
+.guide-block-right .quarto-float-fig {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 15px;
+</style>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li>Relational algebra is a procedural query language.</li>
+<li>It provides the formal foundation for relational database operations.</li>
+<li>Operations in relational algebra manipulate sets of tuples.</li>
+<li>The basic operations include <strong><em>selection</em></strong>, <strong><em>projection</em></strong>, and <strong><em>union</em></strong>.</li>
+<li>Understanding relational algebra is crucial for effective query optimization.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/relational-algebra-overview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="./assets/relational-algebra-overview.jpg" class="quarto-float-fig quarto-figure quarto-figure-center" style="width:25.0%"></a></p>
+</figure>
+</div>
+</div></div>
+<!-- -->
+<p><em>Relational algebra underpins the structure and functionality of modern relational databases.</em></p>
+</section>
+<section id="selection-operation-in-relational-algebra" class="slide level2 scrollable">
+<h2>Selection Operation in Relational Algebra</h2>
+<p>The selection operation retrieves rows from a relation that meet specified conditions. It allows narrowing down data based on predicates, forming a key part of querying in relational databases.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>σ - Selection (sigma)</strong></p>
+<ul>
+<li>Selection filters rows based on a condition (predicate).</li>
+<li>The result includes only those tuples that satisfy the predicate.</li>
+<li>Denoted as σ(condition)(Relation)</li>
+<li>It’s a unary operation, meaning it operates on a single relation.</li>
+<li>The result of a selection can be used as input into subsequent operations.</li>
+<li>Selection is often used in conjunction with other operations like projection.</li>
+<li><em>condition</em> can contain any relational operator (e.g., =, &lt;, &gt;=, etc.)</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Unicode examples</strong></p>
+<p>Below are examples of what these statement will look like on the Canvas quiz.</p>
+<ol type="1">
+<li><p>σ(ID=3)(Courses)</p></li>
+<li><p>σ(Course=‘CMSC408’)(Courses)</p></li>
+<li><p>σ(Enrl&lt;=100)(Courses)</p></li>
+</ol>
+</div></div>
+<!-- -->
+</section>
+<section id="properties-of-the-selection-operator" class="slide level2">
+<h2>Properties of the selection operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\sigma_{\rho}(R) = { t \mid t \in R \text{ and } \rho(t) == \text{true} }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row in <span class="math inline">\(R\)</span>,</li>
+<li><span class="math inline">\(\rho\)</span> (the <em>predicate</em>) is a boolean expression that evaluates true or false for all rows in <span class="math inline">\(R\)</span>,</li>
+<li><span class="math inline">\(\rho\)</span> consists of one or more <em>terms</em> connected by <span class="math inline">\(\land\)</span>(and), <span class="math inline">\(\lor\)</span>(or), <span class="math inline">\(\neg\)</span>(not) function.</li>
+<li><em>Terms</em> in <span class="math inline">\(\rho\)</span> are simple relational expressions evaluated using <span class="math inline">\(=\)</span>, <span class="math inline">\(\ne\)</span>, <span class="math inline">\(\&lt;\)</span>, <span class="math inline">\(&gt;\)</span>, <span class="math inline">\(\le\)</span>, <span class="math inline">\(\ge\)</span>.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><em>Idempotent</em> - can be applied multiple times without side effects:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{A}(R) = \sigma_{A} ( \sigma_{A}(R) )
+\]</span></p>
+<ul>
+<li><em>Commutative</em> - the order of application doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{A}( \sigma_{B}(R) ) = \sigma_{B}( \sigma_{A}(R) )
+\]</span></p>
+<ul>
+<li><em>Distributed</em> - operations can be subdivided and combined</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\sigma_{A \land B}( R ) &amp;= \sigma_{A}(R) \cap \sigma_{B}(R) \
+&amp;= \sigma_{A}( \sigma_{B}(R) ) = \sigma_{B}( \sigma_{A}(R) ) \
+\sigma_{A \lor B}( R ) &amp;= \sigma_{A}(R) \cup \sigma_{B}(R)
+\end{aligned}
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="selection---σ---example-1" class="slide level2">
+<h2>Selection - σ - Example 1</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="0a1f5bf6" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>σ(ID=3)(Courses) returns:</p>
+<div id="3c3d68be" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="selection---σ---example-2" class="slide level2">
+<h2>Selection - σ - Example 2</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="5e5ccd18" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>σ(Course=‘CMSC408’)(Courses) returns:</p>
+<div id="8c1bdce2" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section></section>
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+<section id="selection---σ---example-3" class="slide level2">
+<h2>Selection - σ - Example 3</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="ae4e2a43" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>σ(Enrl&lt;=100)(Courses) returns:</p>
+<div id="2678f793" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="projection-operation-in-relational-algebra" class="slide level2 scrollable">
+<h2>Projection Operation in Relational Algebra</h2>
+<p>The projection operation retrieves specific columns from a relation. It enables focusing on certain attributes while discarding others, making it a key operation in relational queries.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Π - Projection operator</strong></p>
+<ul>
+<li>Projection reduces the relation to specific columns (attributes).</li>
+<li>Denoted as Π(attribute1, attribute2,…)(Relation).</li>
+<li>It’s used to eliminate unnecessary or redundant data.</li>
+<li>Like selection, projection is a unary operation.</li>
+<li>Projection also drops duplicate records (SQL doesn’t!)!</li>
+<li>Projection can be combined with other operations for complex queries.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p>Π(ID,Course):</p></li>
+<li><p>Π(Course):</p></li>
+<li><p>Π(Term):</p></li>
+<li><p>Π(Term,ID):</p></li>
+</ol>
+</div></div>
+<!-- -->
+<p><em>Projection helps streamline query results by focusing on relevant attributes.</em></p>
+</section>
+<section id="definition-of-projection" class="slide level2">
+<h2>Definition of projection</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong> <span class="math display">\[
+\pi_{A_1, A_2, \dots, A_n}(R) = { t\[A_1, A_2, \dots, A_n\] \mid t \in R }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row in <span class="math inline">\(R\)</span>,</li>
+<li><span class="math inline">\(A_1, A_2, \dots, A_n\)</span> are the attributes (columns) of relation (R),</li>
+<li>The projection operator returns a new relation containing only the specified attributes (A_1, A_2, , A_n) from (R),</li>
+<li>The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong><em>Explanation</em></strong></p>
+<ul>
+<li>The projection operator () selects certain columns (attributes) from the relation (R), discarding the others.</li>
+<li>It operates by returning only the specified columns for each tuple (row) in (R), effectively creating a “vertical slice” of the relation.</li>
+<li>Duplicate tuples in the result are eliminated to ensure the output is a valid set.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="properties-of-projection" class="slide level2">
+<h2>Properties of projection</h2>
+<ul>
+<li><strong>Idempotent</strong> – Projection can be applied multiple times without side effects:</li>
+</ul>
+<p><span class="math display">\[
+\pi_{A_1, A_2, \dots, A_n}( \pi_{A_1, A_2, \dots, A_n}(R) ) = \pi_{A_1, A_2, \dots, A_n}(R)
+\]</span></p>
+<ul>
+<li><strong>Commutative</strong> – The order of projection on overlapping sets of attributes doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+\pi_{A_1, A_2}( \pi_{A_2, A_3}(R) ) = \pi_{A_2}( \pi_{A_1, A_3}(R) )
+\]</span></p>
+<p>(if <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> are overlapping or compatible)</p>
+<ul>
+<li><p><strong>Non-distributive</strong> – Projection does <strong>not</strong> distribute over selection, but it interacts in specific ways:</p>
+<ul>
+<li><strong>Projection over selection</strong> (you can select first, then project):</li>
+</ul>
+<p><span class="math display">\[
+\pi_{A_1, A_2}( \sigma_{B}(R) ) = \pi_{A_1, A_2}(R) \quad \text{if } B \text{ involves only attributes } A_1, A_2
+\]</span></p>
+<ul>
+<li><strong>Selection over projection</strong> (you cannot project first if selection involves non-projected attributes):</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{B}( \pi_{A_1, A_2}(R) ) \quad \text{undefined if } B \text{ involves attributes not in } A_1, A_2
+\]</span></p></li>
+</ul>
+</section>
+<section id="explanation-of-properties" class="slide level2">
+<h2>Explanation of Properties</h2>
+<ul>
+<li><strong>Idempotent</strong>: Reapplying projection on the same set of attributes does not change the result. Once the attributes are reduced, further projection on the same set will not alter the relation.</li>
+<li><strong>Commutative</strong>: When projecting on overlapping or compatible sets of attributes, the order of application does not matter (the resulting attributes will still be the same).</li>
+<li><strong>Non-distributive</strong>: Unlike selection, projection cannot be freely distributed over operations such as selection, because projection limits the available attributes. It must respect the interaction between available attributes and conditions in the selection.</li>
+</ul>
+</section>
+<section id="projection---π---example-1" class="slide level2">
+<h2>Projection - Π - Example 1</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="0de7936e" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Π(ID,Course) returns:</p>
+<div id="f380f1aa" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section></section>
+<section>
+<section id="section-1" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+<section id="projection---π---example-2" class="slide level2">
+<h2>Projection - Π - Example 2</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="2d9a019b" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Π(Course) returns:</p>
+<div id="3f2baa94" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Course</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+</tr>
+<tr class="odd">
+<td>CMSC445</td>
+</tr>
+<tr class="even">
+<td>CMSC475</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section></section>
+<section>
+<section id="section-2" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+<section id="projection---π---example-3" class="slide level2">
+<h2>Projection - Π - Example 3</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="0a1b7262" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Π(Term) returns:</p>
+<div id="39ac1894" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section></section>
+<section>
+<section id="section-3" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+<section id="projection---π---example-4" class="slide level2">
+<h2>Projection - Π - Example 4</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
+<div id="46dc6d8a" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC301</td>
+<td>Fall 2024</td>
+<td>220</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC408</td>
+<td>Fall 2024</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC445</td>
+<td>Fall 2024</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC475</td>
+<td>Fall 2024</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC408</td>
+<td>Fall 2023</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Π(Term,ID) returns:</p>
+<div id="feb05f83" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 50%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2024</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Fall 2024</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Fall 2024</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Fall 2024</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Fall 2023</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="union-operation-in-relational-algebra" class="slide level2 scrollable">
+<h2>Union Operation in Relational Algebra</h2>
+<p>The union operation combines tuples from two relations, eliminating duplicates. It’s an essential set operation in relational algebra, used for merging query results.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>∪ - Union Operator</strong></p>
+<ul>
+<li>Union combines two relations into a single relation.</li>
+<li>Both relations must be union-compatible (same number of attributes and domains).</li>
+<li>Denoted as R ∪ S.</li>
+<li>Duplicates are automatically removed from the result.</li>
+<li>Union is a binary operation, meaning it operates on two relations.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p><em>Courses1</em> ∪ <em>Courses2</em></p></li>
+<li><p><em>Courses1</em> ∪ <em>Courses3</em></p></li>
+</ol>
+</div></div>
+<!-- -->
+<p><em>The union operation enables the merging of datasets in a relational context.</em></p>
+</section>
+<section id="definition-of-union-operator" class="slide level2">
+<h2>Definition of Union Operator</h2>
+<div class="columns">
+<div class="column" style="width:98%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \cup R_2 = { t \mid t \in R_1 \text{ or } t \in R_2 }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row (tuple),</li>
+<li><span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are relations (tables) with the same attributes,</li>
+<li>The union operation returns a new relation containing all distinct rows that are present in either <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, or both,</li>
+<li>Duplicate rows are eliminated in the result, ensuring the output is a set, not a multiset.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+</section>
+<section id="properties-of-union" class="slide level2">
+<h2>Properties of Union</h2>
+<ul>
+<li><strong>Idempotent</strong> – Applying the union of a relation with itself doesn’t change the result:</li>
+</ul>
+<p><span class="math display">\[
+R \cup R = R
+\]</span></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a union operation doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cup R_2 = R_2 \cup R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – The grouping of union operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \cup R_2) \cup R_3 = R_1 \cup (R_2 \cup R_3)
+\]</span></p>
+<ul>
+<li><strong>Union with an empty set</strong> – The union of a relation with an empty set is the relation itself:</li>
+</ul>
+<p><span class="math display">\[
+R \cup \emptyset = R
+\]</span></p>
+<ul>
+<li><strong>Union distributes over intersection</strong> – The union of two relations distributes over their intersection:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
+\]</span></p>
+</section>
+<section id="explanation-of-properties-1" class="slide level2">
+<h2>Explanation of Properties</h2>
+<ul>
+<li><strong>Idempotent</strong>: Combining a relation with itself does not add any new rows since the union eliminates duplicates.</li>
+<li><strong>Commutative</strong>: The union is symmetric, so the order of relations does not affect the result.</li>
+<li><strong>Associative</strong>: You can group union operations in any way, and the result will be the same.</li>
+<li><strong>Union with an empty set</strong>: Union with an empty relation results in the original relation, as the empty set contributes no rows.</li>
+<li><strong>Distributed</strong>: Union distributes over intersection in a way that respects the structure of both operations.</li>
+</ul>
+</section>
+<section id="union-----example-1" class="slide level2">
+<h2>Union - ∪ - Example 1</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="f46c35f4" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses2( Course,Term )</em>:</p>
+<div id="45d75781" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
+<div id="85fbad36" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="union-----example-2" class="slide level2">
+<h2>Union - ∪ - Example 2</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="19b815ae" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses3( Course,Term )</em>:</p>
+<div id="51cd47c7" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Term_code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fall 2022</td>
+<td>202310</td>
+</tr>
+<tr class="even">
+<td>Fall 2023</td>
+<td>202410</td>
+</tr>
+<tr class="odd">
+<td>Fall 2024</td>
+<td>202510</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Courses1</em> ∪ <em>Courses3</em> returns:</p>
+<center>
+<em>Invalid</em>
+</center>
+<p>
+&nbsp;
+</p>
+<p>Because the schema for Courses1 and Courses3 are different, that is, the number, names, and domains of the columns don’t match exactly, the two relations cannot be combined.</p>
+<p>The term <em>Union Compatible</em> is used to describe two relations with the same number, names, and domains of columns.</p>
+</div></div>
+<!-- -->
+</section>
+<section id="combining-selection-and-projection" class="slide level2">
+<h2>Combining Selection and Projection</h2>
+<p>In real-world queries, selection and projection are often combined to both filter and reduce data. This allows for more refined and efficient query results.</p>
+<p>In relational algebra operations can be chained, that is, the results from one operation can be directly used inside another operation.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li>Suppose we have a relation Students(Name, Grade).</li>
+<li>Query: Π(Name)(σ(Grade &gt; 75)(Students)).</li>
+<li>The result includes only the names of students with grades above 75.</li>
+<li>Combining operations allows for more complex and specific queries.</li>
+<li>Selection and projection together form the backbone of query design.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<ul>
+<li>Relational operations are ordered from the inside to the outside.</li>
+<li>Given this query: Π(Name)(σ(Grade &gt; 75)(Students))
+<ul>
+<li>First, the selection operation is performed, resulting in a subset of the original relation,</li>
+<li>then, the projection operation is performed, reducing the number of columns in the result.</li>
+</ul></li>
+</ul>
+</div></div>
+<!-- -->
+<p><em>Combining operations enables precise and targeted query results in relational databases.</em></p>
+</section>
+<section id="combined-example-1" class="slide level2">
+<h2>Combined Example 1</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
+<div id="84a9a9ef" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
+<div id="4af53e58" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="combined-example-2" class="slide level2">
+<h2>Combined Example 2</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
+<div id="74259312" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Find the majors of all students with a GPA greater than 3.5</p>
+<div id="86c271f0" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="combined-example-3" class="slide level2">
+<h2>Combined Example 3</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
+<div id="0837bfef" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Find the ID and Names of all students in computer science.</p>
+<div id="11a8ea46" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">Grad_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>3.5</td>
+<td>2024</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>3.8</td>
+<td>2023</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>3.2</td>
+<td>2025</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>3.9</td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div></div>
+<!-- -->
+</section>
+<section id="larger-reporting-systems" class="slide level2 scrollable">
+<h2>Larger Reporting Systems</h2>
+<p>Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ol type="1">
+<li><p>Example: Generating a list of employees eligible for a bonus.</p>
+<ul>
+<li>Selection operation to filter eligible employees based on criteria (e.g., performance).</li>
+<li>Projection to display only relevant fields (e.g., Name, Department).</li>
+<li>Union to combine results from different departments.</li>
+</ul></li>
+<li><p>Example: Generating a report of products sold by specific vendors.</p>
+<ul>
+<li>Selection to filter products by vendor ID.</li>
+<li>Projection to display product name and vendor details.</li>
+<li>Cartesian product to cross-reference products with vendor data.</li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<ol start="3" type="1">
+<li><p>Example: Compiling a list of employees not assigned to any projects.</p>
+<ul>
+<li>Anti-join to find employees not in the project assignment table.</li>
+<li>Projection to show employee names and departments.</li>
+<li>Set difference to exclude employees with assignments from the employee list.</li>
+</ul></li>
+<li><p>Example: Producing a report of sales trends over time.</p>
+<ul>
+<li>Selection to filter sales data by date range.</li>
+<li>Aggregation to calculate sales totals by month or quarter.</li>
+<li>Join to merge sales data with product or category details.</li>
+</ul></li>
+</ol>
+</div></div>
+<!-- -->
+<p>Note that these examples introduce additional operators to complement the <em>Selection</em>, <em>Projection</em> and <em>Union</em> already discussed. That’s what we’ll discuss next!</p>
+</section>
+<section id="larger-reporting-systems-1" class="slide level2">
+<h2>Larger Reporting Systems</h2>
+<p>On the preceding slide:</p>
+<ul>
+<li><p>Each of these examples is considered a <em>single query</em> even though they contains multiple single relational operations.</p></li>
+<li><p>Your semester long project must document 20 unique queries. To accomplish this, you’ll need plenty of entities (tables).</p></li>
+</ul>
+</section>
+<section id="larger-reporting-systems-2" class="slide level2 scrollable">
+<h2>Larger Reporting Systems</h2>
+<p>Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ol type="1">
+<li><p>Example: Generating a list of employees eligible for a bonus.</p>
+<ul>
+<li>Selection operation to filter eligible employees based on criteria (e.g., performance).</li>
+<li>Projection to display only relevant fields (e.g., Name, Department).</li>
+<li>Union to combine results from different departments.</li>
+</ul></li>
+<li><p>Example: Generating a report of products sold by specific vendors.</p>
+<ul>
+<li>Selection to filter products by vendor ID.</li>
+<li>Projection to display product name and vendor details.</li>
+<li>Cartesian product to cross-reference products with vendor data.</li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<ol start="3" type="1">
+<li><p>Example: Compiling a list of employees not assigned to any projects.</p>
+<ul>
+<li>Anti-join to find employees not in the project assignment table.</li>
+<li>Projection to show employee names and departments.</li>
+<li>Set difference to exclude employees with assignments from the employee list.</li>
+</ul></li>
+<li><p>Example: Producing a report of sales trends over time.</p>
+<ul>
+<li>Selection to filter sales data by date range.</li>
+<li>Aggregation to calculate sales totals by month or quarter.</li>
+<li>Join to merge sales data with product or category details.</li>
+</ul></li>
+</ol>
+</div></div>
+<!-- -->
+<p>Note that these examples introduce additional operators to complement the <em>Selection</em>, <em>Projection</em> and <em>Union</em> already discussed. That’s what we’ll discuss next!</p>
+</section>
+<section id="larger-reporting-systems-3" class="slide level2">
+<h2>Larger Reporting Systems</h2>
+<p>On the preceding slide:</p>
+<ul>
+<li><p>Each of these examples is considered a <em>single query</em> even though they contains multiple single relational operations.</p></li>
+<li><p>Your semester long project must document 20 unique queries. To accomplish this, you’ll need plenty of entities (tables).</p></li>
+</ul>
+</section>
+<section id="conclusion-mastering-basic-relational-algebra" class="slide level2">
+<h2>Conclusion: Mastering Basic Relational Algebra</h2>
+<p>Understanding the basic operations of relational algebra is crucial for working with relational databases. These operations enable effective data querying, filtering, and combination.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Selection, projection, and union are foundational operations.</li>
+<li>Each operation serves a specific purpose in querying relational data.</li>
+<li>Combining operations enables more complex and powerful queries.</li>
+<li>Mastering these operations is essential for advanced database management.</li>
+<li>Relational algebra forms the core of SQL and other query languages.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Mastering relational algebra is key to becoming proficient in database management and query design.</em></p>
+</section></section>
+<section>
+<section id="set-operations" class="title-slide slide level1 center">
+<h1>Set Operations</h1>
+
+</section>
+<section id="introduction-to-set-theory-and-relational-algebra" class="slide level2">
+<h2>Introduction to Set Theory and Relational Algebra</h2>
+<p>Set theory is a fundamental concept in relational algebra, providing the basis for operations that manipulate relations. These operations enable combining and filtering data effectively in relational databases.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li>Set theory deals with the mathematical concept of sets, collections of distinct elements.</li>
+<li>Relational algebra applies set theory to relations (tables) in databases.</li>
+<li>Common operations include union, intersection, difference, and Cartesian product.</li>
+<li>These operations allow manipulation of data across multiple relations.</li>
+<li>Set operations are performed on relations that have the same schema.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><a href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf"><img data-src=".//assets/codd_acm_article.png"></a></p>
+</div></div>
+<p><em>Set theory is essential for understanding how relational algebra manipulates and combines relations.</em></p>
+<!-- -->
+</section>
+<section id="intersection-operation-in-relational-algebra" class="slide level2 scrollable">
+<h2>Intersection Operation in Relational Algebra</h2>
+<p>The intersection operation retrieves rows that are common to two relations. It is used to find data that appears in both relations, making it useful when comparing datasets or finding shared entries between relations.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>∩ - Intersection</strong></p>
+<ul>
+<li>Intersection finds common tuples between two relations.</li>
+<li>The result includes only those tuples that appear in both relations.</li>
+<li>Denoted as Relation1 ∩ Relation2</li>
+<li>It’s a binary operation, meaning it operates on two relations.</li>
+<li>Both relations must be <em>union-compatible</em>, meaning they have the same set of attributes and data types.</li>
+<li>Intersection is often used in conjunction with other set-based operations like union and difference.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><img data-src="./assets/venn-intersection.png"></p>
+<p><strong>Examples</strong></p>
+<ol type="1">
+<li><p>Students ∩ Registered</p></li>
+<li><p>Courses ∩ OfferedCourses</p></li>
+<li><p>Employees ∩ Managers</p></li>
+</ol>
+</div></div>
+<!-- -->
+<p><em>Intersection is useful for finding commonality between two sets of data in relational databases.</em></p>
+</section>
+<section id="properties-of-the-intersection-operator" class="slide level2">
+<h2>Properties of the Intersection Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \cap R_2 = { t \mid t \in R_1 \text{ and } t \in R_2 }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row (tuple),</li>
+<li><span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are relations (tables) with the same attributes,</li>
+<li>The intersection operation returns a new relation containing only the rows that are present in both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>,</li>
+<li>The result consists of distinct rows that satisfy the condition of being in both relations.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Idempotent</strong> – Applying the intersection of a relation with itself doesn’t change the result:</li>
+</ul>
+<p><span class="math display">\[
+R \cap R = R
+\]</span></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in an intersection operation doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cap R_2 = R_2 \cap R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – The grouping of intersection operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \cap R_2) \cap R_3 = R_1 \cap (R_2 \cap R_3)
+\]</span></p>
+<ul>
+<li><strong>Intersection with an empty set</strong> – The intersection of a relation with an empty set is the empty set:</li>
+</ul>
+<p><span class="math display">\[
+R \cap \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Intersection distributes over union</strong> – The intersection of two relations distributes over their union:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-2" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Idempotent</strong>: Combining a relation with itself using intersection does not remove any rows, so the result remains the same.</li>
+<li><strong>Commutative</strong>: The order of the relations in the intersection operation does not affect the result.</li>
+<li><strong>Associative</strong>: You can group intersection operations in any way, and the result will be the same.</li>
+<li><strong>Intersection with an empty set</strong>: Intersecting with an empty relation results in an empty set because no rows can be in both the original relation and an empty set.</li>
+<li><strong>Distributed</strong>: Intersection distributes over union, meaning you can break down or combine intersections in a structured way over unions.</li>
+</ul>
+</section>
+<section id="difference-in-relational-algebra" class="slide level2">
+<h2>Difference in Relational Algebra</h2>
+<p>Difference in relational algebra subtracts one relation from another, returning the rows that are present in the first relation but not the second.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>The difference operation returns tuples that are in one relation but not in the other.</li>
+<li>It is often used to filter out unwanted data from a larger dataset.</li>
+<li>The relations must have the same schema for the difference operation to be valid.</li>
+<li>This operation can help isolate unique data points in a relation.</li>
+<li>The result is a relation that includes only the data exclusive to the first set.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Difference is a powerful tool for excluding data from one relation that is present in another.</em></p>
+</section>
+<section id="properties-of-the-difference-operator" class="slide level2">
+<h2>Properties of the Difference Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 - R_2 = { t \mid t \in R_1 \text{ and } t \notin R_2 }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row (tuple),</li>
+<li><span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are relations (tables) with the same attributes,</li>
+<li>The difference operation returns a new relation containing only the rows that are in <span class="math inline">\(R_1\)</span> but not in <span class="math inline">\(R_2\)</span>,</li>
+<li>The result consists of distinct rows that exist in <span class="math inline">\(R_1\)</span> and are absent from <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations in the difference operation matters:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - R_2 \neq R_2 - R_1
+\]</span></p>
+<ul>
+<li><strong>Not associative</strong> – Grouping difference operations affects the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 - R_2) - R_3 \neq R_1 - (R_2 - R_3)
+\]</span></p>
+<ul>
+<li><strong>Difference with an empty set</strong> – The difference between a relation and an empty set is the relation itself:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - \emptyset = R_1
+\]</span></p>
+<ul>
+<li><strong>Difference with itself</strong> – The difference between a relation and itself is the empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - R_1 = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over intersection</strong> – The difference operation distributes over intersection:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-3" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order in which the relations are used in the difference matters because the result will include rows from <span class="math inline">\(R_1\)</span> that are not in <span class="math inline">\(R_2\)</span>, but not vice versa.</li>
+<li><strong>Not associative</strong>: The grouping of relations in a difference operation affects the outcome since subtracting another relation later changes the rows that remain.</li>
+<li><strong>Difference with an empty set</strong>: Subtracting an empty set from a relation has no effect since there are no rows to remove.</li>
+<li><strong>Difference with itself</strong>: Subtracting a relation from itself results in an empty set, as no rows are left.</li>
+<li><strong>Distributive over intersection</strong>: Difference distributes over intersection, allowing you to apply the difference to both parts of the intersection separately and then take their intersection.</li>
+</ul>
+</section>
+<section id="cartesian-product-in-relational-algebra" class="slide level2">
+<h2>Cartesian Product in Relational Algebra</h2>
+<p>The Cartesian product operation combines all tuples from two relations, creating a new relation with every possible pair of tuples.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Cartesian product pairs each tuple from the first relation with every tuple from the second.</li>
+<li>The result relation includes all combinations of rows from both input relations.</li>
+<li>The schema of the result is the combination of the schemas from both relations.</li>
+<li>This operation can produce very large results if both relations have many tuples.</li>
+<li>Cartesian product is a foundation for join operations in relational databases.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Cartesian product provides the basis for combining relations, though it may require filtering for meaningful results.</em></p>
+<p>Here’s the definition and properties of the <strong>Cartesian product</strong> operation in relational algebra, formatted similarly to the template provided:</p>
+</section>
+<section id="properties-of-the-cartesian-product-operator" class="slide level2">
+<h2>Properties of the Cartesian Product Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \times R_2 = { t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The Cartesian product returns a new relation formed by concatenating every row from <span class="math inline">\(R_1\)</span> with every row from <span class="math inline">\(R_2\)</span>,</li>
+<li>The result contains all possible combinations of tuples from both relations.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of the relations matters in the Cartesian product:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \times R_2 \neq R_2 \times R_1
+\]</span> (unless <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are identical and have the same attributes)</p>
+<ul>
+<li><strong>Associative</strong> – The grouping of Cartesian product operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \times R_2) \times R_3 = R_1 \times (R_2 \times R_3)
+\]</span></p>
+<ul>
+<li><strong>Cartesian product with an empty set</strong> – The Cartesian product with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R \times \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over union</strong> – The Cartesian product distributes over union:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
+\]</span></p>
+<ul>
+<li><strong>Size of result</strong> – The number of rows in the result is the product of the number of rows in the input relations:</li>
+</ul>
+<p><span class="math display">\[
+|R_1 \times R_2| = |R_1| \times |R_2|
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-4" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order in which the relations are combined affects the resulting tuples (since concatenating <span class="math inline">\(t_1\)</span> with <span class="math inline">\(t_2\)</span> is different from <span class="math inline">\(t_2\)</span> with <span class="math inline">\(t_1\)</span>).</li>
+<li><strong>Associative</strong>: You can group Cartesian product operations in any way, and the result will be the same.</li>
+<li><strong>Cartesian product with an empty set</strong>: If either relation is empty, the result will be empty because there are no tuples to pair.</li>
+<li><strong>Distributive over union</strong>: Cartesian product distributes over union, allowing you to break down the product into individual components and combine them after applying the product.</li>
+<li><strong>Size of result</strong>: The Cartesian product increases the number of rows, multiplying the rows of <span class="math inline">\(R_1\)</span> by the rows of <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+<p>This definition and properties align with the structure of other relational operations while explaining the Cartesian product in relational algebra.</p>
+</section>
+<section id="combining-relations-using-set-operations" class="slide level2">
+<h2>Combining Relations Using Set Operations</h2>
+<p>Set operations allow the combination of multiple relations in a variety of ways, depending on the desired outcome of the query.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Relational algebra supports various set operations like union, intersection, and difference.</li>
+<li>These operations allow filtering and merging data across relations.</li>
+<li>Set operations are only valid when the schemas of the involved relations match.</li>
+<li>Use cases include combining multiple tables, finding common data, or filtering out specific records.</li>
+<li>Understanding these operations is key to effective data manipulation in relational databases.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Set operations provide flexible tools for combining and comparing datasets in relational databases.</em></p>
+</section>
+<section id="set-operation-requirements-and-considerations" class="slide level2">
+<h2>Set Operation Requirements and Considerations</h2>
+<p>When performing set operations, it’s essential to ensure that both relations have compatible schemas and understand how each operation behaves.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Set operations can only be performed on relations with identical schemas.</li>
+<li>The number of attributes and their types must match for the operation to succeed.</li>
+<li>Set operations can return large results, depending on the size of the input relations.</li>
+<li>Performance considerations include the size of relations and efficiency of the operation.</li>
+<li>Proper indexing can improve the speed of set operations in large databases.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Understanding the requirements of set operations ensures successful and efficient data manipulation.</em></p>
+</section>
+<section id="examples-of-set-operations-in-relational-queries" class="slide level2">
+<h2>Examples of Set Operations in Relational Queries</h2>
+<p>Relational algebra operations like union, intersection, and difference can be directly applied in database queries to filter and combine data.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Example: Union of two employee tables to combine employee records from two departments.</li>
+<li>Example: Intersection of student and graduate tables to find students who have graduated.</li>
+<li>Example: Difference between a product catalog and inventory to find out-of-stock items.</li>
+<li>Cartesian product used to combine customer and order tables for further analysis.</li>
+<li>Practical queries often combine set operations with other relational algebra operations.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Set operations are applied in real-world scenarios to efficiently manipulate and query data.</em></p>
+</section>
+<section id="set-operations-in-real-world-databases" class="slide level2">
+<h2>Set Operations in Real-World Databases</h2>
+<p>Set operations play a vital role in real-world databases, helping manage and analyze large datasets effectively.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Used to merge large datasets across departments or organizations.</li>
+<li>Helpful in financial reporting, where records from different periods or regions are combined.</li>
+<li>Set operations can aid in data cleaning by removing duplicates or irrelevant records.</li>
+<li>They are fundamental in multi-relational databases where data is distributed across tables.</li>
+<li>Often used in cloud environments for large-scale data analysis and processing.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>In practice, set operations streamline data integration and analysis across various industries.</em></p>
+</section>
+<section id="summary-of-set-operations-in-relational-algebra" class="slide level2">
+<h2>Summary of Set Operations in Relational Algebra</h2>
+<p>Set operations, including union, intersection, difference, and Cartesian product, are key tools in relational algebra for manipulating and combining relations. They enable powerful queries that form the basis of relational database functionality.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Set theory provides the foundation for combining and filtering relations.</li>
+<li>Intersection finds common records, while difference filters out data from one relation.</li>
+<li>Cartesian product creates all possible combinations of tuples from two relations.</li>
+<li>Union merges two relations, removing duplicates.</li>
+<li>These operations are essential for querying and managing relational databases.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Mastery of set operations in relational algebra allows for complex and efficient database queries.</em></p>
+</section></section>
+<section>
+<section id="join-operations" class="title-slide slide level1 center">
+<h1>Join Operations</h1>
+
+</section>
+<section id="introduction-to-join-operations-in-relational-algebra" class="slide level2">
+<h2>Introduction to Join Operations in Relational Algebra</h2>
+<p>Join operations allow you to combine data from two or more relations based on a condition. Understanding these operations is key to querying relational databases effectively.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Joins combine related data from different relations.</li>
+<li>A condition (join predicate) specifies how to match tuples from different relations.</li>
+<li>Common types of joins include inner and outer joins.</li>
+<li>Joins are fundamental to multi-relation queries.</li>
+<li>Different types of joins solve different query requirements.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Joins are essential in connecting data from multiple tables in relational databases.</em></p>
+</section>
+<section id="inner-join-definition-and-use" class="slide level2">
+<h2>Inner Join: Definition and Use</h2>
+<p>Inner join is the most common type of join, which only returns matching tuples from both relations. It is frequently used in relational databases.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Inner join retrieves only the matching tuples from two relations.</li>
+<li>Non-matching tuples are excluded from the result.</li>
+<li>The join condition specifies how tuples are matched.</li>
+<li>Useful when you need to combine data from two relations where all entries meet a condition.</li>
+<li>Most common join operation in SQL and relational algebra.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Inner join is ideal when you only need rows where data exists in both relations.</em></p>
+</section>
+<section id="properties-of-the-inner-join-operator" class="slide level2">
+<h2>Properties of the Inner Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} R_2 = { t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } condition(t_1, t_2) }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>inner join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>The result contains only those rows where the condition is true for both relations (i.e., rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> that satisfy the join condition).</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations matters in inner join (unless the join condition is symmetric):</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} R_2 \neq R_2 \bowtie_{condition} R_1
+\]</span> (Unless <span class="math inline">\(condition(t_1, t_2) = condition(t_2, t_1)\)</span>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping inner join operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie_{condition1} R_2) \bowtie_{condition2} R_3 = R_1 \bowtie_{condition1} (R_2 \bowtie_{condition2} R_3)
+\]</span></p>
+<ul>
+<li><strong>Inner join with an empty set</strong> – The inner join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over selection</strong> – Inner join distributes over selection:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie R_2) = (\sigma_{condition}(R_1)) \bowtie R_2
+\]</span> (if the selection condition applies to <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> match rows in <span class="math inline">\(R_2\)</span> under the join condition.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-5" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order of the relations in the inner join may affect the result unless the join condition is symmetric (e.g., <span class="math inline">\(A = B\)</span> is the same as <span class="math inline">\(B = A\)</span>).</li>
+<li><strong>Associative</strong>: Grouping inner joins differently doesn’t change the result as long as the conditions are applied consistently.</li>
+<li><strong>Inner join with an empty set</strong>: If either relation is empty, the result is an empty set because no rows can satisfy the join condition.</li>
+<li><strong>Distributive over selection</strong>: You can first apply a selection condition to one of the relations and then join it with the other relation without affecting the outcome, assuming the selection condition applies to that relation only.</li>
+<li><strong>Size of result</strong>: The size of the result is determined by the number of matching rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> that satisfy the join condition.</li>
+</ul>
+<p>This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.</p>
+</section>
+<section id="outer-join-introduction-and-types" class="slide level2">
+<h2>Outer Join: Introduction and Types</h2>
+<p>Outer join returns all tuples from one or both relations, filling in missing values with NULLs. It allows for more inclusive queries.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Outer join returns matching and non-matching tuples.</li>
+<li>NULL values are used for missing data.</li>
+<li>There are three types: left, right, and full outer join.</li>
+<li>Left outer join returns all tuples from the left relation and matches from the right.</li>
+<li>Right outer join does the reverse: all from the right relation and matches from the left.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Outer joins are useful when you need to retain non-matching data from one or both relations.</em></p>
+</section>
+<section id="properties-of-the-outer-join-operator" class="slide level2">
+<h2>Properties of the Outer Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+R_1 \text{⟕}_{cond} R_2 = &amp;\{ t_1 , t_2 \mid (t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } cond(t_1, t_2)) \} \\
+&amp;\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
+&amp;\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+\end{aligned}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>outer join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>Unlike the inner join, the result includes all matching rows from both relations as well as non-matching rows, which are padded with <code>NULL</code> values where no match is found.</li>
+</ul>
+<p><strong>Types of outer join:</strong></p>
+<ul>
+<li><strong>Left outer join</strong>: Keeps all rows from <span class="math inline">\(R_1\)</span> and matches from <span class="math inline">\(R_2\)</span>.</li>
+<li><strong>Right outer join</strong>: Keeps all rows from <span class="math inline">\(R_2\)</span> and matches from <span class="math inline">\(R_1\)</span>.</li>
+<li><strong>Full outer join</strong>: Keeps all rows from both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, including unmatched rows from both sides.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations matters for left and right outer joins:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \text{⟕}_{condition} R_2 \neq R_2 \text{⟕}_{condition} R_1
+\]</span> (unless using a <strong>full outer join</strong>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping outer joins can depend on the type of join but generally holds true for full outer joins:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \text{⟕}_{condition1} R_2) \text{⟕}_{condition2} R_3 = R_1 \text{⟕}_{condition1} (R_2 \text{⟕}_{condition2} R_3)
+\]</span> (applies to full outer joins)</p>
+<ul>
+<li><p><strong>Outer join with an empty set</strong> – The outer join with an empty relation depends on the type of outer join:</p>
+<ul>
+<li><strong>Left outer join</strong>: Returns all rows from <span class="math inline">\(R_1\)</span> with <code>NULL</code> for <span class="math inline">\(R_2\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \text{⟕} \emptyset = R_1
+\]</span></p>
+<ul>
+<li><strong>Right outer join</strong>: Returns all rows from <span class="math inline">\(R_2\)</span> with <code>NULL</code> for <span class="math inline">\(R_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\emptyset  \text{⟕}  R_2 = R_2
+\]</span></p>
+<ul>
+<li><strong>Full outer join</strong>: Results in both relations with unmatched rows being padded with <code>NULL</code>:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R_2 = R_2
+\]</span></p></li>
+<li><p><strong>Distributive over selection</strong> – Outer join is not generally distributive over selection, as selection might remove rows that would otherwise be included with <code>NULL</code> values.</p></li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-6" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order of relations in left and right outer joins affects the result, but for full outer joins, the order does not matter.</li>
+<li><strong>Associative</strong>: Full outer joins are associative, meaning you can group them in different ways and still get the same result.</li>
+<li><strong>Outer join with an empty set</strong>: In left and right outer joins, the non-empty relation is returned with <code>NULL</code> values in place of the missing relation. For full outer joins, both relations contribute to the result, filling unmatched rows with <code>NULL</code>.</li>
+<li><strong>Distributive over selection</strong>: Unlike the inner join, selection does not distribute cleanly over outer joins because rows with <code>NULL</code> values might be incorrectly excluded if the selection is applied beforehand.</li>
+</ul>
+</section>
+<section id="full-outer-join-combining-data" class="slide level2">
+<h2>Full Outer Join: Combining Data</h2>
+<p>Full outer join returns all tuples from both relations, filling missing values with NULLs. It is the most inclusive join operation.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Full outer join returns all rows from both relations.</li>
+<li>Non-matching rows from both sides are included.</li>
+<li>Missing values are filled with NULLs for unmatched tuples.</li>
+<li>This join is used when you need a complete set of data from both relations.</li>
+<li>A powerful operation when analyzing two datasets with partial overlap.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Full outer join helps combine datasets completely, even if some data is missing.</em></p>
+</section>
+<section id="properties-of-the-full-outer-join-operator" class="slide level2">
+<h2>Properties of the Full Outer Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+R_1  \text{⟗}_{condition}  R_2 = &amp;\{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2) \} \\
+&amp;\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
+&amp;\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+\end{aligned}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>full outer join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>The result includes:
+<ul>
+<li>Rows where the join condition holds for both relations (matching rows),</li>
+<li>Rows from <span class="math inline">\(R_1\)</span> with no matching rows in <span class="math inline">\(R_2\)</span> (padded with <code>NULL</code> values),</li>
+<li>Rows from <span class="math inline">\(R_2\)</span> with no matching rows in <span class="math inline">\(R_1\)</span> (padded with <code>NULL</code> values).</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a full outer join does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}_{condition}  R_2 = R_2  \text{⟗}_{condition}  R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Grouping full outer join operations does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1  \text{⟗}_{condition1}  R_2)  \text{⟗}_{condition2}  R_3 = R_1  \text{⟗}_{condition1}  (R_2  \text{⟗}_{condition2}  R_3)
+\]</span></p>
+<ul>
+<li><strong>Full outer join with an empty set</strong> – The full outer join with an empty relation includes all rows from the non-empty relation, padded with <code>NULL</code> values for the other side:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}  \emptyset = R_1 \quad \text{(padded with `NULL` for } R_2\text{)}
+\]</span></p>
+<p><span class="math display">\[
+\emptyset  \text{⟗}  R_2 = R_2 \quad \text{(padded with `NULL` for } R_1\text{)}
+\]</span></p>
+<ul>
+<li><strong>Distributive over union</strong> – The full outer join is distributive over union:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  R_3)
+\]</span></p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result is at most the sum of the rows in both relations, since all rows from both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are included, with unmatched rows padded with <code>NULL</code>.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-7" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Commutative</strong>: The order in which the relations are combined in a full outer join does not matter, as the result includes all rows from both relations.</li>
+<li><strong>Associative</strong>: Grouping full outer joins differently does not affect the result, allowing the operation to be applied in stages.</li>
+<li><strong>Full outer join with an empty set</strong>: If either relation is empty, the result includes all rows from the non-empty relation, with the other side padded with <code>NULL</code>.</li>
+<li><strong>Distributive over union</strong>: Full outer join distributes over union, meaning you can break the join into smaller unions and join them separately.</li>
+<li><strong>Size of result</strong>: The result contains all rows from both relations, so the number of rows is at most the sum of rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, with <code>NULL</code> values used for non-matching rows.</li>
+</ul>
+</section>
+<section id="natural-join-definition-and-application" class="slide level2">
+<h2>Natural Join: Definition and Application</h2>
+<p>A natural join automatically matches attributes with the same name in both relations, simplifying queries when attribute names align.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Natural join matches tuples based on attributes with the same name.</li>
+<li>No explicit join condition is needed.</li>
+<li>Automatically merges common columns.</li>
+<li>Useful when attribute names are consistent across relations.</li>
+<li>Simplifies queries by eliminating the need for specifying the join condition.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Natural join is a convenient way to join relations when common attribute names are used.</em></p>
+</section>
+<section id="properties-of-the-natural-join-operator" class="slide level2">
+<h2>Properties of the Natural Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie R_2 = { t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and for all common attributes } A, t_1\[A\] = t_2\[A\] }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>natural join</strong> operation joins two relations based on all attributes they have in common, combining rows where the values of the common attributes are equal,</li>
+<li>The result contains only the attributes from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, but common attributes appear only once.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a natural join does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie R_2 = R_2 \bowtie R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Grouping natural join operations does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie R_2) \bowtie R_3 = R_1 \bowtie (R_2 \bowtie R_3)
+\]</span></p>
+<ul>
+<li><strong>Natural join with an empty set</strong> – The natural join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Natural join distributes over selection</strong> – The natural join distributes over selection operations when the selection condition involves attributes from one of the relations:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie R_2) = \sigma_{condition}(R_1) \bowtie R_2
+\]</span> (if the selection condition applies to attributes of <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result depends on how many rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> match based on the values of the common attributes.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-8" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Commutative</strong>: The order of relations in the natural join does not matter, as the result includes matching rows from both relations based on their common attributes.</li>
+<li><strong>Associative</strong>: Grouping natural joins differently does not affect the result, allowing the operation to be applied in stages.</li>
+<li><strong>Natural join with an empty set</strong>: If either relation is empty, the result will also be empty, as there are no rows to match.</li>
+<li><strong>Natural join distributes over selection</strong>: You can apply a selection condition to one relation before performing the natural join without affecting the outcome, provided the condition applies only to attributes from that relation.</li>
+<li><strong>Size of result</strong>: The result includes all rows from both relations where the values of common attributes match, and the number of matching rows determines the size of the result.</li>
+</ul>
+<p>This explanation of the natural join aligns with the structure of previous relational algebra operations, capturing the key properties and behavior of the natural join in relational algebra.</p>
+</section>
+<section id="theta-join-flexibility-with-conditions" class="slide level2">
+<h2>Theta Join: Flexibility with Conditions</h2>
+<p>Theta join allows the use of arbitrary conditions to combine relations, offering flexibility beyond just equality conditions.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Theta join applies a condition other than equality to combine relations.</li>
+<li>The condition can be any comparison operator (e.g., &lt;, &gt;, =).</li>
+<li>More flexible than natural or inner joins.</li>
+<li>Useful when a relationship between tuples is based on non-equality conditions.</li>
+<li>Examples include finding tuples where one attribute is greater than another.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Theta join provides flexibility in combining relations using complex conditions.</em></p>
+</section>
+<section id="properties-of-the-theta-join-operator" class="slide level2">
+<h2>Properties of the Theta Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} R_2 = { t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } \theta(t_1, t_2) = \text{true} }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li><span class="math inline">\(\theta\)</span> is a <strong>predicate</strong> (condition) that can be any comparison expression involving the attributes of <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, such as <span class="math inline">\(=, \neq, \&lt;, &gt;, \leq, \geq\)</span>,</li>
+<li>The <strong>theta join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> where the condition <span class="math inline">\(\theta\)</span> holds true for both relations.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations in a theta join matters (unless the predicate is symmetric):</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} R_2 \neq R_2 \bowtie_{\theta} R_1
+\]</span> (unless <span class="math inline">\(\theta(t_1, t_2) = \theta(t_2, t_1)\)</span>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping theta join operations depends on the predicates but generally holds true:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie_{\theta_1} R_2) \bowtie_{\theta_2} R_3 = R_1 \bowtie_{\theta_1} (R_2 \bowtie_{\theta_2} R_3)
+\]</span> (if the conditions <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are consistent)</p>
+<ul>
+<li><strong>Theta join with an empty set</strong> – The theta join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Theta join distributes over selection</strong> – The theta join distributes over selection when the selection condition involves only attributes from one of the relations:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie_{\theta} R_2) = \sigma_{condition}(R_1) \bowtie_{\theta} R_2
+\]</span> (if the selection condition applies to attributes of <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result depends on how many rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the predicate <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-9" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order of relations in the theta join matters unless the predicate <span class="math inline">\(\theta\)</span> is symmetric, meaning <span class="math inline">\(R_1 \bowtie_{\theta} R_2\)</span> will not necessarily equal <span class="math inline">\(R_2 \bowtie_{\theta} R_1\)</span>.</li>
+<li><strong>Associative</strong>: Grouping theta joins with different predicates can affect the result, but when consistent conditions are applied, associativity holds.</li>
+<li><strong>Theta join with an empty set</strong>: If either relation is empty, the result of the theta join is empty because there are no rows to compare.</li>
+<li><strong>Theta join distributes over selection</strong>: You can apply a selection condition to one relation before performing the theta join without affecting the result, provided the selection applies only to that relation.</li>
+<li><strong>Size of result</strong>: The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the condition <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+<p>This structure mirrors the format of previous relational algebra operations, focusing on the flexibility and behavior of the theta join, where any comparison operator can be used in the join condition.</p>
+</section>
+<section id="use-cases-inner-join" class="slide level2">
+<h2>Use Cases: Inner Join</h2>
+<p>Inner join is commonly used in scenarios where you only need matching data from two relations. It’s ideal for combining related data.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Frequently used when matching foreign keys with primary keys.</li>
+<li>Example: retrieving student records with matching course registrations.</li>
+<li>Ideal for filtering data to include only relevant, connected records.</li>
+<li>Used when non-matching data is not important for the query.</li>
+<li>Popular in most applications like finance, HR, and inventory systems.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Inner join is ideal when you only care about related records from two relations.</em></p>
+</section>
+<section id="use-cases-left-and-right-outer-joins" class="slide level2">
+<h2>Use Cases: Left and Right Outer Joins</h2>
+<p>Outer joins are useful when you want to keep all records from one side, even if they don’t have a match in the other relation.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Left outer join is often used in master-detail relationships.</li>
+<li>Example: retrieving all customers and their orders, including customers without orders.</li>
+<li>Right outer join can be used when focusing on all records from a detail table.</li>
+<li>Used when incomplete data is acceptable, such as optional relationships.</li>
+<li>Often used in customer management systems to track unfilled orders.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Left and right outer joins are valuable when you need non-matching data from one side.</em></p>
+</section>
+<section id="use-cases-full-outer-join" class="slide level2">
+<h2>Use Cases: Full Outer Join</h2>
+<p>Full outer join is used in scenarios where you need to retain all data, even if some entries don’t match. This join is comprehensive.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Often used in data integration tasks.</li>
+<li>Example: merging two datasets where both may contain unmatched records.</li>
+<li>Used in scenarios like combining employee records from different departments.</li>
+<li>Useful in data warehousing and analytics to ensure no data is lost.</li>
+<li>Common in reconciling data from different sources with partial overlap.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Full outer join ensures no data is lost when combining two relations with missing matches.</em></p>
+</section>
+<section id="combining-joins-for-complex-queries" class="slide level2">
+<h2>Combining Joins for Complex Queries</h2>
+<p>Different join types can be combined to solve complex queries involving multiple relations. This is often used in real-world database systems.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Inner and outer joins can be combined in complex queries.</li>
+<li>Example: joining multiple relations with inner joins, then an outer join to fill gaps.</li>
+<li>Different join types solve different parts of the same query.</li>
+<li>Used in multi-table queries for comprehensive data retrieval.</li>
+<li>Often seen in reporting systems that need complete data coverage.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Combining join operations allows complex queries that satisfy multiple data needs.</em></p>
+</section></section>
+<section>
+<section id="renaming-and-division" class="title-slide slide level1 center">
+<h1>Renaming and Division</h1>
+
+</section>
+<section id="renaming-in-relational-algebra" class="slide level2">
+<h2>Renaming in Relational Algebra</h2>
+<p>Renaming allows the assignment of new names to relations or attributes, making complex queries easier to understand. This operation helps avoid ambiguities, especially in self-joins or when handling multiple relations.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Renaming provides a way to assign new names to relations and their attributes.</li>
+<li>The <code>ρ</code> (rho) operator is used for renaming in relational algebra.</li>
+<li>Syntax: <code>ρ(new_name(old_name))</code> for renaming relations.</li>
+<li>Renaming is essential when performing self-joins to avoid confusion.</li>
+<li>It allows for clearer queries when dealing with complex or long attribute names.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Renaming enhances clarity in query design, especially when handling multiple relations.</em></p>
+<p>Here’s the definition and properties of the <strong>renaming</strong> operation in relational algebra, formatted similarly to the template you provided:</p>
+</section>
+<section id="properties-of-the-renaming-operator" class="slide level2">
+<h2>Properties of the Renaming Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\rho_{new_name}(R) = { t \mid t \in R }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(R\)</span> is a relation (table),</li>
+<li><span class="math inline">\(new_name\)</span> is the new name assigned to relation <span class="math inline">\(R\)</span> or one or more of its attributes,</li>
+<li>The <strong>renaming</strong> operation is used to assign a new name to either the entire relation or to individual attributes in the relation, preserving the structure and data,</li>
+<li>It allows us to avoid ambiguity in cases where relations have overlapping attribute names or when working with complex queries.</li>
+</ul>
+<p>The renaming operation can be used in three forms:</p>
+<ul>
+<li>Renaming the entire relation: <span class="math inline">\(\rho_{S}(R)\)</span> renames relation <span class="math inline">\(R\)</span> to <span class="math inline">\(S\)</span>,</li>
+<li>Renaming attributes: <span class="math inline">\(\rho_{(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)\)</span> renames the attributes <span class="math inline">\(A_1, A_2, \dots\)</span> in <span class="math inline">\(R\)</span> to <span class="math inline">\(B_1, B_2, \dots\)</span>,</li>
+<li>Renaming both the relation and its attributes: <span class="math inline">\(\rho_{S(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)\)</span>.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Idempotent</strong> – Renaming a relation or attribute multiple times with the same name does not change the result:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new_name}(\rho_{new_name}(R)) = \rho_{new_name}(R)
+\]</span></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of renaming different attributes matters:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{(A \rightarrow B)}(\rho_{(B \rightarrow C)}(R)) \neq \rho_{(B \rightarrow C)}(\rho_{(A \rightarrow B)}(R))
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Renaming operations can be grouped without affecting the result:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new_name_1}(\rho_{new_name_2}(R)) = \rho_{new_name_2}(\rho_{new_name_1}(R))
+\]</span></p>
+<ul>
+<li><strong>Renaming with an empty set</strong> – Renaming an empty relation still results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new_name}(\emptyset) = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Renaming preserves all rows and attributes</strong> – The renaming operation only changes names and does not affect the content or structure of the relation:</li>
+</ul>
+<p><span class="math display">\[
+|R| = |\rho_{new_name}(R)|
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-10" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Idempotent</strong>: Renaming a relation or attribute multiple times with the same name has no additional effect.</li>
+<li><strong>Non-commutative</strong>: The order in which you rename attributes matters, especially if the renaming involves the same attribute multiple times.</li>
+<li><strong>Associative</strong>: Renaming operations can be applied in any order, provided they refer to different attributes or relation names.</li>
+<li><strong>Renaming with an empty set</strong>: If the relation is empty, renaming it will still result in an empty relation.</li>
+<li><strong>Renaming preserves all rows and attributes</strong>: The renaming operation only affects the labels of relations and attributes, not their content or structure, so the number of rows and attributes remains unchanged.</li>
+</ul>
+</section>
+<section id="example-of-renaming-in-queries" class="slide level2">
+<h2>Example of Renaming in Queries</h2>
+<p>Renaming becomes critical when performing operations like joins, ensuring that attribute names are distinct. This slide provides a simple renaming example to illustrate its importance.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Example: <code>ρ(S(Age -&gt; StudentAge))</code> renames the attribute <code>Age</code> to <code>StudentAge</code> in relation <code>S</code>.</li>
+<li>Used to avoid name clashes during operations such as joins.</li>
+<li>Provides a way to clarify attribute roles in a query.</li>
+<li>Enables more readable queries in complex databases.</li>
+<li>Essential when working with relations that have identical attribute names.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Renaming is a flexible tool for improving query readability and structure.</em></p>
+</section>
+<section id="introduction-to-division-in-relational-algebra" class="slide level2">
+<h2>Introduction to Division in Relational Algebra</h2>
+<p>Division is a specialized relational operation used to retrieve tuples that match all combinations of a related set. It is particularly useful when you need to find records related to every value in another relation.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Division is used to query for entities that are related to all values in a subset.</li>
+<li>The operation works on two relations: a dividend and a divisor.</li>
+<li>It returns tuples from the dividend that are associated with all tuples in the divisor.</li>
+<li>Typically used in “all” queries, such as “students enrolled in all courses.”</li>
+<li>Not as common as basic operations but vital in certain query types.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Division is a powerful but specific operation that allows querying for “all related” records.</em></p>
+</section>
+<section id="properties-of-the-division-operator" class="slide level2">
+<h2>Properties of the Division Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \div R_2 = { t_1 \mid t_1 \in \pi_{A}(R_1) \text{ and for every } t_2 \in R_2, (t_1, t_2) \in R_1 }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(R_1\)</span> is a relation with attributes <span class="math inline">\(A \cup B\)</span>,</li>
+<li><span class="math inline">\(R_2\)</span> is a relation with attributes <span class="math inline">\(B\)</span> (a subset of <span class="math inline">\(R_1\)</span>’s attributes),</li>
+<li>The <strong>division</strong> operation returns a new relation consisting of the values of <span class="math inline">\(A\)</span> from <span class="math inline">\(R_1\)</span> that match every tuple in <span class="math inline">\(R_2\)</span>,</li>
+<li>Essentially, division finds the tuples in <span class="math inline">\(R_1\)</span> that have a corresponding match for every tuple in <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Not commutative</strong> – The order of relations in the division operation matters:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_2 \neq R_2 \div R_1
+\]</span></p>
+<ul>
+<li><strong>Non-associative</strong> – Division is not associative:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \div R_2) \div R_3 \neq R_1 \div (R_2 \div R_3)
+\]</span></p>
+<ul>
+<li><strong>Division with an empty set</strong> – If <span class="math inline">\(R_2\)</span> is an empty set, the division result is the projection of <span class="math inline">\(R_1\)</span> on <span class="math inline">\(A\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div \emptyset = \pi_{A}(R_1)
+\]</span></p>
+<ul>
+<li><strong>Division with itself</strong> – Dividing a relation by itself results in an empty set unless <span class="math inline">\(R_2\)</span> contains only tuples present in <span class="math inline">\(R_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_1 = \emptyset \quad \text{(if } R_1 \text{ and } R_2 \text{ are identical and non-empty)}
+\]</span></p>
+<ul>
+<li><strong>Division with a superset</strong> – If <span class="math inline">\(R_2\)</span> is a superset of <span class="math inline">\(B\)</span>-values in <span class="math inline">\(R_1\)</span>, the result is empty:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation" class="slide level2">
+<h2>Explanation:</h2>
+<ul>
+<li><strong>Not commutative</strong>: The order of relations in the division operation matters, as dividing one relation by another is not symmetric.</li>
+<li><strong>Non-associative</strong>: Division is not associative, meaning that the order in which you perform multiple division operations can affect the result.</li>
+<li><strong>Division with an empty set</strong>: If <span class="math inline">\(R_2\)</span> is empty, the result is the projection of <span class="math inline">\(R_1\)</span> on <span class="math inline">\(A\)</span>, as no conditions exist for <span class="math inline">\(B\)</span> attributes.</li>
+<li><strong>Division with itself</strong>: Dividing a relation by itself typically results in an empty set unless all tuples from <span class="math inline">\(R_2\)</span> are in <span class="math inline">\(R_1\)</span>.</li>
+<li><strong>Division with a superset</strong>: If <span class="math inline">\(R_2\)</span> contains values that don’t appear in <span class="math inline">\(R_1\)</span>, the result is empty since no <span class="math inline">\(A\)</span>-values in <span class="math inline">\(R_1\)</span> satisfy the matching condition for all tuples in <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</section>
+<section id="division-syntax-and-example" class="slide level2">
+<h2>Division: Syntax and Example</h2>
+<p>Division can be represented using the <code>/</code> operator between two relations. Understanding how this operator works in practice will help you apply it correctly.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Syntax: <code>R / S</code> where <code>R</code> is the dividend and <code>S</code> is the divisor.</li>
+<li>Example: Find students enrolled in all mandatory courses: <code>StudentCourses / MandatoryCourses</code>.</li>
+<li>Involves projecting attributes from <code>R</code> that do not appear in <code>S</code>.</li>
+<li>Often paired with set difference to exclude unwanted tuples.</li>
+<li>Typically used when one relation defines a subset of another relation’s attributes.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>The division operator retrieves records that match a complete set of conditions across relations.</em></p>
+</section>
+<section id="practical-use-case-for-division" class="slide level2">
+<h2>Practical Use Case for Division</h2>
+<p>Division is especially useful in scenarios where a tuple needs to be related to all tuples in another relation, such as students attending all classes or employees assigned to all projects.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Example: “Find suppliers who supply all products in a given category.”</li>
+<li>Applicable in situations where completeness across multiple related attributes is required.</li>
+<li>Helps with queries involving all relationships between a set of tuples.</li>
+<li>Simplifies queries that would otherwise require multiple joins or nested operations.</li>
+<li>Especially common in constraint-related queries, such as project assignments.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Division is ideal for scenarios where a record must meet all criteria in a related set.</em></p>
+</section>
+<section id="common-mistakes-with-division" class="slide level2">
+<h2>Common Mistakes with Division</h2>
+<p>Although powerful, division can be misused or misunderstood, particularly in situations where its requirements aren’t fully met. This slide highlights common pitfalls to avoid.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Confusing division with joins, especially in multi-relation queries.</li>
+<li>Forgetting that all tuples in the divisor must match for a result to be returned.</li>
+<li>Misinterpreting the need for completeness across tuples in both relations.</li>
+<li>Using division in cases where a simple join would suffice.</li>
+<li>Failing to project the correct attributes before performing the operation.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Avoid these common errors to ensure the correct application of division in your queries.</em></p>
+</section>
+<section id="renaming-and-division-in-query-design" class="slide level2">
+<h2>Renaming and Division in Query Design</h2>
+<p>Combining renaming and division can lead to highly readable, efficient queries. This slide demonstrates how these operations complement each other in practice.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Renaming helps clarify relations and attributes before applying division.</li>
+<li>Avoids ambiguity when the same attributes are present in both relations.</li>
+<li>Ensures that division works on correctly named attributes.</li>
+<li>Improves readability of queries, especially in complex database structures.</li>
+<li>Example: <code>ρ(StudentCourses/AllCourses)</code> can clarify query intent and results.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Renaming can simplify and clarify the application of division in query design.</em></p>
+</section>
+<section id="limitations-of-division-in-relational-algebra" class="slide level2">
+<h2>Limitations of Division in Relational Algebra</h2>
+<p>Division, while useful, has limitations and is not appropriate for all query types. Understanding these constraints will help avoid unnecessary complexity in queries.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Division requires exact matching across relations, which may not be flexible enough for some queries.</li>
+<li>Not suitable for situations where partial matches are acceptable.</li>
+<li>Can be less intuitive than other relational operations like join or projection.</li>
+<li>Often difficult to optimize in large databases due to its complexity.</li>
+<li>Sometimes requires preprocessing or additional operations to work effectively.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Division is powerful but limited by its strict requirements for matching across relations.</em></p>
+</section>
+<section id="alternatives-to-division" class="slide level2">
+<h2>Alternatives to Division</h2>
+<p>In cases where division is not the best fit, other relational operations may be more appropriate. This slide explores alternatives such as joins and nested queries.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Join operations, including natural and theta joins, often provide more flexible alternatives to division.</li>
+<li>Nested queries can sometimes replace division, offering more control over specific conditions.</li>
+<li>Set operations like intersection and difference may achieve similar results.</li>
+<li>Depending on the database design, a series of joins and selections may be more efficient.</li>
+<li>SQL often handles division-like queries using alternative constructs like <code>HAVING</code> or correlated subqueries.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Consider alternatives to division when its strict requirements don’t fit the query’s needs.</em></p>
+</section>
+<section id="summary-of-renaming-and-division" class="slide level2">
+<h2>Summary of Renaming and Division</h2>
+<p>Renaming and division are important operations in relational algebra, each with its own use cases and limitations. Properly applied, these tools enhance both query design and execution.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Renaming clarifies queries by giving distinct names to relations and attributes.</li>
+<li>Division helps identify tuples related to all members of another relation.</li>
+<li>Division is strict and requires complete matching, while renaming aids in query readability.</li>
+<li>Both operations are essential for complex query design and practical database management.</li>
+<li>Combining these tools can lead to clearer and more efficient relational queries.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Understanding renaming and division allows for more advanced and efficient database queries.</em></p>
 </section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
@@ -1187,6 +4130,38 @@ and eventually, what it means to records and tables.-->
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

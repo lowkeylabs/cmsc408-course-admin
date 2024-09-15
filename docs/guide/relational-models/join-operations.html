@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../guide.css">
 </head>
@@ -276,11 +305,31 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction-to-join-operations-in-relational-algebra" id="toc-introduction-to-join-operations-in-relational-algebra" class="nav-link active" data-scroll-target="#introduction-to-join-operations-in-relational-algebra">Introduction to Join Operations in Relational Algebra</a></li>
-  <li><a href="#inner-join-definition-and-use" id="toc-inner-join-definition-and-use" class="nav-link" data-scroll-target="#inner-join-definition-and-use">Inner Join: Definition and Use</a></li>
-  <li><a href="#outer-join-introduction-and-types" id="toc-outer-join-introduction-and-types" class="nav-link" data-scroll-target="#outer-join-introduction-and-types">Outer Join: Introduction and Types</a></li>
-  <li><a href="#full-outer-join-combining-data" id="toc-full-outer-join-combining-data" class="nav-link" data-scroll-target="#full-outer-join-combining-data">Full Outer Join: Combining Data</a></li>
-  <li><a href="#natural-join-definition-and-application" id="toc-natural-join-definition-and-application" class="nav-link" data-scroll-target="#natural-join-definition-and-application">Natural Join: Definition and Application</a></li>
-  <li><a href="#theta-join-flexibility-with-conditions" id="toc-theta-join-flexibility-with-conditions" class="nav-link" data-scroll-target="#theta-join-flexibility-with-conditions">Theta Join: Flexibility with Conditions</a></li>
+  <li><a href="#inner-join-definition-and-use" id="toc-inner-join-definition-and-use" class="nav-link" data-scroll-target="#inner-join-definition-and-use">Inner Join: Definition and Use</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-inner-join-operator" id="toc-properties-of-the-inner-join-operator" class="nav-link" data-scroll-target="#properties-of-the-inner-join-operator">Properties of the Inner Join Operator</a></li>
+  <li><a href="#explanation-of-properties" id="toc-explanation-of-properties" class="nav-link" data-scroll-target="#explanation-of-properties">Explanation of properties</a></li>
+  </ul></li>
+  <li><a href="#outer-join-introduction-and-types" id="toc-outer-join-introduction-and-types" class="nav-link" data-scroll-target="#outer-join-introduction-and-types">Outer Join: Introduction and Types</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-outer-join-operator" id="toc-properties-of-the-outer-join-operator" class="nav-link" data-scroll-target="#properties-of-the-outer-join-operator">Properties of the Outer Join Operator</a></li>
+  <li><a href="#explanation-of-properties-1" id="toc-explanation-of-properties-1" class="nav-link" data-scroll-target="#explanation-of-properties-1">Explanation of properties</a></li>
+  </ul></li>
+  <li><a href="#full-outer-join-combining-data" id="toc-full-outer-join-combining-data" class="nav-link" data-scroll-target="#full-outer-join-combining-data">Full Outer Join: Combining Data</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-full-outer-join-operator" id="toc-properties-of-the-full-outer-join-operator" class="nav-link" data-scroll-target="#properties-of-the-full-outer-join-operator">Properties of the Full Outer Join Operator</a></li>
+  <li><a href="#explanation-of-properties-2" id="toc-explanation-of-properties-2" class="nav-link" data-scroll-target="#explanation-of-properties-2">Explanation of properties</a></li>
+  </ul></li>
+  <li><a href="#natural-join-definition-and-application" id="toc-natural-join-definition-and-application" class="nav-link" data-scroll-target="#natural-join-definition-and-application">Natural Join: Definition and Application</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-natural-join-operator" id="toc-properties-of-the-natural-join-operator" class="nav-link" data-scroll-target="#properties-of-the-natural-join-operator">Properties of the Natural Join Operator</a></li>
+  <li><a href="#explanation-of-properties-3" id="toc-explanation-of-properties-3" class="nav-link" data-scroll-target="#explanation-of-properties-3">Explanation of properties</a></li>
+  </ul></li>
+  <li><a href="#theta-join-flexibility-with-conditions" id="toc-theta-join-flexibility-with-conditions" class="nav-link" data-scroll-target="#theta-join-flexibility-with-conditions">Theta Join: Flexibility with Conditions</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-theta-join-operator" id="toc-properties-of-the-theta-join-operator" class="nav-link" data-scroll-target="#properties-of-the-theta-join-operator">Properties of the Theta Join Operator</a></li>
+  <li><a href="#explanation-of-properties-4" id="toc-explanation-of-properties-4" class="nav-link" data-scroll-target="#explanation-of-properties-4">Explanation of properties</a></li>
+  </ul></li>
   <li><a href="#use-cases-inner-join" id="toc-use-cases-inner-join" class="nav-link" data-scroll-target="#use-cases-inner-join">Use Cases: Inner Join</a></li>
   <li><a href="#use-cases-left-and-right-outer-joins" id="toc-use-cases-left-and-right-outer-joins" class="nav-link" data-scroll-target="#use-cases-left-and-right-outer-joins">Use Cases: Left and Right Outer Joins</a></li>
   <li><a href="#use-cases-full-outer-join" id="toc-use-cases-full-outer-join" class="nav-link" data-scroll-target="#use-cases-full-outer-join">Use Cases: Full Outer Join</a></li>
@@ -431,6 +480,62 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Inner join is ideal when you only need rows where data exists in both relations.</em></p>
+<section id="properties-of-the-inner-join-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-inner-join-operator">Properties of the Inner Join Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} R_2 = \{ t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } condition(t_1, t_2) \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>inner join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>The result contains only those rows where the condition is true for both relations (i.e., rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> that satisfy the join condition).</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations matters in inner join (unless the join condition is symmetric):</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} R_2 \neq R_2 \bowtie_{condition} R_1
+\]</span> (Unless <span class="math inline">\(condition(t_1, t_2) = condition(t_2, t_1)\)</span>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping inner join operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie_{condition1} R_2) \bowtie_{condition2} R_3 = R_1 \bowtie_{condition1} (R_2 \bowtie_{condition2} R_3)
+\]</span></p>
+<ul>
+<li><strong>Inner join with an empty set</strong> – The inner join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over selection</strong> – Inner join distributes over selection:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie R_2) = (\sigma_{condition}(R_1)) \bowtie R_2
+\]</span> (if the selection condition applies to <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> match rows in <span class="math inline">\(R_2\)</span> under the join condition.</li>
+</ul>
+</div>
+</section>
+<section id="explanation-of-properties" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties">Explanation of properties</h3>
+<ul>
+<li><strong>Non-commutative</strong>: The order of the relations in the inner join may affect the result unless the join condition is symmetric (e.g., <span class="math inline">\(A = B\)</span> is the same as <span class="math inline">\(B = A\)</span>).</li>
+<li><strong>Associative</strong>: Grouping inner joins differently doesn’t change the result as long as the conditions are applied consistently.</li>
+<li><strong>Inner join with an empty set</strong>: If either relation is empty, the result is an empty set because no rows can satisfy the join condition.</li>
+<li><strong>Distributive over selection</strong>: You can first apply a selection condition to one of the relations and then join it with the other relation without affecting the outcome, assuming the selection condition applies to that relation only.</li>
+<li><strong>Size of result</strong>: The size of the result is determined by the number of matching rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> that satisfy the join condition.</li>
+</ul>
+<p>This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.</p>
+</section>
 </section>
 <section id="outer-join-introduction-and-types" class="level2">
 <h2 class="anchored" data-anchor-id="outer-join-introduction-and-types">Outer Join: Introduction and Types</h2>
@@ -448,6 +553,72 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Outer joins are useful when you need to retain non-matching data from one or both relations.</em></p>
+<section id="properties-of-the-outer-join-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-outer-join-operator">Properties of the Outer Join Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+R_1 \text{⟕}_{condition} R_2 = &amp;\{ t_1 , t_2 \mid (t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2)) \} \\
+&amp;\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
+&amp;\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+\end{aligned}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>outer join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>Unlike the inner join, the result includes all matching rows from both relations as well as non-matching rows, which are padded with <code>NULL</code> values where no match is found.</li>
+</ul>
+<p><strong>Types of outer join:</strong> * <strong>Left outer join</strong>: Keeps all rows from <span class="math inline">\(R_1\)</span> and matches from <span class="math inline">\(R_2\)</span>. * <strong>Right outer join</strong>: Keeps all rows from <span class="math inline">\(R_2\)</span> and matches from <span class="math inline">\(R_1\)</span>. * <strong>Full outer join</strong>: Keeps all rows from both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, including unmatched rows from both sides.</p>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations matters for left and right outer joins:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \text{⟕}_{condition} R_2 \neq R_2 \text{⟕}_{condition} R_1
+\]</span> (unless using a <strong>full outer join</strong>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping outer joins can depend on the type of join but generally holds true for full outer joins:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \text{⟕}_{condition1} R_2) \text{⟕}_{condition2} R_3 = R_1 \text{⟕}_{condition1} (R_2 \text{⟕}_{condition2} R_3)
+\]</span> (applies to full outer joins)</p>
+<ul>
+<li><p><strong>Outer join with an empty set</strong> – The outer join with an empty relation depends on the type of outer join:</p>
+<ul>
+<li><strong>Left outer join</strong>: Returns all rows from <span class="math inline">\(R_1\)</span> with <code>NULL</code> for <span class="math inline">\(R_2\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \text{⟕} \emptyset = R_1
+\]</span></p>
+<ul>
+<li><strong>Right outer join</strong>: Returns all rows from <span class="math inline">\(R_2\)</span> with <code>NULL</code> for <span class="math inline">\(R_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\emptyset  \text{⟕}  R_2 = R_2
+\]</span></p>
+<ul>
+<li><strong>Full outer join</strong>: Results in both relations with unmatched rows being padded with <code>NULL</code>:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R_2 = R_2
+\]</span></p></li>
+<li><p><strong>Distributive over selection</strong> – Outer join is not generally distributive over selection, as selection might remove rows that would otherwise be included with <code>NULL</code> values.</p></li>
+</ul>
+</div>
+</section>
+<section id="explanation-of-properties-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-1">Explanation of properties</h3>
+<ul>
+<li><strong>Non-commutative</strong>: The order of relations in left and right outer joins affects the result, but for full outer joins, the order does not matter.</li>
+<li><strong>Associative</strong>: Full outer joins are associative, meaning you can group them in different ways and still get the same result.</li>
+<li><strong>Outer join with an empty set</strong>: In left and right outer joins, the non-empty relation is returned with <code>NULL</code> values in place of the missing relation. For full outer joins, both relations contribute to the result, filling unmatched rows with <code>NULL</code>.</li>
+<li><strong>Distributive over selection</strong>: Unlike the inner join, selection does not distribute cleanly over outer joins because rows with <code>NULL</code> values might be incorrectly excluded if the selection is applied beforehand.</li>
+</ul>
+</section>
 </section>
 <section id="full-outer-join-combining-data" class="level2">
 <h2 class="anchored" data-anchor-id="full-outer-join-combining-data">Full Outer Join: Combining Data</h2>
@@ -465,6 +636,73 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Full outer join helps combine datasets completely, even if some data is missing.</em></p>
+<section id="properties-of-the-full-outer-join-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-full-outer-join-operator">Properties of the Full Outer Join Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+R_1  \text{⟗}_{condition}  R_2 = &amp;\{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2) \} \\
+&amp;\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
+&amp;\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+\end{aligned}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>full outer join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>The result includes:
+<ul>
+<li>Rows where the join condition holds for both relations (matching rows),</li>
+<li>Rows from <span class="math inline">\(R_1\)</span> with no matching rows in <span class="math inline">\(R_2\)</span> (padded with <code>NULL</code> values),</li>
+<li>Rows from <span class="math inline">\(R_2\)</span> with no matching rows in <span class="math inline">\(R_1\)</span> (padded with <code>NULL</code> values).</li>
+</ul></li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a full outer join does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}_{condition}  R_2 = R_2  \text{⟗}_{condition}  R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Grouping full outer join operations does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1  \text{⟗}_{condition1}  R_2)  \text{⟗}_{condition2}  R_3 = R_1  \text{⟗}_{condition1}  (R_2  \text{⟗}_{condition2}  R_3)
+\]</span></p>
+<ul>
+<li><strong>Full outer join with an empty set</strong> – The full outer join with an empty relation includes all rows from the non-empty relation, padded with <code>NULL</code> values for the other side:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}  \emptyset = R_1 \quad \text{(padded with `NULL` for } R_2\text{)}
+\]</span></p>
+<p><span class="math display">\[
+\emptyset  \text{⟗}  R_2 = R_2 \quad \text{(padded with `NULL` for } R_1\text{)}
+\]</span></p>
+<ul>
+<li><strong>Distributive over union</strong> – The full outer join is distributive over union:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  R_3)
+\]</span></p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result is at most the sum of the rows in both relations, since all rows from both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are included, with unmatched rows padded with <code>NULL</code>.</li>
+</ul>
+</div>
+</section>
+<section id="explanation-of-properties-2" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-2">Explanation of properties</h3>
+<ul>
+<li><strong>Commutative</strong>: The order in which the relations are combined in a full outer join does not matter, as the result includes all rows from both relations.</li>
+<li><strong>Associative</strong>: Grouping full outer joins differently does not affect the result, allowing the operation to be applied in stages.</li>
+<li><strong>Full outer join with an empty set</strong>: If either relation is empty, the result includes all rows from the non-empty relation, with the other side padded with <code>NULL</code>.</li>
+<li><strong>Distributive over union</strong>: Full outer join distributes over union, meaning you can break the join into smaller unions and join them separately.</li>
+<li><strong>Size of result</strong>: The result contains all rows from both relations, so the number of rows is at most the sum of rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, with <code>NULL</code> values used for non-matching rows.</li>
+</ul>
+</section>
 </section>
 <section id="natural-join-definition-and-application" class="level2">
 <h2 class="anchored" data-anchor-id="natural-join-definition-and-application">Natural Join: Definition and Application</h2>
@@ -482,6 +720,62 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Natural join is a convenient way to join relations when common attribute names are used.</em></p>
+<section id="properties-of-the-natural-join-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-natural-join-operator">Properties of the Natural Join Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie R_2 = \{ t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and for all common attributes } A, t_1[A] = t_2[A] \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>natural join</strong> operation joins two relations based on all attributes they have in common, combining rows where the values of the common attributes are equal,</li>
+<li>The result contains only the attributes from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, but common attributes appear only once.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a natural join does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie R_2 = R_2 \bowtie R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Grouping natural join operations does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie R_2) \bowtie R_3 = R_1 \bowtie (R_2 \bowtie R_3)
+\]</span></p>
+<ul>
+<li><strong>Natural join with an empty set</strong> – The natural join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Natural join distributes over selection</strong> – The natural join distributes over selection operations when the selection condition involves attributes from one of the relations:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie R_2) = \sigma_{condition}(R_1) \bowtie R_2
+\]</span> (if the selection condition applies to attributes of <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result depends on how many rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> match based on the values of the common attributes.</li>
+</ul>
+</div>
+</section>
+<section id="explanation-of-properties-3" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-3">Explanation of properties</h3>
+<ul>
+<li><strong>Commutative</strong>: The order of relations in the natural join does not matter, as the result includes matching rows from both relations based on their common attributes.</li>
+<li><strong>Associative</strong>: Grouping natural joins differently does not affect the result, allowing the operation to be applied in stages.</li>
+<li><strong>Natural join with an empty set</strong>: If either relation is empty, the result will also be empty, as there are no rows to match.</li>
+<li><strong>Natural join distributes over selection</strong>: You can apply a selection condition to one relation before performing the natural join without affecting the outcome, provided the condition applies only to attributes from that relation.</li>
+<li><strong>Size of result</strong>: The result includes all rows from both relations where the values of common attributes match, and the number of matching rows determines the size of the result.</li>
+</ul>
+<p>This explanation of the natural join aligns with the structure of previous relational algebra operations, capturing the key properties and behavior of the natural join in relational algebra.</p>
+</section>
 </section>
 <section id="theta-join-flexibility-with-conditions" class="level2">
 <h2 class="anchored" data-anchor-id="theta-join-flexibility-with-conditions">Theta Join: Flexibility with Conditions</h2>
@@ -499,6 +793,62 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Theta join provides flexibility in combining relations using complex conditions.</em></p>
+<section id="properties-of-the-theta-join-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-theta-join-operator">Properties of the Theta Join Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} R_2 = \{ t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } \theta(t_1, t_2) = \text{true} \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li><span class="math inline">\(\theta\)</span> is a <strong>predicate</strong> (condition) that can be any comparison expression involving the attributes of <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, such as <span class="math inline">\(=, \neq, &lt;, &gt;, \leq, \geq\)</span>,</li>
+<li>The <strong>theta join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> where the condition <span class="math inline">\(\theta\)</span> holds true for both relations.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations in a theta join matters (unless the predicate is symmetric):</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} R_2 \neq R_2 \bowtie_{\theta} R_1
+\]</span> (unless <span class="math inline">\(\theta(t_1, t_2) = \theta(t_2, t_1)\)</span>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping theta join operations depends on the predicates but generally holds true:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie_{\theta_1} R_2) \bowtie_{\theta_2} R_3 = R_1 \bowtie_{\theta_1} (R_2 \bowtie_{\theta_2} R_3)
+\]</span> (if the conditions <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are consistent)</p>
+<ul>
+<li><strong>Theta join with an empty set</strong> – The theta join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Theta join distributes over selection</strong> – The theta join distributes over selection when the selection condition involves only attributes from one of the relations:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie_{\theta} R_2) = \sigma_{condition}(R_1) \bowtie_{\theta} R_2
+\]</span> (if the selection condition applies to attributes of <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result depends on how many rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the predicate <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="explanation-of-properties-4" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-4">Explanation of properties</h3>
+<ul>
+<li><strong>Non-commutative</strong>: The order of relations in the theta join matters unless the predicate <span class="math inline">\(\theta\)</span> is symmetric, meaning <span class="math inline">\(R_1 \bowtie_{\theta} R_2\)</span> will not necessarily equal <span class="math inline">\(R_2 \bowtie_{\theta} R_1\)</span>.</li>
+<li><strong>Associative</strong>: Grouping theta joins with different predicates can affect the result, but when consistent conditions are applied, associativity holds.</li>
+<li><strong>Theta join with an empty set</strong>: If either relation is empty, the result of the theta join is empty because there are no rows to compare.</li>
+<li><strong>Theta join distributes over selection</strong>: You can apply a selection condition to one relation before performing the theta join without affecting the result, provided the selection applies only to that relation.</li>
+<li><strong>Size of result</strong>: The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the condition <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+<p>This structure mirrors the format of previous relational algebra operations, focusing on the flexibility and behavior of the theta join, where any comparison operator can be used in the join condition.</p>
+</section>
 </section>
 <section id="use-cases-inner-join" class="level2">
 <h2 class="anchored" data-anchor-id="use-cases-inner-join">Use Cases: Inner Join</h2>

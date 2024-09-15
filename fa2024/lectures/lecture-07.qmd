@@ -38,6 +38,7 @@ How do we describe the operations? -->
 <!-- This conversation is more abstract, focusing on the operators and their operations
 and eventually, what it means to records and tables.-->
 {{< include "../../topics/_relational-algebra.qmd" >}}
-
+{{< include ../../topics/_basic-operations.qmd >}}
+{{< include ../../topics/_set-operations.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

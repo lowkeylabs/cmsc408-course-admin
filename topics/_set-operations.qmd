@@ -69,18 +69,72 @@ The intersection operation retrieves rows that are common to two relations. It i
 
 
 
-## Intersection - ∩ - Example 1
+## Properties of the Intersection Operator
 
 
 
+:::: {.columns}
+::: {.column width=47%}
+**Definition**
 
-## Intersection - ∩ - Example 2
+$$
+R_1 \cap R_2 = { t \mid t \in R_1 \text{ and } t \in R_2 }
+$$
+
+- where $t$ is a row (tuple),
+- $R_1$ and $R_2$ are relations (tables) with the same attributes,
+- The intersection operation returns a new relation containing only the rows that are present in both $R_1$ and $R_2$,
+- The result consists of distinct rows that satisfy the condition of being in both relations.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Properties**
+
+- **Idempotent** – Applying the intersection of a relation with itself doesn't change the result:
+
+$$
+R \cap R = R
+$$
+
+- **Commutative** – The order of relations in an intersection operation doesn't matter:
+
+$$
+R_1 \cap R_2 = R_2 \cap R_1
+$$
+
+- **Associative** – The grouping of intersection operations doesn't affect the result:
+
+$$
+(R_1 \cap R_2) \cap R_3 = R_1 \cap (R_2 \cap R_3)
+$$
+
+- **Intersection with an empty set** – The intersection of a relation with an empty set is the empty set:
+
+$$
+R \cap \emptyset = \emptyset
+$$
+
+- **Intersection distributes over union** – The intersection of two relations distributes over their union:
+
+$$
+R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
+$$
+:::
+::::
+
+<!-- -->
 
 
 
+## Explanation of properties
 
-## Intersection - ∩ - Example 3
 
+- **Idempotent**: Combining a relation with itself using intersection does not remove any rows, so the result remains the same.
+- **Commutative**: The order of the relations in the intersection operation does not affect the result.
+- **Associative**: You can group intersection operations in any way, and the result will be the same.
+- **Intersection with an empty set**: Intersecting with an empty relation results in an empty set because no rows can be in both the original relation and an empty set.
+- **Distributed**: Intersection distributes over union, meaning you can break down or combine intersections in a structured way over unions.
 
 
 
@@ -111,6 +165,75 @@ Difference in relational algebra subtracts one relation from another, returning 
 
 
 
+## Properties of the Difference Operator
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+**Definition**
+
+$$
+R_1 - R_2 = { t \mid t \in R_1 \text{ and } t \notin R_2 }
+$$
+
+- where $t$ is a row (tuple),
+- $R_1$ and $R_2$ are relations (tables) with the same attributes,
+- The difference operation returns a new relation containing only the rows that are in $R_1$ but not in $R_2$,
+- The result consists of distinct rows that exist in $R_1$ and are absent from $R_2$.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Properties**
+
+- **Non-commutative** – The order of relations in the difference operation matters:
+
+$$
+R_1 - R_2 \neq R_2 - R_1
+$$
+
+- **Not associative** – Grouping difference operations affects the result:
+
+$$
+(R_1 - R_2) - R_3 \neq R_1 - (R_2 - R_3)
+$$
+
+- **Difference with an empty set** – The difference between a relation and an empty set is the relation itself:
+
+$$
+R_1 - \emptyset = R_1
+$$
+
+- **Difference with itself** – The difference between a relation and itself is the empty set:
+
+$$
+R_1 - R_1 = \emptyset
+$$
+
+- **Distributive over intersection** – The difference operation distributes over intersection:
+
+$$
+R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
+$$
+:::
+::::
+
+<!-- -->
+
+
+
+## Explanation of properties
+
+
+- **Non-commutative**: The order in which the relations are used in the difference matters because the result will include rows from $R_1$ that are not in $R_2$, but not vice versa.
+- **Not associative**: The grouping of relations in a difference operation affects the outcome since subtracting another relation later changes the rows that remain.
+- **Difference with an empty set**: Subtracting an empty set from a relation has no effect since there are no rows to remove.
+- **Difference with itself**: Subtracting a relation from itself results in an empty set, as no rows are left.
+- **Distributive over intersection**: Difference distributes over intersection, allowing you to apply the difference to both parts of the intersection separately and then take their intersection.
+
+
+
 ## Cartesian Product in Relational Algebra
 
 
@@ -136,32 +259,79 @@ The Cartesian product operation combines all tuples from two relations, creating
 
 *Cartesian product provides the basis for combining relations, though it may require filtering for meaningful results.*
 
+Here’s the definition and properties of the **Cartesian product** operation in relational algebra, formatted similarly to the template provided:
 
 
-## Union in Relational Algebra
 
+## Properties of the Cartesian Product Operator
 
-Union combines two relations into one, including all tuples from both, while eliminating duplicates.
 
 
 :::: {.columns}
-::: {.column width=98%}
-- Union returns a relation containing all unique tuples from both input relations.
-- It requires that both relations have the same schema.
-- Union is useful when combining similar datasets into one comprehensive set.
-- Duplicates are removed automatically in the result.
-- This operation supports combining datasets without losing data from either relation.
-:::
-::: {.column width=1%}
-:::
-::: {.column width=1%}
+::: {.column width=47%}
+**Definition**
 
+$$
+R_1 \times R_2 = { t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 }
+$$
+
+- where $t_1$ is a row (tuple) from relation $R_1$,
+- $t_2$ is a row (tuple) from relation $R_2$,
+- The Cartesian product returns a new relation formed by concatenating every row from $R_1$ with every row from $R_2$,
+- The result contains all possible combinations of tuples from both relations.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Properties**
+
+- **Non-commutative** – The order of the relations matters in the Cartesian product:
+
+$$
+R_1 \times R_2 \neq R_2 \times R_1
+$$
+(unless $R_1$ and $R_2$ are identical and have the same attributes)
+
+- **Associative** – The grouping of Cartesian product operations doesn't affect the result:
+
+$$
+(R_1 \times R_2) \times R_3 = R_1 \times (R_2 \times R_3)
+$$
+
+- **Cartesian product with an empty set** – The Cartesian product with an empty relation results in an empty set:
+
+$$
+R \times \emptyset = \emptyset
+$$
+
+- **Distributive over union** – The Cartesian product distributes over union:
+
+$$
+R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
+$$
+
+- **Size of result** – The number of rows in the result is the product of the number of rows in the input relations:
+
+$$
+|R_1 \times R_2| = |R_1| \times |R_2|
+$$
 :::
 ::::
 
 <!-- -->
 
-*Union is essential for merging two datasets into one while ensuring there are no duplicate records.*
+
+
+## Explanation of properties
+
+
+- **Non-commutative**: The order in which the relations are combined affects the resulting tuples (since concatenating $t_1$ with $t_2$ is different from $t_2$ with $t_1$).
+- **Associative**: You can group Cartesian product operations in any way, and the result will be the same.
+- **Cartesian product with an empty set**: If either relation is empty, the result will be empty because there are no tuples to pair.
+- **Distributive over union**: Cartesian product distributes over union, allowing you to break down the product into individual components and combine them after applying the product.
+- **Size of result**: The Cartesian product increases the number of rows, multiplying the rows of $R_1$ by the rows of $R_2$.
+
+This definition and properties align with the structure of other relational operations while explaining the Cartesian product in relational algebra.
 
 
 

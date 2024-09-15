@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../guide.css">
 </head>
@@ -275,9 +304,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#renaming-in-relational-algebra" id="toc-renaming-in-relational-algebra" class="nav-link active" data-scroll-target="#renaming-in-relational-algebra">Renaming in Relational Algebra</a></li>
+  <li><a href="#renaming-in-relational-algebra" id="toc-renaming-in-relational-algebra" class="nav-link active" data-scroll-target="#renaming-in-relational-algebra">Renaming in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-renaming-operator" id="toc-properties-of-the-renaming-operator" class="nav-link" data-scroll-target="#properties-of-the-renaming-operator">Properties of the Renaming Operator</a></li>
+  <li><a href="#explanation-of-properties" id="toc-explanation-of-properties" class="nav-link" data-scroll-target="#explanation-of-properties">Explanation of properties</a></li>
+  </ul></li>
   <li><a href="#example-of-renaming-in-queries" id="toc-example-of-renaming-in-queries" class="nav-link" data-scroll-target="#example-of-renaming-in-queries">Example of Renaming in Queries</a></li>
-  <li><a href="#introduction-to-division-in-relational-algebra" id="toc-introduction-to-division-in-relational-algebra" class="nav-link" data-scroll-target="#introduction-to-division-in-relational-algebra">Introduction to Division in Relational Algebra</a></li>
+  <li><a href="#introduction-to-division-in-relational-algebra" id="toc-introduction-to-division-in-relational-algebra" class="nav-link" data-scroll-target="#introduction-to-division-in-relational-algebra">Introduction to Division in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-division-operator" id="toc-properties-of-the-division-operator" class="nav-link" data-scroll-target="#properties-of-the-division-operator">Properties of the Division Operator</a></li>
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation:</a></li>
+  </ul></li>
   <li><a href="#division-syntax-and-example" id="toc-division-syntax-and-example" class="nav-link" data-scroll-target="#division-syntax-and-example">Division: Syntax and Example</a></li>
   <li><a href="#practical-use-case-for-division" id="toc-practical-use-case-for-division" class="nav-link" data-scroll-target="#practical-use-case-for-division">Practical Use Case for Division</a></li>
   <li><a href="#common-mistakes-with-division" id="toc-common-mistakes-with-division" class="nav-link" data-scroll-target="#common-mistakes-with-division">Common Mistakes with Division</a></li>
@@ -415,6 +452,66 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Renaming enhances clarity in query design, especially when handling multiple relations.</em></p>
+<p>Here’s the definition and properties of the <strong>renaming</strong> operation in relational algebra, formatted similarly to the template you provided:</p>
+<section id="properties-of-the-renaming-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-renaming-operator">Properties of the Renaming Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\rho_{new\_name}(R) = \{ t \mid t \in R \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(R\)</span> is a relation (table),</li>
+<li><span class="math inline">\(new\_name\)</span> is the new name assigned to relation <span class="math inline">\(R\)</span> or one or more of its attributes,</li>
+<li>The <strong>renaming</strong> operation is used to assign a new name to either the entire relation or to individual attributes in the relation, preserving the structure and data,</li>
+<li>It allows us to avoid ambiguity in cases where relations have overlapping attribute names or when working with complex queries.</li>
+</ul>
+<p>The renaming operation can be used in three forms: - Renaming the entire relation: <span class="math inline">\(\rho_{S}(R)\)</span> renames relation <span class="math inline">\(R\)</span> to <span class="math inline">\(S\)</span>, - Renaming attributes: <span class="math inline">\(\rho_{(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)\)</span> renames the attributes <span class="math inline">\(A_1, A_2, \dots\)</span> in <span class="math inline">\(R\)</span> to <span class="math inline">\(B_1, B_2, \dots\)</span>, - Renaming both the relation and its attributes: <span class="math inline">\(\rho_{S(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)\)</span>.</p>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Idempotent</strong> – Renaming a relation or attribute multiple times with the same name does not change the result:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new\_name}(\rho_{new\_name}(R)) = \rho_{new\_name}(R)
+\]</span></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of renaming different attributes matters:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{(A \rightarrow B)}(\rho_{(B \rightarrow C)}(R)) \neq \rho_{(B \rightarrow C)}(\rho_{(A \rightarrow B)}(R))
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Renaming operations can be grouped without affecting the result:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new\_name_1}(\rho_{new\_name_2}(R)) = \rho_{new\_name_2}(\rho_{new\_name_1}(R))
+\]</span></p>
+<ul>
+<li><strong>Renaming with an empty set</strong> – Renaming an empty relation still results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new\_name}(\emptyset) = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Renaming preserves all rows and attributes</strong> – The renaming operation only changes names and does not affect the content or structure of the relation:</li>
+</ul>
+<p><span class="math display">\[
+|R| = |\rho_{new\_name}(R)|
+\]</span></p>
+</div>
+</section>
+<section id="explanation-of-properties" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties">Explanation of properties</h3>
+<ul>
+<li><strong>Idempotent</strong>: Renaming a relation or attribute multiple times with the same name has no additional effect.</li>
+<li><strong>Non-commutative</strong>: The order in which you rename attributes matters, especially if the renaming involves the same attribute multiple times.</li>
+<li><strong>Associative</strong>: Renaming operations can be applied in any order, provided they refer to different attributes or relation names.</li>
+<li><strong>Renaming with an empty set</strong>: If the relation is empty, renaming it will still result in an empty relation.</li>
+<li><strong>Renaming preserves all rows and attributes</strong>: The renaming operation only affects the labels of relations and attributes, not their content or structure, so the number of rows and attributes remains unchanged.</li>
+</ul>
+</section>
 </section>
 <section id="example-of-renaming-in-queries" class="level2">
 <h2 class="anchored" data-anchor-id="example-of-renaming-in-queries">Example of Renaming in Queries</h2>
@@ -449,6 +546,64 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Division is a powerful but specific operation that allows querying for “all related” records.</em></p>
+<section id="properties-of-the-division-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-division-operator">Properties of the Division Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \div R_2 = \{ t_1 \mid t_1 \in \pi_{A}(R_1) \text{ and for every } t_2 \in R_2, (t_1, t_2) \in R_1 \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(R_1\)</span> is a relation with attributes <span class="math inline">\(A \cup B\)</span>,</li>
+<li><span class="math inline">\(R_2\)</span> is a relation with attributes <span class="math inline">\(B\)</span> (a subset of <span class="math inline">\(R_1\)</span>’s attributes),</li>
+<li>The <strong>division</strong> operation returns a new relation consisting of the values of <span class="math inline">\(A\)</span> from <span class="math inline">\(R_1\)</span> that match every tuple in <span class="math inline">\(R_2\)</span>,</li>
+<li>Essentially, division finds the tuples in <span class="math inline">\(R_1\)</span> that have a corresponding match for every tuple in <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Not commutative</strong> – The order of relations in the division operation matters:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_2 \neq R_2 \div R_1
+\]</span></p>
+<ul>
+<li><strong>Non-associative</strong> – Division is not associative:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \div R_2) \div R_3 \neq R_1 \div (R_2 \div R_3)
+\]</span></p>
+<ul>
+<li><strong>Division with an empty set</strong> – If <span class="math inline">\(R_2\)</span> is an empty set, the division result is the projection of <span class="math inline">\(R_1\)</span> on <span class="math inline">\(A\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div \emptyset = \pi_{A}(R_1)
+\]</span></p>
+<ul>
+<li><strong>Division with itself</strong> – Dividing a relation by itself results in an empty set unless <span class="math inline">\(R_2\)</span> contains only tuples present in <span class="math inline">\(R_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_1 = \emptyset \quad \text{(if } R_1 \text{ and } R_2 \text{ are identical and non-empty)}
+\]</span></p>
+<ul>
+<li><strong>Division with a superset</strong> – If <span class="math inline">\(R_2\)</span> is a superset of <span class="math inline">\(B\)</span>-values in <span class="math inline">\(R_1\)</span>, the result is empty:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
+\]</span></p>
+</div>
+</section>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation:</h3>
+<ul>
+<li><strong>Not commutative</strong>: The order of relations in the division operation matters, as dividing one relation by another is not symmetric.</li>
+<li><strong>Non-associative</strong>: Division is not associative, meaning that the order in which you perform multiple division operations can affect the result.</li>
+<li><strong>Division with an empty set</strong>: If <span class="math inline">\(R_2\)</span> is empty, the result is the projection of <span class="math inline">\(R_1\)</span> on <span class="math inline">\(A\)</span>, as no conditions exist for <span class="math inline">\(B\)</span> attributes.</li>
+<li><strong>Division with itself</strong>: Dividing a relation by itself typically results in an empty set unless all tuples from <span class="math inline">\(R_2\)</span> are in <span class="math inline">\(R_1\)</span>.</li>
+<li><strong>Division with a superset</strong>: If <span class="math inline">\(R_2\)</span> contains values that don’t appear in <span class="math inline">\(R_1\)</span>, the result is empty since no <span class="math inline">\(A\)</span>-values in <span class="math inline">\(R_1\)</span> satisfy the matching condition for all tuples in <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</section>
 </section>
 <section id="division-syntax-and-example" class="level2">
 <h2 class="anchored" data-anchor-id="division-syntax-and-example">Division: Syntax and Example</h2>

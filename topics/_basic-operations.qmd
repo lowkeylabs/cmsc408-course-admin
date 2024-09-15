@@ -100,7 +100,9 @@ The selection operation retrieves rows from a relation that meet specified condi
 ::: {.column width=6%}
 :::
 ::: {.column width=47%}
-**Examples**
+**Unicode examples**
+
+Below are examples of what these statement will look like on the Canvas quiz.
 
 1. σ(ID=3)(Courses)
 
@@ -110,9 +112,59 @@ The selection operation retrieves rows from a relation that meet specified condi
 :::
 ::::
 
+
 <!-- -->
 
-*The selection operation is essential for isolating relevant data in relational databases.*
+
+
+## Properties of the selection operator
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+**Definition**
+
+$$
+\sigma_{\rho}(R) = { t \mid t \in R \text{ and } \rho(t) == \text{true} }
+$$
+
+- where $t$ is a row in $R$,
+- $\rho$ (the *predicate*) is a boolean expression that evaluates true or false for all rows in $R$,
+- $\rho$ consists of one or more *terms* connected by $\land$(and), $\lor$(or), $\neg$(not) function.
+- *Terms* in $\rho$ are simple relational expressions evaluated using $=$, $\ne$, $\<$, $>$, $\le$, $\ge$.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Properties**
+
+- *Idempotent* - can be applied multiple times without side effects:
+
+$$
+\sigma_{A}(R) = \sigma_{A} ( \sigma_{A}(R) )
+$$
+
+- *Commutative* - the order of application doesn't matter:
+
+$$
+\sigma_{A}( \sigma_{B}(R) ) = \sigma_{B}( \sigma_{A}(R) )
+$$
+
+- *Distributed* - operations can be subdivided and combined
+
+$$
+\begin{aligned}
+\sigma_{A \land B}( R ) &= \sigma_{A}(R) \cap \sigma_{B}(R) \
+&= \sigma_{A}( \sigma_{B}(R) ) = \sigma_{B}( \sigma_{A}(R) ) \
+\sigma_{A \lor B}( R ) &= \sigma_{A}(R) \cup \sigma_{B}(R)
+\end{aligned}
+$$
+:::
+::::
+
+
+<!-- -->
 
 
 
@@ -175,7 +227,7 @@ show_df( new_df )
 
 <!-- -->
 
-
+#
 
 ## Selection - σ - Example 3
 
@@ -202,6 +254,7 @@ show_df( new_df )
 ```
 :::
 ::::
+
 
 <!-- -->
 
@@ -245,6 +298,79 @@ The projection operation retrieves specific columns from a relation. It enables 
 
 
 
+## Definition of projection
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+**Definition**
+$$
+\pi_{A_1, A_2, \dots, A_n}(R) = { t\[A_1, A_2, \dots, A_n\] \mid t \in R }
+$$
+
+- where $t$ is a row in $R$,
+- $A_1, A_2, \dots, A_n$ are the attributes (columns) of relation (R),
+- The projection operator returns a new relation containing only the specified attributes (A_1, A_2, \dots, A_n) from (R),
+- The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+***Explanation***
+
+- The projection operator (\pi) selects certain columns (attributes) from the relation (R), discarding the others.
+- It operates by returning only the specified columns for each tuple (row) in (R), effectively creating a "vertical slice" of the relation.
+- Duplicate tuples in the result are eliminated to ensure the output is a valid set.
+:::
+::::
+
+<!-- -->
+
+
+
+## Properties of projection
+
+
+- **Idempotent** – Projection can be applied multiple times without side effects:
+
+$$
+\pi_{A_1, A_2, \dots, A_n}( \pi_{A_1, A_2, \dots, A_n}(R) ) = \pi_{A_1, A_2, \dots, A_n}(R)
+$$
+
+- **Commutative** – The order of projection on overlapping sets of attributes doesn't matter:
+
+$$
+\pi_{A_1, A_2}( \pi_{A_2, A_3}(R) ) = \pi_{A_2}( \pi_{A_1, A_3}(R) )
+$$
+
+(if $A_1$, $A_2$, and $A_3$ are overlapping or compatible)
+
+- **Non-distributive** – Projection does **not** distribute over selection, but it interacts in specific ways:
+
+  - **Projection over selection** (you can select first, then project):
+
+  $$
+  \pi_{A_1, A_2}( \sigma_{B}(R) ) = \pi_{A_1, A_2}(R) \quad \text{if } B \text{ involves only attributes } A_1, A_2
+  $$
+
+  - **Selection over projection** (you cannot project first if selection involves non-projected attributes):
+
+  $$
+  \sigma_{B}( \pi_{A_1, A_2}(R) ) \quad \text{undefined if } B \text{ involves attributes not in } A_1, A_2
+  $$
+
+
+
+## Explanation of Properties
+
+
+- **Idempotent**: Reapplying projection on the same set of attributes does not change the result. Once the attributes are reduced, further projection on the same set will not alter the relation.
+- **Commutative**: When projecting on overlapping or compatible sets of attributes, the order of application does not matter (the resulting attributes will still be the same).
+- **Non-distributive**: Unlike selection, projection cannot be freely distributed over operations such as selection, because projection limits the available attributes. It must respect the interaction between available attributes and conditions in the selection.
+
+
+
 ## Projection - Π - Example 1
 
 
@@ -273,7 +399,7 @@ show_df( new_df, width="50%" )
 
 <!-- -->
 
-
+#
 
 ## Projection - Π - Example 2
 
@@ -303,7 +429,11 @@ show_df( new_df, width="50%" )
 
 <!-- -->
 
+#
+
 ## Projection - Π - Example 3
+
+
 
 :::: {.columns}
 ::: {.column width=47%}
@@ -412,6 +542,80 @@ The union operation combines tuples from two relations, eliminating duplicates. 
 <!-- -->
 
 *The union operation enables the merging of datasets in a relational context.*
+
+
+
+## Definition of Union Operator
+
+
+
+:::: {.columns}
+::: {.column width=98%}
+**Definition**
+
+$$
+R_1 \cup R_2 = { t \mid t \in R_1 \text{ or } t \in R_2 }
+$$
+
+- where $t$ is a row (tuple),
+- $R_1$ and $R_2$ are relations (tables) with the same attributes,
+- The union operation returns a new relation containing all distinct rows that are present in either $R_1$, $R_2$, or both,
+- Duplicate rows are eliminated in the result, ensuring the output is a set, not a multiset.
+:::
+::: {.column width=1%}
+:::
+::: {.column width=1%}
+
+:::
+::::
+
+<!-- -->
+
+
+
+## Properties of Union
+
+
+- **Idempotent** – Applying the union of a relation with itself doesn't change the result:
+
+$$
+R \cup R = R
+$$
+
+- **Commutative** – The order of relations in a union operation doesn't matter:
+
+$$
+R_1 \cup R_2 = R_2 \cup R_1
+$$
+
+- **Associative** – The grouping of union operations doesn't affect the result:
+
+$$
+(R_1 \cup R_2) \cup R_3 = R_1 \cup (R_2 \cup R_3)
+$$
+
+- **Union with an empty set** – The union of a relation with an empty set is the relation itself:
+
+$$
+R \cup \emptyset = R
+$$
+
+- **Union distributes over intersection** – The union of two relations distributes over their intersection:
+
+$$
+R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
+$$
+
+
+
+## Explanation of Properties
+
+
+- **Idempotent**: Combining a relation with itself does not add any new rows since the union eliminates duplicates.
+- **Commutative**: The union is symmetric, so the order of relations does not affect the result.
+- **Associative**: You can group union operations in any way, and the result will be the same.
+- **Union with an empty set**: Union with an empty relation results in the original relation, as the empty set contributes no rows.
+- **Distributed**: Union distributes over intersection in a way that respects the structure of both operations.
 
 
 
@@ -626,6 +830,112 @@ show_df( new_df )
 <!-- -->
 
 
+
+## Larger Reporting Systems
+
+
+Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.
+
+
+:::: {.columns}
+::: {.column width=47%}
+1. Example: Generating a list of employees eligible for a bonus.
+
+   - Selection operation to filter eligible employees based on criteria (e.g., performance).
+   - Projection to display only relevant fields (e.g., Name, Department).
+   - Union to combine results from different departments.
+
+1. Example: Generating a report of products sold by specific vendors.
+
+   - Selection to filter products by vendor ID.
+   - Projection to display product name and vendor details.
+   - Cartesian product to cross-reference products with vendor data.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+3. Example: Compiling a list of employees not assigned to any projects.
+
+   - Anti-join to find employees not in the project assignment table.
+   - Projection to show employee names and departments.
+   - Set difference to exclude employees with assignments from the employee list.
+
+1. Example: Producing a report of sales trends over time.
+
+   - Selection to filter sales data by date range.
+   - Aggregation to calculate sales totals by month or quarter.
+   - Join to merge sales data with product or category details.
+:::
+::::
+
+<!-- -->
+
+Note that these examples introduce additional operators to complement the *Selection*, *Projection* and *Union* already discussed.  That's what we'll discuss next!
+
+
+
+## Larger Reporting Systems
+
+
+On the preceding slide:
+
+- Each of these examples is considered a *single query* even though they contains multiple single relational operations.
+
+- Your semester long project must document 20 unique queries.  To accomplish this, you'll need plenty of entities (tables).
+
+
+
+## Larger Reporting Systems
+
+
+Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.
+
+
+:::: {.columns}
+::: {.column width=47%}
+1. Example: Generating a list of employees eligible for a bonus.
+
+   - Selection operation to filter eligible employees based on criteria (e.g., performance).
+   - Projection to display only relevant fields (e.g., Name, Department).
+   - Union to combine results from different departments.
+
+1. Example: Generating a report of products sold by specific vendors.
+
+   - Selection to filter products by vendor ID.
+   - Projection to display product name and vendor details.
+   - Cartesian product to cross-reference products with vendor data.
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+3. Example: Compiling a list of employees not assigned to any projects.
+
+   - Anti-join to find employees not in the project assignment table.
+   - Projection to show employee names and departments.
+   - Set difference to exclude employees with assignments from the employee list.
+
+1. Example: Producing a report of sales trends over time.
+
+   - Selection to filter sales data by date range.
+   - Aggregation to calculate sales totals by month or quarter.
+   - Join to merge sales data with product or category details.
+:::
+::::
+
+<!-- -->
+
+Note that these examples introduce additional operators to complement the *Selection*, *Projection* and *Union* already discussed.  That's what we'll discuss next!
+
+
+
+## Larger Reporting Systems
+
+
+On the preceding slide:
+
+- Each of these examples is considered a *single query* even though they contains multiple single relational operations.
+
+- Your semester long project must document 20 unique queries.  To accomplish this, you'll need plenty of entities (tables).
 
 
 

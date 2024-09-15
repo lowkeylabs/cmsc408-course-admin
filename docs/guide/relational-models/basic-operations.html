@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../guide.css">
 </head>
@@ -284,12 +313,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#introduction-to-relational-algebra" id="toc-introduction-to-relational-algebra" class="nav-link active" data-scroll-target="#introduction-to-relational-algebra">Introduction to Relational Algebra</a></li>
   <li><a href="#selection-operation-in-relational-algebra" id="toc-selection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#selection-operation-in-relational-algebra">Selection Operation in Relational Algebra</a>
   <ul class="collapse">
+  <li><a href="#properties-of-the-selection-operator" id="toc-properties-of-the-selection-operator" class="nav-link" data-scroll-target="#properties-of-the-selection-operator">Properties of the selection operator</a></li>
   <li><a href="#selection---σ---example-1" id="toc-selection---σ---example-1" class="nav-link" data-scroll-target="#selection---σ---example-1">Selection - σ - Example 1</a></li>
   <li><a href="#selection---σ---example-2" id="toc-selection---σ---example-2" class="nav-link" data-scroll-target="#selection---σ---example-2">Selection - σ - Example 2</a></li>
   <li><a href="#selection---σ---example-3" id="toc-selection---σ---example-3" class="nav-link" data-scroll-target="#selection---σ---example-3">Selection - σ - Example 3</a></li>
   </ul></li>
   <li><a href="#projection-operation-in-relational-algebra" id="toc-projection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#projection-operation-in-relational-algebra">Projection Operation in Relational Algebra</a>
   <ul class="collapse">
+  <li><a href="#definition-of-projection" id="toc-definition-of-projection" class="nav-link" data-scroll-target="#definition-of-projection">Definition of projection</a></li>
+  <li><a href="#properties-of-projection" id="toc-properties-of-projection" class="nav-link" data-scroll-target="#properties-of-projection">Properties of projection</a></li>
+  <li><a href="#explanation-of-properties" id="toc-explanation-of-properties" class="nav-link" data-scroll-target="#explanation-of-properties">Explanation of Properties</a></li>
   <li><a href="#projection---π---example-1" id="toc-projection---π---example-1" class="nav-link" data-scroll-target="#projection---π---example-1">Projection - Π - Example 1</a></li>
   <li><a href="#projection---π---example-2" id="toc-projection---π---example-2" class="nav-link" data-scroll-target="#projection---π---example-2">Projection - Π - Example 2</a></li>
   <li><a href="#projection---π---example-3" id="toc-projection---π---example-3" class="nav-link" data-scroll-target="#projection---π---example-3">Projection - Π - Example 3</a></li>
@@ -297,6 +330,9 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#union-operation-in-relational-algebra" id="toc-union-operation-in-relational-algebra" class="nav-link" data-scroll-target="#union-operation-in-relational-algebra">Union Operation in Relational Algebra</a>
   <ul class="collapse">
+  <li><a href="#definition-of-union-operator" id="toc-definition-of-union-operator" class="nav-link" data-scroll-target="#definition-of-union-operator">Definition of Union Operator</a></li>
+  <li><a href="#properties-of-union" id="toc-properties-of-union" class="nav-link" data-scroll-target="#properties-of-union">Properties of Union</a></li>
+  <li><a href="#explanation-of-properties-1" id="toc-explanation-of-properties-1" class="nav-link" data-scroll-target="#explanation-of-properties-1">Explanation of Properties</a></li>
   <li><a href="#union-----example-1" id="toc-union-----example-1" class="nav-link" data-scroll-target="#union-----example-1">Union - ∪ - Example 1</a></li>
   </ul></li>
   <li><a href="#union-----example-2" id="toc-union-----example-2" class="nav-link" data-scroll-target="#union-----example-2">Union - ∪ - Example 2</a></li>
@@ -306,7 +342,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#combined-example-2" id="toc-combined-example-2" class="nav-link" data-scroll-target="#combined-example-2">Combined Example 2</a></li>
   <li><a href="#combined-example-3" id="toc-combined-example-3" class="nav-link" data-scroll-target="#combined-example-3">Combined Example 3</a></li>
   </ul></li>
-  <li><a href="#larger-reporting-system" id="toc-larger-reporting-system" class="nav-link" data-scroll-target="#larger-reporting-system">Larger Reporting System</a></li>
+  <li><a href="#larger-reporting-systems" id="toc-larger-reporting-systems" class="nav-link" data-scroll-target="#larger-reporting-systems">Larger Reporting Systems</a></li>
+  <li><a href="#larger-reporting-systems-1" id="toc-larger-reporting-systems-1" class="nav-link" data-scroll-target="#larger-reporting-systems-1">Larger Reporting Systems</a></li>
   <li><a href="#conclusion-mastering-basic-relational-algebra" id="toc-conclusion-mastering-basic-relational-algebra" class="nav-link" data-scroll-target="#conclusion-mastering-basic-relational-algebra">Conclusion: Mastering Basic Relational Algebra</a></li>
   </ul>
 </nav>
@@ -431,14 +468,6 @@ Entities represent real-world objects or concepts, while attributes describe the
   margin-left: 15px;
   margin-bottom: 15px;
 </style>
-<div class="guide-block">
-<div class="guide-block-right">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/relational-algebra-overview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./assets/relational-algebra-overview.jpg" class="quarto-float-fig img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></a></p>
-</figure>
-</div>
-</div>
 <div class="guide-block-left">
 <ul>
 <li>Relational algebra is a procedural query language.</li>
@@ -447,6 +476,12 @@ Entities represent real-world objects or concepts, while attributes describe the
 <li>The basic operations include <strong><em>selection</em></strong>, <strong><em>projection</em></strong>, and <strong><em>union</em></strong>.</li>
 <li>Understanding relational algebra is crucial for effective query optimization.</li>
 </ul>
+</div>
+<div class="guide-block-right">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/relational-algebra-overview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./assets/relational-algebra-overview.jpg" class="quarto-float-fig img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></a></p>
+</figure>
 </div>
 </div>
 <p><em>Relational algebra underpins the structure and functionality of modern relational databases.</em></p>
@@ -467,23 +502,63 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ul>
 </div>
 <div class="guide-block-right">
-<p><strong>Examples</strong></p>
+<p><strong>Unicode examples</strong></p>
+<p>Below are examples of what these statement will look like on the Canvas quiz.</p>
 <ol type="1">
 <li><p>σ(ID=3)(Courses)</p></li>
 <li><p>σ(Course=‘CMSC408’)(Courses)</p></li>
 <li><p>σ(Enrl&lt;=100)(Courses)</p></li>
 </ol>
 </div>
-<p><em>The selection operation is essential for isolating relevant data in relational databases.</em></p>
+<section id="properties-of-the-selection-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-selection-operator">Properties of the selection operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\sigma_{\rho}(R) = \{ t \mid t \in R \text{ and } \rho(t) == \text{true} \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row in <span class="math inline">\(R\)</span>,</li>
+<li><span class="math inline">\(\rho\)</span> (the <em>predicate</em>) is a boolean expression that evaluates true or false for all rows in <span class="math inline">\(R\)</span>,</li>
+<li><span class="math inline">\(\rho\)</span> consists of one or more <em>terms</em> connected by <span class="math inline">\(\land\)</span>(and), <span class="math inline">\(\lor\)</span>(or), <span class="math inline">\(\neg\)</span>(not) function.</li>
+<li><em>Terms</em> in <span class="math inline">\(\rho\)</span> are simple relational expressions evaluated using <span class="math inline">\(=\)</span>, <span class="math inline">\(\ne\)</span>, <span class="math inline">\(&lt;\)</span>, <span class="math inline">\(&gt;\)</span>, <span class="math inline">\(\le\)</span>, <span class="math inline">\(\ge\)</span>.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><em>Idempotent</em> - can be applied multiple times without side effects:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{A}(R) = \sigma_{A} ( \sigma_{A}(R) )
+\]</span></p>
+<ul>
+<li><em>Commutative</em> - the order of application doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{A}( \sigma_{B}(R) ) = \sigma_{B}( \sigma_{A}(R) )
+\]</span></p>
+<ul>
+<li><em>Distributed</em> - operations can be subdivided and combined</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\sigma_{A \land B}( R ) &amp;= \sigma_{A}(R) \cap \sigma_{B}(R) \\
+&amp;= \sigma_{A}( \sigma_{B}(R) ) = \sigma_{B}( \sigma_{A}(R) ) \\
+\sigma_{A \lor B}( R ) &amp;= \sigma_{A}(R) \cup \sigma_{B}(R)
+\end{aligned}
+\]</span></p>
+</div>
+</section>
 <section id="selection---σ---example-1" class="level3">
 <h3 class="anchored" data-anchor-id="selection---σ---example-1">Selection - σ - Example 1</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="25d711bb" class="cell" data-execution_count="2">
+<div id="78bad4fa" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -535,11 +610,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>σ(ID=3)(Courses) returns:</p>
-<div id="47ff06b0" class="cell" data-execution_count="3">
+<div id="e9e633bd" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -570,11 +645,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="selection---σ---example-2">Selection - σ - Example 2</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="b7361da1" class="cell" data-execution_count="4">
+<div id="2a1430a6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -626,11 +701,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>σ(Course=‘CMSC408’)(Courses) returns:</p>
-<div id="9a485d25" class="cell" data-execution_count="5">
+<div id="71f17dac" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -667,11 +742,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="selection---σ---example-3">Selection - σ - Example 3</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="92fbabc0" class="cell" data-execution_count="6">
+<div id="dcc6da14" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -723,11 +798,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>σ(Enrl&lt;=100)(Courses) returns:</p>
-<div id="dff930c3" class="cell" data-execution_count="7">
+<div id="d7a268d9" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -779,15 +854,76 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ol>
 </div>
 <p><em>Projection helps streamline query results by focusing on relevant attributes.</em></p>
+<section id="definition-of-projection" class="level3">
+<h3 class="anchored" data-anchor-id="definition-of-projection">Definition of projection</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong> <span class="math display">\[
+\pi_{A_1, A_2, \dots, A_n}(R) = \{ t[A_1, A_2, \dots, A_n] \mid t \in R \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row in <span class="math inline">\(R\)</span>,</li>
+<li><span class="math inline">\(A_1, A_2, \dots, A_n\)</span> are the attributes (columns) of relation (R),</li>
+<li>The projection operator returns a new relation containing only the specified attributes (A_1, A_2, , A_n) from (R),</li>
+<li>The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong><em>Explanation</em></strong></p>
+<ul>
+<li>The projection operator () selects certain columns (attributes) from the relation (R), discarding the others.</li>
+<li>It operates by returning only the specified columns for each tuple (row) in (R), effectively creating a “vertical slice” of the relation.</li>
+<li>Duplicate tuples in the result are eliminated to ensure the output is a valid set.</li>
+</ul>
+</div>
+</section>
+<section id="properties-of-projection" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-projection">Properties of projection</h3>
+<ul>
+<li><strong>Idempotent</strong> – Projection can be applied multiple times without side effects:</li>
+</ul>
+<p><span class="math display">\[
+\pi_{A_1, A_2, \dots, A_n}( \pi_{A_1, A_2, \dots, A_n}(R) ) = \pi_{A_1, A_2, \dots, A_n}(R)
+\]</span></p>
+<ul>
+<li><strong>Commutative</strong> – The order of projection on overlapping sets of attributes doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+\pi_{A_1, A_2}( \pi_{A_2, A_3}(R) ) = \pi_{A_2}( \pi_{A_1, A_3}(R) )
+\]</span></p>
+<p>(if <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> are overlapping or compatible)</p>
+<ul>
+<li><p><strong>Non-distributive</strong> – Projection does <strong>not</strong> distribute over selection, but it interacts in specific ways:</p>
+<ul>
+<li><strong>Projection over selection</strong> (you can select first, then project):</li>
+</ul>
+<p><span class="math display">\[
+\pi_{A_1, A_2}( \sigma_{B}(R) ) = \pi_{A_1, A_2}(R) \quad \text{if } B \text{ involves only attributes } A_1, A_2
+\]</span></p>
+<ul>
+<li><strong>Selection over projection</strong> (you cannot project first if selection involves non-projected attributes):</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{B}( \pi_{A_1, A_2}(R) ) \quad \text{undefined if } B \text{ involves attributes not in } A_1, A_2
+\]</span></p></li>
+</ul>
+</section>
+<section id="explanation-of-properties" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties">Explanation of Properties</h3>
+<ul>
+<li><strong>Idempotent</strong>: Reapplying projection on the same set of attributes does not change the result. Once the attributes are reduced, further projection on the same set will not alter the relation.</li>
+<li><strong>Commutative</strong>: When projecting on overlapping or compatible sets of attributes, the order of application does not matter (the resulting attributes will still be the same).</li>
+<li><strong>Non-distributive</strong>: Unlike selection, projection cannot be freely distributed over operations such as selection, because projection limits the available attributes. It must respect the interaction between available attributes and conditions in the selection.</li>
+</ul>
+</section>
 <section id="projection---π---example-1" class="level3">
 <h3 class="anchored" data-anchor-id="projection---π---example-1">Projection - Π - Example 1</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="f5e13dc9" class="cell" data-execution_count="8">
+<div id="81def2a9" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -839,7 +975,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Π(ID,Course) returns:</p>
-<div id="9ca3cf80" class="cell" data-execution_count="9">
+<div id="df954501" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -886,11 +1022,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-2">Projection - Π - Example 2</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="93f55a01" class="cell" data-execution_count="10">
+<div id="3786bde6" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -942,7 +1078,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Π(Course) returns:</p>
-<div id="0bab5d13" class="cell" data-execution_count="11">
+<div id="9b5914ee" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -980,11 +1116,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-3">Projection - Π - Example 3</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="a676af49" class="cell" data-execution_count="12">
+<div id="382cb652" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1036,7 +1172,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Π(Term) returns:</p>
-<div id="b1aede10" class="cell" data-execution_count="13">
+<div id="d107744e" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1068,11 +1204,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-4">Projection - Π - Example 4</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="ba1cfdee" class="cell" data-execution_count="14">
+<div id="4602b26e" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1124,7 +1260,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Π(Term,ID) returns:</p>
-<div id="6c05d97f" class="cell" data-execution_count="15">
+<div id="875f4cf7" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1189,15 +1325,76 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ol>
 </div>
 <p><em>The union operation enables the merging of datasets in a relational context.</em></p>
+<section id="definition-of-union-operator" class="level3">
+<h3 class="anchored" data-anchor-id="definition-of-union-operator">Definition of Union Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \cup R_2 = \{ t \mid t \in R_1 \text{ or } t \in R_2 \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row (tuple),</li>
+<li><span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are relations (tables) with the same attributes,</li>
+<li>The union operation returns a new relation containing all distinct rows that are present in either <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, or both,</li>
+<li>Duplicate rows are eliminated in the result, ensuring the output is a set, not a multiset.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+
+</div>
+</section>
+<section id="properties-of-union" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-union">Properties of Union</h3>
+<ul>
+<li><strong>Idempotent</strong> – Applying the union of a relation with itself doesn’t change the result:</li>
+</ul>
+<p><span class="math display">\[
+R \cup R = R
+\]</span></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a union operation doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cup R_2 = R_2 \cup R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – The grouping of union operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \cup R_2) \cup R_3 = R_1 \cup (R_2 \cup R_3)
+\]</span></p>
+<ul>
+<li><strong>Union with an empty set</strong> – The union of a relation with an empty set is the relation itself:</li>
+</ul>
+<p><span class="math display">\[
+R \cup \emptyset = R
+\]</span></p>
+<ul>
+<li><strong>Union distributes over intersection</strong> – The union of two relations distributes over their intersection:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
+\]</span></p>
+</section>
+<section id="explanation-of-properties-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-1">Explanation of Properties</h3>
+<ul>
+<li><strong>Idempotent</strong>: Combining a relation with itself does not add any new rows since the union eliminates duplicates.</li>
+<li><strong>Commutative</strong>: The union is symmetric, so the order of relations does not affect the result.</li>
+<li><strong>Associative</strong>: You can group union operations in any way, and the result will be the same.</li>
+<li><strong>Union with an empty set</strong>: Union with an empty relation results in the original relation, as the empty set contributes no rows.</li>
+<li><strong>Distributed</strong>: Union distributes over intersection in a way that respects the structure of both operations.</li>
+</ul>
+</section>
 <section id="union-----example-1" class="level3">
 <h3 class="anchored" data-anchor-id="union-----example-1">Union - ∪ - Example 1</h3>
 <div class="guide-block-left">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="2b07c43d" class="cell" data-execution_count="17">
+<div id="818472b9" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1227,11 +1424,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="25a889dc" class="cell" data-execution_count="18">
+<div id="4b8815bd" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1267,11 +1464,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
-<div id="b0c6550c" class="cell" data-execution_count="19">
+<div id="a8a4f08c" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1319,11 +1516,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h2 class="anchored" data-anchor-id="union-----example-2">Union - ∪ - Example 2</h2>
 <div class="guide-block-left">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="5145be1a" class="cell" data-execution_count="20">
+<div id="0e261b16" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1353,11 +1550,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <p>and <em>Courses3( Course,Term )</em>:</p>
-<div id="42b40966" class="cell" data-execution_count="21">
+<div id="fc38d662" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1427,11 +1624,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="combined-example-1">Combined Example 1</h3>
 <div class="guide-block-left">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="d7165d18" class="cell" data-execution_count="23">
+<div id="89cabe59" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1482,11 +1679,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
-<div id="45aae29d" class="cell" data-execution_count="24">
+<div id="972c6ca3" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1540,11 +1737,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="combined-example-2">Combined Example 2</h3>
 <div class="guide-block-left">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="c9381aa8" class="cell" data-execution_count="25">
+<div id="a6512f5d" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1595,11 +1792,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Find the majors of all students with a GPA greater than 3.5</p>
-<div id="bf614f8f" class="cell" data-execution_count="26">
+<div id="200940b2" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1653,11 +1850,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="combined-example-3">Combined Example 3</h3>
 <div class="guide-block-left">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="3b35bc71" class="cell" data-execution_count="27">
+<div id="30c5b253" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1708,11 +1905,11 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>Find the ID and Names of all students in computer science.</p>
-<div id="bf34e19e" class="cell" data-execution_count="28">
+<div id="97c4a661" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
-      <div style="display: inline-block; width: 75%;">
+      <div style="display: inline-block; width: 80%;">
          
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1763,8 +1960,8 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </section>
 </section>
-<section id="larger-reporting-system" class="level2">
-<h2 class="anchored" data-anchor-id="larger-reporting-system">Larger Reporting System</h2>
+<section id="larger-reporting-systems" class="level2">
+<h2 class="anchored" data-anchor-id="larger-reporting-systems">Larger Reporting Systems</h2>
 <p>Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.</p>
 <div class="guide-block-left">
 <ol type="1">
@@ -1799,8 +1996,14 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ol>
 </div>
 <p>Note that these examples introduce additional operators to complement the <em>Selection</em>, <em>Projection</em> and <em>Union</em> already discussed. That’s what we’ll discuss next!</p>
-<p>Each of these examples is considered a single query even though they contains multiple single relational operations.</p>
-<p>Your semester long project must document 20 unique queries. To accomplish this, you’ll need plenty of entities (tables).</p>
+</section>
+<section id="larger-reporting-systems-1" class="level2">
+<h2 class="anchored" data-anchor-id="larger-reporting-systems-1">Larger Reporting Systems</h2>
+<p>On the preceding slide:</p>
+<ul>
+<li><p>Each of these examples is considered a <em>single query</em> even though they contains multiple single relational operations.</p></li>
+<li><p>Your semester long project must document 20 unique queries. To accomplish this, you’ll need plenty of entities (tables).</p></li>
+</ul>
 </section>
 <section id="conclusion-mastering-basic-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion-mastering-basic-relational-algebra">Conclusion: Mastering Basic Relational Algebra</h2>
@@ -2256,7 +2459,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

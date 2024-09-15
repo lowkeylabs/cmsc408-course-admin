@@ -123,6 +123,65 @@ Inner join is the most common type of join, which only returns matching tuples f
 
 *Inner join is ideal when you only need rows where data exists in both relations.*
 
+### Properties of the Inner Join Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+R_1 \bowtie_{condition} R_2 = \{ t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } condition(t_1, t_2) \}
+$$
+
+* where $t_1$ is a row (tuple) from relation $R_1$,
+* $t_2$ is a row (tuple) from relation $R_2$,
+* The **inner join** combines rows from $R_1$ and $R_2$ based on a specified **join condition**,
+* The result contains only those rows where the condition is true for both relations (i.e., rows in $R_1$ and $R_2$ that satisfy the join condition).
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Non-commutative** – The order of relations matters in inner join (unless the join condition is symmetric):
+
+$$
+R_1 \bowtie_{condition} R_2 \neq R_2 \bowtie_{condition} R_1
+$$
+(Unless $condition(t_1, t_2) = condition(t_2, t_1)$)
+
+* **Associative** – Grouping inner join operations doesn't affect the result:
+
+$$
+(R_1 \bowtie_{condition1} R_2) \bowtie_{condition2} R_3 = R_1 \bowtie_{condition1} (R_2 \bowtie_{condition2} R_3)
+$$
+
+* **Inner join with an empty set** – The inner join with an empty relation results in an empty set:
+
+$$
+R_1 \bowtie_{condition} \emptyset = \emptyset
+$$
+
+* **Distributive over selection** – Inner join distributes over selection:
+
+$$
+\sigma_{condition}(R_1 \bowtie R_2) = (\sigma_{condition}(R_1)) \bowtie R_2
+$$
+(if the selection condition applies to $R_1$ only)
+
+* **Size of result** – The number of rows in the result depends on how many rows from $R_1$ match rows in $R_2$ under the join condition.
+
+:::
+
+### Explanation of properties
+
+- **Non-commutative**: The order of the relations in the inner join may affect the result unless the join condition is symmetric (e.g., $A = B$ is the same as $B = A$).
+- **Associative**: Grouping inner joins differently doesn't change the result as long as the conditions are applied consistently.
+- **Inner join with an empty set**: If either relation is empty, the result is an empty set because no rows can satisfy the join condition.
+- **Distributive over selection**: You can first apply a selection condition to one of the relations and then join it with the other relation without affecting the outcome, assuming the selection condition applies to that relation only.
+- **Size of result**: The size of the result is determined by the number of matching rows in $R_1$ and $R_2$ that satisfy the join condition.
+
+This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.
+
+
 ## Outer Join: Introduction and Types
 
 Outer join returns all tuples from one or both relations, filling in missing values with NULLs. It allows for more inclusive queries.
@@ -138,6 +197,79 @@ Outer join returns all tuples from one or both relations, filling in missing val
 :::
 
 *Outer joins are useful when you need to retain non-matching data from one or both relations.*
+
+
+### Properties of the Outer Join Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+\begin{aligned}
+R_1 \text{⟕}_{condition} R_2 = &\{ t_1 , t_2 \mid (t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2)) \} \\
+&\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
+&\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+\end{aligned}
+$$
+
+* where $t_1$ is a row (tuple) from relation $R_1$,
+* $t_2$ is a row (tuple) from relation $R_2$,
+* The **outer join** combines rows from $R_1$ and $R_2$ based on a specified **join condition**,
+* Unlike the inner join, the result includes all matching rows from both relations as well as non-matching rows, which are padded with `NULL` values where no match is found.
+
+**Types of outer join:**
+* **Left outer join**: Keeps all rows from $R_1$ and matches from $R_2$.
+* **Right outer join**: Keeps all rows from $R_2$ and matches from $R_1$.
+* **Full outer join**: Keeps all rows from both $R_1$ and $R_2$, including unmatched rows from both sides.
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Non-commutative** – The order of relations matters for left and right outer joins:
+
+$$
+R_1 \text{⟕}_{condition} R_2 \neq R_2 \text{⟕}_{condition} R_1
+$$
+(unless using a **full outer join**)
+
+* **Associative** – Grouping outer joins can depend on the type of join but generally holds true for full outer joins:
+
+$$
+(R_1 \text{⟕}_{condition1} R_2) \text{⟕}_{condition2} R_3 = R_1 \text{⟕}_{condition1} (R_2 \text{⟕}_{condition2} R_3)
+$$
+(applies to full outer joins)
+
+* **Outer join with an empty set** – The outer join with an empty relation depends on the type of outer join:
+  
+  - **Left outer join**: Returns all rows from $R_1$ with `NULL` for $R_2$:
+
+  $$
+  R_1 \text{⟕} \emptyset = R_1
+  $$
+
+  - **Right outer join**: Returns all rows from $R_2$ with `NULL` for $R_1$:
+
+  $$
+  \emptyset  \text{⟕}  R_2 = R_2
+  $$
+
+  - **Full outer join**: Results in both relations with unmatched rows being padded with `NULL`:
+
+  $$
+  R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R_2 = R_2
+  $$
+
+* **Distributive over selection** – Outer join is not generally distributive over selection, as selection might remove rows that would otherwise be included with `NULL` values.
+
+:::
+
+### Explanation of properties
+
+- **Non-commutative**: The order of relations in left and right outer joins affects the result, but for full outer joins, the order does not matter.
+- **Associative**: Full outer joins are associative, meaning you can group them in different ways and still get the same result.
+- **Outer join with an empty set**: In left and right outer joins, the non-empty relation is returned with `NULL` values in place of the missing relation. For full outer joins, both relations contribute to the result, filling unmatched rows with `NULL`.
+- **Distributive over selection**: Unlike the inner join, selection does not distribute cleanly over outer joins because rows with `NULL` values might be incorrectly excluded if the selection is applied beforehand.
 
 ## Full Outer Join: Combining Data
 
@@ -155,6 +287,72 @@ Full outer join returns all tuples from both relations, filling missing values w
 
 *Full outer join helps combine datasets completely, even if some data is missing.*
 
+### Properties of the Full Outer Join Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+\begin{aligned}
+R_1  \text{⟗}_{condition}  R_2 = &\{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2) \} \\
+&\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
+&\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+\end{aligned}
+$$
+
+* where $t_1$ is a row (tuple) from relation $R_1$,
+* $t_2$ is a row (tuple) from relation $R_2$,
+* The **full outer join** combines rows from $R_1$ and $R_2$ based on a specified **join condition**,
+* The result includes:
+  - Rows where the join condition holds for both relations (matching rows),
+  - Rows from $R_1$ with no matching rows in $R_2$ (padded with `NULL` values),
+  - Rows from $R_2$ with no matching rows in $R_1$ (padded with `NULL` values).
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Commutative** – The order of relations in a full outer join does not affect the result:
+
+$$
+R_1  \text{⟗}_{condition}  R_2 = R_2  \text{⟗}_{condition}  R_1
+$$
+
+* **Associative** – Grouping full outer join operations does not affect the result:
+
+$$
+(R_1  \text{⟗}_{condition1}  R_2)  \text{⟗}_{condition2}  R_3 = R_1  \text{⟗}_{condition1}  (R_2  \text{⟗}_{condition2}  R_3)
+$$
+
+* **Full outer join with an empty set** – The full outer join with an empty relation includes all rows from the non-empty relation, padded with `NULL` values for the other side:
+
+$$
+R_1  \text{⟗}  \emptyset = R_1 \quad \text{(padded with `NULL` for } R_2\text{)}
+$$
+
+$$
+\emptyset  \text{⟗}  R_2 = R_2 \quad \text{(padded with `NULL` for } R_1\text{)}
+$$
+
+* **Distributive over union** – The full outer join is distributive over union:
+
+$$
+R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  R_3)
+$$
+
+* **Size of result** – The size of the result is at most the sum of the rows in both relations, since all rows from both $R_1$ and $R_2$ are included, with unmatched rows padded with `NULL`.
+
+:::
+
+### Explanation of properties
+
+- **Commutative**: The order in which the relations are combined in a full outer join does not matter, as the result includes all rows from both relations.
+- **Associative**: Grouping full outer joins differently does not affect the result, allowing the operation to be applied in stages.
+- **Full outer join with an empty set**: If either relation is empty, the result includes all rows from the non-empty relation, with the other side padded with `NULL`.
+- **Distributive over union**: Full outer join distributes over union, meaning you can break the join into smaller unions and join them separately.
+- **Size of result**: The result contains all rows from both relations, so the number of rows is at most the sum of rows in $R_1$ and $R_2$, with `NULL` values used for non-matching rows.
+
+
 ## Natural Join: Definition and Application
 
 A natural join automatically matches attributes with the same name in both relations, simplifying queries when attribute names align.
@@ -171,6 +369,63 @@ A natural join automatically matches attributes with the same name in both relat
 
 *Natural join is a convenient way to join relations when common attribute names are used.*
 
+### Properties of the Natural Join Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+R_1 \bowtie R_2 = \{ t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and for all common attributes } A, t_1[A] = t_2[A] \}
+$$
+
+* where $t_1$ is a row (tuple) from relation $R_1$,
+* $t_2$ is a row (tuple) from relation $R_2$,
+* The **natural join** operation joins two relations based on all attributes they have in common, combining rows where the values of the common attributes are equal,
+* The result contains only the attributes from $R_1$ and $R_2$, but common attributes appear only once.
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Commutative** – The order of relations in a natural join does not affect the result:
+
+$$
+R_1 \bowtie R_2 = R_2 \bowtie R_1
+$$
+
+* **Associative** – Grouping natural join operations does not affect the result:
+
+$$
+(R_1 \bowtie R_2) \bowtie R_3 = R_1 \bowtie (R_2 \bowtie R_3)
+$$
+
+* **Natural join with an empty set** – The natural join with an empty relation results in an empty set:
+
+$$
+R_1 \bowtie \emptyset = \emptyset
+$$
+
+* **Natural join distributes over selection** – The natural join distributes over selection operations when the selection condition involves attributes from one of the relations:
+
+$$
+\sigma_{condition}(R_1 \bowtie R_2) = \sigma_{condition}(R_1) \bowtie R_2
+$$
+(if the selection condition applies to attributes of $R_1$ only)
+
+* **Size of result** – The size of the result depends on how many rows in $R_1$ and $R_2$ match based on the values of the common attributes.
+
+:::
+
+### Explanation of properties
+
+- **Commutative**: The order of relations in the natural join does not matter, as the result includes matching rows from both relations based on their common attributes.
+- **Associative**: Grouping natural joins differently does not affect the result, allowing the operation to be applied in stages.
+- **Natural join with an empty set**: If either relation is empty, the result will also be empty, as there are no rows to match.
+- **Natural join distributes over selection**: You can apply a selection condition to one relation before performing the natural join without affecting the outcome, provided the condition applies only to attributes from that relation.
+- **Size of result**: The result includes all rows from both relations where the values of common attributes match, and the number of matching rows determines the size of the result.
+
+This explanation of the natural join aligns with the structure of previous relational algebra operations, capturing the key properties and behavior of the natural join in relational algebra.
+
 ## Theta Join: Flexibility with Conditions
 
 Theta join allows the use of arbitrary conditions to combine relations, offering flexibility beyond just equality conditions.
@@ -186,6 +441,67 @@ Theta join allows the use of arbitrary conditions to combine relations, offering
 :::
 
 *Theta join provides flexibility in combining relations using complex conditions.*
+
+
+### Properties of the Theta Join Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+R_1 \bowtie_{\theta} R_2 = \{ t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } \theta(t_1, t_2) = \text{true} \}
+$$
+
+* where $t_1$ is a row (tuple) from relation $R_1$,
+* $t_2$ is a row (tuple) from relation $R_2$,
+* $\theta$ is a **predicate** (condition) that can be any comparison expression involving the attributes of $R_1$ and $R_2$, such as $=, \neq, <, >, \leq, \geq$,
+* The **theta join** combines rows from $R_1$ and $R_2$ where the condition $\theta$ holds true for both relations.
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Non-commutative** – The order of relations in a theta join matters (unless the predicate is symmetric):
+
+$$
+R_1 \bowtie_{\theta} R_2 \neq R_2 \bowtie_{\theta} R_1
+$$
+(unless $\theta(t_1, t_2) = \theta(t_2, t_1)$)
+
+* **Associative** – Grouping theta join operations depends on the predicates but generally holds true:
+
+$$
+(R_1 \bowtie_{\theta_1} R_2) \bowtie_{\theta_2} R_3 = R_1 \bowtie_{\theta_1} (R_2 \bowtie_{\theta_2} R_3)
+$$
+(if the conditions $\theta_1$ and $\theta_2$ are consistent)
+
+* **Theta join with an empty set** – The theta join with an empty relation results in an empty set:
+
+$$
+R_1 \bowtie_{\theta} \emptyset = \emptyset
+$$
+
+* **Theta join distributes over selection** – The theta join distributes over selection when the selection condition involves only attributes from one of the relations:
+
+$$
+\sigma_{condition}(R_1 \bowtie_{\theta} R_2) = \sigma_{condition}(R_1) \bowtie_{\theta} R_2
+$$
+(if the selection condition applies to attributes of $R_1$ only)
+
+* **Size of result** – The size of the result depends on how many rows in $R_1$ and $R_2$ satisfy the predicate $\theta$.
+
+:::
+
+### Explanation of properties
+
+- **Non-commutative**: The order of relations in the theta join matters unless the predicate $\theta$ is symmetric, meaning $R_1 \bowtie_{\theta} R_2$ will not necessarily equal $R_2 \bowtie_{\theta} R_1$.
+- **Associative**: Grouping theta joins with different predicates can affect the result, but when consistent conditions are applied, associativity holds.
+- **Theta join with an empty set**: If either relation is empty, the result of the theta join is empty because there are no rows to compare.
+- **Theta join distributes over selection**: You can apply a selection condition to one relation before performing the theta join without affecting the result, provided the selection applies only to that relation.
+- **Size of result**: The number of rows in the result depends on how many rows from $R_1$ and $R_2$ satisfy the condition $\theta$.
+
+This structure mirrors the format of previous relational algebra operations, focusing on the flexibility and behavior of the theta join, where any comparison operator can be used in the join condition.
+
 
 ## Use Cases: Inner Join
 

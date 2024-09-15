@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../guide.css">
 </head>
@@ -278,13 +307,19 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#introduction-to-set-theory-and-relational-algebra" id="toc-introduction-to-set-theory-and-relational-algebra" class="nav-link active" data-scroll-target="#introduction-to-set-theory-and-relational-algebra">Introduction to Set Theory and Relational Algebra</a></li>
   <li><a href="#intersection-operation-in-relational-algebra" id="toc-intersection-operation-in-relational-algebra" class="nav-link" data-scroll-target="#intersection-operation-in-relational-algebra">Intersection Operation in Relational Algebra</a>
   <ul class="collapse">
-  <li><a href="#intersection-----example-1" id="toc-intersection-----example-1" class="nav-link" data-scroll-target="#intersection-----example-1">Intersection - ∩ - Example 1</a></li>
-  <li><a href="#intersection-----example-1-1" id="toc-intersection-----example-1-1" class="nav-link" data-scroll-target="#intersection-----example-1-1">Intersection - ∩ - Example 1</a></li>
-  <li><a href="#intersection-----example-1-2" id="toc-intersection-----example-1-2" class="nav-link" data-scroll-target="#intersection-----example-1-2">Intersection - ∩ - Example 1</a></li>
+  <li><a href="#properties-of-the-intersection-operator" id="toc-properties-of-the-intersection-operator" class="nav-link" data-scroll-target="#properties-of-the-intersection-operator">Properties of the Intersection Operator</a></li>
+  <li><a href="#explanation-of-properties" id="toc-explanation-of-properties" class="nav-link" data-scroll-target="#explanation-of-properties">Explanation of properties</a></li>
   </ul></li>
-  <li><a href="#difference-in-relational-algebra" id="toc-difference-in-relational-algebra" class="nav-link" data-scroll-target="#difference-in-relational-algebra">Difference in Relational Algebra</a></li>
-  <li><a href="#cartesian-product-in-relational-algebra" id="toc-cartesian-product-in-relational-algebra" class="nav-link" data-scroll-target="#cartesian-product-in-relational-algebra">Cartesian Product in Relational Algebra</a></li>
-  <li><a href="#union-in-relational-algebra" id="toc-union-in-relational-algebra" class="nav-link" data-scroll-target="#union-in-relational-algebra">Union in Relational Algebra</a></li>
+  <li><a href="#difference-in-relational-algebra" id="toc-difference-in-relational-algebra" class="nav-link" data-scroll-target="#difference-in-relational-algebra">Difference in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-difference-operator" id="toc-properties-of-the-difference-operator" class="nav-link" data-scroll-target="#properties-of-the-difference-operator">Properties of the Difference Operator</a></li>
+  <li><a href="#explanation-of-properties-1" id="toc-explanation-of-properties-1" class="nav-link" data-scroll-target="#explanation-of-properties-1">Explanation of properties</a></li>
+  </ul></li>
+  <li><a href="#cartesian-product-in-relational-algebra" id="toc-cartesian-product-in-relational-algebra" class="nav-link" data-scroll-target="#cartesian-product-in-relational-algebra">Cartesian Product in Relational Algebra</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-the-cartesian-product-operator" id="toc-properties-of-the-cartesian-product-operator" class="nav-link" data-scroll-target="#properties-of-the-cartesian-product-operator">Properties of the Cartesian Product Operator</a></li>
+  <li><a href="#explanation-of-properties-2" id="toc-explanation-of-properties-2" class="nav-link" data-scroll-target="#explanation-of-properties-2">Explanation of properties</a></li>
+  </ul></li>
   <li><a href="#combining-relations-using-set-operations" id="toc-combining-relations-using-set-operations" class="nav-link" data-scroll-target="#combining-relations-using-set-operations">Combining Relations Using Set Operations</a></li>
   <li><a href="#set-operation-requirements-and-considerations" id="toc-set-operation-requirements-and-considerations" class="nav-link" data-scroll-target="#set-operation-requirements-and-considerations">Set Operation Requirements and Considerations</a></li>
   <li><a href="#examples-of-set-operations-in-relational-queries" id="toc-examples-of-set-operations-in-relational-queries" class="nav-link" data-scroll-target="#examples-of-set-operations-in-relational-queries">Examples of Set Operations in Relational Queries</a></li>
@@ -444,14 +479,63 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ol>
 </div>
 <p><em>Intersection is useful for finding commonality between two sets of data in relational databases.</em></p>
-<section id="intersection-----example-1" class="level3">
-<h3 class="anchored" data-anchor-id="intersection-----example-1">Intersection - ∩ - Example 1</h3>
+<section id="properties-of-the-intersection-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-intersection-operator">Properties of the Intersection Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \cap R_2 = \{ t \mid t \in R_1 \text{ and } t \in R_2 \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row (tuple),</li>
+<li><span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are relations (tables) with the same attributes,</li>
+<li>The intersection operation returns a new relation containing only the rows that are present in both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>,</li>
+<li>The result consists of distinct rows that satisfy the condition of being in both relations.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Idempotent</strong> – Applying the intersection of a relation with itself doesn’t change the result:</li>
+</ul>
+<p><span class="math display">\[
+R \cap R = R
+\]</span></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in an intersection operation doesn’t matter:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cap R_2 = R_2 \cap R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – The grouping of intersection operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \cap R_2) \cap R_3 = R_1 \cap (R_2 \cap R_3)
+\]</span></p>
+<ul>
+<li><strong>Intersection with an empty set</strong> – The intersection of a relation with an empty set is the empty set:</li>
+</ul>
+<p><span class="math display">\[
+R \cap \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Intersection distributes over union</strong> – The intersection of two relations distributes over their union:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
+\]</span></p>
+</div>
 </section>
-<section id="intersection-----example-1-1" class="level3">
-<h3 class="anchored" data-anchor-id="intersection-----example-1-1">Intersection - ∩ - Example 1</h3>
-</section>
-<section id="intersection-----example-1-2" class="level3">
-<h3 class="anchored" data-anchor-id="intersection-----example-1-2">Intersection - ∩ - Example 1</h3>
+<section id="explanation-of-properties" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties">Explanation of properties</h3>
+<ul>
+<li><strong>Idempotent</strong>: Combining a relation with itself using intersection does not remove any rows, so the result remains the same.</li>
+<li><strong>Commutative</strong>: The order of the relations in the intersection operation does not affect the result.</li>
+<li><strong>Associative</strong>: You can group intersection operations in any way, and the result will be the same.</li>
+<li><strong>Intersection with an empty set</strong>: Intersecting with an empty relation results in an empty set because no rows can be in both the original relation and an empty set.</li>
+<li><strong>Distributed</strong>: Intersection distributes over union, meaning you can break down or combine intersections in a structured way over unions.</li>
+</ul>
 </section>
 </section>
 <section id="difference-in-relational-algebra" class="level2">
@@ -470,6 +554,64 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Difference is a powerful tool for excluding data from one relation that is present in another.</em></p>
+<section id="properties-of-the-difference-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-difference-operator">Properties of the Difference Operator</h3>
+<div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 - R_2 = \{ t \mid t \in R_1 \text{ and } t \notin R_2 \}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t\)</span> is a row (tuple),</li>
+<li><span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are relations (tables) with the same attributes,</li>
+<li>The difference operation returns a new relation containing only the rows that are in <span class="math inline">\(R_1\)</span> but not in <span class="math inline">\(R_2\)</span>,</li>
+<li>The result consists of distinct rows that exist in <span class="math inline">\(R_1\)</span> and are absent from <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</div>
+<div class="guide-block-right">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations in the difference operation matters:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - R_2 \neq R_2 - R_1
+\]</span></p>
+<ul>
+<li><strong>Not associative</strong> – Grouping difference operations affects the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 - R_2) - R_3 \neq R_1 - (R_2 - R_3)
+\]</span></p>
+<ul>
+<li><strong>Difference with an empty set</strong> – The difference between a relation and an empty set is the relation itself:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - \emptyset = R_1
+\]</span></p>
+<ul>
+<li><strong>Difference with itself</strong> – The difference between a relation and itself is the empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - R_1 = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over intersection</strong> – The difference operation distributes over intersection:</li>
+</ul>
+<p><span class="math display">\[
+R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
+\]</span></p>
+</div>
+</section>
+<section id="explanation-of-properties-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-1">Explanation of properties</h3>
+<ul>
+<li><strong>Non-commutative</strong>: The order in which the relations are used in the difference matters because the result will include rows from <span class="math inline">\(R_1\)</span> that are not in <span class="math inline">\(R_2\)</span>, but not vice versa.</li>
+<li><strong>Not associative</strong>: The grouping of relations in a difference operation affects the outcome since subtracting another relation later changes the rows that remain.</li>
+<li><strong>Difference with an empty set</strong>: Subtracting an empty set from a relation has no effect since there are no rows to remove.</li>
+<li><strong>Difference with itself</strong>: Subtracting a relation from itself results in an empty set, as no rows are left.</li>
+<li><strong>Distributive over intersection</strong>: Difference distributes over intersection, allowing you to apply the difference to both parts of the intersection separately and then take their intersection.</li>
+</ul>
+</section>
 </section>
 <section id="cartesian-product-in-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="cartesian-product-in-relational-algebra">Cartesian Product in Relational Algebra</h2>
@@ -487,23 +629,66 @@ Entities represent real-world objects or concepts, while attributes describe the
 
 </div>
 <p><em>Cartesian product provides the basis for combining relations, though it may require filtering for meaningful results.</em></p>
-</section>
-<section id="union-in-relational-algebra" class="level2">
-<h2 class="anchored" data-anchor-id="union-in-relational-algebra">Union in Relational Algebra</h2>
-<p>Union combines two relations into one, including all tuples from both, while eliminating duplicates.</p>
+<p>Here’s the definition and properties of the <strong>Cartesian product</strong> operation in relational algebra, formatted similarly to the template provided:</p>
+<section id="properties-of-the-cartesian-product-operator" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-the-cartesian-product-operator">Properties of the Cartesian Product Operator</h3>
 <div class="guide-block-left">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \times R_2 = \{ t_1 \, t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \}
+\]</span></p>
 <ul>
-<li>Union returns a relation containing all unique tuples from both input relations.</li>
-<li>It requires that both relations have the same schema.</li>
-<li>Union is useful when combining similar datasets into one comprehensive set.</li>
-<li>Duplicates are removed automatically in the result.</li>
-<li>This operation supports combining datasets without losing data from either relation.</li>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The Cartesian product returns a new relation formed by concatenating every row from <span class="math inline">\(R_1\)</span> with every row from <span class="math inline">\(R_2\)</span>,</li>
+<li>The result contains all possible combinations of tuples from both relations.</li>
 </ul>
 </div>
 <div class="guide-block-right">
-
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of the relations matters in the Cartesian product:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \times R_2 \neq R_2 \times R_1
+\]</span> (unless <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are identical and have the same attributes)</p>
+<ul>
+<li><strong>Associative</strong> – The grouping of Cartesian product operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \times R_2) \times R_3 = R_1 \times (R_2 \times R_3)
+\]</span></p>
+<ul>
+<li><strong>Cartesian product with an empty set</strong> – The Cartesian product with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R \times \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over union</strong> – The Cartesian product distributes over union:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
+\]</span></p>
+<ul>
+<li><strong>Size of result</strong> – The number of rows in the result is the product of the number of rows in the input relations:</li>
+</ul>
+<p><span class="math display">\[
+|R_1 \times R_2| = |R_1| \times |R_2|
+\]</span></p>
 </div>
-<p><em>Union is essential for merging two datasets into one while ensuring there are no duplicate records.</em></p>
+</section>
+<section id="explanation-of-properties-2" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-properties-2">Explanation of properties</h3>
+<ul>
+<li><strong>Non-commutative</strong>: The order in which the relations are combined affects the resulting tuples (since concatenating <span class="math inline">\(t_1\)</span> with <span class="math inline">\(t_2\)</span> is different from <span class="math inline">\(t_2\)</span> with <span class="math inline">\(t_1\)</span>).</li>
+<li><strong>Associative</strong>: You can group Cartesian product operations in any way, and the result will be the same.</li>
+<li><strong>Cartesian product with an empty set</strong>: If either relation is empty, the result will be empty because there are no tuples to pair.</li>
+<li><strong>Distributive over union</strong>: Cartesian product distributes over union, allowing you to break down the product into individual components and combine them after applying the product.</li>
+<li><strong>Size of result</strong>: The Cartesian product increases the number of rows, multiplying the rows of <span class="math inline">\(R_1\)</span> by the rows of <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+<p>This definition and properties align with the structure of other relational operations while explaining the Cartesian product in relational algebra.</p>
+</section>
 </section>
 <section id="combining-relations-using-set-operations" class="level2">
 <h2 class="anchored" data-anchor-id="combining-relations-using-set-operations">Combining Relations Using Set Operations</h2>

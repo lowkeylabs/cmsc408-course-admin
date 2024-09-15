@@ -108,6 +108,71 @@ Renaming allows the assignment of new names to relations or attributes, making c
 
 *Renaming enhances clarity in query design, especially when handling multiple relations.*
 
+Here’s the definition and properties of the **renaming** operation in relational algebra, formatted similarly to the template you provided:
+
+### Properties of the Renaming Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+\rho_{new\_name}(R) = \{ t \mid t \in R \}
+$$
+
+* where $R$ is a relation (table),
+* $new\_name$ is the new name assigned to relation $R$ or one or more of its attributes,
+* The **renaming** operation is used to assign a new name to either the entire relation or to individual attributes in the relation, preserving the structure and data,
+* It allows us to avoid ambiguity in cases where relations have overlapping attribute names or when working with complex queries.
+
+The renaming operation can be used in three forms:
+- Renaming the entire relation: $\rho_{S}(R)$ renames relation $R$ to $S$,
+- Renaming attributes: $\rho_{(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)$ renames the attributes $A_1, A_2, \dots$ in $R$ to $B_1, B_2, \dots$,
+- Renaming both the relation and its attributes: $\rho_{S(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)$.
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Idempotent** – Renaming a relation or attribute multiple times with the same name does not change the result:
+
+$$
+\rho_{new\_name}(\rho_{new\_name}(R)) = \rho_{new\_name}(R)
+$$
+
+* **Non-commutative** – The order of renaming different attributes matters:
+
+$$
+\rho_{(A \rightarrow B)}(\rho_{(B \rightarrow C)}(R)) \neq \rho_{(B \rightarrow C)}(\rho_{(A \rightarrow B)}(R))
+$$
+
+* **Associative** – Renaming operations can be grouped without affecting the result:
+
+$$
+\rho_{new\_name_1}(\rho_{new\_name_2}(R)) = \rho_{new\_name_2}(\rho_{new\_name_1}(R))
+$$
+
+* **Renaming with an empty set** – Renaming an empty relation still results in an empty set:
+
+$$
+\rho_{new\_name}(\emptyset) = \emptyset
+$$
+
+* **Renaming preserves all rows and attributes** – The renaming operation only changes names and does not affect the content or structure of the relation:
+
+$$
+|R| = |\rho_{new\_name}(R)|
+$$
+
+:::
+
+### Explanation of properties
+
+- **Idempotent**: Renaming a relation or attribute multiple times with the same name has no additional effect.
+- **Non-commutative**: The order in which you rename attributes matters, especially if the renaming involves the same attribute multiple times.
+- **Associative**: Renaming operations can be applied in any order, provided they refer to different attributes or relation names.
+- **Renaming with an empty set**: If the relation is empty, renaming it will still result in an empty relation.
+- **Renaming preserves all rows and attributes**: The renaming operation only affects the labels of relations and attributes, not their content or structure, so the number of rows and attributes remains unchanged.
+
 ## Example of Renaming in Queries
 
 Renaming becomes critical when performing operations like joins, ensuring that attribute names are distinct. This slide provides a simple renaming example to illustrate its importance.
@@ -139,6 +204,65 @@ Division is a specialized relational operation used to retrieve tuples that matc
 :::
 
 *Division is a powerful but specific operation that allows querying for "all related" records.*
+
+
+### Properties of the Division Operator
+
+::: {.guide-block-left}
+**Definition**
+
+$$
+R_1 \div R_2 = \{ t_1 \mid t_1 \in \pi_{A}(R_1) \text{ and for every } t_2 \in R_2, (t_1, t_2) \in R_1 \}
+$$
+
+* where $R_1$ is a relation with attributes $A \cup B$,
+* $R_2$ is a relation with attributes $B$ (a subset of $R_1$'s attributes),
+* The **division** operation returns a new relation consisting of the values of $A$ from $R_1$ that match every tuple in $R_2$,
+* Essentially, division finds the tuples in $R_1$ that have a corresponding match for every tuple in $R_2$.
+
+:::
+::: {.guide-block-right}
+**Properties**
+
+* **Not commutative** – The order of relations in the division operation matters:
+
+$$
+R_1 \div R_2 \neq R_2 \div R_1
+$$
+
+* **Non-associative** – Division is not associative:
+
+$$
+(R_1 \div R_2) \div R_3 \neq R_1 \div (R_2 \div R_3)
+$$
+
+* **Division with an empty set** – If $R_2$ is an empty set, the division result is the projection of $R_1$ on $A$:
+
+$$
+R_1 \div \emptyset = \pi_{A}(R_1)
+$$
+
+* **Division with itself** – Dividing a relation by itself results in an empty set unless $R_2$ contains only tuples present in $R_1$:
+
+$$
+R_1 \div R_1 = \emptyset \quad \text{(if } R_1 \text{ and } R_2 \text{ are identical and non-empty)}
+$$
+
+* **Division with a superset** – If $R_2$ is a superset of $B$-values in $R_1$, the result is empty:
+
+$$
+R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
+$$
+
+:::
+
+### Explanation:
+- **Not commutative**: The order of relations in the division operation matters, as dividing one relation by another is not symmetric.
+- **Non-associative**: Division is not associative, meaning that the order in which you perform multiple division operations can affect the result.
+- **Division with an empty set**: If $R_2$ is empty, the result is the projection of $R_1$ on $A$, as no conditions exist for $B$ attributes.
+- **Division with itself**: Dividing a relation by itself typically results in an empty set unless all tuples from $R_2$ are in $R_1$.
+- **Division with a superset**: If $R_2$ contains values that don't appear in $R_1$, the result is empty since no $A$-values in $R_1$ satisfy the matching condition for all tuples in $R_2$.
+
 
 ## Division: Syntax and Example
 

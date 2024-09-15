@@ -35,5 +35,7 @@ During class we worked questions from the practice quiz 3.
 
 Refer to the video for details.
 
+{{< include ../../topics/_join-operations.qmd >}}
+{{< include ../../topics/_renaming-and-division.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
