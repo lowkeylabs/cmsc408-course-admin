@@ -306,12 +306,12 @@ The projection operation retrieves specific columns from a relation. It enables 
 ::: {.column width=47%}
 **Definition**
 $$
-\pi_{A_1, A_2, \dots, A_n}(R) = { t\[A_1, A_2, \dots, A_n\] \mid t \in R }
+\pi_{A_1, A_2, \dots, A_n}(R) = \{ t [A_1, A_2, \dots, A_n ] \mid t \in R \}
 $$
 
 - where $t$ is a row in $R$,
 - $A_1, A_2, \dots, A_n$ are the attributes (columns) of relation (R),
-- The projection operator returns a new relation containing only the specified attributes (A_1, A_2, \dots, A_n) from (R),
+- The projection operator returns a new relation containing only the specified attributes $(A_1, A_2, \dots, A_n)$ from $R$,
 - The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).
 :::
 ::: {.column width=6%}
@@ -319,8 +319,8 @@ $$
 ::: {.column width=47%}
 ***Explanation***
 
-- The projection operator (\pi) selects certain columns (attributes) from the relation (R), discarding the others.
-- It operates by returning only the specified columns for each tuple (row) in (R), effectively creating a "vertical slice" of the relation.
+- The projection operator $(\pi)$ selects certain columns (attributes) from the relation $R$, discarding the others.
+- It operates by returning only the specified columns for each tuple $row$ in $R$, effectively creating a "vertical slice" of the relation.
 - Duplicate tuples in the result are eliminated to ensure the output is a valid set.
 :::
 ::::
