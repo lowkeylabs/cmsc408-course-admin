@@ -113,6 +113,19 @@ figcaption {
   margin-bottom: 0.0em !important;
 }
 
+.reveal .slide .columns .column ol li ul {
+  margin-top: 0.0em !important;
+  margin-bottom: 0.0em !important;
+  padding-top: 0.0em !important;
+  pdding-bottom: 0.0em !important;
+}
+
+.reveal .slide .columns .column ol li ul li {
+  margin-top: 0.0em !important;
+  margin-bottom: 0.0em !important;
+  font-size: 0.8em;
+}
+
 .reveal .slide .more-separation ul > li {
   margin-top: 0.2em !important;
   margin-bottom: 0.7em !important;

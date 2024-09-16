@@ -356,14 +356,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p>Homework 3</p></li>
-<li><p>Quiz 3</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521">Quiz 3 - Due next Monday, 9/23</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707">Practice Quiz 3 - as many times as you need!</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521">Homework 3 - YOUR personal study guide</a></p></li>
+<li><p><a href="https://lowkeylabs.github.io/cmsc408-course-admin/guide/relational-models/">Relational Algebra Study Guide</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><p>Query Languages</p></li>
-<li><p>Relational Algebra</p></li>
+<li><p><a href="#/query-languages">Query Languages</a></p></li>
+<li><p><a href="#/relational-algebra-1">Relational Algebra</a></p></li>
+<li><p><a href="#/basic-operations">Basic operations</a></p></li>
+<li><p><a href="#/set-operations">Set operations</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -663,6 +667,178 @@ and eventually, what it means to records and tables.-->
 <li>Practice Exercises (HTML): <a href="http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html" class="uri">http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html</a></li>
 <li><a href="http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf">More practice exercises (PDF)</a></li>
 </ul>
+</section>
+<section id="food-truck-example" class="slide level2">
+<h2>Food Truck Example</h2>
+<p>Here’s an example of a relation (table) for a food truck with four attributes: ItemID, ItemName, Category, and Price. This relation represents a menu of items sold at the food truck.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="relation-menu">Relation: <code>Menu</code></h3>
+<p>Menu( ItemID, ItemName, Category, Price )</p>
+<h3 id="sample-data">Sample Data</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><strong>ItemID</strong></th>
+<th><strong>ItemName</strong></th>
+<th><strong>Category</strong></th>
+<th><strong>Price</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Tacos</td>
+<td>Main</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Burrito</td>
+<td>Main</td>
+<td>6.50</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Quesadilla</td>
+<td>Main</td>
+<td>5.75</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Chips &amp; Salsa</td>
+<td>Side</td>
+<td>2.50</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Soda</td>
+<td>Drink</td>
+<td>1.50</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Water</td>
+<td>Drink</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Guacamole</td>
+<td>Side</td>
+<td>3.00</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<h3 id="what-items-cost-more-than-6.00">What items cost more than $6.00?</h3>
+<center>
+π(ItemName)(σ_Price &gt; 6(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName}}(\sigma_{\text{Price} &gt; 6}(\text{Menu}))
+\]</span></p>
+<h3 id="what-is-the-price-of-water">What is the price of water?</h3>
+<center>
+π (Price) (σ (ItemName=‘Water’)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{Price}}(\sigma_{\text{ItemName}='Water'}(\text{Menu}))
+\]</span></p>
+<h3 id="what-items-are-sold-as-main-course-items">What items are sold as main course items?</h3>
+<center>
+π (ItemName)(σ (Category=‘Main’)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName}}(\sigma_{\text{Category}='Main'}(\text{Menu}))
+\]</span></p>
+</div></div>
+</section>
+<section id="food-truck-example-1" class="slide level2">
+<h2>Food Truck Example</h2>
+<p>Here’s an example of a relation (table) for a food truck with four attributes: ItemID, ItemName, Category, and Price. This relation represents a menu of items sold at the food truck.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="relation-menu-1">Relation: <code>Menu</code></h3>
+<p>Menu( ItemID, ItemName, Category, Price )</p>
+<h3 id="sample-data-1">Sample Data</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><strong>ItemID</strong></th>
+<th><strong>ItemName</strong></th>
+<th><strong>Category</strong></th>
+<th><strong>Price</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Tacos</td>
+<td>Main</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Burrito</td>
+<td>Main</td>
+<td>6.50</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Quesadilla</td>
+<td>Main</td>
+<td>5.75</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Chips &amp; Salsa</td>
+<td>Side</td>
+<td>2.50</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Soda</td>
+<td>Drink</td>
+<td>1.50</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Water</td>
+<td>Drink</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Guacamole</td>
+<td>Side</td>
+<td>3.00</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<h3 id="what-sides-cost-less-than-3.00">What sides cost less than $3.00?</h3>
+<center>
+π (ItemName)(σ (Category=‘Side’ ∧ Price &lt; 3)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName}}(\sigma_{\text{Category}='Side' \land \text{Price} &lt; 3}(\text{Menu}))
+\]</span></p>
+<h3 id="what-is-itemid-of-a-taco">What is ItemID of a taco?</h3>
+<center>
+π (ItemID)(σ (ItemName=‘Tacos’)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{Price}}(\sigma_{\text{ItemName}='Water'}(\text{Menu}))
+\]</span></p>
+<h3 id="i-want-the-list-and-price-of-an-order-of-3-4-and-6">I want the list and price of an order of #3, #4 and #6</h3>
+<center>
+π_ItemName, Price(σ_ItemID = 3 ∨ ItemID = 4 ∨ ItemID = 6(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName, Price}}(\sigma_{\text{ItemID} = 3 \lor \text{ItemID} = 4 \lor \text{ItemID} = 6}(\text{Menu}))
+\]</span></p>
+</div></div>
 </section></section>
 <section>
 <section id="basic-operations" class="title-slide slide level1 center">
@@ -775,7 +951,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="c9996151" class="cell" data-execution_count="5">
+<div id="589b2fed" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -832,7 +1008,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>σ(ID=3)(Courses) returns:</p>
-<div id="f37291ef" class="cell" data-execution_count="6">
+<div id="56fcbfb2" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -869,7 +1045,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="71a616e4" class="cell" data-execution_count="7">
+<div id="9a0a44ea" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -926,7 +1102,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>σ(Course=‘CMSC408’)(Courses) returns:</p>
-<div id="a6c8d596" class="cell" data-execution_count="8">
+<div id="b02dc221" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -974,7 +1150,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="bb201115" class="cell" data-execution_count="9">
+<div id="ffeb398a" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1031,7 +1207,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>σ(Enrl&lt;=100)(Courses) returns:</p>
-<div id="799558c5" class="cell" data-execution_count="10">
+<div id="235d22e1" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1160,7 +1336,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="8c406317" class="cell" data-execution_count="11">
+<div id="ba419d52" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1217,7 +1393,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(ID,Course) returns:</p>
-<div id="0db2d719" class="cell" data-execution_count="12">
+<div id="858d48fe" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1271,7 +1447,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="d9a5682d" class="cell" data-execution_count="13">
+<div id="e5a1ac58" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1328,7 +1504,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(Course) returns:</p>
-<div id="f77b2bab" class="cell" data-execution_count="14">
+<div id="a0b95e93" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1373,7 +1549,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="de1b4831" class="cell" data-execution_count="15">
+<div id="c8dff08c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1430,7 +1606,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(Term) returns:</p>
-<div id="d6aad83b" class="cell" data-execution_count="16">
+<div id="279b0d33" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1469,7 +1645,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="ac026316" class="cell" data-execution_count="17">
+<div id="bc499303" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1526,7 +1702,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(Term,ID) returns:</p>
-<div id="1eab25de" class="cell" data-execution_count="18">
+<div id="a1711aa6" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1664,7 +1840,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="bdadf10b" class="cell" data-execution_count="20">
+<div id="5f527719" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1698,7 +1874,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="11bf27ad" class="cell" data-execution_count="21">
+<div id="c257a09e" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1739,7 +1915,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
-<div id="e0da994a" class="cell" data-execution_count="22">
+<div id="f5d0a36b" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1792,7 +1968,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="141c88bd" class="cell" data-execution_count="23">
+<div id="c519a490" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1826,7 +2002,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses3( Course,Term )</em>:</p>
-<div id="3938f4fb" class="cell" data-execution_count="24">
+<div id="de582363" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1907,7 +2083,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="7fcf341f" class="cell" data-execution_count="26">
+<div id="789bd12e" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1963,7 +2139,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
-<div id="30389aed" class="cell" data-execution_count="27">
+<div id="27a3d57d" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2023,7 +2199,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="f9744435" class="cell" data-execution_count="28">
+<div id="03123016" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2079,7 +2255,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p>Find the majors of all students with a GPA greater than 3.5</p>
-<div id="59489e0a" class="cell" data-execution_count="29">
+<div id="f10ec073" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2139,7 +2315,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="0ea7499a" class="cell" data-execution_count="30">
+<div id="09874c46" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2195,7 +2371,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p>Find the ID and Names of all students in computer science.</p>
-<div id="5dd5d064" class="cell" data-execution_count="31">
+<div id="c6bbbd5f" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2752,14 +2928,18 @@ R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p>Homework 3</p></li>
-<li><p>Quiz 3</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521">Quiz 3 - Due next Monday, 9/23</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707">Practice Quiz 3 - as many times as you need!</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521">Homework 3 - YOUR personal study guide</a></p></li>
+<li><p><a href="https://lowkeylabs.github.io/cmsc408-course-admin/guide/relational-models/">Relational Algebra Study Guide</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><p>Query Languages</p></li>
-<li><p>Relational Algebra</p></li>
+<li><p><a href="#/query-languages">Query Languages</a></p></li>
+<li><p><a href="#/relational-algebra-1">Relational Algebra</a></p></li>
+<li><p><a href="#/basic-operations">Basic operations</a></p></li>
+<li><p><a href="#/set-operations">Set operations</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -3270,7 +3450,7 @@ R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

@@ -47,3 +47,92 @@
 - Practice Exercises (HTML): <http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html>
 - [More practice exercises (PDF)](http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf)
 
+## Food Truck Example
+
+Here’s an example of a relation (table) for a food truck with four attributes: ItemID, ItemName, Category, and Price. This relation represents a menu of items sold at the food truck.
+
+:::: {.columns}
+::: {.column width="50%"}
+### Relation: `Menu`
+
+Menu( ItemID, ItemName, Category, Price )
+
+### Sample Data
+| **ItemID** | **ItemName**    | **Category** | **Price** |
+|------------|-----------------|--------------|-----------|
+| 1          | Tacos           | Main         | 5.00      |
+| 2          | Burrito         | Main         | 6.50      |
+| 3          | Quesadilla      | Main         | 5.75      |
+| 4          | Chips & Salsa   | Side         | 2.50      |
+| 5          | Soda            | Drink        | 1.50      |
+| 6          | Water           | Drink        | 1.00      |
+| 7          | Guacamole       | Side         | 3.00      |
+
+:::
+::: {.column width="50%"}
+### What items cost more than \$6.00?
+<center>π(ItemName)(σ_Price > 6(Menu))</center>
+
+$$
+\pi_{\text{ItemName}}(\sigma_{\text{Price} > 6}(\text{Menu}))
+$$
+
+### What is the price of water?
+<center>π (Price) (σ (ItemName='Water')(Menu))</center>
+$$
+\pi_{\text{Price}}(\sigma_{\text{ItemName}='Water'}(\text{Menu}))
+$$
+
+### What items are sold as main course items?
+<center>π (ItemName)(σ (Category='Main')(Menu))</center>
+$$
+\pi_{\text{ItemName}}(\sigma_{\text{Category}='Main'}(\text{Menu}))
+$$
+
+:::
+::::
+
+## Food Truck Example
+
+Here’s an example of a relation (table) for a food truck with four attributes: ItemID, ItemName, Category, and Price. This relation represents a menu of items sold at the food truck.
+
+:::: {.columns}
+::: {.column width="50%"}
+### Relation: `Menu`
+
+Menu( ItemID, ItemName, Category, Price )
+
+### Sample Data
+| **ItemID** | **ItemName**    | **Category** | **Price** |
+|------------|-----------------|--------------|-----------|
+| 1          | Tacos           | Main         | 5.00      |
+| 2          | Burrito         | Main         | 6.50      |
+| 3          | Quesadilla      | Main         | 5.75      |
+| 4          | Chips & Salsa   | Side         | 2.50      |
+| 5          | Soda            | Drink        | 1.50      |
+| 6          | Water           | Drink        | 1.00      |
+| 7          | Guacamole       | Side         | 3.00      |
+
+:::
+::: {.column width="50%"}
+### What sides cost less than \$3.00?
+<center>π (ItemName)(σ (Category='Side' ∧ Price < 3)(Menu))</center>
+
+$$
+\pi_{\text{ItemName}}(\sigma_{\text{Category}='Side' \land \text{Price} < 3}(\text{Menu}))
+$$
+
+### What is ItemID of a taco?
+<center>π (ItemID)(σ (ItemName='Tacos')(Menu))</center>
+$$
+\pi_{\text{Price}}(\sigma_{\text{ItemName}='Water'}(\text{Menu}))
+$$
+
+### I want the list and price of an order of #3, #4 and #6
+<center>π_ItemName, Price(σ_ItemID = 3 ∨ ItemID = 4 ∨ ItemID = 6(Menu))</center>
+$$
+\pi_{\text{ItemName, Price}}(\sigma_{\text{ItemID} = 3 \lor \text{ItemID} = 4 \lor \text{ItemID} = 6}(\text{Menu}))
+$$
+
+:::
+::::

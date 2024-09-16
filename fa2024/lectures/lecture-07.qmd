@@ -17,13 +17,17 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'Homework 3',
-    'Quiz 3'
+    '[Quiz 3 - Due next Monday, 9/23](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521)',
+    '[Practice Quiz 3 - as many times as you need!](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707)',  
+    '[Homework 3 - YOUR personal study guide](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521)',
+    '[Relational Algebra Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/relational-models/)'
 ]
 
 lecture_topics = [
-    'Query Languages',
-    'Relational Algebra'
+    '[Query Languages](#query-languages)',
+    '[Relational Algebra](#relational-algebra-1)',
+    '[Basic operations](#basic-operations)',
+    '[Set operations](#set-operations)'
 ]
 ```
 
