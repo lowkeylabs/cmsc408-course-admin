@@ -357,6 +357,13 @@
   float: right;
   margin-left: 15px;
   margin-bottom: 15px;
+}
+.no-stretch {
+//  max-width: 600px;   /* Prevents the figure from expanding beyond 600px */
+//  width: 100%;
+//  height: auto  !important;     /* Maintains the aspect ratio */
+  margin: 0 auto;     /* Centers the figure */
+}
 </style>
 <div class="columns">
 <div class="column" style="width:47%;">
@@ -455,7 +462,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="759c6c16" class="cell" data-execution_count="2">
+<div id="81517772" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -512,7 +519,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>σ(ID=3)(Courses) returns:</p>
-<div id="1746940e" class="cell" data-execution_count="3">
+<div id="8e234a90" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -549,7 +556,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="dd2a815a" class="cell" data-execution_count="4">
+<div id="4d32d8bc" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -606,7 +613,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>σ(Course=‘CMSC408’)(Courses) returns:</p>
-<div id="ce00cda7" class="cell" data-execution_count="5">
+<div id="1ed2298d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -654,7 +661,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="c5c771e4" class="cell" data-execution_count="6">
+<div id="db5bdc4f" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -711,7 +718,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>σ(Enrl&lt;=100)(Courses) returns:</p>
-<div id="d5c21c7a" class="cell" data-execution_count="7">
+<div id="d2e37067" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -761,11 +768,12 @@
 
 </div><div class="column" style="width:47%;">
 <p><strong>Examples</strong></p>
+<p>Given a relation <em>Courses(ID,Course,Term,Enrl)</em>, the following are valid unicode examples of projection:</p>
 <ol type="1">
-<li><p>Π(ID,Course):</p></li>
-<li><p>Π(Course):</p></li>
-<li><p>Π(Term):</p></li>
-<li><p>Π(Term,ID):</p></li>
+<li><p>Π(ID,Course)(Courses):</p></li>
+<li><p>Π(Course)(Courses):</p></li>
+<li><p>Π(Term)(Courses):</p></li>
+<li><p>Π(Term,ID)(Courses):</p></li>
 </ol>
 </div></div>
 <!-- -->
@@ -781,7 +789,7 @@
 <ul>
 <li>where <span class="math inline">\(t\)</span> is a row in <span class="math inline">\(R\)</span>,</li>
 <li><span class="math inline">\(A_1, A_2, \dots, A_n\)</span> are the attributes (columns) of relation (R),</li>
-<li>The projection operator returns a new relation containing only the specified attributes (A_1, A_2, , A_n) from (R),</li>
+<li>The projection operator returns a new relation containing only the specified attributes <span class="math inline">\(A_1, A_2, \dots, A_n\)</span> from <span class="math inline">\(R\)</span>,</li>
 <li>The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).</li>
 </ul>
 </div><div class="column" style="width:6%;">
@@ -789,8 +797,8 @@
 </div><div class="column" style="width:47%;">
 <p><strong><em>Explanation</em></strong></p>
 <ul>
-<li>The projection operator () selects certain columns (attributes) from the relation (R), discarding the others.</li>
-<li>It operates by returning only the specified columns for each tuple (row) in (R), effectively creating a “vertical slice” of the relation.</li>
+<li>The projection operator <span class="math inline">\(\pi\)</span> selects certain columns (attributes) from the relation <span class="math inline">\(R\)</span>, discarding the others.</li>
+<li>It operates by returning only the specified columns for each tuple (row) in <span class="math inline">\(R\)</span>, effectively creating a “vertical slice” of the relation.</li>
 <li>Duplicate tuples in the result are eliminated to ensure the output is a valid set.</li>
 </ul>
 </div></div>
@@ -840,7 +848,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="ea3cb2b2" class="cell" data-execution_count="8">
+<div id="787a6183" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -896,8 +904,8 @@
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<p>Π(ID,Course) returns:</p>
-<div id="c3324d65" class="cell" data-execution_count="9">
+<p>Π(ID,Course)(Courses) returns:</p>
+<div id="94a04ca9" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -951,7 +959,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="a441c364" class="cell" data-execution_count="10">
+<div id="acb3939d" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1007,8 +1015,8 @@
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<p>Π(Course) returns:</p>
-<div id="ec81223b" class="cell" data-execution_count="11">
+<p>Π(Course)(Courses) returns:</p>
+<div id="fde78bb2" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1053,7 +1061,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="ea5fa2f6" class="cell" data-execution_count="12">
+<div id="d54bd423" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1109,8 +1117,8 @@
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<p>Π(Term) returns:</p>
-<div id="03dfbd61" class="cell" data-execution_count="13">
+<p>Π(Term)(Courses) returns:</p>
+<div id="979e0888" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1149,7 +1157,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="887a406d" class="cell" data-execution_count="14">
+<div id="2cb53999" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1205,8 +1213,8 @@
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<p>Π(Term,ID) returns:</p>
-<div id="9be41c54" class="cell" data-execution_count="15">
+<p>Π(Term,ID)(Courses) returns:</p>
+<div id="94e841d6" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1265,12 +1273,23 @@
 </ul>
 </div><div class="column" style="width:6%;">
 
-</div><div class="column" style="width:47%;">
+</div><div class="column no-stretch" style="width:47%;">
 <p><strong>Examples</strong></p>
 <ol type="1">
 <li><p><em>Courses1</em> ∪ <em>Courses2</em></p></li>
 <li><p><em>Courses1</em> ∪ <em>Courses3</em></p></li>
 </ol>
+<div class="no-stretch">
+<div id="605cf107" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="basic-operations_files/figure-revealjs/cell-18-output-1.png" width="579" height="409"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div></div>
 <!-- -->
 <p><em>The union operation enables the merging of datasets in a relational context.</em></p>
@@ -1344,7 +1363,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="e28057f6" class="cell" data-execution_count="17">
+<div id="d7dd016b" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1378,7 +1397,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="f071fae7" class="cell" data-execution_count="18">
+<div id="aee26b2a" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1419,7 +1438,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
-<div id="3fe476ef" class="cell" data-execution_count="19">
+<div id="b2dcda19" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1472,7 +1491,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="b1850da7" class="cell" data-execution_count="20">
+<div id="d22f9647" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1506,7 +1525,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses3( Course,Term )</em>:</p>
-<div id="12b33f87" class="cell" data-execution_count="21">
+<div id="922929d5" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1587,7 +1606,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="3241d38b" class="cell" data-execution_count="23">
+<div id="edfebc7b" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1643,7 +1662,8 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
-<div id="6bbf504c" class="cell" data-execution_count="24">
+<p>Π(Name,GPA)(σ(Grad_Year=2023)(Students))</p>
+<div id="4a0cc027" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1652,41 +1672,18 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th">ID</th>
 <th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Major</th>
 <th data-quarto-table-cell-role="th">GPA</th>
-<th data-quarto-table-cell-role="th">Grad_Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>V10101</td>
-<td>Alice</td>
-<td>CS</td>
-<td>3.5</td>
-<td>2024</td>
-</tr>
-<tr class="even">
-<td>V10102</td>
 <td>Bob</td>
-<td>Math</td>
 <td>3.8</td>
-<td>2023</td>
-</tr>
-<tr class="odd">
-<td>V10103</td>
-<td>Carol</td>
-<td>CS</td>
-<td>3.2</td>
-<td>2025</td>
 </tr>
 <tr class="even">
-<td>V10104</td>
 <td>Dave</td>
-<td>Physics</td>
 <td>3.9</td>
-<td>2023</td>
 </tr>
 </tbody>
 </table>
@@ -1703,7 +1700,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="397f51af" class="cell" data-execution_count="25">
+<div id="ab2225ad" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1759,7 +1756,8 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p>Find the majors of all students with a GPA greater than 3.5</p>
-<div id="b6631b55" class="cell" data-execution_count="26">
+<p>Π(Major)(σ(GPA&gt;3.5)(Students))</p>
+<div id="f61d349f" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1768,41 +1766,15 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th">ID</th>
-<th data-quarto-table-cell-role="th">Name</th>
 <th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">GPA</th>
-<th data-quarto-table-cell-role="th">Grad_Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>V10101</td>
-<td>Alice</td>
-<td>CS</td>
-<td>3.5</td>
-<td>2024</td>
-</tr>
-<tr class="even">
-<td>V10102</td>
-<td>Bob</td>
 <td>Math</td>
-<td>3.8</td>
-<td>2023</td>
-</tr>
-<tr class="odd">
-<td>V10103</td>
-<td>Carol</td>
-<td>CS</td>
-<td>3.2</td>
-<td>2025</td>
 </tr>
 <tr class="even">
-<td>V10104</td>
-<td>Dave</td>
 <td>Physics</td>
-<td>3.9</td>
-<td>2023</td>
 </tr>
 </tbody>
 </table>
@@ -1819,7 +1791,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="4117be2c" class="cell" data-execution_count="27">
+<div id="d3883caa" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1875,7 +1847,8 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p>Find the ID and Names of all students in computer science.</p>
-<div id="cc321e80" class="cell" data-execution_count="28">
+<p>Π(ID,Name)(σ(Major=CS)(Students))</p>
+<div id="4f315383" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1886,39 +1859,16 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th">ID</th>
 <th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">GPA</th>
-<th data-quarto-table-cell-role="th">Grad_Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>V10101</td>
 <td>Alice</td>
-<td>CS</td>
-<td>3.5</td>
-<td>2024</td>
 </tr>
 <tr class="even">
-<td>V10102</td>
-<td>Bob</td>
-<td>Math</td>
-<td>3.8</td>
-<td>2023</td>
-</tr>
-<tr class="odd">
 <td>V10103</td>
 <td>Carol</td>
-<td>CS</td>
-<td>3.2</td>
-<td>2025</td>
-</tr>
-<tr class="even">
-<td>V10104</td>
-<td>Dave</td>
-<td>Physics</td>
-<td>3.9</td>
-<td>2023</td>
 </tr>
 </tbody>
 </table>
@@ -2468,7 +2418,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

@@ -103,6 +103,7 @@ Relational algebra is a formal system for manipulating relations, foundational f
   float: right;
   margin-left: 15px;
   margin-bottom: 15px;
+}
 </style>
 ```
 
@@ -311,13 +312,15 @@ The projection operation retrieves specific columns from a relation. It enables 
 ::: {.guide-block-right}
 **Examples**
 
-1. Π(ID,Course):
+Given a relation *Courses(ID,Course,Term,Enrl)*, the following are valid unicode examples of projection:
 
-2. Π(Course):
+1. Π(ID,Course)(Courses):
 
-3. Π(Term):
+2. Π(Course)(Courses):
 
-4. Π(Term,ID):
+3. Π(Term)(Courses):
+
+4. Π(Term,ID)(Courses):
 
 :::
 
@@ -333,15 +336,15 @@ $$
 
 * where $t$ is a row in $R$,
 * $A_1, A_2, \dots, A_n$ are the attributes (columns) of relation \(R\),
-* The projection operator returns a new relation containing only the specified attributes \(A_1, A_2, \dots, A_n\) from \(R\),
+* The projection operator returns a new relation containing only the specified attributes $A_1, A_2, \dots, A_n$ from $R$,
 * The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).
 :::
 ::: {.guide-block-right}
 
 ***Explanation***
 
-- The projection operator \(\pi\) selects certain columns (attributes) from the relation \(R\), discarding the others.
-- It operates by returning only the specified columns for each tuple (row) in \(R\), effectively creating a "vertical slice" of the relation.
+- The projection operator $\pi$ selects certain columns (attributes) from the relation $R$, discarding the others.
+- It operates by returning only the specified columns for each tuple (row) in $R$, effectively creating a "vertical slice" of the relation.
 - Duplicate tuples in the result are eliminated to ensure the output is a valid set.
 
 :::
@@ -393,7 +396,7 @@ show_df(df)
 ```
 :::
 ::: {.guide-block-right}
-Π(ID,Course) returns:
+Π(ID,Course)(Courses) returns:
 
 ```{python}
 #| echo: false
@@ -413,7 +416,7 @@ show_df(df)
 ```
 :::
 ::: {.guide-block-right}
-Π(Course) returns:
+Π(Course)(Courses) returns:
 
 ```{python}
 #| echo: false
@@ -432,7 +435,7 @@ show_df(df)
 ```
 :::
 ::: {.guide-block-right}
-Π(Term) returns:
+Π(Term)(Courses) returns:
 
 ```{python}
 #| echo: false
@@ -451,7 +454,7 @@ show_df(df)
 ```
 :::
 ::: {.guide-block-right}
-Π(Term,ID) returns:
+Π(Term,ID)(Courses) returns:
 
 ```{python}
 #| echo: false
@@ -464,6 +467,7 @@ show_df( new_df, width="50%" )
 
 ```{python}
 #| echo: false
+
 d1 = {
     'Course': ['CMSC301', 'CMSC408',  'CMSC408'],
     'Term': ['Fall 2024','Fall 2024', 'Fall 2023'],
@@ -495,6 +499,40 @@ The union operation combines tuples from two relations, eliminating duplicates. 
 - Union is a binary operation, meaning it operates on two relations.
 :::
 ::: {.guide-block-right}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2
+
+# Define the two sets
+set_A = {1, 2, 3, 4}
+set_B = {4, 5, 6, 7}
+
+# Create the Venn diagram with custom colors
+venn = venn2([set_A, set_B], set_labels=('Set A', 'Set B'))
+
+# Set all patches to 'lightblue' color
+for subset in ('10', '01', '11'):
+    venn.get_patch_by_id(subset).set_color('lightblue')
+    venn.get_patch_by_id(subset).set_edgecolor('black')  # Thin black borders
+    venn.get_patch_by_id(subset).set_linewidth(1.5)      # Adjust the border width
+
+# Remove the default labels for A and B
+venn.get_label_by_id('10').set_text('')
+venn.get_label_by_id('01').set_text('')
+venn.get_label_by_id('11').set_text('')
+
+# Make the background transparent
+plt.gca().set_facecolor('none')
+
+# Display the plot
+plt.title('A ∪ B')
+plt.show()
+
+```
+
+
 **Examples**
 
 1. *Courses1* ∪ *Courses2*
@@ -668,9 +706,11 @@ show_df(df)
 ::: {.guide-block-right}
 Find the Names and GPAs of all students who are expected to graduate in 2023.
 
+Π(Name,GPA)(σ(Grad_Year=2023)(Students))
+
 ```{python}
 #| echo: false
-new_df = df
+new_df = df[ df["Grad_Year"]==2023][["Name","GPA"]]
 show_df( new_df )
 ```
 :::
@@ -688,9 +728,13 @@ show_df(df)
 ::: {.guide-block-right}
 Find the majors of all students with a GPA greater than 3.5
 
+Π(Major)(σ(GPA>3.5)(Students))
+
+
 ```{python}
 #| echo: false
 new_df = df
+new_df = df[ df["GPA"]>3.5][["Major"]]
 show_df( new_df )
 ```
 :::
@@ -707,9 +751,12 @@ show_df(df)
 ::: {.guide-block-right}
 Find the ID and Names of all students in computer science.
 
+Π(ID,Name)(σ(Major=CS)(Students))
+
 ```{python}
 #| echo: false
 new_df = df
+new_df = df[ df["Major"]=='CS'][["ID","Name"]]
 show_df( new_df )
 ```
 :::

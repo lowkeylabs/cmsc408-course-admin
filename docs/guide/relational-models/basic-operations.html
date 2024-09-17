@@ -152,7 +152,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/basic-operations.html">Basic Operations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/basic-operations.html">Basic Operations*</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -259,19 +259,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/basic-operations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Basic Operations</span></a>
+ <span class="menu-text">Basic Operations*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/set-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Set Operations</span></a>
+ <span class="menu-text">Set Operations*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/join-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Join Operations</span></a>
+ <span class="menu-text">Join Operations*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -351,7 +351,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/basic-operations.html">Basic Operations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/basic-operations.html">Basic Operations*</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Basic Operations</h1>
 </div>
@@ -554,7 +554,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="selection---σ---example-1">Selection - σ - Example 1</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="78bad4fa" class="cell" data-execution_count="2">
+<div id="5791cdbf" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -610,7 +610,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>σ(ID=3)(Courses) returns:</p>
-<div id="e9e633bd" class="cell" data-execution_count="3">
+<div id="2ff3eae6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -645,7 +645,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="selection---σ---example-2">Selection - σ - Example 2</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="2a1430a6" class="cell" data-execution_count="4">
+<div id="ec0c588b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -701,7 +701,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>σ(Course=‘CMSC408’)(Courses) returns:</p>
-<div id="71f17dac" class="cell" data-execution_count="5">
+<div id="749f66db" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -742,7 +742,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="selection---σ---example-3">Selection - σ - Example 3</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="dcc6da14" class="cell" data-execution_count="6">
+<div id="7af47881" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -798,7 +798,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p>σ(Enrl&lt;=100)(Courses) returns:</p>
-<div id="d7a268d9" class="cell" data-execution_count="7">
+<div id="42cb09ac" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -846,11 +846,12 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 <div class="guide-block-right">
 <p><strong>Examples</strong></p>
+<p>Given a relation <em>Courses(ID,Course,Term,Enrl)</em>, the following are valid unicode examples of projection:</p>
 <ol type="1">
-<li><p>Π(ID,Course):</p></li>
-<li><p>Π(Course):</p></li>
-<li><p>Π(Term):</p></li>
-<li><p>Π(Term,ID):</p></li>
+<li><p>Π(ID,Course)(Courses):</p></li>
+<li><p>Π(Course)(Courses):</p></li>
+<li><p>Π(Term)(Courses):</p></li>
+<li><p>Π(Term,ID)(Courses):</p></li>
 </ol>
 </div>
 <p><em>Projection helps streamline query results by focusing on relevant attributes.</em></p>
@@ -863,15 +864,15 @@ Entities represent real-world objects or concepts, while attributes describe the
 <ul>
 <li>where <span class="math inline">\(t\)</span> is a row in <span class="math inline">\(R\)</span>,</li>
 <li><span class="math inline">\(A_1, A_2, \dots, A_n\)</span> are the attributes (columns) of relation (R),</li>
-<li>The projection operator returns a new relation containing only the specified attributes (A_1, A_2, , A_n) from (R),</li>
+<li>The projection operator returns a new relation containing only the specified attributes <span class="math inline">\(A_1, A_2, \dots, A_n\)</span> from <span class="math inline">\(R\)</span>,</li>
 <li>The resulting relation may contain duplicate rows, which are usually removed in standard relational algebra (i.e., it becomes a set rather than a multiset).</li>
 </ul>
 </div>
 <div class="guide-block-right">
 <p><strong><em>Explanation</em></strong></p>
 <ul>
-<li>The projection operator () selects certain columns (attributes) from the relation (R), discarding the others.</li>
-<li>It operates by returning only the specified columns for each tuple (row) in (R), effectively creating a “vertical slice” of the relation.</li>
+<li>The projection operator <span class="math inline">\(\pi\)</span> selects certain columns (attributes) from the relation <span class="math inline">\(R\)</span>, discarding the others.</li>
+<li>It operates by returning only the specified columns for each tuple (row) in <span class="math inline">\(R\)</span>, effectively creating a “vertical slice” of the relation.</li>
 <li>Duplicate tuples in the result are eliminated to ensure the output is a valid set.</li>
 </ul>
 </div>
@@ -919,7 +920,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-1">Projection - Π - Example 1</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="81def2a9" class="cell" data-execution_count="8">
+<div id="43c613f3" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -974,8 +975,8 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <div class="guide-block-right">
-<p>Π(ID,Course) returns:</p>
-<div id="df954501" class="cell" data-execution_count="9">
+<p>Π(ID,Course)(Courses) returns:</p>
+<div id="74063d14" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1022,7 +1023,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-2">Projection - Π - Example 2</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="3786bde6" class="cell" data-execution_count="10">
+<div id="4e3c484a" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1077,8 +1078,8 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <div class="guide-block-right">
-<p>Π(Course) returns:</p>
-<div id="9b5914ee" class="cell" data-execution_count="11">
+<p>Π(Course)(Courses) returns:</p>
+<div id="7ca0c001" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1116,7 +1117,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-3">Projection - Π - Example 3</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="382cb652" class="cell" data-execution_count="12">
+<div id="91fd58ac" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1171,8 +1172,8 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <div class="guide-block-right">
-<p>Π(Term) returns:</p>
-<div id="d107744e" class="cell" data-execution_count="13">
+<p>Π(Term)(Courses) returns:</p>
+<div id="5f2bee4d" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1204,7 +1205,7 @@ Entities represent real-world objects or concepts, while attributes describe the
 <h3 class="anchored" data-anchor-id="projection---π---example-4">Projection - Π - Example 4</h3>
 <div class="guide-block-left">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="4602b26e" class="cell" data-execution_count="14">
+<div id="0ab30577" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1259,8 +1260,8 @@ Entities represent real-world objects or concepts, while attributes describe the
 </div>
 </div>
 <div class="guide-block-right">
-<p>Π(Term,ID) returns:</p>
-<div id="875f4cf7" class="cell" data-execution_count="15">
+<p>Π(Term,ID)(Courses) returns:</p>
+<div id="bebe76dc" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1318,6 +1319,15 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ul>
 </div>
 <div class="guide-block-right">
+<div id="ee3d9789" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basic-operations_files/figure-html/cell-18-output-1.png" width="540" height="383" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>Examples</strong></p>
 <ol type="1">
 <li><p><em>Courses1</em> ∪ <em>Courses2</em></p></li>
@@ -1390,7 +1400,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <h3 class="anchored" data-anchor-id="union-----example-1">Union - ∪ - Example 1</h3>
 <div class="guide-block-left">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="818472b9" class="cell" data-execution_count="17">
+<div id="fde7e89e" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1424,7 +1434,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="4b8815bd" class="cell" data-execution_count="18">
+<div id="1ef7ad32" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1464,7 +1474,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 <div class="guide-block-right">
 <p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
-<div id="a8a4f08c" class="cell" data-execution_count="19">
+<div id="7bf4865d" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1516,7 +1526,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <h2 class="anchored" data-anchor-id="union-----example-2">Union - ∪ - Example 2</h2>
 <div class="guide-block-left">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="0e261b16" class="cell" data-execution_count="20">
+<div id="c2387736" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1550,7 +1560,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses3( Course,Term )</em>:</p>
-<div id="fc38d662" class="cell" data-execution_count="21">
+<div id="276de09f" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1624,7 +1634,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <h3 class="anchored" data-anchor-id="combined-example-1">Combined Example 1</h3>
 <div class="guide-block-left">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="89cabe59" class="cell" data-execution_count="23">
+<div id="b0b7376d" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1679,7 +1689,8 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 <div class="guide-block-right">
 <p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
-<div id="972c6ca3" class="cell" data-execution_count="24">
+<p>Π(Name,GPA)(σ(Grad_Year=2023)(Students))</p>
+<div id="7e01778b" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1688,41 +1699,18 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th">ID</th>
 <th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Major</th>
 <th data-quarto-table-cell-role="th">GPA</th>
-<th data-quarto-table-cell-role="th">Grad_Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>V10101</td>
-<td>Alice</td>
-<td>CS</td>
-<td>3.5</td>
-<td>2024</td>
-</tr>
-<tr class="even">
-<td>V10102</td>
 <td>Bob</td>
-<td>Math</td>
 <td>3.8</td>
-<td>2023</td>
-</tr>
-<tr class="odd">
-<td>V10103</td>
-<td>Carol</td>
-<td>CS</td>
-<td>3.2</td>
-<td>2025</td>
 </tr>
 <tr class="even">
-<td>V10104</td>
 <td>Dave</td>
-<td>Physics</td>
 <td>3.9</td>
-<td>2023</td>
 </tr>
 </tbody>
 </table>
@@ -1737,7 +1725,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <h3 class="anchored" data-anchor-id="combined-example-2">Combined Example 2</h3>
 <div class="guide-block-left">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="a6512f5d" class="cell" data-execution_count="25">
+<div id="7eb94add" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1792,7 +1780,8 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 <div class="guide-block-right">
 <p>Find the majors of all students with a GPA greater than 3.5</p>
-<div id="200940b2" class="cell" data-execution_count="26">
+<p>Π(Major)(σ(GPA&gt;3.5)(Students))</p>
+<div id="2b20e102" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1801,41 +1790,15 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th">ID</th>
-<th data-quarto-table-cell-role="th">Name</th>
 <th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">GPA</th>
-<th data-quarto-table-cell-role="th">Grad_Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>V10101</td>
-<td>Alice</td>
-<td>CS</td>
-<td>3.5</td>
-<td>2024</td>
-</tr>
-<tr class="even">
-<td>V10102</td>
-<td>Bob</td>
 <td>Math</td>
-<td>3.8</td>
-<td>2023</td>
-</tr>
-<tr class="odd">
-<td>V10103</td>
-<td>Carol</td>
-<td>CS</td>
-<td>3.2</td>
-<td>2025</td>
 </tr>
 <tr class="even">
-<td>V10104</td>
-<td>Dave</td>
 <td>Physics</td>
-<td>3.9</td>
-<td>2023</td>
 </tr>
 </tbody>
 </table>
@@ -1850,7 +1813,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <h3 class="anchored" data-anchor-id="combined-example-3">Combined Example 3</h3>
 <div class="guide-block-left">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="30c5b253" class="cell" data-execution_count="27">
+<div id="751ce31a" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1905,7 +1868,8 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 <div class="guide-block-right">
 <p>Find the ID and Names of all students in computer science.</p>
-<div id="97c4a661" class="cell" data-execution_count="28">
+<p>Π(ID,Name)(σ(Major=CS)(Students))</p>
+<div id="f5c2d2a3" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1916,39 +1880,16 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <tr class="header">
 <th data-quarto-table-cell-role="th">ID</th>
 <th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">GPA</th>
-<th data-quarto-table-cell-role="th">Grad_Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>V10101</td>
 <td>Alice</td>
-<td>CS</td>
-<td>3.5</td>
-<td>2024</td>
 </tr>
 <tr class="even">
-<td>V10102</td>
-<td>Bob</td>
-<td>Math</td>
-<td>3.8</td>
-<td>2023</td>
-</tr>
-<tr class="odd">
 <td>V10103</td>
 <td>Carol</td>
-<td>CS</td>
-<td>3.2</td>
-<td>2025</td>
-</tr>
-<tr class="even">
-<td>V10104</td>
-<td>Dave</td>
-<td>Physics</td>
-<td>3.9</td>
-<td>2023</td>
 </tr>
 </tbody>
 </table>
@@ -2453,13 +2394,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../relational-models/set-operations.html" class="pagination-link" aria-label="Set Operations">
-        <span class="nav-page-text">Set Operations</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../relational-models/set-operations.html" class="pagination-link" aria-label="Set Operations*">
+        <span class="nav-page-text">Set Operations*</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

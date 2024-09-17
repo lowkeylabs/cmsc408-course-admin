@@ -182,6 +182,8 @@ $$
 This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.
 
 
+
+
 ## Outer Join: Introduction and Types
 
 Outer join returns all tuples from one or both relations, filling in missing values with NULLs. It allows for more inclusive queries.

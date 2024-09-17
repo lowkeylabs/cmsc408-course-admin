@@ -109,6 +109,51 @@ Set theory is a fundamental concept in relational algebra, providing the basis f
 [![](.//assets/codd_acm_article.png)](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
 :::
 
+
+```{python}
+#| echo: false
+import pandas as pd
+from tabulate import tabulate
+from IPython.display import display, Markdown, HTML
+
+
+def show_df( df, width="80%" ):
+#   display(Markdown(df.to_markdown(index=False)))
+#   print("<center>")
+#   print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False))   
+#   print("</center>")
+   html_table = df.drop_duplicates().to_html(index=False)
+
+   # Define the HTML with centered table and 75% width
+   html_content = f"""
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: {width};">
+         {html_table}
+      </div>
+   </div>
+"""
+   display(HTML(html_content))
+
+
+d1 = {
+    'Course': ['CMSC301', 'CMSC408',  'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024', 'Fall 2023'],
+}
+d2 = {
+    'Course': ['CMSC110', 'CMSC201',  'CMSC475', 'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024', 'Fall 2023','Fall 2024'],
+}
+d3 = {
+   'Term': ['Fall 2022','Fall 2023','Fall 2024'],
+   'Term_code': ['202310','202410','202510']
+}
+
+df1 = pd.DataFrame( d1 )
+df2 = pd.DataFrame( d2 )
+df3 = pd.DataFrame( d3 )
+
+```
+
 ## Intersection Operation in Relational Algebra
 
 The intersection operation retrieves rows that are common to two relations. It is used to find data that appears in both relations, making it useful when comparing datasets or finding shared entries between relations.
@@ -124,9 +169,47 @@ The intersection operation retrieves rows that are common to two relations. It i
 - Intersection is often used in conjunction with other set-based operations like union and difference.
 :::
 ::: {.guide-block-right}
-![](./assets/venn-intersection.png)
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2
+
+# Define the two sets
+set_A = {1, 2, 3, 4}
+set_B = {4, 5, 6, 7}
+
+# Create the Venn diagram with custom colors
+venn = venn2([set_A, set_B], set_labels=('Set A', 'Set B'))
+
+venn.get_patch_by_id('10').set_color('white')
+venn.get_patch_by_id('11').set_color('lightblue')
+venn.get_patch_by_id('01').set_color('white')
+
+# Set all patches to 'lightblue' color
+for subset in ('10', '01', '11'):
+    venn.get_patch_by_id(subset).set_edgecolor('black')  # Thin black borders
+    venn.get_patch_by_id(subset).set_linewidth(1.5)      # Adjust the border width
+
+
+# Remove the default labels for A and B
+venn.get_label_by_id('10').set_text('')
+venn.get_label_by_id('01').set_text('')
+venn.get_label_by_id('11').set_text('')
+
+# Make the background transparent
+plt.gca().set_facecolor('none')
+
+# Display the plot
+plt.title('A ∩ B')
+plt.show()
+```
 
 **Examples**
+
+Given two relations *Students(ID,Name,Major)* and *Registered(ID,Name,Major)*,
+
+The following are valid examples of the $\cap$ in unicode:
 
 1. Students ∩ Registered
 
@@ -196,6 +279,37 @@ $$
 - **Intersection with an empty set**: Intersecting with an empty relation results in an empty set because no rows can be in both the original relation and an empty set.
 - **Distributed**: Intersection distributes over union, meaning you can break down or combine intersections in a structured way over unions.
 
+### Intersection - $\cap$ - Example 1
+
+::: {.guide-block-left}
+Given *Courses1( Course,Term)*:
+
+```{python}
+#| echo: false
+show_df(df1)
+```
+
+and *Courses2( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df2)
+```
+
+:::
+::: {.guide-block-right}
+*Courses1* $\cap$ *Courses2* returns:
+
+```{python}
+#| echo: false
+new_df = pd.concat( [df1, df2] )
+new_df = pd.merge(df1, df2, how='inner')
+show_df( new_df )
+```
+:::
+
+
+
 ## Difference in Relational Algebra
 
 Difference in relational algebra subtracts one relation from another, returning the rows that are present in the first relation but not the second.
@@ -208,6 +322,42 @@ Difference in relational algebra subtracts one relation from another, returning 
 - The result is a relation that includes only the data exclusive to the first set.
 :::
 ::: {.guide-block-right}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2
+
+# Define the two sets
+set_A = {1, 2, 3, 4}
+set_B = {4, 5, 6, 7}
+
+# Create the Venn diagram with custom colors
+venn = venn2([set_A, set_B], set_labels=('Set A', 'Set B'))
+
+venn.get_patch_by_id('10').set_color('lightblue')
+venn.get_patch_by_id('11').set_color('white')
+venn.get_patch_by_id('01').set_color('white')
+
+# Set all patches to 'lightblue' color
+for subset in ('10', '01', '11'):
+    venn.get_patch_by_id(subset).set_edgecolor('black')  # Thin black borders
+    venn.get_patch_by_id(subset).set_linewidth(1.5)      # Adjust the border width
+
+
+# Remove the default labels for A and B
+venn.get_label_by_id('10').set_text('')
+venn.get_label_by_id('01').set_text('')
+venn.get_label_by_id('11').set_text('')
+
+# Make the background transparent
+plt.gca().set_facecolor('none')
+
+# Display the plot
+plt.title('A - B')
+plt.show()
+```
+
 :::
 
 *Difference is a powerful tool for excluding data from one relation that is present in another.*
@@ -270,10 +420,73 @@ $$
 - **Difference with itself**: Subtracting a relation from itself results in an empty set, as no rows are left.
 - **Distributive over intersection**: Difference distributes over intersection, allowing you to apply the difference to both parts of the intersection separately and then take their intersection.
 
+### Difference - $-$ - Example 1
 
-## Cartesian Product in Relational Algebra
+::: {.guide-block-left}
+Given *Courses1( Course,Term)*:
 
-The Cartesian product operation combines all tuples from two relations, creating a new relation with every possible pair of tuples.
+```{python}
+#| echo: false
+show_df(df1)
+```
+
+and *Courses2( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df2)
+```
+
+:::
+::: {.guide-block-right}
+*Courses1* $-$ *Courses2* returns:
+
+```{python}
+#| echo: false
+difference = pd.merge(df1, df2, how='left', indicator=True)
+
+# Keep only the rows that are unique to df1
+df1_minus_df2 = difference[difference['_merge'] == 'left_only'].drop(columns=['_merge'])
+
+show_df( df1_minus_df2 )
+```
+:::
+
+### Difference - $-$ - Example 2
+
+::: {.guide-block-left}
+Given *Courses1( Course,Term)*:
+
+```{python}
+#| echo: false
+show_df(df1)
+```
+
+and *Courses2( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df2)
+```
+
+:::
+::: {.guide-block-right}
+*Courses2* $-$ *Courses1* returns:
+
+```{python}
+#| echo: false
+difference = pd.merge(df2, df1, how='left', indicator=True)
+
+# Keep only the rows that are unique to df1
+df2_minus_df1 = difference[difference['_merge'] == 'left_only'].drop(columns=['_merge'])
+
+show_df( df2_minus_df1 )
+```
+:::
+
+## Cartesian Product $\times$ in Relational Algebra
+
+The Cartesian product operation × combines all tuples from two relations, creating a new relation with every possible pair of tuples.
 
 ::: {.guide-block-left}
 - Cartesian product pairs each tuple from the first relation with every tuple from the second.
@@ -283,11 +496,20 @@ The Cartesian product operation combines all tuples from two relations, creating
 - Cartesian product is a foundation for join operations in relational databases.
 :::
 ::: {.guide-block-right}
+
+**Examples**
+
+The following are valid examples of a cartesian project written in unicode:
+
+1. Students × Courses
+
+2. Courses × Students
+
+3. Employees × Managers
 :::
 
 *Cartesian product provides the basis for combining relations, though it may require filtering for meaningful results.*
 
-Here’s the definition and properties of the **Cartesian product** operation in relational algebra, formatted similarly to the template provided:
 
 ### Properties of the Cartesian Product Operator
 
@@ -295,7 +517,7 @@ Here’s the definition and properties of the **Cartesian product** operation in
 **Definition**
 
 $$
-R_1 \times R_2 = \{ t_1 \, t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \}
+R_1 \times R_2 = \{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \}
 $$
 
 * where $t_1$ is a row (tuple) from relation $R_1$,
@@ -348,6 +570,85 @@ $$
 - **Size of result**: The Cartesian product increases the number of rows, multiplying the rows of $R_1$ by the rows of $R_2$.
 
 This definition and properties align with the structure of other relational operations while explaining the Cartesian product in relational algebra.
+
+
+```{python}
+#| echo: false
+data = {
+    'VID': ['V10101','V10102','V10103','V10104'],
+    'Name': ['Alice', 'Bob', 'Carol', 'Dave'],
+    'Major': ['CS', 'Math', 'CS', 'Physics'],
+}
+students = pd.DataFrame(data)
+# Define the second dataframe, courses2, with two rows
+data = {
+    'CID': [6, 7],
+    'Course': ['CMSC460', 'CMSC455'],
+    'Term': ['Spring 2024', 'Spring 2024'],
+    'Enrl': [100, 150]
+}
+courses = pd.DataFrame(data)
+
+```
+
+### Cartesian Project - × - Example 1
+
+::: {.guide-block-left}
+Given *Students(VID,Name,Major)*:
+
+```{python}
+#| echo: false
+show_df(students)
+```
+
+and *Courses( CID,Course,Term,Enrl)*:
+
+```{python}
+#| echo: false
+show_df(courses)
+```
+
+:::
+::: {.guide-block-right}
+*Students* $\times$ *Courses* returns:
+
+```{python}
+#| echo: false
+
+cartesian_product = pd.merge(students, courses, how='cross')
+show_df( cartesian_product )
+```
+:::
+
+### Cartesian Project - × - Example 2
+
+::: {.guide-block-left}
+Given *Students(VID,Name,Major)*:
+
+```{python}
+#| echo: false
+show_df(students)
+```
+
+and *Courses( CID,Course,Term,Enrl)*:
+
+```{python}
+#| echo: false
+show_df(courses)
+```
+
+:::
+::: {.guide-block-right}
+*Courses* $\times$ *Students* returns:
+
+```{python}
+#| echo: false
+
+cartesian_product = pd.merge(courses,students, how='cross')
+show_df( cartesian_product )
+```
+:::
+
 
 ## Combining Relations Using Set Operations
 

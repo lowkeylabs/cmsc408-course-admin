@@ -12,8 +12,8 @@ filters:
 jupyter: python3
 
 format:
-#    gfm:
-#      mermaid-format: png
+    gfm:
+      mermaid-format: png
     revealjs:
         scrollable: true
         auto-stretch: false

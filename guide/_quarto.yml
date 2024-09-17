@@ -56,11 +56,11 @@ website:
         - href: ./relational-models/schemas-and-keys.qmd
           text: Schemas and Keys
         - href: ./relational-models/basic-operations.qmd
-          text: Basic Operations
+          text: Basic Operations*
         - href: ./relational-models/set-operations.qmd
-          text: Set Operations
+          text: Set Operations*
         - href: ./relational-models/join-operations.qmd
-          text: Join Operations
+          text: Join Operations*
         - href: ./relational-models/renaming-and-division.qmd
           text: Renaming and Division
         - href: ./relational-models/relational-algebra-vs-sql.qmd

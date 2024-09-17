@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -146,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/set-operations.html">Set Operations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/set-operations.html">Set Operations*</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -253,19 +256,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/basic-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basic Operations</span></a>
+ <span class="menu-text">Basic Operations*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/set-operations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Set Operations</span></a>
+ <span class="menu-text">Set Operations*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/join-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Join Operations</span></a>
+ <span class="menu-text">Join Operations*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -309,16 +312,21 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#properties-of-the-intersection-operator" id="toc-properties-of-the-intersection-operator" class="nav-link" data-scroll-target="#properties-of-the-intersection-operator">Properties of the Intersection Operator</a></li>
   <li><a href="#explanation-of-properties" id="toc-explanation-of-properties" class="nav-link" data-scroll-target="#explanation-of-properties">Explanation of properties</a></li>
+  <li><a href="#intersection---cap---example-1" id="toc-intersection---cap---example-1" class="nav-link" data-scroll-target="#intersection---cap---example-1">Intersection - <span class="math inline">\(\cap\)</span> - Example 1</a></li>
   </ul></li>
   <li><a href="#difference-in-relational-algebra" id="toc-difference-in-relational-algebra" class="nav-link" data-scroll-target="#difference-in-relational-algebra">Difference in Relational Algebra</a>
   <ul class="collapse">
   <li><a href="#properties-of-the-difference-operator" id="toc-properties-of-the-difference-operator" class="nav-link" data-scroll-target="#properties-of-the-difference-operator">Properties of the Difference Operator</a></li>
   <li><a href="#explanation-of-properties-1" id="toc-explanation-of-properties-1" class="nav-link" data-scroll-target="#explanation-of-properties-1">Explanation of properties</a></li>
+  <li><a href="#difference-------example-1" id="toc-difference-------example-1" class="nav-link" data-scroll-target="#difference-------example-1">Difference - <span class="math inline">\(-\)</span> - Example 1</a></li>
+  <li><a href="#difference-------example-2" id="toc-difference-------example-2" class="nav-link" data-scroll-target="#difference-------example-2">Difference - <span class="math inline">\(-\)</span> - Example 2</a></li>
   </ul></li>
-  <li><a href="#cartesian-product-in-relational-algebra" id="toc-cartesian-product-in-relational-algebra" class="nav-link" data-scroll-target="#cartesian-product-in-relational-algebra">Cartesian Product in Relational Algebra</a>
+  <li><a href="#cartesian-product-times-in-relational-algebra" id="toc-cartesian-product-times-in-relational-algebra" class="nav-link" data-scroll-target="#cartesian-product-times-in-relational-algebra">Cartesian Product <span class="math inline">\(\times\)</span> in Relational Algebra</a>
   <ul class="collapse">
   <li><a href="#properties-of-the-cartesian-product-operator" id="toc-properties-of-the-cartesian-product-operator" class="nav-link" data-scroll-target="#properties-of-the-cartesian-product-operator">Properties of the Cartesian Product Operator</a></li>
   <li><a href="#explanation-of-properties-2" id="toc-explanation-of-properties-2" class="nav-link" data-scroll-target="#explanation-of-properties-2">Explanation of properties</a></li>
+  <li><a href="#cartesian-project-----example-1" id="toc-cartesian-project-----example-1" class="nav-link" data-scroll-target="#cartesian-project-----example-1">Cartesian Project - × - Example 1</a></li>
+  <li><a href="#cartesian-project-----example-2" id="toc-cartesian-project-----example-2" class="nav-link" data-scroll-target="#cartesian-project-----example-2">Cartesian Project - × - Example 2</a></li>
   </ul></li>
   <li><a href="#combining-relations-using-set-operations" id="toc-combining-relations-using-set-operations" class="nav-link" data-scroll-target="#combining-relations-using-set-operations">Combining Relations Using Set Operations</a></li>
   <li><a href="#set-operation-requirements-and-considerations" id="toc-set-operation-requirements-and-considerations" class="nav-link" data-scroll-target="#set-operation-requirements-and-considerations">Set Operation Requirements and Considerations</a></li>
@@ -331,7 +339,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/set-operations.html">Set Operations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/set-operations.html">Set Operations*</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Set Operations</h1>
 </div>
@@ -470,8 +478,18 @@ Entities represent real-world objects or concepts, while attributes describe the
 </ul>
 </div>
 <div class="guide-block-right">
-<p><img src="./assets/venn-intersection.png" class="img-fluid"></p>
+<div id="c4fcf313" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="set-operations_files/figure-html/cell-3-output-1.png" width="540" height="383" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>Examples</strong></p>
+<p>Given two relations <em>Students(ID,Name,Major)</em> and <em>Registered(ID,Name,Major)</em>,</p>
+<p>The following are valid examples of the <span class="math inline">\(\cap\)</span> in unicode:</p>
 <ol type="1">
 <li><p>Students ∩ Registered</p></li>
 <li><p>Courses ∩ OfferedCourses</p></li>
@@ -537,6 +555,111 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 <li><strong>Distributed</strong>: Intersection distributes over union, meaning you can break down or combine intersections in a structured way over unions.</li>
 </ul>
 </section>
+<section id="intersection---cap---example-1" class="level3">
+<h3 class="anchored" data-anchor-id="intersection---cap---example-1">Intersection - <span class="math inline">\(\cap\)</span> - Example 1</h3>
+<div class="guide-block-left">
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="d0f5bcab" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses2( Course,Term )</em>:</p>
+<div id="ca4911e3" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Courses1</em> <span class="math inline">\(\cap\)</span> <em>Courses2</em> returns:</p>
+<div id="f45fbbcc" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="difference-in-relational-algebra" class="level2">
 <h2 class="anchored" data-anchor-id="difference-in-relational-algebra">Difference in Relational Algebra</h2>
@@ -551,7 +674,15 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 </ul>
 </div>
 <div class="guide-block-right">
-
+<div id="b605f7a4" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="set-operations_files/figure-html/cell-7-output-1.png" width="540" height="383" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <p><em>Difference is a powerful tool for excluding data from one relation that is present in another.</em></p>
 <section id="properties-of-the-difference-operator" class="level3">
@@ -612,10 +743,232 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <li><strong>Distributive over intersection</strong>: Difference distributes over intersection, allowing you to apply the difference to both parts of the intersection separately and then take their intersection.</li>
 </ul>
 </section>
+<section id="difference-------example-1" class="level3">
+<h3 class="anchored" data-anchor-id="difference-------example-1">Difference - <span class="math inline">\(-\)</span> - Example 1</h3>
+<div class="guide-block-left">
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="650854d6" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses2( Course,Term )</em>:</p>
+<div id="49588f56" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Courses1</em> <span class="math inline">\(-\)</span> <em>Courses2</em> returns:</p>
+<div id="1bd42d5c" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
 </section>
-<section id="cartesian-product-in-relational-algebra" class="level2">
-<h2 class="anchored" data-anchor-id="cartesian-product-in-relational-algebra">Cartesian Product in Relational Algebra</h2>
-<p>The Cartesian product operation combines all tuples from two relations, creating a new relation with every possible pair of tuples.</p>
+<section id="difference-------example-2" class="level3">
+<h3 class="anchored" data-anchor-id="difference-------example-2">Difference - <span class="math inline">\(-\)</span> - Example 2</h3>
+<div class="guide-block-left">
+<p>Given <em>Courses1( Course,Term)</em>:</p>
+<div id="3555a3dd" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC301</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC408</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses2( Course,Term )</em>:</p>
+<div id="d3b428bc" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+<tr class="even">
+<td>CMSC408</td>
+<td>Fall 2024</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Courses2</em> <span class="math inline">\(-\)</span> <em>Courses1</em> returns:</p>
+<div id="374463d5" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC110</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="even">
+<td>CMSC201</td>
+<td>Fall 2024</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>Fall 2023</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="cartesian-product-times-in-relational-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="cartesian-product-times-in-relational-algebra">Cartesian Product <span class="math inline">\(\times\)</span> in Relational Algebra</h2>
+<p>The Cartesian product operation × combines all tuples from two relations, creating a new relation with every possible pair of tuples.</p>
 <div class="guide-block-left">
 <ul>
 <li>Cartesian product pairs each tuple from the first relation with every tuple from the second.</li>
@@ -626,16 +979,21 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 </ul>
 </div>
 <div class="guide-block-right">
-
+<p><strong>Examples</strong></p>
+<p>The following are valid examples of a cartesian project written in unicode:</p>
+<ol type="1">
+<li><p>Students × Courses</p></li>
+<li><p>Courses × Students</p></li>
+<li><p>Employees × Managers</p></li>
+</ol>
 </div>
 <p><em>Cartesian product provides the basis for combining relations, though it may require filtering for meaningful results.</em></p>
-<p>Here’s the definition and properties of the <strong>Cartesian product</strong> operation in relational algebra, formatted similarly to the template provided:</p>
 <section id="properties-of-the-cartesian-product-operator" class="level3">
 <h3 class="anchored" data-anchor-id="properties-of-the-cartesian-product-operator">Properties of the Cartesian Product Operator</h3>
 <div class="guide-block-left">
 <p><strong>Definition</strong></p>
 <p><span class="math display">\[
-R_1 \times R_2 = \{ t_1 \, t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \}
+R_1 \times R_2 = \{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \}
 \]</span></p>
 <ul>
 <li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
@@ -688,6 +1046,376 @@ R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
 <li><strong>Size of result</strong>: The Cartesian product increases the number of rows, multiplying the rows of <span class="math inline">\(R_1\)</span> by the rows of <span class="math inline">\(R_2\)</span>.</li>
 </ul>
 <p>This definition and properties align with the structure of other relational operations while explaining the Cartesian product in relational algebra.</p>
+</section>
+<section id="cartesian-project-----example-1" class="level3">
+<h3 class="anchored" data-anchor-id="cartesian-project-----example-1">Cartesian Project - × - Example 1</h3>
+<div class="guide-block-left">
+<p>Given <em>Students(VID,Name,Major)</em>:</p>
+<div id="abb4e7be" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses( CID,Course,Term,Enrl)</em>:</p>
+<div id="b3675610" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Students</em> <span class="math inline">\(\times\)</span> <em>Courses</em> returns:</p>
+<div id="5b073fd2" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">CID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</section>
+<section id="cartesian-project-----example-2" class="level3">
+<h3 class="anchored" data-anchor-id="cartesian-project-----example-2">Cartesian Project - × - Example 2</h3>
+<div class="guide-block-left">
+<p>Given <em>Students(VID,Name,Major)</em>:</p>
+<div id="7300e98b" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Courses( CID,Course,Term,Enrl)</em>:</p>
+<div id="922f7973" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Courses</em> <span class="math inline">\(\times\)</span> <em>Students</em> returns:</p>
+<div id="002c721f" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="combining-relations-using-set-operations" class="level2">
@@ -1201,13 +1929,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../relational-models/basic-operations.html" class="pagination-link" aria-label="Basic Operations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic Operations</span>
+      <a href="../relational-models/basic-operations.html" class="pagination-link" aria-label="Basic Operations*">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic Operations*</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../relational-models/join-operations.html" class="pagination-link" aria-label="Join Operations">
-        <span class="nav-page-text">Join Operations</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../relational-models/join-operations.html" class="pagination-link" aria-label="Join Operations*">
+        <span class="nav-page-text">Join Operations*</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
