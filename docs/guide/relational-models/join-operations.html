@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -271,7 +274,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/renaming-and-division.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Renaming and Division</span></a>
+ <span class="menu-text">Renaming and Division*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -309,26 +312,36 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#properties-of-the-inner-join-operator" id="toc-properties-of-the-inner-join-operator" class="nav-link" data-scroll-target="#properties-of-the-inner-join-operator">Properties of the Inner Join Operator</a></li>
   <li><a href="#explanation-of-properties" id="toc-explanation-of-properties" class="nav-link" data-scroll-target="#explanation-of-properties">Explanation of properties</a></li>
+  <li><a href="#inner-join-----example-1" id="toc-inner-join-----example-1" class="nav-link" data-scroll-target="#inner-join-----example-1">Inner Join - ⋈ - Example 1</a></li>
+  <li><a href="#inner-join-----example-2" id="toc-inner-join-----example-2" class="nav-link" data-scroll-target="#inner-join-----example-2">Inner Join - ⋈ - Example 2</a></li>
   </ul></li>
   <li><a href="#outer-join-introduction-and-types" id="toc-outer-join-introduction-and-types" class="nav-link" data-scroll-target="#outer-join-introduction-and-types">Outer Join: Introduction and Types</a>
   <ul class="collapse">
   <li><a href="#properties-of-the-outer-join-operator" id="toc-properties-of-the-outer-join-operator" class="nav-link" data-scroll-target="#properties-of-the-outer-join-operator">Properties of the Outer Join Operator</a></li>
   <li><a href="#explanation-of-properties-1" id="toc-explanation-of-properties-1" class="nav-link" data-scroll-target="#explanation-of-properties-1">Explanation of properties</a></li>
+  <li><a href="#left-outer-join-----example" id="toc-left-outer-join-----example" class="nav-link" data-scroll-target="#left-outer-join-----example">Left Outer Join - ⟕ - Example</a></li>
+  <li><a href="#right-outer-join-----example" id="toc-right-outer-join-----example" class="nav-link" data-scroll-target="#right-outer-join-----example">Right Outer Join - ⟖ - Example</a></li>
   </ul></li>
   <li><a href="#full-outer-join-combining-data" id="toc-full-outer-join-combining-data" class="nav-link" data-scroll-target="#full-outer-join-combining-data">Full Outer Join: Combining Data</a>
   <ul class="collapse">
   <li><a href="#properties-of-the-full-outer-join-operator" id="toc-properties-of-the-full-outer-join-operator" class="nav-link" data-scroll-target="#properties-of-the-full-outer-join-operator">Properties of the Full Outer Join Operator</a></li>
   <li><a href="#explanation-of-properties-2" id="toc-explanation-of-properties-2" class="nav-link" data-scroll-target="#explanation-of-properties-2">Explanation of properties</a></li>
+  <li><a href="#full-outer-join-----example" id="toc-full-outer-join-----example" class="nav-link" data-scroll-target="#full-outer-join-----example">Full Outer Join - ⋈ - Example</a></li>
+  <li><a href="#full-outer-join-----example-1" id="toc-full-outer-join-----example-1" class="nav-link" data-scroll-target="#full-outer-join-----example-1">Full Outer Join - ⋈ - Example</a></li>
   </ul></li>
   <li><a href="#natural-join-definition-and-application" id="toc-natural-join-definition-and-application" class="nav-link" data-scroll-target="#natural-join-definition-and-application">Natural Join: Definition and Application</a>
   <ul class="collapse">
   <li><a href="#properties-of-the-natural-join-operator" id="toc-properties-of-the-natural-join-operator" class="nav-link" data-scroll-target="#properties-of-the-natural-join-operator">Properties of the Natural Join Operator</a></li>
   <li><a href="#explanation-of-properties-3" id="toc-explanation-of-properties-3" class="nav-link" data-scroll-target="#explanation-of-properties-3">Explanation of properties</a></li>
+  <li><a href="#natural-join-example" id="toc-natural-join-example" class="nav-link" data-scroll-target="#natural-join-example">Natural Join Example</a></li>
+  <li><a href="#natural-join---example-with-two-overlapping-columns" id="toc-natural-join---example-with-two-overlapping-columns" class="nav-link" data-scroll-target="#natural-join---example-with-two-overlapping-columns">Natural Join - Example with Two Overlapping Columns</a></li>
   </ul></li>
   <li><a href="#theta-join-flexibility-with-conditions" id="toc-theta-join-flexibility-with-conditions" class="nav-link" data-scroll-target="#theta-join-flexibility-with-conditions">Theta Join: Flexibility with Conditions</a>
   <ul class="collapse">
   <li><a href="#properties-of-the-theta-join-operator" id="toc-properties-of-the-theta-join-operator" class="nav-link" data-scroll-target="#properties-of-the-theta-join-operator">Properties of the Theta Join Operator</a></li>
   <li><a href="#explanation-of-properties-4" id="toc-explanation-of-properties-4" class="nav-link" data-scroll-target="#explanation-of-properties-4">Explanation of properties</a></li>
+  <li><a href="#theta-join-example" id="toc-theta-join-example" class="nav-link" data-scroll-target="#theta-join-example">Theta Join Example</a></li>
+  <li><a href="#theta-join-example-2" id="toc-theta-join-example-2" class="nav-link" data-scroll-target="#theta-join-example-2">Theta Join Example 2</a></li>
   </ul></li>
   <li><a href="#use-cases-inner-join" id="toc-use-cases-inner-join" class="nav-link" data-scroll-target="#use-cases-inner-join">Use Cases: Inner Join</a></li>
   <li><a href="#use-cases-left-and-right-outer-joins" id="toc-use-cases-left-and-right-outer-joins" class="nav-link" data-scroll-target="#use-cases-left-and-right-outer-joins">Use Cases: Left and Right Outer Joins</a></li>
@@ -536,6 +549,273 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </ul>
 <p>This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.</p>
 </section>
+<section id="inner-join-----example-1" class="level3">
+<h3 class="anchored" data-anchor-id="inner-join-----example-1">Inner Join - ⋈ - Example 1</h3>
+<div class="guide-block-left">
+<p>Given <em>Students(VID,Name,Major)</em>:</p>
+<div id="0cd023fa" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Enrollments(VID,Course,Term,Enrl)</em>:</p>
+<div id="c00f64fd" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10103</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td>V10105</td>
+<td>CMSC420</td>
+<td>Spring 2024</td>
+<td>120</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><strong>Find all the data for students enrolled in classes</strong></p>
+<p><em>Students</em> ⋈ (<em>VID</em>) <em>Enrollments</em>;</p>
+<div id="255baaff" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<ul>
+<li><p>This list does not include students who don’t have enrollments, nor enrollments with students not found in the relation.</p></li>
+<li><p>What is the cardinality and participation?</p></li>
+</ul>
+</div>
+</section>
+<section id="inner-join-----example-2" class="level3">
+<h3 class="anchored" data-anchor-id="inner-join-----example-2">Inner Join - ⋈ - Example 2</h3>
+<div class="guide-block-left">
+<p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
+<div id="63fd8a82" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D001</td>
+<td>Samosa</td>
+<td>2.5</td>
+</tr>
+<tr class="even">
+<td>D002</td>
+<td>Butter Chicken</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td>D003</td>
+<td>Naan</td>
+<td>1.5</td>
+</tr>
+<tr class="even">
+<td>D004</td>
+<td>Paneer Tikka</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
+<div id="4937250e" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O1001</td>
+<td>D001</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>O1002</td>
+<td>D003</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>O1003</td>
+<td>D005</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Menu</em> ⋈ (<em>DishID</em>) <em>Orders</em> returns:</p>
+<div id="d6af2718" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D001</td>
+<td>Samosa</td>
+<td>2.5</td>
+<td>O1001</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D003</td>
+<td>Naan</td>
+<td>1.5</td>
+<td>O1002</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example demonstrates how an inner join will return only the dishes from the <code>orders</code> that exist in the <code>menu</code>, leaving out any ordered dishes that are not on the menu (like <code>DishID: D005</code>).</p>
+</div>
+</section>
 </section>
 <section id="outer-join-introduction-and-types" class="level2">
 <h2 class="anchored" data-anchor-id="outer-join-introduction-and-types">Outer Join: Introduction and Types</h2>
@@ -618,6 +898,283 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 <li><strong>Outer join with an empty set</strong>: In left and right outer joins, the non-empty relation is returned with <code>NULL</code> values in place of the missing relation. For full outer joins, both relations contribute to the result, filling unmatched rows with <code>NULL</code>.</li>
 <li><strong>Distributive over selection</strong>: Unlike the inner join, selection does not distribute cleanly over outer joins because rows with <code>NULL</code> values might be incorrectly excluded if the selection is applied beforehand.</li>
 </ul>
+</section>
+<section id="left-outer-join-----example" class="level3">
+<h3 class="anchored" data-anchor-id="left-outer-join-----example">Left Outer Join - ⟕ - Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
+<div id="a0f0cb54" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Pad Thai</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Ramen</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
+<div id="def7af11" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O2001</td>
+<td>A001</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>O2002</td>
+<td>A003</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>O2003</td>
+<td>A005</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Menu</em> ⟕ <em>Orders</em> on <em>DishID</em> returns:</p>
+<div id="aa593241" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+<td>O2001</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Pad Thai</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+<td>O2002</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Ramen</td>
+<td>8.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example shows how a left outer join includes <strong>all rows from the left table</strong> (<code>Menu</code>), and the matching rows from the right table (<code>Orders</code>). If there is no match, <code>NULL</code> (or <code>NaN</code> in pandas) values are returned for the columns from the right table. Here, the <code>DishID: A005</code> from the <code>Orders</code> table does not exist in the <code>Menu</code>, so it is not included in the result, but all menu items are shown, regardless of whether they are ordered.</p>
+</div>
+</section>
+<section id="right-outer-join-----example" class="level3">
+<h3 class="anchored" data-anchor-id="right-outer-join-----example">Right Outer Join - ⟖ - Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
+<div id="a6d535f1" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Pad Thai</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Ramen</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
+<div id="fd0f8a46" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O2001</td>
+<td>A001</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>O2002</td>
+<td>A003</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>O2003</td>
+<td>A005</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Menu</em> ⟖ <em>Orders</em> on <em>DishID</em> returns:</p>
+<div id="b49462f4" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+<td>O2001</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+<td>O2002</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>A005</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>O2003</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example demonstrates how a right outer join includes <strong>all rows from the right table</strong> (<code>Orders</code>), and the matching rows from the left table (<code>Menu</code>). If there is no match, <code>NULL</code> (or <code>NaN</code> in pandas) values are returned for the columns from the left table. Here, the <code>DishID: A005</code> from the <code>Orders</code> table does not exist in the <code>Menu</code>, so its corresponding <code>Dish</code> and <code>Price</code> columns have <code>NaN</code> values, but all orders are shown, even if the dish is not found on the menu.</p>
+</div>
 </section>
 </section>
 <section id="full-outer-join-combining-data" class="level2">
@@ -702,6 +1259,330 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 <li><strong>Distributive over union</strong>: Full outer join distributes over union, meaning you can break the join into smaller unions and join them separately.</li>
 <li><strong>Size of result</strong>: The result contains all rows from both relations, so the number of rows is at most the sum of rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, with <code>NULL</code> values used for non-matching rows.</li>
 </ul>
+<p>Here’s an example using a soccer team to demonstrate a <strong>Full Outer Join</strong>:</p>
+</section>
+<section id="full-outer-join-----example" class="level3">
+<h3 class="anchored" data-anchor-id="full-outer-join-----example">Full Outer Join - ⋈ - Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Players(PlayerID, PlayerName, Position)</em>:</p>
+<div id="a312e659" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">PlayerID</th>
+<th data-quarto-table-cell-role="th">PlayerName</th>
+<th data-quarto-table-cell-role="th">Position</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P001</td>
+<td>John</td>
+<td>Forward</td>
+</tr>
+<tr class="even">
+<td>P002</td>
+<td>Alex</td>
+<td>Midfielder</td>
+</tr>
+<tr class="odd">
+<td>P003</td>
+<td>Max</td>
+<td>Defender</td>
+</tr>
+<tr class="even">
+<td>P004</td>
+<td>Luke</td>
+<td>Goalkeeper</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Teams(TeamID, PlayerID, TeamName)</em>:</p>
+<div id="f5885d9b" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">TeamID</th>
+<th data-quarto-table-cell-role="th">PlayerID</th>
+<th data-quarto-table-cell-role="th">TeamName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T001</td>
+<td>P001</td>
+<td>Tigers</td>
+</tr>
+<tr class="even">
+<td>T002</td>
+<td>P003</td>
+<td>Lions</td>
+</tr>
+<tr class="odd">
+<td>T003</td>
+<td>P005</td>
+<td>Bears</td>
+</tr>
+<tr class="even">
+<td>T004</td>
+<td>P006</td>
+<td>Wolves</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Players</em> ⋈ <em>Teams</em> on <em>PlayerID</em> returns:</p>
+<div id="67a55469" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">PlayerID</th>
+<th data-quarto-table-cell-role="th">PlayerName</th>
+<th data-quarto-table-cell-role="th">Position</th>
+<th data-quarto-table-cell-role="th">TeamID</th>
+<th data-quarto-table-cell-role="th">TeamName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P001</td>
+<td>John</td>
+<td>Forward</td>
+<td>T001</td>
+<td>Tigers</td>
+</tr>
+<tr class="even">
+<td>P002</td>
+<td>Alex</td>
+<td>Midfielder</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>P003</td>
+<td>Max</td>
+<td>Defender</td>
+<td>T002</td>
+<td>Lions</td>
+</tr>
+<tr class="even">
+<td>P004</td>
+<td>Luke</td>
+<td>Goalkeeper</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>P005</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>T003</td>
+<td>Bears</td>
+</tr>
+<tr class="even">
+<td>P006</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>T004</td>
+<td>Wolves</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example demonstrates how a full outer join combines all rows from both tables (<code>Players</code> and <code>Teams</code>), with matches being displayed where available. If a player does not belong to a team or a team does not have a listed player, <code>NULL</code> (or <code>NaN</code> in pandas) values are filled in for missing information. For example, players <code>P005</code> and <code>P006</code> exist only in the <code>Teams</code> table, and players <code>P002</code> and <code>P004</code> exist only in the <code>Players</code> table. The full outer join will include all records from both tables.</p>
+</div>
+<p>Here’s another example using cameras and images to demonstrate a <strong>Full Outer Join</strong>:</p>
+</section>
+<section id="full-outer-join-----example-1" class="level3">
+<h3 class="anchored" data-anchor-id="full-outer-join-----example-1">Full Outer Join - ⋈ - Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Cameras(CameraID, CameraModel, LensType)</em>:</p>
+<div id="bd7467ee" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CameraID</th>
+<th data-quarto-table-cell-role="th">CameraModel</th>
+<th data-quarto-table-cell-role="th">LensType</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C001</td>
+<td>Canon EOS</td>
+<td>50mm</td>
+</tr>
+<tr class="even">
+<td>C002</td>
+<td>Nikon D3500</td>
+<td>18-55mm</td>
+</tr>
+<tr class="odd">
+<td>C003</td>
+<td>Sony Alpha</td>
+<td>35mm</td>
+</tr>
+<tr class="even">
+<td>C004</td>
+<td>Fujifilm XT3</td>
+<td>24-70mm</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Images(ImageID, CameraID, ImageDescription)</em>:</p>
+<div id="0aa07fb1" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">ImageID</th>
+<th data-quarto-table-cell-role="th">CameraID</th>
+<th data-quarto-table-cell-role="th">ImageDescription</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I001</td>
+<td>C001</td>
+<td>Landscape</td>
+</tr>
+<tr class="even">
+<td>I002</td>
+<td>C003</td>
+<td>Portrait</td>
+</tr>
+<tr class="odd">
+<td>I003</td>
+<td>C005</td>
+<td>Macro</td>
+</tr>
+<tr class="even">
+<td>I004</td>
+<td>C006</td>
+<td>Night Sky</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Cameras</em> ⋈ (<em>CameraID</em>) <em>Images</em> returns:</p>
+<div id="e49fa9a3" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CameraID</th>
+<th data-quarto-table-cell-role="th">CameraModel</th>
+<th data-quarto-table-cell-role="th">LensType</th>
+<th data-quarto-table-cell-role="th">ImageID</th>
+<th data-quarto-table-cell-role="th">ImageDescription</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C001</td>
+<td>Canon EOS</td>
+<td>50mm</td>
+<td>I001</td>
+<td>Landscape</td>
+</tr>
+<tr class="even">
+<td>C002</td>
+<td>Nikon D3500</td>
+<td>18-55mm</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>C003</td>
+<td>Sony Alpha</td>
+<td>35mm</td>
+<td>I002</td>
+<td>Portrait</td>
+</tr>
+<tr class="even">
+<td>C004</td>
+<td>Fujifilm XT3</td>
+<td>24-70mm</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>C005</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>I003</td>
+<td>Macro</td>
+</tr>
+<tr class="even">
+<td>C006</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>I004</td>
+<td>Night Sky</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This full outer join combines all rows from both the <code>Cameras</code> and <code>Images</code> tables. Where there is a matching <code>CameraID</code>, the corresponding camera and image details are shown. For unmatched <code>CameraID</code>s (such as <code>C005</code> and <code>C006</code> from the <code>Images</code> table and <code>C002</code> and <code>C004</code> from the <code>Cameras</code> table), <code>NULL</code> (or <code>NaN</code>) values fill in the missing data. This query provides a complete view of all cameras and all images, regardless of whether they have a match in the other table.</p>
+</div>
 </section>
 </section>
 <section id="natural-join-definition-and-application" class="level2">
@@ -774,7 +1655,297 @@ R_1 \bowtie \emptyset = \emptyset
 <li><strong>Natural join distributes over selection</strong>: You can apply a selection condition to one relation before performing the natural join without affecting the outcome, provided the condition applies only to attributes from that relation.</li>
 <li><strong>Size of result</strong>: The result includes all rows from both relations where the values of common attributes match, and the number of matching rows determines the size of the result.</li>
 </ul>
-<p>This explanation of the natural join aligns with the structure of previous relational algebra operations, capturing the key properties and behavior of the natural join in relational algebra.</p>
+<p>Here’s an example using a <strong>Natural Join</strong> with a kennel and dog data set.</p>
+</section>
+<section id="natural-join-example" class="level3">
+<h3 class="anchored" data-anchor-id="natural-join-example">Natural Join Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Dogs(DogID, Name, Breed, Age)</em>:</p>
+<div id="44b03f02" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DogID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Breed</th>
+<th data-quarto-table-cell-role="th">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D101</td>
+<td>Buddy</td>
+<td>Labrador</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>D102</td>
+<td>Bella</td>
+<td>Beagle</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>D103</td>
+<td>Charlie</td>
+<td>Poodle</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D104</td>
+<td>Lucy</td>
+<td>Bulldog</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Kennels(DogID, KennelID, ArrivalDate)</em>:</p>
+<div id="f8eb03b2" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DogID</th>
+<th data-quarto-table-cell-role="th">KennelID</th>
+<th data-quarto-table-cell-role="th">ArrivalDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D101</td>
+<td>K001</td>
+<td>2024-01-10</td>
+</tr>
+<tr class="even">
+<td>D103</td>
+<td>K002</td>
+<td>2024-02-15</td>
+</tr>
+<tr class="odd">
+<td>D105</td>
+<td>K003</td>
+<td>2024-03-20</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Dogs</em> <span class="math inline">\(\bowtie\)</span> <em>Kennels</em> on <em>DogID</em> returns:</p>
+<div id="a3ea7ac2" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DogID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Breed</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">KennelID</th>
+<th data-quarto-table-cell-role="th">ArrivalDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D101</td>
+<td>Buddy</td>
+<td>Labrador</td>
+<td>3</td>
+<td>K001</td>
+<td>2024-01-10</td>
+</tr>
+<tr class="even">
+<td>D103</td>
+<td>Charlie</td>
+<td>Poodle</td>
+<td>2</td>
+<td>K002</td>
+<td>2024-02-15</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In a <strong>Natural Join</strong>, the join is based on columns with the same name and automatically combines rows with matching values in those columns. In this case, both tables have the column <code>DogID</code>, so a natural join combines the <code>dogs</code> and <code>kennels</code> data where <code>DogID</code> matches. Only the dogs with a corresponding kennel entry (<code>DogID: D101</code> and <code>D103</code>) are included in the result, while unmatched dogs and kennels are excluded.</p>
+</div>
+</section>
+<section id="natural-join---example-with-two-overlapping-columns" class="level3">
+<h3 class="anchored" data-anchor-id="natural-join---example-with-two-overlapping-columns">Natural Join - Example with Two Overlapping Columns</h3>
+<div class="guide-block-left">
+<p>Given <em>Buses(BusID, Route, Capacity, DriverID)</em>:</p>
+<div id="3281af8b" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">BusID</th>
+<th data-quarto-table-cell-role="th">Route</th>
+<th data-quarto-table-cell-role="th">Capacity</th>
+<th data-quarto-table-cell-role="th">DriverID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B001</td>
+<td>101</td>
+<td>50</td>
+<td>D001</td>
+</tr>
+<tr class="even">
+<td>B002</td>
+<td>102</td>
+<td>45</td>
+<td>D002</td>
+</tr>
+<tr class="odd">
+<td>B003</td>
+<td>103</td>
+<td>60</td>
+<td>D003</td>
+</tr>
+<tr class="even">
+<td>B004</td>
+<td>104</td>
+<td>40</td>
+<td>D004</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Passengers(PassengerID, BusID, DriverID, Seat)</em>:</p>
+<div id="52d508a3" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">PassengerID</th>
+<th data-quarto-table-cell-role="th">BusID</th>
+<th data-quarto-table-cell-role="th">DriverID</th>
+<th data-quarto-table-cell-role="th">Seat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P101</td>
+<td>B001</td>
+<td>D001</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>P102</td>
+<td>B003</td>
+<td>D003</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>P103</td>
+<td>B002</td>
+<td>D002</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>P104</td>
+<td>B005</td>
+<td>D006</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Buses</em> <span class="math inline">\(\bowtie\)</span> <em>Passengers</em> on <em>BusID</em> and <em>DriverID</em> returns:</p>
+<div id="a94a626a" class="cell" data-execution_count="33">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">BusID</th>
+<th data-quarto-table-cell-role="th">Route</th>
+<th data-quarto-table-cell-role="th">Capacity</th>
+<th data-quarto-table-cell-role="th">DriverID</th>
+<th data-quarto-table-cell-role="th">PassengerID</th>
+<th data-quarto-table-cell-role="th">Seat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B001</td>
+<td>101</td>
+<td>50</td>
+<td>D001</td>
+<td>P101</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>B002</td>
+<td>102</td>
+<td>45</td>
+<td>D002</td>
+<td>P103</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>B003</td>
+<td>103</td>
+<td>60</td>
+<td>D003</td>
+<td>P102</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In this <strong>Natural Join</strong>, we are joining on two columns that both tables have in common: <code>BusID</code> and <code>DriverID</code>. The join automatically combines rows where both the <code>BusID</code> <strong>and</strong> <code>DriverID</code> match. This natural join will return only rows where both the bus and passenger data have matching <code>BusID</code> and <code>DriverID</code>. In this case, it will exclude any buses or passengers where these two columns do not match simultaneously.</p>
+</div>
 </section>
 </section>
 <section id="theta-join-flexibility-with-conditions" class="level2">
@@ -848,6 +2019,285 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 <li><strong>Size of result</strong>: The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the condition <span class="math inline">\(\theta\)</span>.</li>
 </ul>
 <p>This structure mirrors the format of previous relational algebra operations, focusing on the flexibility and behavior of the theta join, where any comparison operator can be used in the join condition.</p>
+<p>Here’s an example of a <strong>Theta Join</strong> using an authors and books model. In this case, the Theta Join will be based on a condition, such as comparing the number of books an author has written to a certain threshold.</p>
+</section>
+<section id="theta-join-example" class="level3">
+<h3 class="anchored" data-anchor-id="theta-join-example">Theta Join Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Authors(AuthorID, AuthorName, BooksWritten)</em>:</p>
+<div id="e22c891e" class="cell" data-execution_count="35">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">AuthorID</th>
+<th data-quarto-table-cell-role="th">AuthorName</th>
+<th data-quarto-table-cell-role="th">BooksWritten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Alice</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Bob</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Charlie</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Diana</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Books(BookID, AuthorID, Title)</em>:</p>
+<div id="5dad161e" class="cell" data-execution_count="36">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">BookID</th>
+<th data-quarto-table-cell-role="th">AuthorID</th>
+<th data-quarto-table-cell-role="th">Title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B001</td>
+<td>A001</td>
+<td>Data Science 101</td>
+</tr>
+<tr class="even">
+<td>B002</td>
+<td>A002</td>
+<td>Math Fundamentals</td>
+</tr>
+<tr class="odd">
+<td>B003</td>
+<td>A003</td>
+<td>Advanced Python</td>
+</tr>
+<tr class="even">
+<td>B004</td>
+<td>A003</td>
+<td>Machine Learning</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Authors</em> ⨝ θ <em>Books</em> where <em>BooksWritten &gt; 3</em>:</p>
+<div id="555f077b" class="cell" data-execution_count="37">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">AuthorID</th>
+<th data-quarto-table-cell-role="th">AuthorName</th>
+<th data-quarto-table-cell-role="th">BooksWritten</th>
+<th data-quarto-table-cell-role="th">BookID</th>
+<th data-quarto-table-cell-role="th">Title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Alice</td>
+<td>5</td>
+<td>B001</td>
+<td>Data Science 101</td>
+</tr>
+<tr class="even">
+<td>A003</td>
+<td>Charlie</td>
+<td>8</td>
+<td>B003</td>
+<td>Advanced Python</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Charlie</td>
+<td>8</td>
+<td>B004</td>
+<td>Machine Learning</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In this <strong>Theta Join</strong>, we apply a condition (<code>BooksWritten &gt; 3</code>) to filter the authors, then join the result with the <code>Books</code> table on the common column <code>AuthorID</code>. This example only includes authors who have written more than 3 books and returns their associated books.</p>
+</div>
+<p>Here’s another example of a <strong>Theta Join</strong> using a video game store and video game model. This Theta Join will be based on a condition, such as comparing the price of video games to a certain threshold.</p>
+</section>
+<section id="theta-join-example-2" class="level3">
+<h3 class="anchored" data-anchor-id="theta-join-example-2">Theta Join Example 2</h3>
+<div class="guide-block-left">
+<p>Given <em>Stores(StoreID, StoreName, Location)</em>:</p>
+<div id="d15e9633" class="cell" data-execution_count="39">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">StoreID</th>
+<th data-quarto-table-cell-role="th">StoreName</th>
+<th data-quarto-table-cell-role="th">Location</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S001</td>
+<td>Game Galaxy</td>
+<td>Downtown</td>
+</tr>
+<tr class="even">
+<td>S002</td>
+<td>Retro Station</td>
+<td>Suburbs</td>
+</tr>
+<tr class="odd">
+<td>S003</td>
+<td>Pixel Paradise</td>
+<td>City Center</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Games(GameID, StoreID, GameTitle, Price)</em>:</p>
+<div id="1626aa7b" class="cell" data-execution_count="40">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">GameID</th>
+<th data-quarto-table-cell-role="th">StoreID</th>
+<th data-quarto-table-cell-role="th">GameTitle</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>G001</td>
+<td>S001</td>
+<td>Super Smash</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>G002</td>
+<td>S001</td>
+<td>Zelda Quest</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>G003</td>
+<td>S002</td>
+<td>Mario Kart</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<td>G004</td>
+<td>S003</td>
+<td>Fortnite</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p><em>Stores</em> ⨝ θ (<em>Price &gt; 50</em>) <em>Games</em> return :</p>
+<div id="945a4ad1" class="cell" data-execution_count="41">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">StoreID</th>
+<th data-quarto-table-cell-role="th">StoreName</th>
+<th data-quarto-table-cell-role="th">Location</th>
+<th data-quarto-table-cell-role="th">GameID</th>
+<th data-quarto-table-cell-role="th">GameTitle</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S001</td>
+<td>Game Galaxy</td>
+<td>Downtown</td>
+<td>G001</td>
+<td>Super Smash</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>S002</td>
+<td>Retro Station</td>
+<td>Suburbs</td>
+<td>G003</td>
+<td>Mario Kart</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In this <strong>Theta Join</strong>, we apply a condition (<code>Price &gt; 50</code>) to filter the video games, then join the result with the <code>Stores</code> table on the common column <code>StoreID</code>. This example only includes games that are priced above $50 and returns the store details for those games.</p>
+<p>For instance, only games like <code>Super Smash</code> and <code>Mario Kart</code> will be included in the result, along with the corresponding stores. Games priced $50 or below (like <code>Fortnite</code>) are excluded from the result.</p>
+</div>
 </section>
 </section>
 <section id="use-cases-inner-join" class="level2">
@@ -1349,8 +2799,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../relational-models/renaming-and-division.html" class="pagination-link" aria-label="Renaming and Division">
-        <span class="nav-page-text">Renaming and Division</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../relational-models/renaming-and-division.html" class="pagination-link" aria-label="Renaming and Division*">
+        <span class="nav-page-text">Renaming and Division*</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

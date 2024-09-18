@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -146,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/renaming-and-division.html">Renaming and Division</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/renaming-and-division.html">Renaming and Division*</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -271,7 +274,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../relational-models/renaming-and-division.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Renaming and Division</span></a>
+ <span class="menu-text">Renaming and Division*</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -315,7 +318,10 @@ window.Quarto = {
   <li><a href="#properties-of-the-division-operator" id="toc-properties-of-the-division-operator" class="nav-link" data-scroll-target="#properties-of-the-division-operator">Properties of the Division Operator</a></li>
   <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation:</a></li>
   </ul></li>
-  <li><a href="#division-syntax-and-example" id="toc-division-syntax-and-example" class="nav-link" data-scroll-target="#division-syntax-and-example">Division: Syntax and Example</a></li>
+  <li><a href="#division-syntax-and-example" id="toc-division-syntax-and-example" class="nav-link" data-scroll-target="#division-syntax-and-example">Division: Syntax and Example</a>
+  <ul class="collapse">
+  <li><a href="#division-----example" id="toc-division-----example" class="nav-link" data-scroll-target="#division-----example">Division - ÷ - Example</a></li>
+  </ul></li>
   <li><a href="#practical-use-case-for-division" id="toc-practical-use-case-for-division" class="nav-link" data-scroll-target="#practical-use-case-for-division">Practical Use Case for Division</a></li>
   <li><a href="#common-mistakes-with-division" id="toc-common-mistakes-with-division" class="nav-link" data-scroll-target="#common-mistakes-with-division">Common Mistakes with Division</a></li>
   <li><a href="#renaming-and-division-in-query-design" id="toc-renaming-and-division-in-query-design" class="nav-link" data-scroll-target="#renaming-and-division-in-query-design">Renaming and Division in Query Design</a></li>
@@ -328,7 +334,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/renaming-and-division.html">Renaming and Division</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../relational-models/intro-to-relational-models.html">Relational Models</a></li><li class="breadcrumb-item"><a href="../relational-models/renaming-and-division.html">Renaming and Division*</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Renaming and Division</h1>
 </div>
@@ -621,6 +627,122 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 
 </div>
 <p><em>The division operator retrieves records that match a complete set of conditions across relations.</em></p>
+<p>Here’s the <strong>division</strong> relational operator example using the template format you provided earlier:</p>
+<section id="division-----example" class="level3">
+<h3 class="anchored" data-anchor-id="division-----example">Division - ÷ - Example</h3>
+<div class="guide-block-left">
+<p>Given <em>Customers(CustomerID, DishID)</em>:</p>
+<div id="b0941134" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CustomerID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C001</td>
+<td>D001</td>
+</tr>
+<tr class="even">
+<td>C001</td>
+<td>D002</td>
+</tr>
+<tr class="odd">
+<td>C002</td>
+<td>D001</td>
+</tr>
+<tr class="even">
+<td>C002</td>
+<td>D002</td>
+</tr>
+<tr class="odd">
+<td>C002</td>
+<td>D003</td>
+</tr>
+<tr class="even">
+<td>C003</td>
+<td>D001</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>DimSum(DishID, DishName)</em>:</p>
+<div id="52ef08cf" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">DishName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D001</td>
+<td>Siu Mai</td>
+</tr>
+<tr class="even">
+<td>D002</td>
+<td>Har Gow</td>
+</tr>
+<tr class="odd">
+<td>D003</td>
+<td>Char Siu Bao</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div class="guide-block-right">
+<p>Find the customers who have ordered all dim sum dishes:</p>
+<div id="b2aec515" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">CustomerID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C002</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This query performs a <strong>division</strong> operation to find customers who have ordered <strong>all</strong> the dim sum dishes listed in the <code>DimSum</code> table. The result shows only those customers (in this case, <code>CustomerID: C002</code>) who have ordered all available dishes.</p>
+<ul>
+<li>The <code>CustomerID</code> of the customer(s) who ordered every dim sum dish (from the <code>DimSum</code> table) will be displayed.</li>
+</ul>
+</div>
+</section>
 </section>
 <section id="practical-use-case-for-division" class="level2">
 <h2 class="anchored" data-anchor-id="practical-use-case-for-division">Practical Use Case for Division</h2>

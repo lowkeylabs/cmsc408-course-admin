@@ -17,25 +17,35 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'Homework 3 - personal study guide is due',
-    'Quiz 3 (Relational Algebra) is due'
+    '[Quiz 3 - Due next Monday, 9/23](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521)',
+    '[Practice Quiz 3 - as many times as you need!](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707)',  
+    '[Homework 3 - YOUR personal study guide](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966521)',
+    '[Relational Algebra Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/relational-models/)'
 ]
 
 lecture_topics = [
-    'Practice session'
+    '[Set operations](#set-operations)',
+    '[Join operations](#join-operations)',
+    '[Renaming and Division operations](#renaming-and-division)',
+    '[Practice Quiz](#practice-quiz)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-## Worked problems for Practice quiz
-
-During class we worked questions from the practice quiz 3.
-
-Refer to the video for details.
-
+{{< include ../../topics/_set-operations.qmd >}}
 {{< include ../../topics/_join-operations.qmd >}}
 {{< include ../../topics/_renaming-and-division.qmd >}}
+
+# Practice Quiz
+
+## Practice Quiz
+
+<center>
+We spent time working problems on the quiz.
+
+<https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707>
+</center>
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

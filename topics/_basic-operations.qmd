@@ -15,12 +15,6 @@ Relational algebra is a formal system for manipulating relations, foundational f
   margin-left: 15px;
   margin-bottom: 15px;
 }
-.no-stretch {
-//  max-width: 600px;   /* Prevents the figure from expanding beyond 600px */
-//  width: 100%;
-//  height: auto  !important;     /* Maintains the aspect ratio */
-  margin: 0 auto;     /* Centers the figure */
-}
 </style>
 ```
 
@@ -540,15 +534,7 @@ The union operation combines tuples from two relations, eliminating duplicates. 
 :::
 ::: {.column width=6%}
 :::
-::: {.column width=47% .no-stretch}
-
-**Examples**
-
-1. *Courses1* ∪ *Courses2*
-
-1. *Courses1* ∪ *Courses3*
-
-<div class="no-stretch">
+::: {.column width=47%}
 ```{python}
 #| echo: false
 import matplotlib.pyplot as plt
@@ -575,16 +561,17 @@ venn.get_label_by_id('11').set_text('')
 # Make the background transparent
 plt.gca().set_facecolor('none')
 
-# Get the current axes and set the aspect ratio
-#plt.gca().set_aspect('equal')  # 'equal' ensures that one unit on the x-axis is the same length as one unit on the y-axis
-
 # Display the plot
 plt.title('A ∪ B')
 plt.show()
 
 ```
-</div>
 
+**Examples**
+
+1. *Courses1* ∪ *Courses2*
+
+1. *Courses1* ∪ *Courses3*
 :::
 ::::
 

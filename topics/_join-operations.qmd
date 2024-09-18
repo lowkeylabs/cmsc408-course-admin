@@ -124,6 +124,125 @@ $$
 
 This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.
 
+```{python}
+#| echo: false
+data = {
+    'VID': ['V10101', 'V10102', 'V10103', 'V10104'],
+    'Name': ['Alice', 'Bob', 'Carol', 'Dave'],
+    'Major': ['CS', 'Math', 'CS', 'Physics'],
+}
+students = pd.DataFrame(data)
+
+data = {
+    'VID': ['V10101', 'V10103', 'V10105'],
+    'Course': ['CMSC460', 'CMSC455', 'CMSC420'],
+    'Term': ['Spring 2024', 'Spring 2024', 'Spring 2024'],
+    'Enrl': [100, 150, 120]
+}
+enrollments = pd.DataFrame(data)
+
+```
+
+
+
+## Inner Join - ⋈ - Example 1
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Students(VID,Name,Major)*:
+
+```{python}
+#| echo: false
+show_df(students)
+```
+
+and *Enrollments(VID,Course,Term,Enrl)*:
+
+```{python}
+#| echo: false
+show_df(enrollments)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+**Find all the data for students enrolled in classes**
+
+*Students* ⋈ (*VID*) *Enrollments*;
+
+```{python}
+#| echo: false
+inner_join = pd.merge(students, enrollments, on='VID', how='inner')
+show_df(inner_join)
+```
+
+- This list does not include students who don't have enrollments, nor
+  enrollments with students not found in the relation.
+
+- What is the cardinality and participation?
+:::
+::::
+
+<!-- -->
+
+```{python}
+#| echo: false
+data = {
+    'DishID': ['D001', 'D002', 'D003', 'D004'],
+    'Dish': ['Samosa', 'Butter Chicken', 'Naan', 'Paneer Tikka'],
+    'Price': [2.5, 10.0, 1.5, 8.0],
+}
+menu = pd.DataFrame(data)
+
+data = {
+    'OrderID': ['O1001', 'O1002', 'O1003'],
+    'DishID': ['D001', 'D003', 'D005'],
+    'Quantity': [2, 3, 1]
+}
+orders = pd.DataFrame(data)
+```
+
+
+
+## Inner Join - ⋈ - Example 2
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Menu(DishID, Dish, Price)*:
+
+```{python}
+#| echo: false
+show_df(menu)
+```
+
+and *Orders(OrderID, DishID, Quantity)*:
+
+```{python}
+#| echo: false
+show_df(orders)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Menu* ⋈ (*DishID*) *Orders* returns:
+
+```{python}
+#| echo: false
+inner_join_food = pd.merge(menu, orders, on='DishID', how='inner')
+show_df(inner_join_food)
+```
+
+This example demonstrates how an inner join will return only the dishes from the `orders` that exist in the `menu`, leaving out any ordered dishes that are not on the menu (like `DishID: D005`).
+:::
+::::
+
+<!-- -->
+
 
 
 ## Outer Join: Introduction and Types
@@ -163,9 +282,9 @@ Outer join returns all tuples from one or both relations, filling in missing val
 
 $$
 \begin{aligned}
-R_1 \text{⟕}_{cond} R_2 = &\{ t_1 , t_2 \mid (t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } cond(t_1, t_2)) \} \\
-&\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
-&\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+R_1 \text{⟕}_{condition} R_2 = &{ t_1 , t_2 \mid (t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2)) } \
+&\cup { t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 } \
+&\cup { t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 }
 \end{aligned}
 $$
 
@@ -235,6 +354,118 @@ $$
 - **Outer join with an empty set**: In left and right outer joins, the non-empty relation is returned with `NULL` values in place of the missing relation. For full outer joins, both relations contribute to the result, filling unmatched rows with `NULL`.
 - **Distributive over selection**: Unlike the inner join, selection does not distribute cleanly over outer joins because rows with `NULL` values might be incorrectly excluded if the selection is applied beforehand.
 
+```{python}
+#| echo: false
+data = {
+    'DishID': ['A001', 'A002', 'A003', 'A004'],
+    'Dish': ['Spring Roll', 'Pad Thai', 'Sushi', 'Ramen'],
+    'Price': [5.0, 12.0, 10.0, 8.0],
+}
+menu = pd.DataFrame(data)
+
+data = {
+    'OrderID': ['O2001', 'O2002', 'O2003'],
+    'DishID': ['A001', 'A003', 'A005'],
+    'Quantity': [1, 2, 1]
+}
+orders = pd.DataFrame(data)
+```
+
+
+
+## Left Outer Join - ⟕ - Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Menu(DishID, Dish, Price)*:
+
+```{python}
+#| echo: false
+show_df(menu)
+```
+
+and *Orders(OrderID, DishID, Quantity)*:
+
+```{python}
+#| echo: false
+show_df(orders)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Menu* ⟕ *Orders* on *DishID* returns:
+
+```{python}
+#| echo: false
+left_outer_join_food = pd.merge(menu, orders, on='DishID', how='left')
+show_df(left_outer_join_food)
+```
+
+This example shows how a left outer join includes **all rows from the left table** (`Menu`), and the matching rows from the right table (`Orders`). If there is no match, `NULL` (or `NaN` in pandas) values are returned for the columns from the right table. Here, the `DishID: A005` from the `Orders` table does not exist in the `Menu`, so it is not included in the result, but all menu items are shown, regardless of whether they are ordered.
+:::
+::::
+
+<!-- -->
+
+```{python}
+#| echo: false
+data = {
+    'DishID': ['A001', 'A002', 'A003', 'A004'],
+    'Dish': ['Spring Roll', 'Pad Thai', 'Sushi', 'Ramen'],
+    'Price': [5.0, 12.0, 10.0, 8.0],
+}
+menu = pd.DataFrame(data)
+
+data = {
+    'OrderID': ['O2001', 'O2002', 'O2003'],
+    'DishID': ['A001', 'A003', 'A005'],
+    'Quantity': [1, 2, 1]
+}
+orders = pd.DataFrame(data)
+```
+
+
+
+## Right Outer Join - ⟖ - Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Menu(DishID, Dish, Price)*:
+
+```{python}
+#| echo: false
+show_df(menu)
+```
+
+and *Orders(OrderID, DishID, Quantity)*:
+
+```{python}
+#| echo: false
+show_df(orders)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Menu* ⟖ *Orders* on *DishID* returns:
+
+```{python}
+#| echo: false
+right_outer_join_food = pd.merge(menu, orders, on='DishID', how='right')
+show_df(right_outer_join_food)
+```
+
+This example demonstrates how a right outer join includes **all rows from the right table** (`Orders`), and the matching rows from the left table (`Menu`). If there is no match, `NULL` (or `NaN` in pandas) values are returned for the columns from the left table. Here, the `DishID: A005` from the `Orders` table does not exist in the `Menu`, so its corresponding `Dish` and `Price` columns have `NaN` values, but all orders are shown, even if the dish is not found on the menu.
+:::
+::::
+
+<!-- -->
+
 
 
 ## Full Outer Join: Combining Data
@@ -274,9 +505,9 @@ Full outer join returns all tuples from both relations, filling missing values w
 
 $$
 \begin{aligned}
-R_1  \text{⟗}_{condition}  R_2 = &\{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2) \} \\
-&\cup \{ t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 \} \\
-&\cup \{ t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 \}
+R_1  \text{⟗}_{condition}  R_2 = &{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2) } \
+&\cup { t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 } \
+&\cup { t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 }
 \end{aligned}
 $$
 
@@ -337,6 +568,122 @@ $$
 - **Full outer join with an empty set**: If either relation is empty, the result includes all rows from the non-empty relation, with the other side padded with `NULL`.
 - **Distributive over union**: Full outer join distributes over union, meaning you can break the join into smaller unions and join them separately.
 - **Size of result**: The result contains all rows from both relations, so the number of rows is at most the sum of rows in $R_1$ and $R_2$, with `NULL` values used for non-matching rows.
+
+Here's an example using a soccer team to demonstrate a **Full Outer Join**:
+
+```{python}
+#| echo: false
+data = {
+    'PlayerID': ['P001', 'P002', 'P003', 'P004'],
+    'PlayerName': ['John', 'Alex', 'Max', 'Luke'],
+    'Position': ['Forward', 'Midfielder', 'Defender', 'Goalkeeper'],
+}
+players = pd.DataFrame(data)
+
+data = {
+    'TeamID': ['T001', 'T002', 'T003', 'T004'],
+    'PlayerID': ['P001', 'P003', 'P005', 'P006'],
+    'TeamName': ['Tigers', 'Lions', 'Bears', 'Wolves']
+}
+teams = pd.DataFrame(data)
+```
+
+
+
+## Full Outer Join - ⋈ - Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Players(PlayerID, PlayerName, Position)*:
+
+```{python}
+#| echo: false
+show_df(players)
+```
+
+and *Teams(TeamID, PlayerID, TeamName)*:
+
+```{python}
+#| echo: false
+show_df(teams)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Players* ⋈ *Teams* on *PlayerID* returns:
+
+```{python}
+#| echo: false
+full_outer_join_soccer = pd.merge(players, teams, on='PlayerID', how='outer')
+show_df(full_outer_join_soccer)
+```
+
+This example demonstrates how a full outer join combines all rows from both tables (`Players` and `Teams`), with matches being displayed where available. If a player does not belong to a team or a team does not have a listed player, `NULL` (or `NaN` in pandas) values are filled in for missing information. For example, players `P005` and `P006` exist only in the `Teams` table, and players `P002` and `P004` exist only in the `Players` table. The full outer join will include all records from both tables.
+:::
+::::
+
+<!-- -->
+
+Here's another example using cameras and images to demonstrate a **Full Outer Join**:
+
+```{python}
+#| echo: false
+data = {
+    'CameraID': ['C001', 'C002', 'C003', 'C004'],
+    'CameraModel': ['Canon EOS', 'Nikon D3500', 'Sony Alpha', 'Fujifilm XT3'],
+    'LensType': ['50mm', '18-55mm', '35mm', '24-70mm'],
+}
+cameras = pd.DataFrame(data)
+
+data = {
+    'ImageID': ['I001', 'I002', 'I003', 'I004'],
+    'CameraID': ['C001', 'C003', 'C005', 'C006'],
+    'ImageDescription': ['Landscape', 'Portrait', 'Macro', 'Night Sky']
+}
+images = pd.DataFrame(data)
+```
+
+
+
+## Full Outer Join - ⋈ - Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Cameras(CameraID, CameraModel, LensType)*:
+
+```{python}
+#| echo: false
+show_df(cameras)
+```
+
+and *Images(ImageID, CameraID, ImageDescription)*:
+
+```{python}
+#| echo: false
+show_df(images)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Cameras* ⋈ (*CameraID*) *Images* returns:
+
+```{python}
+#| echo: false
+full_outer_join_cameras = pd.merge(cameras, images, on='CameraID', how='outer')
+show_df(full_outer_join_cameras)
+```
+
+This full outer join combines all rows from both the `Cameras` and `Images` tables. Where there is a matching `CameraID`, the corresponding camera and image details are shown. For unmatched `CameraID`s (such as `C005` and `C006` from the `Images` table and `C002` and `C004` from the `Cameras` table), `NULL` (or `NaN`) values fill in the missing data. This query provides a complete view of all cameras and all images, regardless of whether they have a match in the other table.
+:::
+::::
+
+<!-- -->
 
 
 
@@ -431,7 +778,122 @@ $$
 - **Natural join distributes over selection**: You can apply a selection condition to one relation before performing the natural join without affecting the outcome, provided the condition applies only to attributes from that relation.
 - **Size of result**: The result includes all rows from both relations where the values of common attributes match, and the number of matching rows determines the size of the result.
 
-This explanation of the natural join aligns with the structure of previous relational algebra operations, capturing the key properties and behavior of the natural join in relational algebra.
+Here’s an example using a **Natural Join** with a kennel and dog data set.
+
+```{python}
+#| echo: false
+data = {
+    'DogID': ['D101', 'D102', 'D103', 'D104'],
+    'Name': ['Buddy', 'Bella', 'Charlie', 'Lucy'],
+    'Breed': ['Labrador', 'Beagle', 'Poodle', 'Bulldog'],
+    'Age': [3, 4, 2, 5],
+}
+dogs = pd.DataFrame(data)
+
+data = {
+    'DogID': ['D101', 'D103', 'D105'],
+    'KennelID': ['K001', 'K002', 'K003'],
+    'ArrivalDate': ['2024-01-10', '2024-02-15', '2024-03-20']
+}
+kennels = pd.DataFrame(data)
+```
+
+
+
+## Natural Join Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Dogs(DogID, Name, Breed, Age)*:
+
+```{python}
+#| echo: false
+show_df(dogs)
+```
+
+and *Kennels(DogID, KennelID, ArrivalDate)*:
+
+```{python}
+#| echo: false
+show_df(kennels)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Dogs* $\bowtie$ *Kennels* on *DogID* returns:
+
+```{python}
+#| echo: false
+natural_join_kennel = pd.merge(dogs, kennels, on='DogID', how='inner')
+show_df(natural_join_kennel)
+```
+
+In a **Natural Join**, the join is based on columns with the same name and automatically combines rows with matching values in those columns. In this case, both tables have the column `DogID`, so a natural join combines the `dogs` and `kennels` data where `DogID` matches. Only the dogs with a corresponding kennel entry (`DogID: D101` and `D103`) are included in the result, while unmatched dogs and kennels are excluded.
+:::
+::::
+
+<!-- -->
+
+```{python}
+#| echo: false
+data = {
+    'BusID': ['B001', 'B002', 'B003', 'B004'],
+    'Route': ['101', '102', '103', '104'],
+    'Capacity': [50, 45, 60, 40],
+    'DriverID': ['D001', 'D002', 'D003', 'D004'],
+}
+buses = pd.DataFrame(data)
+
+data = {
+    'PassengerID': ['P101', 'P102', 'P103', 'P104'],
+    'BusID': ['B001', 'B003', 'B002', 'B005'],
+    'DriverID': ['D001', 'D003', 'D002', 'D006'],
+    'Seat': [12, 18, 9, 5]
+}
+passengers = pd.DataFrame(data)
+```
+
+
+
+## Natural Join - Example with Two Overlapping Columns
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Buses(BusID, Route, Capacity, DriverID)*:
+
+```{python}
+#| echo: false
+show_df(buses)
+```
+
+and *Passengers(PassengerID, BusID, DriverID, Seat)*:
+
+```{python}
+#| echo: false
+show_df(passengers)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Buses* $\bowtie$ *Passengers* on *BusID* and *DriverID* returns:
+
+```{python}
+#| echo: false
+natural_join_bus_passenger = pd.merge(buses, passengers, on=['BusID', 'DriverID'], how='inner')
+show_df(natural_join_bus_passenger)
+```
+
+In this **Natural Join**, we are joining on two columns that both tables have in common: `BusID` and `DriverID`. The join automatically combines rows where both the `BusID` **and** `DriverID` match. This natural join will return only rows where both the bus and passenger data have matching `BusID` and `DriverID`. In this case, it will exclude any buses or passengers where these two columns do not match simultaneously.
+:::
+::::
+
+<!-- -->
 
 
 
@@ -529,6 +991,125 @@ $$
 - **Size of result**: The number of rows in the result depends on how many rows from $R_1$ and $R_2$ satisfy the condition $\theta$.
 
 This structure mirrors the format of previous relational algebra operations, focusing on the flexibility and behavior of the theta join, where any comparison operator can be used in the join condition.
+
+Here’s an example of a **Theta Join** using an authors and books model. In this case, the Theta Join will be based on a condition, such as comparing the number of books an author has written to a certain threshold.
+
+```{python}
+#| echo: false
+data = {
+    'AuthorID': ['A001', 'A002', 'A003', 'A004'],
+    'AuthorName': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'BooksWritten': [5, 2, 8, 3]
+}
+authors = pd.DataFrame(data)
+
+data = {
+    'BookID': ['B001', 'B002', 'B003', 'B004'],
+    'AuthorID': ['A001', 'A002', 'A003', 'A003'],
+    'Title': ['Data Science 101', 'Math Fundamentals', 'Advanced Python', 'Machine Learning']
+}
+books = pd.DataFrame(data)
+```
+
+
+
+## Theta Join Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Authors(AuthorID, AuthorName, BooksWritten)*:
+
+```{python}
+#| echo: false
+show_df(authors)
+```
+
+and *Books(BookID, AuthorID, Title)*:
+
+```{python}
+#| echo: false
+show_df(books)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Authors* ⨝ θ *Books* where *BooksWritten > 3*:
+
+```{python}
+#| echo: false
+theta_join_authors_books = pd.merge(authors[authors['BooksWritten'] > 3], books, on='AuthorID', how='inner')
+show_df(theta_join_authors_books)
+```
+
+In this **Theta Join**, we apply a condition (`BooksWritten > 3`) to filter the authors, then join the result with the `Books` table on the common column `AuthorID`. This example only includes authors who have written more than 3 books and returns their associated books.
+:::
+::::
+
+<!-- -->
+
+Here’s another example of a **Theta Join** using a video game store and video game model. This Theta Join will be based on a condition, such as comparing the price of video games to a certain threshold.
+
+```{python}
+#| echo: false
+data = {
+    'StoreID': ['S001', 'S002', 'S003'],
+    'StoreName': ['Game Galaxy', 'Retro Station', 'Pixel Paradise'],
+    'Location': ['Downtown', 'Suburbs', 'City Center'],
+}
+stores = pd.DataFrame(data)
+
+data = {
+    'GameID': ['G001', 'G002', 'G003', 'G004'],
+    'StoreID': ['S001', 'S001', 'S002', 'S003'],
+    'GameTitle': ['Super Smash', 'Zelda Quest', 'Mario Kart', 'Fortnite'],
+    'Price': [60, 50, 55, 20]
+}
+games = pd.DataFrame(data)
+```
+
+
+
+## Theta Join Example 2
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Stores(StoreID, StoreName, Location)*:
+
+```{python}
+#| echo: false
+show_df(stores)
+```
+
+and *Games(GameID, StoreID, GameTitle, Price)*:
+
+```{python}
+#| echo: false
+show_df(games)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Stores* ⨝ θ (*Price > 50*) *Games* return :
+
+```{python}
+#| echo: false
+theta_join_stores_games = pd.merge(stores, games[games['Price'] > 50], on='StoreID', how='inner')
+show_df(theta_join_stores_games)
+```
+
+In this **Theta Join**, we apply a condition (`Price > 50`) to filter the video games, then join the result with the `Stores` table on the common column `StoreID`. This example only includes games that are priced above $50 and returns the store details for those games.
+
+For instance, only games like `Super Smash` and `Mario Kart` will be included in the result, along with the corresponding stores. Games priced $50 or below (like `Fortnite`) are excluded from the result.
+:::
+::::
+
+<!-- -->
 
 
 

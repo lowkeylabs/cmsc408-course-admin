@@ -62,7 +62,7 @@ website:
         - href: ./relational-models/join-operations.qmd
           text: Join Operations*
         - href: ./relational-models/renaming-and-division.qmd
-          text: Renaming and Division
+          text: Renaming and Division*
         - href: ./relational-models/relational-algebra-vs-sql.qmd
           text: Relational algebra vs SQL
         - href: ./relational-models/advanced-queries.qmd

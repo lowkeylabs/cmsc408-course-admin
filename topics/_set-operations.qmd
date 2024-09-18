@@ -29,6 +29,50 @@ Set theory is a fundamental concept in relational algebra, providing the basis f
 
 <!-- -->
 
+```{python}
+#| echo: false
+import pandas as pd
+from tabulate import tabulate
+from IPython.display import display, Markdown, HTML
+
+
+def show_df( df, width="80%" ):
+#   display(Markdown(df.to_markdown(index=False)))
+#   print("<center>")
+#   print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False))   
+#   print("</center>")
+   html_table = df.drop_duplicates().to_html(index=False)
+
+   # Define the HTML with centered table and 75% width
+   html_content = f"""
+   <div style="text-align: center;">
+      <div style="display: inline-block; width: {width};">
+         {html_table}
+      </div>
+   </div>
+"""
+   display(HTML(html_content))
+
+
+d1 = {
+    'Course': ['CMSC301', 'CMSC408',  'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024', 'Fall 2023'],
+}
+d2 = {
+    'Course': ['CMSC110', 'CMSC201',  'CMSC475', 'CMSC408'],
+    'Term': ['Fall 2024','Fall 2024', 'Fall 2023','Fall 2024'],
+}
+d3 = {
+   'Term': ['Fall 2022','Fall 2023','Fall 2024'],
+   'Term_code': ['202310','202410','202510']
+}
+
+df1 = pd.DataFrame( d1 )
+df2 = pd.DataFrame( d2 )
+df3 = pd.DataFrame( d3 )
+
+```
+
 
 
 ## Intersection Operation in Relational Algebra
@@ -51,9 +95,46 @@ The intersection operation retrieves rows that are common to two relations. It i
 ::: {.column width=6%}
 :::
 ::: {.column width=47%}
-![](./assets/venn-intersection.png)
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2
+
+# Define the two sets
+set_A = {1, 2, 3, 4}
+set_B = {4, 5, 6, 7}
+
+# Create the Venn diagram with custom colors
+venn = venn2([set_A, set_B], set_labels=('Set A', 'Set B'))
+
+venn.get_patch_by_id('10').set_color('white')
+venn.get_patch_by_id('11').set_color('lightblue')
+venn.get_patch_by_id('01').set_color('white')
+
+# Set all patches to 'lightblue' color
+for subset in ('10', '01', '11'):
+    venn.get_patch_by_id(subset).set_edgecolor('black')  # Thin black borders
+    venn.get_patch_by_id(subset).set_linewidth(1.5)      # Adjust the border width
+
+
+# Remove the default labels for A and B
+venn.get_label_by_id('10').set_text('')
+venn.get_label_by_id('01').set_text('')
+venn.get_label_by_id('11').set_text('')
+
+# Make the background transparent
+plt.gca().set_facecolor('none')
+
+# Display the plot
+plt.title('A ∩ B')
+plt.show()
+```
 
 **Examples**
+
+Given two relations *Students(ID,Name,Major)* and *Registered(ID,Name,Major)*,
+
+The following are valid examples of the $\cap$ in unicode:
 
 1. Students ∩ Registered
 
@@ -138,6 +219,44 @@ $$
 
 
 
+## Intersection - ∩ - Example 1
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Courses1( Course,Term)*:
+
+```{python}
+#| echo: false
+show_df(df1)
+```
+
+and *Courses2( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df2)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Courses1* $\cap$ *Courses2* returns:
+
+```{python}
+#| echo: false
+new_df = pd.concat( [df1, df2] )
+new_df = pd.merge(df1, df2, how='inner')
+show_df( new_df )
+```
+:::
+::::
+
+<!-- -->
+
+
+
 ## Difference in Relational Algebra
 
 
@@ -145,17 +264,50 @@ Difference in relational algebra subtracts one relation from another, returning 
 
 
 :::: {.columns}
-::: {.column width=98%}
+::: {.column width=47%}
 - The difference operation returns tuples that are in one relation but not in the other.
 - It is often used to filter out unwanted data from a larger dataset.
 - The relations must have the same schema for the difference operation to be valid.
 - This operation can help isolate unique data points in a relation.
 - The result is a relation that includes only the data exclusive to the first set.
 :::
-::: {.column width=1%}
+::: {.column width=6%}
 :::
-::: {.column width=1%}
+::: {.column width=47%}
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2
 
+# Define the two sets
+set_A = {1, 2, 3, 4}
+set_B = {4, 5, 6, 7}
+
+# Create the Venn diagram with custom colors
+venn = venn2([set_A, set_B], set_labels=('Set A', 'Set B'))
+
+venn.get_patch_by_id('10').set_color('lightblue')
+venn.get_patch_by_id('11').set_color('white')
+venn.get_patch_by_id('01').set_color('white')
+
+# Set all patches to 'lightblue' color
+for subset in ('10', '01', '11'):
+    venn.get_patch_by_id(subset).set_edgecolor('black')  # Thin black borders
+    venn.get_patch_by_id(subset).set_linewidth(1.5)      # Adjust the border width
+
+
+# Remove the default labels for A and B
+venn.get_label_by_id('10').set_text('')
+venn.get_label_by_id('01').set_text('')
+venn.get_label_by_id('11').set_text('')
+
+# Make the background transparent
+plt.gca().set_facecolor('none')
+
+# Display the plot
+plt.title('A - B')
+plt.show()
+```
 :::
 ::::
 
@@ -234,104 +386,83 @@ $$
 
 
 
-## Cartesian Product in Relational Algebra
-
-
-The Cartesian product operation combines all tuples from two relations, creating a new relation with every possible pair of tuples.
-
-
-:::: {.columns}
-::: {.column width=98%}
-- Cartesian product pairs each tuple from the first relation with every tuple from the second.
-- The result relation includes all combinations of rows from both input relations.
-- The schema of the result is the combination of the schemas from both relations.
-- This operation can produce very large results if both relations have many tuples.
-- Cartesian product is a foundation for join operations in relational databases.
-:::
-::: {.column width=1%}
-:::
-::: {.column width=1%}
-
-:::
-::::
-
-<!-- -->
-
-*Cartesian product provides the basis for combining relations, though it may require filtering for meaningful results.*
-
-Here’s the definition and properties of the **Cartesian product** operation in relational algebra, formatted similarly to the template provided:
-
-
-
-## Properties of the Cartesian Product Operator
+## Difference - $-$ - Example 1
 
 
 
 :::: {.columns}
 ::: {.column width=47%}
-**Definition**
+Given *Courses1( Course,Term)*:
 
-$$
-R_1 \times R_2 = { t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 }
-$$
+```{python}
+#| echo: false
+show_df(df1)
+```
 
-- where $t_1$ is a row (tuple) from relation $R_1$,
-- $t_2$ is a row (tuple) from relation $R_2$,
-- The Cartesian product returns a new relation formed by concatenating every row from $R_1$ with every row from $R_2$,
-- The result contains all possible combinations of tuples from both relations.
+and *Courses2( Course,Term )*:
+
+```{python}
+#| echo: false
+show_df(df2)
+```
 :::
 ::: {.column width=6%}
 :::
 ::: {.column width=47%}
-**Properties**
+*Courses1* $-$ *Courses2* returns:
 
-- **Non-commutative** – The order of the relations matters in the Cartesian product:
+```{python}
+#| echo: false
+difference = pd.merge(df1, df2, how='left', indicator=True)
 
-$$
-R_1 \times R_2 \neq R_2 \times R_1
-$$
-(unless $R_1$ and $R_2$ are identical and have the same attributes)
+# Keep only the rows that are unique to df1
+df1_minus_df2 = difference[difference['_merge'] == 'left_only'].drop(columns=['_merge'])
 
-- **Associative** – The grouping of Cartesian product operations doesn't affect the result:
+show_df( df1_minus_df2 )
+```
+:::
+::::
 
-$$
-(R_1 \times R_2) \times R_3 = R_1 \times (R_2 \times R_3)
-$$
+<!-- -->
 
-- **Cartesian product with an empty set** – The Cartesian product with an empty relation results in an empty set:
+## Difference - $-$ - Example 2
 
-$$
-R \times \emptyset = \emptyset
-$$
+:::: {.columns}
+::: {.column width=47%}
+Given *Courses1( Course,Term)*:
 
-- **Distributive over union** – The Cartesian product distributes over union:
+```{python}
+#| echo: false
+show_df(df1)
+```
 
-$$
-R_1 \times (R_2 \cup R_3) = (R_1 \times R_2) \cup (R_1 \times R_3)
-$$
+and *Courses2( Course,Term )*:
 
-- **Size of result** – The number of rows in the result is the product of the number of rows in the input relations:
+```{python}
+#| echo: false
+show_df(df2)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+*Courses2* $-$ *Courses1* returns:
 
-$$
-|R_1 \times R_2| = |R_1| \times |R_2|
-$$
+```{python}
+#| echo: false
+difference = pd.merge(df2, df1, how='left', indicator=True)
+
+# Keep only the rows that are unique to df1
+df2_minus_df1 = difference[difference['_merge'] == 'left_only'].drop(columns=['_merge'])
+
+show_df( df2_minus_df1 )
+```
 :::
 ::::
 
 <!-- -->
 
 
-
-## Explanation of properties
-
-
-- **Non-commutative**: The order in which the relations are combined affects the resulting tuples (since concatenating $t_1$ with $t_2$ is different from $t_2$ with $t_1$).
-- **Associative**: You can group Cartesian product operations in any way, and the result will be the same.
-- **Cartesian product with an empty set**: If either relation is empty, the result will be empty because there are no tuples to pair.
-- **Distributive over union**: Cartesian product distributes over union, allowing you to break down the product into individual components and combine them after applying the product.
-- **Size of result**: The Cartesian product increases the number of rows, multiplying the rows of $R_1$ by the rows of $R_2$.
-
-This definition and properties align with the structure of other relational operations while explaining the Cartesian product in relational algebra.
 
 
 

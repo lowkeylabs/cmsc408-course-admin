@@ -255,6 +255,73 @@ Division can be represented using the `/` operator between two relations. Unders
 
 *The division operator retrieves records that match a complete set of conditions across relations.*
 
+Here’s the **division** relational operator example using the template format you provided earlier:
+
+```{python}
+#| echo: false
+data_customers = {
+    'CustomerID': ['C001', 'C001', 'C002', 'C002', 'C002', 'C003'],
+    'DishID': ['D001', 'D002', 'D001', 'D002', 'D003', 'D001']
+}
+customers = pd.DataFrame(data_customers)
+
+data_dimsum = {
+    'DishID': ['D001', 'D002', 'D003'],
+    'DishName': ['Siu Mai', 'Har Gow', 'Char Siu Bao']
+}
+dimsum = pd.DataFrame(data_dimsum)
+```
+
+
+
+## Division - ÷ - Example
+
+
+
+:::: {.columns}
+::: {.column width=47%}
+Given *Customers(CustomerID, DishID)*:
+
+```{python}
+#| echo: false
+show_df(customers)
+```
+
+and *DimSum(DishID, DishName)*:
+
+```{python}
+#| echo: false
+show_df(dimsum)
+```
+:::
+::: {.column width=6%}
+:::
+::: {.column width=47%}
+Find the customers who have ordered all dim sum dishes:
+
+```{python}
+#| echo: false
+# First, group by CustomerID and find the unique DishID each customer has ordered
+customer_orders = customers.groupby('CustomerID')['DishID'].apply(set).reset_index()
+
+# Get the set of all dim sum dishes
+all_dimsum_dishes = set(dimsum['DishID'])
+
+# Filter customers who have ordered all dim sum dishes
+customers_with_all_dimsum = customer_orders[customer_orders['DishID'].apply(lambda x: all_dimsum_dishes.issubset(x))]
+
+# Show the resulting customers
+show_df(customers_with_all_dimsum[['CustomerID']])
+```
+
+This query performs a **division** operation to find customers who have ordered **all** the dim sum dishes listed in the `DimSum` table. The result shows only those customers (in this case, `CustomerID: C002`) who have ordered all available dishes.
+
+- The `CustomerID` of the customer(s) who ordered every dim sum dish (from the `DimSum` table) will be displayed.
+:::
+::::
+
+<!-- -->
+
 
 
 ## Practical Use Case for Division
