@@ -1,7 +1,7 @@
 ---
 date: 10/2/2024
 lecture-id: 12
-title: Analysis and Normal Forms 3
+title: Analysis and Normal Forms 4
 ---
 
 ```{python}
