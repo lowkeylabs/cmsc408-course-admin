@@ -85,7 +85,7 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 ```{dot}
 //| echo: false
 //| fig-width: 800px
-//| fig-height: 100px
+//| fig-height: 800px
 digraph G {
     node [shape=ellipse]; // Set the shape of nodes to ellipses
     bgcolor="#00000000";
@@ -161,12 +161,13 @@ $X \rightarrow Y$ in $F_{min}^+$:
 * $Y \subseteq X$ (the trival FD), **OR**
 * $X$ is a superkey for $R$
 
-A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency $A \rightarrow B$, $A$ is a superkey.
+A relation is in BCNF if and only if it is in *3NF*, and for every non-trivial functional dependency $A \rightarrow B$, $A$ is a superkey.
 
 :::
 ::: {.column width=50%}
 ### Terms
-::: {style="font-size:11.5pt; margin-top:-12px"}
+
+::: {style="font-size:11.5pt; margin-top:-10px"}
 * Schemas and relations
 * Functional dependencies
 * Keys: Superkey, key, composite key
@@ -176,11 +177,12 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 * Minimum candidate keys
 * $F_{min}^+$ - minimal cover set
 :::
+
 :::
 ::::
 
-<p>&nbsp;</p>
 ### Non-composite key: $A \rightarrow {B,C,D}$
+
 ```{dot}
 //| echo: false
 //| fig-width: 800px
@@ -203,14 +205,16 @@ digraph G {
 ```
 
 ::: {style="text-align:center"}
-*The superkey, the whole key, and nothing but the key, so help me Codd!*
+***The superkey, the whole key, and nothing but the key, so help me Codd!***
 :::
 
 ## Boyce-Codd Normal Form (BCNF) - An algorithm
 
 :::: {.columns}
 ::: {.column width=45%}
+
 ### Algorithm
+
 Repeat for each relation $R$ in schema $S$:
 
 - Calculate attribute closures ${\{X\}}^+$
@@ -238,43 +242,129 @@ Until all relations $R$ in schema $S$ are BCNF.
 
 ## Boyce-Codd Normal Form (BCNF) - A Worked Example
 
-:::: {.columns}
-::: {.column width=60%}
-
 ::: {style="font-size:10pt"}
 
-| RID  | Course                   | Instructor     | Languages             |
-|------|--------------------------|----------------|-----------------------|
-|  1   | CMSC508 Databases        | John Leonard   | SQL, Python, Perl     |
-|  2   | CMSC508 Databases        | Alberto Cano   | SQL, Python, C++      |
-|  3   | CMSC475 UI/UX design     | John Leonard   | Javascript, Python    |
-|  4   | CMSC441 Capstone         | Bob Dahlberg   | COBOL, FORTRAN        |
-|  5   | CMSC320 Data Structures  | Sarah Adams    | C++, Java, Python     |
-|  6   | CMSC210 Software Design  | Michael Turner | Java, C#              |
-|  7   | CMSC515 Computer Vision  | Emily Parker   | Python, MATLAB        |
-|  8   | CMSC430 Web Development  | Jessica Clark  | HTML, CSS, JavaScript |
-|  9   | CMSC610 Machine Learning | Alberto Cano   | Python, R             |
-
+| EmployeeID | EmployeeName | DepartmentID | DepartmentName | ProjectID | ProjectName | ProjectBudget | Role |
+|------------|--------------|--------------|----------------|-----------|-------------|---------------|------|
+| E001       | Alice        | D01          | Marketing       | P001      | AdCampaign  | 10000         | Lead |
+| E002       | Bob          | D02          | Sales           | P002      | SalesCRM    | 20000         | Lead  |
+| E003       | Alice        | D01          | Marketing       | P002      | SalesCRM    | 20000         | Analyst |
+| E004       | Charlie      | D03          | IT              | P003      | ITInfra     | 15000         | Admin |
+| E002       | Bob          | D02          | Sales           | P001      | AdCampaign  | 10000         | Tester |
 :::
 
-:::
-::: {.column width="39%"}
-The *schema* $S$ on the left consists of one *relation* $R$.
+<p>&nbsp;</p>
+
+:::: {.columns}
+::: {.column width=45%}
+
+### Input
+
+::: {style="font-size:12pt"}
+The *schema* $S$ on consists of one *relation* $R$.
 
 In relational model notation:
 
-* $R( A,B,C,D )$
-* $F( A \rightarrow B,C,D; B,C \rightarrow D )$
+* $R( A,B,C,D,E,F,G,H )$
+* $FD( A \rightarrow B; A \rightarrow C; C \rightarrow D; E \rightarrow F,G )$
 
-Now for some quick math:
+Goal: decompose $S$ to *BCNF*
 
-- [Inside the calculator by Raymond Cho](http://raymondcho.net/RelationalDatabaseTools/RelationalDatabaseTools.html),
+:::
+:::
+::: {.column width=55%}
 
-And the resulting schema in BCNF:
+### Output 
 
-* $R_0(A,B,C)$, and
-* $R_1(B,C,D)$
+::: {style="font-size:12pt"}
+Using the [calculator by Raymond Cho](http://raymondcho.net/RelationalDatabaseTools/RelationalDatabaseTools.html){target="_blank"}, the resulting schema in BCNF:
 
+* $R_0(A,B,C)$ having FD(s): $A \rightarrow B$; $A \rightarrow C$
+* $R_1(C,D)$ having FD(s): $C \rightarrow D$
+* $R_2(E,F,G)$ having FD(s): $E \rightarrow F,G$
+* $R_3(A,E,H)$ having FD(s): (none).  This is the composite minimum key.
+:::
+
+
+:::
+::::
+
+## Boyce-Codd Normal Form (BCNF) - A Worked Example
+
+:::: {.columns}
+::: {.column}
+
+::: {style="font-size:11pt"}
+
+$R_0(A,B,C)$
+
+| EmployeeID | EmployeeName | DepartmentID |
+|------------|--------------|--------------|
+| E001       | Alice        | D01          |
+| E002       | Bob          | D02          |
+| E003       | Alice        | D01          |
+| E004       | Charlie      | D03          |
+
+<p>&nbsp;</p>
+
+$R_2(E,F,G)$
+
+| ProjectID | ProjectName | ProjectBudget |
+|-----------|-------------|---------------|
+| P001      | AdCampaign  | 10000         |
+| P002      | SalesCRM    | 20000         |
+| P003      | ITInfra     | 15000         |
+:::
+
+:::
+::: {.column}
+
+:::: {.columns}
+::: {.column width=40%}
+
+::: {style="font-size:11pt"}
+
+$R_4(H)$
+
+| Role    |
+|---------|
+| Lead    |
+| Analyst |
+| Admin   |
+| Tester  |
+:::
+
+:::
+::: {.column width=40%}
+
+::: {style="font-size:11pt"}
+
+$R_1(C,D)$
+
+   | DepartmentID | DepartmentName |
+   |--------------|----------------|
+   | D01          | Marketing      |
+   | D02          | Sales          |
+   | D03          | IT             |
+:::
+
+:::
+::::
+
+<p>&nbsp;</p>
+
+::: {style="font-size:11pt"}
+
+$R_3(A,E,H)$
+
+| EmployeeID | ProjectID | Role    |
+|------------|-----------|---------|
+| E001       | P001      | Lead    |
+| E002       | P002      | Lead    |
+| E003       | P002      | Analyst |
+| E004       | P003      | Admin   |
+| E002       | P001      | Tester  |
+:::
 
 :::
 ::::

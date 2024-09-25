@@ -1,5 +1,5 @@
 ---
-title: Terms and definitions
+title: BCNF Terms and Definitions
 tasl:
     source: fa2023\lectures\lect09-analysis-and-normal-forms-2.qmd
     tags:
@@ -8,6 +8,6 @@ tasl:
     topic: Terms and definitions
 ---
 
-{{< include '_terms-and-definitions.qmd' >}}
+{{< include '_bcnf-terms-and-definitions.qmd' >}}
 
     
