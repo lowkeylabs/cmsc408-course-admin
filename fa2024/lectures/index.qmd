@@ -78,11 +78,17 @@ print("</div>")
 #| output: asis
 #| label: links
 
-#print("<div class='item-list'>")
-#print("<div class='item'>[Zoom URL](https://vcu.zoom.us/j/87350386497){target='_blank'}</div>")
+print("<div class='item-list'>")
+print("<div class='item'>[Canvas](https://virginiacommonwealth.instructure.com/courses/105097){target='_blank'}</div>")
+print("<div class='item'>[Zoom URL](https://vcu.zoom.us/j/84401855863){target='_blank'}</div>")
+print("<div class='item'>[GH Classroom](https://classroom.github.com/classrooms/24642120-cmsc-408-fall-2024-databases){target='_blank'}</div>")
+print("<div class='item'>[Gradescope](https://www.gradescope.com/courses/813113){target='_blank'}</div>")
+
+
+
 #print("<div class='item'>[P5JS editor](https://editor.p5js.org){target='_blank'}</div>")
 #print("<div class='item'>[Expo snack](https://snack.expo.dev){target='_blank'}</div>")
-#print("</div>")
+print("</div>")
 
 
 print("<div class='item-list'>")

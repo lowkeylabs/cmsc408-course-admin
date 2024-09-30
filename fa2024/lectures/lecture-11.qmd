@@ -17,17 +17,73 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 4 - Normal Forms](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966525){target="_blank"} - Due Sun 10/13',
+    '[Practice Quiz 4](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199708){target="_blank"} - Available now!',
+    '[Project Deliverable 7](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199286){target="_blank"} - Due Fri. 10/4',
+    '[Quiz 4 - Normalization](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199274){target="_blank"} - Due Wed. 10/9',
+    '[Project Deliverable 8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966526){target="_blank"} - Due Sun 10/13'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Project deliverable 8](#project-deliverable-8){target="_blank"}',
+    '[Homework 4 discussion](#homework-4-discussion){target="_blank"}',
+    '[Recognizing BCNF](#recognizing-bcnf)',
+
 ]
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Project Deliverable 8
 
+## Deliverable 8 - discussion
+
+### Problem statement
+
+* [Project Deliverable 8 Statement](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966526){target="_blank"}
+
+### GITHUB Classroom Template
+
+* Deliverable 8 template **Not yet available**
+
+## Deliverable 8 - Examples from Fall 2023
+
+These examples are presented in class - students don't have access to the work of other students.  Please review the [lecture 11 video](https://virginiacommonwealth.instructure.com/courses/105097/pages/lecture-11-video-5?module_item_id=3618784){target="_blank"} to see these!
+
+* [Example 1](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=725440&student_id=62068){target="_blank"}
+* [Example 2](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=725440&student_id=33374){target="_blank"}
+* [Example 3](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=725440&student_id=27452){target="_blank"}
+
+* [Speedgrader](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=725440&student_id=56486){target="_blank"}
+
+
+# Homework 4 discussion
+
+## Homework 4 - discussion
+
+### Problem statement
+
+* [Homework 4 Problem Statement](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966525){target="_blank"}
+
+### GITHUB Classroom Template
+
+* [Homework 4 template](https://classroom.github.com/a/WM1zTPQo){target="_blank"}
+
+* Opened terminal window to download template and review template.
+
+## Homework 4 - Examples from Fall 2023
+
+These examples are presented in class - students don't have access to the work of other students.  Please review the [lecture 11 video](https://virginiacommonwealth.instructure.com/courses/105097/pages/lecture-11-video-5?module_item_id=3618784){target="_blank"} to see these!
+
+* [Example 1](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=732261&student_id=44697){target="_blank"}
+* [Example 2](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=732261&student_id=137482){target="_blank"}
+* [Example 3](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=732261&student_id=100743){target="_blank"}
+
+* [Speedgrader](https://virginiacommonwealth.instructure.com/courses/85746/gradebook/speed_grader?assignment_id=732261)
+
+
+{{< include "../../topics/_recognizing-bcnf.qmd" >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
