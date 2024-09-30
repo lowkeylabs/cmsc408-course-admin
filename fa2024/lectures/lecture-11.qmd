@@ -46,7 +46,13 @@ lecture_topics = [
 
 ### GITHUB Classroom Template
 
-* Deliverable 8 template **Not yet available**
+* The drill is different! You're creating a TEAM repo, not an individual repo.
+
+    - Here is the link: <https://classroom.github.com/a/Y9-sPmBe>{target="_blank"},
+    - ONE person on the team follow the link and ENTERS the team name,
+    - Then they select "accept" - this will create a GROUP repo with the team name,
+    - THEN, other team members follow the link on #1, selecting their team from the list.
+    - Your github URL should look something like: <https://github.com/cmsc-vcu/cmsc408-fa2024-proj-sidecars-and-pbrs>{target="_blank"}.
 
 ## Deliverable 8 - Examples from Fall 2023
 
@@ -71,7 +77,7 @@ These examples are presented in class - students don't have access to the work o
 
 * [Homework 4 template](https://classroom.github.com/a/WM1zTPQo){target="_blank"}
 
-* Opened terminal window to download template and review template.
+* (In class we opened terminal window to download template and review template.  See lecture video.)
 
 ## Homework 4 - Examples from Fall 2023
 
