@@ -26,9 +26,9 @@ discussion_items = [
 ]
 
 lecture_topics = [
-    '[Database Keys](#database-keys){target="_blank"}',
     '[Normalization](#normalization){target="_blank"}',
     '[Boyce-Codd Normal Form](#boyce-codd-normal-form){target="_blank"}',
+    '[Database Keys](#database-keys){target="_blank"}',
     '[Practice Quiz 4](#practice-quiz-4---normalization){target="_blank"}',
     '[Homework 4 worked examples](#homework-4-worked-examples){target="_blank"}',
 
@@ -41,10 +41,6 @@ lecture_topics = [
 
 # Decomplexify Videos
 
-## Database Keys
-
-{{< video https://www.youtube.com/watch?v=8wUUMOKAK-c width=100% height=80% >}}
-
 ## Normalization
 
 {{< video https://www.youtube.com/watch?v=GFQaEYEc8_8 width=100% height=80% >}}
@@ -52,6 +48,10 @@ lecture_topics = [
 ## Boyce-Codd Normal Form
 
 {{< video https://www.youtube.com/watch?v=VWnKUKH4tLg width=100% height=80% >}}
+
+## Database Keys
+
+{{< video https://www.youtube.com/watch?v=8wUUMOKAK-c width=100% height=80% >}}
 
 # Practice Quiz 4 - Normalization
 
