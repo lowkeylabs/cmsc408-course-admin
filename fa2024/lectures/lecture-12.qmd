@@ -14,20 +14,57 @@ housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
-housekeeping_vertical_spacer = "25px"
+housekeeping_vertical_spacer = "5px"
+
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 4 - Normal Forms](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966525){target="_blank"} - Due Sun 10/13',
+    '[Practice Quiz 4](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199708){target="_blank"} - Available now!',
+    '[Project Deliverable 7](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199286){target="_blank"} - Due Fri. 10/4',
+    '[Quiz 4 - Normalization](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199274){target="_blank"} - Due Wed. 10/9',
+    '[Project Deliverable 8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966526){target="_blank"} - Due Sun 10/13'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Database Keys](#database-keys){target="_blank"}',
+    '[Normalization](#normalization){target="_blank"}',
+    '[Boyce-Codd Normal Form](#boyce-codd-normal-form){target="_blank"}',
+    '[Practice Quiz 4](#practice-quiz-4---normalization){target="_blank"}',
+    '[Homework 4 worked examples](#homework-4-worked-examples){target="_blank"}',
+
 ]
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Decomplexify Videos
 
+## Database Keys
+
+{{< video https://www.youtube.com/watch?v=8wUUMOKAK-c width=100% height=80% >}}
+
+## Normalization
+
+{{< video https://www.youtube.com/watch?v=GFQaEYEc8_8 width=100% height=80% >}}
+
+## Boyce-Codd Normal Form
+
+{{< video https://www.youtube.com/watch?v=VWnKUKH4tLg width=100% height=80% >}}
+
+# Practice Quiz 4 - Normalization
+
+## Practice Quiz 4 - Normalization
+
+[![](./assets/quiz-4-first-question.png){ width=700 fig-align="center"}](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199708/take){target="_blank"}
+
+# Homework 4 Worked Examples
+
+## Homework 4 Worked Examples
+
+* [Homework 4 template](https://classroom.github.com/a/WM1zTPQo){target="_blank"}
+
+* (In class we opened terminal window to download template and review template.  See lecture video.)
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
