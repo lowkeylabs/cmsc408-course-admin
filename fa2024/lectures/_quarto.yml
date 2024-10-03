@@ -17,6 +17,7 @@ jupyter: python3
 
 format:
     revealjs:
+        chalkboard: true
         scrollable: true
         auto-stretch: false
         pdf-separate-fragments: false
