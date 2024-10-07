@@ -17,17 +17,27 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 4 - Normal Forms](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966525){target="_blank"} - Due Sun 10/13',
+    '[Practice Quiz 4](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199708){target="_blank"} - Available now!',
+    '[Quiz 4 - Normalization](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199274){target="_blank"} - Due Wed. 10/9',
+    '[Project Deliverable 8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966526){target="_blank"} - Due Sun 10/13'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 4 worked examples](#homework-4-worked-examples){target="_blank"}',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Homework 4 Worked Examples
+
+## Homework 4 Worked Examples
+
+* [Homework 4 template](https://classroom.github.com/a/WM1zTPQo){target="_blank"}
+
+* (In class we opened terminal window to download template and review template.  See lecture video.)
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
