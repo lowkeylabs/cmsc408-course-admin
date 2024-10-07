@@ -79,10 +79,10 @@ print("</div>")
 #| label: links
 
 print("<div class='item-list'>")
-print("<div class='item'>[Canvas](https://virginiacommonwealth.instructure.com/courses/105097){target='_blank'}</div>")
-print("<div class='item'>[Zoom URL](https://vcu.zoom.us/j/84401855863){target='_blank'}</div>")
-print("<div class='item'>[GH Classroom](https://classroom.github.com/classrooms/24642120-cmsc-408-fall-2024-databases){target='_blank'}</div>")
-print("<div class='item'>[Gradescope](https://www.gradescope.com/courses/813113){target='_blank'}</div>")
+print("<div class='item'>[F24 Canvas](https://virginiacommonwealth.instructure.com/courses/105097){target='_blank'}</div>")
+print("<div class='item'>[F24 Zoom URL](https://vcu.zoom.us/j/84401855863){target='_blank'}</div>")
+print("<div class='item'>[F24 GH Classroom](https://classroom.github.com/classrooms/24642120-cmsc-408-fall-2024-databases){target='_blank'}</div>")
+print("<div class='item'>[F24 Gradescope](https://www.gradescope.com/courses/813113){target='_blank'}</div>")
 
 
 
@@ -93,6 +93,7 @@ print("</div>")
 
 print("<div class='item-list'>")
 print("<div class='item'>[Fall 2023](../fa2023/index.html){target='_blank'}</div>")
+print("<div class='item'>[F24 G-drive ](https://drive.google.com/drive/folders/1-vljcqBePkmM5jhK-iALqsV_F1cpbgmD){target='_blank'}</div>")
 print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
 print("<div class='item'>[Topics](../topics/index.html){target='_blank'}</div>")
 print("</div>")
