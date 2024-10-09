@@ -17,17 +17,66 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 4 - Normal Forms](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966525){target="_blank"} - Due Sun 10/13',
+    '[Practice Quiz 4](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199708){target="_blank"} - Available now!',
+    '[Quiz 4 - Normalization](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199274){target="_blank"} - Due TONIGHT, Wed. 10/9',
+    '[Project Deliverable 8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966526){target="_blank"} - Due Sun 10/13'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Review of Homework 4 worked examples](#homework-4-worked-examples){target="_blank"}',
+    '[Discussion of Project Deliverable 8](#deliverable-8-discussion){target="_blank"}',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Homework 4 Worked Examples
 
+## Homework 4 Worked Examples
+
+* [Homework 4 template](https://classroom.github.com/a/WM1zTPQo){target="_blank"}
+
+* (In class we opened terminal window to download template and review template.  See lecture video.)
+
+***Revisit the computer language example - I screwed up the functional dependencies in the last lecture!***
+
+# Deliverable 8 discussion
+
+## Deliverable 8 discussion
+
+:::: {.columns}
+::: {.column width=50%}
+* [Example deliverable 8](./assets/sample-deliverable-08.html){target="_blank"}
+
+### Questions
+ 
+1. Can an Outfit be used by multiple Stylists? 
+1. Can a Client create their own outfits?  That is, can a client be their own stylist?
+1. Can a Stylist be a client?
+1. Can a Client work with multiple Stylists?
+
+How would these change the shape of the database? 
+
+### What else is needed?
+
+* I believe that the report needs some data tables.  *Use ChatGPT to help!*
+
+:::
+::: {.column width=50%}
+### Adding a time component
+
+What happens to this client-stylist-outfit system *over time*?
+
+1. A client might adopt a stylist for a period of time using them for several big events/projects.  Then their tastes change and they switch to another Stylist for another period of time.  OR, rather than being based on period of time, 
+
+1. A client might switch stylists for different big events, for example, grammies, Oscars, VMAs, etc.
+
+How would the shape of the database change by adding an *Event* entity with a date, title, description, theme, and somehow consider dates in your model.
+
+
+:::
+::::
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
