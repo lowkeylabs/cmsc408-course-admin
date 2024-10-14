@@ -17,17 +17,89 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'Check your Grades - Midterm grades are due Friday',
+    'No class on Friday - reading day.',
+    '[Homework 5 due 10/20 - this weekend!](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528){target="_blank"}'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 5 discussion and walkthrough](#homework-5---getting-started-with-sql)',
+    '[PhpMyAdmin discussion and account testing](#phpmyadmin---getting-started)',
+    '[Software install discussion](#software-setup)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Homework 5 - Getting started with SQL
 
+## Homework 5 - Getting started with SQL
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/hw5-screenshot.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+
+* Analyze an existing database
+<p>&nbsp;</p>
+* Test user logins to DBMS
+    - PhpMyAdmin
+<p>&nbsp;</p>
+* Install and run tools
+    - Quarto and extensions
+    - Pyenv and python
+    - Poetry
+:::
+::::
+
+# PhpMyAdmin - getting started
+
+## PhpMyAdmin - getting started
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/phpmyadmin-login.png)](https://cmsc508.com/phpmyadmin/){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+* Verify your login to DBMS
+<p>&nbsp;</p>
+* Username format:
+    - 24FA_(your EID)
+    - For example: 24FA_jdleonard
+<p>&nbsp;</p>
+* Password format
+    - Shout4_(your EID)_JOY
+    - For example: Shout4_jdleonard_JOY
+<p>&nbsp;</p>
+* Explore the DBMS
+    - what can I access?
+    - what is inside?
+:::
+::::
+
+
+# Software setup
+
+## Software setup
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/hw5-setup-guide.png)](https://vcu-ssg.github.io/ssg-quarto-python-setup/){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+* Install and test all the tools!
+<p>&nbsp;</p>
+![](./assets/hw5-version-testing.png)
+
+:::
+::::
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
