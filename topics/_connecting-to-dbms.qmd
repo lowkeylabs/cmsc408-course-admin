@@ -35,11 +35,11 @@
 <p>&nbsp;</p>
 * Username:  24fa_(eid)
 <p>&nbsp;</p>
-    - for example: 24fa_jdleonard
+    - for example: *24fa_jdleonard*
 <p>&nbsp;</p>
-* Password: Shout4_<eid>_JOY
+* Password: Shout4_(eid)_JOY
 <p>&nbsp;</p>
-    - for example, Shout4_jdleonard_JOY
+    - for example, *Shout4_jdleonard_JOY*
 <p>&nbsp;</p>
 *This approach is most useful for managing the DBMS but NOT very useful for development.*
 
@@ -53,10 +53,10 @@
 
 ```sql
 ssh 24fa_jdleonard@cmsc508.com
-password: <your EID goes here>
+password: (Shout4_jdleonard_JOY)
 
 mysql -p
-password: <your Shout4 JOY password>
+password: (Shout4_jdleonard_JOY)
 ```
 
 <p>&nbsp;</p>
