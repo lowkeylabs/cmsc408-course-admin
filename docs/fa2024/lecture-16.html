@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-16_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-16_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-16_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-16_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-16_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-16_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-16_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -353,12 +420,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Midterm grades have been posted</p></li>
+<li><p>No class on Friday - reading day.</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528" target="_blank">Homework 5 due 10/20 - this weekend!</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/connecting-to-dbms">Connecting to DBMS</a></p></li>
+<li><p><a href="#/mysql-passwords">MySQL passwords</a></p></li>
+<li><p><a href="#/intro-to-sql">Intro to SQL</a></p></li>
+<li><p><a href="#/mysql-dbms">MySQL DBMS</a></p></li>
+<li><p><a href="#/getting-to-select">Getting to SELECT</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -401,7 +474,7 @@
 <td style="text-align: center;">10/20</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>PrjDel 9 due (Working website using docker)</td>
+<td>HW5 due (Getting started with SQL)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -433,7 +506,7 @@
 <td style="text-align: center;">10/27</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW5 due (Getting started with SQL)</td>
+<td>PrjDel 9 due (Working website using docker)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -474,6 +547,2812 @@
 </div>
 </div>
 </section>
+<section>
+<section id="connecting-to-dbms" class="title-slide slide level1 center">
+<h1>Connecting to DBMS</h1>
+
+</section>
+<section id="connecting-to-dbms-1" class="slide level2 scrollable">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="overview-of-the-assignment">Overview of the assignment</h3>
+<ul>
+<li>We’re using mysql DBMS.</li>
+<li>There are multiple ways to connect</li>
+<li>Lots of tools to install</li>
+</ul>
+<p><em>Each approach is handy for one aspect of development. You need to use all the ways!</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="ways-to-connect">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li>python - using a connection</li>
+</ol>
+</div></div>
+</section>
+<section id="connecting-to-dbms-2" class="slide level2">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="phpmyadmin">1. phpmyadmin</h3>
+<ul>
+<li><a href="http://cmcs508.com/phpmyadmin" class="uri">http://cmcs508.com/phpmyadmin</a>
+<p>
+&nbsp;
+</p></li>
+<li>Username: 24fa_(eid)
+<p>
+&nbsp;
+</p>
+<ul>
+<li>for example: 24fa_jdleonard
+<p>
+&nbsp;
+</p></li>
+</ul></li>
+<li>Password: Shout4_<eid>_JOY
+<p>
+&nbsp;
+</p>
+<ul>
+<li>for example, Shout4_jdleonard_JOY
+<p>
+&nbsp;
+</p>
+<em>This approach is most useful for managing the DBMS but NOT very useful for development.</em></li>
+</ul></eid></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="ssh-to-the-server">2. SSH to the server</h3>
+<ul>
+<li><p>Open a terminal window on your local machine.</p></li>
+<li><p>Enter these commands on your terminal.</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a>ssh <span class="dv">24</span>fa_jdleonard@cmsc508.com</span>
+<span id="cb1-2"><a href=""></a><span class="kw">password</span>: <span class="op">&lt;</span>your EID goes here<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a>mysql <span class="op">-</span>p</span>
+<span id="cb1-5"><a href=""></a><span class="kw">password</span>: <span class="op">&lt;</span>your Shout4 JOY <span class="kw">password</span><span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<p><em>This is the quickest and most efficient approach for directly managing the DBMS but not very useful for development.</em></p>
+</div></div>
+</section>
+<section id="connecting-to-dbms-3" class="slide level2">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="visual-studio-code">3. Visual Studio Code</h3>
+<ul>
+<li><p>Install:</p>
+<ul>
+<li>SQLTOOLS extension</li>
+<li>SQLTOOLS mysql connector</li>
+</ul></li>
+<li><p>You should see a DB icon on the left</p></li>
+<li><p>See the connection screen!</p></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p><em>This approach is most useful for directly building and coding SQL code. Lots of cutting and pasting commands through an DB window.</em></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/L13-vscode-db-connect.png"></p>
+</div></div>
+</section>
+<section id="connecting-to-dbms-4" class="slide level2">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="python-code">4. Python code</h3>
+<ul>
+<li><p>Clone your homework repository</p></li>
+<li><p>Install pyenv, poetry, quarto</p></li>
+<li><p>Install libraries - different ways</p>
+<ul>
+<li>Auto: using poetry</li>
+<li>Manually using pip</li>
+<li>matplotlib jupyter plotly</li>
+<li>python-dotenv sqlalchemy pymysql</li>
+</ul></li>
+<li><p>Create a .env file</p></li>
+<li><p>Create your python code</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<h3 id="see-explorer.qmd-for-details">See explorer.qmd for details!</h3>
+<div id="5432b97a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb2-4"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb2-5"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb2-6"><a href=""></a>load_dotenv()</span>
+<span id="cb2-7"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb2-8"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb2-9"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"HW5_USER"</span>),</span>
+<span id="cb2-10"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"HW5_PASSWORD"</span>),</span>
+<span id="cb2-11"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"HW5_HOST"</span>),</span>
+<span id="cb2-12"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"HW5_DB_NAME"</span>)</span>
+<span id="cb2-13"><a href=""></a>}</span>
+<span id="cb2-14"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-15"><a href=""></a></span>
+<span id="cb2-16"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb2-17"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>
+&nbsp;
+</p>
+<p><em>This approach is most useful for developing the wrapper application around the SQL code.</em></p>
+</div></div>
+</section></section>
+<section>
+<section id="mysql-passwords" class="title-slide slide level1 center">
+<h1>MySQL Passwords</h1>
+
+</section>
+<section id="how-do-i-change-my-password" class="slide level2">
+<h2>How do I change my password?</h2>
+<p>You actually have <em>TWO different</em> mysql accounts: one for local connections and a second for remote connections.</p>
+<ul>
+<li><p>Your remote and local accounts are granted permission to access your <code>hr</code>, <code>user</code> and <code>team</code> databases.</p></li>
+<li><p>Your local and remote accounts were assigned the same password</p></li>
+<li><p>Logins are managed transparently so it looks like only one account!</p></li>
+<li><p>You can only change your password through your local or remote connections.</p></li>
+</ul>
+<p>Unless you have <code>CREATE USER</code> permissions you’ll not be able to alter one user from another connection.</p>
+</section>
+<section id="how-do-i-change-my-password-1" class="slide level2">
+<h2>How do I change my password?</h2>
+<p>Here is the one SQL command:</p>
+<center>
+<strong><em>ALTER USER CURRENT_USER IDENTIFIED BY ‘Shout4_jdleonard_JOY’;</em></strong>
+</center>
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="local-connections">Local connections</h3>
+<ul>
+<li><p>Used when you connect via PhpMyAdmin or when you log to the server directly via SSH.</p></li>
+<li><p>Username: ‘24fa_jdleonard’@‘localhost’</p></li>
+<li><p>You can only change this password from <code>phpmyadmin</code> or from the command line on the server itself.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="remote-connections">Remote connections</h3>
+<ul>
+<li><p>Used when you connect through your laptop (remotely) using vscode or a language like python.</p></li>
+<li><p>Username: ‘24fa_jdleonard’@‘%’</p></li>
+<li><p>You can only change this through VS Code connection or through your application program.</p></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="intro-to-sql" class="title-slide slide level1 center">
+<h1>Intro to SQL</h1>
+
+</section>
+<section id="interacting-with-the-database" class="slide level2">
+<h2>Interacting with the database</h2>
+<p>A <strong>DBMS</strong> is software that manages databases, providing an interface between users, applications, and the database. The DBMS handles the internal mechanics of data storage, querying, transaction management, and access control. When users or applications issue commands, the DBMS processes these commands and ensures that the database remains consistent, efficient, and secure.</p>
+<p>Interacting with a <strong>Database Management System (DBMS)</strong> and a <strong>database</strong> involves several layers of operations, each designed to handle a specific aspect of how data is stored, managed, secured, and retrieved.</p>
+<p><em>SQL</em> (structured query language) is the computer language we use to interact with the DBMS.</p>
+</section>
+<section id="sql-structured-query-language" class="slide level2">
+<h2>SQL (Structured Query Language )</h2>
+<p><strong>SQL (Structured Query Language)</strong>: is a standardized language used for managing and querying relational databases. It provides commands for defining, manipulating, controlling, and retrieving data in databases.</p>
+<ul>
+<li><p><strong>ANSI SQL Standard</strong>: ANSI (American National Standards Institute) defines the core SQL standard, ensuring a common foundation for relational database operations across different systems, though specific features may vary by vendor. The most recent version of the SQL standard is SQL:2023, formally adopted in June 2023.</p></li>
+<li><p><strong>SQL Dialects by Vendor</strong>: While adhering to ANSI SQL, many database vendors (like <strong>MySQL</strong>, <strong>PostgreSQL</strong>, <strong>Oracle</strong>, <strong>SQL Server</strong>) extend SQL with proprietary features (e.g., Oracle’s PL/SQL, Microsoft’s T-SQL) to support additional functionalities unique to their systems.</p></li>
+</ul>
+</section>
+<section id="sql-command-groups" class="slide level2">
+<h2>SQL command groups</h2>
+<p>SQL commands are grouped based on what they do to/for the DBMS. We sometimes refer to these groups as separate <em>languages</em>: <strong>DDL</strong>, <strong>DML</strong>, <strong>DCL</strong>, and <strong>TCL</strong>.</p>
+<ul>
+<li><p><strong>Design and Structure (DDL)</strong>: When building a database, DDL is the first interaction, defining how data will be stored and structured. This foundational step ensures the database can efficiently support future operations.</p></li>
+<li><p><strong>Manipulating and Retrieving Data (DML)</strong>: The core daily interactions with the database happen through DML. Whether adding new entries, retrieving data, or updating records, these operations are what end-users experience.</p></li>
+<li><p><strong>Security and Permissions (DCL)</strong>: Modern databases are often accessed by multiple users and applications. Ensuring that data access is controlled and secure is essential, and DCL ensures that only the right users have the appropriate access levels.</p></li>
+<li><p><strong>Maintaining Data Integrity (TCL)</strong>: In multi-user environments or where transactions involve complex steps (e.g., financial transactions, inventory updates), TCL ensures that the database remains in a consistent state even when failures or conflicts occur.</p></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language" class="slide level2">
+<h2>DDL (Data Definition Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Defines the structure and organization of the database.</li>
+<li><strong>Role</strong>: DDL commands interact directly with the <strong>DBMS</strong> to create, modify, or delete database objects such as tables, indexes, and schemas.</li>
+<li><strong>Example</strong>: When creating a new table, the <strong>DBMS</strong> allocates the necessary storage and manages the metadata that defines the table structure. DDL commands ensure that the database schema evolves as the application grows.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Creating a new table to store user data.</li>
+<li>Altering the structure of an existing table to accommodate new fields.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language-1" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<p>Key DDL commands include:</p>
+<ol type="1">
+<li><strong><code>CREATE</code></strong>: Used to create new database objects like tables, indexes, views, or databases.</li>
+<li><strong><code>ALTER</code></strong>: Used to modify the structure of an existing database object (e.g., adding or removing columns in a table).</li>
+<li><strong><code>DROP</code></strong>: Used to delete database objects like tables, indexes, or entire databases.</li>
+<li><strong><code>TRUNCATE</code></strong>: Removes all records from a table, but keeps the table structure intact.</li>
+<li><strong><code>RENAME</code></strong>: Used to rename database objects.</li>
+</ol>
+<p>DDL commands define and change the structure or schema of a database, unlike DML, which focuses on manipulating the data within those structures.</p>
+</section>
+<section id="ddl-data-definition-language-2" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>DDL compiler generates a set of tables stored in a data dictionary</li>
+<li>Data dictionary contains metadata about:
+<ul>
+<li>Database tables, fields and data types</li>
+<li>Primary and foreign keys</li>
+<li>Data integrity constrants</li>
+<li>Referential integrity</li>
+<li>Access and authorization rules</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>CREATE TABLE person (</span>
+<span id="cb3-2"><a href=""></a>    person_id INT PRIMARY KEY,</span>
+<span id="cb3-3"><a href=""></a>    person_first_name VARCHAR(50),</span>
+<span id="cb3-4"><a href=""></a>    person_last_name VARCHAR(50),</span>
+<span id="cb3-5"><a href=""></a>    person_city VARCHAR(50)</span>
+<span id="cb3-6"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes">Notes</h3>
+<ol type="1">
+<li>Fields are strongly typed,</li>
+<li>INT, VARCHAR(width), (lots more!)</li>
+<li>Additional attributed can be defined:
+<ul>
+<li>PRIMARY KEY, FOREIGN KEY, etc.</li>
+</ul></li>
+</ol>
+</div></div>
+</section>
+<section id="dml-data-manipulation-language" class="slide level2">
+<h2>DML (Data Manipulation Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages the actual data within the database.</li>
+<li><strong>Role</strong>: DML commands interact with the <strong>DB</strong> to insert, retrieve, update, and delete data. The <strong>DBMS</strong> processes these requests and ensures the data is accessed efficiently and accurately.</li>
+<li><strong>Example</strong>: When querying data (e.g., <code>SELECT</code>), the <strong>DBMS</strong> retrieves the requested information from the database, handles the query optimizations, and returns results to the user or application.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Retrieving customer data for an e-commerce application.</li>
+<li>Inserting new product information into a database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dcl-data-control-language" class="slide level2">
+<h2>DCL (Data Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Controls access to the data within the database.</li>
+<li><strong>Role</strong>: DCL commands interact with the <strong>DBMS</strong> to manage user permissions and security. This ensures that only authorized users can access or modify specific parts of the database.</li>
+<li><strong>Example</strong>: Granting access to a developer to only read the data while restricting their ability to modify or delete it.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Granting access to specific tables for an application.</li>
+<li>Revoking permissions from users who should no longer access the database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tcl-transaction-control-language" class="slide level2">
+<h2>TCL (Transaction Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages and controls database transactions.</li>
+<li><strong>Role</strong>: TCL commands work closely with the <strong>DBMS</strong> to ensure that changes made to the database maintain <strong>ACID (Atomicity, Consistency, Isolation, Durability)</strong> properties. This ensures that transactions are processed reliably.</li>
+<li><strong>Example</strong>: When performing a <code>COMMIT</code> after multiple <code>INSERT</code> operations, the <strong>DBMS</strong> makes the changes permanent. If any part of the transaction fails, a <code>ROLLBACK</code> can undo all the changes to ensure data integrity.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Performing multiple updates to an inventory system and committing them only when all changes are successfully made.</li>
+<li>Rolling back a transaction if a bank transfer fails midway, ensuring no partial changes occur.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sql-summary" class="slide level2">
+<h2>SQL Summary</h2>
+<p>SQL is the overarching language for interacting with the relational database management system.</p>
+<p>SQL commands are organized into <em>languages</em> that play a distinct roles in the overall functioning of the DBMS. Together, they allow the applications programmer to:</p>
+<ul>
+<li><strong>Define the structure</strong> (DDL),</li>
+<li><strong>Manipulate the data</strong> (DML),</li>
+<li><strong>Secure the database</strong> (DCL), and</li>
+<li><strong>Ensure reliable transactions</strong> (TCL).</li>
+</ul>
+<p>By interacting with these layers, the DBMS provides a seamless, powerful way to manage data efficiently, ensuring that applications can scale, users can access information securely, and data integrity is maintained across transactions.</p>
+</section></section>
+<section>
+<section id="mysql-dbms" class="title-slide slide level1 center">
+<h1>MySQL DBMS</h1>
+
+</section>
+<section id="mysql-dbms-1" class="slide level2">
+<h2>MYSQL DBMS</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<h3 id="leveraging-the-power">Leveraging the power</h3>
+<p>What not simply use 2-D arrays or other data structures in our programs? Why use a data base at all?</p>
+<ul>
+<li><p>The DBMS will DO LOTS OF WORK for us AUTOMATICALLY. We simply need to know how to tell it what we want it to do.</p></li>
+<li><p>We can provide these management and operating rules when tables are created.</p></li>
+<li><p>The DBMS will enforce the rules in real-time behind the scenes.</p></li>
+<li><p>The DBMS maintains several databases specifically for the management of the database itself!</p>
+<ul>
+<li><em>information_schema</em></li>
+<li><em>performance_schema</em></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L13-dbms-overview.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="mysql-dbms-2" class="slide level2">
+<h2>MySQL DBMS</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img data-src="assets/L13-mysql-col1.png"></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/L13-mysql-col2.png"></p>
+</div><div class="column" style="width:45%;">
+<h3 id="mysql-documentation">MYSQL Documentation</h3>
+<p><img data-src="assets/L13-mysql-col3.png"></p>
+<h3 id="two-types-of-statements">Two types of statements:</h3>
+<ul>
+<li>Data Definition Statement (DDL)</li>
+<li>Data Manipulation Statements (DML)</li>
+</ul>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/" target="_blank">https://dev.mysql.com/doc/refman/8.0/en/</a></p>
+</div></div>
+</section>
+<section id="ddl---data-definition-language" class="slide level2">
+<h2>DDL - Data Definition Language</h2>
+<p><img data-src="assets/L13-mysql-ddl.png"></p>
+</section>
+<section id="dml---data-manipulation-language" class="slide level2">
+<h2>DML - Data Manipulation Language</h2>
+<p><img data-src="assets/L13-mysql-dml.png"></p>
+</section></section>
+<section>
+<section id="getting-to-select" class="title-slide slide level1 center">
+<h1>Getting to SELECT</h1>
+
+</section>
+<section id="getting-to-select-1" class="slide level2 scrollable">
+<h2>Getting to Select</h2>
+<div class="columns">
+<div class="column">
+<h3 id="database-access-workflow">Database access workflow</h3>
+<ol type="1">
+<li><p>Retrieving credentials into your program. <em>No hardcoding!</em></p></li>
+<li><p>Connecting to the database using a <em>local database engine.</em></p></li>
+<li><p>Through the life of the program:</p>
+<ol type="a">
+<li>Sending the <em>query</em> to the DBMS through the connection.</li>
+<li>Retriving the <em>result set</em></li>
+</ol></li>
+<li><p>Finally, closing the connection.</p></li>
+</ol>
+</div><div class="column">
+<h3 id="key-terms">Key terms</h3>
+<p>
+&nbsp;
+</p>
+<dl>
+<dt>credentials</dt>
+<dd>
+host, username, password, database
+</dd>
+<dt>local database engine</dt>
+<dd>
+software on your machine that manages the connection through the internet to your remote server.
+</dd>
+<dt>query</dt>
+<dd>
+a command sent to the remove database server
+</dd>
+<dt>result set</dt>
+<dd>
+the package returned from the remote server. It may contain data or error information.
+</dd>
+</dl>
+</div></div>
+</section>
+<section id="database-connection" class="slide level2">
+<h2>Database connection</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="ef35215a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb4-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb4-3"><a href=""></a><span class="in">import os</span></span>
+<span id="cb4-4"><a href=""></a><span class="in">import pandas as pd</span></span>
+<span id="cb4-5"><a href=""></a><span class="in">from dotenv import load_dotenv</span></span>
+<span id="cb4-6"><a href=""></a><span class="in">from sqlalchemy import create_engine,text</span></span>
+<span id="cb4-7"><a href=""></a><span class="in"># load credentials from .env file</span></span>
+<span id="cb4-8"><a href=""></a><span class="in">load_dotenv()</span></span>
+<span id="cb4-9"><a href=""></a><span class="in"># store these credentials a dictionary for later reference</span></span>
+<span id="cb4-10"><a href=""></a><span class="in">config = {</span></span>
+<span id="cb4-11"><a href=""></a><span class="in">  'user': os.getenv("HW5_USER"),</span></span>
+<span id="cb4-12"><a href=""></a><span class="in">  'password': os.getenv("HW5_PASSWORD"),</span></span>
+<span id="cb4-13"><a href=""></a><span class="in">  'host': os.getenv("HW5_HOST"),</span></span>
+<span id="cb4-14"><a href=""></a><span class="in">  'database': os.getenv("HW5_DB_NAME")</span></span>
+<span id="cb4-15"><a href=""></a><span class="in">}</span></span>
+<span id="cb4-16"><a href=""></a><span class="in">engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"</span></span>
+<span id="cb4-17"><a href=""></a></span>
+<span id="cb4-18"><a href=""></a><span class="in"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb4-19"><a href=""></a><span class="in">cnx = create_engine(engine_uri)</span></span>
+<span id="cb4-20"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="connection-block">Connection block</h3>
+<p>This single block of code general sits at the top of all your QMD files.</p>
+<p>This block of code creates the <code>cnx</code> variable - the actually connection to the database.</p>
+<p>We’ll use <code>cnx</code> later in the code whenever we want to talk with the DBMS.</p>
+</div></div>
+</section>
+<section id="database-connection---imports" class="slide level2">
+<h2>Database connection - Imports</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="b465248a" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb5-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb5-3"><a href=""></a><span class="in">#| code-line-numbers: 4-7</span></span>
+<span id="cb5-4"><a href=""></a><span class="in">import os</span></span>
+<span id="cb5-5"><a href=""></a><span class="in">import pandas as pd</span></span>
+<span id="cb5-6"><a href=""></a><span class="in">from dotenv import load_dotenv</span></span>
+<span id="cb5-7"><a href=""></a><span class="in">from sqlalchemy import create_engine,text</span></span>
+<span id="cb5-8"><a href=""></a><span class="in"># load credentials from .env file</span></span>
+<span id="cb5-9"><a href=""></a><span class="in">load_dotenv()</span></span>
+<span id="cb5-10"><a href=""></a><span class="in"># store these credentials a dictionary for later reference</span></span>
+<span id="cb5-11"><a href=""></a><span class="in">config = {</span></span>
+<span id="cb5-12"><a href=""></a><span class="in">  'user': os.getenv("HW5_USER"),</span></span>
+<span id="cb5-13"><a href=""></a><span class="in">  'password': os.getenv("HW5_PASSWORD"),</span></span>
+<span id="cb5-14"><a href=""></a><span class="in">  'host': os.getenv("HW5_HOST"),</span></span>
+<span id="cb5-15"><a href=""></a><span class="in">  'database': os.getenv("HW5_DB_NAME")</span></span>
+<span id="cb5-16"><a href=""></a><span class="in">}</span></span>
+<span id="cb5-17"><a href=""></a><span class="in">engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"</span></span>
+<span id="cb5-18"><a href=""></a></span>
+<span id="cb5-19"><a href=""></a><span class="in"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb5-20"><a href=""></a><span class="in">cnx = create_engine(engine_uri)</span></span>
+<span id="cb5-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="imports">Imports</h3>
+<p>The <code>import</code> commands load modules into your <em>python</em> program.</p>
+<p>These modules must first be installed in your virtual environment using <code>poetry</code> or <code>pip</code> to install the necessary modules. I prefer <code>poetry</code>!</p>
+<p><code>dotenv</code> module is used to load environment variable from disk into memory.</p>
+<p><code>sqlalchemy</code> module provides many different tools for connecting to, managing, and querying databases. <code>sqlalchemy</code> is known as an <em>Object Relational Mapper</em> or <em>ORM</em>. When used to it’s full extent it allows to you seamlessly load and store objects without having to think about the SQL.</p>
+<p>But that kind of defeats the purpose for this class! So we’ll only use a few of the tools provided.</p>
+</div></div>
+</section>
+<section id="database-connection---load-.env-into-environment" class="slide level2">
+<h2>Database connection - Load .env into environment</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="15af9e74" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="8-16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb6-3"><a href=""></a><span class="in">#| code-line-numbers: 8-16</span></span>
+<span id="cb6-4"><a href=""></a><span class="in">import os</span></span>
+<span id="cb6-5"><a href=""></a><span class="in">import pandas as pd</span></span>
+<span id="cb6-6"><a href=""></a><span class="in">from dotenv import load_dotenv</span></span>
+<span id="cb6-7"><a href=""></a><span class="in">from sqlalchemy import create_engine,text</span></span>
+<span id="cb6-8"><a href=""></a><span class="in"># load credentials from .env file</span></span>
+<span id="cb6-9"><a href=""></a><span class="in">load_dotenv()</span></span>
+<span id="cb6-10"><a href=""></a><span class="in"># store these credentials a dictionary for later reference</span></span>
+<span id="cb6-11"><a href=""></a><span class="in">config = {</span></span>
+<span id="cb6-12"><a href=""></a><span class="in">  'user': os.getenv("HW5_USER"),</span></span>
+<span id="cb6-13"><a href=""></a><span class="in">  'password': os.getenv("HW5_PASSWORD"),</span></span>
+<span id="cb6-14"><a href=""></a><span class="in">  'host': os.getenv("HW5_HOST"),</span></span>
+<span id="cb6-15"><a href=""></a><span class="in">  'database': os.getenv("HW5_DB_NAME")</span></span>
+<span id="cb6-16"><a href=""></a><span class="in">}</span></span>
+<span id="cb6-17"><a href=""></a><span class="in">engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"</span></span>
+<span id="cb6-18"><a href=""></a></span>
+<span id="cb6-19"><a href=""></a><span class="in"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb6-20"><a href=""></a><span class="in">cnx = create_engine(engine_uri)</span></span>
+<span id="cb6-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="getting-your-connection-variables.">Getting your connection variables.</h3>
+<p>Rather than hard-coding your database connection into your code, we’ll store the connection information on your disk and load it when your program starts.</p>
+<p><code>load_dotenv()</code> searches for a <code>.env</code> file and if found, loads the contents into your environment.</p>
+<p><code>os.getenv()</code> searches for a <em>key</em> in the environnment and if found returns it’s <em>value</em>.</p>
+<p>A database connection is defined by four attributes: * Server name * Database name * Username * Password</p>
+<p>To minimize pollution in the namespace we’ll store these four separate variables in a single dictionary for later reference.</p>
+</div></div>
+</section>
+<section id="database-connection---create-connection" class="slide level2">
+<h2>Database connection - Create connection</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="aa4757a8" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="17-20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb7-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb7-3"><a href=""></a><span class="in">#| code-line-numbers: 17-20</span></span>
+<span id="cb7-4"><a href=""></a><span class="in">import os</span></span>
+<span id="cb7-5"><a href=""></a><span class="in">import pandas as pd</span></span>
+<span id="cb7-6"><a href=""></a><span class="in">from dotenv import load_dotenv</span></span>
+<span id="cb7-7"><a href=""></a><span class="in">from sqlalchemy import create_engine,text</span></span>
+<span id="cb7-8"><a href=""></a><span class="in"># load credentials from .env file</span></span>
+<span id="cb7-9"><a href=""></a><span class="in">load_dotenv()</span></span>
+<span id="cb7-10"><a href=""></a><span class="in"># store these credentials a dictionary for later reference</span></span>
+<span id="cb7-11"><a href=""></a><span class="in">config = {</span></span>
+<span id="cb7-12"><a href=""></a><span class="in">  'user': os.getenv("HW5_USER"),</span></span>
+<span id="cb7-13"><a href=""></a><span class="in">  'password': os.getenv("HW5_PASSWORD"),</span></span>
+<span id="cb7-14"><a href=""></a><span class="in">  'host': os.getenv("HW5_HOST"),</span></span>
+<span id="cb7-15"><a href=""></a><span class="in">  'database': os.getenv("HW5_DB_NAME")</span></span>
+<span id="cb7-16"><a href=""></a><span class="in">}</span></span>
+<span id="cb7-17"><a href=""></a><span class="in">engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"</span></span>
+<span id="cb7-18"><a href=""></a></span>
+<span id="cb7-19"><a href=""></a><span class="in"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb7-20"><a href=""></a><span class="in">cnx = create_engine(engine_uri)</span></span>
+<span id="cb7-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="creating-the-connection">Creating the connection</h3>
+<p>Armed with our connection varaibles we create a connection string and open a connection to the database using a <em>local database engine.</em></p>
+<p>A connection to ANY database and server starts with a <a href="https://www.connectionstrings.com/" target="_blank"><em>connection string</em></a></p>
+<p>Through the connection string you can customize the connection and how information passes through it.</p>
+<p>Connection strings are used by your <em>local database engine</em> to <em>locate the database host</em>, <em>open the appropriate port</em>, <em>pass credentials like username and password</em>, and finally <em>select the database to use</em>.</p>
+<p>Connection strings also manage which languages and character sets are used, sizes of transmission buffers, and more.</p>
+<p><em>RTFM</em> for your <a href="https://docs.sqlalchemy.org/en/20/core/engines.html" target="_blank"><em>local database engine</em>!</a></p>
+</div></div>
+</section>
+<section id="another-helper-block" class="slide level2">
+<h2>Another helper block</h2>
+<p>In my code I created another block with a function.</p>
+<p>Normally, you’d set <code>echo: false</code> to not display the code.</p>
+<div id="e3728caa" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb8-2"><a href=""></a><span class="in">from tabulate import tabulate</span></span>
+<span id="cb8-3"><a href=""></a><span class="in">from IPython.display import display, Markdown</span></span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a><span class="in">def display_dataframe_as_table( df, width="100%" ):</span></span>
+<span id="cb8-6"><a href=""></a><span class="in">    """ Display dataframe in pretty format for Quarto """</span></span>
+<span id="cb8-7"><a href=""></a><span class="in">    markdown_table = tabulate(df, headers='keys',showindex=False)</span></span>
+<span id="cb8-8"><a href=""></a><span class="in">    html_table = markdown_table</span></span>
+<span id="cb8-9"><a href=""></a><span class="in">    display(Markdown(html_table))</span></span>
+<span id="cb8-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-statement" class="slide level2">
+<h2>Select statement</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>A <em>SELECT</em> query is the one of the most fundamental statements in SQL.</p>
+<p>A <em>SELECT</em> statement describe a request to perform operations within the database and return a <em>result set</em>.</p>
+<p>This <em>result set</em> is a relation.</p>
+<p>This <em>result</em> can be used in subsequent operations or stored back into the DB as a new table.</p>
+<p>A SQL query is relational algebra:</p>
+<p><span class="math inline">\(\Pi_{A_1, A_2, ... A_n}(\sigma_{P}(R_1 \times R_2 \times ... \times R_n) )\)</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>SELECT</strong> A1, A2, A3</p>
+<p><strong>FROM</strong> R1,R2</p>
+<p><strong>WHERE</strong> P</p>
+<p><strong>ORDER BY</strong> A2,A3,A1;</p>
+<ul>
+<li>A* represents an attribute (column), a literal, a function, or an operation</li>
+<li>R* represents a relation (table), cartesian project, or join</li>
+<li>P is a predicate, conditions or filters</li>
+</ul>
+</div></div>
+</section>
+<section id="select-clause-and-examples" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The select clause lists the attributes desired in the result of a query, corresponds to the projection operation of the relational algebra</p></li>
+<li><p>SQL names are case insensitive</p></li>
+<li><p>SQL allows duplicates in relations as well as in query results</p></li>
+<li><p>To force the elimination of duplicates, use the keyword distinct</p></li>
+<li><p>An asterisk in the select clause denotes “all attributes”</p></li>
+<li><p>May rename columns using alias</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>-- this is syntax</span>
+<span id="cb9-2"><a href=""></a>SELECT [distinct] {*, column [[as] alias], ...}</span>
+<span id="cb9-3"><a href=""></a>FROM table {or tables}</span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a>-- this is a real statement (and comment!)</span>
+<span id="cb9-6"><a href=""></a>SELECT</span>
+<span id="cb9-7"><a href=""></a>  *</span>
+<span id="cb9-8"><a href=""></a>FROM</span>
+<span id="cb9-9"><a href=""></a>  REGIONS</span>
+<span id="cb9-10"><a href=""></a></span>
+<span id="cb9-11"><a href=""></a>-- indents are not managed</span>
+<span id="cb9-12"><a href=""></a>-- comments stop processing of line</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="regions-table" class="slide level2">
+<h2><em>Regions</em> table</h2>
+<div style="font-size: 50%;">
+<div id="4a687357" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="307">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">region_id</th>
+<th data-quarto-table-cell-role="th">region_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Europe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Americas</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Middle East and Africa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="select-clause-and-examples-1" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="using-to-select-all-columns">Using * to select all columns</h3>
+<div id="12adcb37" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb10-2"><a href=""></a><span class="in">#| code-line-numbers: 4</span></span>
+<span id="cb10-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb10-4"><a href=""></a><span class="in">select * from regions</span></span>
+<span id="cb10-5"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb10-6"><a href=""></a><span class="in">result</span></span>
+<span id="cb10-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="308">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">region_id</th>
+<th data-quarto-table-cell-role="th">region_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Europe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Americas</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Middle East and Africa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="selecting-only-one-attribute">Selecting only one attribute</h3>
+<div id="e782df81" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb11-2"><a href=""></a><span class="in">#| code-line-numbers: 4-7</span></span>
+<span id="cb11-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb11-4"><a href=""></a><span class="in">select</span></span>
+<span id="cb11-5"><a href=""></a><span class="in">  region_name</span></span>
+<span id="cb11-6"><a href=""></a><span class="in">from</span></span>
+<span id="cb11-7"><a href=""></a><span class="in">  regions</span></span>
+<span id="cb11-8"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb11-9"><a href=""></a><span class="in">result</span></span>
+<span id="cb11-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="309">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">region_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Europe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Americas</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Middle East and Africa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="employees-table---first-20-rows" class="slide level2">
+<h2><em>Employees</em> table - first 20 rows</h2>
+<div style="font-size: 50%;">
+<div id="e7a27a7c" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="310">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">employee_id</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">email</th>
+<th data-quarto-table-cell-role="th">phone_number</th>
+<th data-quarto-table-cell-role="th">hire_date</th>
+<th data-quarto-table-cell-role="th">job_id</th>
+<th data-quarto-table-cell-role="th">salary</th>
+<th data-quarto-table-cell-role="th">commission_pct</th>
+<th data-quarto-table-cell-role="th">manager_id</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>Steven</td>
+<td>King</td>
+<td>SKING</td>
+<td>515.123.4567</td>
+<td>2003-06-17</td>
+<td>AD_PRES</td>
+<td>24000.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>90.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>Neena</td>
+<td>Kochhar</td>
+<td>NKOCHHAR</td>
+<td>515.123.4568</td>
+<td>2005-09-21</td>
+<td>AD_VP</td>
+<td>17000.0</td>
+<td>NaN</td>
+<td>100.0</td>
+<td>90.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>102</td>
+<td>Lex</td>
+<td>De Haan</td>
+<td>LDEHAAN</td>
+<td>515.123.4569</td>
+<td>2001-01-13</td>
+<td>AD_VP</td>
+<td>17000.0</td>
+<td>NaN</td>
+<td>100.0</td>
+<td>90.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>103</td>
+<td>Alexander</td>
+<td>Hunold</td>
+<td>AHUNOLD</td>
+<td>590.423.4567</td>
+<td>2006-01-03</td>
+<td>IT_PROG</td>
+<td>9000.0</td>
+<td>NaN</td>
+<td>102.0</td>
+<td>60.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>104</td>
+<td>Bruce</td>
+<td>Ernst</td>
+<td>BERNST</td>
+<td>590.423.4568</td>
+<td>2007-05-21</td>
+<td>IT_PROG</td>
+<td>6000.0</td>
+<td>NaN</td>
+<td>103.0</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>105</td>
+<td>David</td>
+<td>Austin</td>
+<td>DAUSTIN</td>
+<td>590.423.4569</td>
+<td>2005-06-25</td>
+<td>IT_PROG</td>
+<td>4800.0</td>
+<td>NaN</td>
+<td>103.0</td>
+<td>60.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>106</td>
+<td>Valli</td>
+<td>Pataballa</td>
+<td>VPATABAL</td>
+<td>590.423.4560</td>
+<td>2006-02-05</td>
+<td>IT_PROG</td>
+<td>4800.0</td>
+<td>NaN</td>
+<td>103.0</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>107</td>
+<td>Diana</td>
+<td>Lorentz</td>
+<td>DLORENTZ</td>
+<td>590.423.5567</td>
+<td>2007-02-07</td>
+<td>IT_PROG</td>
+<td>4200.0</td>
+<td>NaN</td>
+<td>103.0</td>
+<td>60.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>108</td>
+<td>Nancy</td>
+<td>Greenberg</td>
+<td>NGREENBE</td>
+<td>515.124.4569</td>
+<td>2002-08-17</td>
+<td>FI_MGR</td>
+<td>12008.0</td>
+<td>NaN</td>
+<td>101.0</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>109</td>
+<td>Daniel</td>
+<td>Faviet</td>
+<td>DFAVIET</td>
+<td>515.124.4169</td>
+<td>2002-08-16</td>
+<td>FI_ACCOUNT</td>
+<td>9000.0</td>
+<td>NaN</td>
+<td>108.0</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>110</td>
+<td>John</td>
+<td>Chen</td>
+<td>JCHEN</td>
+<td>515.124.4269</td>
+<td>2005-09-28</td>
+<td>FI_ACCOUNT</td>
+<td>8200.0</td>
+<td>NaN</td>
+<td>108.0</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>111</td>
+<td>Ismael</td>
+<td>Sciarra</td>
+<td>ISCIARRA</td>
+<td>515.124.4369</td>
+<td>2005-09-30</td>
+<td>FI_ACCOUNT</td>
+<td>7700.0</td>
+<td>NaN</td>
+<td>108.0</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>112</td>
+<td>Jose Manuel</td>
+<td>Urman</td>
+<td>JMURMAN</td>
+<td>515.124.4469</td>
+<td>2006-03-07</td>
+<td>FI_ACCOUNT</td>
+<td>7800.0</td>
+<td>NaN</td>
+<td>108.0</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>113</td>
+<td>Luis</td>
+<td>Popp</td>
+<td>LPOPP</td>
+<td>515.124.4567</td>
+<td>2007-12-07</td>
+<td>FI_ACCOUNT</td>
+<td>6900.0</td>
+<td>NaN</td>
+<td>108.0</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>114</td>
+<td>Den</td>
+<td>Raphaely</td>
+<td>DRAPHEAL</td>
+<td>515.127.4561</td>
+<td>2002-12-07</td>
+<td>PU_MAN</td>
+<td>11000.0</td>
+<td>NaN</td>
+<td>100.0</td>
+<td>30.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>115</td>
+<td>Alexander</td>
+<td>Khoo</td>
+<td>AKHOO</td>
+<td>515.127.4562</td>
+<td>2003-05-18</td>
+<td>PU_CLERK</td>
+<td>3100.0</td>
+<td>NaN</td>
+<td>114.0</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>116</td>
+<td>Shelli</td>
+<td>Baida</td>
+<td>SBAIDA</td>
+<td>515.127.4563</td>
+<td>2005-12-24</td>
+<td>PU_CLERK</td>
+<td>2900.0</td>
+<td>NaN</td>
+<td>114.0</td>
+<td>30.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>117</td>
+<td>Sigal</td>
+<td>Tobias</td>
+<td>STOBIAS</td>
+<td>515.127.4564</td>
+<td>2005-07-24</td>
+<td>PU_CLERK</td>
+<td>2800.0</td>
+<td>NaN</td>
+<td>114.0</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>118</td>
+<td>Guy</td>
+<td>Himuro</td>
+<td>GHIMURO</td>
+<td>515.127.4565</td>
+<td>2006-11-15</td>
+<td>PU_CLERK</td>
+<td>2600.0</td>
+<td>NaN</td>
+<td>114.0</td>
+<td>30.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>119</td>
+<td>Karen</td>
+<td>Colmenares</td>
+<td>KCOLMENA</td>
+<td>515.127.4566</td>
+<td>2007-08-10</td>
+<td>PU_CLERK</td>
+<td>2500.0</td>
+<td>NaN</td>
+<td>114.0</td>
+<td>30.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="select-clause-and-examples-2" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="gathering-all-last-names">Gathering all last names</h3>
+<div id="91614344" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb12-2"><a href=""></a><span class="in">#| code-line-numbers: 4</span></span>
+<span id="cb12-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb12-4"><a href=""></a><span class="in">select last_name from employees</span></span>
+<span id="cb12-5"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb12-6"><a href=""></a><span class="in">result</span></span>
+<span id="cb12-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="311">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 1 columns</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="eliminating-duplicates-with-distinct">Eliminating duplicates with DISTINCT</h3>
+<div id="88793ba0" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in">#| code-line-numbers: 4</span></span>
+<span id="cb13-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb13-4"><a href=""></a><span class="in">select distinct last_name from employees</span></span>
+<span id="cb13-5"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb13-6"><a href=""></a><span class="in">result</span></span>
+<span id="cb13-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="312">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">97</td>
+<td>Vollman</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">98</td>
+<td>Walsh</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99</td>
+<td>Weiss</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">100</td>
+<td>Whalen</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">101</td>
+<td>Zlotkey</td>
+</tr>
+</tbody>
+</table>
+
+<p>102 rows × 1 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-3" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="combining-last-and-first-names">Combining last and first names</h3>
+<div id="7197b0a2" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb14-2"><a href=""></a><span class="in">#| code-line-numbers: 4-5</span></span>
+<span id="cb14-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb14-4"><a href=""></a><span class="in">select concat(last_name,',',first_name)</span></span>
+<span id="cb14-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb14-6"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb14-7"><a href=""></a><span class="in">result.head(7)</span></span>
+<span id="cb14-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="313">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">concat(last_name,',',first_name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Baida,Shelli</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Banda,Amit</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="then-renaming-the-column">Then renaming the column</h3>
+<div id="b329b395" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb15-2"><a href=""></a><span class="in">#| code-line-numbers: 4-5</span></span>
+<span id="cb15-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb15-4"><a href=""></a><span class="in">select concat(last_name,',',first_name) as full_name</span></span>
+<span id="cb15-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb15-6"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb15-7"><a href=""></a><span class="in">result.head(7)</span></span>
+<span id="cb15-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="314">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Baida,Shelli</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Banda,Amit</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-4" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="attribute-can-be-literal-or-function">attribute can be literal or function</h3>
+<div id="e959a966" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="4-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb16-2"><a href=""></a><span class="in">#| code-line-numbers: 4-8</span></span>
+<span id="cb16-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb16-4"><a href=""></a><span class="in">select</span></span>
+<span id="cb16-5"><a href=""></a><span class="in">  27 as "Literal",</span></span>
+<span id="cb16-6"><a href=""></a><span class="in">  now() as "Current Time" </span></span>
+<span id="cb16-7"><a href=""></a><span class="in">from</span></span>
+<span id="cb16-8"><a href=""></a><span class="in">  dual</span></span>
+<span id="cb16-9"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb16-10"><a href=""></a><span class="in">result.head(7)</span></span>
+<span id="cb16-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="315">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Literal</th>
+<th data-quarto-table-cell-role="th">Current Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>27</td>
+<td>2024-10-16 13:23:15</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Note that we’re using a built-in table named <em>dual</em> that returns what you put in as a table that can be used in subsequent operations.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="doing-computations">Doing computations</h3>
+<p>The attribute can be a function or arithmetic operation</p>
+<div id="3fea83fd" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb17-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb17-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb17-4"><a href=""></a><span class="in">select concat(last_name,',',first_name) as full_name,</span></span>
+<span id="cb17-5"><a href=""></a><span class="in">salary*12 as "Annual Salary"</span></span>
+<span id="cb17-6"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb17-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb17-8"><a href=""></a><span class="in">result.head(5)</span></span>
+<span id="cb17-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="316">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+<th data-quarto-table-cell-role="th">Annual Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King,Steven</td>
+<td>288000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Kochhar,Neena</td>
+<td>204000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>De Haan,Lex</td>
+<td>204000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Hunold,Alexander</td>
+<td>108000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Ernst,Bruce</td>
+<td>72000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The WHERE clause specifies conditions that the results must satisfy, corresponding to the <span class="math inline">\(\sigma\)</span> predicate in relational algebra.</p></li>
+<li><p>An individual WHERE element returns TRUE or FALSE for every row. This is applied during the query and will return only rows that evaluate TRUE in the where clause.</p></li>
+<li><p>Attributes in where clause can be compared using relational operators: &lt; &lt;= = &gt;= &gt;</p></li>
+<li><p>WHERE elements can be combined using <em>AND</em>, <em>OR</em> and <em>NOT</em> logical operators.</p></li>
+<li><p>WHERE also uses special operators: <em>BETWEEN</em>, <em>IN</em> and <em>IS NULL</em></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="a6050fc0" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb18-2"><a href=""></a><span class="in">#| code-line-numbers: 5-10</span></span>
+<span id="cb18-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb18-4"><a href=""></a><span class="in">-- note that this is a monthly salary!</span></span>
+<span id="cb18-5"><a href=""></a><span class="in">SELECT</span></span>
+<span id="cb18-6"><a href=""></a><span class="in">  last_name, first_name, salary</span></span>
+<span id="cb18-7"><a href=""></a><span class="in">FROM</span></span>
+<span id="cb18-8"><a href=""></a><span class="in">  employees</span></span>
+<span id="cb18-9"><a href=""></a><span class="in">WHERE</span></span>
+<span id="cb18-10"><a href=""></a><span class="in">  salary &gt; 10000</span></span>
+<span id="cb18-11"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb18-12"><a href=""></a><span class="in">result.head(5)</span></span>
+<span id="cb18-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="317">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King</td>
+<td>Steven</td>
+<td>24000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Kochhar</td>
+<td>Neena</td>
+<td>17000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>De Haan</td>
+<td>Lex</td>
+<td>17000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Greenberg</td>
+<td>Nancy</td>
+<td>12008.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Raphaely</td>
+<td>Den</td>
+<td>11000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples-1" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="selecting-a-department">Selecting a department</h3>
+<div id="bc4168c5" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb19-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb19-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb19-4"><a href=""></a><span class="in">select last_name,department_id</span></span>
+<span id="cb19-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb19-6"><a href=""></a><span class="in">where department_id=110;</span></span>
+<span id="cb19-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb19-8"><a href=""></a><span class="in">result.head(7)</span></span>
+<span id="cb19-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="318">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Higgins</td>
+<td>110</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Gietz</td>
+<td>110</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Data types matter. You’ll get an error if you set <em>department_id=‘110’</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="using-between">Using BETWEEN</h3>
+<p>The attribute can be a function or arithmetic operation</p>
+<div id="efefaf5b" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb20-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb20-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb20-4"><a href=""></a><span class="in">select concat(last_name,',',first_name) as full_name, salary</span></span>
+<span id="cb20-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb20-6"><a href=""></a><span class="in">where salary BETWEEN 10000 and 12000;</span></span>
+<span id="cb20-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb20-8"><a href=""></a><span class="in">result.head(5)</span></span>
+<span id="cb20-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="319">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+<th data-quarto-table-cell-role="th">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Raphaely,Den</td>
+<td>11000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Errazuriz,Alberto</td>
+<td>12000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Cambrault,Gerald</td>
+<td>11000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Tucker,Peter</td>
+<td>10000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples-2" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="using-in">Using IN</h3>
+<div id="754bec19" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb21-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb21-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb21-4"><a href=""></a><span class="in">select last_name,department_id</span></span>
+<span id="cb21-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb21-6"><a href=""></a><span class="in">where department_id in (100,145,146)</span></span>
+<span id="cb21-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb21-8"><a href=""></a><span class="in">result.head(7)</span></span>
+<span id="cb21-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="320">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Greenberg</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Faviet</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Chen</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Sciarra</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Urman</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Popp</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="the-long-way">The long way</h3>
+<div id="2d4d8cee" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb22-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb22-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb22-4"><a href=""></a><span class="in">select last_name,department_id</span></span>
+<span id="cb22-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb22-6"><a href=""></a><span class="in">where department_id=30 or department_id=70 or department_id=120</span></span>
+<span id="cb22-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb22-8"><a href=""></a><span class="in">result</span></span>
+<span id="cb22-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="321">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Raphaely</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Khoo</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Baida</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Tobias</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Himuro</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Colmenares</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Baer</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div></div>
+</section>
+<section id="where-clause-and-examples-3" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-are-all-the-department-ids">What are all the department IDs?</h3>
+<div id="471d36fb" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb23-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb23-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb23-4"><a href=""></a><span class="in">select distinct department_id</span></span>
+<span id="cb23-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb23-6"><a href=""></a><span class="in">order by department_id</span></span>
+<span id="cb23-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb23-8"><a href=""></a><span class="in">result</span></span>
+<span id="cb23-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="322">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>20.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>40.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>50.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>70.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>90.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>110.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="who-is-missing-a-manager">Who is missing a manager?</h3>
+<div id="9cf88cbd" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb24-2"><a href=""></a><span class="in">#| code-line-numbers: 4-6</span></span>
+<span id="cb24-3"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb24-4"><a href=""></a><span class="in">select last_name,job_id,manager_id</span></span>
+<span id="cb24-5"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb24-6"><a href=""></a><span class="in">where manager_id is NULL</span></span>
+<span id="cb24-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb24-8"><a href=""></a><span class="in">result.head(7)</span></span>
+<span id="cb24-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="323">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">job_id</th>
+<th data-quarto-table-cell-role="th">manager_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King</td>
+<td>AD_PRES</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>NULL must be all caps!!</p>
+</div></div>
+</section>
+<section id="computations" class="slide level2">
+<h2>Computations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="calculating-commissions">Calculating commissions</h3>
+<div id="aca2fc91" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="5-13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb25-2"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb25-3"><a href=""></a><span class="in">#| code-line-numbers: 5-13</span></span>
+<span id="cb25-4"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb25-5"><a href=""></a><span class="in">select </span></span>
+<span id="cb25-6"><a href=""></a><span class="in">  concat(last_name,',',first_name) as "Name",</span></span>
+<span id="cb25-7"><a href=""></a><span class="in">  salary as "Monthly",</span></span>
+<span id="cb25-8"><a href=""></a><span class="in">  12.0*salary+commission_pct*salary as "With/Commission"</span></span>
+<span id="cb25-9"><a href=""></a><span class="in">from</span></span>
+<span id="cb25-10"><a href=""></a><span class="in">  employees</span></span>
+<span id="cb25-11"><a href=""></a><span class="in">order by</span></span>
+<span id="cb25-12"><a href=""></a><span class="in">  last_name,</span></span>
+<span id="cb25-13"><a href=""></a><span class="in">  first_name</span></span>
+<span id="cb25-14"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb25-15"><a href=""></a><span class="in">result</span></span>
+<span id="cb25-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>What are the NaN “not a number” entries?</p>
+<p>How do we remove the NaN (not a number) from list?</p>
+</div><div class="column" style="width:50%;">
+<h3 id="calculating-commissions-1">Calculating commissions</h3>
+<div id="16162645" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="324">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="ifnull-operator" class="slide level2">
+<h2>IFNULL operator</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="the-ifnull-operator">The IFNULL operator</h3>
+<p>IFNULL( expr1, expr2 ) replaces NULL with a value.</p>
+<ul>
+<li><p>IF expr1 is NOT NULL then returns expr1</p></li>
+<li><p>IF expr1 IS NULL, then returns expr2.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="calculating-commissions-2">Calculating commissions</h3>
+<div id="5b5f320a" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb26-2"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb26-3"><a href=""></a><span class="in">#| code-line-numbers: 5-10</span></span>
+<span id="cb26-4"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb26-5"><a href=""></a><span class="in">select </span></span>
+<span id="cb26-6"><a href=""></a><span class="in">  concat(last_name,',',first_name) as "Name",</span></span>
+<span id="cb26-7"><a href=""></a><span class="in">  salary as "Monthly",</span></span>
+<span id="cb26-8"><a href=""></a><span class="in">  IFNULL(12.0*salary+commission_pct*salary,0.0) as "With/Commission"</span></span>
+<span id="cb26-9"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb26-10"><a href=""></a><span class="in">order by last_name, first_name</span></span>
+<span id="cb26-11"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb26-12"><a href=""></a><span class="in">result</span></span>
+<span id="cb26-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="ifnull-operator-1" class="slide level2">
+<h2>IFNULL operator</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="ifnull-expr1-0.0">IFNULL( expr1, 0.0)</h3>
+<div id="810b285a" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="325">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="ifnull-expr1-missing">IFNULL( expr1, ‘missing’)</h3>
+<div id="4bcf4685" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="326">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0000</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="string-operations" class="slide level2">
+<h2>String operations</h2>
+<p>The operator <em>LIKE</em> uses patterns (case insensitive) (use <em>LIKE BINARY</em> for case sensitive) for string-matching operations using two special characters:</p>
+<pre><code>* percentage ( % ) matches any substring (none or many characters)
+* underscore ( _ ) matches any single character</code></pre>
+<p>Examples:</p>
+<p>‘Intro%’ matches any string beginning with “Intro”</p>
+<p>‘%Comp%’ matches any string containing “Comp” as a substring</p>
+<p>’_ _ _’ matches any string of exactly three characters</p>
+<p>‘_ _ _ %’ matches any string of at least three characters</p>
+<p>‘%_ a _’ same as before but the second to the last letter is ‘a’</p>
+</section>
+<section id="string-operations-1" class="slide level2">
+<h2>String operations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="double-when-using-python">DOUBLE %% when using Python</h3>
+<div id="4f06644a" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb28-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb28-3"><a href=""></a><span class="in">#| code-line-numbers: 5-6</span></span>
+<span id="cb28-4"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb28-5"><a href=""></a><span class="in">select last_name from employees</span></span>
+<span id="cb28-6"><a href=""></a><span class="in">where last_name like 'MC%%'</span></span>
+<span id="cb28-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb28-8"><a href=""></a><span class="in">result</span></span>
+<span id="cb28-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="327">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>McCain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>McEwen</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="double-when-using-python-1">DOUBLE %% when using Python</h3>
+<div id="e9a8eb14" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb29-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb29-3"><a href=""></a><span class="in">#| code-line-numbers: 5-6</span></span>
+<span id="cb29-4"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb29-5"><a href=""></a><span class="in">SELECT phone_number FROM employees</span></span>
+<span id="cb29-6"><a href=""></a><span class="in">WHERE phone_number LIKE '%%123%%';</span></span>
+<span id="cb29-7"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb29-8"><a href=""></a><span class="in">result</span></span>
+<span id="cb29-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="328">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">phone_number</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>515.123.4567</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>515.123.4568</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>515.123.4569</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>650.123.1234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>650.123.2234</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>650.123.3234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>650.123.4234</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>650.123.5234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>650.121.1234</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>515.123.4444</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>515.123.5555</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>603.123.6666</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>515.123.7777</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>515.123.8888</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>515.123.8080</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>515.123.8181</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="order-by-clause" class="slide level2">
+<h2>ORDER BY clause</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>ORDER BY</em> is used to specify the sort order in the result set.</p>
+<p>The result set is sorted by the first attribute listed in the <em>ORDER BY</em>.</p>
+<p>If there is a tie, <em>ORDER BY</em> moves to the second attribute, and so on.</p>
+<p>Attribute expression may be modified with ASC (the default) or DESC (for descending)</p>
+<p>Attributes in <em>ORDER BY</em> can be computed!</p>
+</div><div class="column" style="width:50%;">
+<h3 id="example-1">Example</h3>
+<div id="1098d316" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb30-2"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb30-3"><a href=""></a><span class="in">#| code-line-numbers: 5-10</span></span>
+<span id="cb30-4"><a href=""></a><span class="in">result = pd.read_sql("""</span></span>
+<span id="cb30-5"><a href=""></a><span class="in">select </span></span>
+<span id="cb30-6"><a href=""></a><span class="in">  concat(last_name,',',first_name) as "Full Name", salary as "Monthly"</span></span>
+<span id="cb30-7"><a href=""></a><span class="in">from employees</span></span>
+<span id="cb30-8"><a href=""></a><span class="in">order by</span></span>
+<span id="cb30-9"><a href=""></a><span class="in">  salary desc,</span></span>
+<span id="cb30-10"><a href=""></a><span class="in">  last_name, first_name</span></span>
+<span id="cb30-11"><a href=""></a><span class="in">""",cnx)</span></span>
+<span id="cb30-12"><a href=""></a><span class="in">result</span></span>
+<span id="cb30-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="329">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Full Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King,Steven</td>
+<td>24000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>De Haan,Lex</td>
+<td>17000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Kochhar,Neena</td>
+<td>17000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Russell,John</td>
+<td>14000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Partners,Karen</td>
+<td>13500.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Gee,Ki</td>
+<td>2400.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Landry,James</td>
+<td>2400.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Markle,Steven</td>
+<td>2200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Philtanker,Hazel</td>
+<td>2200.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Olson,TJ</td>
+<td>2100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-summary" class="slide level2">
+<h2>SELECT summary</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p><code>SELECT</code> - variable to project</p></li>
+<li><p><code>FROM</code> - tables to combine</p></li>
+<li><p><code>WHERE</code> - filters to select</p></li>
+<li><p><code>ORDER BY</code> - order of results</p></li>
+<li><p><code>CONCAT</code> - combining columns</p></li>
+<li><p><code>AS</code> - Renaming columns</p></li>
+<li><p>Literals</p></li>
+<li><p>Computations in SELECT</p></li>
+</ul>
+</div><div class="column">
+<ul>
+<li><code>WHERE</code>
+<ul>
+<li>AND, OR, NOT</li>
+<li><code>&lt;</code> <code>&lt;=</code> <code>=</code> <code>=&gt;</code> <code>&gt;</code></li>
+</ul></li>
+<li><code>BETWEEN</code> - for <em>where</em></li>
+<li><code>IN</code> - checking set membership</li>
+<li><code>NULL</code> values</li>
+<li><code>IFNULL</code> operator</li>
+<li>String matches <code>%%</code></li>
+</ul>
+</div></div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +3361,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Midterm grades have been posted</p></li>
+<li><p>No class on Friday - reading day.</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528" target="_blank">Homework 5 due 10/20 - this weekend!</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/connecting-to-dbms">Connecting to DBMS</a></p></li>
+<li><p><a href="#/mysql-passwords">MySQL passwords</a></p></li>
+<li><p><a href="#/intro-to-sql">Intro to SQL</a></p></li>
+<li><p><a href="#/mysql-dbms">MySQL DBMS</a></p></li>
+<li><p><a href="#/getting-to-select">Getting to SELECT</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -530,7 +3415,7 @@
 <td style="text-align: center;">10/20</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>PrjDel 9 due (Working website using docker)</td>
+<td>HW5 due (Getting started with SQL)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -562,7 +3447,7 @@
 <td style="text-align: center;">10/27</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW5 due (Getting started with SQL)</td>
+<td>PrjDel 9 due (Working website using docker)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -595,7 +3480,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +3491,7 @@
   <script src="lecture-16_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-16_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-16_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-16_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-16_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +3512,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +3689,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

@@ -1,12 +1,51 @@
 
-# SELECT statement
+# Getting to SELECT
 
-## SELECT clause
+## Getting to Select
 
+:::: {.columns}
+::: {.column}
 
+### Database access workflow
+
+1. Retrieving credentials into your program.  *No hardcoding!*
+
+1. Connecting to the database using a *local database engine.*
+
+1. Through the life of the program:
+
+    a. Sending the *query* to the DBMS through the connection.
+    a. Retriving the *result set*
+
+1. Finally, closing the connection.
+:::
+::: {.column}
+### Key terms
+<p>&nbsp;</p>
+credentials
+: host, username, password, database
+
+local database engine
+: software on your machine that manages the connection through the internet
+to your remote server.
+
+query
+: a command sent to the remove database server
+
+result set
+: the package returned from the remote server.  It may contain
+data or error information.
+
+:::
+::::
+
+## Database connection
+
+:::: {.columns}
+::: {.column width=60%}
 ```{python}
 #| eval: true
-#| echo: true
+#| echo: fenced
 import os
 import pandas as pd
 from dotenv import load_dotenv
@@ -15,16 +54,190 @@ from sqlalchemy import create_engine,text
 load_dotenv()
 # store these credentials a dictionary for later reference
 config = {
-  'user': os.getenv("HW6_USER"),
-  'password': os.getenv("HW6_PASSWORD"),
-  'host': os.getenv("HW6_HOST"),
-  'database': os.getenv("HW6_DB_NAME")
+  'user': os.getenv("HW5_USER"),
+  'password': os.getenv("HW5_PASSWORD"),
+  'host': os.getenv("HW5_HOST"),
+  'database': os.getenv("HW5_DB_NAME")
 }
 engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
 
 # create a database connection.  THIS IS THE ACTUAL CONNECTION!
 cnx = create_engine(engine_uri)
 ```
+:::
+::: {.column width=40%}
+### Connection block
+
+This single block of code general sits at the top of all your QMD files.
+
+This block of code creates the `cnx` variable - the actually connection
+to the database.
+
+We'll use `cnx` later in the code whenever we want to talk with
+the DBMS.
+:::
+::::
+
+## Database connection - Imports
+
+:::: {.columns}
+::: {.column width=60%}
+```{python}
+#| eval: true
+#| echo: fenced
+#| code-line-numbers: 4-7
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("HW5_USER"),
+  'password': os.getenv("HW5_PASSWORD"),
+  'host': os.getenv("HW5_HOST"),
+  'database': os.getenv("HW5_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+:::
+::: {.column width=40%}
+### Imports
+
+The `import` commands load modules into your *python* program. 
+
+These modules must first be installed in your virtual environment using 
+`poetry` or `pip` to install the necessary modules.  I prefer `poetry`!
+
+`dotenv` module is used to load environment variable from disk into memory.
+
+`sqlalchemy` module provides many different tools for connecting to, managing, and querying databases.
+`sqlalchemy` is known as an *Object Relational Mapper* or *ORM*.  When used to it's full extent
+it allows to you seamlessly load and store objects without having to think about the SQL.
+
+But that kind of defeats the purpose for this class!  So we'll only use a few of the tools provided.
+
+:::
+::::
+
+## Database connection - Load .env into environment
+
+:::: {.columns}
+::: {.column width=60%}
+```{python}
+#| eval: true
+#| echo: fenced
+#| code-line-numbers: 8-16
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("HW5_USER"),
+  'password': os.getenv("HW5_PASSWORD"),
+  'host': os.getenv("HW5_HOST"),
+  'database': os.getenv("HW5_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+:::
+::: {.column width=40%}
+### Getting your connection variables.
+
+Rather than hard-coding your database connection into your code, we'll
+store the connection information on your disk and load it when your program starts.
+
+`load_dotenv()` searches for a `.env` file and if found, loads the contents into your environment.
+
+`os.getenv()` searches for a *key* in the environnment and if found returns it's *value*.
+
+A database connection is defined by four attributes:
+  * Server name
+  * Database name
+  * Username
+  * Password
+
+To minimize pollution in the namespace we'll store these four separate variables in a single dictionary for later reference.
+
+:::
+::::
+
+## Database connection - Create connection
+
+:::: {.columns}
+::: {.column width=60%}
+```{python}
+#| eval: true
+#| echo: fenced
+#| code-line-numbers: 17-20
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("HW5_USER"),
+  'password': os.getenv("HW5_PASSWORD"),
+  'host': os.getenv("HW5_HOST"),
+  'database': os.getenv("HW5_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+:::
+::: {.column width=40%}
+### Creating the connection
+
+Armed with our connection varaibles we create a connection string and open a connection to the database using a *local database engine.*
+
+A connection to ANY database and server starts with a [*connection string*](https://www.connectionstrings.com/){target="_blank"}
+
+Through the connection string you can customize the connection and how information passes through it.
+
+Connection strings are used by your *local database engine* to *locate the database host*, *open the appropriate port*, 
+*pass credentials like username and password*, and finally *select the database to use*.
+
+Connection strings also manage which languages and character sets are used, sizes of transmission buffers, and more.
+
+*RTFM* for your [*local database engine*!](https://docs.sqlalchemy.org/en/20/core/engines.html){target="_blank"}
+
+:::
+::::
+
+## Another helper block
+
+In my code I created another block with a function.
+
+Normally, you'd set `echo: false` to not display the code.
+
+
+```{python}
+#| echo: fenced
+from tabulate import tabulate
+from IPython.display import display, Markdown
+
+def display_dataframe_as_table( df, width="100%" ):
+    """ Display dataframe in pretty format for Quarto """
+    markdown_table = tabulate(df, headers='keys',showindex=False)
+    html_table = markdown_table
+    display(Markdown(html_table))
+```
+
+## Select statement
 
 :::: {.columns}
 ::: {.column width=50%}
@@ -49,7 +262,7 @@ $\Pi_{A_1, A_2, ... A_n}(\sigma_{P}(R_1 \times R_2 \times ... \times R_n) )$
 
 **WHERE** P
 
-**ORDER BY** A2,A3,A1
+**ORDER BY** A2,A3,A1;
 
 * A* represents an attribute (column), a literal, a function, or an operation
 * R* represents a relation (table), cartesian project, or join
@@ -97,12 +310,26 @@ FROM
 :::
 ::::
 
+## *Regions* table
+
+::: {style="font-size: 50%;"}
+```{python}
+#| echo: false
+result = pd.read_sql("""
+select * from regions
+""",cnx)
+result.head(20)
+```
+:::
+
 ## SELECT clause and examples
 
 :::: {.columns}
 ::: {.column width=50%}
 ### Using * to select all columns
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4
 result = pd.read_sql("""
 select * from regions
 """,cnx)
@@ -112,7 +339,9 @@ result
 :::
 ::: {.column width=50%}
 ### Selecting only one attribute
-```{python}
+```{python regions}
+#| echo: fenced
+#| code-line-numbers: 4-7
 result = pd.read_sql("""
 select
   region_name
@@ -121,9 +350,21 @@ from
 """,cnx)
 result
 ```
-
 :::
 ::::
+
+
+## *Employees* table - first 20 rows
+
+::: {style="font-size: 50%;"}
+```{python}
+#| echo: false
+result = pd.read_sql("""
+select * from employees
+""",cnx)
+result.head(20)
+```
+:::
 
 ## SELECT clause and examples
 
@@ -131,6 +372,8 @@ result
 ::: {.column width=50%}
 ### Gathering all last names
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4
 result = pd.read_sql("""
 select last_name from employees
 """,cnx)
@@ -141,6 +384,8 @@ result
 ::: {.column width=50%}
 ### Eliminating duplicates with DISTINCT
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4
 result = pd.read_sql("""
 select distinct last_name from employees
 """,cnx)
@@ -156,6 +401,8 @@ result
 ::: {.column width=50%}
 ### Combining last and first names
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-5
 result = pd.read_sql("""
 select concat(last_name,',',first_name)
 from employees
@@ -167,6 +414,8 @@ result.head(7)
 ::: {.column width=50%}
 ### Then renaming the column
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-5
 result = pd.read_sql("""
 select concat(last_name,',',first_name) as full_name
 from employees
@@ -183,15 +432,14 @@ result.head(7)
 ::: {.column width=50%}
 ### attribute can be literal or function
 ```{python}
-
+#| echo: fenced
+#| code-line-numbers: 4-8
 result = pd.read_sql("""
-
 select
   27 as "Literal",
   now() as "Current Time" 
 from
   dual
-
 """,cnx)
 result.head(7)
 ```
@@ -206,6 +454,8 @@ in subsequent operations.
 
 The attribute can be a function or arithmetic operation
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select concat(last_name,',',first_name) as full_name,
 salary*12 as "Annual Salary"
@@ -222,7 +472,7 @@ result.head(5)
 :::: {.columns}
 ::: {.column width=50%}
 
-* The WHERE clause specifies conditions that the results must satisfy, correspoding to the $\sigma$ predicate in relational algebra.
+* The WHERE clause specifies conditions that the results must satisfy, corresponding to the $\sigma$ predicate in relational algebra.
 
 * An individual WHERE element returns TRUE or FALSE for every row.  This is applied during the query and will return only rows that evaluate TRUE in the where clause.
 
@@ -235,6 +485,8 @@ result.head(5)
 ::: {.column width=50%}
 
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 5-10
 result = pd.read_sql("""
 -- note that this is a monthly salary!
 SELECT
@@ -260,6 +512,8 @@ result.head(5)
 ::: {.column width=50%}
 ### Selecting a department
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select last_name,department_id
 from employees
@@ -276,6 +530,8 @@ if you set *department_id='110'*
 ### Using BETWEEN
 The attribute can be a function or arithmetic operation
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select concat(last_name,',',first_name) as full_name, salary
 from employees
@@ -293,6 +549,8 @@ result.head(5)
 ::: {.column width=50%}
 ### Using IN
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select last_name,department_id
 from employees
@@ -306,6 +564,8 @@ result.head(7)
 ::: {.column width=50%}
 ### The long way
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select last_name,department_id
 from employees
@@ -324,6 +584,8 @@ result
 ::: {.column width=50%}
 ### What are all the department IDs?
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select distinct department_id
 from employees
@@ -337,6 +599,8 @@ result
 ::: {.column width=50%}
 ### Who is missing a manager?
 ```{python}
+#| echo: fenced
+#| code-line-numbers: 4-6
 result = pd.read_sql("""
 select last_name,job_id,manager_id
 from employees
@@ -357,10 +621,10 @@ NULL must be all caps!!
 ::: {.column width=50%}
 ### Calculating commissions
 ```{python}
-#| echo: true
 #| eval: false
+#| echo: fenced
+#| code-line-numbers: 5-13
 result = pd.read_sql("""
-
 select 
   concat(last_name,',',first_name) as "Name",
   salary as "Monthly",
@@ -370,7 +634,6 @@ from
 order by
   last_name,
   first_name
-
 """,cnx)
 result
 ```
@@ -415,8 +678,9 @@ IFNULL( expr1, expr2 ) replaces NULL with a value.
 ::: {.column width=50%}
 ### Calculating commissions
 ```{python}
-#| echo: true
 #| eval: false
+#| echo: fenced
+#| code-line-numbers: 5-10
 result = pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Name",
@@ -497,8 +761,9 @@ Examples:
 ::: {.column width=50%}
 ### DOUBLE %% when using Python
 ```{python}
-#| echo: true
 #| eval: true
+#| echo: fenced
+#| code-line-numbers: 5-6
 result = pd.read_sql("""
 select last_name from employees
 where last_name like 'MC%%'
@@ -509,8 +774,9 @@ result
 ::: {.column width=50%}
 ### DOUBLE %% when using Python
 ```{python}
-#| echo: true
 #| eval: true
+#| echo: fenced
+#| code-line-numbers: 5-6
 result = pd.read_sql("""
 SELECT phone_number FROM employees
 WHERE phone_number LIKE '%%123%%';
@@ -539,8 +805,9 @@ Attributes in *ORDER BY* can be computed!
 ::: {.column width=50%}
 ### Example
 ```{python}
-#| echo: true
 #| eval: true
+#| echo: fenced
+#| code-line-numbers: 5-10
 result = pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Full Name", salary as "Monthly"
@@ -553,4 +820,32 @@ result
 ```
 :::
 ::::
+
+## SELECT summary
+
+:::: {.columns}
+::: {.column}
+* `SELECT` - variable to project
+* `FROM` - tables to combine
+* `WHERE` - filters to select
+* `ORDER BY` - order of results
+
+* `CONCAT` - combining columns
+* `AS` - Renaming columns
+* Literals
+* Computations in SELECT
+:::
+::: {.column}
+* `WHERE`
+    * AND, OR, NOT
+    * `<` `<=` `=` `=>` `>`
+
+* `BETWEEN` - for *where*
+* `IN` - checking set membership
+* `NULL` values
+* `IFNULL` operator
+* String matches `%%`
+:::
+::::
+
 

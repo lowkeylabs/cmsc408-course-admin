@@ -70,8 +70,8 @@ lecture_topics = [
 * Verify your login to DBMS
 <p>&nbsp;</p>
 * Username format:
-    - 24FA_(your EID)
-    - For example: 24FA_jdleonard
+    - 24fa_(your EID)
+    - For example: 24fa_jdleonard
 <p>&nbsp;</p>
 * Password format
     - Shout4_(your EID)_JOY

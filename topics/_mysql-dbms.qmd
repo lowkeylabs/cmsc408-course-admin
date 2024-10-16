@@ -19,6 +19,10 @@ We simply need to know how to tell it what we want it to do.
 * The DBMS maintains several databases specifically
 for the management of the database itself!
 
+    * *information_schema*
+    * *performance_schema*
+
+
 :::
 ::: {.column width=45%}
 
@@ -50,7 +54,7 @@ for the management of the database itself!
 * Data Definition Statement (DDL)
 * Data Manipulation Statements (DML)
 
-<https://dev.mysql.com/doc/refman/8.0/en/>
+<https://dev.mysql.com/doc/refman/8.0/en/>{target="_blank"}
 
 :::
 ::::
