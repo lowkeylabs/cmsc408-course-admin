@@ -10,10 +10,13 @@
 <link href="lecture-17_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-17_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-17_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-17_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
+<link href="lecture-17_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-17_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-17_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-17_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>SQL Create/Insert/Delete/Update</title>
+  <title>SQL Toolset</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -37,6 +40,8 @@
   <link href="lecture-17_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-17_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-17_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-17_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-17_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-17_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +342,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">SQL Create/Insert/Delete/Update</h1>
+  <h1 class="title">SQL Toolset</h1>
   <p class="subtitle">Lecture 17</p>
 
 <div class="quarto-title-authors">
@@ -353,15 +358,20 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528" target="_blank">Homework 5 due 10/20 - yesterday</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286" target="_blank">Deliverable 9 due 10/17 - Sunday</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709" target="_blank">Practice Quiz 5 - open now</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276" target="_blank">Quiz 5 - SQL Basics - open 10/27</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/save-you-hours">SAVE YOU HOURS™</a></p></li>
+<li><p><a href="#/python-quarto-setup">Python Quarto Setup</a></p></li>
+<li><p><a href="#/deliverable-9---getting-started-with-docker">Deliverable 9</a></p></li>
 </ul>
 </div></div>
-<div style="margin-top:25px">
+<div style="margin-top:10px">
 <p>&nbsp;</p>
 </div>
 
@@ -384,7 +394,7 @@
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10/21</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG17: L17 (SQL Create/Insert/Delete/Update)</td>
+<td>MTG17: L17 (SQL Toolset)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -392,7 +402,7 @@
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10/23</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG18: L18 (SQL toolset)</td>
+<td>MTG18: L18 (SQL C-R-U-D)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -409,7 +419,7 @@
 <td style="text-align: center;">10/27</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW5 due (Getting started with SQL)</td>
+<td>PrjDel 9 due (Working website using docker)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -424,7 +434,7 @@
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">10/30</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG20: L20 (SQL)</td>
+<td>MTG20: L20 (More joins)</td>
 <td>Quiz 5 due (SQL Basics)</td>
 </tr>
 <tr class="odd">
@@ -447,8 +457,8 @@
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +484,277 @@
 </div>
 </div>
 </section>
+<section>
+<section id="save-you-hours" class="title-slide slide level1 center">
+<h1>SAVE YOU HOURS™</h1>
+
+</section>
+<section id="save-you-hours-1" class="slide level2">
+<h2>SAVE YOU HOURS™</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097" target="_blank"><img data-src="./assets/save-you-hours.png" class="quarto-figure quarto-figure-center" width="450"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<h3 id="yes-it-can">Yes, it can!</h3>
+<ul>
+<li>Read the Front Page!</li>
+</ul>
+</div></div>
+</section>
+<section id="save-you-hours-2" class="slide level2">
+<h2>SAVE YOU HOURS™</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/external_tools/34" target="_blank"><img data-src="./assets/resource-analytics.png" class="quarto-figure quarto-figure-center" width="450"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<h3 id="analytics">Analytics</h3>
+<ul>
+<li><p>Who is looking at what?</p></li>
+<li><p>Let’s explore</p></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="python-quarto-setup" class="title-slide slide level1 center">
+<h1>Python-Quarto Setup</h1>
+
+</section>
+<section id="issue---vs-code-is-blocking-extensions" class="slide level2">
+<h2>Issue - VS code is blocking extensions</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-restricted-mode.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="./assets/env-restricted-mode.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="where-are-all-my-cool-features">Where are all my cool features?</h3>
+<ul>
+<li>VS code will only enable extensions in approved directories.</li>
+<li>If you’re editing a QMD and you see <code>plain text</code> you need to fix things.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="click-on-manage">Click on <em>Manage</em></h3>
+<ul>
+<li>Add your project folder to list OR</li>
+<li>Add your project folder PARENT to list.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---vs-code-is-blocking-extensions-1" class="slide level2">
+<h2>Issue - VS code is blocking extensions</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-workspace-trust.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="./assets/env-workspace-trust.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="where-are-all-my-cool-features-1">Where are all my cool features?</h3>
+<ul>
+<li>VS code will only enable extensions in approved directories.</li>
+<li>If you’re editing a QMD and you see <code>plain text</code> you need to fix things.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="click-on-manage-1">Click on <em>Manage</em></h3>
+<ul>
+<li>Add your project folder to list OR</li>
+<li>Add your project folder PARENT to list.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---why-is-this-so-hard" class="slide level2">
+<h2>Issue - Why is this so hard?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/xkcd-python-environments.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="./assets/xkcd-python-environments.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="oh-will-the-pain-ever-end">Oh … will the pain ever end?</h3>
+<ul>
+<li>YES - it will, I promise!</li>
+<li>You only need to install and debug the tools once.</li>
+<li>We’ll use them throughout the rest of the term.</li>
+<li>Hopefully, you’ll learn a bit more so that you can fix things in the future.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---so-many-environments" class="slide level2">
+<h2>Issue - So many environments!</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="i-followed-your-directions">I followed your directions!!!</h3>
+<ul>
+<li>YES - I DID properly install pyenv and poetry.</li>
+<li>YES - I DID properly select python.</li>
+<li>YES - I DID install Quarto.</li>
+<li>YES - I DID update VS code.</li>
+<li>YES - I DID run it from the terminal OK.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="but-why-does-it-still-not-work">BUT, why does it still NOT work???</h3>
+</div><div class="column" style="width:50%;">
+<h3 id="relax-its-a-feature---not-a-bug">Relax, it’s a feature - not a bug!</h3>
+<ul>
+<li>Child programs are isolated from parent programs to protect parent program from crashes.</li>
+<li>When the kernel starts a child program, the child gets an environment.</li>
+<li>An environment is a shared piece of memory, with key=value pairs.</li>
+<li>Child programs are given <em>copies</em> of their parent’s environment.</li>
+<li>Sometimes the child isn’t given what you want them to get.</li>
+<li>It all depends on your parent program, that is, how you start VS code, quarto and python.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---so-many-environments-1" class="slide level2">
+<h2>Issue - So many environments!</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./assets/env-processes-and-forks.png"></p>
+</div><div class="column" style="width:50%;">
+<h3 id="relax-its-a-feature---not-a-bug-1">Relax, it’s a feature - not a bug!</h3>
+<ul>
+<li>Child programs are isolated from parent programs to protect parent program from crashes.</li>
+<li>When the kernel starts a child program, the child gets an environment.</li>
+<li>An environment is a shared piece of memory, with key=value pairs.</li>
+<li>Child programs are given <em>copies</em> of their parent’s environment.</li>
+<li>Sometimes the child isn’t given what you want them to get.</li>
+<li>It all depends on your parent program, that is, how you start VS code, quarto and python.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---wrong-environments" class="slide level2">
+<h2>Issue - Wrong environments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-wrong-environments.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="./assets/env-wrong-environments.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="look-at-all-those-things">Look at all those things!</h3>
+<ul>
+<li>Each window is a separate program</li>
+<li>Each gets it’s own environment</li>
+<li>If you start vs code from a terminal they all get VS code</li>
+<li>If you run VS code from the GUI you get the GUI environment
+<p>
+&nbsp;
+</p>
+<h3 id="to-fix-click-on-python-version">To fix: click on python version</h3></li>
+<li>Click on the version and select the correct environment.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---wrong-environments-1" class="slide level2">
+<h2>Issue - Wrong environments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-selecting-bottom.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="./assets/env-selecting-bottom.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="look-at-all-those-things-1">Look at all those things!</h3>
+<ul>
+<li>Each window is a separate program</li>
+<li>Each gets it’s own environment</li>
+<li>If you start vs code from a terminal they all get VS code</li>
+<li>If you run VS code from the GUI you get the GUI environment
+<p>
+&nbsp;
+</p>
+<h3 id="to-fix-click-on-python-version-1">To fix: click on python version</h3></li>
+<li>Click on the version and select the correct environment.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---wrong-environments-2" class="slide level2">
+<h2>Issue - Wrong environments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-selecting-top.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="./assets/env-selecting-top.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="look-at-all-those-things-2">Look at all those things!</h3>
+<ul>
+<li>Each window is a separate program</li>
+<li>Each gets it’s own environment</li>
+<li>If you start vs code from a terminal they all get VS code</li>
+<li>If you run VS code from the GUI you get the GUI environment
+<p>
+&nbsp;
+</p>
+<h3 id="to-fix-click-on-python-version-2">To fix: click on python version</h3></li>
+<li>Click on the version and select the correct environment.</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="deliverable-9---getting-started-with-docker" class="title-slide slide level1 center">
+<h1>Deliverable 9 - Getting started with Docker</h1>
+
+</section>
+<section id="deliverable-9---getting-started-with-docker-1" class="slide level2">
+<h2>Deliverable 9 - Getting started with Docker</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286" target="_blank"><img data-src="./assets/del9-starting-with-docker.png"></a></p>
+</div><div class="column" style="width:30%;">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Install docker</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Play with containers
+<ul>
+<li>Simple</li>
+<li>More Complex</li>
+</ul></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Gather ideas and code
+<ul>
+<li>Semester project architecture</li>
+<li>Web server code</li>
+<li>Database code</li>
+<li>(capstone project?)</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,15 +763,20 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528" target="_blank">Homework 5 due 10/20 - yesterday</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286" target="_blank">Deliverable 9 due 10/17 - Sunday</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709" target="_blank">Practice Quiz 5 - open now</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276" target="_blank">Quiz 5 - SQL Basics - open 10/27</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/save-you-hours">SAVE YOU HOURS™</a></p></li>
+<li><p><a href="#/python-quarto-setup">Python Quarto Setup</a></p></li>
+<li><p><a href="#/deliverable-9---getting-started-with-docker">Deliverable 9</a></p></li>
 </ul>
 </div></div>
-<div style="margin-top:25px">
+<div style="margin-top:10px">
 <p>&nbsp;</p>
 </div>
 
@@ -513,7 +799,7 @@
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10/21</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG17: L17 (SQL Create/Insert/Delete/Update)</td>
+<td>MTG17: L17 (SQL Toolset)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -521,7 +807,7 @@
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10/23</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG18: L18 (SQL toolset)</td>
+<td>MTG18: L18 (SQL C-R-U-D)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -538,7 +824,7 @@
 <td style="text-align: center;">10/27</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW5 due (Getting started with SQL)</td>
+<td>PrjDel 9 due (Working website using docker)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -553,7 +839,7 @@
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">10/30</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG20: L20 (SQL)</td>
+<td>MTG20: L20 (More joins)</td>
 <td>Quiz 5 due (SQL Basics)</td>
 </tr>
 <tr class="odd">
@@ -595,7 +881,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +892,7 @@
   <script src="lecture-17_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-17_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-17_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-17_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-17_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +913,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +1090,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -998,6 +1286,38 @@
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

@@ -1,7 +1,7 @@
 ---
 date: 10/21/2024
 lecture-id: 17
-title: SQL Create/Insert/Delete/Update
+title: SQL Toolset
 ---
 
 ```{python}
@@ -14,20 +14,92 @@ housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
-housekeeping_vertical_spacer = "25px"
+housekeeping_vertical_spacer = "10px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 5 due 10/20 - yesterday](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528){target="_blank"}',
+    '[Deliverable 9 due 10/17 - Sunday](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}',
+    '[Practice Quiz 5 - open now](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709){target="_blank"}',
+    '[Quiz 5 - SQL Basics - open 10/27](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276){target="_blank"}',
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[SAVE YOU HOURS™](#save-you-hours)',
+    '[Python Quarto Setup](#python-quarto-setup)',
+    '[Deliverable 9](#deliverable-9---getting-started-with-docker)'
+
 ]
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# SAVE YOU HOURS™
+
+## SAVE YOU HOURS™
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/save-you-hours.png){fig-align="center" width=450px}](https://virginiacommonwealth.instructure.com/courses/105097){target="_blank"}
+:::
+::: {.column width=30%}
+### Yes, it can!
+
+* Read the Front Page!
+
+:::
+::::
+
+## SAVE YOU HOURS™
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/resource-analytics.png){fig-align="center" width=450px}](https://virginiacommonwealth.instructure.com/courses/105097/external_tools/34){target="_blank"}
+:::
+::: {.column width=30%}
+### Analytics
+
+* Who is looking at what?
+
+* Let's explore
+
+:::
+::::
+
+
+{{< include "../../topics/_python-quarto-setup.qmd" >}}
+
+
+# Deliverable 9 - Getting started with Docker
+
+## Deliverable 9 - Getting started with Docker
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/del9-starting-with-docker.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+
+* Install docker
+
+<p>&nbsp;</p>
+
+* Play with containers
+    - Simple
+    - More Complex
+
+<p>&nbsp;</p>
+
+* Gather ideas and code
+    - Semester project architecture
+    - Web server code
+    - Database code
+    - (capstone project?)
+:::
+::::
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

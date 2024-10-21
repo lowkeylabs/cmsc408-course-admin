@@ -1,0 +1,7 @@
+---
+title: "Python-Quarto Setup"
+---
+
+{{< include '_python-quarto-setup.qmd' >}}
+
+    

@@ -1,7 +1,7 @@
 ---
 date: 10/30/2024
 lecture-id: 20
-title: SQL
+title: More joins
 ---
 
 ```{python}

@@ -1,0 +1,170 @@
+# Python-Quarto Setup
+
+## Issue - VS code is blocking extensions
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/env-restricted-mode.png){fig-align="center" width=410px .lightbox}
+:::
+::: {.column width=40%}
+### Where are all my cool features?
+* VS code will only enable extensions in approved directories.
+* If you're editing a QMD and you see `plain text` you need to fix things.
+
+<p>&nbsp;</p>
+### Click on *Manage*
+
+* Add your project folder to list OR
+* Add your project folder PARENT to list.
+
+:::
+::::
+
+
+## Issue - VS code is blocking extensions
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/env-workspace-trust.png){fig-align="center" width=410px .lightbox}
+:::
+::: {.column width=40%}
+### Where are all my cool features?
+* VS code will only enable extensions in approved directories.
+* If you're editing a QMD and you see `plain text` you need to fix things.
+
+<p>&nbsp;</p>
+### Click on *Manage*
+
+* Add your project folder to list OR
+* Add your project folder PARENT to list.
+
+:::
+::::
+
+## Issue - Why is this so hard?
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/xkcd-python-environments.png){fig-align="center" width=410px .lightbox}
+:::
+::: {.column width=40%}
+### Oh ... will the pain ever end?
+
+* YES - it will, I promise!
+* You only need to install and debug the tools once.
+* We'll use them throughout the rest of the term.
+* Hopefully, you'll learn a bit more so that you 
+can fix things in the future.
+:::
+::::
+
+## Issue - So many environments!
+
+:::: {.columns}
+::: {.column width="50%"}
+### I followed your directions!!!
+
+* YES - I DID properly install pyenv and poetry.
+* YES - I DID properly select python.
+* YES - I DID install Quarto.
+* YES - I DID update VS code.
+* YES - I DID run it from the terminal OK.
+
+<p>&nbsp;</p>
+### BUT, why does it still NOT work???
+
+:::
+::: {.column width="50%"}
+### Relax, it's a feature - not a bug!
+
+* Child programs are isolated from parent programs to protect parent program
+from crashes.
+* When the kernel starts a child program, the child gets an environment.
+* An environment is a shared piece of memory, with key=value pairs.
+* Child programs are given *copies* of their parent's environment.
+* Sometimes the child isn't given what you want them to get.
+* It all depends on your parent program, that is, how you start VS code, quarto and python.
+
+:::
+::::
+
+## Issue - So many environments!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](./assets/env-processes-and-forks.png)
+:::
+::: {.column width="50%"}
+### Relax, it's a feature - not a bug!
+
+* Child programs are isolated from parent programs to protect parent program
+from crashes.
+* When the kernel starts a child program, the child gets an environment.
+* An environment is a shared piece of memory, with key=value pairs.
+* Child programs are given *copies* of their parent's environment.
+* Sometimes the child isn't given what you want them to get.
+* It all depends on your parent program, that is, how you start VS code, quarto and python.
+
+:::
+::::
+
+
+## Issue - Wrong environments
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/env-wrong-environments ){fig-align="center" width=410px .lightbox}
+:::
+::: {.column width=40%}
+### Look at all those things!
+* Each window is a separate program
+* Each gets it's own environment
+* If you start vs code from a terminal they all get VS code
+* If you run VS code from the GUI you get the GUI environment
+<p>&nbsp;</p>
+### To fix: click on python version
+
+* Click on the version and select the correct environment.
+:::
+::::
+
+
+## Issue - Wrong environments
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/env-selecting-bottom.png ){fig-align="center" width=410px .lightbox}
+:::
+::: {.column width=40%}
+### Look at all those things!
+* Each window is a separate program
+* Each gets it's own environment
+* If you start vs code from a terminal they all get VS code
+* If you run VS code from the GUI you get the GUI environment
+<p>&nbsp;</p>
+### To fix: click on python version
+
+* Click on the version and select the correct environment.
+:::
+::::
+
+## Issue - Wrong environments
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/env-selecting-top.png ){fig-align="center" width=410px .lightbox}
+:::
+::: {.column width=40%}
+### Look at all those things!
+* Each window is a separate program
+* Each gets it's own environment
+* If you start vs code from a terminal they all get VS code
+* If you run VS code from the GUI you get the GUI environment
+<p>&nbsp;</p>
+### To fix: click on python version
+
+* Click on the version and select the correct environment.
+:::
+::::
+
