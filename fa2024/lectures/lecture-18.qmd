@@ -25,6 +25,7 @@ discussion_items = [
 ]
 
 lecture_topics = [
+    '[QMD/Python debugging strategies](#qmdpython-debugging-strategies)',
     '[Getting to SELECT](#getting-to-select)',
     '[Creating and populating tables](#creating-and-populating-tables)'
 ]
@@ -34,6 +35,32 @@ lecture_topics = [
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
+
+# QMD/Python Debugging strategies
+
+## QMD/Python Debugging strategies
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/vscode-run-cell.png)
+:::
+::: {.column width=40%}
+### Issue
+
+* When I render my QMD file, I get an error.
+* How do I track it down?
+
+### Debugging strategies
+
+* Open in VS code and run block-by-block
+* Inspect variables to make sure that all is working as
+expected.
+* Insert new blocks as necessary.  Quarto and python don't care!
+* It's like adding print statements.
+:::
+::::
+
+<center>***Jump to command line and run a little demonstration.***</center>
 
 {{< include "../../topics/_select-statement.qmd" >}}
 {{< include "../../topics/_creating-and-populating-tables.qmd" >}}
