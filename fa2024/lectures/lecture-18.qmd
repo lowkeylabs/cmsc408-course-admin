@@ -17,17 +17,25 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 5 due 10/20 - yesterday](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528){target="_blank"}',
+    '[Deliverable 9 due 10/17 - Sunday](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}',
+    '[Practice Quiz 5 - open now](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709){target="_blank"}',
+    '[Quiz 5 - SQL Basics - open 10/27](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276){target="_blank"}',
+    '[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/105097){target="_blank"}',
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Getting to SELECT](#getting-to-select)',
+    '[Creating and populating tables](#creating-and-populating-tables)'
 ]
+
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-
+{{< include "../../topics/_select-statement.qmd" >}}
+{{< include "../../topics/_creating-and-populating-tables.qmd" >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
