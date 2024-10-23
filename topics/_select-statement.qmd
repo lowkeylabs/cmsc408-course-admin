@@ -827,7 +827,7 @@ result
 ::: {.column}
 * `SELECT` - variable to project
 * `FROM` - tables to combine
-* `WHERE` - filters to select
+* `WHERE` - filters to apply
 * `ORDER BY` - order of results
 
 * `CONCAT` - combining columns
