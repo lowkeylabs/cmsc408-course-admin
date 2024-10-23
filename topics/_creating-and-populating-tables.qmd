@@ -380,7 +380,7 @@ See the [MySQL TRUNCATE docs ](https://dev.mysql.com/doc/refman/8.0/en/truncate-
 Removes table from the database.
 
 ```{sql}
-DROP TABLE instuctor;
+DROP TABLE instructor;
 DROP TABLE IF EXISTS country;
 
 ```
@@ -817,6 +817,9 @@ END;
 * Used to define table, row and field constraints
 * Operations generally done *atomically*, in
 one big push.
+
+## Preferred Workflow
+
 * Create a file (e.g., HW7-DDL.sql) and add
 all the commands. 
 * Test commands one-by-one in VS code.
@@ -833,12 +836,11 @@ all the commands.
 * Used to update individual records and fields
 * Generally connected to Web/HTML front end
 * Sometimes connected to API
-* API is constructed separate from UI
+* API is constructed separately from UI
 * Data integrity paramount
 * Code designed to run each operation as needed ad-hoc.
 * Commands:
     INSERT INTO, UPDATE, DELETE
-
 
 :::
 ::::
