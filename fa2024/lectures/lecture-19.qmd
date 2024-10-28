@@ -26,7 +26,11 @@ discussion_items = [
 ]
 
 lecture_topics = [
-    '[Creating and populating tables](#creating-and-populating-tables)'
+    '[Review of Deliverable 9](#review-of-deliverable-9)',
+    '[Creating and populating tables](#creating-and-populating-tables)',
+    '[QMD/Python debugging strategies](#qmdpython-debugging-strategies)',
+    '[Homework 6 - Constructing a database](#homework-6---constructing-a-database)'
+
 ]
 
 ```
@@ -34,7 +38,7 @@ lecture_topics = [
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
-# Deliverable 9 - Getting started with Docker
+# Review of Deliverable 9
 
 ## Deliverable 9 - Getting started with Docker
 
@@ -64,39 +68,57 @@ lecture_topics = [
 :::
 ::::
 
+{{< include "../../topics/_creating-and-populating-tables.qmd" >}}
+
+# QMD/Python Debugging strategies
+
+## QMD/Python Debugging strategies
+
+:::: {.columns}
+::: {.column width=60%}
+![](./assets/vscode-run-cell.png)
+:::
+::: {.column width=40%}
+### Issue
+
+* When I render my QMD file, I get an error.
+* How do I track it down?
+
+### Debugging strategies
+
+* Open in VS code and run block-by-block
+* Inspect variables to make sure that all is working as
+expected.
+* Insert new blocks as necessary.  Quarto and python don't care!
+* It's like adding print statements.
+:::
+::::
+
 # Homework 6 - Constructing a database
 
 ## Homework 6 - Constructing a database
 
 :::: {.columns}
-::: {.column width=70%}
-[![](./assets/del9-starting-with-docker.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}
+::: {.column width=60%}
+[![](./assets/hw6-screenshot.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
 :::
-::: {.column width=30%}
+::: {.column width=40%}
 ### Learning Objectives
-<p>&nbsp;</p>
 
-* Install docker
+* Analyze a DB problem
 
-<p>&nbsp;</p>
+* Create a database from scratch
+    - Build the DDL file
+    - Document DB in report
 
-* Play with containers
-    - Simple
-    - More Complex
-
-<p>&nbsp;</p>
-
-* Gather ideas and code
-    - Semester project architecture
-    - Web server code
-    - Database code
-    - (capstone project?)
+* Working all the tools
+    - Understanding the workflow(s)
+    - VS code and direct connection
+    - Create and test blocks
+    - Quarto and DB connection
+    - Create entire DB at once
 :::
 ::::
-
-
-
-{{< include "../../topics/_creating-and-populating-tables.qmd" >}}
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
