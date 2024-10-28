@@ -1,7 +1,7 @@
 ---
 date: 10/30/2024
 lecture-id: 20
-title: More joins
+title: Intro to joins
 ---
 
 ```{python}

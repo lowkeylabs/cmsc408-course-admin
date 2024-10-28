@@ -1,7 +1,7 @@
 ---
 date: 10/28/2024
 lecture-id: 19
-title: Intro to joins
+title: More C-R-U-D
 ---
 
 ```{python}
@@ -17,17 +17,86 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 6 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Quiz 5 - SQL Basics - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276){target="_blank"}',
+    '[Practice Quiz 5 - open now](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709){target="_blank"}',
+    '[Deliverable 9 - due 10/27](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}',
+    '[Homework 5 - due 10/20](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528){target="_blank"}',
+    '[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/105097/pages/week-10-front-page-5){target="_blank"}',
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Creating and populating tables](#creating-and-populating-tables)'
 ]
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Deliverable 9 - Getting started with Docker
+
+## Deliverable 9 - Getting started with Docker
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/del9-starting-with-docker.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+
+* Install docker
+
+<p>&nbsp;</p>
+
+* Play with containers
+    - Simple
+    - More Complex
+
+<p>&nbsp;</p>
+
+* Gather ideas and code
+    - Semester project architecture
+    - Web server code
+    - Database code
+    - (capstone project?)
+:::
+::::
+
+# Homework 6 - Constructing a database
+
+## Homework 6 - Constructing a database
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/del9-starting-with-docker.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+
+* Install docker
+
+<p>&nbsp;</p>
+
+* Play with containers
+    - Simple
+    - More Complex
+
+<p>&nbsp;</p>
+
+* Gather ideas and code
+    - Semester project architecture
+    - Web server code
+    - Database code
+    - (capstone project?)
+:::
+::::
+
+
+
+{{< include "../../topics/_creating-and-populating-tables.qmd" >}}
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

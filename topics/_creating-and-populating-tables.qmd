@@ -818,7 +818,7 @@ END;
 * Operations generally done *atomically*, in
 one big push.
 
-## Preferred Workflow
+### Preferred Workflow
 
 * Create a file (e.g., HW7-DDL.sql) and add
 all the commands. 
@@ -826,7 +826,6 @@ all the commands.
 * Test entire block to make sure it runs.
 * Commands:
     CREATE TABLE, ALTER TABLE, bulk INSERT, DROP TABLE
-
 
 :::
 ::: {.column width=50%}
