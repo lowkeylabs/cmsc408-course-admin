@@ -13,7 +13,7 @@
 <link href="lecture-20_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>SQL</title>
+  <title>Intro to joins</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-20_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-20_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-20_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-20_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-20_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-20_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-20_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +404,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">SQL</h1>
+  <h1 class="title">Intro to joins</h1>
   <p class="subtitle">Lecture 20</p>
 
 <div class="quarto-title-authors">
@@ -353,12 +420,17 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6 - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276" target="_blank">Quiz 5 - SQL Basics - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709" target="_blank">Practice Quiz 5 - open now</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286" target="_blank">Deliverable 9 - due 10/27</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528" target="_blank">Homework 5 - due 10/20</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/pages/week-10-front-page-5" target="_blank">SAVE YOU HOURS™</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><a href="#/homework-6---constructing-a-database">Homework 6 - Constructing a database</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -384,8 +456,8 @@
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">10/30</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG20: L20 (SQL)</td>
-<td>Quiz 5 due (SQL Basics)</td>
+<td>MTG20: L20 (Intro to joins)</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -397,13 +469,21 @@
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">11/3</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>Quiz 5 due (SQL Basics); HW6 due (Constructing a database)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/4</td>
 <td style="text-align: center;">Mon</td>
 <td>MTG21: L21 (Joins and aggregates)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/5</td>
@@ -411,7 +491,7 @@
 <td></td>
 <td>NO CLASS - University closed (Voting day)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/6</td>
@@ -419,15 +499,15 @@
 <td>MTG22: L22 (Joins and aggregates 2)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/10</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6 due (Constructing a database)</td>
+<td>HW7 due (Queries and joins)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/11</td>
@@ -435,20 +515,12 @@
 <td>MTG23: L23 (Intro to APIs)</td>
 <td></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">11/13</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +546,54 @@
 </div>
 </div>
 </section>
+<section>
+<section id="homework-6---constructing-a-database" class="title-slide slide level1 center">
+<h1>Homework 6 - Constructing a database</h1>
+
+</section>
+<section id="homework-6---updates" class="slide level2">
+<h2>Homework 6 - Updates!</h2>
+<ul>
+<li>I fixed a few issues in the main project repository.
+<ul>
+<li>If you haven’t yet created your repository then you’re OK. You’ll get all the changes when you create your repo.</li>
+<li>If you have created the project, then you need to merge my changes into your code:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>git fetch upstream</span>
+<span id="cb1-2"><a href=""></a>git merge upstream/main</span>
+<span id="cb1-3"><a href=""></a>git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>In general this should work, depending on how many changes to your QMD file you’ve made.</p></li>
+<li><p>In some cases, you may get merge errors.</p></li>
+<li><p>If you do get errors then try to fix the merge on your own.</p></li>
+</ul>
+</section>
+<section id="homework-6---constructing-a-database-1" class="slide level2">
+<h2>Homework 6 - Constructing a database</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank"><img data-src="./assets/hw6-screenshot.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li><p>Analyze a DB problem</p></li>
+<li><p>Create a database from scratch</p>
+<ul>
+<li>Build the DDL file</li>
+<li>Document DB in report</li>
+</ul></li>
+<li><p>Working all the tools</p>
+<ul>
+<li>Understanding the workflow(s)</li>
+<li>VS code and direct connection</li>
+<li>Create and test blocks</li>
+<li>Quarto and DB connection</li>
+<li>Create entire DB at once</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +602,17 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6 - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276" target="_blank">Quiz 5 - SQL Basics - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709" target="_blank">Practice Quiz 5 - open now</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286" target="_blank">Deliverable 9 - due 10/27</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528" target="_blank">Homework 5 - due 10/20</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/pages/week-10-front-page-5" target="_blank">SAVE YOU HOURS™</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><a href="#/homework-6---constructing-a-database">Homework 6 - Constructing a database</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -513,8 +638,8 @@
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">10/30</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG20: L20 (SQL)</td>
-<td>Quiz 5 due (SQL Basics)</td>
+<td>MTG20: L20 (Intro to joins)</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -526,13 +651,21 @@
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">11/3</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>Quiz 5 due (SQL Basics); HW6 due (Constructing a database)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/4</td>
 <td style="text-align: center;">Mon</td>
 <td>MTG21: L21 (Joins and aggregates)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/5</td>
@@ -540,7 +673,7 @@
 <td></td>
 <td>NO CLASS - University closed (Voting day)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/6</td>
@@ -548,28 +681,20 @@
 <td>MTG22: L22 (Joins and aggregates 2)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/10</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6 due (Constructing a database)</td>
+<td>HW7 due (Queries and joins)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/11</td>
 <td style="text-align: center;">Mon</td>
 <td>MTG23: L23 (Intro to APIs)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">11/13</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
 <td></td>
 </tr>
 </tbody>
@@ -595,7 +720,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +731,7 @@
   <script src="lecture-20_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-20_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-20_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-20_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-20_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +752,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +929,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

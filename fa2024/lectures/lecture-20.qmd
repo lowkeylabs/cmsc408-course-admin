@@ -17,17 +17,68 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Homework 6 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Quiz 5 - SQL Basics - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199276){target="_blank"}',
+    '[Practice Quiz 5 - open now](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199709){target="_blank"}',
+    '[Deliverable 9 - due 10/27](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}',
+    '[Homework 5 - due 10/20](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966528){target="_blank"}',
+    '[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/105097/pages/week-10-front-page-5){target="_blank"}',
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 6 - Constructing a database](#homework-6---constructing-a-database)'
+
 ]
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+
+# Homework 6 - Constructing a database
+
+## Homework 6 - Updates!
+
+* I fixed a few issues in the main project repository.
+    * If you haven't yet created your repository then you're OK. You'll get all the changes when you create your repo.
+    * If you have created the project, then you need to merge my changes into your code:
+
+```{bash}
+git fetch upstream
+git merge upstream/main
+git push
+```
+
+* In general this should work, depending on how many changes to your QMD file you've made.
+
+* In some cases, you may get merge errors.
+
+* If you do get errors then try to fix the merge on your own.
+
+## Homework 6 - Constructing a database
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/hw6-screenshot.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
+:::
+::: {.column width=40%}
+### Learning Objectives
+
+* Analyze a DB problem
+
+* Create a database from scratch
+    - Build the DDL file
+    - Document DB in report
+
+* Working all the tools
+    - Understanding the workflow(s)
+    - VS code and direct connection
+    - Create and test blocks
+    - Quarto and DB connection
+    - Create entire DB at once
+:::
+::::
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
