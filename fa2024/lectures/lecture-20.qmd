@@ -1,7 +1,7 @@
 ---
 date: 10/30/2024
 lecture-id: 20
-title: Intro to joins
+title: Even more C-R-U-D
 ---
 
 ```{python}
@@ -26,8 +26,8 @@ discussion_items = [
 ]
 
 lecture_topics = [
+    '[Revisiting - Creating and populating tables](#creating-and-populating-tables)',
     '[Homework 6 - Constructing a database](#homework-6---constructing-a-database)'
-
 ]
 
 ```
@@ -35,6 +35,7 @@ lecture_topics = [
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+{{< include "../../topics/_creating-and-populating-tables.qmd" >}}
 
 # Homework 6 - Constructing a database
 
@@ -56,7 +57,71 @@ git push
 
 * If you do get errors then try to fix the merge on your own.
 
-## Homework 6 - Constructing a database
+## Homework 6 - Build your database incrementally!
+
+* You *don't need* primary keys, foreign keys or unique field constraints.
+
+* Primary, foreign keys, and UNIQUE are *integrity constraints*.
+
+* They are all OPTIONAL and can added later.
+
+* You can do "joins" without primary and foreign key, just use caution.
+
+* Tables and records connect on values in the table.
+
+* Primary keys, foreign keys and UNIQUE are your friends, don't ignore them.  With them, you can trust your database.
+
+## Homework 6 - the DDL file
+
+### Starter commands
+
+* commands to create the database
+* DROP TABLE, CREATE TABLE, INSERT INTO
+
+### Data constraints
+
+* attributes to ensure that only good data gets into the database
+* Data types: INT, DATE, VARCHAR(255), VARCHAR(4096)
+* Data attributes:  NOT NULL, DEFAULT 
+
+## Homework 6 - Integrity constraints
+
+### Letting the DBMS run your DB!
+
+* attributes to ensure that everything remains related properly
+* PRIMARY KEY, FOREIGN KEY: wiring between tables
+* UNIQUE: integrity across records
+
+### Integrity constraints: Potential issues
+
+QUESTION: what happens when a record mentioned in a foreign key is deleted?
+
+EXAMPLE: what happens when we delete a SKILL and the skill is referenced in PEOPLESKILLS?
+
+New statements:
+
+* FOREIGN KEY ... **ON UPDATE**  ... **ON DELETE**
+
+## Integrity constraints - [Foreign Keys](https://www.mysqltutorial.org/mysql-foreign-key/)
+
+MySQL has five reference options: CASCADE, SET NULL, NO ACTION, RESTRICT, and SET DEFAULT.
+
+CASCADE
+: if a row from the parent table is deleted or updated, the values of the matching rows in the child table are automatically deleted or updated.
+
+SET NULL
+: if a row from the parent table is deleted or updated, the values of the foreign key column (or columns) in the child table are set to NULL.
+
+RESTRICT
+: if a row from the parent table has a matching row in the child table, MySQL rejects deleting or updating rows in the parent table.
+
+NO ACTION
+: is the same as RESTRICT.
+
+SET DEFAULT
+: is recognized by the MySQL parser. However, this action is rejected by both InnoDB and NDB tables.
+
+## Homework 6 - By example
 
 :::: {.columns}
 ::: {.column width=60%}

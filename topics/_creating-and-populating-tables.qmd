@@ -820,7 +820,7 @@ one big push.
 
 ### Preferred Workflow
 
-* Create a file (e.g., HW7-DDL.sql) and add
+* Create a file (e.g., MY-DDL.sql) and add
 all the commands. 
 * Test commands one-by-one in VS code.
 * Test entire block to make sure it runs.
