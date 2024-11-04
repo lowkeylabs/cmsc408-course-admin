@@ -17,7 +17,7 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'Graders are still working on HW5, Deliverable 8 and Deliverable 9.  I''m grading Deliverable 8',
+    'Graders are still working on HW5, Deliverable 8 and Deliverable 9.',
     '[Homework 6 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
     '[Homework 6.5 - due 11/7](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
     '[Homework 7 - due 11/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
