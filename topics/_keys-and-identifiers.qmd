@@ -24,8 +24,6 @@ Keys are essential in database design as they ensure the uniqueness of records a
 *Keys are the cornerstone of data integrity and efficient query performance in databases.*
 
 
-
-
 ## Primary Keys: The Foundation of Uniqueness
 
 A primary key is a unique identifier for each record in a table. It is crucial for ensuring that no two records can have the same primary key value.
@@ -47,8 +45,6 @@ A primary key is a unique identifier for each record in a table. It is crucial f
 *Primary keys ensure the uniqueness and integrity of data in a database table.*
 
 
-
-
 ## Candidate Keys: Potential Primary Keys
 
 Candidate keys are those that could potentially serve as a primary key. Understanding candidate keys is important for choosing the most appropriate primary key.
@@ -68,8 +64,6 @@ Candidate keys are those that could potentially serve as a primary key. Understa
 ::::
 
 *Candidate keys offer flexibility in choosing the most suitable primary key for a table.*
-
-
 
 
 ## Composite Keys: Combining Multiple Attributes

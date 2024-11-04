@@ -17,17 +17,207 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'Graders are still working on HW5, Deliverable 8 and Deliverable 9.  I''m grading Deliverable 8',
+    '[Homework 6 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Homework 6.5 - due 11/7](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Homework 7 - due 11/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Deliverable 12 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Discussion of Deliverable 12](#deliverable-12---semester-project)',
+    '[Primary and Foreign keys](#primary-and-foreign-keys)',
+    '[SQL Joins and Selects](#sql-joins)'
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Deliverable 12 - Semester Project
+
+## Deliverable 12 - Semester Project
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/deliverable-12.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}
+:::
+::: {.column width=40%}
+### Final Submission
+
+* Previous activities
+    - Project pitch
+    - Project design
+
+* Project Submission
+    - Web design
+    - Screenshots of each screen
+    - Reports page
+    - Future considerations
+    - Reflection
+:::
+::::
+
+<center>Jump to assignment and discuss submission</center>
+<center>We'll talk more about this next week!</center>
+
+# Primary and Foreign Keys
+
+## Primary and Foreign Keys
+:::: {.columns}
+::: {.column width=60%}
+
+```{sql}
+drop table if exists peopleskills;
+CREATE TABLE peopleskills (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    skills_id INT NOT NULL,
+    people_id INT NOT NULL,
+    date_acquired DATE NOT NULL,
+    FOREIGN KEY (skills_id) REFERENCES skills(id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE   
+    ,FOREIGN KEY (people_id) REFERENCES people(id) 
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+```
+
+:::
+::: {.column width=40%}
+* Primary and Foreign Keys are known as "integrity constraints"
+* They provide clues to the DBMS about how to handle relationships
+between records in different tables.
+* They are checked when records are added, deleted and updated
+:::
+::::
+
+
+
+## [Foreign Keys](https://www.mysqltutorial.org/mysql-foreign-key/)
+
+MySQL has five reference options: CASCADE, SET NULL, NO ACTION, RESTRICT, and SET DEFAULT.
+
+CASCADE
+: if a row from the parent table is deleted or updated, the values of the matching rows in the child table are automatically deleted or updated.
+
+SET NULL
+: if a row from the parent table is deleted or updated, the values of the foreign key column (or columns) in the child table are set to NULL.
+
+RESTRICT
+: if a row from the parent table has a matching row in the child table, MySQL rejects deleting or updating rows in the parent table.
+
+NO ACTION
+: is the same as RESTRICT.
+
+SET DEFAULT
+: is recognized by the MySQL parser. However, this action is rejected by both InnoDB and NDB tables.
+
+<center>Jump to code and review MY-DDL-SQL</center>
+
+
+# SQL Joins
+
+## SQL Joins
+
+![](./assets/joins-figures.png)
+
+* We've spent a TON of time learning about normalization, that is, how to reduce and remove redundancy in our database.
+* Now, we're going to learn how to build the data back up into something larger - a *join table* - for querying.
+* Joins permit us to combine data in tables and then select from the larger, *join table*.
+
+<p>&nbsp;</p>
+<center> ***Why has SQL survived for over 50 years?***  *(ask ChatGPT!)*</center>
+
+## SQL Joins
+:::: {.columns}
+::: {.column width=60%}
+### [SELECT statement](https://dev.mysql.com/doc/refman/8.4/en/select.html){target="_blank"}
+
+```{sql}
+SELECT 
+    columns_or_expressions -- Choose specific columns or expressions to return
+FROM 
+    table1
+    JOIN_TYPE JOIN table2 ON join_condition
+    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition
+    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed
+WHERE 
+    filter_condition -- Filter rows based on a condition
+GROUP BY 
+    column1, column2, ... -- Group rows based on one or more columns
+HAVING 
+    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)
+ORDER BY 
+    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set
+LIMIT 
+    number_of_rows; -- (Optional) Limits the number of rows returned
+```
+
+:::
+::: {.column width=40%}
+### Order of Operations
+
+* FROM (including JOINS) -- create a new table,
+* WHERE -- to filter rows
+* GROUP BY -- aggregate results to remove duplicates
+* HAVING -- filter on aggregates
+* SELECT -- to select rows
+* ORDER BY -- to order result set
+* LIMIT -- to restrict number of rows returned
+:::
+::::
+
+
+
+## SQL Joins
+:::: {.columns}
+::: {.column width=60%}
+
+### Example from HW7
+
+```{sql}
+SELECT 
+    CONCAT(people.first_name, ' ', people.last_name) AS "Employee name",
+    skills.name AS skill_name
+FROM 
+    peopleskills 
+      JOIN skills ON peopleskills.skills_id = skills.id
+      JOIN people ON peopleskills.people_id = people.id
+WHERE 
+    people.last_name = 'Person 1';
+```
+
+:::
+::: {.column width=40%}
+* A join is specified between tables, one on the left and one on the right.
+* Multiple joins can occur in the same SQL statement.  These are usually processed left to right.
+* The *JOIN* command create a single large table for selecting, projecting and ordering.
+* The *ON* statement specific how the tables connect.
+* FOREIGN KEYS and JOINS are similar - but the DBMS doesn't share!
+* SAFETY TIP - build joins slowly and carefully until you're comfy!
+:::
+::::
+
+
+## SQL Joins
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework7.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}
+:::
+::: {.column width=40%}
+### SQL Joins
+
+* Let's explore *joins* in
+the context of homework 7.
+
+* We'll be spending a significant amount of time
+with joins and aggregates!
+
+:::
+::::
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

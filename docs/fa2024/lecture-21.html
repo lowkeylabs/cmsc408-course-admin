@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-21_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-21_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-21_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-21_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-21_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-21_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-21_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -353,12 +420,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Graders are still working on HW5, Deliverable 8 and Deliverable 9. Im grading Deliverable 8</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6 - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6.5 - due 11/7</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 7 - due 11/10</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Deliverable 12 - due 11/3</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/deliverable-12---semester-project">Discussion of Deliverable 12</a></p></li>
+<li><p><a href="#/primary-and-foreign-keys">Primary and Foreign keys</a></p></li>
+<li><p><a href="#/sql-joins">SQL Joins and Selects</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -406,12 +479,20 @@
 <tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
+<td style="text-align: center;">11/7</td>
+<td style="text-align: center;">Thu</td>
+<td></td>
+<td>HW6.5 due (Table Constraints (Harmonize))</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SQL</td>
+<td style="text-align: center;">12</td>
 <td style="text-align: center;">11/10</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6 due (Constructing a database)</td>
+<td>HW7 due (Joining tables and reporting)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/11</td>
@@ -419,7 +500,7 @@
 <td>MTG23: L23 (Intro to APIs)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
@@ -427,7 +508,7 @@
 <td>MTG24: L24 (Writing APIs)</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/15</td>
@@ -435,20 +516,12 @@
 <td></td>
 <td>PrjDel 11 due (Team reflection)</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">11/17</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW7 due (SQL Funhouse)</td>
-</tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +547,193 @@
 </div>
 </div>
 </section>
+<section>
+<section id="deliverable-12---semester-project" class="title-slide slide level1 center">
+<h1>Deliverable 12 - Semester Project</h1>
+
+</section>
+<section id="deliverable-12---semester-project-1" class="slide level2">
+<h2>Deliverable 12 - Semester Project</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank"><img data-src="./assets/deliverable-12.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="final-submission">Final Submission</h3>
+<ul>
+<li>Previous activities
+<ul>
+<li>Project pitch</li>
+<li>Project design</li>
+</ul></li>
+<li>Project Submission
+<ul>
+<li>Web design</li>
+<li>Screenshots of each screen</li>
+<li>Reports page</li>
+<li>Future considerations</li>
+<li>Reflection</li>
+</ul></li>
+</ul>
+</div></div>
+<center>
+Jump to assignment and discuss submission
+</center>
+<center>
+We’ll talk more about this next week!
+</center>
+</section></section>
+<section>
+<section id="primary-and-foreign-keys" class="title-slide slide level1 center">
+<h1>Primary and Foreign Keys</h1>
+
+</section>
+<section id="primary-and-foreign-keys-1" class="slide level2">
+<h2>Primary and Foreign Keys</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb1-2"><a href=""></a>CREATE TABLE peopleskills (</span>
+<span id="cb1-3"><a href=""></a>    id INT AUTO_INCREMENT PRIMARY KEY,</span>
+<span id="cb1-4"><a href=""></a>    skills_id INT NOT NULL,</span>
+<span id="cb1-5"><a href=""></a>    people_id INT NOT NULL,</span>
+<span id="cb1-6"><a href=""></a>    date_acquired DATE NOT NULL,</span>
+<span id="cb1-7"><a href=""></a>    FOREIGN KEY (skills_id) REFERENCES skills(id) </span>
+<span id="cb1-8"><a href=""></a>        ON DELETE CASCADE </span>
+<span id="cb1-9"><a href=""></a>        ON UPDATE CASCADE   </span>
+<span id="cb1-10"><a href=""></a>    ,FOREIGN KEY (people_id) REFERENCES people(id) </span>
+<span id="cb1-11"><a href=""></a>        ON DELETE CASCADE</span>
+<span id="cb1-12"><a href=""></a>        ON UPDATE CASCADE</span>
+<span id="cb1-13"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Primary and Foreign Keys are known as “integrity constraints”</li>
+<li>They provide clues to the DBMS about how to handle relationships between records in different tables.</li>
+<li>They are checked when records are added, deleted and updated</li>
+</ul>
+</div></div>
+</section>
+<section id="foreign-keys" class="slide level2">
+<h2><a href="https://www.mysqltutorial.org/mysql-foreign-key/">Foreign Keys</a></h2>
+<p>MySQL has five reference options: CASCADE, SET NULL, NO ACTION, RESTRICT, and SET DEFAULT.</p>
+<dl>
+<dt>CASCADE</dt>
+<dd>
+if a row from the parent table is deleted or updated, the values of the matching rows in the child table are automatically deleted or updated.
+</dd>
+<dt>SET NULL</dt>
+<dd>
+if a row from the parent table is deleted or updated, the values of the foreign key column (or columns) in the child table are set to NULL.
+</dd>
+<dt>RESTRICT</dt>
+<dd>
+if a row from the parent table has a matching row in the child table, MySQL rejects deleting or updating rows in the parent table.
+</dd>
+<dt>NO ACTION</dt>
+<dd>
+is the same as RESTRICT.
+</dd>
+<dt>SET DEFAULT</dt>
+<dd>
+is recognized by the MySQL parser. However, this action is rejected by both InnoDB and NDB tables.
+</dd>
+</dl>
+<center>
+Jump to code and review MY-DDL-SQL
+</center>
+</section></section>
+<section>
+<section id="sql-joins" class="title-slide slide level1 center">
+<h1>SQL Joins</h1>
+
+</section>
+<section id="sql-joins-1" class="slide level2">
+<h2>SQL Joins</h2>
+<p><img data-src="./assets/joins-figures.png"></p>
+<ul>
+<li>We’ve spent a TON of time learning about normalization, that is, how to reduce and remove redundancy in our database.</li>
+<li>Now, we’re going to learn how to build the data back up into something larger - a <em>join table</em> - for querying.</li>
+<li>Joins permit us to combine data in tables and then select from the larger, <em>join table</em>.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<center>
+<strong><em>Why has SQL survived for over 50 years?</em></strong> <em>(ask ChatGPT!)</em>
+</center>
+</section>
+<section id="sql-joins-2" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="select-statement"><a href="https://dev.mysql.com/doc/refman/8.4/en/select.html" target="_blank">SELECT statement</a></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>SELECT </span>
+<span id="cb2-2"><a href=""></a>    columns_or_expressions -- Choose specific columns or expressions to return</span>
+<span id="cb2-3"><a href=""></a>FROM </span>
+<span id="cb2-4"><a href=""></a>    table1</span>
+<span id="cb2-5"><a href=""></a>    JOIN_TYPE JOIN table2 ON join_condition</span>
+<span id="cb2-6"><a href=""></a>    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition</span>
+<span id="cb2-7"><a href=""></a>    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed</span>
+<span id="cb2-8"><a href=""></a>WHERE </span>
+<span id="cb2-9"><a href=""></a>    filter_condition -- Filter rows based on a condition</span>
+<span id="cb2-10"><a href=""></a>GROUP BY </span>
+<span id="cb2-11"><a href=""></a>    column1, column2, ... -- Group rows based on one or more columns</span>
+<span id="cb2-12"><a href=""></a>HAVING </span>
+<span id="cb2-13"><a href=""></a>    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)</span>
+<span id="cb2-14"><a href=""></a>ORDER BY </span>
+<span id="cb2-15"><a href=""></a>    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set</span>
+<span id="cb2-16"><a href=""></a>LIMIT </span>
+<span id="cb2-17"><a href=""></a>    number_of_rows; -- (Optional) Limits the number of rows returned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<h3 id="order-of-operations">Order of Operations</h3>
+<ul>
+<li>FROM (including JOINS) – create a new table,</li>
+<li>WHERE – to filter rows</li>
+<li>GROUP BY – aggregate results to remove duplicates</li>
+<li>HAVING – filter on aggregates</li>
+<li>SELECT – to select rows</li>
+<li>ORDER BY – to order result set</li>
+<li>LIMIT – to restrict number of rows returned</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-joins-3" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="example-from-hw7">Example from HW7</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>SELECT </span>
+<span id="cb3-2"><a href=""></a>    CONCAT(people.first_name, ' ', people.last_name) AS "Employee name",</span>
+<span id="cb3-3"><a href=""></a>    skills.name AS skill_name</span>
+<span id="cb3-4"><a href=""></a>FROM </span>
+<span id="cb3-5"><a href=""></a>    peopleskills </span>
+<span id="cb3-6"><a href=""></a>      JOIN skills ON peopleskills.skills_id = skills.id</span>
+<span id="cb3-7"><a href=""></a>      JOIN people ON peopleskills.people_id = people.id</span>
+<span id="cb3-8"><a href=""></a>WHERE </span>
+<span id="cb3-9"><a href=""></a>    people.last_name = 'Person 1';</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>A join is specified between tables, one on the left and one on the right.</li>
+<li>Multiple joins can occur in the same SQL statement. These are usually processed left to right.</li>
+<li>The <em>JOIN</em> command create a single large table for selecting, projecting and ordering.</li>
+<li>The <em>ON</em> statement specific how the tables connect.</li>
+<li>FOREIGN KEYS and JOINS are similar - but the DBMS doesn’t share!</li>
+<li>SAFETY TIP - build joins slowly and carefully until you’re comfy!</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-joins-4" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank"><img data-src="./assets/homework7.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="sql-joins-5">SQL Joins</h3>
+<ul>
+<li><p>Let’s explore <em>joins</em> in the context of homework 7.</p></li>
+<li><p>We’ll be spending a significant amount of time with joins and aggregates!</p></li>
+</ul>
+</div></div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +742,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>Graders are still working on HW5, Deliverable 8 and Deliverable 9. Im grading Deliverable 8</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6 - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6.5 - due 11/7</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 7 - due 11/10</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Deliverable 12 - due 11/3</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/deliverable-12---semester-project">Discussion of Deliverable 12</a></p></li>
+<li><p><a href="#/primary-and-foreign-keys">Primary and Foreign keys</a></p></li>
+<li><p><a href="#/sql-joins">SQL Joins and Selects</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -535,12 +801,20 @@
 <tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
+<td style="text-align: center;">11/7</td>
+<td style="text-align: center;">Thu</td>
+<td></td>
+<td>HW6.5 due (Table Constraints (Harmonize))</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SQL</td>
+<td style="text-align: center;">12</td>
 <td style="text-align: center;">11/10</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6 due (Constructing a database)</td>
+<td>HW7 due (Joining tables and reporting)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/11</td>
@@ -548,7 +822,7 @@
 <td>MTG23: L23 (Intro to APIs)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
@@ -556,21 +830,13 @@
 <td>MTG24: L24 (Writing APIs)</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/15</td>
 <td style="text-align: center;">Fri</td>
 <td></td>
 <td>PrjDel 11 due (Team reflection)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">11/17</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW7 due (SQL Funhouse)</td>
 </tr>
 </tbody>
 </table>
@@ -595,7 +861,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +872,7 @@
   <script src="lecture-21_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-21_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-21_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-21_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-21_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +893,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +1070,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
