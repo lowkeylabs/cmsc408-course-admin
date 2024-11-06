@@ -21,16 +21,16 @@ housekeeping_vertical_spacer = "5px"
 
 discussion_items = [
     'CMSC 427 - User Interfaces - Spring 2025',
-    'Deliverable 8 has been graded.  Check your grades.',
-    'Graders are still working on HW5, HW6 and Deliverable 9.',
-    '[Homework 6 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    'Deliverable 8 has been graded.  Check your grades. Graders are still working on HW5, HW6 and Deliverable 9.',
+    '[Homework 6 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"} - ' +
     '[Homework 6.5 - due 11/7](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
-    '[Homework 7 - due 11/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Homework 7 - due 11/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"} - ' +
     '[Deliverable 12 - due 11/3](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
 ]
 
 lecture_topics = [
-    '[SQL Joins and Selects](#sql-joins)'
+    '[SQL Joins and Selects](#sql-joins)',
+    '[Exploring joins](#exploring-joins)'
 ]
 ```
 
