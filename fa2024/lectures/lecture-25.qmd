@@ -1,7 +1,7 @@
 ---
 date: 11/18/2024
 lecture-id: 25
-title: Subqueries and WITH
+title: Subqueries and WITH 1
 ---
 
 ```{python}

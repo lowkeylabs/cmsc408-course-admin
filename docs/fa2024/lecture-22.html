@@ -13,7 +13,7 @@
 <link href="lecture-22_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Joins and aggregates 2</title>
+  <title>Joins and Selects 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-22_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-22_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-22_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-22_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-22_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-22_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-22_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +404,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Joins and aggregates 2</h1>
+  <h1 class="title">Joins and Selects 2</h1>
   <p class="subtitle">Lecture 22</p>
 
 <div class="quarto-title-authors">
@@ -353,12 +420,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p>Deliverable 8 has been graded. Check your grades.</p></li>
+<li><p>Graders are still working on HW5, HW6 and Deliverable 9.</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6 - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6.5 - due 11/7</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 7 - due 11/10</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Deliverable 12 - due 11/3</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><a href="#/sql-joins">SQL Joins and Selects</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -384,34 +457,42 @@
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/6</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG22: L22 (Joins and aggregates 2)</td>
+<td>MTG22: L22 (Joins and Selects 2)</td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
-<td style="text-align: center;">11/10</td>
-<td style="text-align: center;">Sun</td>
+<td style="text-align: center;">11/7</td>
+<td style="text-align: center;">Thu</td>
 <td></td>
-<td>HW6 due (Constructing a database)</td>
+<td>HW6.5 due (Table Constraints (Harmonize))</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">11/11</td>
-<td style="text-align: center;">Mon</td>
-<td>MTG23: L23 (Intro to APIs)</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">11/10</td>
+<td style="text-align: center;">Sun</td>
 <td></td>
+<td>HW7 due (Joining tables and reporting)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
-<td style="text-align: center;">11/13</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
+<td style="text-align: center;">11/11</td>
+<td style="text-align: center;">Mon</td>
+<td>MTG23: L23 (Aggregates 1)</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: center;">SQL</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">11/13</td>
+<td style="text-align: center;">Wed</td>
+<td>MTG24: L24 (Aggregates 2)</td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/15</td>
@@ -419,36 +500,28 @@
 <td></td>
 <td>PrjDel 11 due (Team reflection)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW7 due (SQL Funhouse)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Adv. SQL</td>
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">11/18</td>
-<td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH)</td>
-<td></td>
+<td>HW8 due (SQL Funhouse)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">14</td>
-<td style="text-align: center;">11/20</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td style="text-align: center;">11/18</td>
+<td style="text-align: center;">Mon</td>
+<td>MTG25: L25 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +547,1280 @@
 </div>
 </div>
 </section>
+<section>
+<section id="sql-joins" class="title-slide slide level1 center">
+<h1>SQL Joins</h1>
+
+</section>
+<section id="sql-joins-1" class="slide level2">
+<h2>SQL Joins</h2>
+<p><img data-src="./assets/joins-figures.png"></p>
+<ul>
+<li>We’ve spent a TON of time learning about normalization, that is, how to reduce and remove redundancy in our database.</li>
+<li>Now, we’re going to learn how to build the data back up into something larger - a <em>join table</em> - for querying.</li>
+<li>Joins permit us to combine data in tables and then select from the larger, <em>join table</em>.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<center>
+<strong><em>Why has SQL survived for over 50 years?</em></strong> <em>(ask ChatGPT!)</em>
+</center>
+</section>
+<section id="sql-joins-2" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="select-statement"><a href="https://dev.mysql.com/doc/refman/8.4/en/select.html" target="_blank">SELECT statement</a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>SELECT </span>
+<span id="cb1-2"><a href=""></a>    columns_or_expressions -- Choose specific columns or expressions to return</span>
+<span id="cb1-3"><a href=""></a>FROM </span>
+<span id="cb1-4"><a href=""></a>    table1</span>
+<span id="cb1-5"><a href=""></a>    JOIN_TYPE JOIN table2 ON join_condition</span>
+<span id="cb1-6"><a href=""></a>    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition</span>
+<span id="cb1-7"><a href=""></a>    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed</span>
+<span id="cb1-8"><a href=""></a>WHERE </span>
+<span id="cb1-9"><a href=""></a>    filter_condition -- Filter rows based on a condition</span>
+<span id="cb1-10"><a href=""></a>GROUP BY </span>
+<span id="cb1-11"><a href=""></a>    column1, column2, ... -- Group rows based on one or more columns</span>
+<span id="cb1-12"><a href=""></a>HAVING </span>
+<span id="cb1-13"><a href=""></a>    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)</span>
+<span id="cb1-14"><a href=""></a>ORDER BY </span>
+<span id="cb1-15"><a href=""></a>    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set</span>
+<span id="cb1-16"><a href=""></a>LIMIT </span>
+<span id="cb1-17"><a href=""></a>    number_of_rows; -- (Optional) Limits the number of rows returned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<h3 id="order-of-operations">Order of Operations</h3>
+<ul>
+<li>FROM (including JOINS) – create a new table,</li>
+<li>WHERE – to filter rows</li>
+<li>GROUP BY – aggregate results to remove duplicates</li>
+<li>HAVING – filter on aggregates</li>
+<li>SELECT – to select rows</li>
+<li>ORDER BY – to order result set</li>
+<li>LIMIT – to restrict number of rows returned</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-joins-3" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="example-from-hw7">Example from HW7</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>SELECT </span>
+<span id="cb2-2"><a href=""></a>    CONCAT(people.first_name, ' ', people.last_name) AS "Employee name",</span>
+<span id="cb2-3"><a href=""></a>    skills.name AS skill_name</span>
+<span id="cb2-4"><a href=""></a>FROM </span>
+<span id="cb2-5"><a href=""></a>    peopleskills </span>
+<span id="cb2-6"><a href=""></a>      JOIN skills ON peopleskills.skills_id = skills.id</span>
+<span id="cb2-7"><a href=""></a>      JOIN people ON peopleskills.people_id = people.id</span>
+<span id="cb2-8"><a href=""></a>WHERE </span>
+<span id="cb2-9"><a href=""></a>    people.last_name = 'Person 1';</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>A join is specified between tables, one on the left and one on the right.</li>
+<li>Multiple joins can occur in the same SQL statement. These are usually processed left to right.</li>
+<li>The <em>JOIN</em> command create a single large table for selecting, projecting and ordering.</li>
+<li>The <em>ON</em> statement specific how the tables connect.</li>
+<li>FOREIGN KEYS and JOINS are similar - but the DBMS doesn’t share!</li>
+<li>SAFETY TIP - build joins slowly and carefully until you’re comfy!</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-joins-4" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank"><img data-src="./assets/homework7.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="sql-joins-5">SQL Joins</h3>
+<ul>
+<li><p>Let’s explore <em>joins</em> in the context of homework 7.</p></li>
+<li><p>We’ll be spending a significant amount of time with joins and aggregates!</p></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="exploring-joins" class="title-slide slide level1 center">
+<h1>Exploring Joins</h1>
+
+</section>
+<section id="exploring-joins---a-sandbox-schema" class="slide level2">
+<h2>Exploring Joins - a sandbox schema</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="sandbox-schema">Sandbox schema</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>drop table if exists people;</span>
+<span id="cb3-2"><a href=""></a>create table people (</span>
+<span id="cb3-3"><a href=""></a>    id int,</span>
+<span id="cb3-4"><a href=""></a>    name varchar(20) NOT NULL,</span>
+<span id="cb3-5"><a href=""></a>    primary key(id)</span>
+<span id="cb3-6"><a href=""></a>);</span>
+<span id="cb3-7"><a href=""></a>insert into people (id,name) values</span>
+<span id="cb3-8"><a href=""></a>( 101,'Omar'),</span>
+<span id="cb3-9"><a href=""></a>( 102,'Layla'),</span>
+<span id="cb3-10"><a href=""></a>( 103,'Alex');</span>
+<span id="cb3-11"><a href=""></a></span>
+<span id="cb3-12"><a href=""></a>drop table if exists skills;</span>
+<span id="cb3-13"><a href=""></a>create table skills (</span>
+<span id="cb3-14"><a href=""></a>    id int primary key,</span>
+<span id="cb3-15"><a href=""></a>    name varchar(20) NOT NULL</span>
+<span id="cb3-16"><a href=""></a>);</span>
+<span id="cb3-17"><a href=""></a>insert into skills (id,name) values</span>
+<span id="cb3-18"><a href=""></a>( 201,'Jumping'),</span>
+<span id="cb3-19"><a href=""></a>( 202,'Skipping'),</span>
+<span id="cb3-20"><a href=""></a>( 203,'Coding')</span>
+<span id="cb3-21"><a href=""></a>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6fffd9f" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="114">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: right;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+OperationalError
+</td>
+
+<td>
+Operational Error: (pymysql.err.OperationalError) (3730, “Cannot drop table 'people' referenced by a foreign key constraint 'peopleskills_ibfk_1' on table 'peopleskills'.”)\n[SQL: drop table if exists people]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="sample-schema">Sample Schema</h3>
+<ul>
+<li><p>People - contains a simple ID and name</p></li>
+<li><p>Skills - contains a simple ID and name</p></li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><p>I PURPOSEFULLY am using the same field names in each table. This will force us to more carefully specify fields in our queries.</p></li>
+<li><p>I suggest that you try these commands in VS Code.</p></li>
+<li><p>Note that you may already have tables using the same names in your existing schema! You need to delete the old tables to clear out the entire schema.</p></li>
+<li><p>When deleting old tables, look out for foreign key constraint errors.<br>
+</p></li>
+</ul>
+</div></div>
+</section>
+<section id="exploring-joins---the-data" class="slide level2">
+<h2>Exploring Joins - the data</h2>
+<h3 id="quick-look-people">Quick look <em>people</em></h3>
+<div class="columns">
+<div class="column">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>select * from people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div id="67af0f6e" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="115">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+id
+</th>
+
+<th>
+name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+101
+</td>
+
+<td>
+Omar
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Layla
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+<h3 id="quick-look-skills">Quick look <em>skills</em></h3>
+<div class="columns">
+<div class="column">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>select * from skills</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div id="28438105" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="116">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+id
+</th>
+
+<th>
+name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+201
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+202
+</td>
+
+<td>
+Skipping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+203
+</td>
+
+<td>
+Coding
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="exploring-joins---cross-products" class="slide level2">
+<h2>Exploring Joins - cross-products</h2>
+<h3 id="a-cross-product-join-no-on">A cross-product join (no ON)</h3>
+<div class="columns">
+<div class="column">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>select</span>
+<span id="cb6-2"><a href=""></a>  *</span>
+<span id="cb6-3"><a href=""></a>from</span>
+<span id="cb6-4"><a href=""></a>  people a, skills b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-1">Notes</h3>
+<ul>
+<li><p>the <code>*</code> returns all fields across all tables without having to name them.</p></li>
+<li><p>Returns all combinations of records across both tables</p></li>
+<li><p>Note that the names match in these slides.</p></li>
+</ul>
+</div><div class="column">
+<div id="6957d522" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="117">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+id
+</th>
+
+<th>
+name
+</th>
+
+<th>
+id
+</th>
+
+<th>
+name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Layla
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+101
+</td>
+
+<td>
+Omar
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+202
+</td>
+
+<td>
+Skipping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Layla
+</td>
+
+<td>
+202
+</td>
+
+<td>
+Skipping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+101
+</td>
+
+<td>
+Omar
+</td>
+
+<td>
+202
+</td>
+
+<td>
+Skipping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Coding
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Layla
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Coding
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+101
+</td>
+
+<td>
+Omar
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Coding
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="exploring-joins---connecting-people-and-skills" class="slide level2">
+<h2>Exploring Joins - connecting people and skills</h2>
+<div class="columns">
+<div class="column">
+<h3 id="how-do-we-associate-people-and-skills">How do we associate people and skills?</h3>
+<p>
+&nbsp;
+</p>
+<p>A key part of database design is properly translating our ER diagrams to SQL.</p>
+<p>We spent lots of time talking about <em>cardinality</em> and <em>participation</em>, that is, how different entities connect to each other.</p>
+<p>Learning how to represent <em>cardinality</em> and <em>participation</em> in SQL is critical to your success as a database engineer1.</p>
+<p>We’ve been using <em>keys</em> to make these connections in our ER diagrams.</p>
+</div><div class="column">
+<h3 id="cardinalty-and-participation">Cardinalty and Participation</h3>
+<p>Think about our options for connecting people and skills.</p>
+<ul>
+<li><p>A person MUST have one and only one skill.</p></li>
+<li><p>A person may have one skill or no skills.</p></li>
+<li><p>A person can have many skills (more than one).</p></li>
+</ul>
+<p>How would you code these instances in SQL?</p>
+</div></div>
+</section>
+<section id="exploring-joins---connect-people-to-skills" class="slide level2">
+<h2>Exploring Joins - connect people to skills</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="using-a-field-to-contain-the-id-of-the-skill">Using a field to contain the id of the skill</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>drop table if exists people;</span>
+<span id="cb7-2"><a href=""></a>create table people (</span>
+<span id="cb7-3"><a href=""></a>    id int primary key,</span>
+<span id="cb7-4"><a href=""></a>    name varchar(20) NOT NULL,</span>
+<span id="cb7-5"><a href=""></a>    skill_id int NULL</span>
+<span id="cb7-6"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>FOREIGN KEY specifier isn’t necessary</li>
+<li>NULL or NOT NULL specifies none-or-one or exactly-one</li>
+</ul>
+<h3 id="adding-a-foreign-key-helper">Adding a FOREIGN KEY helper</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>drop table if exists people;</span>
+<span id="cb8-2"><a href=""></a>create table people (</span>
+<span id="cb8-3"><a href=""></a>    id int primary key,</span>
+<span id="cb8-4"><a href=""></a>    name varchar(20) NOT NULL,</span>
+<span id="cb8-5"><a href=""></a>    skill_id int NOT NULL,</span>
+<span id="cb8-6"><a href=""></a>    foreign key (skill_id) references skills(id)</span>
+<span id="cb8-7"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>FOREIGN KEY is a helper that will manage relationships between the two tables</li>
+<li>Foreign key statement will ensure skills_id always points to an existing skill.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    PEOPLE {
+        int id PK
+        varchar name
+        int skill_id FK
+    }
+
+    SKILLS {
+        int id PK
+        varchar name
+    }
+
+    PEOPLE o|..|o SKILLS : "has"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="in-this-example">In this example …</h3>
+<p>People keeps track of their skill.</p>
+<p>Skills doesn’t <em>know</em> anything about people.</p>
+</div></div>
+</section>
+<section id="exploring-joins---connect-people-to-skills-1" class="slide level2">
+<h2>Exploring Joins - connect people to skills</h2>
+<div class="columns">
+<div class="column">
+<h3 id="adding-none-or-one-skills">Adding none-or-one skills</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>drop table if exists people;</span>
+<span id="cb9-2"><a href=""></a>create table people (</span>
+<span id="cb9-3"><a href=""></a>    id int primary key,</span>
+<span id="cb9-4"><a href=""></a>    name varchar(20) NOT NULL,</span>
+<span id="cb9-5"><a href=""></a>    skills_id int NULL,</span>
+<span id="cb9-6"><a href=""></a>    foreign key (skills_id) references skills(id)</span>
+<span id="cb9-7"><a href=""></a>      on delete set NULL</span>
+<span id="cb9-8"><a href=""></a>      on update cascade</span>
+<span id="cb9-9"><a href=""></a>);</span>
+<span id="cb9-10"><a href=""></a>insert into people (id,name, skills_id) values</span>
+<span id="cb9-11"><a href=""></a>( 101,'Omar', 201),</span>
+<span id="cb9-12"><a href=""></a>( 102,'Layla', NULL),</span>
+<span id="cb9-13"><a href=""></a>( 103,'Alex', 203);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-2">Notes</h3>
+<ul>
+<li><p>We’re adding <em>skills_id</em> to people so that each person can track none-or-one skills.</p></li>
+<li><p>The <em>foreign key</em> constraint tells the database what happens to the <em>skills_id</em> field when the matching record in <em>skills</em> is changed.</p></li>
+</ul>
+</div><div class="column">
+<div id="5ec58077" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="118">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: right;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+OperationalError
+</td>
+
+<td>
+Operational Error: (pymysql.err.OperationalError) (3730, “Cannot drop table 'people' referenced by a foreign key constraint 'peopleskills_ibfk_1' on table 'peopleskills'.”)\n[SQL: drop table if exists people]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<h3 id="who-has-what-skills">Who has what skills?</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>select</span>
+<span id="cb10-2"><a href=""></a>  people.id,</span>
+<span id="cb10-3"><a href=""></a>  people.name,</span>
+<span id="cb10-4"><a href=""></a>  people.skills_id,</span>
+<span id="cb10-5"><a href=""></a>  skills.id,</span>
+<span id="cb10-6"><a href=""></a>  skills.name</span>
+<span id="cb10-7"><a href=""></a>from</span>
+<span id="cb10-8"><a href=""></a>  people </span>
+<span id="cb10-9"><a href=""></a>    join skills on (people.skills_id = skills.id )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<div id="e9c9dda3" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="119">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: right;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+OperationalError
+</td>
+
+<td>
+Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'people.skills_id' in 'field list'”)\n[SQL: \nselect\n people.id,\n people.name,\n people.skills_id,\n skills.id,\n skills.name\nfrom\n people \n join skills on (people.skills_id = skills.id )\norder by\n people.id\n]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<h3 id="notes-3">Notes</h3>
+<p>Wait - aren’t there 3 people? Where is person 102?</p>
+</div></div>
+</section>
+<section id="exploring-joins---inner-vs-left" class="slide level2">
+<h2>Exploring Joins - Inner vs Left</h2>
+<div class="columns">
+<div class="column">
+<h3 id="who-has-what-skills-inner-join">Who has what skills? (INNER JOIN)</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>select</span>
+<span id="cb11-2"><a href=""></a>  people.id,</span>
+<span id="cb11-3"><a href=""></a>  people.name,</span>
+<span id="cb11-4"><a href=""></a>  people.skills_id,</span>
+<span id="cb11-5"><a href=""></a>  skills.id,</span>
+<span id="cb11-6"><a href=""></a>  skills.name</span>
+<span id="cb11-7"><a href=""></a>from</span>
+<span id="cb11-8"><a href=""></a>  people </span>
+<span id="cb11-9"><a href=""></a>    INNER JOIN skills on (people.skills_id = skills.id )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<div id="e76bed7d" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="120">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: right;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+OperationalError
+</td>
+
+<td>
+Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'people.skills_id' in 'field list'”)\n[SQL: \nselect\n people.id,\n people.name,\n people.skills_id,\n skills.id,\n skills.name\nfrom\n people \n INNER JOIN skills on (people.skills_id = skills.id )\norder by\n people.id\n]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<h3 id="notes-4">Notes</h3>
+<ul>
+<li><code>INNER JOIN</code> only returns records that match in BOTH tables. If no match, nothing is returned.</li>
+</ul>
+</div><div class="column">
+<h3 id="who-has-what-skills-left-join">Who has what skills? (LEFT JOIN)</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>select</span>
+<span id="cb12-2"><a href=""></a>  people.id,</span>
+<span id="cb12-3"><a href=""></a>  people.name,</span>
+<span id="cb12-4"><a href=""></a>  people.skills_id,</span>
+<span id="cb12-5"><a href=""></a>  skills.id,</span>
+<span id="cb12-6"><a href=""></a>  skills.name</span>
+<span id="cb12-7"><a href=""></a>from</span>
+<span id="cb12-8"><a href=""></a>  people </span>
+<span id="cb12-9"><a href=""></a>    LEFT JOIN skills on (people.skills_id = skills.id )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<div id="288846a2" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="121">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: right;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+OperationalError
+</td>
+
+<td>
+Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'people.skills_id' in 'field list'”)\n[SQL: \nselect\n people.id,\n people.name,\n people.skills_id,\n skills.id,\n skills.name\nfrom\n people \n LEFT JOIN skills on (people.skills_id = skills.id )\norder by\n people.id\n]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<h3 id="notes-5">Notes</h3>
+<ul>
+<li>The <code>LEFT JOIN</code> requires that all records from the first (left) table MUST be listed at least once.</li>
+<li>If no match, then NULL values are returned in fields.</li>
+</ul>
+</div></div>
+</section>
+<section id="exploring-joins---one-to-many-in-sql" class="slide level2">
+<h2>Exploring Joins - One-to-many in SQL</h2>
+<p>Moving from <code>none-to-one</code> to <code>one-to-many</code> requires a helper table.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="none-to-one">None-to-One</h3>
+<p>To model this case, we added a foreign key directly into the <em>people</em> table.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>drop table if exists people;</span>
+<span id="cb13-2"><a href=""></a>create table people (</span>
+<span id="cb13-3"><a href=""></a>    id int primary key,</span>
+<span id="cb13-4"><a href=""></a>    name varchar(20) NOT NULL,</span>
+<span id="cb13-5"><a href=""></a>    skill_id int NOT NULL,</span>
+<span id="cb13-6"><a href=""></a>    foreign key (skill_id) references skills(id)</span>
+<span id="cb13-7"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-6">Notes</h3>
+<ul>
+<li><p>This approach pollutes the people table. It now contains non-people related information.</p></li>
+<li><p>We can only have non-or-one skills.</p></li>
+<li><p>How can we have more than one skill?</p></li>
+</ul>
+</div><div class="column">
+<h3 id="one-to-many">One to Many</h3>
+<p>To model MANY we add a helper (join) table that serves to associate people and skills.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb14-2"><a href=""></a>create table peopleskills (</span>
+<span id="cb14-3"><a href=""></a>    id int auto_increment primary key,</span>
+<span id="cb14-4"><a href=""></a>    people_id int NOT NULL,</span>
+<span id="cb14-5"><a href=""></a>    skills_id int NOT NULL,</span>
+<span id="cb14-6"><a href=""></a>    foreign key (people_id) references people(id)</span>
+<span id="cb14-7"><a href=""></a>      on delete cascade on update cascade,</span>
+<span id="cb14-8"><a href=""></a>    foreign key (skills_id) references skills(id)</span>
+<span id="cb14-9"><a href=""></a>      on delete cascade on update cascade</span>
+<span id="cb14-10"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-7">Notes</h3>
+<ul>
+<li><p>We remove any skills references from people, unpolluting it.</p></li>
+<li><p>We associate people with skills through this table.</p></li>
+<li><p>More records means MANY connections.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="exploring-joins---one-to-many-in-sql-1" class="slide level2">
+<h2>Exploring Joins - One-to-Many in SQL</h2>
+<div class="columns">
+<div class="column">
+<h3 id="creating-the-helper-table">Creating the helper table</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb15-2"><a href=""></a>create table peopleskills (</span>
+<span id="cb15-3"><a href=""></a>    id int auto_increment primary key,</span>
+<span id="cb15-4"><a href=""></a>    people_id int NOT NULL,</span>
+<span id="cb15-5"><a href=""></a>    skills_id int NOT NULL,</span>
+<span id="cb15-6"><a href=""></a>    foreign key (people_id) references people(id)</span>
+<span id="cb15-7"><a href=""></a>      on delete cascade on update cascade,</span>
+<span id="cb15-8"><a href=""></a>    foreign key (skills_id) references skills(id)</span>
+<span id="cb15-9"><a href=""></a>      on delete cascade on update cascade</span>
+<span id="cb15-10"><a href=""></a>);</span>
+<span id="cb15-11"><a href=""></a></span>
+<span id="cb15-12"><a href=""></a>insert into peopleskills (people_id,skills_id) values </span>
+<span id="cb15-13"><a href=""></a>(101, 201),</span>
+<span id="cb15-14"><a href=""></a>(103, 203);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="using-the-join-helper-table">Using the join helper table</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href=""></a>select </span>
+<span id="cb16-2"><a href=""></a>  peopleskills.*,</span>
+<span id="cb16-3"><a href=""></a>  people.name,</span>
+<span id="cb16-4"><a href=""></a>  skills.name</span>
+<span id="cb16-5"><a href=""></a>from</span>
+<span id="cb16-6"><a href=""></a>  peopleskills</span>
+<span id="cb16-7"><a href=""></a>    join people on (peopleskills.people_id=people.id)</span>
+<span id="cb16-8"><a href=""></a>    join skills on (peopleskills.skills_id=skills.id);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<div id="21a04b44" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="123">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+id
+</th>
+
+<th>
+people_id
+</th>
+
+<th>
+skills_id
+</th>
+
+<th>
+name
+</th>
+
+<th>
+name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+101
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Omar
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+103
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+Coding
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="exploring-joins---one-to-many-in-sql-2" class="slide level2">
+<h2>Exploring Joins - One-to-Many in SQL</h2>
+<div class="columns">
+<div class="column">
+<h3 id="adding-multiple-skills">Adding multiple skills</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb17-2"><a href=""></a>create table peopleskills (</span>
+<span id="cb17-3"><a href=""></a>    id int auto_increment primary key,</span>
+<span id="cb17-4"><a href=""></a>    people_id int NOT NULL,</span>
+<span id="cb17-5"><a href=""></a>    skills_id int NOT NULL,</span>
+<span id="cb17-6"><a href=""></a>    foreign key (people_id) references people(id)</span>
+<span id="cb17-7"><a href=""></a>      on delete cascade on update cascade,</span>
+<span id="cb17-8"><a href=""></a>    foreign key (skills_id) references skills(id)</span>
+<span id="cb17-9"><a href=""></a>      on delete cascade on update cascade</span>
+<span id="cb17-10"><a href=""></a>);</span>
+<span id="cb17-11"><a href=""></a></span>
+<span id="cb17-12"><a href=""></a>insert into peopleskills (people_id,skills_id) values </span>
+<span id="cb17-13"><a href=""></a>(101, 201),</span>
+<span id="cb17-14"><a href=""></a>(101, 202),</span>
+<span id="cb17-15"><a href=""></a>(103, 201),</span>
+<span id="cb17-16"><a href=""></a>(103, 203);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-8">Notes</h3>
+<ul>
+<li>To add multiple skills, we add nore <code>people-skill</code> pairs.</li>
+</ul>
+</div><div class="column">
+<h3 id="using-the-helper-table">Using the helper table</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>select </span>
+<span id="cb18-2"><a href=""></a>  peopleskills.*,</span>
+<span id="cb18-3"><a href=""></a>  people.name,</span>
+<span id="cb18-4"><a href=""></a>  skills.name</span>
+<span id="cb18-5"><a href=""></a>from</span>
+<span id="cb18-6"><a href=""></a>  peopleskills</span>
+<span id="cb18-7"><a href=""></a>    join people on (peopleskills.people_id=people.id)</span>
+<span id="cb18-8"><a href=""></a>    join skills on (peopleskills.skills_id=skills.id);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<div id="d0a8c25d" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="125">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+id
+</th>
+
+<th>
+people_id
+</th>
+
+<th>
+skills_id
+</th>
+
+<th>
+name
+</th>
+
+<th>
+name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+101
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Omar
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+101
+</td>
+
+<td>
+202
+</td>
+
+<td>
+Omar
+</td>
+
+<td>
+Skipping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+103
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+4
+</td>
+
+<td>
+103
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+Coding
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="exploring-joins---enforcing-participation" class="slide level2">
+<h2>Exploring Joins - Enforcing participation</h2>
+<div class="columns">
+<div class="column">
+<h3 id="one-to-one">One-to-One</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb19-2"><a href=""></a>create table peopleskills (</span>
+<span id="cb19-3"><a href=""></a>    id int auto_increment primary key,</span>
+<span id="cb19-4"><a href=""></a>    people_id int NOT NULL UNIQUE,</span>
+<span id="cb19-5"><a href=""></a>    skills_id int NOT NULL UNIQUE,</span>
+<span id="cb19-6"><a href=""></a>    foreign key (people_id) references people(id)</span>
+<span id="cb19-7"><a href=""></a>      on delete cascade on update cascade,</span>
+<span id="cb19-8"><a href=""></a>    foreign key (skills_id) references skills(id)</span>
+<span id="cb19-9"><a href=""></a>      on delete cascade on update cascade</span>
+<span id="cb19-10"><a href=""></a>);</span>
+<span id="cb19-11"><a href=""></a></span>
+<span id="cb19-12"><a href=""></a>insert into peopleskills (people_id,skills_id) values </span>
+<span id="cb19-13"><a href=""></a>(101, 201),</span>
+<span id="cb19-14"><a href=""></a>(101, 202),</span>
+<span id="cb19-15"><a href=""></a>(103, 201),</span>
+<span id="cb19-16"><a href=""></a>(103, 203);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-9">Notes</h3>
+<ul>
+<li><p>Using <code>UNIQUE</code> on <code>people_id</code> or <code>skills_id</code> enforces that only one value can exist in the <code>peopleskills</code> table.</p></li>
+<li><p>The <code>INSERT</code> statement above will throw errors because of the duplicate <code>101</code>, <code>103</code> and <code>201</code> values.</p></li>
+</ul>
+</div><div class="column">
+<h3 id="preventing-duplicate-pairs">Preventing duplicate pairs</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb20-2"><a href=""></a>create table peopleskills (</span>
+<span id="cb20-3"><a href=""></a>    id int auto_increment primary key,</span>
+<span id="cb20-4"><a href=""></a>    people_id int NOT NULL,</span>
+<span id="cb20-5"><a href=""></a>    skills_id int NOT NULL,</span>
+<span id="cb20-6"><a href=""></a>    UNIQUE (people_id, skills_id),</span>
+<span id="cb20-7"><a href=""></a>    foreign key (people_id) references people(id)</span>
+<span id="cb20-8"><a href=""></a>      on delete cascade on update cascade,</span>
+<span id="cb20-9"><a href=""></a>    foreign key (skills_id) references skills(id)</span>
+<span id="cb20-10"><a href=""></a>      on delete cascade on update cascade</span>
+<span id="cb20-11"><a href=""></a>);</span>
+<span id="cb20-12"><a href=""></a></span>
+<span id="cb20-13"><a href=""></a>insert into peopleskills (people_id,skills_id) values </span>
+<span id="cb20-14"><a href=""></a>(101, 201),</span>
+<span id="cb20-15"><a href=""></a>(101, 202),</span>
+<span id="cb20-16"><a href=""></a>(101, 201);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes-10">Notes</h3>
+<ul>
+<li><p>Using <code>UNIQUE</code> keyword on multiple values, tells the DBMS to check and toss an error if duplicate <code>pairs</code> are found.</p></li>
+<li><p>This is enforced on INSERTs and UPDATES.</p></li>
+<li><p>The <code>INSERT</code> statement will throw an error on <code>101-201</code></p></li>
+</ul>
+</div></div>
+</section>
+<section id="exploring-joins-1" class="slide level2">
+<h2>Exploring Joins</h2>
+<ul>
+<li><p>A Join table is the preferred way to model relationships in SQL.</p></li>
+<li><p>Using appropriate modifiers <code>NULL</code>, <code>NOT NULL</code>, and <code>UNIQUE</code> we can model:</p>
+<ul>
+<li>One-to-One,</li>
+<li>None to One,</li>
+<li>One to Many relationships</li>
+</ul></li>
+<li><p>Keeping connections in a join table minimizes pollution in the primary tables.</p></li>
+</ul>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +1829,18 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p>Deliverable 8 has been graded. Check your grades.</p></li>
+<li><p>Graders are still working on HW5, HW6 and Deliverable 9.</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6 - due 11/3</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 6.5 - due 11/7</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 7 - due 11/10</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Deliverable 12 - due 11/3</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><a href="#/sql-joins">SQL Joins and Selects</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -513,34 +1866,42 @@
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">11/6</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG22: L22 (Joins and aggregates 2)</td>
+<td>MTG22: L22 (Joins and Selects 2)</td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">12</td>
-<td style="text-align: center;">11/10</td>
-<td style="text-align: center;">Sun</td>
+<td style="text-align: center;">11/7</td>
+<td style="text-align: center;">Thu</td>
 <td></td>
-<td>HW6 due (Constructing a database)</td>
+<td>HW6.5 due (Table Constraints (Harmonize))</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">11/11</td>
-<td style="text-align: center;">Mon</td>
-<td>MTG23: L23 (Intro to APIs)</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">11/10</td>
+<td style="text-align: center;">Sun</td>
 <td></td>
+<td>HW7 due (Joining tables and reporting)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
-<td style="text-align: center;">11/13</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
+<td style="text-align: center;">11/11</td>
+<td style="text-align: center;">Mon</td>
+<td>MTG23: L23 (Aggregates 1)</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: center;">SQL</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">11/13</td>
+<td style="text-align: center;">Wed</td>
+<td>MTG24: L24 (Aggregates 2)</td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/15</td>
@@ -548,28 +1909,20 @@
 <td></td>
 <td>PrjDel 11 due (Team reflection)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">SQL</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW7 due (SQL Funhouse)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Adv. SQL</td>
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">11/18</td>
-<td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH)</td>
-<td></td>
+<td>HW8 due (SQL Funhouse)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">14</td>
-<td style="text-align: center;">11/20</td>
-<td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td style="text-align: center;">11/18</td>
+<td style="text-align: center;">Mon</td>
+<td>MTG25: L25 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 </tbody>
@@ -595,7 +1948,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +1959,7 @@
   <script src="lecture-22_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-22_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-22_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-22_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-22_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +1980,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +2157,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

@@ -11,7 +11,7 @@
 <script src="sql-joins_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="sql-joins_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="sql-joins_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.55">
+  <meta name="generator" content="quarto-1.5.57">
 
   <title>SQL Joins</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="sql-joins_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -344,6 +409,91 @@
 </section>
 <section id="sql-joins-1" class="slide level2">
 <h2>SQL Joins</h2>
+<p><img data-src="./assets/joins-figures.png"></p>
+<ul>
+<li>We’ve spent a TON of time learning about normalization, that is, how to reduce and remove redundancy in our database.</li>
+<li>Now, we’re going to learn how to build the data back up into something larger - a <em>join table</em> - for querying.</li>
+<li>Joins permit us to combine data in tables and then select from the larger, <em>join table</em>.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<center>
+<strong><em>Why has SQL survived for over 50 years?</em></strong> <em>(ask ChatGPT!)</em>
+</center>
+</section>
+<section id="sql-joins-2" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="select-statement"><a href="https://dev.mysql.com/doc/refman/8.4/en/select.html" target="_blank">SELECT statement</a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>SELECT </span>
+<span id="cb1-2"><a href=""></a>    columns_or_expressions -- Choose specific columns or expressions to return</span>
+<span id="cb1-3"><a href=""></a>FROM </span>
+<span id="cb1-4"><a href=""></a>    table1</span>
+<span id="cb1-5"><a href=""></a>    JOIN_TYPE JOIN table2 ON join_condition</span>
+<span id="cb1-6"><a href=""></a>    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition</span>
+<span id="cb1-7"><a href=""></a>    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed</span>
+<span id="cb1-8"><a href=""></a>WHERE </span>
+<span id="cb1-9"><a href=""></a>    filter_condition -- Filter rows based on a condition</span>
+<span id="cb1-10"><a href=""></a>GROUP BY </span>
+<span id="cb1-11"><a href=""></a>    column1, column2, ... -- Group rows based on one or more columns</span>
+<span id="cb1-12"><a href=""></a>HAVING </span>
+<span id="cb1-13"><a href=""></a>    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)</span>
+<span id="cb1-14"><a href=""></a>ORDER BY </span>
+<span id="cb1-15"><a href=""></a>    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set</span>
+<span id="cb1-16"><a href=""></a>LIMIT </span>
+<span id="cb1-17"><a href=""></a>    number_of_rows; -- (Optional) Limits the number of rows returned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<h3 id="order-of-operations">Order of Operations</h3>
+<ul>
+<li>FROM (including JOINS) – create a new table,</li>
+<li>WHERE – to filter rows</li>
+<li>GROUP BY – aggregate results to remove duplicates</li>
+<li>HAVING – filter on aggregates</li>
+<li>SELECT – to select rows</li>
+<li>ORDER BY – to order result set</li>
+<li>LIMIT – to restrict number of rows returned</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-joins-3" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="example-from-hw7">Example from HW7</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>SELECT </span>
+<span id="cb2-2"><a href=""></a>    CONCAT(people.first_name, ' ', people.last_name) AS "Employee name",</span>
+<span id="cb2-3"><a href=""></a>    skills.name AS skill_name</span>
+<span id="cb2-4"><a href=""></a>FROM </span>
+<span id="cb2-5"><a href=""></a>    peopleskills </span>
+<span id="cb2-6"><a href=""></a>      JOIN skills ON peopleskills.skills_id = skills.id</span>
+<span id="cb2-7"><a href=""></a>      JOIN people ON peopleskills.people_id = people.id</span>
+<span id="cb2-8"><a href=""></a>WHERE </span>
+<span id="cb2-9"><a href=""></a>    people.last_name = 'Person 1';</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>A join is specified between tables, one on the left and one on the right.</li>
+<li>Multiple joins can occur in the same SQL statement. These are usually processed left to right.</li>
+<li>The <em>JOIN</em> command create a single large table for selecting, projecting and ordering.</li>
+<li>The <em>ON</em> statement specific how the tables connect.</li>
+<li>FOREIGN KEYS and JOINS are similar - but the DBMS doesn’t share!</li>
+<li>SAFETY TIP - build joins slowly and carefully until you’re comfy!</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-joins-4" class="slide level2">
+<h2>SQL Joins</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank"><img data-src="./assets/homework7.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="sql-joins-5">SQL Joins</h3>
+<ul>
+<li><p>Let’s explore <em>joins</em> in the context of homework 7.</p></li>
+<li><p>We’ll be spending a significant amount of time with joins and aggregates!</p></li>
+</ul>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
 <div class="footer footer-default">

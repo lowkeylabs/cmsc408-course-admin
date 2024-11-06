@@ -1,7 +1,7 @@
 ---
 date: 11/11/2024
 lecture-id: 23
-title: Intro to APIs
+title: Aggregates 1
 ---
 
 ```{python}

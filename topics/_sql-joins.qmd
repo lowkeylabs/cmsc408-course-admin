@@ -1,4 +1,104 @@
 
+
 # SQL Joins
 
 ## SQL Joins
+
+![](./assets/joins-figures.png)
+
+* We've spent a TON of time learning about normalization, that is, how to reduce and remove redundancy in our database.
+* Now, we're going to learn how to build the data back up into something larger - a *join table* - for querying.
+* Joins permit us to combine data in tables and then select from the larger, *join table*.
+
+<p>&nbsp;</p>
+<center> ***Why has SQL survived for over 50 years?***  *(ask ChatGPT!)*</center>
+
+## SQL Joins
+:::: {.columns}
+::: {.column width=60%}
+### [SELECT statement](https://dev.mysql.com/doc/refman/8.4/en/select.html){target="_blank"}
+
+```{sql}
+SELECT 
+    columns_or_expressions -- Choose specific columns or expressions to return
+FROM 
+    table1
+    JOIN_TYPE JOIN table2 ON join_condition
+    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition
+    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed
+WHERE 
+    filter_condition -- Filter rows based on a condition
+GROUP BY 
+    column1, column2, ... -- Group rows based on one or more columns
+HAVING 
+    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)
+ORDER BY 
+    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set
+LIMIT 
+    number_of_rows; -- (Optional) Limits the number of rows returned
+```
+
+:::
+::: {.column width=40%}
+### Order of Operations
+
+* FROM (including JOINS) -- create a new table,
+* WHERE -- to filter rows
+* GROUP BY -- aggregate results to remove duplicates
+* HAVING -- filter on aggregates
+* SELECT -- to select rows
+* ORDER BY -- to order result set
+* LIMIT -- to restrict number of rows returned
+:::
+::::
+
+
+
+## SQL Joins
+:::: {.columns}
+::: {.column width=60%}
+
+### Example from HW7
+
+```{sql}
+SELECT 
+    CONCAT(people.first_name, ' ', people.last_name) AS "Employee name",
+    skills.name AS skill_name
+FROM 
+    peopleskills 
+      JOIN skills ON peopleskills.skills_id = skills.id
+      JOIN people ON peopleskills.people_id = people.id
+WHERE 
+    people.last_name = 'Person 1';
+```
+
+:::
+::: {.column width=40%}
+* A join is specified between tables, one on the left and one on the right.
+* Multiple joins can occur in the same SQL statement.  These are usually processed left to right.
+* The *JOIN* command create a single large table for selecting, projecting and ordering.
+* The *ON* statement specific how the tables connect.
+* FOREIGN KEYS and JOINS are similar - but the DBMS doesn't share!
+* SAFETY TIP - build joins slowly and carefully until you're comfy!
+:::
+::::
+
+
+## SQL Joins
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework7.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}
+:::
+::: {.column width=40%}
+### SQL Joins
+
+* Let's explore *joins* in
+the context of homework 7.
+
+* We'll be spending a significant amount of time
+with joins and aggregates!
+
+:::
+::::
+
