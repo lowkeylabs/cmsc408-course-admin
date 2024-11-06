@@ -17,8 +17,7 @@ housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
-housekeeping_vertical_spacer = "25px"
-
+housekeeping_vertical_spacer = "5px"
 
 discussion_items = [
     'CMSC 427 - User Interfaces - Spring 2025',
@@ -240,6 +239,7 @@ else:
 ### Sandbox schema
 
 ```{sql}
+drop table if exists peopleskills;
 drop table if exists people;
 create table people (
     id int,
@@ -265,6 +265,7 @@ insert into skills (id,name) values
 ```{python}
 #| echo: false
 sql = """
+drop table if exists peopleskills;
 drop table if exists people;
 create table people (
     id int,
@@ -516,7 +517,17 @@ in *skills* is changed.
 ```{python}
 #| echo: false
 sql = f"""
+drop table if exists peopleskills;
 drop table if exists people;
+drop table if exists skills;
+create table skills (
+    id int primary key,
+    name varchar(20) NOT NULL
+);
+insert into skills (id,name) values
+( 201,'Jumping'),
+( 202,'Skipping'),
+( 203,'Coding');
 create table people (
     id int primary key,
     name varchar(20) NOT NULL,
@@ -529,17 +540,6 @@ insert into people (id,name, skills_id) values
 ( 101,'Omar', 201),
 ( 102,'Layla', NULL),
 ( 103,'Alex', 203);
-
-drop table if exists skills;
-create table skills (
-    id int primary key,
-    name varchar(20) NOT NULL
-);
-insert into skills (id,name) values
-( 201,'Jumping'),
-( 202,'Skipping'),
-( 203,'Coding')
-
 """
 #df = run_sql_and_return_df( sql,cnx )
 run_ddl_and_confirm( sql, cnx )
@@ -582,6 +582,7 @@ Wait - aren't there 3 people?  Where is person 102?
 
 :::
 ::::
+
 
 
 ## Exploring Joins - Inner vs Left

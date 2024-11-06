@@ -434,7 +434,7 @@
 <li><a href="#/sql-joins">SQL Joins and Selects</a></li>
 </ul>
 </div></div>
-<div style="margin-top:25px">
+<div style="margin-top:5px">
 <p>&nbsp;</p>
 </div>
 
@@ -650,66 +650,28 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="sandbox-schema">Sandbox schema</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>drop table if exists people;</span>
-<span id="cb3-2"><a href=""></a>create table people (</span>
-<span id="cb3-3"><a href=""></a>    id int,</span>
-<span id="cb3-4"><a href=""></a>    name varchar(20) NOT NULL,</span>
-<span id="cb3-5"><a href=""></a>    primary key(id)</span>
-<span id="cb3-6"><a href=""></a>);</span>
-<span id="cb3-7"><a href=""></a>insert into people (id,name) values</span>
-<span id="cb3-8"><a href=""></a>( 101,'Omar'),</span>
-<span id="cb3-9"><a href=""></a>( 102,'Layla'),</span>
-<span id="cb3-10"><a href=""></a>( 103,'Alex');</span>
-<span id="cb3-11"><a href=""></a></span>
-<span id="cb3-12"><a href=""></a>drop table if exists skills;</span>
-<span id="cb3-13"><a href=""></a>create table skills (</span>
-<span id="cb3-14"><a href=""></a>    id int primary key,</span>
-<span id="cb3-15"><a href=""></a>    name varchar(20) NOT NULL</span>
-<span id="cb3-16"><a href=""></a>);</span>
-<span id="cb3-17"><a href=""></a>insert into skills (id,name) values</span>
-<span id="cb3-18"><a href=""></a>( 201,'Jumping'),</span>
-<span id="cb3-19"><a href=""></a>( 202,'Skipping'),</span>
-<span id="cb3-20"><a href=""></a>( 203,'Coding')</span>
-<span id="cb3-21"><a href=""></a>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="b6fffd9f" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="114">
-<table border="1" class="dataframe">
-
-<thead>
-
-<tr style="text-align: right;">
-
-<th>
-ErrorType
-</th>
-
-<th>
-ErrorMessage
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-OperationalError
-</td>
-
-<td>
-Operational Error: (pymysql.err.OperationalError) (3730, “Cannot drop table 'people' referenced by a foreign key constraint 'peopleskills_ibfk_1' on table 'peopleskills'.”)\n[SQL: drop table if exists people]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>drop table if exists peopleskills;</span>
+<span id="cb3-2"><a href=""></a>drop table if exists people;</span>
+<span id="cb3-3"><a href=""></a>create table people (</span>
+<span id="cb3-4"><a href=""></a>    id int,</span>
+<span id="cb3-5"><a href=""></a>    name varchar(20) NOT NULL,</span>
+<span id="cb3-6"><a href=""></a>    primary key(id)</span>
+<span id="cb3-7"><a href=""></a>);</span>
+<span id="cb3-8"><a href=""></a>insert into people (id,name) values</span>
+<span id="cb3-9"><a href=""></a>( 101,'Omar'),</span>
+<span id="cb3-10"><a href=""></a>( 102,'Layla'),</span>
+<span id="cb3-11"><a href=""></a>( 103,'Alex');</span>
+<span id="cb3-12"><a href=""></a></span>
+<span id="cb3-13"><a href=""></a>drop table if exists skills;</span>
+<span id="cb3-14"><a href=""></a>create table skills (</span>
+<span id="cb3-15"><a href=""></a>    id int primary key,</span>
+<span id="cb3-16"><a href=""></a>    name varchar(20) NOT NULL</span>
+<span id="cb3-17"><a href=""></a>);</span>
+<span id="cb3-18"><a href=""></a>insert into skills (id,name) values</span>
+<span id="cb3-19"><a href=""></a>( 201,'Jumping'),</span>
+<span id="cb3-20"><a href=""></a>( 202,'Skipping'),</span>
+<span id="cb3-21"><a href=""></a>( 203,'Coding')</span>
+<span id="cb3-22"><a href=""></a>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h3 id="sample-schema">Sample Schema</h3>
 <ul>
@@ -733,8 +695,8 @@ Operational Error: (pymysql.err.OperationalError) (3730, “Cannot drop table 'p
 <div class="column">
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>select * from people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
-<div id="67af0f6e" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="115">
+<div id="09c13055" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="79">
 <table border="1" class="dataframe">
 
 <thead>
@@ -802,8 +764,8 @@ Alex
 <div class="column">
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>select * from skills</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
-<div id="28438105" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="116">
+<div id="b03aedd4" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="80">
 <table border="1" class="dataframe">
 
 <thead>
@@ -883,8 +845,8 @@ Coding
 <li><p>Note that the names match in these slides.</p></li>
 </ul>
 </div><div class="column">
-<div id="6957d522" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="117">
+<div id="bbc75d16" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="81">
 <table border="1" class="dataframe">
 
 <thead>
@@ -1204,45 +1166,6 @@ Coding
 <li><p>The <em>foreign key</em> constraint tells the database what happens to the <em>skills_id</em> field when the matching record in <em>skills</em> is changed.</p></li>
 </ul>
 </div><div class="column">
-<div id="5ec58077" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="118">
-<table border="1" class="dataframe">
-
-<thead>
-
-<tr style="text-align: right;">
-
-<th>
-ErrorType
-</th>
-
-<th>
-ErrorMessage
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-OperationalError
-</td>
-
-<td>
-Operational Error: (pymysql.err.OperationalError) (3730, “Cannot drop table 'people' referenced by a foreign key constraint 'peopleskills_ibfk_1' on table 'peopleskills'.”)\n[SQL: drop table if exists people]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
 <h3 id="who-has-what-skills">Who has what skills?</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>select</span>
 <span id="cb10-2"><a href=""></a>  people.id,</span>
@@ -1256,20 +1179,32 @@ Operational Error: (pymysql.err.OperationalError) (3730, “Cannot drop table 'p
 <p>
 &nbsp;
 </p>
-<div id="e9c9dda3" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="119">
+<div id="c9a06798" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="83">
 <table border="1" class="dataframe">
 
 <thead>
 
-<tr style="text-align: right;">
+<tr style="text-align: center;">
 
 <th>
-ErrorType
+id
 </th>
 
 <th>
-ErrorMessage
+name
+</th>
+
+<th>
+skills_id
+</th>
+
+<th>
+id
+</th>
+
+<th>
+name
 </th>
 
 </tr>
@@ -1281,11 +1216,47 @@ ErrorMessage
 <tr>
 
 <td>
-OperationalError
+101
 </td>
 
 <td>
-Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'people.skills_id' in 'field list'”)\n[SQL: \nselect\n people.id,\n people.name,\n people.skills_id,\n skills.id,\n skills.name\nfrom\n people \n join skills on (people.skills_id = skills.id )\norder by\n people.id\n]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Omar
+</td>
+
+<td>
+201
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+203
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Coding
 </td>
 
 </tr>
@@ -1316,20 +1287,32 @@ Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'peop
 <p>
 &nbsp;
 </p>
-<div id="e76bed7d" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="120">
+<div id="a9c30379" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="84">
 <table border="1" class="dataframe">
 
 <thead>
 
-<tr style="text-align: right;">
+<tr style="text-align: center;">
 
 <th>
-ErrorType
+id
 </th>
 
 <th>
-ErrorMessage
+name
+</th>
+
+<th>
+skills_id
+</th>
+
+<th>
+id
+</th>
+
+<th>
+name
 </th>
 
 </tr>
@@ -1341,11 +1324,47 @@ ErrorMessage
 <tr>
 
 <td>
-OperationalError
+101
 </td>
 
 <td>
-Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'people.skills_id' in 'field list'”)\n[SQL: \nselect\n people.id,\n people.name,\n people.skills_id,\n skills.id,\n skills.name\nfrom\n people \n INNER JOIN skills on (people.skills_id = skills.id )\norder by\n people.id\n]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Omar
+</td>
+
+<td>
+201
+</td>
+
+<td>
+201
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+203
+</td>
+
+<td>
+203
+</td>
+
+<td>
+Coding
 </td>
 
 </tr>
@@ -1373,20 +1392,32 @@ Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'peop
 <p>
 &nbsp;
 </p>
-<div id="288846a2" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display" data-execution_count="121">
+<div id="8dcdfb73" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="85">
 <table border="1" class="dataframe">
 
 <thead>
 
-<tr style="text-align: right;">
+<tr style="text-align: center;">
 
 <th>
-ErrorType
+id
 </th>
 
 <th>
-ErrorMessage
+name
+</th>
+
+<th>
+skills_id
+</th>
+
+<th>
+id
+</th>
+
+<th>
+name
 </th>
 
 </tr>
@@ -1398,11 +1429,69 @@ ErrorMessage
 <tr>
 
 <td>
-OperationalError
+101
 </td>
 
 <td>
-Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'people.skills_id' in 'field list'”)\n[SQL: \nselect\n people.id,\n people.name,\n people.skills_id,\n skills.id,\n skills.name\nfrom\n people \n LEFT JOIN skills on (people.skills_id = skills.id )\norder by\n people.id\n]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Omar
+</td>
+
+<td>
+201.0
+</td>
+
+<td>
+201.0
+</td>
+
+<td>
+Jumping
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Layla
+</td>
+
+<td>
+</td>
+
+<td>
+</td>
+
+<td>
+None
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alex
+</td>
+
+<td>
+203.0
+</td>
+
+<td>
+203.0
+</td>
+
+<td>
+Coding
 </td>
 
 </tr>
@@ -1492,8 +1581,8 @@ Operational Error: (pymysql.err.OperationalError) (1054, “Unknown column 'peop
 <p>
 &nbsp;
 </p>
-<div id="21a04b44" class="cell" data-execution_count="15">
-<div class="cell-output cell-output-display" data-execution_count="123">
+<div id="d363f00b" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="87">
 <table border="1" class="dataframe">
 
 <thead>
@@ -1619,8 +1708,8 @@ Coding
 <p>
 &nbsp;
 </p>
-<div id="d0a8c25d" class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display" data-execution_count="125">
+<div id="431194b3" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="89">
 <table border="1" class="dataframe">
 
 <thead>
@@ -1843,7 +1932,7 @@ Coding
 <li><a href="#/sql-joins">SQL Joins and Selects</a></li>
 </ul>
 </div></div>
-<div style="margin-top:25px">
+<div style="margin-top:5px">
 <p>&nbsp;</p>
 </div>
 
