@@ -53,6 +53,51 @@ if not errors:
 
 Run your DDL file manually from VSCode, and then rebuild your QMD.
 
+## Homework 7 - Issue #1
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework7-errors-1.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
+:::
+::: {.column width=40%}
+### Issue #1
+
+This issue involves the connection *cnx*.  
+
+Changes loaded by the DDL file are not fully available until
+the connection is closed and reopenned.
+
+### Two solutions
+
+1. manually load DDL file and NOT load it in QMD.
+
+1. force connection reset using *dispose* method.
+
+:::
+::::
+
+## Homework 7 - Issue #2
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework7-errors-2.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
+:::
+::: {.column width=40%}
+### Issue #2
+
+* The database engine we're using (*innodb*) does not 
+accurately store record counts in the *information_schema* table. 
+
+* See [this link](https://dev.mysql.com/doc/mysql-infoschema-excerpt/8.0/en/information-schema-tables-table.html){target="_blank"} for more details.
+
+* Ignore the counts, or
+
+* Use `count(*)` to return accurate count.
+
+
+:::
+::::
+
 
 # SQL Aggregate Functions
 
