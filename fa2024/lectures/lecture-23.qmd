@@ -2,6 +2,10 @@
 date: 11/11/2024
 lecture-id: 23
 title: Aggregates 1
+execute:
+    cache: false
+    echo: false
+    eval: true
 ---
 
 ```{python}
@@ -15,18 +19,1057 @@ housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
 housekeeping_vertical_spacer = "25px"
+ 
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'CMSC 427 - User Interfaces - Spring 2025',
+    '[Homework 7 - due 11/10](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}',
+    '[Homework 8 - due 11/17](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534){target="_blank"}',
+    'Keep working on your semester project!!!'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    "[Homework 7 discussion](#homework-7---discussion)",
+    "[SQL Aggregate Functions](#sql-aggregate-functions)",
+    "[Homework 7 - Advanced Queries](#homework-7---advanced-queries)"
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
+
+# Homework 7 - discussion
+
+## Homework 7 - discussion
+
+Are you having issues with homework 7?
+
+Try commenting out this block of code.
+
+```{.python}
+if not errors:
+    messages,errors = execute_ddl_from_file( ddl_file_name, cnx)
+```
+
+Run your DDL file manually from VSCode, and then rebuild your QMD.
+
+
+# SQL Aggregate Functions
+
+```{python}
+#| echo: false
+
+import os
+import re
+import sys
+import pandas as pd
+from tabulate import tabulate
+from dotenv import load_dotenv
+from IPython.display import Markdown
+from sqlalchemy import create_engine, text, inspect
+from sqlalchemy.exc import ArgumentError, NoSuchModuleError, OperationalError, ProgrammingError
+
+def run_sql_and_return_df(cnx,sql):
+    """Given an SQL command and connection string, return a DataFrame."""
+
+    # Check if the connection is None
+    if cnx is None:
+        error_message = "No valid connection. See above."
+        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
+        return df.to_html(index=False)
+
+    try:
+        df = pd.read_sql(sql, cnx)
+        if df.empty:
+            # Create a single-row DataFrame with all columns as None
+            df = pd.DataFrame([["no records returned"]+ [''] * (len(df.columns) - 1) ], columns=df.columns)
+
+        df = df.replace("None","NULL")
+        # Convert the DataFrame to HTML and use custom styling to span columns if needed
+        html_output = df.to_html(index=False, na_rep="NULL", justify="center")
+        html_output = re.sub(r'\bNone\b', 'NULL', html_output)
+        # Add colspan attribute to span columns if rendering in an environment that supports it
+        html_output = html_output.replace('<td>no records found</td>', f'<td colspan="{len(df.columns)}">no records found</td>')
+        return html_output
+
+    except OperationalError as e:
+        # Catch connection or database errors
+        error_message = f"Operational Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['OperationalError'], 'ErrorMessage': [error_message]})
+    except ProgrammingError as e:
+        # Catch SQL syntax errors or issues with the command
+        error_message = f"Programming Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['ProgrammingError'], 'ErrorMessage': [error_message]})
+#    except mysql.connector.Error as e:
+#        # Catch MySQL-specific errors
+#        error_message = f"MySQL Connector Error: {str(e)}"
+#        df = pd.DataFrame({'ErrorType': ['MySQL Connector Error'], 'ErrorMessage': [error_message]})
+    except Exception as e:
+        # Catch all other exceptions
+        error_message = f"Unknown Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
+    
+    return df.to_html(index=False)
+
+def create_database_engine(uri):
+    """Create an SQLAlchemy engine with error handling and test the connection."""
+
+    error_message = None
+    try:
+        # Attempt to create the engine
+        engine = create_engine(uri)
+
+        # Test the connection with a lightweight query
+
+        message = run_sql_and_return_df("select 1 from dual",engine)
+
+#        with engine.connect() as connection:
+#            connection.execute(text("SELECT 1"))
+        
+        return engine  # Return the engine if connection test is successful
+
+    except ArgumentError as e:
+        error_message = f"URI Error: {e}"
+    except NoSuchModuleError as e:
+        error_message = f"Database driver not found: {e}"
+    except OperationalError as e:
+        error_message = f"Operational error: {e}"
+    except Exception as e:
+        error_message = f"An unexpected error occurred: {e}"
+    
+    if error_message:
+        print(error_message)
+    return None  # Return None if any error occurs
+
+
+def run_ddl_and_confirm(cnx,sql):
+    """Given a DDL SQL command with multiple statements and connection, confirm execution or return an error message in HTML format."""
+
+    if cnx is None:
+        error_message = "No valid connection. See above."
+        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
+        return df.to_html(index=False)
+
+    # Split the SQL statements by ";" while ignoring empty statements
+    statements = [stmt.strip() for stmt in re.split(r';\s*', sql) if stmt.strip()]
+
+    try:
+        with cnx.begin() as connection:
+            for statement in statements:
+                connection.execute(text(statement))
+        
+        # Confirm successful execution
+        df = pd.DataFrame({'Status': ['Success'], 'Message': ['All DDL commands executed successfully']})
+        # return df.to_html(index=False)
+        return None
+
+    except OperationalError as e:
+        error_message = f"Operational Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['OperationalError'], 'ErrorMessage': [error_message]})
+    except ProgrammingError as e:
+        error_message = f"Programming Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['ProgrammingError'], 'ErrorMessage': [error_message]})
+    except Exception as e:
+        error_message = f"Unknown Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
+    
+    return df.to_html(index=False)
+
+
+def run_ddl_from_file(cnx,filename):
+    """
+    Executes DDL statements from a file on a given SQLAlchemy connection, 
+    capturing any errors and results.
+    """
+    messages = []
+    errors = []
+
+    if cnx is None:
+        errors.append("<hr/>Invalid connection<br/>")
+        return messages,errors
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        ddl_commands = file.read()
+
+    # Split commands if needed, such as if commands are separated by semicolons
+    ddl_statements = [cmd.strip() for cmd in ddl_commands.split(';') if cmd.strip()]
+
+    with cnx.connect() as connection:
+        for statement in ddl_statements:
+            try:
+                result = connection.execute(text(statement))
+                # Capture the result, if any
+                result_info = result.rowcount if result.rowcount != -1 else "No rows affected"
+                messages.append(f"Executed statement: {statement}<br/>Result: {result_info}<br/>")
+            except Exception as e:
+                # Capture the error message if execution fails
+                errors.append(f"<hr/>Error executing statement: <b>{statement}</b><br/>    Error: {str(e)}<br/>")
+
+    return messages, errors
+
+code_block = 1000
+
+def print_code_block( sql ):
+    global code_block
+    s = []
+    code_block = code_block + 1
+    s.append('<pre class="sourceCode numberSource sql number-lines code-with-copy">')
+    s.append('<code class="sourceCode sql">')
+    rows = sql.splitlines()
+    for i,row in enumerate(rows):
+        s.append(f'<span id="cb{code_block}-{i}"><a href=""></a>{row}</span>\n')
+    s.append('</code>')
+    s.append('</pre>')
+    return "".join(s)
+
+def show_sql_and_result(sql,widths=[35,5,60],headers=["SQL Code","Result set"],left_side_text=None):
+    s1 = f"""
+:::: {{.columns}}
+::: {{.column width="{widths[0]}%"}}
+"""
+    if not left_side_text:
+        s1 = s1 + f"### {headers[0]}\n\n"
+
+    s2 = f"```{{.sql}}\n{sql}\n```"
+    if left_side_text:
+        s2 = left_side_text + "\n"
+
+    s3 = f"""
+
+:::
+::: {{.column width="{widths[1]}%"}}
+<p>&nbsp;</p>
+:::
+::: {{.column width="{widths[2]}%"}}
+### {headers[1]}
+
+"""
+    s4 = run_sql_and_return_df( cnx,sql )
+    s5 = f"""
+
+:::
+::::
+"""
+    return Markdown(s1 + s2 + s3 + s4 + s5)
+
+```
+
+## SQL - Aggregate Functions - Revisit the SELECT
+
+:::: {.columns}
+::: {.column width=60%}
+### [SELECT statement](https://dev.mysql.com/doc/refman/8.4/en/select.html){target="_blank"}
+
+```{.sql code-line-numbers="3-9"}
+SELECT 
+    columns_or_expressions -- Choose specific columns or expressions to return
+FROM 
+    table1
+    JOIN_TYPE JOIN table2 ON join_condition
+    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition
+    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed
+WHERE 
+    filter_condition -- Filter rows based on a condition
+GROUP BY 
+    column1, column2, ... -- Group rows based on one or more columns
+HAVING 
+    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)
+ORDER BY 
+    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set
+LIMIT 
+    number_of_rows; -- (Optional) Limits the number of rows returned
+```
+
+:::
+::: {.column width=40%}
+### Order of Operations
+
+* The **SELECT** statement evaluates from the inside
+out.
+
+<p>&nbsp;</p>
+
+### FROM and WHERE
+
+* **FROM** creates a larger, *wider* *join table*
+
+    * *INNER JOIN*
+
+    * *LEFT JOIN*
+
+    * *RIGHT JOIN*
+
+    * *OUTER JOIN*
+
+* **WHERE** makes the *join table* shorter by keeping records
+
+:::
+::::
+
+
+
+## SQL - Aggregate Functions, GROUP BY and HAVING
+:::: {.columns}
+::: {.column width=60%}
+### [SELECT statement](https://dev.mysql.com/doc/refman/8.4/en/select.html){target="_blank"}
+
+```{.sql code-line-numbers="10-13"}
+SELECT 
+    columns_or_expressions -- Choose specific columns or expressions to return
+FROM 
+    table1
+    JOIN_TYPE JOIN table2 ON join_condition
+    -- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition
+    JOIN_TYPE JOIN table3 ON join_condition -- Additional joins as needed
+WHERE 
+    filter_condition -- Filter rows based on a condition
+GROUP BY 
+    column1, column2, ... -- Group rows based on one or more columns
+HAVING 
+    aggregate_condition -- Filter groups using aggregate functions (like COUNT, SUM, etc.)
+ORDER BY 
+    column1 [ASC|DESC], column2 [ASC|DESC], ... -- Sort the final result set
+LIMIT 
+    number_of_rows; -- (Optional) Limits the number of rows returned
+```
+
+:::
+::: {.column width=40%}
+
+### Aggregate Functions
+
+Aggregate functions return values for blocks of records
+
+* **COUNT()** - returns the number of records in a column group.
+
+* **SUM()** - returns the sum of the values in a column group.
+
+* **AVG()** - returns the average of values in a column group.
+
+* **MIN()** - returns the smallest value in a column group.
+
+* **MAX()** - returns the largest value in a column group.
+
+* Others - [See the DB Manual](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions-and-modifiers.html){target="_blank"}.
+:::
+::::
+
+
+```{python}
+#| echo: false
+
+engine_uri = "sqlite:///lecture-23.db"
+# create and test the database connection.
+cnx = create_database_engine( engine_uri )
+
+if not cnx:
+    print(f""" Connection not created """)
+else:
+    messages, errors = run_ddl_from_file(cnx,"./lecture-23.ddl")
+    if errors:
+        print(f"""## Error loading lecture-23.ddl
+    {errors}
+    """)
+```
+
+
+## SQL - Aggregate Functions
+
+### Here is a quick look at the `people` table
+
+```{python}
+sql = f"""SELECT
+  id,
+  first_name,
+  last_name,
+  email
+FROM
+  people;
+"""
+show_sql_and_result( sql )
+```
+
+
+## SQL - Aggregate Functions - COUNT #1
+
+### How many records are in the table?
+
+COUNT returns the number records for a column.  Use `*` to for all records.
+
+```{python}
+sql = """SELECT
+  count(*)
+FROM
+  people
+"""
+show_sql_and_result(sql)
+```
+
+## SQL - Aggregate Functions - COUNT #2
+
+### How many email addresses in table?
+
+COUNT returns the number of NON-NULL values in a column.
+
+```{python}
+sql = """SELECT
+  count(email)
+from
+  people
+"""
+show_sql_and_result(sql)
+```
+`email` contains `NULL` values, and these are ignored when using `COUNT`
+
+## SQL - Aggregate Functions - COUNT #3
+
+### How many people are missing email addresses?
+
+COUNT returns the number of NON-NULL values in a column.
+
+```{python}
+sql = """SELECT
+  count(*) - count(email) as "Missing emails"
+from
+  people
+"""
+show_sql_and_result(sql)
+```
+* `email` contains `NULL` values, and these are ignored when using `COUNT`
+* Aggregate functions can be used as part of formulas in the `SELECT` statement.
+
+
+## SQL - Aggregate Functions - MIN and MAX #1
+
+### What are the smallest and largest values for `ID`?
+
+`MIN` and `MAX` work on specific fields by name only.
+
+```{python}
+sql = """SELECT
+  MIN(id),
+  MAX(id)
+FROM
+  people
+"""
+show_sql_and_result(sql)
+```
+
+<p>&nbsp;</p>
+
+Using `*` generates an error.
+
+```{python}
+sql = """SELECT
+  MIN(*)
+FROM
+  people
+"""
+show_sql_and_result(sql,widths=[20,5,75])
+```
+
+
+## SQL - Aggregate Functions - MIN and MAX #2
+
+### Applying `MIN` and `MAX` to string variables
+
+```{python}
+sql = """SELECT
+  MIN(email),
+  MAX(email)
+FROM
+  people
+"""
+show_sql_and_result(sql)
+```
+
+* `MIN` and `MAX` use the default `collation` for a given `character set`.
+
+* See the manual for more about [Character Sets and Collations](https://dev.mysql.com/doc/refman/8.4/en/charset-general.html){target="_blank"}
+
+## SQL - Aggregate Functions - SUM and AVG #1
+
+Here is a simple DDL file for the following examples.
+
+```{.sql}
+DROP TABLE IF EXISTS avg_example;
+CREATE TABLE AVG_EXAMPLE(
+    value int
+);
+INSERT INTO AVG_EXAMPLE (value) VALUES 
+(1),
+(2),
+(3),
+(NULL),
+(0);
+```
+
+## SQL - Aggregate Functions - SUM and AVG #2
+
+### Applying SUM and AVG
+
+We'll create a simple table to explore `SUM` and `AVG`.
+
+```{python}
+sql = """SELECT
+  *
+FROM
+  avg_example
+"""
+show_sql_and_result( sql )
+```
+
+<p>&nbsp;</p>
+
+* This simple table contains five records, each with different values.
+* Note that there is one record with a `0` value and a second with a `NULL` value.  
+* `0` and `NULL` are treated differently!
+
+## SQL - Aggregate Functions - SUM and AVG #3
+
+### How does SUM and AVG treat NULL values?
+
+```{python}
+sql = """SELECT
+  SUM(value) as "SUM",
+  COUNT(value) as " / COUNT" ,
+  AVG(value) as "= AVG"
+FROM
+  avg_example
+"""
+show_sql_and_result( sql )
+```
+<p>&nbsp;</p>
+* Recall the values are [ 0, 1, 2, 3, NULL] - 5 total records.
+* `NULL` values are excluded from both `COUNT` and `SUM`.
+* Note that `0` is different from `NULL`.
+
+## SQL - `GROUP BY`
+
+* By themselves, aggregate function are applied to the entire table.
+
+* `GROUP BY` can be used to apply aggregate functions to subsets of a table all at once.
+
+### Benefits of `GROUP BY`
+
+* **Data Aggregation**: `GROUP BY` allows aggregation of data, enabling calculations like totals, averages, and counts within specific groups, which is essential for summarizing data meaningfully.
+
+* **Simplified Analysis**: It provides an efficient way to analyze data patterns within each group using aggregate functions, revealing trends and insights across categories (e.g., sales per region or average salary per department).
+
+* **Enhanced Reporting**: By organizing data into groups, `GROUP BY` simplifies the generation of structured reports, making complex datasets more readable and usable for decision-making.
+
+## SQL - Sample Data DDL
+
+For the next few examples, we'll use this table.  You can paste the DDL file into
+VS code to follow along.
+
+```{.sql}
+DROP TABLE IF EXISTS restaurant_menu;
+CREATE TABLE restaurant_menu (
+    item_id INT PRIMARY KEY,
+    item_name VARCHAR(50),
+    category VARCHAR(20),
+    calories INT,
+    price DECIMAL(5, 2),
+    popularity_score DECIMAL(2, 1)
+);
+
+INSERT INTO restaurant_menu (item_id, item_name, category, calories, price, popularity_score) VALUES
+    (1, 'Mozzarella Sticks', 'Appetizer', 250, 5.99, 4.0),
+    (2, 'Garlic Bread', 'Appetizer', NULL, 6.50, 3.5),
+    (3, 'Stuffed Mushrooms', 'Appetizer', 300, NULL, NULL),
+    (4, 'Grilled Salmon', 'Entree', 700, 12.99, 4.5),
+    (5, 'Spaghetti Carbonara', 'Entree', 850, 14.99, NULL),
+    (6, 'Vegetable Stir-Fry', 'Entree', NULL, 13.50, 4.4),
+    (7, 'Chocolate Lava Cake', 'Dessert', 400, 4.99, 4.8),
+    (8, 'Cheesecake', 'Dessert', 450, 5.50, NULL),
+    (9, 'Tiramisu', 'Dessert', 500, 6.00, 4.2),
+    (10, 'Panna Cotta', 'Dessert', NULL, 5.75, 4.6);
+```
+
+### Discussion - is this a *good* schema?
+
+* Yes, it's BCNF as defined above.
+
+* However, it breaks down if `category` if we want to track additional attributes
+about `category`, like a `category_description`.
+
+
+## SQL - `GROUP BY` - Sample Data
+
+```{python}
+sql = """SELECT
+  *
+FROM
+  restaurant_menu
+ORDER BY
+  category,
+  item_name
+"""
+show_sql_and_result( sql,widths=[23,2,75],headers=["Query","Restaurant Menu"] )
+```
+
+* `ORDER BY` sorts first by `category` and when there is a tie moves to sort by `item_name`.
+* You can list as many columns in the `ORDER BY` as necessary.
+
+
+## SQL - `GROUP BY` - Sample Data
+
+```{python}
+sql = """SELECT
+  *
+FROM
+  restaurant_menu
+"""
+show_sql_and_result( sql,widths=[23,2,75],headers=["Query","Restaurant Menu"],left_side_text = """
+### Notes about the menu
+
+* There are 10 items
+* Each item belongs to a category,
+* Each item as a number of calories, if available, a price and a popularity score.
+"""
+ )
+```
+
+## SQL - `GROUP BY` - Sample Data
+
+### Let's look at the calories column for the entire menu
+
+```{python}
+sql = """SELECT
+  COUNT(*) as "Item Cnt",
+  MIN(calories) as "Min",
+  MAX(calories) as "Max",
+  ROUND(AVG(calories),0) as "Avg",
+  COUNT(*) - COUNT(CALORIES)
+    as "# w/o Calories"
+FROM
+  restaurant_menu
+"""
+show_sql_and_result( sql,headers=["Query","Menu - calories"] )
+```
+
+* We're using all the aggregate functions at once.
+* They're applied across all records in the table.
+* `NULL` values are excluded.
+* `COUNT(*)` returns all the records, while `COUNT(calories)` returns the
+non-`NULL` values.
+
+## SQL - `GROUP BY` - `calories` by `category`
+
+### `GROUP BY` example using `calories` and `category`.
+
+```{python}
+sql = """SELECT
+  category,
+  COUNT(*) as "Item Cnt",
+  MIN(calories) as "Min",
+  MAX(calories) as "Max",
+  ROUND(AVG(calories),0) as "Avg",
+  COUNT(*) - COUNT(CALORIES) 
+    as "# w/o Calories"
+FROM
+  restaurant_menu
+GROUP BY
+  category
+"""
+show_sql_and_result( sql,headers=["Query","Menu - calories by category"] )
+```
+* We added a `GROUP BY` clause and added `category` to the `SELECT`
+
+* Only columns in the `GROUP BY` can appear in the `SELECT`. Other columns
+must be aggregate functions.
+
+## SQL - `GROUP BY` - `price` by `category`
+
+### `GROUP BY` example using `price` and `category`.
+
+```{python}
+sql = """SELECT
+  category,
+  COUNT(*) as "Item Cnt",
+  MIN(price) as "Min",
+  MAX(price) as "Max",
+  ROUND(AVG(price),2) as "Avg",
+  COUNT(*) - COUNT(price) as "# w/o price"
+FROM
+  restaurant_menu
+GROUP BY
+  category
+"""
+show_sql_and_result( sql,headers=["Query","Menu - price by category"] )
+```
+
+## SQL - `GROUP BY` - `price` by `popularity`
+
+### `GROUP BY` example using `popularity` and `category`.
+
+```{python}
+sql = """SELECT
+  category,
+  COUNT(*) as "Item Cnt",
+  MIN(popularity_score) as "Min",
+  MAX(popularity_score) as "Max",
+  ROUND(AVG(popularity_score),2) as "Avg",
+  COUNT(*) - COUNT(popularity_score) as "# w/o popularity"
+FROM
+  restaurant_menu
+GROUP BY
+  category
+"""
+show_sql_and_result( sql,headers=["Query","Menu - popularity by category"] )
+```
+
+
+## SQL - HAVING 
+
+* `WHERE` filters on the raw data
+* `HAVING` filters on the results of the `GROUP BY`
+
+### Benefits of `HAVING`
+
+* **Filtering Aggregated Data**: The `HAVING` clause allows you to filter groups of data after aggregation (e.g., filtering by `SUM`, `AVG`, `COUNT`), making it ideal for refining query results based on aggregate conditions.
+
+* **Used with GROUP BY**: `HAVING` is commonly used alongside `GROUP BY` to apply conditions on grouped results, whereas `WHERE` is used for filtering individual rows before grouping.
+
+* **Complex Condition Application**: The `HAVING` clause supports complex conditions with multiple aggregate functions, enabling flexible queries such as filtering groups where total sales exceed a certain amount or average rating is above a threshold.
+
+## SQL - HAVING - example
+
+### List full stats for categories with average calories greater than 400 calories.
+
+```{python}
+sql = """SELECT
+  category,
+  COUNT(*) as "Item Cnt",
+  MIN(calories) as "Min",
+  MAX(calories) as "Max",
+  ROUND(AVG(calories),0) as "Avg",
+  COUNT(*) - COUNT(CALORIES) as "# w/o Calories"
+FROM
+  restaurant_menu
+GROUP BY
+  category
+HAVING
+  AVG(calories) >= 400.0
+ORDER BY
+  AVG(calories) DESC
+"""
+show_sql_and_result( sql,headers=["Query","Menu - popularity by category"] )
+```
+
+* `HAVING` statement requires an aggregate function
+* `ORDER BY` statement can use aggregate functions, too.
+
+## SQL - HAVING - example
+
+### List just category names with average calories greater than 400 calories.
+
+```{python}
+sql = """SELECT
+  category
+FROM
+  restaurant_menu
+GROUP BY
+  category
+HAVING
+  AVG(calories) >= 400.0
+ORDER BY
+  AVG(calories) DESC
+"""
+show_sql_and_result( sql,headers=["Query","Menu - popularity by category"] )
+```
+
+* Aggregate functions do not need to be in the `SELECT` in order
+to be used.
+
+# Homework 7 - Advanced Queries
+
+## Homework 7 - REMINDER - discussion
+
+Are you having issues with homework 7?
+
+Try commenting out this block of code.
+
+```{.python}
+if not errors:
+    messages,errors = execute_ddl_from_file( ddl_file_name, cnx)
+```
+
+Run your DDL file manually from VSCode, and then rebuild your QMD.
+
+
+## Homework 7 - Explore people and skills
+
+Using the new queries, let's refine our analysis
+of the company resume database (homeworks 6 and 7).
+
+* By using `LEFT JOIN` we're assured of at least one record for
+every instance in `SKILLS`.
+* If there is no match, the `peopleskills.skills_id` returns NULL
+* By testing `peopleskills.skills_id` for `NULL` we explore usage 
+patterns of `skills`.
+
+<p>&nbsp;</p>
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skills are unused?
+
+Let's start easy ...
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NULL
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skills are used? (#1)
+
+This table is a problem.  We need to somehow remove duplicate records.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NOT NULL
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skills are used? (#2)
+
+We can remove duplicates with `GROUP BY` to aggregate (combine) duplicate records.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills 
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NOT NULL
+GROUP BY
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+ORDER BY
+  skills.tag
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+* Only fields in `GROUP BY` can be listed in SELECT.
+* Non-aggregate fields do not need to be listed!
+
+## Homework 7 - Which skills are used? (#3)
+
+Same query as before, removing additional GROUP BY fields
+
+```{python}
+sql = """SELECT
+  skills.tag as "Used Skills"
+FROM
+  skills
+    left join peopleskills 
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NOT NULL
+GROUP BY
+  skills.tag
+ORDER BY
+  skills.tag
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+### Notes
+* `peopleskills.skills_id` is used to filter records, but is
+not projected (used) in the SELECT statement
+* `skills.tag` is used for grouping and is also projected (used) in SELECT.
+
+
+## Homework 7 - How many times is each skill used?
+
+This query counts `NON-NULL` values of `peopleskills.skills_id`.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id) as "Times Used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+* What would happen if I used `COUNT(skills.tag)` instead?
+
+## Homework 7 - Which skills are most used? #1
+
+To find the skills most used I can sort by `COUNT`
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id)
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+ORDER BY
+  COUNT(peopleskills.skills_id) DESC
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skill is most used? #2
+
+To find the most used, I can TRY using LIMIT
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id)
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+ORDER BY
+  COUNT(peopleskills.skills_id) DESC
+LIMIT
+  1
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+### Is this correct?
+
+* No, this approach breaks when there are ties.
+
+## Homework 7 - Which skill is most used? #3
+
+In another (sub-optimal) approach, I can manually pick the `MAX` from the
+list using `HAVING`.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id) as "Most used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+HAVING
+  COUNT(peopleskills.skills_id)=6
+ORDER BY
+  skills.tag
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+* In this example, we *hardcode* the maximum value we observed in the data 
+into the `HAVING` clause.  
+
+* This works for these data, but it would be great if we could 
+calculate the `6` automatically!
+
+## Homework 7 - Which skill is most used? #4
+
+OK - let's find the largest number of times a skill is used.
+
+```{python}
+sql = """SELECT
+  COUNT(peopleskills.skills_id) as "Most used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+ORDER BY
+  COUNT(peopleskills.skills_id) DESC
+LIMIT 
+  1
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skill is most used? #5
+
+Can we combine the last query into our original query?
+
+YES - these are call sub-queries - and we'll dive into them next week!
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id) as "Most used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+HAVING
+  COUNT(peopleskills.skills_id)=(
+    SELECT
+      COUNT(peopleskills.skills_id) as "max_use"
+    FROM
+      skills
+        left join peopleskills
+          on (skills.id=peopleskills.skills_id)
+    GROUP BY
+      skills.tag
+    ORDER BY
+      COUNT(peopleskills.skills_id) DESC
+    LIMIT 
+      1
+  )
+ORDER BY
+  skills.tag
+"""
+show_sql_and_result( sql,widths=[45,5,50] )
+```
 
 
 

@@ -13,7 +13,7 @@
 <link href="lecture-23_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Intro to APIs</title>
+  <title>Aggregates 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-23_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-23_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-23_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-23_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-23_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-23_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-23_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +404,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Intro to APIs</h1>
+  <h1 class="title">Aggregates 1</h1>
   <p class="subtitle">Lecture 23</p>
 
 <div class="quarto-title-authors">
@@ -353,12 +420,17 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 7 - due 11/10</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank">Homework 8 - due 11/17</a></p></li>
+<li><p>Keep working on your semester project!!!</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/homework-7---discussion">Homework 7 discussion</a></p></li>
+<li><p><a href="#/sql-aggregate-functions">SQL Aggregate Functions</a></p></li>
+<li><p><a href="#/homework-7---advanced-queries">Homework 7 - Advanced Queries</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -384,7 +456,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/11</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG23: L23 (Intro to APIs)</td>
+<td>MTG23: L23 (Aggregates 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -392,7 +464,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
+<td>MTG24: L24 (Aggregates 2)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -409,14 +481,14 @@
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW7 due (SQL Funhouse)</td>
+<td>HW8 due (SQL Funhouse)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/18</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH)</td>
+<td>MTG25: L25 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -424,7 +496,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td>MTG26: L26 (Subqueries and WITH 2)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -447,8 +519,8 @@
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +546,3251 @@
 </div>
 </div>
 </section>
+<section>
+<section id="homework-7---discussion" class="title-slide slide level1 center">
+<h1>Homework 7 - discussion</h1>
+
+</section>
+<section id="homework-7---discussion-1" class="slide level2">
+<h2>Homework 7 - discussion</h2>
+<p>Are you having issues with homework 7?</p>
+<p>Try commenting out this block of code.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="kw">not</span> errors:</span>
+<span id="cb1-2"><a href=""></a>    messages,errors <span class="op">=</span> execute_ddl_from_file( ddl_file_name, cnx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run your DDL file manually from VSCode, and then rebuild your QMD.</p>
+</section></section>
+<section>
+<section id="sql-aggregate-functions" class="title-slide slide level1 center">
+<h1>SQL Aggregate Functions</h1>
+
+</section>
+<section id="sql---aggregate-functions---revisit-the-select" class="slide level2">
+<h2>SQL - Aggregate Functions - Revisit the SELECT</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="select-statement"><a href="https://dev.mysql.com/doc/refman/8.4/en/select.html" target="_blank">SELECT statement</a></h3>
+<div class="sourceCode" id="cb2" data-code-line-numbers="3-9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">SELECT</span> </span>
+<span id="cb2-2"><a href=""></a>    columns_or_expressions <span class="co">-- Choose specific columns or expressions to return</span></span>
+<span id="cb2-3"><a href=""></a><span class="kw">FROM</span> </span>
+<span id="cb2-4"><a href=""></a>    table1</span>
+<span id="cb2-5"><a href=""></a>    JOIN_TYPE <span class="kw">JOIN</span> table2 <span class="kw">ON</span> join_condition</span>
+<span id="cb2-6"><a href=""></a>    <span class="co">-- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition</span></span>
+<span id="cb2-7"><a href=""></a>    JOIN_TYPE <span class="kw">JOIN</span> table3 <span class="kw">ON</span> join_condition <span class="co">-- Additional joins as needed</span></span>
+<span id="cb2-8"><a href=""></a><span class="kw">WHERE</span> </span>
+<span id="cb2-9"><a href=""></a>    filter_condition <span class="co">-- Filter rows based on a condition</span></span>
+<span id="cb2-10"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> </span>
+<span id="cb2-11"><a href=""></a>    column1, column2, <span class="op">..</span>. <span class="co">-- Group rows based on one or more columns</span></span>
+<span id="cb2-12"><a href=""></a><span class="kw">HAVING</span> </span>
+<span id="cb2-13"><a href=""></a>    aggregate_condition <span class="co">-- Filter groups using aggregate functions (like COUNT, SUM, etc.)</span></span>
+<span id="cb2-14"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb2-15"><a href=""></a>    column1 [<span class="kw">ASC</span>|<span class="kw">DESC</span>], column2 [<span class="kw">ASC</span>|<span class="kw">DESC</span>], <span class="op">..</span>. <span class="co">-- Sort the final result set</span></span>
+<span id="cb2-16"><a href=""></a><span class="kw">LIMIT</span> </span>
+<span id="cb2-17"><a href=""></a>    number_of_rows; <span class="co">-- (Optional) Limits the number of rows returned</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<h3 id="order-of-operations">Order of Operations</h3>
+<ul>
+<li>The <strong>SELECT</strong> statement evaluates from the inside out.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="from-and-where">FROM and WHERE</h3>
+<ul>
+<li><p><strong>FROM</strong> creates a larger, <em>wider</em> <em>join table</em></p>
+<ul>
+<li><p><em>INNER JOIN</em></p></li>
+<li><p><em>LEFT JOIN</em></p></li>
+<li><p><em>RIGHT JOIN</em></p></li>
+<li><p><em>OUTER JOIN</em></p></li>
+</ul></li>
+<li><p><strong>WHERE</strong> makes the <em>join table</em> shorter by keeping records</p></li>
+</ul>
+</div></div>
+</section>
+<section id="sql---aggregate-functions-group-by-and-having" class="slide level2">
+<h2>SQL - Aggregate Functions, GROUP BY and HAVING</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="select-statement-1"><a href="https://dev.mysql.com/doc/refman/8.4/en/select.html" target="_blank">SELECT statement</a></h3>
+<div class="sourceCode" id="cb3" data-code-line-numbers="10-13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">SELECT</span> </span>
+<span id="cb3-2"><a href=""></a>    columns_or_expressions <span class="co">-- Choose specific columns or expressions to return</span></span>
+<span id="cb3-3"><a href=""></a><span class="kw">FROM</span> </span>
+<span id="cb3-4"><a href=""></a>    table1</span>
+<span id="cb3-5"><a href=""></a>    JOIN_TYPE <span class="kw">JOIN</span> table2 <span class="kw">ON</span> join_condition</span>
+<span id="cb3-6"><a href=""></a>    <span class="co">-- join_type can be: INNER, LEFT, RIGHT, or FULL JOIN with join condition</span></span>
+<span id="cb3-7"><a href=""></a>    JOIN_TYPE <span class="kw">JOIN</span> table3 <span class="kw">ON</span> join_condition <span class="co">-- Additional joins as needed</span></span>
+<span id="cb3-8"><a href=""></a><span class="kw">WHERE</span> </span>
+<span id="cb3-9"><a href=""></a>    filter_condition <span class="co">-- Filter rows based on a condition</span></span>
+<span id="cb3-10"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> </span>
+<span id="cb3-11"><a href=""></a>    column1, column2, <span class="op">..</span>. <span class="co">-- Group rows based on one or more columns</span></span>
+<span id="cb3-12"><a href=""></a><span class="kw">HAVING</span> </span>
+<span id="cb3-13"><a href=""></a>    aggregate_condition <span class="co">-- Filter groups using aggregate functions (like COUNT, SUM, etc.)</span></span>
+<span id="cb3-14"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb3-15"><a href=""></a>    column1 [<span class="kw">ASC</span>|<span class="kw">DESC</span>], column2 [<span class="kw">ASC</span>|<span class="kw">DESC</span>], <span class="op">..</span>. <span class="co">-- Sort the final result set</span></span>
+<span id="cb3-16"><a href=""></a><span class="kw">LIMIT</span> </span>
+<span id="cb3-17"><a href=""></a>    number_of_rows; <span class="co">-- (Optional) Limits the number of rows returned</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<h3 id="aggregate-functions">Aggregate Functions</h3>
+<p>Aggregate functions return values for blocks of records</p>
+<ul>
+<li><p><strong>COUNT()</strong> - returns the number of records in a column group.</p></li>
+<li><p><strong>SUM()</strong> - returns the sum of the values in a column group.</p></li>
+<li><p><strong>AVG()</strong> - returns the average of values in a column group.</p></li>
+<li><p><strong>MIN()</strong> - returns the smallest value in a column group.</p></li>
+<li><p><strong>MAX()</strong> - returns the largest value in a column group.</p></li>
+<li><p>Others - <a href="https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions-and-modifiers.html" target="_blank">See the DB Manual</a>.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="sql---aggregate-functions" class="slide level2">
+<h2>SQL - Aggregate Functions</h2>
+<h3 id="here-is-a-quick-look-at-the-people-table">Here is a quick look at the <code>people</code> table</h3>
+<div id="dc757477" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="40">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code">SQL Code</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="kw">id</span>,</span>
+<span id="cb4-3"><a href=""></a>  first_name,</span>
+<span id="cb4-4"><a href=""></a>  last_name,</span>
+<span id="cb4-5"><a href=""></a>  email</span>
+<span id="cb4-6"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb4-7"><a href=""></a>  people;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+id
+</th>
+<th>
+first_name
+</th>
+<th>
+last_name
+</th>
+<th>
+email
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+201
+</td>
+<td>
+Luca
+</td>
+<td>
+Person 1
+</td>
+<td>
+luca.person1@example.com
+</td>
+</tr>
+<tr>
+<td>
+202
+</td>
+<td>
+Akira
+</td>
+<td>
+Person 2
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+203
+</td>
+<td>
+Sofia
+</td>
+<td>
+Person 3
+</td>
+<td>
+sofia.person3@example.com
+</td>
+</tr>
+<tr>
+<td>
+204
+</td>
+<td>
+Juan
+</td>
+<td>
+Person 4
+</td>
+<td>
+juan.person4@example.com
+</td>
+</tr>
+<tr>
+<td>
+205
+</td>
+<td>
+Yuki
+</td>
+<td>
+Person 5
+</td>
+<td>
+yuki.person5@example.com
+</td>
+</tr>
+<tr>
+<td>
+206
+</td>
+<td>
+Alessia
+</td>
+<td>
+Person 6
+</td>
+<td>
+alessia.person6@example.com
+</td>
+</tr>
+<tr>
+<td>
+207
+</td>
+<td>
+Carlos
+</td>
+<td>
+Person 7
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+208
+</td>
+<td>
+Aiko
+</td>
+<td>
+Person 8
+</td>
+<td>
+aiko.person8@example.com
+</td>
+</tr>
+<tr>
+<td>
+209
+</td>
+<td>
+Elena
+</td>
+<td>
+Person 9
+</td>
+<td>
+elena.person9@example.com
+</td>
+</tr>
+<tr>
+<td>
+210
+</td>
+<td>
+Miguel
+</td>
+<td>
+Person 10
+</td>
+<td>
+NULL
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="sql---aggregate-functions---count-1" class="slide level2">
+<h2>SQL - Aggregate Functions - COUNT #1</h2>
+<h3 id="how-many-records-are-in-the-table">How many records are in the table?</h3>
+<p>COUNT returns the number records for a column. Use <code>*</code> to for all records.</p>
+<div id="53fbd029" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="41">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-1">SQL Code</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">count</span>(<span class="op">*</span>)</span>
+<span id="cb5-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb5-4"><a href=""></a>  people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-1">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+count(*)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+10
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="sql---aggregate-functions---count-2" class="slide level2">
+<h2>SQL - Aggregate Functions - COUNT #2</h2>
+<h3 id="how-many-email-addresses-in-table">How many email addresses in table?</h3>
+<p>COUNT returns the number of NON-NULL values in a column.</p>
+<div id="fb8cac9d" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="42">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-2">SQL Code</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">count</span>(email)</span>
+<span id="cb6-3"><a href=""></a><span class="kw">from</span></span>
+<span id="cb6-4"><a href=""></a>  people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-2">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+count(email)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+7
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<p><code>email</code> contains <code>NULL</code> values, and these are ignored when using <code>COUNT</code></p>
+</section>
+<section id="sql---aggregate-functions---count-3" class="slide level2">
+<h2>SQL - Aggregate Functions - COUNT #3</h2>
+<h3 id="how-many-people-are-missing-email-addresses">How many people are missing email addresses?</h3>
+<p>COUNT returns the number of NON-NULL values in a column.</p>
+<div id="7e21bc7c" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="43">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-3">SQL Code</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb7-2"><a href=""></a>  <span class="fu">count</span>(<span class="op">*</span>) <span class="op">-</span> <span class="fu">count</span>(email) <span class="kw">as</span> <span class="ot">"Missing emails"</span></span>
+<span id="cb7-3"><a href=""></a><span class="kw">from</span></span>
+<span id="cb7-4"><a href=""></a>  people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-3">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+Missing emails
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><code>email</code> contains <code>NULL</code> values, and these are ignored when using <code>COUNT</code></li>
+<li>Aggregate functions can be used as part of formulas in the <code>SELECT</code> statement.</li>
+</ul>
+</section>
+<section id="sql---aggregate-functions---min-and-max-1" class="slide level2">
+<h2>SQL - Aggregate Functions - MIN and MAX #1</h2>
+<h3 id="what-are-the-smallest-and-largest-values-for-id">What are the smallest and largest values for <code>ID</code>?</h3>
+<p><code>MIN</code> and <code>MAX</code> work on specific fields by name only.</p>
+<div id="69bf76b6" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="44">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-4">SQL Code</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">MIN</span>(<span class="kw">id</span>),</span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">MAX</span>(<span class="kw">id</span>)</span>
+<span id="cb8-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb8-5"><a href=""></a>  people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-4">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+MIN(id)
+</th>
+<th>
+MAX(id)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+201
+</td>
+<td>
+210
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Using <code>*</code> generates an error.</p>
+<div id="f6dea3bc" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="45">
+<div class="columns">
+<div class="column" style="width:20%;">
+<h3 id="sql-code-5">SQL Code</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">MIN</span>(<span class="op">*</span>)</span>
+<span id="cb9-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb9-4"><a href=""></a>  people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:75%;">
+<h3 id="result-set-5">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+OperationalError
+</td>
+<td>
+Operational Error: (sqlite3.OperationalError) wrong number of arguments to function MIN()(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="sql---aggregate-functions---min-and-max-2" class="slide level2">
+<h2>SQL - Aggregate Functions - MIN and MAX #2</h2>
+<h3 id="applying-min-and-max-to-string-variables">Applying <code>MIN</code> and <code>MAX</code> to string variables</h3>
+<div id="8bec1b6e" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="46">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-6">SQL Code</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">MIN</span>(email),</span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">MAX</span>(email)</span>
+<span id="cb10-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb10-5"><a href=""></a>  people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-6">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+MIN(email)
+</th>
+<th>
+MAX(email)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+aiko.person8@example.com
+</td>
+<td>
+yuki.person5@example.com
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><p><code>MIN</code> and <code>MAX</code> use the default <code>collation</code> for a given <code>character set</code>.</p></li>
+<li><p>See the manual for more about <a href="https://dev.mysql.com/doc/refman/8.4/en/charset-general.html" target="_blank">Character Sets and Collations</a></p></li>
+</ul>
+</section>
+<section id="sql---aggregate-functions---sum-and-avg-1" class="slide level2">
+<h2>SQL - Aggregate Functions - SUM and AVG #1</h2>
+<p>Here is a simple DDL file for the following examples.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href=""></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> avg_example;</span>
+<span id="cb11-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> AVG_EXAMPLE(</span>
+<span id="cb11-3"><a href=""></a>    <span class="fu">value</span> <span class="dt">int</span></span>
+<span id="cb11-4"><a href=""></a>);</span>
+<span id="cb11-5"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> AVG_EXAMPLE (<span class="fu">value</span>) <span class="kw">VALUES</span> </span>
+<span id="cb11-6"><a href=""></a>(<span class="dv">1</span>),</span>
+<span id="cb11-7"><a href=""></a>(<span class="dv">2</span>),</span>
+<span id="cb11-8"><a href=""></a>(<span class="dv">3</span>),</span>
+<span id="cb11-9"><a href=""></a>(<span class="kw">NULL</span>),</span>
+<span id="cb11-10"><a href=""></a>(<span class="dv">0</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sql---aggregate-functions---sum-and-avg-2" class="slide level2">
+<h2>SQL - Aggregate Functions - SUM and AVG #2</h2>
+<h3 id="applying-sum-and-avg">Applying SUM and AVG</h3>
+<p>We’ll create a simple table to explore <code>SUM</code> and <code>AVG</code>.</p>
+<div id="565d5c5d" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="47">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-7">SQL Code</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="op">*</span></span>
+<span id="cb12-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb12-4"><a href=""></a>  avg_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-7">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>This simple table contains five records, each with different values.</li>
+<li>Note that there is one record with a <code>0</code> value and a second with a <code>NULL</code> value.<br>
+</li>
+<li><code>0</code> and <code>NULL</code> are treated differently!</li>
+</ul>
+</section>
+<section id="sql---aggregate-functions---sum-and-avg-3" class="slide level2">
+<h2>SQL - Aggregate Functions - SUM and AVG #3</h2>
+<h3 id="how-does-sum-and-avg-treat-null-values">How does SUM and AVG treat NULL values?</h3>
+<div id="f53ccea9" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="48">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="sql-code-8">SQL Code</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">SUM</span>(<span class="fu">value</span>) <span class="kw">as</span> <span class="ot">"SUM"</span>,</span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">COUNT</span>(<span class="fu">value</span>) <span class="kw">as</span> <span class="ot">" / COUNT"</span> ,</span>
+<span id="cb13-4"><a href=""></a>  <span class="fu">AVG</span>(<span class="fu">value</span>) <span class="kw">as</span> <span class="ot">"= AVG"</span></span>
+<span id="cb13-5"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb13-6"><a href=""></a>  avg_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="result-set-8">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+SUM
+</th>
+<th>
+/ COUNT
+</th>
+<th>
+= AVG
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+6
+</td>
+<td>
+4
+</td>
+<td>
+1.5
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Recall the values are [ 0, 1, 2, 3, NULL] - 5 total records.</li>
+<li><code>NULL</code> values are excluded from both <code>COUNT</code> and <code>SUM</code>.</li>
+<li>Note that <code>0</code> is different from <code>NULL</code>.</li>
+</ul>
+</section>
+<section id="sql---group-by" class="slide level2">
+<h2>SQL - <code>GROUP BY</code></h2>
+<ul>
+<li><p>By themselves, aggregate function are applied to the entire table.</p></li>
+<li><p><code>GROUP BY</code> can be used to apply aggregate functions to subsets of a table all at once.</p></li>
+</ul>
+<h3 id="benefits-of-group-by">Benefits of <code>GROUP BY</code></h3>
+<ul>
+<li><p><strong>Data Aggregation</strong>: <code>GROUP BY</code> allows aggregation of data, enabling calculations like totals, averages, and counts within specific groups, which is essential for summarizing data meaningfully.</p></li>
+<li><p><strong>Simplified Analysis</strong>: It provides an efficient way to analyze data patterns within each group using aggregate functions, revealing trends and insights across categories (e.g., sales per region or average salary per department).</p></li>
+<li><p><strong>Enhanced Reporting</strong>: By organizing data into groups, <code>GROUP BY</code> simplifies the generation of structured reports, making complex datasets more readable and usable for decision-making.</p></li>
+</ul>
+</section>
+<section id="sql---sample-data-ddl" class="slide level2">
+<h2>SQL - Sample Data DDL</h2>
+<p>For the next few examples, we’ll use this table. You can paste the DDL file into VS code to follow along.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> restaurant_menu;</span>
+<span id="cb14-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> restaurant_menu (</span>
+<span id="cb14-3"><a href=""></a>    item_id <span class="dt">INT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb14-4"><a href=""></a>    item_name <span class="dt">VARCHAR</span>(<span class="dv">50</span>),</span>
+<span id="cb14-5"><a href=""></a>    <span class="kw">category</span> <span class="dt">VARCHAR</span>(<span class="dv">20</span>),</span>
+<span id="cb14-6"><a href=""></a>    calories <span class="dt">INT</span>,</span>
+<span id="cb14-7"><a href=""></a>    price <span class="dt">DECIMAL</span>(<span class="dv">5</span>, <span class="dv">2</span>),</span>
+<span id="cb14-8"><a href=""></a>    popularity_score <span class="dt">DECIMAL</span>(<span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb14-9"><a href=""></a>);</span>
+<span id="cb14-10"><a href=""></a></span>
+<span id="cb14-11"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> restaurant_menu (item_id, item_name, <span class="kw">category</span>, calories, price, popularity_score) <span class="kw">VALUES</span></span>
+<span id="cb14-12"><a href=""></a>    (<span class="dv">1</span>, <span class="st">'Mozzarella Sticks'</span>, <span class="st">'Appetizer'</span>, <span class="dv">250</span>, <span class="fl">5.99</span>, <span class="fl">4.0</span>),</span>
+<span id="cb14-13"><a href=""></a>    (<span class="dv">2</span>, <span class="st">'Garlic Bread'</span>, <span class="st">'Appetizer'</span>, <span class="kw">NULL</span>, <span class="fl">6.50</span>, <span class="fl">3.5</span>),</span>
+<span id="cb14-14"><a href=""></a>    (<span class="dv">3</span>, <span class="st">'Stuffed Mushrooms'</span>, <span class="st">'Appetizer'</span>, <span class="dv">300</span>, <span class="kw">NULL</span>, <span class="kw">NULL</span>),</span>
+<span id="cb14-15"><a href=""></a>    (<span class="dv">4</span>, <span class="st">'Grilled Salmon'</span>, <span class="st">'Entree'</span>, <span class="dv">700</span>, <span class="fl">12.99</span>, <span class="fl">4.5</span>),</span>
+<span id="cb14-16"><a href=""></a>    (<span class="dv">5</span>, <span class="st">'Spaghetti Carbonara'</span>, <span class="st">'Entree'</span>, <span class="dv">850</span>, <span class="fl">14.99</span>, <span class="kw">NULL</span>),</span>
+<span id="cb14-17"><a href=""></a>    (<span class="dv">6</span>, <span class="st">'Vegetable Stir-Fry'</span>, <span class="st">'Entree'</span>, <span class="kw">NULL</span>, <span class="fl">13.50</span>, <span class="fl">4.4</span>),</span>
+<span id="cb14-18"><a href=""></a>    (<span class="dv">7</span>, <span class="st">'Chocolate Lava Cake'</span>, <span class="st">'Dessert'</span>, <span class="dv">400</span>, <span class="fl">4.99</span>, <span class="fl">4.8</span>),</span>
+<span id="cb14-19"><a href=""></a>    (<span class="dv">8</span>, <span class="st">'Cheesecake'</span>, <span class="st">'Dessert'</span>, <span class="dv">450</span>, <span class="fl">5.50</span>, <span class="kw">NULL</span>),</span>
+<span id="cb14-20"><a href=""></a>    (<span class="dv">9</span>, <span class="st">'Tiramisu'</span>, <span class="st">'Dessert'</span>, <span class="dv">500</span>, <span class="fl">6.00</span>, <span class="fl">4.2</span>),</span>
+<span id="cb14-21"><a href=""></a>    (<span class="dv">10</span>, <span class="st">'Panna Cotta'</span>, <span class="st">'Dessert'</span>, <span class="kw">NULL</span>, <span class="fl">5.75</span>, <span class="fl">4.6</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="discussion---is-this-a-good-schema">Discussion - is this a <em>good</em> schema?</h3>
+<ul>
+<li><p>Yes, it’s BCNF as defined above.</p></li>
+<li><p>However, it breaks down if <code>category</code> if we want to track additional attributes about <code>category</code>, like a <code>category_description</code>.</p></li>
+</ul>
+</section>
+<section id="sql---group-by---sample-data" class="slide level2">
+<h2>SQL - <code>GROUP BY</code> - Sample Data</h2>
+<div id="c860c24d" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="49">
+<div class="columns">
+<div class="column" style="width:23%;">
+<h3 id="query">Query</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb15-2"><a href=""></a>  <span class="op">*</span></span>
+<span id="cb15-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb15-4"><a href=""></a>  restaurant_menu</span>
+<span id="cb15-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb15-6"><a href=""></a>  <span class="kw">category</span>,</span>
+<span id="cb15-7"><a href=""></a>  item_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:2%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:75%;">
+<h3 id="restaurant-menu">Restaurant Menu</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+item_id
+</th>
+<th>
+item_name
+</th>
+<th>
+category
+</th>
+<th>
+calories
+</th>
+<th>
+price
+</th>
+<th>
+popularity_score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+2
+</td>
+<td>
+Garlic Bread
+</td>
+<td>
+Appetizer
+</td>
+<td>
+NULL
+</td>
+<td>
+6.50
+</td>
+<td>
+3.5
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+Mozzarella Sticks
+</td>
+<td>
+Appetizer
+</td>
+<td>
+250.0
+</td>
+<td>
+5.99
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Stuffed Mushrooms
+</td>
+<td>
+Appetizer
+</td>
+<td>
+300.0
+</td>
+<td>
+NULL
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Cheesecake
+</td>
+<td>
+Dessert
+</td>
+<td>
+450.0
+</td>
+<td>
+5.50
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Chocolate Lava Cake
+</td>
+<td>
+Dessert
+</td>
+<td>
+400.0
+</td>
+<td>
+4.99
+</td>
+<td>
+4.8
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Panna Cotta
+</td>
+<td>
+Dessert
+</td>
+<td>
+NULL
+</td>
+<td>
+5.75
+</td>
+<td>
+4.6
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Tiramisu
+</td>
+<td>
+Dessert
+</td>
+<td>
+500.0
+</td>
+<td>
+6.00
+</td>
+<td>
+4.2
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Grilled Salmon
+</td>
+<td>
+Entree
+</td>
+<td>
+700.0
+</td>
+<td>
+12.99
+</td>
+<td>
+4.5
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Spaghetti Carbonara
+</td>
+<td>
+Entree
+</td>
+<td>
+850.0
+</td>
+<td>
+14.99
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Vegetable Stir-Fry
+</td>
+<td>
+Entree
+</td>
+<td>
+NULL
+</td>
+<td>
+13.50
+</td>
+<td>
+4.4
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><code>ORDER BY</code> sorts first by <code>category</code> and when there is a tie moves to sort by <code>item_name</code>.</li>
+<li>You can list as many columns in the <code>ORDER BY</code> as necessary.</li>
+</ul>
+</section>
+<section id="sql---group-by---sample-data-1" class="slide level2">
+<h2>SQL - <code>GROUP BY</code> - Sample Data</h2>
+<div id="12326eca" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="50">
+<div class="columns">
+<div class="column" style="width:23%;">
+<h3 id="notes-about-the-menu">Notes about the menu</h3>
+<ul>
+<li>There are 10 items</li>
+<li>Each item belongs to a category,</li>
+<li>Each item as a number of calories, if available, a price and a popularity score.</li>
+</ul>
+</div><div class="column" style="width:2%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:75%;">
+<h3 id="restaurant-menu-1">Restaurant Menu</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+item_id
+</th>
+<th>
+item_name
+</th>
+<th>
+category
+</th>
+<th>
+calories
+</th>
+<th>
+price
+</th>
+<th>
+popularity_score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Mozzarella Sticks
+</td>
+<td>
+Appetizer
+</td>
+<td>
+250.0
+</td>
+<td>
+5.99
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Garlic Bread
+</td>
+<td>
+Appetizer
+</td>
+<td>
+NULL
+</td>
+<td>
+6.50
+</td>
+<td>
+3.5
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Stuffed Mushrooms
+</td>
+<td>
+Appetizer
+</td>
+<td>
+300.0
+</td>
+<td>
+NULL
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Grilled Salmon
+</td>
+<td>
+Entree
+</td>
+<td>
+700.0
+</td>
+<td>
+12.99
+</td>
+<td>
+4.5
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Spaghetti Carbonara
+</td>
+<td>
+Entree
+</td>
+<td>
+850.0
+</td>
+<td>
+14.99
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Vegetable Stir-Fry
+</td>
+<td>
+Entree
+</td>
+<td>
+NULL
+</td>
+<td>
+13.50
+</td>
+<td>
+4.4
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Chocolate Lava Cake
+</td>
+<td>
+Dessert
+</td>
+<td>
+400.0
+</td>
+<td>
+4.99
+</td>
+<td>
+4.8
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Cheesecake
+</td>
+<td>
+Dessert
+</td>
+<td>
+450.0
+</td>
+<td>
+5.50
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Tiramisu
+</td>
+<td>
+Dessert
+</td>
+<td>
+500.0
+</td>
+<td>
+6.00
+</td>
+<td>
+4.2
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Panna Cotta
+</td>
+<td>
+Dessert
+</td>
+<td>
+NULL
+</td>
+<td>
+5.75
+</td>
+<td>
+4.6
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="sql---group-by---sample-data-2" class="slide level2">
+<h2>SQL - <code>GROUP BY</code> - Sample Data</h2>
+<h3 id="lets-look-at-the-calories-column-for-the-entire-menu">Let’s look at the calories column for the entire menu</h3>
+<div id="35537a20" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="51">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="query-1">Query</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">as</span> <span class="ot">"Item Cnt"</span>,</span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">MIN</span>(calories) <span class="kw">as</span> <span class="ot">"Min"</span>,</span>
+<span id="cb16-4"><a href=""></a>  <span class="fu">MAX</span>(calories) <span class="kw">as</span> <span class="ot">"Max"</span>,</span>
+<span id="cb16-5"><a href=""></a>  <span class="fu">ROUND</span>(<span class="fu">AVG</span>(calories),<span class="dv">0</span>) <span class="kw">as</span> <span class="ot">"Avg"</span>,</span>
+<span id="cb16-6"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">-</span> <span class="fu">COUNT</span>(CALORIES)</span>
+<span id="cb16-7"><a href=""></a>    <span class="kw">as</span> <span class="ot">"# w/o Calories"</span></span>
+<span id="cb16-8"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb16-9"><a href=""></a>  restaurant_menu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="menu---calories">Menu - calories</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+Item Cnt
+</th>
+<th>
+Min
+</th>
+<th>
+Max
+</th>
+<th>
+Avg
+</th>
+<th>
+# w/o Calories
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+10
+</td>
+<td>
+250
+</td>
+<td>
+850
+</td>
+<td>
+493.0
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li>We’re using all the aggregate functions at once.</li>
+<li>They’re applied across all records in the table.</li>
+<li><code>NULL</code> values are excluded.</li>
+<li><code>COUNT(*)</code> returns all the records, while <code>COUNT(calories)</code> returns the non-<code>NULL</code> values.</li>
+</ul>
+</section>
+<section id="sql---group-by---calories-by-category" class="slide level2">
+<h2>SQL - <code>GROUP BY</code> - <code>calories</code> by <code>category</code></h2>
+<h3 id="group-by-example-using-calories-and-category."><code>GROUP BY</code> example using <code>calories</code> and <code>category</code>.</h3>
+<div id="5885e29b" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="52">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="query-2">Query</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="kw">category</span>,</span>
+<span id="cb17-3"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">as</span> <span class="ot">"Item Cnt"</span>,</span>
+<span id="cb17-4"><a href=""></a>  <span class="fu">MIN</span>(calories) <span class="kw">as</span> <span class="ot">"Min"</span>,</span>
+<span id="cb17-5"><a href=""></a>  <span class="fu">MAX</span>(calories) <span class="kw">as</span> <span class="ot">"Max"</span>,</span>
+<span id="cb17-6"><a href=""></a>  <span class="fu">ROUND</span>(<span class="fu">AVG</span>(calories),<span class="dv">0</span>) <span class="kw">as</span> <span class="ot">"Avg"</span>,</span>
+<span id="cb17-7"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">-</span> <span class="fu">COUNT</span>(CALORIES) </span>
+<span id="cb17-8"><a href=""></a>    <span class="kw">as</span> <span class="ot">"# w/o Calories"</span></span>
+<span id="cb17-9"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb17-10"><a href=""></a>  restaurant_menu</span>
+<span id="cb17-11"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb17-12"><a href=""></a>  <span class="kw">category</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="menu---calories-by-category">Menu - calories by category</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+category
+</th>
+<th>
+Item Cnt
+</th>
+<th>
+Min
+</th>
+<th>
+Max
+</th>
+<th>
+Avg
+</th>
+<th>
+# w/o Calories
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Appetizer
+</td>
+<td>
+3
+</td>
+<td>
+250
+</td>
+<td>
+300
+</td>
+<td>
+275.0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+Dessert
+</td>
+<td>
+4
+</td>
+<td>
+400
+</td>
+<td>
+500
+</td>
+<td>
+450.0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+Entree
+</td>
+<td>
+3
+</td>
+<td>
+700
+</td>
+<td>
+850
+</td>
+<td>
+775.0
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><p>We added a <code>GROUP BY</code> clause and added <code>category</code> to the <code>SELECT</code></p></li>
+<li><p>Only columns in the <code>GROUP BY</code> can appear in the <code>SELECT</code>. Other columns must be aggregate functions.</p></li>
+</ul>
+</section>
+<section id="sql---group-by---price-by-category" class="slide level2">
+<h2>SQL - <code>GROUP BY</code> - <code>price</code> by <code>category</code></h2>
+<h3 id="group-by-example-using-price-and-category."><code>GROUP BY</code> example using <code>price</code> and <code>category</code>.</h3>
+<div id="e06e70f6" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="53">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="query-3">Query</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="kw">category</span>,</span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">as</span> <span class="ot">"Item Cnt"</span>,</span>
+<span id="cb18-4"><a href=""></a>  <span class="fu">MIN</span>(price) <span class="kw">as</span> <span class="ot">"Min"</span>,</span>
+<span id="cb18-5"><a href=""></a>  <span class="fu">MAX</span>(price) <span class="kw">as</span> <span class="ot">"Max"</span>,</span>
+<span id="cb18-6"><a href=""></a>  <span class="fu">ROUND</span>(<span class="fu">AVG</span>(price),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg"</span>,</span>
+<span id="cb18-7"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">-</span> <span class="fu">COUNT</span>(price) <span class="kw">as</span> <span class="ot">"# w/o price"</span></span>
+<span id="cb18-8"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb18-9"><a href=""></a>  restaurant_menu</span>
+<span id="cb18-10"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb18-11"><a href=""></a>  <span class="kw">category</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="menu---price-by-category">Menu - price by category</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+category
+</th>
+<th>
+Item Cnt
+</th>
+<th>
+Min
+</th>
+<th>
+Max
+</th>
+<th>
+Avg
+</th>
+<th>
+# w/o price
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Appetizer
+</td>
+<td>
+3
+</td>
+<td>
+5.99
+</td>
+<td>
+6.50
+</td>
+<td>
+6.25
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+Dessert
+</td>
+<td>
+4
+</td>
+<td>
+4.99
+</td>
+<td>
+6.00
+</td>
+<td>
+5.56
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td>
+Entree
+</td>
+<td>
+3
+</td>
+<td>
+12.99
+</td>
+<td>
+14.99
+</td>
+<td>
+13.83
+</td>
+<td>
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="sql---group-by---price-by-popularity" class="slide level2">
+<h2>SQL - <code>GROUP BY</code> - <code>price</code> by <code>popularity</code></h2>
+<h3 id="group-by-example-using-popularity-and-category."><code>GROUP BY</code> example using <code>popularity</code> and <code>category</code>.</h3>
+<div id="a9ca6869" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="54">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="query-4">Query</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="kw">category</span>,</span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">as</span> <span class="ot">"Item Cnt"</span>,</span>
+<span id="cb19-4"><a href=""></a>  <span class="fu">MIN</span>(popularity_score) <span class="kw">as</span> <span class="ot">"Min"</span>,</span>
+<span id="cb19-5"><a href=""></a>  <span class="fu">MAX</span>(popularity_score) <span class="kw">as</span> <span class="ot">"Max"</span>,</span>
+<span id="cb19-6"><a href=""></a>  <span class="fu">ROUND</span>(<span class="fu">AVG</span>(popularity_score),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg"</span>,</span>
+<span id="cb19-7"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">-</span> <span class="fu">COUNT</span>(popularity_score) <span class="kw">as</span> <span class="ot">"# w/o popularity"</span></span>
+<span id="cb19-8"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb19-9"><a href=""></a>  restaurant_menu</span>
+<span id="cb19-10"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb19-11"><a href=""></a>  <span class="kw">category</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="menu---popularity-by-category">Menu - popularity by category</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+category
+</th>
+<th>
+Item Cnt
+</th>
+<th>
+Min
+</th>
+<th>
+Max
+</th>
+<th>
+Avg
+</th>
+<th>
+# w/o popularity
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Appetizer
+</td>
+<td>
+3
+</td>
+<td>
+3.5
+</td>
+<td>
+4.0
+</td>
+<td>
+3.75
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+Dessert
+</td>
+<td>
+4
+</td>
+<td>
+4.2
+</td>
+<td>
+4.8
+</td>
+<td>
+4.53
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+Entree
+</td>
+<td>
+3
+</td>
+<td>
+4.4
+</td>
+<td>
+4.5
+</td>
+<td>
+4.45
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="sql---having" class="slide level2">
+<h2>SQL - HAVING</h2>
+<ul>
+<li><code>WHERE</code> filters on the raw data</li>
+<li><code>HAVING</code> filters on the results of the <code>GROUP BY</code></li>
+</ul>
+<h3 id="benefits-of-having">Benefits of <code>HAVING</code></h3>
+<ul>
+<li><p><strong>Filtering Aggregated Data</strong>: The <code>HAVING</code> clause allows you to filter groups of data after aggregation (e.g., filtering by <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>), making it ideal for refining query results based on aggregate conditions.</p></li>
+<li><p><strong>Used with GROUP BY</strong>: <code>HAVING</code> is commonly used alongside <code>GROUP BY</code> to apply conditions on grouped results, whereas <code>WHERE</code> is used for filtering individual rows before grouping.</p></li>
+<li><p><strong>Complex Condition Application</strong>: The <code>HAVING</code> clause supports complex conditions with multiple aggregate functions, enabling flexible queries such as filtering groups where total sales exceed a certain amount or average rating is above a threshold.</p></li>
+</ul>
+</section>
+<section id="sql---having---example" class="slide level2">
+<h2>SQL - HAVING - example</h2>
+<h3 id="list-full-stats-for-categories-with-average-calories-greater-than-400-calories.">List full stats for categories with average calories greater than 400 calories.</h3>
+<div id="ec6eb04c" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="55">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="query-5">Query</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="kw">category</span>,</span>
+<span id="cb20-3"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">as</span> <span class="ot">"Item Cnt"</span>,</span>
+<span id="cb20-4"><a href=""></a>  <span class="fu">MIN</span>(calories) <span class="kw">as</span> <span class="ot">"Min"</span>,</span>
+<span id="cb20-5"><a href=""></a>  <span class="fu">MAX</span>(calories) <span class="kw">as</span> <span class="ot">"Max"</span>,</span>
+<span id="cb20-6"><a href=""></a>  <span class="fu">ROUND</span>(<span class="fu">AVG</span>(calories),<span class="dv">0</span>) <span class="kw">as</span> <span class="ot">"Avg"</span>,</span>
+<span id="cb20-7"><a href=""></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">-</span> <span class="fu">COUNT</span>(CALORIES) <span class="kw">as</span> <span class="ot">"# w/o Calories"</span></span>
+<span id="cb20-8"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb20-9"><a href=""></a>  restaurant_menu</span>
+<span id="cb20-10"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb20-11"><a href=""></a>  <span class="kw">category</span></span>
+<span id="cb20-12"><a href=""></a><span class="kw">HAVING</span></span>
+<span id="cb20-13"><a href=""></a>  <span class="fu">AVG</span>(calories) <span class="op">&gt;=</span> <span class="fl">400.0</span></span>
+<span id="cb20-14"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb20-15"><a href=""></a>  <span class="fu">AVG</span>(calories) <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="menu---popularity-by-category-1">Menu - popularity by category</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+category
+</th>
+<th>
+Item Cnt
+</th>
+<th>
+Min
+</th>
+<th>
+Max
+</th>
+<th>
+Avg
+</th>
+<th>
+# w/o Calories
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Entree
+</td>
+<td>
+3
+</td>
+<td>
+700
+</td>
+<td>
+850
+</td>
+<td>
+775.0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+Dessert
+</td>
+<td>
+4
+</td>
+<td>
+400
+</td>
+<td>
+500
+</td>
+<td>
+450.0
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><code>HAVING</code> statement requires an aggregate function</li>
+<li><code>ORDER BY</code> statement can use aggregate functions, too.</li>
+</ul>
+</section>
+<section id="sql---having---example-1" class="slide level2">
+<h2>SQL - HAVING - example</h2>
+<h3 id="list-just-category-names-with-average-calories-greater-than-400-calories.">List just category names with average calories greater than 400 calories.</h3>
+<div id="df5dda3b" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="56">
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="query-6">Query</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="kw">category</span></span>
+<span id="cb21-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb21-4"><a href=""></a>  restaurant_menu</span>
+<span id="cb21-5"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb21-6"><a href=""></a>  <span class="kw">category</span></span>
+<span id="cb21-7"><a href=""></a><span class="kw">HAVING</span></span>
+<span id="cb21-8"><a href=""></a>  <span class="fu">AVG</span>(calories) <span class="op">&gt;=</span> <span class="fl">400.0</span></span>
+<span id="cb21-9"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb21-10"><a href=""></a>  <span class="fu">AVG</span>(calories) <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:60%;">
+<h3 id="menu---popularity-by-category-2">Menu - popularity by category</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+category
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Entree
+</td>
+</tr>
+<tr>
+<td>
+Dessert
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li>Aggregate functions do not need to be in the <code>SELECT</code> in order to be used.</li>
+</ul>
+</section></section>
+<section>
+<section id="homework-7---advanced-queries" class="title-slide slide level1 center">
+<h1>Homework 7 - Advanced Queries</h1>
+
+</section>
+<section id="homework-7---reminder---discussion" class="slide level2">
+<h2>Homework 7 - REMINDER - discussion</h2>
+<p>Are you having issues with homework 7?</p>
+<p>Try commenting out this block of code.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="cf">if</span> <span class="kw">not</span> errors:</span>
+<span id="cb22-2"><a href=""></a>    messages,errors <span class="op">=</span> execute_ddl_from_file( ddl_file_name, cnx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run your DDL file manually from VSCode, and then rebuild your QMD.</p>
+</section>
+<section id="homework-7---explore-people-and-skills" class="slide level2">
+<h2>Homework 7 - Explore people and skills</h2>
+<p>Using the new queries, let’s refine our analysis of the company resume database (homeworks 6 and 7).</p>
+<ul>
+<li>By using <code>LEFT JOIN</code> we’re assured of at least one record for every instance in <code>SKILLS</code>.</li>
+<li>If there is no match, the <code>peopleskills.skills_id</code> returns NULL</li>
+<li>By testing <code>peopleskills.skills_id</code> for <code>NULL</code> we explore usage patterns of <code>skills</code>.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<div id="06142af6" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="57">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-9">SQL Code</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb23-2"><a href=""></a>  skills.tag,</span>
+<span id="cb23-3"><a href=""></a>  skills.<span class="kw">id</span>,</span>
+<span id="cb23-4"><a href=""></a>  peopleskills.skills_id</span>
+<span id="cb23-5"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb23-6"><a href=""></a>  skills</span>
+<span id="cb23-7"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb23-8"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-9">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+id
+</th>
+<th>
+skills_id
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+102
+</td>
+<td>
+102.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+102
+</td>
+<td>
+102.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106.0
+</td>
+</tr>
+<tr>
+<td>
+Skill 7
+</td>
+<td>
+107
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+Skill 8
+</td>
+<td>
+108
+</td>
+<td>
+NULL
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="homework-7---which-skills-are-unused" class="slide level2">
+<h2>Homework 7 - Which skills are unused?</h2>
+<p>Let’s start easy …</p>
+<div id="e66ca4ea" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="58">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-10">SQL Code</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb24-2"><a href=""></a>  skills.tag,</span>
+<span id="cb24-3"><a href=""></a>  skills.<span class="kw">id</span>,</span>
+<span id="cb24-4"><a href=""></a>  peopleskills.skills_id</span>
+<span id="cb24-5"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb24-6"><a href=""></a>  skills</span>
+<span id="cb24-7"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb24-8"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb24-9"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb24-10"><a href=""></a>  peopleskills.skills_id <span class="kw">IS</span> <span class="kw">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-10">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+id
+</th>
+<th>
+skills_id
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 7
+</td>
+<td>
+107
+</td>
+<td>
+NULL
+</td>
+</tr>
+<tr>
+<td>
+Skill 8
+</td>
+<td>
+108
+</td>
+<td>
+NULL
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="homework-7---which-skills-are-used-1" class="slide level2">
+<h2>Homework 7 - Which skills are used? (#1)</h2>
+<p>This table is a problem. We need to somehow remove duplicate records.</p>
+<div id="d0cac998" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="59">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-11">SQL Code</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb25-2"><a href=""></a>  skills.tag,</span>
+<span id="cb25-3"><a href=""></a>  skills.<span class="kw">id</span>,</span>
+<span id="cb25-4"><a href=""></a>  peopleskills.skills_id</span>
+<span id="cb25-5"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb25-6"><a href=""></a>  skills</span>
+<span id="cb25-7"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb25-8"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb25-9"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb25-10"><a href=""></a>  peopleskills.skills_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-11">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+id
+</th>
+<th>
+skills_id
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+102
+</td>
+<td>
+102
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+102
+</td>
+<td>
+102
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="homework-7---which-skills-are-used-2" class="slide level2">
+<h2>Homework 7 - Which skills are used? (#2)</h2>
+<p>We can remove duplicates with <code>GROUP BY</code> to aggregate (combine) duplicate records.</p>
+<div id="9b75b9c6" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="60">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-12">SQL Code</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb26-2"><a href=""></a>  skills.tag,</span>
+<span id="cb26-3"><a href=""></a>  skills.<span class="kw">id</span>,</span>
+<span id="cb26-4"><a href=""></a>  peopleskills.skills_id</span>
+<span id="cb26-5"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb26-6"><a href=""></a>  skills</span>
+<span id="cb26-7"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills </span>
+<span id="cb26-8"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb26-9"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb26-10"><a href=""></a>  peopleskills.skills_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb26-11"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb26-12"><a href=""></a>  skills.tag,</span>
+<span id="cb26-13"><a href=""></a>  skills.<span class="kw">id</span>,</span>
+<span id="cb26-14"><a href=""></a>  peopleskills.skills_id</span>
+<span id="cb26-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb26-16"><a href=""></a>  skills.tag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-12">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+id
+</th>
+<th>
+skills_id
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+101
+</td>
+<td>
+101
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+102
+</td>
+<td>
+102
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+103
+</td>
+<td>
+103
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+104
+</td>
+<td>
+104
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+105
+</td>
+<td>
+105
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+106
+</td>
+<td>
+106
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li>Only fields in <code>GROUP BY</code> can be listed in SELECT.</li>
+<li>Non-aggregate fields do not need to be listed!</li>
+</ul>
+</section>
+<section id="homework-7---which-skills-are-used-3" class="slide level2">
+<h2>Homework 7 - Which skills are used? (#3)</h2>
+<p>Same query as before, removing additional GROUP BY fields</p>
+<div id="eebcd236" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="61">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-13">SQL Code</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb27-2"><a href=""></a>  skills.tag <span class="kw">as</span> <span class="ot">"Used Skills"</span></span>
+<span id="cb27-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb27-4"><a href=""></a>  skills</span>
+<span id="cb27-5"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills </span>
+<span id="cb27-6"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb27-7"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb27-8"><a href=""></a>  peopleskills.skills_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb27-9"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb27-10"><a href=""></a>  skills.tag</span>
+<span id="cb27-11"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb27-12"><a href=""></a>  skills.tag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-13">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+Used Skills
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 1
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>peopleskills.skills_id</code> is used to filter records, but is not projected (used) in the SELECT statement</li>
+<li><code>skills.tag</code> is used for grouping and is also projected (used) in SELECT.</li>
+</ul>
+</section>
+<section id="homework-7---how-many-times-is-each-skill-used" class="slide level2">
+<h2>Homework 7 - How many times is each skill used?</h2>
+<p>This query counts <code>NON-NULL</code> values of <code>peopleskills.skills_id</code>.</p>
+<div id="5dff053f" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="62">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-14">SQL Code</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb28-2"><a href=""></a>  skills.tag,</span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">as</span> <span class="ot">"Times Used"</span></span>
+<span id="cb28-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb28-5"><a href=""></a>  skills</span>
+<span id="cb28-6"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb28-7"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb28-8"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb28-9"><a href=""></a>  skills.tag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-14">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+Times Used
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+4
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<td>
+Skill 7
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td>
+Skill 8
+</td>
+<td>
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li>What would happen if I used <code>COUNT(skills.tag)</code> instead?</li>
+</ul>
+</section>
+<section id="homework-7---which-skills-are-most-used-1" class="slide level2">
+<h2>Homework 7 - Which skills are most used? #1</h2>
+<p>To find the skills most used I can sort by <code>COUNT</code></p>
+<div id="d855c66b" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="63">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-15">SQL Code</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb29-2"><a href=""></a>  skills.tag,</span>
+<span id="cb29-3"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id)</span>
+<span id="cb29-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb29-5"><a href=""></a>  skills</span>
+<span id="cb29-6"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb29-7"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb29-8"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb29-9"><a href=""></a>  skills.tag</span>
+<span id="cb29-10"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb29-11"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">DESC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-15">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+COUNT(peopleskills.skills_id)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+Skill 6
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<td>
+Skill 1
+</td>
+<td>
+4
+</td>
+</tr>
+<tr>
+<td>
+Skill 4
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+Skill 2
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+Skill 8
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td>
+Skill 7
+</td>
+<td>
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="homework-7---which-skill-is-most-used-2" class="slide level2">
+<h2>Homework 7 - Which skill is most used? #2</h2>
+<p>To find the most used, I can TRY using LIMIT</p>
+<div id="7ce22374" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="64">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-16">SQL Code</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb30-2"><a href=""></a>  skills.tag,</span>
+<span id="cb30-3"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id)</span>
+<span id="cb30-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb30-5"><a href=""></a>  skills</span>
+<span id="cb30-6"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb30-7"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb30-8"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb30-9"><a href=""></a>  skills.tag</span>
+<span id="cb30-10"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb30-11"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">DESC</span></span>
+<span id="cb30-12"><a href=""></a><span class="kw">LIMIT</span></span>
+<span id="cb30-13"><a href=""></a>  <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-16">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+COUNT(peopleskills.skills_id)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+6
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<h3 id="is-this-correct">Is this correct?</h3>
+<ul>
+<li>No, this approach breaks when there are ties.</li>
+</ul>
+</section>
+<section id="homework-7---which-skill-is-most-used-3" class="slide level2">
+<h2>Homework 7 - Which skill is most used? #3</h2>
+<p>In another (sub-optimal) approach, I can manually pick the <code>MAX</code> from the list using <code>HAVING</code>.</p>
+<div id="c3d8d5c7" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="65">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-17">SQL Code</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb31-2"><a href=""></a>  skills.tag,</span>
+<span id="cb31-3"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">as</span> <span class="ot">"Most used"</span></span>
+<span id="cb31-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb31-5"><a href=""></a>  skills</span>
+<span id="cb31-6"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb31-7"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb31-8"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb31-9"><a href=""></a>  skills.tag</span>
+<span id="cb31-10"><a href=""></a><span class="kw">HAVING</span></span>
+<span id="cb31-11"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id)<span class="op">=</span><span class="dv">6</span></span>
+<span id="cb31-12"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb31-13"><a href=""></a>  skills.tag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-17">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+Most used
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+6
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><p>In this example, we <em>hardcode</em> the maximum value we observed in the data into the <code>HAVING</code> clause.</p></li>
+<li><p>This works for these data, but it would be great if we could calculate the <code>6</code> automatically!</p></li>
+</ul>
+</section>
+<section id="homework-7---which-skill-is-most-used-4" class="slide level2">
+<h2>Homework 7 - Which skill is most used? #4</h2>
+<p>OK - let’s find the largest number of times a skill is used.</p>
+<div id="a93af193" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="66">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-18">SQL Code</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb32-2"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">as</span> <span class="ot">"Most used"</span></span>
+<span id="cb32-3"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb32-4"><a href=""></a>  skills</span>
+<span id="cb32-5"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb32-6"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb32-7"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb32-8"><a href=""></a>  skills.tag</span>
+<span id="cb32-9"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb32-10"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">DESC</span></span>
+<span id="cb32-11"><a href=""></a><span class="kw">LIMIT</span> </span>
+<span id="cb32-12"><a href=""></a>  <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-18">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+Most used
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+6
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="homework-7---which-skill-is-most-used-5" class="slide level2">
+<h2>Homework 7 - Which skill is most used? #5</h2>
+<p>Can we combine the last query into our original query?</p>
+<p>YES - these are call sub-queries - and we’ll dive into them next week!</p>
+<div id="8460867b" class="cell" data-execution_count="33">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="67">
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sql-code-19">SQL Code</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb33-2"><a href=""></a>  skills.tag,</span>
+<span id="cb33-3"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">as</span> <span class="ot">"Most used"</span></span>
+<span id="cb33-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb33-5"><a href=""></a>  skills</span>
+<span id="cb33-6"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb33-7"><a href=""></a>      <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb33-8"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb33-9"><a href=""></a>  skills.tag</span>
+<span id="cb33-10"><a href=""></a><span class="kw">HAVING</span></span>
+<span id="cb33-11"><a href=""></a>  <span class="fu">COUNT</span>(peopleskills.skills_id)<span class="op">=</span>(</span>
+<span id="cb33-12"><a href=""></a>    <span class="kw">SELECT</span></span>
+<span id="cb33-13"><a href=""></a>      <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">as</span> <span class="ot">"max_use"</span></span>
+<span id="cb33-14"><a href=""></a>    <span class="kw">FROM</span></span>
+<span id="cb33-15"><a href=""></a>      skills</span>
+<span id="cb33-16"><a href=""></a>        <span class="kw">left</span> <span class="kw">join</span> peopleskills</span>
+<span id="cb33-17"><a href=""></a>          <span class="kw">on</span> (skills.<span class="kw">id</span><span class="op">=</span>peopleskills.skills_id)</span>
+<span id="cb33-18"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb33-19"><a href=""></a>      skills.tag</span>
+<span id="cb33-20"><a href=""></a>    <span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb33-21"><a href=""></a>      <span class="fu">COUNT</span>(peopleskills.skills_id) <span class="kw">DESC</span></span>
+<span id="cb33-22"><a href=""></a>    <span class="kw">LIMIT</span> </span>
+<span id="cb33-23"><a href=""></a>      <span class="dv">1</span></span>
+<span id="cb33-24"><a href=""></a>  )</span>
+<span id="cb33-25"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb33-26"><a href=""></a>  skills.tag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:5%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="result-set-19">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+tag
+</th>
+<th>
+Most used
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Skill 3
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+Skill 5
+</td>
+<td>
+6
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +3799,17 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531" target="_blank">Homework 7 - due 11/10</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank">Homework 8 - due 11/17</a></p></li>
+<li><p>Keep working on your semester project!!!</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/homework-7---discussion">Homework 7 discussion</a></p></li>
+<li><p><a href="#/sql-aggregate-functions">SQL Aggregate Functions</a></p></li>
+<li><p><a href="#/homework-7---advanced-queries">Homework 7 - Advanced Queries</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -513,7 +3835,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/11</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG23: L23 (Intro to APIs)</td>
+<td>MTG23: L23 (Aggregates 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -521,7 +3843,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
+<td>MTG24: L24 (Aggregates 2)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -538,14 +3860,14 @@
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW7 due (SQL Funhouse)</td>
+<td>HW8 due (SQL Funhouse)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/18</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH)</td>
+<td>MTG25: L25 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -553,7 +3875,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td>MTG26: L26 (Subqueries and WITH 2)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -595,7 +3917,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +3928,7 @@
   <script src="lecture-23_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-23_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-23_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-23_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-23_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +3949,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +4126,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
