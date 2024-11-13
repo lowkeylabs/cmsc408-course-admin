@@ -2,6 +2,10 @@
 date: 11/13/2024
 lecture-id: 24
 title: Aggregates 2
+execute:
+    cache: false
+    echo: false
+    eval: true
 ---
 
 ```{python}
@@ -17,17 +21,499 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'CMSC 427 - User Interfaces - Spring 2025',
+    '[Homework 8 - due 11/17](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534){target="_blank"}',
+    'Keep working on your semester project!!!'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    "[Subqueries](#subqueries)",
+    "[Common Table Expressions](#common-table-expressions-cte)",
+    "[Homework 8 discussion](#homework-8-discussion)",
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+
+# Subqueries
+
+## Subqueries
+
+:::: {.columns}
+::: {.column}
+A subquery is a query nested inside another query, often used to filter, compare, or transform data.
+
+**Purpose**: Subqueries simplify complex queries by breaking them into smaller, manageable parts and allow reuse of query logic.
+
+**Types**: Single-row, multi-row, and correlated subqueries, each used for different types of comparisons or conditions.
+
+**Usage**: Can appear in `SELECT`, `WHERE`, `FROM`, and other clauses, making them versatile in SQL operations. 
+:::
+::: {.column}
+### Single-row example
+
+Find employees with greater than average salary.
+```{.sql}
+SELECT name
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+```
+<p>&nbsp;</p>
+### Multi-row example
+Find employees from small departments (<5 employees)
+```{.sql}
+SELECT name
+FROM employees
+WHERE department_id IN (SELECT department_id
+                        FROM employees
+                        GROUP BY department_id
+                        HAVING COUNT(*) < 5);
+```
+:::
+::::
+
+## Sample data - employees table from HR database
+```{python}
+#| echo: false
+
+import os
+import sys
+import pandas as pd
+from tabulate import tabulate
+from dotenv import load_dotenv
+from slide_helper import create_database_engine, run_sql_and_return_df, run_ddl_and_confirm, run_ddl_from_file, show_sql_and_results, run_sql_and_return_html
+
+# modify config_map to reflect credentials needed by this program
+# These variables are set in your .env file
+config_map = {
+    'user':'CMSC408_LECTURES_USER',
+    'password':'CMSC408_LECTURES_PASS',
+    'host':'CMSC408_LECTURES_HOST',
+    'database':'CMSC408_LECTURES_DB'
+}
+
+default_widths = [54,1,45]
+
+# load and store credentials
+load_dotenv()
+config = {}
+for key in config_map.keys():
+    config[key] = os.getenv(config_map[key])
+
+errors = []
+for param in config.keys():
+    if config[param] is None:
+        flag = True
+        errors.append(f"Missing {config_map[param]} in .env file.")
+
+cnx = None
+error_df=""
+if errors:
+    errors.append("All subsequent SQL commands will fail.")
+    errors.append("Fix the .env file and rerun quarto ...")
+    # Convert errors to a DataFrame
+    error_df = pd.DataFrame({'Errors loading .env file': errors})
+    error_df
+else:
+# build a sqlalchemy engine string
+    engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+    # create and test the database connection.
+    cnx = create_database_engine( engine_uri )
+
+```
+```{python}
+#| output: asis
+filename = "./assets/subqueries.sql"
+run_ddl_from_file(cnx,filename)
+```
+First 20 records from `employees` table in your `24fa_hr_24fa_jdleonard` database.
+
+::: {style="font-size: 0.5em;"}
+```{python}
+run_sql_and_return_html( cnx, f"""
+SELECT
+  *
+FROM
+  employees
+LIMIT
+  20
+""")
+```
+:::
+
+## Subquery in the WHERE clause
+
+*List employees with salary greater than average salary.*
+
+```{python}
+sql = """SELECT
+  last_name,
+  salary
+FROM
+  employees
+WHERE
+  salary > (select avg(salary) from employees)
+ORDER BY
+  salary desc
+LIMIT 15
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+
+```
+
+## Subquery in the SELECT clause
+
+*List employees with salary greater than average salary.*
+
+```{python}
+sql = """SELECT
+  last_name,
+  salary,
+  (select avg(salary) 
+   from employees
+  ) as "Avg Salary"
+FROM
+  employees
+WHERE
+  salary > (select avg(salary) from employees)
+ORDER BY
+  salary desc
+LIMIT 15
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+Same query as before, with a single-row select included in the SELECT statement.
+
+
+## Subquery in the FROM clause
+
+*List employees with salary greater than average salary.*
+
+```{python}
+sql = """SELECT
+  *
+FROM (
+  SELECT
+    department_id,
+    SUM(salary) AS total_salary
+  FROM
+    employees
+  GROUP BY department_id
+  ) as junk_table
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+* SELECT statements return tables that can be used for additional queries.
+
+* In the example above we create a new tables named `junk_table` that returns two
+columns: `department_id` and `total_salary`
+
+
+## Single-value subqueries
+
+*Find employees hired before the earliest hire date in the Sales department.*
+
+The *inner query* or *subquery* returns a single value - the earliest hire date of employees from department 100.  The *outer query* or *main query* uses this value in a comparison with *hire_data*
+
+```{python}
+sql = """
+SELECT last_name
+FROM employees
+WHERE hire_date < (
+  SELECT MIN(hire_date)
+  FROM employees
+  WHERE department_id=100
+  );
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+## Multi-value subqueries
+
+List the employees in large departments (this with more than 5 employees).
+
+The *inner query* returns a list of department ids.  The *outer query* uses the `IN` operator to test of `department_id` is in the returned list.
+
+```{python}
+sql = """
+SELECT last_name
+FROM employees
+WHERE department_id IN (SELECT department_id
+                        FROM employees
+                        GROUP BY department_id
+                        HAVING COUNT(*) > 5);
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+## Correlated subqueries
+
+*List employees earning more than the average salary in their department.*
+
+The *inner query* returns the average salary for the department that matches
+the department id of the employee in the outer query.
+
+You can also get the same list by using a *join* in the `FROM` clause.
+
+```{python}
+sql = """
+SELECT last_name, salary
+FROM employees AS e1
+WHERE salary > (SELECT AVG(salary)
+                FROM employees AS e2
+                WHERE e1.department_id = e2.department_id)
+ORDER BY last_name
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+## Subquery as a virtual table
+
+*List employees earning more than the average salary in their department.*
+
+Here is the example as before, joining a subquery.
+
+```{python}
+sql = """
+SELECT last_name, salary
+FROM 
+  employees e1 
+    left join (SELECT department_id,AVG(salary) as avg_salary
+                FROM employees
+                group by department_id) e2
+        on (e1.department_id=e2.department_id)
+WHERE salary > avg_salary
+ORDER BY last_name
+"""
+show_sql_and_results( cnx,sql,widths=[70,1,29] )
+```
+
+## Nested subqueries
+
+*List employees who earn more than the average salary in departments with an average salary above $7,000 per month.*
+
+```{python}
+sql = """
+SELECT last_name
+FROM employees
+WHERE salary > (SELECT AVG(salary)
+                FROM employees
+                WHERE department_id IN (SELECT department_id
+                                        FROM employees
+                                        GROUP BY department_id
+                                        HAVING AVG(salary) > 7000));
+"""
+show_sql_and_results( cnx,sql,widths=[70,1,29] )
+```
+
+# Common Table Expressions (CTE)
+
+## Common Table Expressions (CTE)
+
+:::: {.columns}
+::: {.column}
+### CTE
+
+A Common Table Expression (CTE) is a temporary result set defined within an SQL statement.
+
+CTE are defined using the WITH keyword at the beginning of a query.
+
+CTE SIGNIFICANTLY simplify complex queries, improves readability, and allows reusing query logic.
+:::
+::: {.column}
+### Example CTE
+```{.sql}
+WITH cte_name AS (
+    SELECT columns
+    FROM table
+    WHERE condition
+)
+SELECT * FROM cte_name;
+```
+:::
+::::
+
+## CTE Example #1
+
+*List employees with salaries greater than average salary.*
+
+```{python}
+sql = """
+WITH avg_salary AS (
+    SELECT AVG(salary) AS average_salary
+    FROM employees
+)
+SELECT last_name, salary
+FROM employees, avg_salary
+WHERE salary > avg_salary.average_salary;
+"""
+show_sql_and_results( cnx,sql,widths=default_widths,show_size=True )
+```
+
+## CTE Example #2
+
+*List employees with salaries greater than the average salary
+of the big-salary departments (i.e., avg salary > $7000)*
+
+```{python}
+sql = """
+with big_salary_depts as (
+    SELECT department_id
+    FROM employees
+    GROUP BY department_id
+    HAVING AVG(salary) > 7000
+), big_salary_dept_avg as (
+    select avg(salary) as big_depts_avg_salary
+    from employees 
+    where department_id in (select * from big_salary_depts)
+)
+SELECT last_name
+FROM employees
+WHERE salary > (select * from big_salary_dept_avg)
+ORDER BY last_name
+"""
+show_sql_and_results( cnx,sql,widths=default_widths,show_size=True )
+```
+
+## CTE Example #3
+
+*List employees with salaries greater than the average salary
+of the big-salary departments (i.e., avg salary > $7000)*
+
+Same question - different solution
+
+```{python}
+sql = """
+with big_salary_depts as (
+    SELECT department_id
+    FROM employees
+    GROUP BY department_id
+    HAVING AVG(salary) > 7000
+), big_salary_dept_avg as (
+    select avg(salary) as big_depts_avg_salary
+    from employees 
+    where department_id in (select * from big_salary_depts)
+)
+SELECT last_name, salary, big_depts_avg_salary
+FROM employees a, big_salary_dept_avg
+WHERE salary > big_depts_avg_salary
+ORDER BY last_name
+"""
+show_sql_and_results( cnx,sql,widths=default_widths,show_size=True )
+```
+
+## CTE Example #4
+
+*List employees and their manager_id using a recursive CTE*
+
+```{python}
+sql = """
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, manager_id, last_name, 1 AS level_id
+    FROM employees
+    WHERE manager_id IS NULL  -- Starting point (top-level manager)
+    UNION ALL
+    SELECT e.employee_id, e.manager_id, e.last_name, eh.level_id + 1
+    FROM employees AS e
+    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id
+)
+SELECT * 
+FROM employee_hierarchy
+ORDER BY level_id;
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+## CTE Example #5
+
+*List the average salaries for each managerial level in the company*
+
+```{python}
+sql = """
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, manager_id, last_name, salary, 1 AS "Level ID"
+    FROM employees
+    WHERE manager_id IS NULL  -- Starting point (top-level manager)
+    UNION ALL
+    SELECT e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` + 1
+    FROM employees AS e
+    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id
+), eh1 as (
+SELECT `Level ID`,round(avg(salary),2) as "Avg Salary"
+FROM employee_hierarchy
+GROUP BY `Level ID`
+)
+select * from eh1 order by `Level ID`
+"""
+show_sql_and_results( cnx,sql,widths=[60,2,38] )
+```
+
+## CTE Example #6
+
+*List employeee, managerial levels, salaries, flagging those employees
+with lower than average salaries for their managerial level.*
+
+::: {style="font-size: 0.8em;"}
+```{python}
+sql = """
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, manager_id, last_name, salary, 1 AS "Level ID"
+    FROM employees
+    WHERE manager_id IS NULL  -- Starting point (top-level manager)
+    UNION ALL
+    SELECT e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` + 1
+    FROM employees AS e
+    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id
+), eh1 as (
+SELECT `Level ID`,round(avg(salary),2) as "Avg Salary"
+FROM employee_hierarchy
+GROUP BY `Level ID`
+)
+select
+  last_name, eh0.`Level ID`, 
+  round(salary,2) as salary, `Avg Salary`,
+  case when salary < `Avg Salary` then '<-- LOW!' else '' end as flag
+from
+  employee_hierarchy eh0 
+    left join eh1 eh1 on (eh0.`Level ID`=eh1.`Level ID`)
+order by
+  eh0.`Level ID`, last_name
+"""
+show_sql_and_results( cnx,sql,widths=[50,2,48],show_size=True )
+```
+:::
+
+
+# Homework 8 discussion
+
+## Homework 8 discussion
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework8-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534){target="_blank"}
+:::
+::: {.column width=40%}
+### Learning Objectives
+
+* A full exploration of `SELECT`
+
+* A full exploration of subqueries and CTEs
+
+* Introduction to data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+:::
+::::
+
+<center>We'll jump to the command line to get the project started!</center>
 
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

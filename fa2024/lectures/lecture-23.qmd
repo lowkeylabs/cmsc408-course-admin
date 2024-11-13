@@ -104,199 +104,7 @@ accurately store record counts in the *information_schema* table.
 ```{python}
 #| echo: false
 
-import os
-import re
-import sys
-import pandas as pd
-from tabulate import tabulate
-from dotenv import load_dotenv
-from IPython.display import Markdown
-from sqlalchemy import create_engine, text, inspect
-from sqlalchemy.exc import ArgumentError, NoSuchModuleError, OperationalError, ProgrammingError
-
-def run_sql_and_return_df(cnx,sql):
-    """Given an SQL command and connection string, return a DataFrame."""
-
-    # Check if the connection is None
-    if cnx is None:
-        error_message = "No valid connection. See above."
-        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
-        return df.to_html(index=False)
-
-    try:
-        df = pd.read_sql(sql, cnx)
-        if df.empty:
-            # Create a single-row DataFrame with all columns as None
-            df = pd.DataFrame([["no records returned"]+ [''] * (len(df.columns) - 1) ], columns=df.columns)
-
-        df = df.replace("None","NULL")
-        # Convert the DataFrame to HTML and use custom styling to span columns if needed
-        html_output = df.to_html(index=False, na_rep="NULL", justify="center")
-        html_output = re.sub(r'\bNone\b', 'NULL', html_output)
-        # Add colspan attribute to span columns if rendering in an environment that supports it
-        html_output = html_output.replace('<td>no records found</td>', f'<td colspan="{len(df.columns)}">no records found</td>')
-        return html_output
-
-    except OperationalError as e:
-        # Catch connection or database errors
-        error_message = f"Operational Error: {str(e)}"
-        df = pd.DataFrame({'ErrorType': ['OperationalError'], 'ErrorMessage': [error_message]})
-    except ProgrammingError as e:
-        # Catch SQL syntax errors or issues with the command
-        error_message = f"Programming Error: {str(e)}"
-        df = pd.DataFrame({'ErrorType': ['ProgrammingError'], 'ErrorMessage': [error_message]})
-#    except mysql.connector.Error as e:
-#        # Catch MySQL-specific errors
-#        error_message = f"MySQL Connector Error: {str(e)}"
-#        df = pd.DataFrame({'ErrorType': ['MySQL Connector Error'], 'ErrorMessage': [error_message]})
-    except Exception as e:
-        # Catch all other exceptions
-        error_message = f"Unknown Error: {str(e)}"
-        df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
-    
-    return df.to_html(index=False)
-
-def create_database_engine(uri):
-    """Create an SQLAlchemy engine with error handling and test the connection."""
-
-    error_message = None
-    try:
-        # Attempt to create the engine
-        engine = create_engine(uri)
-
-        # Test the connection with a lightweight query
-
-        message = run_sql_and_return_df("select 1 from dual",engine)
-
-#        with engine.connect() as connection:
-#            connection.execute(text("SELECT 1"))
-        
-        return engine  # Return the engine if connection test is successful
-
-    except ArgumentError as e:
-        error_message = f"URI Error: {e}"
-    except NoSuchModuleError as e:
-        error_message = f"Database driver not found: {e}"
-    except OperationalError as e:
-        error_message = f"Operational error: {e}"
-    except Exception as e:
-        error_message = f"An unexpected error occurred: {e}"
-    
-    if error_message:
-        print(error_message)
-    return None  # Return None if any error occurs
-
-
-def run_ddl_and_confirm(cnx,sql):
-    """Given a DDL SQL command with multiple statements and connection, confirm execution or return an error message in HTML format."""
-
-    if cnx is None:
-        error_message = "No valid connection. See above."
-        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
-        return df.to_html(index=False)
-
-    # Split the SQL statements by ";" while ignoring empty statements
-    statements = [stmt.strip() for stmt in re.split(r';\s*', sql) if stmt.strip()]
-
-    try:
-        with cnx.begin() as connection:
-            for statement in statements:
-                connection.execute(text(statement))
-        
-        # Confirm successful execution
-        df = pd.DataFrame({'Status': ['Success'], 'Message': ['All DDL commands executed successfully']})
-        # return df.to_html(index=False)
-        return None
-
-    except OperationalError as e:
-        error_message = f"Operational Error: {str(e)}"
-        df = pd.DataFrame({'ErrorType': ['OperationalError'], 'ErrorMessage': [error_message]})
-    except ProgrammingError as e:
-        error_message = f"Programming Error: {str(e)}"
-        df = pd.DataFrame({'ErrorType': ['ProgrammingError'], 'ErrorMessage': [error_message]})
-    except Exception as e:
-        error_message = f"Unknown Error: {str(e)}"
-        df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
-    
-    return df.to_html(index=False)
-
-
-def run_ddl_from_file(cnx,filename):
-    """
-    Executes DDL statements from a file on a given SQLAlchemy connection, 
-    capturing any errors and results.
-    """
-    messages = []
-    errors = []
-
-    if cnx is None:
-        errors.append("<hr/>Invalid connection<br/>")
-        return messages,errors
-
-    with open(filename, 'r', encoding='utf-8') as file:
-        ddl_commands = file.read()
-
-    # Split commands if needed, such as if commands are separated by semicolons
-    ddl_statements = [cmd.strip() for cmd in ddl_commands.split(';') if cmd.strip()]
-
-    with cnx.connect() as connection:
-        for statement in ddl_statements:
-            try:
-                result = connection.execute(text(statement))
-                # Capture the result, if any
-                result_info = result.rowcount if result.rowcount != -1 else "No rows affected"
-                messages.append(f"Executed statement: {statement}<br/>Result: {result_info}<br/>")
-            except Exception as e:
-                # Capture the error message if execution fails
-                errors.append(f"<hr/>Error executing statement: <b>{statement}</b><br/>    Error: {str(e)}<br/>")
-
-    return messages, errors
-
-code_block = 1000
-
-def print_code_block( sql ):
-    global code_block
-    s = []
-    code_block = code_block + 1
-    s.append('<pre class="sourceCode numberSource sql number-lines code-with-copy">')
-    s.append('<code class="sourceCode sql">')
-    rows = sql.splitlines()
-    for i,row in enumerate(rows):
-        s.append(f'<span id="cb{code_block}-{i}"><a href=""></a>{row}</span>\n')
-    s.append('</code>')
-    s.append('</pre>')
-    return "".join(s)
-
-def show_sql_and_result(sql,widths=[35,5,60],headers=["SQL Code","Result set"],left_side_text=None):
-    s1 = f"""
-:::: {{.columns}}
-::: {{.column width="{widths[0]}%"}}
-"""
-    if not left_side_text:
-        s1 = s1 + f"### {headers[0]}\n\n"
-
-    s2 = f"```{{.sql}}\n{sql}\n```"
-    if left_side_text:
-        s2 = left_side_text + "\n"
-
-    s3 = f"""
-
-:::
-::: {{.column width="{widths[1]}%"}}
-<p>&nbsp;</p>
-:::
-::: {{.column width="{widths[2]}%"}}
-### {headers[1]}
-
-"""
-    s4 = run_sql_and_return_df( cnx,sql )
-    s5 = f"""
-
-:::
-::::
-"""
-    return Markdown(s1 + s2 + s3 + s4 + s5)
-
+from slide_helper import create_database_engine, run_sql_and_return_df, run_ddl_and_confirm, run_ddl_from_file, show_sql_and_results
 ```
 
 ## SQL - Aggregate Functions - Revisit the SELECT
@@ -431,7 +239,7 @@ sql = f"""SELECT
 FROM
   people;
 """
-show_sql_and_result( sql )
+show_sql_and_results( cnx, sql )
 ```
 
 
@@ -447,7 +255,7 @@ sql = """SELECT
 FROM
   people
 """
-show_sql_and_result(sql)
+show_sql_and_results( cnx,sql)
 ```
 
 ## SQL - Aggregate Functions - COUNT #2
@@ -462,7 +270,7 @@ sql = """SELECT
 from
   people
 """
-show_sql_and_result(sql)
+show_sql_and_results( cnx,sql)
 ```
 `email` contains `NULL` values, and these are ignored when using `COUNT`
 
@@ -478,7 +286,7 @@ sql = """SELECT
 from
   people
 """
-show_sql_and_result(sql)
+show_sql_and_results( cnx,sql)
 ```
 * `email` contains `NULL` values, and these are ignored when using `COUNT`
 * Aggregate functions can be used as part of formulas in the `SELECT` statement.
@@ -497,7 +305,7 @@ sql = """SELECT
 FROM
   people
 """
-show_sql_and_result(sql)
+show_sql_and_results( cnx,sql)
 ```
 
 <p>&nbsp;</p>
@@ -510,7 +318,7 @@ sql = """SELECT
 FROM
   people
 """
-show_sql_and_result(sql,widths=[20,5,75])
+show_sql_and_results( cnx,sql,widths=[20,5,75])
 ```
 
 
@@ -525,7 +333,7 @@ sql = """SELECT
 FROM
   people
 """
-show_sql_and_result(sql)
+show_sql_and_results( cnx,sql)
 ```
 
 * `MIN` and `MAX` use the default `collation` for a given `character set`.
@@ -561,7 +369,7 @@ sql = """SELECT
 FROM
   avg_example
 """
-show_sql_and_result( sql )
+show_sql_and_results( cnx, sql )
 ```
 
 <p>&nbsp;</p>
@@ -582,7 +390,7 @@ sql = """SELECT
 FROM
   avg_example
 """
-show_sql_and_result( sql )
+show_sql_and_results( cnx, sql )
 ```
 <p>&nbsp;</p>
 * Recall the values are [ 0, 1, 2, 3, NULL] - 5 total records.
@@ -651,7 +459,7 @@ ORDER BY
   category,
   item_name
 """
-show_sql_and_result( sql,widths=[23,2,75],headers=["Query","Restaurant Menu"] )
+show_sql_and_results( cnx, sql,widths=[23,2,75],headers=["Query","Restaurant Menu"] )
 ```
 
 * `ORDER BY` sorts first by `category` and when there is a tie moves to sort by `item_name`.
@@ -666,7 +474,7 @@ sql = """SELECT
 FROM
   restaurant_menu
 """
-show_sql_and_result( sql,widths=[23,2,75],headers=["Query","Restaurant Menu"],left_side_text = """
+show_sql_and_results( cnx, sql,widths=[23,2,75],headers=["Query","Restaurant Menu"],left_side_text = """
 ### Notes about the menu
 
 * There are 10 items
@@ -691,7 +499,7 @@ sql = """SELECT
 FROM
   restaurant_menu
 """
-show_sql_and_result( sql,headers=["Query","Menu - calories"] )
+show_sql_and_results( cnx, sql,headers=["Query","Menu - calories"] )
 ```
 
 * We're using all the aggregate functions at once.
@@ -718,7 +526,7 @@ FROM
 GROUP BY
   category
 """
-show_sql_and_result( sql,headers=["Query","Menu - calories by category"] )
+show_sql_and_results( cnx, sql,headers=["Query","Menu - calories by category"] )
 ```
 * We added a `GROUP BY` clause and added `category` to the `SELECT`
 
@@ -742,7 +550,7 @@ FROM
 GROUP BY
   category
 """
-show_sql_and_result( sql,headers=["Query","Menu - price by category"] )
+show_sql_and_results( cnx, sql,headers=["Query","Menu - price by category"] )
 ```
 
 ## SQL - `GROUP BY` - `price` by `popularity`
@@ -762,7 +570,7 @@ FROM
 GROUP BY
   category
 """
-show_sql_and_result( sql,headers=["Query","Menu - popularity by category"] )
+show_sql_and_results( cnx, sql,headers=["Query","Menu - popularity by category"] )
 ```
 
 
@@ -800,7 +608,7 @@ HAVING
 ORDER BY
   AVG(calories) DESC
 """
-show_sql_and_result( sql,headers=["Query","Menu - popularity by category"] )
+show_sql_and_results( cnx, sql,headers=["Query","Menu - popularity by category"] )
 ```
 
 * `HAVING` statement requires an aggregate function
@@ -822,7 +630,7 @@ HAVING
 ORDER BY
   AVG(calories) DESC
 """
-show_sql_and_result( sql,headers=["Query","Menu - popularity by category"] )
+show_sql_and_results( cnx, sql,headers=["Query","Menu - popularity by category"] )
 ```
 
 * Aggregate functions do not need to be in the `SELECT` in order
@@ -867,7 +675,7 @@ FROM
     left join peopleskills
       on (skills.id=peopleskills.skills_id)
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ## Homework 7 - Which skills are unused?
@@ -886,7 +694,7 @@ FROM
 WHERE
   peopleskills.skills_id IS NULL
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ## Homework 7 - Which skills are used? (#1)
@@ -905,7 +713,7 @@ FROM
 WHERE
   peopleskills.skills_id IS NOT NULL
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ## Homework 7 - Which skills are used? (#2)
@@ -930,7 +738,7 @@ GROUP BY
 ORDER BY
   skills.tag
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 * Only fields in `GROUP BY` can be listed in SELECT.
@@ -954,7 +762,7 @@ GROUP BY
 ORDER BY
   skills.tag
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ### Notes
@@ -978,7 +786,7 @@ FROM
 GROUP BY
   skills.tag
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 * What would happen if I used `COUNT(skills.tag)` instead?
@@ -1000,7 +808,7 @@ GROUP BY
 ORDER BY
   COUNT(peopleskills.skills_id) DESC
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ## Homework 7 - Which skill is most used? #2
@@ -1022,7 +830,7 @@ ORDER BY
 LIMIT
   1
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ### Is this correct?
@@ -1049,7 +857,7 @@ HAVING
 ORDER BY
   skills.tag
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 * In this example, we *hardcode* the maximum value we observed in the data 
@@ -1076,7 +884,7 @@ ORDER BY
 LIMIT 
   1
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 ## Homework 7 - Which skill is most used? #5
@@ -1113,7 +921,7 @@ HAVING
 ORDER BY
   skills.tag
 """
-show_sql_and_result( sql,widths=[45,5,50] )
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
 ```
 
 

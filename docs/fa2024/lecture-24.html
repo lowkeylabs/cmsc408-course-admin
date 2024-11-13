@@ -13,7 +13,7 @@
 <link href="lecture-24_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Writing APIs</title>
+  <title>Aggregates 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-24_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-24_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-24_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-24_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-24_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-24_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-24_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +404,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Writing APIs</h1>
+  <h1 class="title">Aggregates 2</h1>
   <p class="subtitle">Lecture 24</p>
 
 <div class="quarto-title-authors">
@@ -353,12 +420,16 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank">Homework 8 - due 11/17</a></p></li>
+<li><p>Keep working on your semester project!!!</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/subqueries">Subqueries</a></p></li>
+<li><p><a href="#/common-table-expressions-cte">Common Table Expressions</a></p></li>
+<li><p><a href="#/homework-8-discussion">Homework 8 discussion</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -384,7 +455,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
+<td>MTG24: L24 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -401,14 +472,14 @@
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW7 due (SQL Funhouse)</td>
+<td>HW8 due (SQL Funhouse)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/18</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH)</td>
+<td>MTG25: L25 (Subqueries and WITH 2)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -416,7 +487,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td>MTG26: L26 (Procedures and Triggers 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -432,7 +503,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/2</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG27: L27 (Procedures and Triggers 1)</td>
+<td>MTG27: L27 (Procedures and Triggers 2)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -440,15 +511,15 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/4</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG28: L28 (Procedures and Triggers 2)</td>
+<td>MTG28: L28 (Misc. Topics)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +545,923 @@
 </div>
 </div>
 </section>
+<section>
+<section id="subqueries" class="title-slide slide level1 center">
+<h1>Subqueries</h1>
+
+</section>
+<section id="subqueries-1" class="slide level2">
+<h2>Subqueries</h2>
+<div class="columns">
+<div class="column">
+<p>A subquery is a query nested inside another query, often used to filter, compare, or transform data.</p>
+<p><strong>Purpose</strong>: Subqueries simplify complex queries by breaking them into smaller, manageable parts and allow reuse of query logic.</p>
+<p><strong>Types</strong>: Single-row, multi-row, and correlated subqueries, each used for different types of comparisons or conditions.</p>
+<p><strong>Usage</strong>: Can appear in <code>SELECT</code>, <code>WHERE</code>, <code>FROM</code>, and other clauses, making them versatile in SQL operations.</p>
+</div><div class="column">
+<h3 id="single-row-example">Single-row example</h3>
+<p>Find employees with greater than average salary.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="kw">SELECT</span> name</span>
+<span id="cb1-2"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb1-3"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary) <span class="kw">FROM</span> employees);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+&nbsp;
+</p>
+<h3 id="multi-row-example">Multi-row example</h3>
+<p>Find employees from small departments (&lt;5 employees)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">SELECT</span> name</span>
+<span id="cb2-2"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb2-3"><a href=""></a><span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
+<span id="cb2-4"><a href=""></a>                        <span class="kw">FROM</span> employees</span>
+<span id="cb2-5"><a href=""></a>                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb2-6"><a href=""></a>                        <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&lt;</span> <span class="dv">5</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="sample-data---employees-table-from-hr-database" class="slide level2">
+<h2>Sample data - employees table from HR database</h2>
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: right;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+UnknownError
+</td>
+
+<td>
+Unknown Error: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<p>First 20 records from <code>employees</code> table in your <code>24fa_hr_24fa_jdleonard</code> database.</p>
+<div style="font-size: 0.5em;">
+<div id="1b7cc749" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+ErrorType
+</th>
+
+<th>
+ErrorMessage
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+UnknownError
+</td>
+
+<td>
+Unknown Error: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="subquery-in-the-where-clause" class="slide level2">
+<h2>Subquery in the WHERE clause</h2>
+<p><em>List employees with salary greater than average salary.</em></p>
+<div id="fab2fcd1" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code">SQL Code</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb3-2"><a href=""></a>  last_name,</span>
+<span id="cb3-3"><a href=""></a>  salary</span>
+<span id="cb3-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb3-5"><a href=""></a>  employees</span>
+<span id="cb3-6"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb3-7"><a href=""></a>  salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">from</span> employees)</span>
+<span id="cb3-8"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb3-9"><a href=""></a>  salary <span class="kw">desc</span></span>
+<span id="cb3-10"><a href=""></a><span class="kw">LIMIT</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="subquery-in-the-select-clause" class="slide level2">
+<h2>Subquery in the SELECT clause</h2>
+<p><em>List employees with salary greater than average salary.</em></p>
+<div id="e97b57ed" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-1">SQL Code</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a href=""></a>  last_name,</span>
+<span id="cb4-3"><a href=""></a>  salary,</span>
+<span id="cb4-4"><a href=""></a>  (<span class="kw">select</span> <span class="fu">avg</span>(salary) </span>
+<span id="cb4-5"><a href=""></a>   <span class="kw">from</span> employees</span>
+<span id="cb4-6"><a href=""></a>  ) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
+<span id="cb4-7"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb4-8"><a href=""></a>  employees</span>
+<span id="cb4-9"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb4-10"><a href=""></a>  salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">from</span> employees)</span>
+<span id="cb4-11"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb4-12"><a href=""></a>  salary <span class="kw">desc</span></span>
+<span id="cb4-13"><a href=""></a><span class="kw">LIMIT</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-1">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<p>Same query as before, with a single-row select included in the SELECT statement.</p>
+</section>
+<section id="subquery-in-the-from-clause" class="slide level2">
+<h2>Subquery in the FROM clause</h2>
+<p><em>List employees with salary greater than average salary.</em></p>
+<div id="75dcd339" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-2">SQL Code</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="op">*</span></span>
+<span id="cb5-3"><a href=""></a><span class="kw">FROM</span> (</span>
+<span id="cb5-4"><a href=""></a>  <span class="kw">SELECT</span></span>
+<span id="cb5-5"><a href=""></a>    department_id,</span>
+<span id="cb5-6"><a href=""></a>    <span class="fu">SUM</span>(salary) <span class="kw">AS</span> total_salary</span>
+<span id="cb5-7"><a href=""></a>  <span class="kw">FROM</span></span>
+<span id="cb5-8"><a href=""></a>    employees</span>
+<span id="cb5-9"><a href=""></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb5-10"><a href=""></a>  ) <span class="kw">as</span> junk_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-2">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<ul>
+<li><p>SELECT statements return tables that can be used for additional queries.</p></li>
+<li><p>In the example above we create a new tables named <code>junk_table</code> that returns two columns: <code>department_id</code> and <code>total_salary</code></p></li>
+</ul>
+</section>
+<section id="single-value-subqueries" class="slide level2">
+<h2>Single-value subqueries</h2>
+<p><em>Find employees hired before the earliest hire date in the Sales department.</em></p>
+<p>The <em>inner query</em> or <em>subquery</em> returns a single value - the earliest hire date of employees from department 100. The <em>outer query</em> or <em>main query</em> uses this value in a comparison with <em>hire_data</em></p>
+<div id="13150075" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-3">SQL Code</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a></span>
+<span id="cb6-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb6-3"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb6-4"><a href=""></a><span class="kw">WHERE</span> hire_date <span class="op">&lt;</span> (</span>
+<span id="cb6-5"><a href=""></a>  <span class="kw">SELECT</span> <span class="fu">MIN</span>(hire_date)</span>
+<span id="cb6-6"><a href=""></a>  <span class="kw">FROM</span> employees</span>
+<span id="cb6-7"><a href=""></a>  <span class="kw">WHERE</span> department_id<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb6-8"><a href=""></a>  );</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-3">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="multi-value-subqueries" class="slide level2">
+<h2>Multi-value subqueries</h2>
+<p>List the employees in large departments (this with more than 5 employees).</p>
+<p>The <em>inner query</em> returns a list of department ids. The <em>outer query</em> uses the <code>IN</code> operator to test of <code>department_id</code> is in the returned list.</p>
+<div id="cf0e04ed" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-4">SQL Code</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a></span>
+<span id="cb7-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb7-3"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb7-4"><a href=""></a><span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
+<span id="cb7-5"><a href=""></a>                        <span class="kw">FROM</span> employees</span>
+<span id="cb7-6"><a href=""></a>                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb7-7"><a href=""></a>                        <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;</span> <span class="dv">5</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-4">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="correlated-subqueries" class="slide level2">
+<h2>Correlated subqueries</h2>
+<p><em>List employees earning more than the average salary in their department.</em></p>
+<p>The <em>inner query</em> returns the average salary for the department that matches the department id of the employee in the outer query.</p>
+<p>You can also get the same list by using a <em>join</em> in the <code>FROM</code> clause.</p>
+<div id="8bac2449" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-5">SQL Code</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a></span>
+<span id="cb8-2"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
+<span id="cb8-3"><a href=""></a><span class="kw">FROM</span> employees <span class="kw">AS</span> e1</span>
+<span id="cb8-4"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary)</span>
+<span id="cb8-5"><a href=""></a>                <span class="kw">FROM</span> employees <span class="kw">AS</span> e2</span>
+<span id="cb8-6"><a href=""></a>                <span class="kw">WHERE</span> e1.department_id <span class="op">=</span> e2.department_id)</span>
+<span id="cb8-7"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-5">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="subquery-as-a-virtual-table" class="slide level2">
+<h2>Subquery as a virtual table</h2>
+<p><em>List employees earning more than the average salary in their department.</em></p>
+<p>Here is the example as before, joining a subquery.</p>
+<div id="44240df9" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
+<div class="columns">
+<div class="column" style="width:70%;">
+<h3 id="sql-code-6">SQL Code</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a></span>
+<span id="cb9-2"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
+<span id="cb9-3"><a href=""></a><span class="kw">FROM</span> </span>
+<span id="cb9-4"><a href=""></a>  employees e1 </span>
+<span id="cb9-5"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> (<span class="kw">SELECT</span> department_id,<span class="fu">AVG</span>(salary) <span class="kw">as</span> avg_salary</span>
+<span id="cb9-6"><a href=""></a>                <span class="kw">FROM</span> employees</span>
+<span id="cb9-7"><a href=""></a>                <span class="kw">group</span> <span class="kw">by</span> department_id) e2</span>
+<span id="cb9-8"><a href=""></a>        <span class="kw">on</span> (e1.department_id<span class="op">=</span>e2.department_id)</span>
+<span id="cb9-9"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> avg_salary</span>
+<span id="cb9-10"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:29%;">
+<h3 id="result-set-6">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="nested-subqueries" class="slide level2">
+<h2>Nested subqueries</h2>
+<p><em>List employees who earn more than the average salary in departments with an average salary above $7,000 per month.</em></p>
+<div id="4b0e8904" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
+<div class="columns">
+<div class="column" style="width:70%;">
+<h3 id="sql-code-7">SQL Code</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href=""></a></span>
+<span id="cb10-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb10-3"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb10-4"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary)</span>
+<span id="cb10-5"><a href=""></a>                <span class="kw">FROM</span> employees</span>
+<span id="cb10-6"><a href=""></a>                <span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
+<span id="cb10-7"><a href=""></a>                                        <span class="kw">FROM</span> employees</span>
+<span id="cb10-8"><a href=""></a>                                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb10-9"><a href=""></a>                                        <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span>));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:29%;">
+<h3 id="result-set-7">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="common-table-expressions-cte" class="title-slide slide level1 center">
+<h1>Common Table Expressions (CTE)</h1>
+
+</section>
+<section id="common-table-expressions-cte-1" class="slide level2">
+<h2>Common Table Expressions (CTE)</h2>
+<div class="columns">
+<div class="column">
+<h3 id="cte">CTE</h3>
+<p>A Common Table Expression (CTE) is a temporary result set defined within an SQL statement.</p>
+<p>CTE are defined using the WITH keyword at the beginning of a query.</p>
+<p>CTE SIGNIFICANTLY simplify complex queries, improves readability, and allows reusing query logic.</p>
+</div><div class="column">
+<h3 id="example-cte">Example CTE</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href=""></a><span class="kw">WITH</span> cte_name <span class="kw">AS</span> (</span>
+<span id="cb11-2"><a href=""></a>    <span class="kw">SELECT</span> <span class="kw">columns</span></span>
+<span id="cb11-3"><a href=""></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="kw">WHERE</span> condition</span>
+<span id="cb11-5"><a href=""></a>)</span>
+<span id="cb11-6"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> cte_name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="cte-example-1" class="slide level2">
+<h2>CTE Example #1</h2>
+<p><em>List employees with salaries greater than average salary.</em></p>
+<div id="ff5b33cf" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-8">SQL Code</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a></span>
+<span id="cb12-2"><a href=""></a><span class="kw">WITH</span> avg_salary <span class="kw">AS</span> (</span>
+<span id="cb12-3"><a href=""></a>    <span class="kw">SELECT</span> <span class="fu">AVG</span>(salary) <span class="kw">AS</span> average_salary</span>
+<span id="cb12-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb12-5"><a href=""></a>)</span>
+<span id="cb12-6"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
+<span id="cb12-7"><a href=""></a><span class="kw">FROM</span> employees, avg_salary</span>
+<span id="cb12-8"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> avg_salary.average_salary;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-8">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 1, Total Columns: 2
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="cte-example-2" class="slide level2">
+<h2>CTE Example #2</h2>
+<p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
+<div id="2458a6f3" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="16">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-9">SQL Code</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a></span>
+<span id="cb13-2"><a href=""></a><span class="kw">with</span> big_salary_depts <span class="kw">as</span> (</span>
+<span id="cb13-3"><a href=""></a>    <span class="kw">SELECT</span> department_id</span>
+<span id="cb13-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb13-5"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb13-6"><a href=""></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span></span>
+<span id="cb13-7"><a href=""></a>), big_salary_dept_avg <span class="kw">as</span> (</span>
+<span id="cb13-8"><a href=""></a>    <span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">as</span> big_depts_avg_salary</span>
+<span id="cb13-9"><a href=""></a>    <span class="kw">from</span> employees </span>
+<span id="cb13-10"><a href=""></a>    <span class="kw">where</span> department_id <span class="kw">in</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_depts)</span>
+<span id="cb13-11"><a href=""></a>)</span>
+<span id="cb13-12"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb13-13"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb13-14"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_dept_avg)</span>
+<span id="cb13-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-9">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 1, Total Columns: 2
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="cte-example-3" class="slide level2">
+<h2>CTE Example #3</h2>
+<p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
+<p>Same question - different solution</p>
+<div id="dd53981b" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-10">SQL Code</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a></span>
+<span id="cb14-2"><a href=""></a><span class="kw">with</span> big_salary_depts <span class="kw">as</span> (</span>
+<span id="cb14-3"><a href=""></a>    <span class="kw">SELECT</span> department_id</span>
+<span id="cb14-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb14-5"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb14-6"><a href=""></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span></span>
+<span id="cb14-7"><a href=""></a>), big_salary_dept_avg <span class="kw">as</span> (</span>
+<span id="cb14-8"><a href=""></a>    <span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">as</span> big_depts_avg_salary</span>
+<span id="cb14-9"><a href=""></a>    <span class="kw">from</span> employees </span>
+<span id="cb14-10"><a href=""></a>    <span class="kw">where</span> department_id <span class="kw">in</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_depts)</span>
+<span id="cb14-11"><a href=""></a>)</span>
+<span id="cb14-12"><a href=""></a><span class="kw">SELECT</span> last_name, salary, big_depts_avg_salary</span>
+<span id="cb14-13"><a href=""></a><span class="kw">FROM</span> employees a, big_salary_dept_avg</span>
+<span id="cb14-14"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> big_depts_avg_salary</span>
+<span id="cb14-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-10">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 1, Total Columns: 2
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="cte-example-4" class="slide level2">
+<h2>CTE Example #4</h2>
+<p><em>List employees and their manager_id using a recursive CTE</em></p>
+<div id="3c2e08ee" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
+<div class="columns">
+<div class="column" style="width:54%;">
+<h3 id="sql-code-11">SQL Code</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href=""></a></span>
+<span id="cb15-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
+<span id="cb15-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, <span class="dv">1</span> <span class="kw">AS</span> level_id</span>
+<span id="cb15-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb15-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
+<span id="cb15-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb15-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, eh.level_id <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb15-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
+<span id="cb15-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
+<span id="cb15-10"><a href=""></a>)</span>
+<span id="cb15-11"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
+<span id="cb15-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
+<span id="cb15-13"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> level_id;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:1%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:45%;">
+<h3 id="result-set-11">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="cte-example-5" class="slide level2">
+<h2>CTE Example #5</h2>
+<p><em>List the average salaries for each managerial level in the company</em></p>
+<div id="ecf15421" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="sql-code-12">SQL Code</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a></span>
+<span id="cb16-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
+<span id="cb16-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, salary, <span class="dv">1</span> <span class="kw">AS</span> <span class="ot">"Level ID"</span></span>
+<span id="cb16-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb16-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
+<span id="cb16-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb16-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb16-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
+<span id="cb16-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
+<span id="cb16-10"><a href=""></a>), eh1 <span class="kw">as</span> (</span>
+<span id="cb16-11"><a href=""></a><span class="kw">SELECT</span> `Level ID`,<span class="fu">round</span>(<span class="fu">avg</span>(salary),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
+<span id="cb16-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
+<span id="cb16-13"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> `Level ID`</span>
+<span id="cb16-14"><a href=""></a>)</span>
+<span id="cb16-15"><a href=""></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> eh1 <span class="kw">order</span> <span class="kw">by</span> `Level ID`</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:2%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:38%;">
+<h3 id="result-set-12">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</section>
+<section id="cte-example-6" class="slide level2">
+<h2>CTE Example #6</h2>
+<p><em>List employeee, managerial levels, salaries, flagging those employees with lower than average salaries for their managerial level.</em></p>
+<div style="font-size: 0.8em;">
+<div id="9b424a75" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="sql-code-13">SQL Code</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href=""></a></span>
+<span id="cb17-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
+<span id="cb17-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, salary, <span class="dv">1</span> <span class="kw">AS</span> <span class="ot">"Level ID"</span></span>
+<span id="cb17-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb17-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
+<span id="cb17-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb17-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb17-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
+<span id="cb17-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
+<span id="cb17-10"><a href=""></a>), eh1 <span class="kw">as</span> (</span>
+<span id="cb17-11"><a href=""></a><span class="kw">SELECT</span> `Level ID`,<span class="fu">round</span>(<span class="fu">avg</span>(salary),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
+<span id="cb17-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
+<span id="cb17-13"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> `Level ID`</span>
+<span id="cb17-14"><a href=""></a>)</span>
+<span id="cb17-15"><a href=""></a><span class="kw">select</span></span>
+<span id="cb17-16"><a href=""></a>  last_name, eh0.`Level ID`, </span>
+<span id="cb17-17"><a href=""></a>  <span class="fu">round</span>(salary,<span class="dv">2</span>) <span class="kw">as</span> salary, `Avg Salary`,</span>
+<span id="cb17-18"><a href=""></a>  <span class="cf">case</span> <span class="cf">when</span> salary <span class="op">&lt;</span> `Avg Salary` <span class="cf">then</span> <span class="st">'&lt;-- LOW!'</span> <span class="cf">else</span> <span class="st">''</span> <span class="cf">end</span> <span class="kw">as</span> flag</span>
+<span id="cb17-19"><a href=""></a><span class="kw">from</span></span>
+<span id="cb17-20"><a href=""></a>  employee_hierarchy eh0 </span>
+<span id="cb17-21"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> eh1 eh1 <span class="kw">on</span> (eh0.`Level ID`<span class="op">=</span>eh1.`Level ID`)</span>
+<span id="cb17-22"><a href=""></a><span class="kw">order</span> <span class="kw">by</span></span>
+<span id="cb17-23"><a href=""></a>  eh0.`Level ID`, last_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:2%;">
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:48%;">
+<h3 id="result-set-13">Result set</h3>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: center;">
+<th>
+ErrorType
+</th>
+<th>
+ErrorMessage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+UnknownError
+</td>
+<td>
+Unknown Error: ‘cryptography’ package is required for sha256_password or caching_sha2_password auth methods
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 1, Total Columns: 2
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="homework-8-discussion" class="title-slide slide level1 center">
+<h1>Homework 8 discussion</h1>
+
+</section>
+<section id="homework-8-discussion-1" class="slide level2">
+<h2>Homework 8 discussion</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank"><img data-src="./assets/homework8-page.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li><p>A full exploration of <code>SELECT</code></p></li>
+<li><p>A full exploration of subqueries and CTEs</p></li>
+<li><p>Introduction to data analysis</p></li>
+</ul>
+<h3 id="data-source">Data Source</h3>
+<ul>
+<li><a href="https://data.worldbank.org/indicator" target="_blank">World Bank Indicators</a></li>
+</ul>
+</div></div>
+<center>
+We’ll jump to the command line to get the project started!
+</center>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +1470,16 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank">Homework 8 - due 11/17</a></p></li>
+<li><p>Keep working on your semester project!!!</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/subqueries">Subqueries</a></p></li>
+<li><p><a href="#/common-table-expressions-cte">Common Table Expressions</a></p></li>
+<li><p><a href="#/homework-8-discussion">Homework 8 discussion</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -513,7 +1505,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Writing APIs)</td>
+<td>MTG24: L24 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -530,14 +1522,14 @@
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW7 due (SQL Funhouse)</td>
+<td>HW8 due (SQL Funhouse)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/18</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH)</td>
+<td>MTG25: L25 (Subqueries and WITH 2)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -545,7 +1537,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td>MTG26: L26 (Procedures and Triggers 1)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -561,7 +1553,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/2</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG27: L27 (Procedures and Triggers 1)</td>
+<td>MTG27: L27 (Procedures and Triggers 2)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -569,7 +1561,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/4</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG28: L28 (Procedures and Triggers 2)</td>
+<td>MTG28: L28 (Misc. Topics)</td>
 <td></td>
 </tr>
 </tbody>
@@ -595,7 +1587,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +1598,7 @@
   <script src="lecture-24_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-24_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-24_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-24_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-24_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +1619,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +1796,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

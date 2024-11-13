@@ -1,3 +1,9 @@
+
+
+DROP DATABASE IF EXISTS cmsc408_hr_database;
+CREATE DATABASE cmsc408_hr_database;
+USE cmsc408_hr_database;
+
 CREATE TABLE job_grades (
 grade_level VARCHAR(3),
 lowest_sal  FLOAT,

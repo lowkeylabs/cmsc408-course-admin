@@ -464,7 +464,7 @@
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Aggregates 2)</td>
+<td>MTG24: L24 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -488,7 +488,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/18</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH 1)</td>
+<td>MTG25: L25 (Subqueries and WITH 2)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -496,7 +496,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH 2)</td>
+<td>MTG26: L26 (Procedures and Triggers 1)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -512,7 +512,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/2</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG27: L27 (Procedures and Triggers 1)</td>
+<td>MTG27: L27 (Procedures and Triggers 2)</td>
 <td></td>
 </tr>
 </tbody>
@@ -676,8 +676,8 @@
 <section id="sql---aggregate-functions" class="slide level2">
 <h2>SQL - Aggregate Functions</h2>
 <h3 id="here-is-a-quick-look-at-the-people-table">Here is a quick look at the <code>people</code> table</h3>
-<div id="2c7dba39" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="40">
+<div id="6b6f24b7" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code">SQL Code</h3>
@@ -862,8 +862,8 @@ NULL
 <h2>SQL - Aggregate Functions - COUNT #1</h2>
 <h3 id="how-many-records-are-in-the-table">How many records are in the table?</h3>
 <p>COUNT returns the number records for a column. Use <code>*</code> to for all records.</p>
-<div id="44e2527e" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="41">
+<div id="7713863a" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-1">SQL Code</h3>
@@ -901,8 +901,8 @@ count(*)
 <h2>SQL - Aggregate Functions - COUNT #2</h2>
 <h3 id="how-many-email-addresses-in-table">How many email addresses in table?</h3>
 <p>COUNT returns the number of NON-NULL values in a column.</p>
-<div id="6d5d803b" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="42">
+<div id="c1aea5c3" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-2">SQL Code</h3>
@@ -941,8 +941,8 @@ count(email)
 <h2>SQL - Aggregate Functions - COUNT #3</h2>
 <h3 id="how-many-people-are-missing-email-addresses">How many people are missing email addresses?</h3>
 <p>COUNT returns the number of NON-NULL values in a column.</p>
-<div id="134fc15e" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="43">
+<div id="55384018" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-3">SQL Code</h3>
@@ -984,8 +984,8 @@ Missing emails
 <h2>SQL - Aggregate Functions - MIN and MAX #1</h2>
 <h3 id="what-are-the-smallest-and-largest-values-for-id">What are the smallest and largest values for <code>ID</code>?</h3>
 <p><code>MIN</code> and <code>MAX</code> work on specific fields by name only.</p>
-<div id="362d96f6" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="44">
+<div id="8970cf11" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-4">SQL Code</h3>
@@ -1029,8 +1029,8 @@ MAX(id)
 &nbsp;
 </p>
 <p>Using <code>*</code> generates an error.</p>
-<div id="dba23d9a" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="45">
+<div id="194cc201" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <div class="columns">
 <div class="column" style="width:20%;">
 <h3 id="sql-code-5">SQL Code</h3>
@@ -1073,8 +1073,8 @@ Operational Error: (sqlite3.OperationalError) wrong number of arguments to funct
 <section id="sql---aggregate-functions---min-and-max-2" class="slide level2">
 <h2>SQL - Aggregate Functions - MIN and MAX #2</h2>
 <h3 id="applying-min-and-max-to-string-variables">Applying <code>MIN</code> and <code>MAX</code> to string variables</h3>
-<div id="712e41cb" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="46">
+<div id="111e40a0" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-6">SQL Code</h3>
@@ -1137,8 +1137,8 @@ yuki.person5@example.com
 <h2>SQL - Aggregate Functions - SUM and AVG #2</h2>
 <h3 id="applying-sum-and-avg">Applying SUM and AVG</h3>
 <p>We’ll create a simple table to explore <code>SUM</code> and <code>AVG</code>.</p>
-<div id="d52ba582" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="47">
+<div id="797fb7e6" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-7">SQL Code</h3>
@@ -1204,8 +1204,8 @@ NULL
 <section id="sql---aggregate-functions---sum-and-avg-3" class="slide level2">
 <h2>SQL - Aggregate Functions - SUM and AVG #3</h2>
 <h3 id="how-does-sum-and-avg-treat-null-values">How does SUM and AVG treat NULL values?</h3>
-<div id="8ef0a37d" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="48">
+<div id="136f54f4" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="sql-code-8">SQL Code</h3>
@@ -1306,8 +1306,8 @@ SUM
 </section>
 <section id="sql---group-by---sample-data" class="slide level2">
 <h2>SQL - <code>GROUP BY</code> - Sample Data</h2>
-<div id="7c512e56" class="cell" data-execution_count="15">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="49">
+<div id="acce5d6c" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <div class="columns">
 <div class="column" style="width:23%;">
 <h3 id="query">Query</h3>
@@ -1560,8 +1560,8 @@ NULL
 </section>
 <section id="sql---group-by---sample-data-1" class="slide level2">
 <h2>SQL - <code>GROUP BY</code> - Sample Data</h2>
-<div id="f2e392ee" class="cell" data-execution_count="16">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="50">
+<div id="f715e6c5" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="16">
 <div class="columns">
 <div class="column" style="width:23%;">
 <h3 id="notes-about-the-menu">Notes about the menu</h3>
@@ -1809,8 +1809,8 @@ NULL
 <section id="sql---group-by---sample-data-2" class="slide level2">
 <h2>SQL - <code>GROUP BY</code> - Sample Data</h2>
 <h3 id="lets-look-at-the-calories-column-for-the-entire-menu">Let’s look at the calories column for the entire menu</h3>
-<div id="373789cd" class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="51">
+<div id="c6124e27" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="query-1">Query</h3>
@@ -1882,8 +1882,8 @@ Avg
 <section id="sql---group-by---calories-by-category" class="slide level2">
 <h2>SQL - <code>GROUP BY</code> - <code>calories</code> by <code>category</code></h2>
 <h3 id="group-by-example-using-calories-and-category."><code>GROUP BY</code> example using <code>calories</code> and <code>category</code>.</h3>
-<div id="00810762" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="52">
+<div id="60e9dd27" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="query-2">Query</h3>
@@ -2002,8 +2002,8 @@ Entree
 <section id="sql---group-by---price-by-category" class="slide level2">
 <h2>SQL - <code>GROUP BY</code> - <code>price</code> by <code>category</code></h2>
 <h3 id="group-by-example-using-price-and-category."><code>GROUP BY</code> example using <code>price</code> and <code>category</code>.</h3>
-<div id="526a116c" class="cell" data-execution_count="19">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="53">
+<div id="ad9014e6" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="query-3">Query</h3>
@@ -2117,8 +2117,8 @@ Entree
 <section id="sql---group-by---price-by-popularity" class="slide level2">
 <h2>SQL - <code>GROUP BY</code> - <code>price</code> by <code>popularity</code></h2>
 <h3 id="group-by-example-using-popularity-and-category."><code>GROUP BY</code> example using <code>popularity</code> and <code>category</code>.</h3>
-<div id="024f48d6" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="54">
+<div id="3dbfc83a" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="query-4">Query</h3>
@@ -2245,8 +2245,8 @@ Entree
 <section id="sql---having---example" class="slide level2">
 <h2>SQL - HAVING - example</h2>
 <h3 id="list-full-stats-for-categories-with-average-calories-greater-than-400-calories.">List full stats for categories with average calories greater than 400 calories.</h3>
-<div id="828b1015" class="cell" data-execution_count="21">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="55">
+<div id="117f9111" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="query-5">Query</h3>
@@ -2348,8 +2348,8 @@ Dessert
 <section id="sql---having---example-1" class="slide level2">
 <h2>SQL - HAVING - example</h2>
 <h3 id="list-just-category-names-with-average-calories-greater-than-400-calories.">List just category names with average calories greater than 400 calories.</h3>
-<div id="8e952a43" class="cell" data-execution_count="22">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="56">
+<div id="756f9be6" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <div class="columns">
 <div class="column" style="width:35%;">
 <h3 id="query-6">Query</h3>
@@ -2421,8 +2421,8 @@ Dessert
 <p>
 &nbsp;
 </p>
-<div id="e749ab0f" class="cell" data-execution_count="23">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="57">
+<div id="7c905599" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-9">SQL Code</h3>
@@ -2772,8 +2772,8 @@ NULL
 <section id="homework-7---which-skills-are-unused" class="slide level2">
 <h2>Homework 7 - Which skills are unused?</h2>
 <p>Let’s start easy …</p>
-<div id="9cb3f665" class="cell" data-execution_count="24">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="58">
+<div id="b4e9826c" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-10">SQL Code</h3>
@@ -2839,8 +2839,8 @@ NULL
 <section id="homework-7---which-skills-are-used-1" class="slide level2">
 <h2>Homework 7 - Which skills are used? (#1)</h2>
 <p>This table is a problem. We need to somehow remove duplicate records.</p>
-<div id="068bbfc9" class="cell" data-execution_count="25">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="59">
+<div id="1bc24621" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-11">SQL Code</h3>
@@ -3170,8 +3170,8 @@ Skill 5
 <section id="homework-7---which-skills-are-used-2" class="slide level2">
 <h2>Homework 7 - Which skills are used? (#2)</h2>
 <p>We can remove duplicates with <code>GROUP BY</code> to aggregate (combine) duplicate records.</p>
-<div id="1eccbe68" class="cell" data-execution_count="26">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="60">
+<div id="499f5838" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-12">SQL Code</h3>
@@ -3291,8 +3291,8 @@ Skill 6
 <section id="homework-7---which-skills-are-used-3" class="slide level2">
 <h2>Homework 7 - Which skills are used? (#3)</h2>
 <p>Same query as before, removing additional GROUP BY fields</p>
-<div id="0886a2cc" class="cell" data-execution_count="27">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="61">
+<div id="82ab9a27" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-13">SQL Code</h3>
@@ -3367,8 +3367,8 @@ Skill 6
 <section id="homework-7---how-many-times-is-each-skill-used" class="slide level2">
 <h2>Homework 7 - How many times is each skill used?</h2>
 <p>This query counts <code>NON-NULL</code> values of <code>peopleskills.skills_id</code>.</p>
-<div id="c056a380" class="cell" data-execution_count="28">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="62">
+<div id="7262df68" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="28">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-14">SQL Code</h3>
@@ -3475,8 +3475,8 @@ Skill 8
 <section id="homework-7---which-skills-are-most-used-1" class="slide level2">
 <h2>Homework 7 - Which skills are most used? #1</h2>
 <p>To find the skills most used I can sort by <code>COUNT</code></p>
-<div id="2e9fe866" class="cell" data-execution_count="29">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="63">
+<div id="f98b4a96" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="29">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-15">SQL Code</h3>
@@ -3582,8 +3582,8 @@ Skill 7
 <section id="homework-7---which-skill-is-most-used-2" class="slide level2">
 <h2>Homework 7 - Which skill is most used? #2</h2>
 <p>To find the most used, I can TRY using LIMIT</p>
-<div id="f153b5bc" class="cell" data-execution_count="30">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="64">
+<div id="3c785ac9" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="30">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-16">SQL Code</h3>
@@ -3639,8 +3639,8 @@ Skill 5
 <section id="homework-7---which-skill-is-most-used-3" class="slide level2">
 <h2>Homework 7 - Which skill is most used? #3</h2>
 <p>In another (sub-optimal) approach, I can manually pick the <code>MAX</code> from the list using <code>HAVING</code>.</p>
-<div id="3a5aaf59" class="cell" data-execution_count="31">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="65">
+<div id="f2aa9e67" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="31">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-17">SQL Code</h3>
@@ -3704,8 +3704,8 @@ Skill 5
 <section id="homework-7---which-skill-is-most-used-4" class="slide level2">
 <h2>Homework 7 - Which skill is most used? #4</h2>
 <p>OK - let’s find the largest number of times a skill is used.</p>
-<div id="51096533" class="cell" data-execution_count="32">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="66">
+<div id="fd57e0d8" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="32">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-18">SQL Code</h3>
@@ -3751,8 +3751,8 @@ Most used
 <h2>Homework 7 - Which skill is most used? #5</h2>
 <p>Can we combine the last query into our original query?</p>
 <p>YES - these are call sub-queries - and we’ll dive into them next week!</p>
-<div id="f79316c2" class="cell" data-execution_count="33">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="67">
+<div id="7b2452ec" class="cell" data-execution_count="33">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="33">
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="sql-code-19">SQL Code</h3>
@@ -3874,7 +3874,7 @@ Skill 5
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">11/13</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG24: L24 (Aggregates 2)</td>
+<td>MTG24: L24 (Subqueries and WITH 1)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -3898,7 +3898,7 @@ Skill 5
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/18</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG25: L25 (Subqueries and WITH 1)</td>
+<td>MTG25: L25 (Subqueries and WITH 2)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -3906,7 +3906,7 @@ Skill 5
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH 2)</td>
+<td>MTG26: L26 (Procedures and Triggers 1)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -3922,7 +3922,7 @@ Skill 5
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/2</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG27: L27 (Procedures and Triggers 1)</td>
+<td>MTG27: L27 (Procedures and Triggers 2)</td>
 <td></td>
 </tr>
 </tbody>
