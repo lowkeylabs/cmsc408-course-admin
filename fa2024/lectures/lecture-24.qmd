@@ -1,11 +1,11 @@
 ---
 date: 11/13/2024
-lecture-id: 24
-title: Aggregates 2
 execute:
-    cache: false
-    echo: false
-    eval: true
+  cache: false
+  echo: false
+  eval: true
+lecture-id: 24
+title: Subqueries and WITH 1
 ---
 
 ```{python}

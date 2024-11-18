@@ -1,11 +1,11 @@
 ---
 date: 11/11/2024
+execute:
+  cache: false
+  echo: false
+  eval: true
 lecture-id: 23
 title: Aggregates 1
-execute:
-    cache: false
-    echo: false
-    eval: true
 ---
 
 ```{python}

@@ -1,7 +1,7 @@
 ---
 date: 12/9/2024
 lecture-id: 29
-title: Misc. topics
+title: Security
 ---
 
 ```{python}
