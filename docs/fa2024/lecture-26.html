@@ -13,7 +13,7 @@
 <link href="lecture-26_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Subqueries and WITH</title>
+  <title>Views and Indexes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -37,6 +37,8 @@
   <link href="lecture-26_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-26_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-26_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-26_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-26_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-26_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +339,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Subqueries and WITH</h1>
+  <h1 class="title">Views and Indexes</h1>
   <p class="subtitle">Lecture 26</p>
 
 <div class="quarto-title-authors">
@@ -353,12 +355,15 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank">Homework 8 - WB Regions and Income - due 11/17</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918" target="_blank">Homework 9 - WB Population Analysis - due 12/8</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank">Keep working on your semester project!!!</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li>Homework 9 - discussion</li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -384,7 +389,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td>MTG26: L26 (Views and Indexes)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -400,7 +405,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/2</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG27: L27 (Procedures and Triggers 1)</td>
+<td>MTG27: L27 (Procedures and Functions)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -408,7 +413,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/4</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG28: L28 (Procedures and Triggers 2)</td>
+<td>MTG28: L28 (Triggers)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -417,15 +422,15 @@
 <td style="text-align: center;">12/8</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW8 due (More on SQL)</td>
+<td>HW9 due (Even more on SQL)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">17</td>
 <td style="text-align: center;">12/9</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG29: L29 (Misc. topics)</td>
-<td>PrjDel 12 due (Phase 2 submission); HW9 due (Course evaluation); Last day of class</td>
+<td>MTG29: L29 (Security)</td>
+<td>PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adv. SQL</td>
@@ -447,8 +452,8 @@
 </table>
 </div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -474,6 +479,33 @@
 </div>
 </div>
 </section>
+<section>
+<section id="homework-9---discussion" class="title-slide slide level1 center">
+<h1>Homework 9 - discussion</h1>
+
+</section>
+<section id="homework-9---discussion-1" class="slide level2">
+<h2>Homework 9 - discussion</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918" target="_blank"><img data-src="./assets/homework9-page.png"></a></p>
+</div><div class="column" style="width:40%;">
+<h3 id="hw9-learning-objectives">HW9 Learning Objectives</h3>
+<ul>
+<li><p>Deeper understand of <code>SELECT</code></p></li>
+<li><p>Deeper exploration of <code>CTS</code>s</p></li>
+<li><p>More data analysis</p></li>
+</ul>
+<h3 id="data-source">Data Source</h3>
+<ul>
+<li><a href="https://data.worldbank.org/indicator" target="_blank">World Bank Indicators</a></li>
+</ul>
+<h3 id="solution-without-sql">Solution (without SQL)</h3>
+<ul>
+<li><a href="./assets/homework9-solution.html" target="_blank">HW9 - solution</a></li>
+</ul>
+</div></div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -482,12 +514,15 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534" target="_blank">Homework 8 - WB Regions and Income - due 11/17</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918" target="_blank">Homework 9 - WB Population Analysis - due 12/8</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank">Keep working on your semester project!!!</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li>Homework 9 - discussion</li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -513,7 +548,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/20</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG26: L26 (Subqueries and WITH)</td>
+<td>MTG26: L26 (Views and Indexes)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -529,7 +564,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/2</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG27: L27 (Procedures and Triggers 1)</td>
+<td>MTG27: L27 (Procedures and Functions)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -537,7 +572,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/4</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG28: L28 (Procedures and Triggers 2)</td>
+<td>MTG28: L28 (Triggers)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -546,15 +581,15 @@
 <td style="text-align: center;">12/8</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW8 due (More on SQL)</td>
+<td>HW9 due (Even more on SQL)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">17</td>
 <td style="text-align: center;">12/9</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG29: L29 (Misc. topics)</td>
-<td>PrjDel 12 due (Phase 2 submission); HW9 due (Course evaluation); Last day of class</td>
+<td>MTG29: L29 (Security)</td>
+<td>PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adv. SQL</td>
@@ -595,7 +630,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -606,6 +641,7 @@
   <script src="lecture-26_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-26_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-26_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-26_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-26_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -626,7 +662,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -802,7 +839,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

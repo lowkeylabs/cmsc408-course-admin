@@ -2,6 +2,10 @@
 date: 11/20/2024
 lecture-id: 26
 title: Views and Indexes
+execute:
+  cache: false
+  echo: false
+  eval: true
 ---
 
 ```{python}
@@ -17,17 +21,48 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'CMSC 427 - User Interfaces - Spring 2025',
+    '[Homework 8 - WB Regions and Income - due 11/17](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534){target="_blank"}',
+    '[Homework 9 - WB Population Analysis - due 12/8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918){target="_blank"}',
+    '[Keep working on your semester project!!!](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    "Homework 9 - discussion",
 ]
+
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Homework 9 - discussion
 
+## Homework 9 - discussion
+
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework9-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918){target="_blank"}
+:::
+::: {.column width=40%}
+### HW9 Learning Objectives
+
+* Deeper understand of `SELECT`
+
+* Deeper exploration of `CTS`s
+
+* More data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+### Solution (without SQL)
+
+* [HW9 - solution](./assets/homework9-solution.html){target="_blank"}
+
+:::
+::::
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

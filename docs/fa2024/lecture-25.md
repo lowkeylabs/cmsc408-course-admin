@@ -65,7 +65,7 @@ Monday - Nov 18, 2024
 ## We are here
 
 <img src="lecture-25_files\figure-commonmark\mermaid-figure-1.png"
-style="width:12.86in;height:2.54in" />
+style="width:11.93in;height:2.54in" />
 
 # Homework 8 discussion
 
