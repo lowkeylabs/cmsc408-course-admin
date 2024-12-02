@@ -17,17 +17,90 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    'CMSC 427 - User Interfaces - Spring 2025',
+    '[Homework 9 - WB Population Analysis - due 12/8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918){target="_blank"}',
+    '[Homework 10 - Course evaluation - due 12/8](https://virginiacommonwealth.instructure.com/courses/105097/assignments/969453){target="_blank"}',
+    '[Deliverable 12 - Semester Project - due 12/9](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}',
+    'Catch up on other assignments ...'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 9 discussion](#homework-9---discussion)',
+    '[Review deliverable 12 rubric](#deliverable-12---semester-project)',
+    '[SQL - Stored Procedures](#sql---stored-procedures)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 {{< include "./_template-lecture-gantt.qmd" >}}
 
+# Homework 9 - discussion
 
+## Homework 9 - discussion
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework9-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918){target="_blank"}
+:::
+::: {.column width=40%}
+### HW9 Learning Objectives
+
+* Deeper understand of `SELECT`
+
+* Deeper exploration of `CTS`s
+
+* More data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+### Solution (without SQL)
+
+* [HW9 - solution](./assets/homework9-solution.html){target="_blank"}
+
+
+### Potential issue:
+
+Set `show_size=True` in your code. This will ensure that the rows and columns count is included in your code!
+
+```python
+
+def run_sql_and_return_html( cnx, sql, show_size=True):
+
+```
+
+:::
+::::
+
+
+# Deliverable 12 - Semester Project
+
+## Deliverable 12 - Semester Project
+
+:::: {.columns}
+::: {.column}
+### Discussion items
+
+* Review project docs 
+* Review rubric
+
+### Learning Objective
+
+One learning objective for this project is for you to demonstrate that you can chase down what you need to complete a project!
+
+:::
+::: {.column}
+### Potential resources
+There is TONS of stuff available on-line.
+
+* [Programming Knowledge (video)](https://www.youtube.com/watch?v=ah5M4Umuf9w)
+* [Tutorial Republic (tutorial)](https://www.tutorialrepublic.com/php-tutorial/php-mysql-crud-application.php)
+* [Medium article (article)](https://medium.com/@omer_14630/building-a-simple-crud-api-with-php-and-mysql-a-step-by-step-guide-aa31f9ab5a3b)
+
+:::
+::::
+
+{{< include "../../topics/_procedures.qmd" >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

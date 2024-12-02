@@ -4,27 +4,29 @@
 
 :::: {.columns}
 ::: {.column}
-### What is a SQL Procedure?
-- A SQL Procedure is a set of SQL statements that can be executed as a single unit.
-- Procedures are used to encapsulate a series of SQL commands for reusability and ease of maintenance.
-- CREATE PROCEDURE is a DDL statement and belongs in the DDL file.
+### What is a SQL subprogram?
+- A SQL subprogram is a set of SQL statements that can be executed as a single unit.
+- FUNCTIONS are used to encapsulate logic for later use inside a SELECT statement.
+- PROCEDURES are used to encapsulate a series of SQL commands for reusability and ease of maintenance.
+- CREATE PROCEDURE and CREATE FUNCTION are a DDL statements and belongs in the DDLs file.
+- Functions and procedures are later used inside the DML file.
 :::
 ::: {.column}
 ![](./assets/SQL-Stored-Procedure.png){fig-align="center"}
 :::
 ::::
 
-## SQL Procedures - Motivation (1)
-SQL procedures should be used in various situations to improve code organization, reusability, security, and performance. Here are some common scenarios when you should consider using SQL procedures:
+## SQL subprograms - Motivation (1)
+SQL subprograms should be used in various situations to improve code organization, reusability, security, and performance. Here are some common scenarios when you should consider using SQL procedures:
 
 :::: {.columns}
 ::: {.column}
 
-1. **Code Reusability and Maintenance:** Procedures allow you to encapsulate a series of SQL statements into a single unit. This makes it easier to reuse the same logic across multiple parts of your application, reducing code duplication.
+1. **Code Reusability and Maintenance:** Subprograms allow you to encapsulate a series of SQL statements into a single unit. This makes it easier to reuse the same logic across multiple parts of your application, reducing code duplication.
 
-2. **Complex Queries:** When dealing with complex queries involving multiple tables, joins, conditions, or calculations, procedures can simplify the code and make it more manageable.
+2. **Complex Queries:** When dealing with complex queries involving multiple tables, joins, conditions, or calculations, subprograms can simplify the code and make it more manageable.
 
-3. **Security:** Procedures can help enhance security by allowing you to control who has access to execute specific procedures rather than granting direct table access. This can be useful for enforcing security policies and limiting potential risks.
+3. **Security:** Subprograms can help enhance security by allowing you to control who has access to execute specific procedures rather than granting direct table access. This can be useful for enforcing security policies and limiting potential risks.
 
 :::
 ::: {.column}
@@ -33,80 +35,204 @@ SQL procedures should be used in various situations to improve code organization
 
 5. **Performance Optimization:** By using procedures, you can precompile and optimize SQL statements, which can improve query execution performance. This is particularly beneficial for frequently executed queries.
 
-6. **Parameterized Queries:** Procedures can accept input parameters, making them versatile for handling various data scenarios without changing the underlying SQL code. This parameterization helps prevent SQL injection attacks and promotes code stability.
+6. **Parameterized Queries:** Procedures and functions can accept input parameters, making them versatile for handling various data scenarios without changing the underlying SQL code. This parameterization helps prevent SQL injection attacks and promotes code stability.
 
 :::
 ::::
 
-## SQL Procedures - Motivation (2)
-SQL procedures should be used in various situations to improve code organization, reusability, security, and performance. Here are some common scenarios when you should consider using SQL procedures:
+## SQL Subprograms - Motivation (2)
+SQL procedures and functions should be used in various situations to improve code organization, reusability, security, and performance. Here are some common scenarios when you should consider using SQL procedures:
 
 :::: {.columns}
 ::: {.column}
 
-7. **Version Control and Maintenance:** Procedures provide a modular structure that simplifies version control and maintenance of database logic. Changes can be made to procedures without affecting the application code that calls them.
+7. **Version Control and Maintenance:** Procedures and functions provide a modular structure that simplifies version control and maintenance of database logic. Changes can be made to procedures without affecting the application code that calls them.
 
-8. **Business Logic Separation:** Procedures allow you to separate business logic from application code. This can make your codebase more maintainable and facilitate collaboration between database developers and application developers.
+8. **Business Logic Separation:** Procedures and functions allow you to separate business logic from application code. This can make your codebase more maintainable and facilitate collaboration between database developers and application developers.
 
 :::
 ::: {.column}
 
-9. **Scheduled Jobs:** Procedures can be scheduled to run at specific intervals using database scheduling mechanisms. This is useful for automating routine tasks, data cleanup, or generating reports.
+9. **Scheduled Jobs:** Procedures and functions can be scheduled to run at specific intervals using database scheduling mechanisms. This is useful for automating routine tasks, data cleanup, or generating reports.
 
-10. **Audit Trails:** Procedures can be used to implement audit trails, recording changes made to the database for tracking and compliance purposes.
+10. **Audit Trails:** Procedures and functions can be used to implement audit trails, recording changes made to the database for tracking and compliance purposes.
 
 :::
 ::::
 
-## SQL Procedures - CREATE PROCEDURE
+## Comparision - Functions and Procedures
+
+| Aspect                   | Procedure                                  | Function                                |
+|--------------------------|--------------------------------------------|-----------------------------------------|
+| Return Value             | Does not return a value directly (uses `OUT` parameters or `SELECT`). | Must return a single value using `RETURN`. |
+| Use in SQL Statements    | Cannot be used in SQL statements.          | Can be used directly in `SELECT`, `WHERE`, etc. |
+| Typical Use Case         | Perform complex tasks, including multiple queries and updates. | Perform calculations or return a single value. |
+
+## SQL Functions - CREATE FUNCTION
 
 :::: {.columns}
 ::: {.column}
 
-### Syntax for Creating a Procedure
+### Example FUNCTION
 
 ```sql
-DELIMETER //
-CREATE PROCEDURE procedure_name
-    [parameter1 data_type, parameter2 data_type, ...]
-AS
+DELIMITER //
+CREATE FUNCTION CalculateTotalPrice
+    (ProductID INT, Quantity INT)
+    RETURNS DECIMAL(10, 2) DETERMINISTIC
 BEGIN
-    -- SQL statements here
+    DECLARE unit_price DECIMAL(10, 2);
+
+    -- Get unit price for input ProductID
+    SELECT unit_price INTO unit_price
+    FROM products
+    WHERE product_id = ProductID;
+
+    -- Return the calculated total price
+    RETURN unit_price * Quantity;
 END //
 DELIMETER ;
 ```
-* Procedures are mini SQL programs.
-* CREATE PROCEDURE is a DDL statement
-* MySQL uses DELIMETER to separate procedure SQL from DDL SQL.
-* Other DDL statements:
-    - DROP PROCEDURE
-    - SHOW PROCEDURE STATUS
-    - ALTER PROCEDURE
-:::
-::: {.column}
-
-### Example
-
-```sql
-CREATE PROCEDURE CalculateTotalPrice
-    @ProductID INT,
-    @Quantity INT
-AS
-BEGIN
-    SELECT product_name, unit_price * @Quantity AS total_price
-    FROM products
-    WHERE product_id = @ProductID;
-END;
-```
 * Procedures can accept arguments on INPUT and arguments for OUTPUT
 * In the example above, the procedure accepts 2 arguments on input and returns a table.
+:::
+::: {.column}
+### Explanation
+
+1. **`RETURNS DECIMAL(10, 2)`**:
+   - Specifies that the function returns a value of type `DECIMAL` with up to 10 digits and 2 decimal places. Adjust this as needed based on your price data.
+
+2. **`DETERMINISTIC`**:
+   - Indicates that the function always returns the same result for the same input. This is required if the function is deterministic (e.g., no randomness or time-based calculations).
+
+3. **`DECLARE` Statement**:
+   - Used to define a variable `unit_price` to temporarily store the product's unit price.
+
+4. **`RETURN` Statement**:
+   - Calculates and returns the total price.
+
 * Procedures can contain multiple SQL statements. Statements executed in order and the results of one may feed the next.
 * Procedures can contain WHILE LOOP and other control statements.
 :::
 ::::
 
-## SQL Procedures - Who might use them
+## SQL Functions - Examples
 
+```sql
+-- Get the total price for ProductID 1 and Quantity 10
+SELECT CalculateTotalPrice(1, 10) AS total_price;
+
+-- Use the function in a SELECT statement
+SELECT product_id, CalculateTotalPrice(product_id, 5) AS total_price
+FROM products
+WHERE product_id IN (1, 2, 3);
+
+-- Insert the result into another table
+INSERT INTO order_summary (product_id, total_price)
+VALUES (1, CalculateTotalPrice(1, 10));
+```
+
+## SQL Procedures - CREATE PROCEDURE
+
+FUNCTIONS are handy to streamline and cleanup SELECT statements.
+
+PROCEDURES encapsulate broader workflows.  For example we might write a new PROCEDURE to encapsulate the CalculateTotalPrice FUNCTION.
+
+For example, a procedure could:
+
+1. **Place an Order**: Insert an order into an `orders` table using the calculated total price.
+2. **Generate a Summary**: Log or return a detailed breakdown of an order, including the product name, quantity, and total price.
+3. **Handle Multiple Items**: Work with multiple products in one transaction and use the function to calculate totals for each.
+
+## SQL PROCEDURES 
+
+:::: {.columns}
+::: {.column width="60%"}
+
+### Example: CREATE PROCEDURE
+
+```sql
+DELIMITER //
+
+CREATE PROCEDURE PlaceOrder(
+    IN ProductID INT,
+    IN Quantity INT
+)
+BEGIN
+    DECLARE TotalPrice DECIMAL(10, 2);
+
+    -- Use the CalculateTotalPrice function to get the total price
+    SET TotalPrice = CalculateTotalPrice(ProductID, Quantity);
+
+    -- Insert the order into the orders table
+    INSERT INTO orders (product_id, quantity, total_price)
+    VALUES (ProductID, Quantity, TotalPrice);
+
+    -- Optionally print a confirmation message
+    SELECT CONCAT('Order placed successfully for ProductID ', ProductID, 
+                  ' with Quantity ', Quantity, 
+                  ' and Total Price ', TotalPrice) AS confirmation_message;
+END //
+
+DELIMITER ;
+```
+:::
+::: {.column width="40%"}
+### Assumptions:
+- We've got two tables:
+  - `orders`: To record order details (`order_id`, `product_id`, `quantity`, `total_price`).
+  - `products`: To look up product details (as used in the `CalculateTotalPrice` function).
+
+### How It Works:
+1. **Uses the `CalculateTotalPrice` Function**:
+   - The procedure calls the function to compute the total price dynamically.
+
+2. **Records the Order**:
+   - Inserts the order into the `orders` table.
+
+3. **Provides Feedback**:
+   - Returns a confirmation message to the user about the order.
+
+
+:::
+::::
+
+## SQL PROCEDURES
+
+Suppose that you have a web application that gathers items and quantities.  These data could be passed to SQL and a single procedure can be responsible for doing all the work
+
+:::: {.columns}
+::: {.column}
+### Example Usage
+
+To place an order for product ID `1` with a quantity of `5`:
+
+```sql
+
+CALL PlaceOrder(1, 5);
+
+```
+<p>&nbsp;</p>
+### `orders` Table Example
+
+After placing the order, the `orders` table might look like this:
+
+| order_id | product_id | quantity | total_price |
+|----------|------------|----------|-------------|
+| 1        | 1          | 5        | 50.00       |
+
+:::
+::: {.column}
+### Variations:
+
+- **Order Summary**: Enhance the procedure to return an order summary with product details.
+- **Handle Stock**: Extend the procedure to decrement the stock quantity in the `products` table after an order.
+- **Error Handling**: Add logic to check if the product exists or has sufficient stock before placing the order.
+:::
+::::
+
+
+## SQL Procedures - Who might use them
 
 :::: {.columns}
 ::: {.column}
@@ -140,4 +266,5 @@ END;
 
 * Stored procedures are a handy tool for the tool belt.
 * They're usually written to help with DB adminstration and maintenance.
-* From a performance perspective, you don't want to include procedures in your data pipeline.
+* In general, procedures and functions can streamline your code, making it more readible and module.
+* However, exercise caution when using functions and procedures - they can KILL your performance if implemented incorrectly!
