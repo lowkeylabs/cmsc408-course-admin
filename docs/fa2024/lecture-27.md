@@ -130,7 +130,9 @@ def run_sql_and_return_html( cnx, sql, show_size=True):
 ### Discussion items
 
 - Review project docs
-- Review rubric
+
+- [Review
+  rubric](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535)
 
 ### Learning Objective
 
