@@ -20,30 +20,6 @@
 :::
 ::::
 
-## VIEWS in SQL: Benefits and Considerations
-
-:::: {.columns}
-::: {.column}
-### Other DDL commands
-- CREATE VIEW
-- DROP VIEW
-- CREATE OR REPLACE VIEW
-
-### Benefits of Views
-- Data abstraction and security.
-- Reusability of complex queries.
-- Performance optimization by precomputing results.
-:::
-::: {.column}
-### Considerations
-- Views can hide underlying schema complexity, but overuse can lead to confusion.
-- Views may impact query performance if they involve complex operations or large datasets.
-- Views are NOT tables, they are reevaluated every time they're called.
-- Views are NOT a substitute for a well-structured WITH query.
-- WARNING - changes in underlying tables can affect view results.
-:::
-::::
-
 ## VIEWS - Creating a VIEW
 
 :::: {.columns}
@@ -74,10 +50,58 @@ CREATE VIEW customer_orders AS
 :::
 ::::
 
-## Views in SQL - Displaying VIEW
+## VIEWS in SQL: When and When NOT
 
-```{python}
-sql = """SHOW FULL TABLES"""
-show_sql_and_results( cnx,sql,widths=default_widths )
+:::: {.columns}
+::: {.column}
+### When to Use a View  
 
-```
+- **Simplify Complex Queries**: Use views to encapsulate complex SQL logic, making it easier for developers and users to work with pre-defined query results.  
+
+- **Enhance Security**: Views can restrict access to specific columns or rows in a table, providing a controlled way to expose data without granting direct table access.  
+
+- **Abstract Schema Complexity**: Use views to present a simplified version of the database schema, especially when the underlying schema is complex or frequently changing.  
+
+- **Enable Reusability**: Views allow you to reuse commonly used query patterns, reducing duplication and improving maintainability across your database applications.  
+
+:::
+::: {.column}
+### When NOT to Use a View  
+
+- **Performance-Critical Scenarios**: Avoid views when they involve complex queries or large datasets, as they can negatively impact query performance, especially if not indexed appropriately.  
+
+- **Dynamic Data Needs**: Do not use views if the data requires frequent real-time updates or parameterized filtering, as views are static by nature and cannot accept parameters.  
+
+- **Data Manipulation Requirements**: Views are unsuitable when you need to frequently update, delete, or insert data, as not all views are updatable and may cause unexpected behavior.  
+
+- **Overabstraction**: Avoid creating too many nested or layered views, as this can lead to confusion, reduced readability, and maintenance challenges.  
+
+:::
+::::
+
+
+
+## VIEWS in SQL: Benefits and Considerations
+
+:::: {.columns}
+::: {.column}
+### Other DDL commands
+- CREATE VIEW
+- DROP VIEW
+- CREATE OR REPLACE VIEW
+
+### Benefits of Views
+- Data abstraction and security.
+- Reusability of complex queries.
+- Performance optimization by precomputing results.
+:::
+::: {.column}
+### Considerations
+- Views can hide underlying schema complexity, but overuse can lead to confusion.
+- Views may impact query performance if they involve complex operations or large datasets.
+- Views are NOT tables, they are reevaluated every time they're called.
+- Views are NOT a substitute for a well-structured WITH query.
+- WARNING - changes in underlying tables can affect view results.
+:::
+::::
+

@@ -1,0 +1,128 @@
+# TRIGGERS in SQL
+
+## TRIGGERS in SQL
+
+:::: {.columns}
+::: {.column width="60%"}
+
+### What is a TRIGGER?  
+- A Trigger is a stored program in SQL that automatically executes in response to specified events on a table or view.  
+- It is event-driven and tied to a specific table or event like `INSERT`, `UPDATE`, or `DELETE`.  
+
+### Why Use TRIGGERS?  
+- Enforce business rules automatically at the database level.  
+- Maintain data integrity and consistency across tables.  
+- Automate tasks like logging changes or generating audit records.  
+- Perform validation or cascading updates without requiring manual intervention.  
+
+:::
+::: {.column width="40%"}
+![](./assets/SQL-Triggers.png){fig-align="center"}
+
+:::
+::::
+
+## Create a TRIGGER
+
+::: {style="font-size:0.95em;"}
+:::: {.columns}
+::: {.column}
+### Syntax
+```sql
+DELIMITER //
+CREATE
+    [DEFINER = user]
+    TRIGGER [IF NOT EXISTS] trigger_name
+    trigger_time trigger_event
+    ON tbl_name FOR EACH ROW
+    [trigger_order]
+    BEGIN
+    trigger_body
+    END;
+//
+DELIMITER ;
+trigger_time: { BEFORE | AFTER }
+
+trigger_event: { INSERT | UPDATE | DELETE }
+
+trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
+```
+:::
+::: {.column}
+### Example
+```sql
+DELIMITER //
+
+CREATE TRIGGER update_stock_after_order  
+AFTER INSERT ON orders  
+FOR EACH ROW  
+BEGIN  
+  UPDATE products  
+  SET stock_quantity = stock_quantity - NEW.quantity  
+  WHERE product_id = NEW.product_id;  
+END; //
+
+DELIMITER ;
+```
+
+* CREATE TRIGGER is a DDL statement
+* TRIGGERS follow same rules as stored procedures
+:::
+::::
+:::
+
+## TRIGGERS in SQL: When and When NOT
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### When to Use a Trigger  
+- **Automating Tasks**: Use triggers to automate repetitive or administrative tasks, such as maintaining audit logs, tracking changes, or updating related tables.  
+
+- **Enforcing Business Rules**: Triggers are ideal for enforcing complex business rules that cannot be implemented with constraints alone, like ensuring data consistency across related tables.  
+
+- **Data Validation**: Use triggers to validate or modify data before it is inserted, updated, or deleted, preventing invalid or incomplete data from being stored.  
+
+- **Reacting to Data Changes**: Triggers are helpful when you need to execute specific actions automatically in response to data modifications, such as sending notifications or recalculating aggregated values.  
+
+:::
+::: {.column width="50%"}
+### When NOT to Use a Trigger  
+
+- **Performance-Sensitive Scenarios**: Avoid triggers in scenarios with high transaction volume, as they can introduce overhead and impact database performance.  
+
+- **Complex Logic**: Do not use triggers for complex business logic that could be better handled in the application layer, where debugging and maintenance are easier.  
+
+- **Cross-System Dependencies**: Triggers are unsuitable when actions depend on external systems or APIs, as this can cause reliability and latency issues.  
+
+- **Frequent Schema Changes**: Avoid using triggers if the table schema is subject to frequent changes, as this can make maintenance cumbersome and error-prone.  
+
+:::
+::::
+
+## TRIGGERS in SQL: Benefits and Considerstaions
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### Other DDL Commands for Triggers  
+- CREATE TRIGGER  
+- DROP TRIGGER  
+
+### Benefits of Triggers  
+- Automation of database operations.  
+- Enforcing business rules and data integrity.  
+- Maintaining audit trails for data changes.  
+- Reducing application-level logic by embedding functionality directly in the database.  
+
+:::
+::: {.column width="50%"}
+### Considerations  
+- Triggers can simplify automation but may make debugging and maintenance more complex.  
+- Excessive use of triggers can lead to performance overhead, especially with frequent table modifications.  
+- Triggers are NOT intended to replace application logic but to complement it for database-specific tasks.  
+- Triggers execute silently, which may lead to unintended consequences if not carefully designed.  
+- WARNING – cascading effects from triggers can create unexpected or recursive behavior.  
+:::
+::::
+

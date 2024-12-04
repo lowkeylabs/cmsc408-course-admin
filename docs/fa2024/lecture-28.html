@@ -11,9 +11,9 @@
 <script src="lecture-28_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-28_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-28_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.57">
 
-  <title>Procedures and Triggers 2</title>
+  <title>Triggers, Views and Security</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,12 +31,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-28_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-28_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-28_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lecture-28_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-28_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture-28_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="lecture-28_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -337,7 +404,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Procedures and Triggers 2</h1>
+  <h1 class="title">Triggers, Views and Security</h1>
   <p class="subtitle">Lecture 28</p>
 
 <div class="quarto-title-authors">
@@ -353,23 +420,28 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918" target="_blank">Homework 9 - WB Population Analysis - due 12/8</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/969453" target="_blank">Homework 10 - Course evaluation - due 12/8</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank">Deliverable 12 - Semester Project - due 12/9</a></p></li>
+<li><p>Catch up on other assignments …</p></li>
+<li><p>Next Monday - work session …</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/triggers-in-sql">Triggers</a></p></li>
+<li><p><a href="#/views-in-sql">Views</a></p></li>
+<li><p><a href="#/sql-injection">SQL Injection</a></p></li>
 </ul>
-</div>
-</div>
+</div></div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
-<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -386,7 +458,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/4</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG28: L28 (Procedures and Triggers 2)</td>
+<td>MTG28: L28 (Triggers, Views and Security)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -395,15 +467,15 @@
 <td style="text-align: center;">12/8</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW8 due (More on SQL)</td>
+<td>HW9 due (Even more on SQL)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">17</td>
 <td style="text-align: center;">12/9</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG29: L29 (Misc. topics)</td>
-<td>PrjDel 12 due (Phase 2 submission); HW9 due (Course evaluation); Last day of class</td>
+<td>MTG29: L29 (Work session)</td>
+<td>PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
@@ -424,10 +496,9 @@
 </tbody>
 </table>
 </div>
-</div>
 </section>
-<section id="you-are-here" class="slide level2">
-<h2>You are here</h2>
+<section id="we-are-here" class="slide level2">
+<h2>We are here</h2>
 <div class="cell" data-reveal="true" data-file="week-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -453,6 +524,413 @@
 </div>
 </div>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div style="font-size:3.0em; text-align:center; font-weight:bold;">
+<p>Submission Deadline</p>
+<p>This Monday - 12/9 - by Midnight</p>
+<p>No late work will be accepted.</p>
+</div>
+</section>
+<section>
+<section id="triggers-in-sql" class="title-slide slide level1 center">
+<h1>TRIGGERS in SQL</h1>
+
+</section>
+<section id="triggers-in-sql-1" class="slide level2">
+<h2>TRIGGERS in SQL</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="what-is-a-trigger">What is a TRIGGER?</h3>
+<ul>
+<li>A Trigger is a stored program in SQL that automatically executes in response to specified events on a table or view.<br>
+</li>
+<li>It is event-driven and tied to a specific table or event like <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</li>
+</ul>
+<h3 id="why-use-triggers">Why Use TRIGGERS?</h3>
+<ul>
+<li>Enforce business rules automatically at the database level.<br>
+</li>
+<li>Maintain data integrity and consistency across tables.<br>
+</li>
+<li>Automate tasks like logging changes or generating audit records.<br>
+</li>
+<li>Perform validation or cascading updates without requiring manual intervention.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./assets/SQL-Triggers.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="create-a-trigger" class="slide level2">
+<h2>Create a TRIGGER</h2>
+<div style="font-size:0.95em;">
+<div class="columns">
+<div class="column">
+<h3 id="syntax">Syntax</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a>DELIMITER <span class="op">//</span></span>
+<span id="cb1-2"><a href=""></a><span class="kw">CREATE</span></span>
+<span id="cb1-3"><a href=""></a>    [<span class="kw">DEFINER</span> <span class="op">=</span> <span class="fu">user</span>]</span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">TRIGGER</span> [<span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span>] trigger_name</span>
+<span id="cb1-5"><a href=""></a>    trigger_time trigger_event</span>
+<span id="cb1-6"><a href=""></a>    <span class="kw">ON</span> tbl_name <span class="cf">FOR</span> <span class="kw">EACH</span> <span class="kw">ROW</span></span>
+<span id="cb1-7"><a href=""></a>    [trigger_order]</span>
+<span id="cb1-8"><a href=""></a>    <span class="cf">BEGIN</span></span>
+<span id="cb1-9"><a href=""></a>    trigger_body</span>
+<span id="cb1-10"><a href=""></a>    <span class="cf">END</span>;</span>
+<span id="cb1-11"><a href=""></a><span class="op">//</span></span>
+<span id="cb1-12"><a href=""></a>DELIMITER ;</span>
+<span id="cb1-13"><a href=""></a>trigger_time: { <span class="kw">BEFORE</span> | <span class="kw">AFTER</span> }</span>
+<span id="cb1-14"><a href=""></a></span>
+<span id="cb1-15"><a href=""></a>trigger_event: { <span class="kw">INSERT</span> | <span class="kw">UPDATE</span> | <span class="kw">DELETE</span> }</span>
+<span id="cb1-16"><a href=""></a></span>
+<span id="cb1-17"><a href=""></a>trigger_order: { FOLLOWS | PRECEDES } other_trigger_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a>DELIMITER <span class="op">//</span></span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TRIGGER</span> update_stock_after_order  </span>
+<span id="cb2-4"><a href=""></a><span class="kw">AFTER</span> <span class="kw">INSERT</span> <span class="kw">ON</span> orders  </span>
+<span id="cb2-5"><a href=""></a><span class="cf">FOR</span> <span class="kw">EACH</span> <span class="kw">ROW</span>  </span>
+<span id="cb2-6"><a href=""></a><span class="cf">BEGIN</span>  </span>
+<span id="cb2-7"><a href=""></a>  <span class="kw">UPDATE</span> products  </span>
+<span id="cb2-8"><a href=""></a>  <span class="kw">SET</span> stock_quantity <span class="op">=</span> stock_quantity <span class="op">-</span> <span class="kw">NEW</span>.quantity  </span>
+<span id="cb2-9"><a href=""></a>  <span class="kw">WHERE</span> product_id <span class="op">=</span> <span class="kw">NEW</span>.product_id;  </span>
+<span id="cb2-10"><a href=""></a><span class="cf">END</span>; <span class="op">//</span></span>
+<span id="cb2-11"><a href=""></a></span>
+<span id="cb2-12"><a href=""></a>DELIMITER ;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>CREATE TRIGGER is a DDL statement</li>
+<li>TRIGGERS follow same rules as stored procedures</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="triggers-in-sql-when-and-when-not" class="slide level2">
+<h2>TRIGGERS in SQL: When and When NOT</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="when-to-use-a-trigger">When to Use a Trigger</h3>
+<ul>
+<li><p><strong>Automating Tasks</strong>: Use triggers to automate repetitive or administrative tasks, such as maintaining audit logs, tracking changes, or updating related tables.</p></li>
+<li><p><strong>Enforcing Business Rules</strong>: Triggers are ideal for enforcing complex business rules that cannot be implemented with constraints alone, like ensuring data consistency across related tables.</p></li>
+<li><p><strong>Data Validation</strong>: Use triggers to validate or modify data before it is inserted, updated, or deleted, preventing invalid or incomplete data from being stored.</p></li>
+<li><p><strong>Reacting to Data Changes</strong>: Triggers are helpful when you need to execute specific actions automatically in response to data modifications, such as sending notifications or recalculating aggregated values.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="when-not-to-use-a-trigger">When NOT to Use a Trigger</h3>
+<ul>
+<li><p><strong>Performance-Sensitive Scenarios</strong>: Avoid triggers in scenarios with high transaction volume, as they can introduce overhead and impact database performance.</p></li>
+<li><p><strong>Complex Logic</strong>: Do not use triggers for complex business logic that could be better handled in the application layer, where debugging and maintenance are easier.</p></li>
+<li><p><strong>Cross-System Dependencies</strong>: Triggers are unsuitable when actions depend on external systems or APIs, as this can cause reliability and latency issues.</p></li>
+<li><p><strong>Frequent Schema Changes</strong>: Avoid using triggers if the table schema is subject to frequent changes, as this can make maintenance cumbersome and error-prone.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="triggers-in-sql-benefits-and-considerstaions" class="slide level2">
+<h2>TRIGGERS in SQL: Benefits and Considerstaions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="other-ddl-commands-for-triggers">Other DDL Commands for Triggers</h3>
+<ul>
+<li>CREATE TRIGGER<br>
+</li>
+<li>DROP TRIGGER</li>
+</ul>
+<h3 id="benefits-of-triggers">Benefits of Triggers</h3>
+<ul>
+<li>Automation of database operations.<br>
+</li>
+<li>Enforcing business rules and data integrity.<br>
+</li>
+<li>Maintaining audit trails for data changes.<br>
+</li>
+<li>Reducing application-level logic by embedding functionality directly in the database.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="considerations">Considerations</h3>
+<ul>
+<li>Triggers can simplify automation but may make debugging and maintenance more complex.<br>
+</li>
+<li>Excessive use of triggers can lead to performance overhead, especially with frequent table modifications.<br>
+</li>
+<li>Triggers are NOT intended to replace application logic but to complement it for database-specific tasks.<br>
+</li>
+<li>Triggers execute silently, which may lead to unintended consequences if not carefully designed.<br>
+</li>
+<li>WARNING – cascading effects from triggers can create unexpected or recursive behavior.<br>
+</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="views-in-sql" class="title-slide slide level1 center">
+<h1>VIEWS in SQL</h1>
+
+</section>
+<section id="views-in-sql-1" class="slide level2">
+<h2>VIEWS in SQL</h2>
+<div class="columns">
+<div class="column">
+<h3 id="what-is-a-view">What is a VIEW?</h3>
+<ul>
+<li>A View is a virtual table in SQL.</li>
+<li>It does not store data itself but retrieves data from one or more underlying tables.</li>
+</ul>
+<h3 id="why-use-views">Why Use VIEWS?</h3>
+<ul>
+<li>Simplify complex queries.</li>
+<li>Provide an abstraction layer for security.</li>
+<li>Hide the complexity of underlying database schema.</li>
+<li>Very useful with API development</li>
+</ul>
+</div><div class="column">
+<p><img data-src="./assets/sql-view.jpg"></p>
+</div></div>
+</section>
+<section id="views---creating-a-view" class="slide level2">
+<h2>VIEWS - Creating a VIEW</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-1">Syntax</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> view_name <span class="kw">AS</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">SELECT</span> column1, column2, <span class="op">..</span>.</span>
+<span id="cb3-3"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb3-4"><a href=""></a><span class="kw">WHERE</span> condition;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>CREATE VIEW is a DDL statement</li>
+<li>VIEWS should be defined in same DDL file that creates your database</li>
+<li>VIEWS should be designed with API to simplify API queries.</li>
+</ul>
+</div><div class="column">
+<h3 id="example-1">Example</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> customer_orders <span class="kw">AS</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="kw">SELECT</span> </span>
+<span id="cb4-3"><a href=""></a>    customers.customer_name, orders.order_date</span>
+<span id="cb4-4"><a href=""></a>  <span class="kw">FROM</span></span>
+<span id="cb4-5"><a href=""></a>    customers</span>
+<span id="cb4-6"><a href=""></a>    <span class="kw">JOIN</span> orders <span class="kw">ON</span> </span>
+<span id="cb4-7"><a href=""></a>    customers.customer_id <span class="op">=</span> orders.customer_id;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="views-in-sql-when-and-when-not" class="slide level2">
+<h2>VIEWS in SQL: When and When NOT</h2>
+<div class="columns">
+<div class="column">
+<h3 id="when-to-use-a-view">When to Use a View</h3>
+<ul>
+<li><p><strong>Simplify Complex Queries</strong>: Use views to encapsulate complex SQL logic, making it easier for developers and users to work with pre-defined query results.</p></li>
+<li><p><strong>Enhance Security</strong>: Views can restrict access to specific columns or rows in a table, providing a controlled way to expose data without granting direct table access.</p></li>
+<li><p><strong>Abstract Schema Complexity</strong>: Use views to present a simplified version of the database schema, especially when the underlying schema is complex or frequently changing.</p></li>
+<li><p><strong>Enable Reusability</strong>: Views allow you to reuse commonly used query patterns, reducing duplication and improving maintainability across your database applications.</p></li>
+</ul>
+</div><div class="column">
+<h3 id="when-not-to-use-a-view">When NOT to Use a View</h3>
+<ul>
+<li><p><strong>Performance-Critical Scenarios</strong>: Avoid views when they involve complex queries or large datasets, as they can negatively impact query performance, especially if not indexed appropriately.</p></li>
+<li><p><strong>Dynamic Data Needs</strong>: Do not use views if the data requires frequent real-time updates or parameterized filtering, as views are static by nature and cannot accept parameters.</p></li>
+<li><p><strong>Data Manipulation Requirements</strong>: Views are unsuitable when you need to frequently update, delete, or insert data, as not all views are updatable and may cause unexpected behavior.</p></li>
+<li><p><strong>Overabstraction</strong>: Avoid creating too many nested or layered views, as this can lead to confusion, reduced readability, and maintenance challenges.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="views-in-sql-benefits-and-considerations" class="slide level2">
+<h2>VIEWS in SQL: Benefits and Considerations</h2>
+<div class="columns">
+<div class="column">
+<h3 id="other-ddl-commands">Other DDL commands</h3>
+<ul>
+<li>CREATE VIEW</li>
+<li>DROP VIEW</li>
+<li>CREATE OR REPLACE VIEW</li>
+</ul>
+<h3 id="benefits-of-views">Benefits of Views</h3>
+<ul>
+<li>Data abstraction and security.</li>
+<li>Reusability of complex queries.</li>
+<li>Performance optimization by precomputing results.</li>
+</ul>
+</div><div class="column">
+<h3 id="considerations-1">Considerations</h3>
+<ul>
+<li>Views can hide underlying schema complexity, but overuse can lead to confusion.</li>
+<li>Views may impact query performance if they involve complex operations or large datasets.</li>
+<li>Views are NOT tables, they are reevaluated every time they’re called.</li>
+<li>Views are NOT a substitute for a well-structured WITH query.</li>
+<li>WARNING - changes in underlying tables can affect view results.</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="sql-injection" class="title-slide slide level1 center">
+<h1>SQL Injection</h1>
+
+</section>
+<section id="sql-injection---introduction" class="slide level2">
+<h2>SQL Injection - Introduction</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="sql-injection-what-is-it">SQL Injection: What is it?</h3>
+<ul>
+<li>A common security vulnerability in web and API applications.</li>
+<li>Enabled by lazy or immature SQL coding practices.</li>
+<li>Occurs when an attacker manipulates input to execute malicious SQL queries.</li>
+<li>Common in older web and api applications</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./assets/sql-injection-2.png" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="sql-injection---examples" class="slide level2">
+<h2>SQL Injection - Examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="the-problem-unsanitized-user-input">The Problem: Unsanitized User Input</h3>
+<ul>
+<li>Web applications often take user input through forms or query strings.</li>
+<li>If not properly validated and sanitized, user input can be used to alter SQL queries.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="example-1-unauthorized-access">Example 1: Unauthorized Access</h3>
+<ul>
+<li><strong>Scenario</strong>: Login Page</li>
+<li><strong>Vulnerable Code</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb5-2"><a href=""></a><span class="st">SELECT * FROM users </span></span>
+<span id="cb5-3"><a href=""></a><span class="st">WHERE username='</span><span class="sc">{inputUsername}</span><span class="st">' </span></span>
+<span id="cb5-4"><a href=""></a><span class="st">AND password='</span><span class="sc">{inputPassword}</span><span class="st">';"</span></span>
+<span id="cb5-5"><a href=""></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Attack</strong>: Input as <code>inputUsername = ' OR '1'='1'--</code></li>
+<li><strong>Result</strong>: Successful login bypassing password.</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-injection---examples-1" class="slide level2">
+<h2>SQL Injection - Examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="example-2-data-leakage">Example 2: Data Leakage</h3>
+<ul>
+<li><strong>Scenario</strong>: Search Feature</li>
+<li><strong>Vulnerable Code</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb6-2"><a href=""></a><span class="st">SELECT * FROM products </span></span>
+<span id="cb6-3"><a href=""></a><span class="st">WHERE name LIKE '%</span><span class="sc">{searchKeyword}</span><span class="st">%';</span></span>
+<span id="cb6-4"><a href=""></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Attack</strong>: Input as <code>searchKeyword = ' UNION SELECT username, password FROM users--</code></li>
+<li><strong>Result</strong>: Returns user credentials alongside product data.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="example-3-database-deletion">Example 3: Database Deletion</h3>
+<ul>
+<li><strong>Scenario</strong>: Delete Account Feature</li>
+<li><strong>Vulnerable Code</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb7-2"><a href=""></a><span class="st">DELETE FROM users WHERE id=</span><span class="sc">{userID}</span><span class="st">;</span></span>
+<span id="cb7-3"><a href=""></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Attack</strong>: Input as <code>userID = '1; DROP TABLE users--</code></li>
+<li><strong>Result</strong>: Deletes the entire ‘users’ table.</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-injection---mitigation" class="slide level2">
+<h2>SQL Injection - Mitigation</h2>
+It’s pretty simple, <em>NEVER</em> build a query <em>raw</em>. Here are a few suggestions.
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="solution-1-prepared-statements">Solution 1: Prepared Statements</h3>
+<ul>
+<li>Parameterized queries that separate SQL code from user input.</li>
+<li>Example (Python):</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>cursor.execute(<span class="st">"""</span></span>
+<span id="cb8-2"><a href=""></a><span class="st">SELECT * FROM users </span></span>
+<span id="cb8-3"><a href=""></a><span class="st">WHERE username = ? AND password = ?</span></span>
+<span id="cb8-4"><a href=""></a><span class="st">"""</span>, (inputUsername, inputPassword))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h3 id="solution-2-input-validation">Solution 2: Input Validation</h3>
+<ul>
+<li>Validate and sanitize user input.</li>
+<li>Reject input that doesn’t meet expected criteria.</li>
+<li>Examples:
+<ul>
+<li>Ensure email input is a valid email address.</li>
+<li>Remove extra spaces from user names.</li>
+<li>Remove comment “–” strings from query.</li>
+<li>Remove semicolons “;” from inputs.</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="sql-injection---mitigation-1" class="slide level2">
+<h2>SQL Injection - Mitigation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="solution-3-least-privilege-principle">Solution 3: Least Privilege Principle</h3>
+<ul>
+<li>Avoid using highly privileged accounts in application code.
+<ul>
+<li>Create a unique user for the web application,</li>
+<li>Don’t use your developer account or other account.</li>
+</ul></li>
+<li>Limit the web application user permissions in database.
+<ul>
+<li>Allow web app INSERT, UPDATE, and DELETE</li>
+<li>Disallow web app DROP, CREATE, GRANT, others.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="solution-4-web-application-firewalls-wafs">Solution 4: <a href="https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/">Web Application Firewalls (WAFs)</a></h3>
+<ul>
+<li>Implement a <a href="https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/">WAF</a> to detect and block SQL injection attempts.</li>
+<li>Regularly update and configure the <a href="https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/">WAF</a>.</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-injection---summary" class="slide level2 scrollable">
+<h2>SQL Injection - Summary</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="best-practices">Best practices</h3>
+<ol type="1">
+<li>Use prepared statements or parameterized queries.</li>
+<li>Implement input validation.</li>
+<li>Follow the least privilege principle.</li>
+<li>Use a Web Application Firewall (WAF).</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<h3 id="recap">Recap</h3>
+<ul>
+<li>SQL Injection is a serious security threat.</li>
+<li>Prevention is essential through proper coding practices.</li>
+<li>Stay updated on security best practices and vulnerabilities.</li>
+</ul>
+</div></div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div style="font-size:3.0em; text-align:center; font-weight:bold;">
+<p>Submission Deadline</p>
+<p>This Monday - 12/9 - by Midnight</p>
+<p>No late work will be accepted.</p>
+</div>
+</section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
@@ -461,23 +939,28 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p>CMSC 427 - User Interfaces - Spring 2025</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918" target="_blank">Homework 9 - WB Population Analysis - due 12/8</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/969453" target="_blank">Homework 10 - Course evaluation - due 12/8</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535" target="_blank">Deliverable 12 - Semester Project - due 12/9</a></p></li>
+<li><p>Catch up on other assignments …</p></li>
+<li><p>Next Monday - work session …</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/triggers-in-sql">Triggers</a></p></li>
+<li><p><a href="#/views-in-sql">Views</a></p></li>
+<li><p><a href="#/sql-injection">SQL Injection</a></p></li>
 </ul>
-</div>
-</div>
+</div></div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
-<div>
 
     <style></style>
     <div class="upcoming-calendar">
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -494,7 +977,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">12/4</td>
 <td style="text-align: center;">Wed</td>
-<td>MTG28: L28 (Procedures and Triggers 2)</td>
+<td>MTG28: L28 (Triggers, Views and Security)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -503,15 +986,15 @@
 <td style="text-align: center;">12/8</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW8 due (More on SQL)</td>
+<td>HW9 due (Even more on SQL)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Adv. SQL</td>
 <td style="text-align: center;">17</td>
 <td style="text-align: center;">12/9</td>
 <td style="text-align: center;">Mon</td>
-<td>MTG29: L29 (Misc. topics)</td>
-<td>PrjDel 12 due (Phase 2 submission); HW9 due (Course evaluation); Last day of class</td>
+<td>MTG29: L29 (Work session)</td>
+<td>PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Adv. SQL</td>
@@ -531,7 +1014,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -553,7 +1035,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -564,6 +1046,7 @@
   <script src="lecture-28_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="lecture-28_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="lecture-28_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-28_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="lecture-28_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -584,7 +1067,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -760,7 +1244,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -801,18 +1285,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -844,7 +1317,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -852,7 +1347,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

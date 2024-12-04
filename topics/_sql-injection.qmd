@@ -1,0 +1,161 @@
+
+# SQL Injection
+
+## SQL Injection - Introduction
+
+:::: {.columns}
+::: {.column width=50%}
+
+### SQL Injection: What is it?
+- A common security vulnerability in web and API applications.
+- Enabled by lazy or immature SQL coding practices.
+- Occurs when an attacker manipulates input to execute malicious SQL queries.
+- Common in older web and api applications
+
+:::
+::: {.column width=50%}
+![](./assets/sql-injection-2.png){fig-align="center" width=400}
+:::
+::::
+
+## SQL Injection - Examples 
+
+:::: {.columns}
+::: {.column width=50%}
+
+### The Problem: Unsanitized User Input
+
+- Web applications often take user input through forms or query strings.
+- If not properly validated and sanitized, user input can be used to alter SQL queries.
+:::
+::: {.column width=50%}
+
+### Example 1: Unauthorized Access
+- **Scenario**: Login Page
+- **Vulnerable Code**: 
+```python
+query = """
+SELECT * FROM users 
+WHERE username='{inputUsername}' 
+AND password='{inputPassword}';"
+"""
+```
+- **Attack**: Input as `inputUsername = ' OR '1'='1'--` 
+- **Result**: Successful login bypassing password.
+
+:::
+::::
+
+## SQL Injection - Examples
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Example 2: Data Leakage
+- **Scenario**: Search Feature
+- **Vulnerable Code**: 
+```python
+query = """
+SELECT * FROM products 
+WHERE name LIKE '%{searchKeyword}%';
+"""
+```
+- **Attack**: Input as `searchKeyword = ' UNION SELECT username, password FROM users--` 
+- **Result**: Returns user credentials alongside product data.
+
+:::
+::: {.column width=50%}
+
+### Example 3: Database Deletion
+- **Scenario**: Delete Account Feature
+- **Vulnerable Code**: 
+
+```python
+query = """
+DELETE FROM users WHERE id={userID};
+"""
+```
+
+- **Attack**: Input as `userID = '1; DROP TABLE users--` 
+- **Result**: Deletes the entire 'users' table.
+
+:::
+::::
+
+## SQL Injection - Mitigation
+
+It's pretty simple, *NEVER* build a query *raw*.  Here are a few suggestions.
+<p>&nbsp;</p>
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Solution 1: Prepared Statements
+- Parameterized queries that separate SQL code from user input.
+- Example (Python):
+```python
+cursor.execute("""
+SELECT * FROM users 
+WHERE username = ? AND password = ?
+""", (inputUsername, inputPassword))
+```
+:::
+::: {.column width=50%}
+
+### Solution 2: Input Validation
+
+- Validate and sanitize user input.
+- Reject input that doesn't meet expected criteria.
+- Examples:
+  * Ensure email input is a valid email address.
+  * Remove extra spaces from user names.
+  * Remove comment "--" strings from query.
+  * Remove semicolons ";" from inputs.
+
+:::
+::::
+
+## SQL Injection - Mitigation
+
+:::: {.columns}
+::: {.column width=50%}
+### Solution 3: Least Privilege Principle
+
+- Avoid using highly privileged accounts in application code.
+  * Create a unique user for the web application,
+  * Don't use your developer account or other account.
+- Limit the web application user permissions in database.
+  * Allow web app INSERT, UPDATE, and DELETE
+  * Disallow web app DROP, CREATE, GRANT, others.
+
+:::
+::: {.column width=50%}
+
+### Solution 4: [Web Application Firewalls (WAFs)](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)
+- Implement a [WAF](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/) to detect and block SQL injection attempts.
+- Regularly update and configure the [WAF](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/).
+
+:::
+::::
+
+## SQL Injection - Summary
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Best practices
+  1. Use prepared statements or parameterized queries.
+  2. Implement input validation.
+  3. Follow the least privilege principle.
+  4. Use a Web Application Firewall (WAF).
+
+:::
+::: {.column width=50%}
+
+### Recap
+- SQL Injection is a serious security threat.
+- Prevention is essential through proper coding practices.
+- Stay updated on security best practices and vulnerabilities.
+
+:::
+::::

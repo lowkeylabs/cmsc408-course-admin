@@ -1,11 +1,11 @@
 ---
 date: 11/20/2024
-lecture-id: 26
-title: Views and Indexes
 execute:
   cache: false
   echo: false
   eval: true
+lecture-id: 26
+title: Views and Indexes
 ---
 
 ```{python}
