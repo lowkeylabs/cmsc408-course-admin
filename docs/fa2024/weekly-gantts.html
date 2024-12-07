@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-17">
+<meta name="dcterms.date" content="2024-12-07">
 
 <title>weekly gantt images</title>
 <style>
@@ -30,10 +30,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="weekly-gantts_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="weekly-gantts_files/libs/quarto-html/anchor.min.js"></script>
 <link href="weekly-gantts_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="weekly-gantts_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="weekly-gantts_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="weekly-gantts_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="weekly-gantts_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="weekly-gantts_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="weekly-gantts_files/libs/bootstrap/bootstrap-44ee2246ac018ec1c0231b9f3827379d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="weekly-gantts_files/libs/quarto-diagram/mermaid.min.js"></script>
 <script src="weekly-gantts_files/libs/quarto-diagram/mermaid-init.js"></script>
 <link href="weekly-gantts_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -61,7 +61,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 17, 2024</p>
+      <p class="date">December 7, 2024</p>
     </div>
   </div>
   
@@ -73,219 +73,255 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="you-are-here" class="level2">
-<h2 class="anchored" data-anchor-id="you-are-here">You are here</h2>
-<div class="cell" data-file="week-1-mermaid.mmd" data-layout-align="default">
+<section id="gantt-charts-for-each-week" class="level2">
+<h2 class="anchored" data-anchor-id="gantt-charts-for-each-week">GANTT charts for each week</h2>
+<div class="cell" data-file="week-01-mermaid.mmd" name="week-01" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 1 : crit, weekblock, 1/7/2024, 1w
+section Week
+    Wk 1 : crit, 1/13/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-2-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-02-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 2 : crit, weekblock, 1/14/2024, 1w
+section Week
+    Wk 2 : crit, 1/20/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-3-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-03-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 3 : crit, weekblock, 1/21/2024, 1w
+section Week
+    Wk 3 : crit, 1/27/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-4-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-04-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 4 : crit, weekblock, 1/28/2024, 1w
+section Week
+    Wk 4 : crit, 2/3/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-5-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-05-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 5 : crit, weekblock, 2/4/2024, 1w
+section Week
+    Wk 5 : crit, 2/10/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-6-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-06-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 6 : crit, weekblock, 2/11/2024, 1w
+section Week
+    Wk 6 : crit, 2/17/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-7-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-07-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 7 : crit, weekblock, 2/18/2024, 1w
+section Week
+    Wk 7 : crit, 2/24/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-8-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-08-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 8 : crit, weekblock, 2/25/2024, 1w
+section Week
+    Wk 8 : crit, 3/3/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell" data-file="week-9-mermaid.mmd" data-layout-align="default">
+<div class="cell" data-file="week-09-mermaid.mmd" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 9 : crit, weekblock, 3/3/2024, 1w
+section Week
+    Wk 9 : crit, 3/10/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -296,20 +332,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 10 : crit, weekblock, 3/10/2024, 1w
+section Week
+    Wk 10 : crit, 3/17/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -320,20 +360,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 11 : crit, weekblock, 3/17/2024, 1w
+section Week
+    Wk 11 : crit, 3/24/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -344,20 +388,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 12 : crit, weekblock, 3/24/2024, 1w
+section Week
+    Wk 12 : crit, 3/31/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -368,20 +416,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 13 : crit, weekblock, 3/31/2024, 1w
+section Week
+    Wk 13 : crit, 4/7/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -392,20 +444,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 14 : crit, weekblock, 4/7/2024, 1w
+section Week
+    Wk 14 : crit, 4/14/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -416,20 +472,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 15 : crit, weekblock, 4/14/2024, 1w
+section Week
+    Wk 15 : crit, 4/21/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -440,20 +500,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 16 : crit, weekblock, 4/21/2024, 1w
+section Week
+    Wk 16 : crit, 4/28/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 2w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m5, 5w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -464,20 +528,52 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">    gantt
-        dateFormat  M/DD/YYYY
-        axisFormat  %W
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
 
-        section    
-        Wk 17 : crit, weekblock, 4/28/2024, 1w
+section    
+    Wk 17 : crit, 5/5/2025, 6d
 
-        section Topics
-        ER Models : m1, 1/7/2024, 3w
-        Rel. Algebra: m4, after m1, 2w
-        Normal forms: m5, after m4, 3w
-        SQL : m6, after m5, 4w
-        Adv. SQL: m7, after m6, 5w
-    </pre>
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 3w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m8, 3w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-file="week-18-mermaid.mmd" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat  M/DD/YYYY
+    axisFormat  %b %e
+
+section    
+    Wk 18 : crit, 5/12/2025, 6d
+
+section Topics
+    ER Models : m1, 1/12/2025, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 3w
+    Break: crit, m8, 3/09/2025, 1w
+    SQL : m6, after m8, 3w
+    Adv. SQL: m7, after m6, 24d
+    Reading Day : crit, m10, 4/30/2025, 1d
+    Finals : crit, m9, 5/01/2025, 5d
+
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -522,18 +618,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -565,7 +650,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -573,7 +678,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -670,7 +775,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -58,9 +58,9 @@ Monday - Dec 2, 2024
 | Module | Week | Date | Day | Lectures | Deliverables/Notes |
 |:--:|:--:|:--:|:--:|----|----|
 | Adv. SQL | 16 | 12/2 | Mon | MTG27: L27 (Procedures and Functions) |  |
-| Adv. SQL | 16 | 12/4 | Wed | MTG28: L28 (Triggers) |  |
+| Adv. SQL | 16 | 12/4 | Wed | MTG28: L28 (Triggers, Views and Security) |  |
 | Adv. SQL | 16 | 12/8 | Sun |  | HW9 due (Even more on SQL) |
-| Adv. SQL | 17 | 12/9 | Mon | MTG29: L29 (Security) | PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class |
+| Adv. SQL | 17 | 12/9 | Mon | MTG29: L29 (Work session) | PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class |
 | Adv. SQL | 17 | 12/14 | Sat |  | Commencement |
 |  | 18 | 12/18 | Wed |  | Grades due by Noon |
 
@@ -69,7 +69,7 @@ Monday - Dec 2, 2024
 ## We are here
 
 <img src="lecture-27_files\figure-commonmark\mermaid-figure-1.png"
-style="width:11.93in;height:2.54in" />
+style="width:8.17in;height:2.54in" />
 
 # Homework 9 - discussion
 
@@ -452,6 +452,7 @@ CALL PlaceOrder(1, 5);
 ```
 
 <p>
+
  
 </p>
 
@@ -593,9 +594,9 @@ After placing the order, the `orders` table might look like this:
 | Module | Week | Date | Day | Lectures | Deliverables/Notes |
 |:--:|:--:|:--:|:--:|----|----|
 | Adv. SQL | 16 | 12/2 | Mon | MTG27: L27 (Procedures and Functions) |  |
-| Adv. SQL | 16 | 12/4 | Wed | MTG28: L28 (Triggers) |  |
+| Adv. SQL | 16 | 12/4 | Wed | MTG28: L28 (Triggers, Views and Security) |  |
 | Adv. SQL | 16 | 12/8 | Sun |  | HW9 due (Even more on SQL) |
-| Adv. SQL | 17 | 12/9 | Mon | MTG29: L29 (Security) | PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class |
+| Adv. SQL | 17 | 12/9 | Mon | MTG29: L29 (Work session) | PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class |
 | Adv. SQL | 17 | 12/14 | Sat |  | Commencement |
 |  | 18 | 12/18 | Wed |  | Grades due by Noon |
 

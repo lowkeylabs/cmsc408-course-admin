@@ -1,4 +1,4 @@
-# Misc. topics
+# Work session
 
 Monday - Dec 9, 2024
 
@@ -34,22 +34,18 @@ Monday - Dec 9, 2024
 
 </div>
 
-<div>
-
     <style></style>
     <div class='upcoming-calendar'>
 
-|  Module  | Week | Date  | Day | Lectures                  | Deliverables/Notes                                                                 |
-|:--------:|:----:|:-----:|:---:|---------------------------|------------------------------------------------------------------------------------|
-| Adv. SQL |  17  | 12/9  | Mon | MTG29: L29 (Misc. topics) | PrjDel 12 due (Phase 2 submission); HW9 due (Course evaluation); Last day of class |
-| Adv. SQL |  17  | 12/14 | Sat |                           | Commencement                                                                       |
-|          |  18  | 12/18 | Wed |                           | Grades due by Noon                                                                 |
+| Module | Week | Date | Day | Lectures | Deliverables/Notes |
+|:--:|:--:|:--:|:--:|----|----|
+| Adv. SQL | 17 | 12/9 | Mon | MTG29: L29 (Work session) | PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class |
+| Adv. SQL | 17 | 12/14 | Sat |  | Commencement |
+|  | 18 | 12/18 | Wed |  | Grades due by Noon |
 
 </div>
 
-</div>
-
-## You are here
+## We are here
 
 <img src="lecture-29_files\figure-commonmark\mermaid-figure-1.png"
 style="width:8.17in;height:2.54in" />
@@ -86,17 +82,13 @@ style="width:8.17in;height:2.54in" />
 
 </div>
 
-<div>
-
     <style></style>
     <div class='upcoming-calendar'>
 
-|  Module  | Week | Date  | Day | Lectures                  | Deliverables/Notes                                                                 |
-|:--------:|:----:|:-----:|:---:|---------------------------|------------------------------------------------------------------------------------|
-| Adv. SQL |  17  | 12/9  | Mon | MTG29: L29 (Misc. topics) | PrjDel 12 due (Phase 2 submission); HW9 due (Course evaluation); Last day of class |
-| Adv. SQL |  17  | 12/14 | Sat |                           | Commencement                                                                       |
-|          |  18  | 12/18 | Wed |                           | Grades due by Noon                                                                 |
-
-</div>
+| Module | Week | Date | Day | Lectures | Deliverables/Notes |
+|:--:|:--:|:--:|:--:|----|----|
+| Adv. SQL | 17 | 12/9 | Mon | MTG29: L29 (Work session) | PrjDel 12 due (Phase 2 submission); HW10 due (Course evaluation); Last day of class |
+| Adv. SQL | 17 | 12/14 | Sat |  | Commencement |
+|  | 18 | 12/18 | Wed |  | Grades due by Noon |
 
 </div>

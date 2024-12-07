@@ -16,7 +16,7 @@ default_split_code = "::"
 
 [images]
 # This is where VCU stores headshops.  Add a V###.jpg to complete the URL.
-headshot_endpoint = "https://sasbimid2.vcu.edu/images"
+headshot_endpoint = "https://sasbimid.vcu.edu:8343/images"
 
 [canvas]
 # Campus default values for Canvas

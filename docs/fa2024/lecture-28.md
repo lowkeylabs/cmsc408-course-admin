@@ -70,7 +70,7 @@ Wednesday - Dec 4, 2024
 ## We are here
 
 <img src="lecture-28_files\figure-commonmark\mermaid-figure-1.png"
-style="width:12.86in;height:2.54in" />
+style="width:8.17in;height:2.54in" />
 
 ## 
 
@@ -536,6 +536,7 @@ DELETE FROM users WHERE id={userID};
 It’s pretty simple, *NEVER* build a query *raw*. Here are a few
 suggestions.
 <p>
+
  
 </p>
 

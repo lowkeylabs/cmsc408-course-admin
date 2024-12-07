@@ -1,0 +1,147 @@
+# cnvsapi config file (.cnvsapi). Auto-created: 2024-12-06
+
+# This is a strictly formatted TOML file. It contains configuration values for this 
+# program. Highest level paramters control application run-time. Subsequent sections 
+# contain parameters for services that interact with this program.
+                                        
+# Log_level: used for watching execution.  This tool uses loguru.
+# Values: "TRACE", "DEBUG", "INFO", "SUCCESS", "WARNING", "ERROR", "CRITICAL"
+# Default: "SUCCESS"
+                                        
+[application]
+# Application configuration variables
+
+log_level = "SUCCESS"
+default_split_code = "::"
+
+[images]
+# This is where VCU stores headshops.  Add a V###.jpg to complete the URL.
+headshot_endpoint = "https://sasbimid.vcu.edu:8343/images"
+
+[canvas]
+# Campus default values for Canvas
+# High level web address of campus canvas server
+
+endpoint = "https://virginiacommonwealth.instructure.com"
+
+[lecture]
+default_qmd_template = "template0"
+template0 = "template-lecture-0.qmd"
+template0_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','lectures.scss']
+template1 = "template-lecture-0.qmd"
+template1_folder = "C:/Users/jdleonard/Projects/ssg-canvas-cli/templates"
+template1_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','_extensions','assets']
+
+
+[roster]
+default_qmd_template = "template0"
+template0 = "template-roster-0.qmd"
+
+[assessment.rubric]
+default = "report1"
+
+[assessment.rubric.report1.assignment_group]
+name = "ag_name"
+[assessment.rubric.report1.assignment]
+name = "assign_name"
+[assessment.rubric.report1.user]
+sortable_name = "sortable name"
+sis_user_id = "VID"
+[assessment.rubric.report1.rubric]
+description = "Rubric description"
+points = "total points"
+[assessment.rubric.report1.rating]
+description = "user description"
+points = "user score"
+
+[keyring]
+# keyring is a local computer secure storage system leveraging tools from
+# the local OS. Keyring works on windows, linux and mac.
+# See: https://pypi.org/project/keyring/
+
+# Namespace and entry are used with "keyring" to store canvas token in local
+# computer secure password storage. Don't mess with these, they were carefully
+# selected to work across all windows, linux, and mac platforms.
+
+namespace = "cmsc-vcu-course-tools-api"
+entry = "CANVAS_API_TOKEN"
+
+[user_courses]
+# this is a list of course available to the current user.
+# Freshen this list with cnvsapi list courses --add-to-config
+00000 = "Dummy course"
+15168 = "(2020FALL)SENIOR PROJECT I"
+28532 = "CMSC 320 Spring 2021 (Software Engineering & Web Dev)"
+74903 = "CMSC 475 - USER INTERFACE DESIGN"
+719 = "CMSC 508 Sandbox Course - s2dmduke"
+28530 = "CMSC-210-C90-SP2021 - COMPUTERS AND PROGRAMMING"
+80218 = "CMSC-255-001-SU2023 - INTRODUCTION TO PROGRAMMING"
+80379 = "CMSC-302-001-SU2023 - INTRO TO DISCRETE STRUCTURES"
+70841 = "CMSC-312-901-SP2023 - INTRO TO OPERATING SYSTEMS"
+28533 = "CMSC-330-DATA SCIENCE SKILLS"
+60816 = "CMSC-441-903-FA2022 - SR DESIGN STUDIO I (LAB/PROJ)"
+84649 = "CMSC-441-903-FA2023 - SR DESIGN STUDIO I (LAB/PROJ)"
+94832 = "CMSC-442-903 - SR DESIGN STUDIO II (LAB/PROJ) - Spring 2024"
+74572 = "CMSC-442-903-SP2023 - SR DESIGN STUDIO II (LAB/PROJ)"
+102929 = "CMSC-451-901 - SENIOR PROJECT I - Fall 2024"
+40953 = "CMSC-451-903-FA2021 - SENIOR PROJECT I"
+21874 = "CMSC-452-903-SP2021 - SENIOR PROJECT II"
+50791 = "CMSC-452-903-SP2022 - SENIOR PROJECT II"
+50843 = "CMSC-475-001-SP2022 - DES & IMPLEMNT USER INTERFACE"
+114076 = "CMSC-492-001 - INDEPENDENT STUDY - Spring 2025"
+107207 = "CMSC-492-002 - INDEPENDENT STUDY - Fall 2024"
+60923 = "CMSC-508-901-FA2022 - DATA BASE THEORY"
+85746 = "CMSC-508-901-FA2023 - DATA BASE THEORY"
+107281 = "CMSC-654 - MEMORY AND MALWARE FORENSICS - Fall 2024"
+105097 = "CMSC408 - Fall 2024"
+113813 = "CMSC408 - Spring 2025"
+113806 = "CMSC427 - Spring 2025"
+93957 = "CMSC475 - Spring 2024"
+86151 = "COAR 463/CMSC 391-FA2023 - INTRO TO GAME DEVELOPMENT"
+56466 = "COAR-463-701-SP2022 - HNR:INTRO TO GAME DEVELOPMENT"
+10439 = "DATA SCIENCE SKILLS"
+81951 = "ENGR-497-L52-FA2023 - Software for Social Good"
+96307 = "ENGR-497-L56, INNO-491-007 - VERTICALLY INTEGRATED PROJECTS - Spring 2024"
+96308 = "ENGR-497-L57, INNO-491-008 - VERTICALLY INTEGRATED PROJECTS - Spring 2024"
+105808 = "GameDev - Fall 2024"
+106880 = "My Course Nickname"
+111710 = "Senior Design - Spring 2025"
+102911 = "Sr. Design - Fall 2024"
+103446 = "SSG - Fall 2024"
+114162 = "SSG-VIP - Spring 2025"
+19975 = "UAC and GAC Minutes"
+35849 = "VCU Template - jdleonard"
+107524 = "VCUO Master CMSC 408 Databases"
+
+
+[course]
+# this is the default course id.  Select from list above.
+course_id = 113813 # = "CMSC408 - Spring 2025"
+
+
+[course.00000]
+# here is an example of the config information for a specific course
+outline_gsheet_key = "1Ht4N1hxCj4SIyggCJg3xTtqmYJwMbgHbSQXeVBqEIDQ"
+outline_google_folder = "1C-ZoZjMOefov00WoYVMJiCe4Avw8zg6c"
+lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-fa2024-admin/lectures/"
+syllabus_course_summary = true
+lecture_slides_template = "template-lecture-0.qmd"
+syllabus_gdoc_key = "1Ts04YflffdnW95O4YWCQTnY7VFZW40OiShb0tXY0bPU"
+frontpage_additional_weeks=99
+zoom_lecture_url="https://vcu.zoom.us"
+show_frontpage_vcr_buttons = false
+use_outline_lectures_tab = false
+
+[course.113813]
+# here is an example of the config information for a specific course
+outline_gsheet_key = "1Ht4N1hxCj4SIyggCJg3xTtqmYJwMbgHbSQXeVBqEIDQ"
+outline_google_folder = "1C-ZoZjMOefov00WoYVMJiCe4Avw8zg6c"
+lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-fa2024-admin/lectures/"
+syllabus_course_summary = true
+lecture_slides_template = "template-lecture-0.qmd"
+syllabus_gdoc_key = "1Ts04YflffdnW95O4YWCQTnY7VFZW40OiShb0tXY0bPU"
+frontpage_additional_weeks=99
+zoom_lecture_url="https://vcu.zoom.us"
+show_frontpage_vcr_buttons = false
+use_outline_lectures_tab = false
+
