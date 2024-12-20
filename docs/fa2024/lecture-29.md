@@ -14,7 +14,19 @@ Monday - Dec 9, 2024
 
 ### Discussion items
 
-- This is a placeholder Lecture.
+- CMSC 427 - User Interfaces - Spring 2025
+
+- <a
+  href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918"
+  target="_blank">Homework 9 - WB Population Analysis - due 12/9</a>
+
+- <a
+  href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/969453"
+  target="_blank">Homework 10 - Course evaluation - due 12/9</a>
+
+- <a
+  href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535"
+  target="_blank">Deliverable 12 - Semester Project - due 12/9</a>
 
 </div>
 
@@ -50,6 +62,18 @@ Monday - Dec 9, 2024
 <img src="lecture-29_files\figure-commonmark\mermaid-figure-1.png"
 style="width:8.17in;height:2.54in" />
 
+## 
+
+<div style="font-size:3.0em; text-align:center; font-weight:bold;">
+
+Submission Deadline
+
+TONIGHT - 12/9 - by Midnight
+
+No late work will be accepted.
+
+</div>
+
 ## Housekeeping
 
 <div class="columns">
@@ -62,7 +86,19 @@ style="width:8.17in;height:2.54in" />
 
 ### Discussion items
 
-- This is a placeholder Lecture.
+- CMSC 427 - User Interfaces - Spring 2025
+
+- <a
+  href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918"
+  target="_blank">Homework 9 - WB Population Analysis - due 12/9</a>
+
+- <a
+  href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/969453"
+  target="_blank">Homework 10 - Course evaluation - due 12/9</a>
+
+- <a
+  href="https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535"
+  target="_blank">Deliverable 12 - Semester Project - due 12/9</a>
 
 </div>
 
