@@ -26,8 +26,8 @@ endpoint = "https://virginiacommonwealth.instructure.com"
 
 [lecture]
 default_qmd_template = "template0"
-template0 = "template-lecture-0.qmd"
-template0_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','lectures.scss']
+template0 = "_template-lecture-0.qmd"
+template0_extras = ['_template-lecture-housekeeping.qmd','_quarto.yml','lectures.scss']
 template1 = "template-lecture-0.qmd"
 template1_folder = "C:/Users/jdleonard/Projects/ssg-canvas-cli/templates"
 template1_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','_extensions','assets']
@@ -35,7 +35,7 @@ template1_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','_extensio
 
 [roster]
 default_qmd_template = "template0"
-template0 = "template-roster-0.qmd"
+template0 = "_template-roster-0.qmd"
 
 [assessment.rubric]
 default = "report1"
@@ -133,15 +133,13 @@ show_frontpage_vcr_buttons = false
 use_outline_lectures_tab = false
 
 [course.113813]
-# here is an example of the config information for a specific course
-outline_gsheet_key = "1Ht4N1hxCj4SIyggCJg3xTtqmYJwMbgHbSQXeVBqEIDQ"
-outline_google_folder = "1C-ZoZjMOefov00WoYVMJiCe4Avw8zg6c"
-lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-fa2024-admin/lectures/"
-syllabus_course_summary = true
-lecture_slides_template = "template-lecture-0.qmd"
-syllabus_gdoc_key = "1Ts04YflffdnW95O4YWCQTnY7VFZW40OiShb0tXY0bPU"
-frontpage_additional_weeks=99
-zoom_lecture_url="https://vcu.zoom.us"
+outline_gsheet_key = "1KRv0XtsVec6lLMgA2d1qlE6TBVP72KOf_y7y9PewIJA"
+outline_google_folder = "1MFWtCs8eB-FwlpnzFJ1BPTiaS4-5_wdt"
+syllabus_gdoc_key = "1qLhTQ0S5YIUxVVJQIm7F9VACVhsJMKcPK-FnH2Mr41A"
+syllabus_course_summary = "True"
+lecture_slides_template = "_template-lecture-0.qmd"
+lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc427-course-admin/sp2025/"
+frontpage_additional_weeks = 99
+zoom_lecture_url = "https://vcu.zoom.us/j/83017225966"
 show_frontpage_vcr_buttons = false
 use_outline_lectures_tab = false
-

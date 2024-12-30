@@ -1,0 +1,120 @@
+---
+title: "CMSC 408 - Spring 2025- Index of course materials"
+lecture-id: 0
+date: last-modified
+format:
+    html:
+        include-in-header:
+            - text: |
+                <style>
+                    .item-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                    }
+
+                    .item {
+                        width: calc(25% - 10px); /* 25% width for each item with some spacing */
+                        margin: 5px;
+                        text-align: center;
+                        background-color: #f0f0f0;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                    }
+                </style>
+
+---
+
+```{python}
+#| echo: false
+#| output: asis
+#| label: lectures
+
+import os
+import glob
+import frontmatter
+from loguru import logger
+from datetime import datetime
+
+def get_lect_qmd_files():
+    # Get the current directory
+    current_directory = os.getcwd()
+    # Use glob to find all files matching the pattern
+    file_pattern = os.path.join(current_directory, "lect*.qmd")
+    return glob.glob(file_pattern)
+
+def filename_to_html( file_name ):
+    file_name = os.path.basename( lecture_file )
+    file_name_without_ext, _ = os.path.splitext(file_name)
+    file_name_with_html = f"{file_name_without_ext}.html"
+    return file_name_with_html
+
+def get_date_from_frontmatter(filename):
+    with open(filename, 'r', encoding='utf-8', errors='replace') as f:
+        post = frontmatter.load(f)
+        return post.get('date')
+
+def get_day_of_week(date_string):
+    # Convert the string to a datetime object
+    if date_string:
+        try:
+            date_object = datetime.strptime(date_string, '%Y-%m-%d')
+            return date_object.strftime('%a')
+        except Exception as e:
+            logger.warning( e )
+        try:
+            date_object = datetime.strptime(date_string, '%m/%d/%Y')
+            return date_object.strftime('%a')
+        except Exception as e:
+            logger.warning( e )
+        try:
+            date_object = datetime.strptime(date_string, '%m %d, %Y')
+            return date_object.strftime('%a')
+        except Exception as e:
+            logger.warning( e )
+
+    return "x"
+
+lecture_files = get_lect_qmd_files()
+
+print("<div class='item-list'>")
+for i,lecture_file in enumerate( lecture_files ):
+    filename = filename_to_html( lecture_file )
+    date = get_date_from_frontmatter( os.path.basename(lecture_file) )
+    dow = get_day_of_week( date )
+    line = f"<div class='item'>[Lecture {(i+1):2}](./{filename})" + f"{{target='_blank'}}<br/>{dow} {date}</div>" 
+    print(line)
+print("</div>")
+```
+
+```{python}
+#| echo: false
+#| output: asis
+#| label: links
+
+print("<div class='item-list'>")
+print("<div class='item'>[SP25 Canvas](https://virginiacommonwealth.instructure.com/courses/113813){target='_blank'}</div>")
+print("<div class='item'>[SP25 Zoom URL](https://vcu.zoom.us/j/83017225966){target='_blank'}</div>")
+print("<div class='item'>[SP25 GH Classroom](https://classroom.github.com/classrooms/24642120-cmsc-408-spring-2025-databases){target='_blank'}</div>")
+print("<div class='item'>[SP25 Gradescope](https://www.gradescope.com/courses/935012){target='_blank'}</div>")
+print("<div class='item'>[Kaltura](https://vcu.mediaspace.kaltura.com/my-media){target='_blank'}</div>")
+
+
+
+#print("<div class='item'>[P5JS editor](https://editor.p5js.org){target='_blank'}</div>")
+#print("<div class='item'>[Expo snack](https://snack.expo.dev){target='_blank'}</div>")
+print("</div>")
+
+
+print("<div class='item-list'>")
+print("<div class='item'>[Fall 2024](../fa2024/index.html){target='_blank'}</div>")
+print("<div class='item'>[SP25 G-drive ](https://drive.google.com/drive/folders/1MFWtCs8eB-FwlpnzFJ1BPTiaS4-5_wdt){target='_blank'}</div>")
+print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
+print("<div class='item'>[Topics](../topics/index.html){target='_blank'}</div>")
+print("</div>")
+
+
+
+```
+
+

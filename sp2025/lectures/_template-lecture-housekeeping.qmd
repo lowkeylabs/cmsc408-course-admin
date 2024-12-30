@@ -1,0 +1,48 @@
+## Housekeeping
+
+
+```{python}
+#| echo: false
+#| output: asis
+
+#housekeeping_margin_column_width = "10%"
+#housekeeping_left_column_width="40%"
+#housekeeping_right_column_width="40%"
+#housekeeping_vertical_spacer = "40px"
+
+print(f"""
+:::: {{.columns}}
+::: {{.column width={housekeeping_margin_column_width}}}
+:::
+::: {{.column width={housekeeping_left_column_width}}}
+### Discussion items
+""")
+
+for i,item in enumerate(discussion_items):
+    print(f"* {item}\n")
+
+print(f"""
+:::
+::: {{.column width={housekeeping_right_column_width}}}
+### Lecture topics
+""")
+
+for i,item in enumerate(lecture_topics):
+    print(f"* {item}\n")
+
+print(f"""
+
+:::
+::::
+""")
+
+print(f"""
+::: {{ style="margin-top:{housekeeping_vertical_spacer}"}}
+&nbsp;
+:::
+""")
+
+#from cnvsapi.build_utils import upcoming_calendar
+# Set the lecture ID and number of rows to show at the top of this file!
+#upcoming_calendar( lecture_id, n_rows )
+```
