@@ -28,13 +28,15 @@ format:
 ```{python}
 #| echo: false
 #| output: asis
-#| label: lectures
+#| label: setup
 
 import os
 import glob
 import frontmatter
 from loguru import logger
 from datetime import datetime
+
+from cnvsapi.build_utils import get_outline_objects
 
 def get_lect_qmd_files():
     # Get the current directory
@@ -76,6 +78,15 @@ def get_day_of_week(date_string):
     return "x"
 
 lecture_files = get_lect_qmd_files()
+```
+
+
+::: {.panel-tabset}
+## Lectures
+```{python}
+#| echo: false
+#| output: asis
+#| label: lectures
 
 print("<div class='item-list'>")
 for i,lecture_file in enumerate( lecture_files ):
@@ -86,6 +97,30 @@ for i,lecture_file in enumerate( lecture_files ):
     print(line)
 print("</div>")
 ```
+## Google docs
+
+```{python}
+#| echo: false
+#| output: asis
+#| label: google docs
+
+objects_df = get_outline_objects()
+print("<div class='item-list'>")
+
+if not objects_df.empty:
+#    print(f"{objects_df.size}")
+    for i,row in objects_df.iterrows():
+        if ("google_doc_id" in row.keys()) and ("outline_entry" in row.keys()):
+            if row['google_doc_id']:
+                line = f"<div class='item'>[{row['outline_entry']}](https://docs.google.com/document/d/{row['google_doc_id']}/edit)</div>" 
+                print(line)
+else:
+    print(f"Empty objects_df")
+
+print("</div>")
+```
+
+:::
 
 ```{python}
 #| echo: false
