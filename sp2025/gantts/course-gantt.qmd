@@ -1,23 +1,9 @@
 ---
 title: ""
-lecture-id: 0
-filters: []
 format:
-    revealjs:
-        hide-from-titleSlide: all
-        chalkboard: false
-        slide-number: false
+    html:
+        minimal: true
 ---
-
-```{=html}
-<style>
-.reveal div.reveal-header {
-  background-color: transparent; /* Example override */
-}
-</style>
-```
-
-##
 
 ```{python}
 #| echo: false
@@ -26,10 +12,7 @@ format:
 from cnvsapi.build_utils import get_current_week_from_lecture_id, get_outline_objects
 from datetime import datetime, timedelta
 
-
-
 outline_df = get_outline_objects()
-
 
 def make_gantt():
     """ make gant chart """
@@ -39,14 +22,18 @@ def make_gantt():
     #new_date = original_date + timedelta(weeks=(week_id - 1) )
     #new_date_str = new_date.strftime("%m/%d/%Y").lstrip("0").replace("/0", "/")
 
+
+    # VCU gold: #FFB300
+    
     # Define the content you want to write to the file
     content = f"""
 gantt
     dateFormat  M/DD/YYYY
-    axisFormat  %W
+    axisFormat %b %e
+    todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5
 
     section Topics
-    ER Models : m1, 1/13/2025, 3w
+    ER Models : m1, 12/15/2024, 8w
     Rel. Algebra: m4, after m1, 2w
     Normal forms: m5, after m4, 3w
     SQL : m6, after m5, 4w
