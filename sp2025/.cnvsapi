@@ -143,5 +143,5 @@ frontpage_additional_weeks = 99
 zoom_lecture_url = "https://vcu.zoom.us/j/83017225966"
 show_frontpage_vcr_buttons = false
 use_outline_lectures_tab = false
-frontpage_gantt_url = "https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/course-gantt.html"
-frontpage_gantt_height = 480
+frontpage_gantt_url = "https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/modules-gantt.html"
+frontpage_gantt_height = 300
