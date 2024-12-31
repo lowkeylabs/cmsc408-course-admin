@@ -3,16 +3,32 @@ title: ""
 format:
     html:
         minimal: true
+execute:
+    echo: false
 ---
 
 ```{python}
 #| echo: false
 #| output: asis
 
-from cnvsapi.build_utils import get_current_week_from_lecture_id, get_outline_objects
+import pandas as pd
+
+from cnvsapi.build_utils import get_current_week_from_lecture_id, get_outline_objects, extract_outline
 from datetime import datetime, timedelta
 
-outline_df = get_outline_objects()
+outline_df = extract_outline().copy()
+outline_df.loc[:,'date'] = pd.to_datetime(outline_df['DateCanvas']).dt.date
+
+summary_df = outline_df.groupby('Module').agg(
+    earliest_date=('date', 'min'),
+    latest_date=('date', 'max')
+).reset_index()
+summary_df = summary_df.sort_values(by='earliest_date').reset_index(drop=True)
+
+```
+
+
+```{python}
 
 def make_gantt():
     """ make gant chart """
@@ -24,25 +40,23 @@ def make_gantt():
 
 
     # VCU gold: #FFB300
-    
+
     # Define the content you want to write to the file
-    content = f"""
-gantt
-    dateFormat  M/DD/YYYY
+    content = []
+    content.append(f"""gantt
+    dateFormat YYYY-M-DD
     axisFormat %b %e
     todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5
 
-    section Topics
-    ER Models : m1, 12/15/2024, 8w
-    Rel. Algebra: m4, after m1, 2w
-    Normal forms: m5, after m4, 3w
-    SQL : m6, after m5, 4w
-    Adv. SQL: m7, after m6, 5w
+    section Modules
 """
+    )
+    for i,item in summary_df.iterrows():
+        content.append(f"    {item['Module']} : m{i}, {item['earliest_date']}, {item['latest_date']}")
 
     # Open the file in write mode ('w' will create the file if it doesn't exist or overwrite it if it does)
     with open("./week-mermaid.mmd", "w") as file:
-        file.write(content)
+        file.write("\n".join(content))
 
 make_gantt()
 ```
