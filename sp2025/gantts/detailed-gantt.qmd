@@ -26,7 +26,6 @@ objects_df = get_outline_objects().copy()
 objects_df.loc[:,'canvas_due_at'] = pd.to_datetime(objects_df['canvas_due_at']).dt.date
 objects_df = objects_df.dropna(subset=["canvas_due_at"])
 
-
 summary_df = outline_df.groupby('Module').agg(
     earliest_date=('date', 'min'),
     latest_date=('date', 'max')
@@ -77,13 +76,23 @@ def make_gantt():
     )
 
     for i,item in summary_df.iterrows():
-        deliverables_df = objects_df[ objects_df['module']==item['Module'] ]
+        deliverables_df = objects_df[ (objects_df['module']==item['Module']) & (objects_df['canvas_assignment_group']!="Projects") ]
         if not deliverables_df.empty:
+            deliverables_df = deliverables_df.sort_values(by='canvas_due_at').reset_index(drop=True)
             content.append(f"    section {item['Module']}")
             content.append(f"    {item['Module']} : m{i}, {item['earliest_date']}, {item['latest_date']}")
             for j,row in deliverables_df.iterrows():
-                content.append(f"    {clean_title(row['outline_entry'])} : milestone, {row['canvas_due_at']}")
+                content.append(f"    {clean_title(row['outline_entry'])} : milestone, {row['canvas_due_at']}, 0d")
             content.append("")
+
+    projects_df = objects_df[ (objects_df['canvas_assignment_group']=="Projects") ]
+    if not projects_df.empty:
+        content.append(f"    section Semester Project")
+        for j,row in projects_df.sort_values(by='canvas_due_at').reset_index(drop=True).iterrows():
+            content.append(f"    {clean_title(row['outline_entry'])} : milestone, {row['canvas_due_at']}, 0d")
+        content.append("")
+
+
     # Open the file in write mode ('w' will create the file if it doesn't exist or overwrite it if it does)
     with open(output_file, "w") as file:
         file.write("\n".join(content))
