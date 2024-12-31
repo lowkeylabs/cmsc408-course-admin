@@ -16,6 +16,9 @@ import pandas as pd
 from cnvsapi.build_utils import get_current_week_from_lecture_id, get_outline_objects, extract_outline
 from datetime import datetime, timedelta
 
+output_file = "./modules-gantt.mmd"
+
+
 outline_df = extract_outline().copy()
 outline_df.loc[:,'date'] = pd.to_datetime(outline_df['DateCanvas']).dt.date
 
@@ -68,7 +71,7 @@ def make_gantt():
         content.append(f"    {item['Module']} : m{i}, {item['earliest_date']}, {item['latest_date']}")
 
     # Open the file in write mode ('w' will create the file if it doesn't exist or overwrite it if it does)
-    with open("./week-mermaid.mmd", "w") as file:
+    with open(output_file, "w") as file:
         file.write("\n".join(content))
 
 make_gantt()
@@ -77,6 +80,6 @@ make_gantt()
 ::: {.no-filter}
 ```{mermaid}
 %%| echo: false
-%%| file: week-mermaid.mmd
+%%| file: ./modules-gantt.mmd
 ```
 :::
