@@ -25,6 +25,20 @@ summary_df = outline_df.groupby('Module').agg(
 ).reset_index()
 summary_df = summary_df.sort_values(by='earliest_date').reset_index(drop=True)
 
+# Find the row(s) where "Notes, Lectures" contains "Classes begin"
+matching_rows = outline_df[outline_df['Notes, Lectures'].str.lower().str.contains('classes begin', na=False)]
+first_date = pd.to_datetime(matching_rows['date'].iloc[0]).date()  - timedelta(days=1)
+if first_date is not None:
+    summary_df.at[0, 'earliest_date'] = first_date
+
+matching_rows = outline_df[outline_df['Notes, Lectures'].str.lower().str.contains('last day of classes', na=False)]
+last_date = pd.to_datetime(matching_rows['date'].iloc[0]).date()
+if last_date is not None:
+    summary_df.at[summary_df.index[-1], 'latest_date'] = last_date
+# Add one day to the latest dates to account for the 24-hours of the last day
+summary_df['latest_date'] = summary_df['latest_date'].apply(lambda x: x + timedelta(days=1))
+
+
 ```
 
 
@@ -44,13 +58,12 @@ def make_gantt():
     # Define the content you want to write to the file
     content = []
     content.append(f"""gantt
-    dateFormat YYYY-M-DD
+    dateFormat YYYY-MM-DD
     axisFormat %b %e
     todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5
-
-    section Modules
 """
     )
+    content.append('    section Modules')
     for i,item in summary_df.iterrows():
         content.append(f"    {item['Module']} : m{i}, {item['earliest_date']}, {item['latest_date']}")
 
