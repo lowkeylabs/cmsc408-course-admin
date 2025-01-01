@@ -129,9 +129,12 @@ print("</div>")
 
 print("<div class='item-list'>")
 print("<div class='item'>[SP25 Canvas](https://virginiacommonwealth.instructure.com/courses/113813){target='_blank'}</div>")
+print("<div class='item'>[SP25 G-drive ](https://drive.google.com/drive/folders/1MFWtCs8eB-FwlpnzFJ1BPTiaS4-5_wdt){target='_blank'}</div>")
 print("<div class='item'>[SP25 Zoom URL](https://vcu.zoom.us/j/83017225966){target='_blank'}</div>")
 print("<div class='item'>[SP25 GH Classroom](https://classroom.github.com/classrooms/24642120-cmsc-408-spring-2025-databases){target='_blank'}</div>")
 print("<div class='item'>[SP25 Gradescope](https://www.gradescope.com/courses/935012){target='_blank'}</div>")
+print("<div class='item'>[SP25 Gantt](https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html){target='_blank'}</div>")
+
 print("<div class='item'>[Kaltura](https://vcu.mediaspace.kaltura.com/my-media){target='_blank'}</div>")
 
 
@@ -143,7 +146,6 @@ print("</div>")
 
 print("<div class='item-list'>")
 print("<div class='item'>[Fall 2024](../fa2024/index.html){target='_blank'}</div>")
-print("<div class='item'>[SP25 G-drive ](https://drive.google.com/drive/folders/1MFWtCs8eB-FwlpnzFJ1BPTiaS4-5_wdt){target='_blank'}</div>")
 print("<div class='item'>[Guide](../guide/index.html){target='_blank'}</div>")
 print("<div class='item'>[Topics](../topics/index.html){target='_blank'}</div>")
 print("</div>")
