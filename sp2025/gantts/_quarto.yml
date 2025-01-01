@@ -1,2 +1,12 @@
 project:
   output-dir: ../../docs/sp2025
+
+format:
+    html:
+        minimal: true
+        embed-resources: true
+        css: styles.css
+
+execute:
+    echo: false
+

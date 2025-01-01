@@ -1,10 +1,5 @@
 ---
 title: ""
-format:
-    html:
-        minimal: true
-execute:
-    echo: false
 ---
 
 ```{python}
@@ -15,6 +10,7 @@ import pandas as pd
 
 from cnvsapi.build_utils import get_current_week_from_lecture_id, get_outline_objects, extract_outline
 from datetime import datetime, timedelta
+from cnvsapi.config import config
 
 output_file = "./detailed-gantt.mmd"
 
@@ -45,6 +41,8 @@ if last_date is not None:
 # Add one day to the latest dates to account for the 24-hours of the last day
 summary_df['latest_date'] = summary_df['latest_date'].apply(lambda x: x + timedelta(days=1))
 
+course = config.get_default_course()
+course_title = course['name']
 
 ```
 
@@ -57,18 +55,14 @@ def clean_title( title ):
 
 def make_gantt():
     """ make gant chart """
-
-    #original_date_str = "1/7/2024"
-    #original_date = datetime.strptime(original_date_str, "%m/%d/%Y")
-    #new_date = original_date + timedelta(weeks=(week_id - 1) )
-    #new_date_str = new_date.strftime("%m/%d/%Y").lstrip("0").replace("/0", "/")
-
-
     # VCU gold: #FFB300
 
-    # Define the content you want to write to the file
+        # Define the content you want to write to the file
     content = []
+
+    # Start writing the header
     content.append(f"""gantt
+    title {course_title}
     dateFormat YYYY-MM-DD
     axisFormat %b %e
     todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5

@@ -1,10 +1,5 @@
 ---
 title: ""
-format:
-    html:
-        minimal: true
-execute:
-    echo: false
 ---
 
 ```{python}
