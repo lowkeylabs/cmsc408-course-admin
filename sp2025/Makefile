@@ -5,6 +5,7 @@ test:
 	@echo "make_host: $(MAKE_HOST)"
 	@echo "os: $(OS)"
 	@echo "path: $(PATH)"
+	$(SHELL) -c pwd
 	@pwd
 	cnvsapi --version
 	quarto --version

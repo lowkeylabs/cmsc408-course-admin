@@ -5,15 +5,15 @@ Quiz description: This is a simple survey to help me learn more about you. This 
 
     This survey also serves a second purpose. It assures both you and me that you've got everything set up for the the Respondus Lockdown browser.  Quizzes in this class will be administered on-line using Canvas and the lockdown browser. Rather than blowing things up during the first real quiz, we'll use this opportunity to dip our toes in the water and get everything working properly early.
 
+    BEFORE YOU START - make sure that you've got your GITHUB USERID. If you don't have a GITHUB account, create one!  Otherwise, be sure that you've got your user id handy.
+
     NO STRESS - I want to know more about you AND give you a chance to work the bugs out of any techno-problems BEFORE it really matters.
 
 1. My GITHUB user id is:
 *  .
 
-
 1. What are your pronouns?  (After the survey and if you haven't yet please update your pronouns in your Canvas account settings!)
 * .
-
 
 1. I prefer: Star Wars or Star Trek?
 *a) Star Wars
@@ -107,7 +107,7 @@ b) Agree
 c) Neutral
 d) Disagree
 e) Strongly disagree
-f) Don't know, not sure.
+f) Don't know, not sure, I use a Mac.
 
 
 1. I'm comfortable writing python programs.
@@ -191,7 +191,7 @@ e) Strongly disagree
 f) Don't know, not sure.
 
 
-1. I'm comfortable using Django and Python to create web sites.
+1. I'm comfortable using Django, Flask, and Python to create web sites.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -208,6 +208,7 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
+
 1. This course directly aligns with my career goals.
 *a) Strongly agree
 b) Agree
@@ -216,8 +217,7 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
-
-1. I depend on lecture slides and lecture notes for clarifications and answers to my questions.
+1. I depend on lecture SLIDES and lecture notes for clarifications and answers to my questions.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -225,7 +225,7 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
-1. I depend on lecture videos for clarifications and answers to my questions.
+1. I depend on lecture VIDEOS for clarifications and answers to my questions.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -257,7 +257,6 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
-
 1. I depend on Discord for clarifications and answers to my questions.
 *a) Strongly agree
 b) Agree
@@ -265,7 +264,6 @@ c) Neutral
 d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
-
 
 1. I depend on study sessions with peers for clarifications and answers to my questions.
 *a) Strongly agree
@@ -275,12 +273,10 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
-
 1. Which types of projects do you prefer?
 *a) Individual projects
 b) Team-based projects
 c) I'm comfy with either.
-
 
 1. Which learning method(s) works best for you? (Select all that apply)
 [*] Lectures
