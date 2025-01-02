@@ -1,8 +1,17 @@
-SHELL := C:/Program Files/Powershell/7/pwsh.exe
-.SHELLFLAGS := -NoLogo -NoProfile -Command
 
-help:
-	cat Makefile
+
+test:
+	@echo "shell: $(SHELL)"
+	@echo "make_host: $(MAKE_HOST)"
+	@echo "os: $(OS)"
+	@echo "path: $(PATH)"
+	@pwd
+	cnvsapi --version
+	quarto --version
+	awk --version
+	sed --version
+	grep --version
+
 
 all:
 	cnvsapi --version
