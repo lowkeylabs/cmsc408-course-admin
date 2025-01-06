@@ -1,0 +1,6 @@
+project:
+  output-dir: ./html
+
+format:
+  html:
+    minimal: true

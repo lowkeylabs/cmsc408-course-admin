@@ -24,18 +24,27 @@ headshot_endpoint = "https://sasbimid.vcu.edu:8343/images"
 
 endpoint = "https://virginiacommonwealth.instructure.com"
 
-[lecture]
-default_qmd_template = "template0"
-template0 = "_template-lecture-0.qmd"
-template0_extras = ['_template-lecture-housekeeping.qmd','_quarto.yml','lectures.scss']
-template1 = "template-lecture-0.qmd"
-template1_folder = "C:/Users/jdleonard/Projects/ssg-canvas-cli/templates"
-template1_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','_extensions','assets']
+[lectures]
+default = "template0"
+template0.folder = "./lectures"
+template0.file = "_template-lecture-0.qmd"
 
+[pages]
+default = "template0"
+template0.folder = "./pages"
 
-[roster]
-default_qmd_template = "template0"
-template0 = "_template-roster-0.qmd"
+[details]
+default = "template0"
+template0.folder = "./details"
+
+[gantts]
+default = "template0"
+template0.folder = "./gantts"
+
+[rosters]
+default = "template0"
+template0.folder = "./rosters"
+template0.file = "_template-roster-0.qmd"
 
 [assessment.rubric]
 default = "report1"
@@ -111,7 +120,7 @@ entry = "CANVAS_API_TOKEN"
 114162 = "SSG-VIP - Spring 2025"
 19975 = "UAC and GAC Minutes"
 35849 = "VCU Template - jdleonard"
-107524 = "VCUO Master CMSC 408 Databases"
+114872 = "VCUO Master CMSC 408 Databases"
 
 
 [course]
@@ -138,10 +147,11 @@ outline_google_folder = "1MFWtCs8eB-FwlpnzFJ1BPTiaS4-5_wdt"
 syllabus_gdoc_key = "1qLhTQ0S5YIUxVVJQIm7F9VACVhsJMKcPK-FnH2Mr41A"
 syllabus_course_summary = "True"
 lecture_slides_template = "_template-lecture-0.qmd"
-lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc427-course-admin/sp2025/"
+lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/"
 frontpage_additional_weeks = 99
 zoom_lecture_url = "https://vcu.zoom.us/j/83017225966"
 show_frontpage_vcr_buttons = false
 use_outline_lectures_tab = false
 frontpage_gantt_url = "https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/modules-gantt.html"
 frontpage_gantt_height = 320
+local_page_folder = "./pages"

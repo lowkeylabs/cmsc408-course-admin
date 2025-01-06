@@ -1,0 +1,9 @@
+---
+date: last-modified
+title: Welcome - Details
+---
+
+<h3>Welcome to CMSC 408 - Databases</h3>
+
+where do we even start?
+
