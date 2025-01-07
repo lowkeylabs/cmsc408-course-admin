@@ -2,5 +2,59 @@
 title: Resource - Course Discord
 ---
 
-Yeppers, we have a discord!!!!
 
+```{python}
+#| echo: false
+#| output: asis
+
+# For pages, the "title" in the YAML will be used as the title in Canvas.
+
+from cnvsapi.designplus import dp_banner2_from_qmd, dp_iframe_youtube_from_qmd
+
+__file__ = "course-discord.qmd"
+print( dp_banner2_from_qmd( __file__ ))
+
+
+block_style = f"width: 100%; max-width: 640px; margin: 0 auto;"
+block_style=""
+
+```
+
+::: {style="`{python} block_style`"}
+**We've got a discord!!!** - The course has a Discord server to serve as an *UNOFFICIAL* hub for collaboration and quick communication about the course. It’s a space where students can ask questions, share resources, and connect with classmates in real time, making it easier to stay engaged and get help when needed.
+
+Official course communications and announcements will always be sent through Canvas.
+
+To contact me directly: please use [my email](mailto:jdleonard@vcu.edu){target="_blank"}.  I don't always keep up with Discord, especially with DMs!
+
+**We use real names** - when you join the *Discord* you'll need to change your *server profile* (that is, your name on the CMSC 408 discord server only) to 
+your real name. Once I see your real name on the server, I'll upgrade your role so that you have full access to all the channels.
+
+:::
+
+
+::: {style="`{python} block_style`"}
+<ul class="kl_large_link_grid mx-auto d-block">
+<li style="background:lightgray;"><a href="https://discord.gg/gCbs3UQQ9a">Click here to join</a></li>
+</ul>
+:::
+
+::: {style="`{python} block_style`"}
+### What is *Discord*?
+
+**Discord** is a versatile communication platform designed for real-time collaboration and community building. It combines text, voice, and video chat in an intuitive interface, making it ideal for students in this database course.
+
+:::
+
+::: {style="`{python} block_style`"}
+```{python}
+print( dp_iframe_youtube_from_qmd( __file__, 'z5c6Bc-S0TI' ) )
+```
+:::
+
+::: {style="`{python} block_style`"}
+
+Discord allows students to join a dedicated server where they can participate in organized discussions across various channels tailored to specific topics like homework, lectures, or project collaboration. With its seamless file-sharing capabilities, students can upload resources, ask questions, and share solutions in an interactive environment.
+
+Voice and video channels provide opportunities for live group discussions, study sessions, or office hours. Even if you’re new to Discord, it’s easy to use and provides a dynamic space to engage with classmates, ask for help, and stay updated on course announcements.
+:::

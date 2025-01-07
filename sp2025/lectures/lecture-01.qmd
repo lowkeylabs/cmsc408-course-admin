@@ -17,16 +17,21 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'Welcome to class!'
+    'Complete the pre-class survey',
+    'Introduce yourself on the discussion group',
+    'Join the discord',
+    'Form your project team'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    'Course overview',
+    'Intro to databases'
 ]
 ```
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
+{{< include ../../topics/_cmsc408-overview-sp2025.qmd >}}
 
-More housekeeping
+{{< include ../../topics/_intro-to-databases.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

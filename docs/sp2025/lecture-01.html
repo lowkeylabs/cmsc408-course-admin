@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lecture-01_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lecture-01_files/libs/clipboard/clipboard.min.js"></script>
 <script src="lecture-01_files/libs/quarto-html/tabby.min.js"></script>
 <script src="lecture-01_files/libs/quarto-html/popper.min.js"></script>
 <script src="lecture-01_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -9,7 +9,10 @@
 <link href="lecture-01_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
+<link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-01_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-01_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-01_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.39">
 
   <title>Welcome to CMSC408</title>
@@ -127,6 +130,12 @@
       margin-right: 0; 
     }
   </style>
+  <script src="lecture-01_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="lecture-01_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="lecture-01_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
 <body class="quarto-light">
@@ -150,18 +159,675 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>Welcome to class!</li>
+<li><p>Complete the pre-class survey</p></li>
+<li><p>Introduce yourself on the discussion group</p></li>
+<li><p>Join the discord</p></li>
+<li><p>Form your project team</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Course overview</p></li>
+<li><p>Intro to databases</p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
 </div>
-<p>More housekeeping</p>
+
+    <style></style>
+    <div class="upcoming-calendar">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Week</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Notes and Lectures</th>
+<th data-quarto-table-cell-role="th">Activities and due dates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/14</td>
+<td style="text-align: center;">Tue</td>
+<td>L1:Welcome to CMSC408</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/16</td>
+<td style="text-align: center;">Thu</td>
+<td>L2:Entity-relation models 1</td>
+<td>Srv1:Pre-class survey</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/19</td>
+<td style="text-align: center;">Sun</td>
+<td>Last day to add/drop</td>
+<td>Prj1:Intros</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/20</td>
+<td style="text-align: center;">Mon</td>
+<td>NO CLASS - University Closed (MLK)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/21</td>
+<td style="text-align: center;">Tue</td>
+<td>L3:Entity-relation models 2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/23</td>
+<td style="text-align: center;">Thu</td>
+<td>L4:ER Models</td>
+<td>PQ1:Entity-relation models</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/26</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW1:DE Tool Review; Prj2:Team formation; Dis1:ER modeling</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1/28</td>
+<td style="text-align: center;">Tue</td>
+<td>L5:Relational models 1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="im-glad-youre-here" class="slide level2">
+<h2>I’m glad you’re here!!!!</h2>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column">
+<h3 id="cmsc-508---database-theory">CMSC 508 - Database Theory</h3>
+<ul>
+<li>Semester course;</li>
+<li>3 lecture hours. 3 credits.</li>
+<li>Prerequisite: CMSC 303 with a minimum grade of C.</li>
+</ul>
+<p>Design and implementation of relational database systems. Emphasis is placed on entity-relationship diagrams, relational algebra, normal forms and normalization. Introduction to SQL. Discussion of physical level issues.</p>
+<p>Students will be required to complete a design project and give an oral presentation of the project.</p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-rise-of-sql.png"></p>
+<figcaption><a href="https://spectrum.ieee.org/the-rise-of-sql" class="uri">https://spectrum.ieee.org/the-rise-of-sql</a></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="recommended-textbooks" class="slide level2">
+<h2>Recommended Textbooks</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-ramakrishnan.png" style="width:1.4in"></p>
+<figcaption><em>Database Management Systems, Third Edition</em>, R. Ramakrishnan, J. Gehrke McGraw-Hill ISBN 978-0072465631</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-silberschatz.png" style="width:1.5in"></p>
+<figcaption><em>Database System Concepts, Sixth Edition</em>, A. Silberschatz, H. Korth, S. Sudarshan McGraw-Hill ISBN 978-0073523323</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Do I need really need a text book?</strong></p>
+</div>
+<div class="callout-content">
+<p>No, you don’t. These textbooks are <em>really good</em> and package lots of information into a single place.</p>
+<p><em>Life is a database</em> and from my perspective it’s all about speed of retrieval. When I’m building databases, I can’t EVER recall pulling out a text book to look something up!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="canvas-is-the-official-platform" class="slide level2">
+<h2>Canvas is the OFFICIAL platform</h2>
+<div class="more-separation">
+<ul>
+<li><p>YOU are responsible for your own LEARNING. My role is GUIDE and CURATOR.</p></li>
+<li><p>WE are working together as a TEAM so that at completion of the course, you are comfortable with designing and building databases.</p></li>
+<li><p>ANYTHING posted to the course canvas is FAIR GAME to be tested. If I think it’s important enough to be shared as part of the course materials on Canvas, I believe that it’s important enough for you to be familiar with it and possibly tested on it.</p></li>
+<li><p>I will OFTEN not be able to cover all the material relevant to a specific topic in class. That does NOT mean that it isn’t important. Even if I don’t complete the lecture slides during a class session, you should be familiar with ALL the material in the slides. ANYTHING in the lecture slides is FAIR GAME for testing.</p></li>
+</ul>
+</div>
+</section>
+<section id="statement-on-generative-ai" class="slide level2">
+<h2>Statement on Generative AI</h2>
+<ul>
+<li><p>Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.</p></li>
+<li><p>Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.</p></li>
+<li><p>Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. <strong>Use of Generative AI IS permitted on homework assignments and the semester project</strong>, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.</p></li>
+<li><p>Quizzes are designed to test your knowledge of the course material. <strong>Use of Generative AI is NOT permitted on any of the quizzes.</strong></p></li>
+<li><p>See <a href="https://virginiacommonwealth.instructure.com/courses/105097/files/12032089?wrap=1">this document</a> to learn more!</p></li>
+</ul>
+</section>
+<section id="abet-student-learning-outcomes" class="slide level2">
+<h2>ABET Student Learning Outcomes</h2>
+<div class="more-separation">
+<p>SLO1 - <em>Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions;</em></p>
+<p>SLO2 - <em>Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline;</em></p>
+<p>SLO3 - <em>Communicate effectively in a variety of professional contexts;</em></p>
+<p>SLO4 - <em>Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;</em></p>
+<p>SLO5 - <em>Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;</em></p>
+<p>SLO6 - <em>Apply computer science theory and software development fundamentals to produce computing-based solutions;</em></p>
+<p>SLO7 - <em>Acquire and apply new knowledge as needed, using appropriate learning strategies.</em></p>
+</div>
+</section>
+<section id="cmsc-408---learning-outcomes" class="slide level2 scrollable">
+<h2>CMSC 408 - Learning Outcomes</h2>
+<div style="font-size:90%;">
+<ol type="1">
+<li><p>Demonstrate an understanding of the concepts underlying database design. <em>(ABET SLO 1, SLO 7)</em></p></li>
+<li><p>Analyze problems to identify data requirements, types and relations. <em>(SLO 1)</em></p></li>
+<li><p>Create E-R and relational designs from problem statements. <em>(SLO 2)</em></p></li>
+<li><p>Design data structures and functions to store and process the information. <em>(SLO 2)</em></p></li>
+<li><p>Design and implement databases using SQL language. <em>(SLO 6)</em></p></li>
+<li><p>Query and manipulate data using SQL language. <em>(SLO 6)</em></p></li>
+<li><p>Design and implement reports using data queried from a database. <em>(SLO 3, SLO 6)</em></p></li>
+<li><p>Work effectively as part of a team to design, implement and deploy a database-driven web application <em>(SLO 5)</em></p></li>
+<li><p>Communicate project requirements, design decisions, and progress effectively to team members and stakeholder <em>(SLO 3)</em></p></li>
+<li><p>Incorporate strategies to ensure safe and secure storage and access to the database. <em>(SLO 4)</em></p></li>
+</ol>
+</div>
+</section>
+<section id="cmsc-408---tool-sets-and-rationale" class="slide level2">
+<h2>CMSC 408 - Tool sets and rationale</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="tool-sets-well-be-using">Tool sets we’ll be using …</h3>
+<div class="more-separation">
+<ul>
+<li><p>SQL, MySQL, and SQLITE</p></li>
+<li><p>VSCODE and various extensions</p></li>
+<li><p>Quarto, mermaid and graphviz</p></li>
+<li><p>GIT, GH and GITHUB</p></li>
+<li><p>Python, Pyenv and Poetry</p></li>
+<li><p>Docker and docker compose</p></li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<h3 id="what-you-should-expect">What you should expect …</h3>
+<p>This is a programming class. Be prepared for TONS of coding.</p>
+<p>We’ll be learning and improving through practice and repitition. There will be LOTS of opportunity to practice.</p>
+<p>We’ll be learning to <em>code</em> documentation and graphics using Quarto with markdown, mermaid and graphviz.</p>
+<p>We’ll be learning how to communicate designs using ER diagrams and crows-feet diagrams.</p>
+<p>We’ll be learning to create, retrieve, update and delete database objects using SQL.</p>
+<p>We’ll be learning docker to containerize a database and application and automate the reptition.</p>
+</div></div>
+</section>
+<section id="cmsc-408---assessment-and-grading" class="slide level2">
+<h2>CMSC 408 - Assessment and Grading</h2>
+<div class="columns">
+<div class="column">
+<h3 id="course-links">Course Links</h3>
+<p><a href="https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html" target="_blank">Course Gantt Chart</a></p>
+<p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments" target="_blank">Assignments and Grading</a></p>
+</div><div class="column">
+<h3 id="assignment-groups">Assignment Groups</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Weight</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Projects</td>
+<td>20%</td>
+<td>7 deliverables.</td>
+</tr>
+<tr class="even">
+<td>Graded discussions</td>
+<td>15%</td>
+<td>Four discussions</td>
+</tr>
+<tr class="odd">
+<td>Homeworks</td>
+<td>30%</td>
+<td>9 homework assignments</td>
+</tr>
+<tr class="even">
+<td>Graded Surveys</td>
+<td>10%</td>
+<td>2 graded surveys</td>
+</tr>
+<tr class="odd">
+<td>Graded Quizzes</td>
+<td>25%</td>
+<td>4 graded quizzes</td>
+</tr>
+<tr class="even">
+<td>Practice Quizzes</td>
+<td>0%</td>
+<td>Not counted towards final grade.</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="cmsc-408---assessment-and-grading-1" class="slide level2">
+<h2>CMSC 408 - Assessment and Grading</h2>
+<h3 id="homework-policies">Homework Policies</h3>
+<div class="smaller">
+<ul>
+<li><p>I observe <a href="https://eric.ed.gov/?id=EJ1367855">flexible deadlines</a> for homework, NOT FOR QUIZZES OR DELIVERABLES!</p></li>
+<li><p>Each homework has a <em>timeliness</em> score in the rubric. <em>On-time</em> gets full credit. The <em>timeliness score</em> is reduced slowly past the submission date.</p></li>
+<li><p>You will ALWAYS get credit for submitting assignments. ALWAYS turn something in! I want you to get the practice and LEARN!</p></li>
+<li><p>I realize this is NOT your only class. But don’t get too far behind!</p></li>
+<li><p>READ homework rubrics to see expectations for each assignment. The rubrics will help you understand what’s important and where you should spend your time.</p></li>
+<li><p>The homework assignments are generally aligned with the semester project, so that one reinforces the other. It pays to keep up!</p></li>
+</ul>
+</div>
+</section>
+<section id="cmsc-408---assessment-and-grading-2" class="slide level2">
+<h2>CMSC 408 - Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="quizzes">Quizzes</h3>
+<div style="font-size:0.9em;">
+<p>Quizzes will be administered on-line using the Respondus lockdown browser. It is the responsibility of the student to ensure that Respondus works. Quizzes will be adminstered outside of class. NO LATE QUIZZES.</p>
+<p>Practice quizzes will be available. You can take practice quiz as many times as you like. Practice quiz will look exactly like the actual quiz. Expect each quiz to take 30-minutes or less.</p>
+</div>
+</section>
+<section id="cmsc-408---assessment-and-grading-3" class="slide level2">
+<h2>CMSC 408 - Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="semester-long-project">Semester-long project</h3>
+<div style="font-size:0.9em;">
+<p>Students will work in teams of 2 on a semester-long project. The project will require the students design, build and deploy a database driven web application. <em>Team Update</em> deliverables are brief surveys reflecting on project status, and should only take about 5-min to complete.</p>
+</div>
+</section>
+<section id="cmsc-408---assessment-and-grading-4" class="slide level2">
+<h2>CMSC 408 - Assessment and Grading</h2>
+<p>This will be a busy semester! There will be items due each week.</p>
+<h3 id="summary-and-grading-schedule">Summary and grading schedule</h3>
+<p>Below are tables presenting the grading scheme and deliverable list for the class.</p>
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<center>
+<h3 id="assignment-groups-1">Assignment Groups</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Weight</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Projects</td>
+<td>20%</td>
+<td>7 deliverables.</td>
+</tr>
+<tr class="even">
+<td>Graded discussions</td>
+<td>15%</td>
+<td>Four discussions</td>
+</tr>
+<tr class="odd">
+<td>Homeworks</td>
+<td>30%</td>
+<td>9 homework assignments</td>
+</tr>
+<tr class="even">
+<td>Graded Surveys</td>
+<td>10%</td>
+<td>2 graded surveys</td>
+</tr>
+<tr class="odd">
+<td>Graded Quizzes</td>
+<td>25%</td>
+<td>4 graded quizzes</td>
+</tr>
+<tr class="even">
+<td>Practice Quizzes</td>
+<td>0%</td>
+<td>Not counted towards final grade.</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div><div class="column" style="width:40%;">
+<center>
+<h3 id="grading">Grading</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: center;">Grade</th>
+<th style="text-align: center;">Fall 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">90 &lt;= X</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">112</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80 &lt;= X &lt; 90</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">70 &lt;= X &lt; 80</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 &lt;= X &lt; 70</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X &lt; 60</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div></div>
+</section>
+<section id="advice-from-your-peers" class="slide level2">
+<h2>Advice from your peers</h2>
+<p>&nbsp;</p>
+<h3 id="from-course-evaluation-responses-fall-2023">From course evaluation responses, Fall 2023:</h3>
+<div style="font-size: 125%; margin-left:10%; margin-right:10%; margin-top: 5%">
+<p><em>Discuss the level of difficulty of this course, the pace of the course, and the level of effort required to complete the work in this course.</em></p>
+</div>
+</section>
+<section id="advice-from-your-peers-1" class="slide level2">
+<h2>Advice from your peers</h2>
+<div class="columns">
+<div class="column">
+<p><em>This course is easy if you keep up with the work. Having assignments due every week along with the semester-long project is a lot to take on.</em></p>
+<p>&nbsp;</p>
+<p><em>I think there is a lot of work involved with this course, but so long as you stay on top of the assignments, you will be sucessful, as they are not really difficult, more so there is just a large quantity of them.</em></p>
+<p>&nbsp;</p>
+<p><em>The course was definitely difficult if not well prepared but the professor gives every single tool one needs to succeed. The pace was perfect and there is nothing I would change about it.</em></p>
+</div><div class="column">
+<p><em>The pace was quick and the work was not easy. Each week the homework presented new concepts that were progressively more difficult, and it was very easy to fall behind. Not the class with the sort of work you can leave till the last minute, minimum, a couple hours per assignment.</em></p>
+<p>&nbsp;</p>
+<p><em>Lot of the material that was covered in this class was all very new to me, but Professor Leonard designed the course in a way that wasn’t too overwhelming. I felt like the pace of the course was just right. Even the times I was falling behind a little bit, I was able to pick myself back up pretty quickly since the deadlines weren’t super strict. </em></p>
+</div></div>
+</section>
+<section id="advice-from-your-peers-2" class="slide level2">
+<h2>Advice from your peers</h2>
+<div class="columns">
+<div class="column">
+<p><em>I found the course difficulty to be well balanced. If a student goes to class, asks questions, and makes an effort to do their assignment they should have no problem at all passing. The pace of the course was perfect and allowed enough time for each unit to be processed before moving on to the next one. </em></p>
+<p>&nbsp;</p>
+<p><em>The workload for this course is very challenging to manage. Having to create a whole database and then do weekly homework assignments is very difficult.</em></p>
+<p>&nbsp;</p>
+<p><em>This course required an intense amount of coding. However, given the clear expectations and due dates, I was able to plan ahead to meet deadlines. </em></p>
+</div><div class="column">
+<p><em>This course is pretty easy, but I don’t think it needs to be harder. It takes not much effort but still I feel like I am very good with databases, api’s, even better at using python. I am still not good at writing queries though.</em></p>
+<p>&nbsp;</p>
+<p><em>There is a large level of effort required to this course. Especially towards the end of the semester the assignments and projects can be time consuming. That being said the professor gives more than enough time to complete them and he is very helpful if a section ends up being confusing for the class.</em></p>
+<p>&nbsp;</p>
+<p><em>This course was fairly difficult, but the professor made it very doable. The course pace was good, except by the end of the semester the pace gets really fast. 10/10 professor</em></p>
+</div></div>
+<center>
+<h3 id="in-summary-dont-panic-you-got-this"><em>In summary: Don’t panic, you got this!</em></h3>
+</center>
+</section>
+<section>
+<section id="a-long-time-ago-in-a-galaxy-far-far-away" class="title-slide slide level1 center">
+<h1>A long time ago … in a galaxy far, far away …</h1>
+
+</section>
+<section id="early-history" class="slide level2">
+<h2>Early history</h2>
+<div class="columns">
+<div class="column">
+<h3 id="s-and-early-1960s">1950s and early 1960s:</h3>
+<ul>
+<li>Data processing using <a href="https://en.wikipedia.org/wiki/Magnetic-tape_data_storage">magnetic tapes for storage</a></li>
+<li>Tapes provided only sequential access</li>
+<li><a href="https://en.wikipedia.org/wiki/Punched_card_input/output">Punched cards for input</a></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/1951_TapeData_P2.jpg"></p>
+</div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
+</section>
+<section id="early-history-1" class="slide level2">
+<h2>Early history</h2>
+<div class="columns">
+<div class="column">
+<h3 id="late-1960s-and-1970s">Late 1960s and 1970s:</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/History_of_hard_disk_drives">Hard disks allowed</a> direct access to data</li>
+<li><a href="https://en.wikipedia.org/wiki/Database_model">Network and hierarchical data models</a> in widespread use</li>
+<li><a href="https://en.wikipedia.org/wiki/Edgar_F._Codd">Edgar “Ted” Codd</a> defines the Relational data model</li>
+<li><a href="https://en.wikipedia.org/wiki/Transaction_processing">High-performance (for the era) transaction processing</a></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg"></p>
+</div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
+</section>
+<section id="modern-systems" class="slide level2">
+<h2>Modern systems</h2>
+<div class="columns">
+<div class="column">
+<h3 id="s">1980s:</h3>
+<ul>
+<li>Research relational prototypes evolve into commercial systems
+<ul>
+<li>SQL becomes industrial standard</li>
+</ul></li>
+<li>Parallel and distributed database systems</li>
+<li>Object-oriented database systems</li>
+</ul>
+<h3 id="s-1">1990s:</h3>
+<ul>
+<li>Large decision support and data-mining applications</li>
+<li>Large multi-terabyte data warehouses</li>
+<li>Emergence of Web commerce</li>
+</ul>
+</div><div class="column">
+<p><img data-src="assets/1990-computer-center.png"></p>
+</div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
+</section>
+<section id="modern-systems-1" class="slide level2">
+<h2>Modern systems</h2>
+<div class="columns">
+<div class="column">
+<h3 id="early-2000s">Early 2000s:</h3>
+<ul>
+<li>XML and XQuery standards</li>
+<li>Automated database administration</li>
+</ul>
+<h3 id="later-2000s">Later 2000s:</h3>
+<ul>
+<li>Giant data storage systems</li>
+<li>Google BigTable, Yahoo PNuts, Amazon, …</li>
+</ul>
+<h3 id="and-beyond">2022 and Beyond:</h3>
+<p><a href="https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4" class="uri">https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4</a></p>
+</div><div class="column">
+<p><img data-src="assets/google-data-center.png"></p>
+</div></div>
+</section>
+<section id="open-source-data-engineering-landscape-2024" class="slide level2">
+<h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape" target="_blank">Open Source Data Engineering Landscape 2024</a></h2>
+<p><a href="assets/data-engineering-landscape-2024.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="assets/data-engineering-landscape-2024.png"></a></p>
+</section>
+<section id="open-source-data-engineering-landscape-2024-1" class="slide level2">
+<h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape" target="_blank">Open Source Data Engineering Landscape 2024</a></h2>
+<p><a href="assets/data-engineering-landscape-2024-with-highlights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="assets/data-engineering-landscape-2024-with-highlights.png"></a></p>
+</section>
+<section id="why-not-use-spreadsheets" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<h3 id="spreadsheets-do-work-and-they-are-viable">Spreadsheets DO work and they ARE viable!</h3>
+<div class="columns">
+<div class="column">
+<p><a href="https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/">Here is spreadsheet driven web site</a></p>
+</div><div class="column">
+<p><a href="https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023">Here is the spreadsheet</a></p>
+</div></div>
+<h3 id="on-the-surface-spreadsheets-share-many-common-elements-with-databases">On the surface spreadsheets share many common elements with databases</h3>
+<div class="columns">
+<div class="column">
+<h3 id="entities">Entities</h3>
+<ul>
+<li><em>Worksheets</em> are <em>Tables</em></li>
+<li><em>Rows</em> are sometimes <em>Records</em></li>
+<li><em>Columns</em> are sometimes <em>Fields</em></li>
+<li><em>Workbooks</em> are <em>Databases</em> (collections of tables)</li>
+</ul>
+</div><div class="column">
+<h3 id="operations">Operations</h3>
+<ul>
+<li>find rows, insert rows, delete rows, update rows,</li>
+<li>add columns, remove columns</li>
+<li>create worksheets, delete worksheets</li>
+<li>create workbooks, delete workbooks</li>
+</ul>
+</div></div>
+</section>
+<section id="why-not-use-spreadsheets-1" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<ul>
+<li><p>Suppose that to add a new person, you need to make changes to three tabs (e.g., ‘Personal Info,’ ‘Contact Info,’ and ‘Employment Info’).</p>
+<ul>
+<li><em>What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)</em></li>
+</ul></li>
+<li><p>Imagine that one of the tabs in your spreadsheet has a formula that automatically updates totals or averages when new data are entered.</p>
+<ul>
+<li><em>What would happen if, during an update, the formula fails to recalculate properly? (Consistency)</em></li>
+</ul></li>
+<li><p>Consider a scenario where two people are editing the spreadsheet at the same time, both trying to add new rows to the same tab.</p>
+<ul>
+<li><em>How might their changes conflict, and what issues could arise? (Isolation)</em></li>
+</ul></li>
+<li><p>Suppose you have made all the necessary changes to add a new person in your spreadsheet and then your computer crashes before you can save the file.</p>
+<ul>
+<li><em>What happens to the changes? (Durability)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="why-not-use-spreadsheets-2" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<ul>
+<li><p>Imagine your spreadsheet contains sensitive information, such as personal or financial data.</p>
+<ul>
+<li><em>What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)</em></li>
+</ul></li>
+<li><p>Imagine that your spreadsheet currently manages a few hundred rows of data.</p>
+<ul>
+<li><em>What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)</em></li>
+</ul></li>
+<li><p>Imagine that your spreadsheet contains phone numbers across different tabs.</p>
+<ul>
+<li><em>What would happen if a home phone number was changed on one tab but not another? (Normalization and redundancy)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="on-line-transaction-processing-oltp-databases" class="slide level2">
+<h2>On Line Transaction Processing (OLTP) databases</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<ul>
+<li><p>This semester we’ll be exploring Relational, <a href="https://en.wikipedia.org/wiki/Online_transaction_processing">On Line Transaction Processing (OLTP)</a> Database Management Systems (DBMS), like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.</p></li>
+<li><p>A <a href="https://en.wikipedia.org/wiki/Database#Database_management_system">Database Management System (DBMS)</a> is the software that enables users to define, create, manage, and interact with databases. It serves as an intermediary between the end users, applications, and the database, ensuring that data is organized, stored, retrieved, and modified efficiently and securely.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Database_model">There are many ways to store data in a DBMS</a>.</p></li>
+<li><p>We’ll be focusing on the <a href="https://en.wikipedia.org/wiki/Database_model#Relational_model"><em>Relational</em> model</a>, where the DBMS stores entities and the relationships between these entities inside a single database (called a <a href="https://en.wikipedia.org/wiki/Database_schema">schema</a>).</p></li>
+<li><p>These databases bundle multiple changes to the database as a <a href="https://en.wikipedia.org/wiki/Database_transaction">transaction</a>. Transactions can be reviewed and rolled back (reversed).</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/ACID">ACID (atomicity, consistency, isolation, durability)</a> is a set of properties of transactions intended to guarantee data validity despite errors, power failures, and other mishaps.</p></li>
+<li><p>Changes to the database are communicated to the DBMS using a language called <a href="https://en.wikipedia.org/wiki/SQL"><em>SQL</em>, a <em>structured query language</em></a>. How does one <a href="https://www.youtube.com/watch?v=S9C8PNX72Ms">pronounce SQL?</a></p></li>
+</ul>
+</div><div class="column" style="width:20%;">
+<p><img data-src="assets/oltp-snip.png"></p>
+</div></div>
+</section>
+<section id="on-line-transaction-processing-oltp-databases-1" class="slide level2">
+<h2>On Line Transaction Processing (OLTP) databases</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p><strong>Fast Query Processing:</strong> These databases prioritize quick query response times to ensure efficient and prompt processing of individual transactions, making them ideal for applications like banking, e-commerce, and order management systems.</p></li>
+<li><p><strong>High Transaction Volume:</strong> OLTP databases are designed to handle a large number of short, atomic transactions, such as inserting, updating, or deleting records, which are typically initiated by end-users in real-time.</p></li>
+</ul>
+</div><div class="column">
+<ul>
+<li><p><strong>Data Integrity and Consistency:</strong> OLTP systems implement ACID (Atomicity, Consistency, Isolation, Durability) properties to ensure that all transactions are processed reliably, maintaining the integrity and consistency of the data even in the event of system failures.</p></li>
+<li><p><strong>Normalized Data Structure:</strong> OLTP databases typically use a highly normalized schema to minimize data redundancy, optimize storage efficiency, and reduce the complexity of data manipulation during frequent transactions.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="cmsc-408---in-a-nutshell" class="slide level2">
+<h2>CMSC 408 - in a nutshell</h2>
+<ul>
+<li><p>We’ll apply <em>entity-relation</em> models to design and describe the contents of a database.</p></li>
+<li><p>We’ll apply <em>relational algebra</em> to formally describe how we query the database.</p></li>
+<li><p>We’ll apply <em>normalization</em> to ensure that we minimize redundant information in the database.</p></li>
+<li><p>We’ll tie everything together using SQL.</p></li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    dateFormat M/DD/YYYY
+    axisFormat %W
+
+    section Topics
+    ER Models : m1, 1/7/2024, 3w
+    Rel. Algebra: m4, after m1, 2w
+    Normal forms: m5, after m4, 3w
+    SQL : m6, after m5, 4w
+    Adv. SQL: m7, after m6, 5w
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
@@ -171,16 +837,102 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>Welcome to class!</li>
+<li><p>Complete the pre-class survey</p></li>
+<li><p>Introduce yourself on the discussion group</p></li>
+<li><p>Join the discord</p></li>
+<li><p>Form your project team</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p>Course overview</p></li>
+<li><p>Intro to databases</p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
 <p>&nbsp;</p>
+</div>
+
+    <style></style>
+    <div class="upcoming-calendar">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Week</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Notes and Lectures</th>
+<th data-quarto-table-cell-role="th">Activities and due dates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/14</td>
+<td style="text-align: center;">Tue</td>
+<td>L1:Welcome to CMSC408</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/16</td>
+<td style="text-align: center;">Thu</td>
+<td>L2:Entity-relation models 1</td>
+<td>Srv1:Pre-class survey</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/19</td>
+<td style="text-align: center;">Sun</td>
+<td>Last day to add/drop</td>
+<td>Prj1:Intros</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/20</td>
+<td style="text-align: center;">Mon</td>
+<td>NO CLASS - University Closed (MLK)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/21</td>
+<td style="text-align: center;">Tue</td>
+<td>L3:Entity-relation models 2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/23</td>
+<td style="text-align: center;">Thu</td>
+<td>L4:ER Models</td>
+<td>PQ1:Entity-relation models</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/26</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW1:DE Tool Review; Prj2:Team formation; Dis1:ER modeling</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1/28</td>
+<td style="text-align: center;">Tue</td>
+<td>L5:Relational models 1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 <div class="reveal-header">
@@ -197,7 +949,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -606,6 +1358,38 @@
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

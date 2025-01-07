@@ -212,8 +212,8 @@ This is a programming class. Be prepared for TONS of coding.
 We’ll be learning and improving through practice and repitition. There
 will be LOTS of opportunity to practice.
 
-We’ll be learning to “program/code” documentation and graphics using
-Quarto.
+We’ll be learning to *code* documentation and graphics using Quarto with
+markdown, mermaid and graphviz.
 
 We’ll be learning how to communicate designs using ER diagrams and
 crows-feet diagrams.
@@ -230,10 +230,11 @@ automate the reptition.
 
 ## CMSC 408 - Topics over time
 
-The class organized in modules. The GANNT chart below highlights the
+The class is organized in modules. The GANNT chart below highlights the
 topics and their order.
 
-- Homework assignments reinforce topics discussed in class.
+- Homework assignments introduce and reinforce topics discussed in
+  class.
 - Quizzes test understanding of the topics where appropriate.
 - Lectures, homeworks and quizzes are organized in a way that
   complements the successful completion of the semester-long project.
@@ -273,8 +274,9 @@ This will be a busy semester! There will be items due each week.
 
 Homework assignments are done individually. Homeworks will be
 distributed using GITHUB classroom; a link will be provided in the
-Canvas assignment page. Homeworks will be submitted to Gradescope.
-Rubrics will be provided. *REVIEW EACH RUBRIC CAREFULLY!*
+Canvas assignment page. Homework repos will be submitted to Gradescope.
+Homework HTML reports will be submitted to Canvas. Rubrics will be
+provided. *REVIEW EACH RUBRIC CAREFULLY!*
 
 </div>
 
@@ -360,6 +362,7 @@ Below are tables presenting the grading scheme and deliverable list for
 the class.
 
 <p>
+
  
 </p>
 

@@ -42,7 +42,7 @@ print(f"""
 :::
 """)
 
-#from cnvsapi.build_utils import upcoming_calendar
+from cnvsapi.build_utils import upcoming_calendar
 # Set the lecture ID and number of rows to show at the top of this file!
-#upcoming_calendar( lecture_id, n_rows )
+upcoming_calendar( lecture_id, n_rows )
 ```

@@ -27,25 +27,42 @@ help:
 		}' Makefile
 
 test:
-	@echo "shell: $(SHELL)"
-	@echo "make_host: $(MAKE_HOST)"
-	@echo "os: $(OS)"
-	@echo "path: $(PATH)"
-	$(SHELL) -c pwd
-	@pwd
-	cnvsapi --version
-	quarto --version
-	awk --version | grep -oP 'GNU Awk \K[0-9.]+'
-	sed --version | grep -oP '(?<=\(GNU sed\) )[0-9.]+'
-	grep --version | grep -oP '(?<=\(GNU grep\) )[0-9.]+'
+	cnvsapi freshen canvas-lectures-from-outline --all
 
 
-all.title = Rebuild site from scratch
-all:
+freshen-all.title = Freshen all elements of site
+freshen-all:
 	cnvsapi --version
-	cd gantts; quarto render
-	cnvsapi freshen canvas-assignment-groups
-	cnvsapi freshen canvas-objects-from-outline 
+	cd details && quarto render && cnvsapi freshen canvas-details-from-disk --all --confirm
+	cd gantts && quarto render
+	cd lectures && cnvsapi freshen lecture-headers-from-outline --all
+	cd pages && quarto render && cnvsapi freshen canvas-pages-from-disk --all --confirm
+	cnvsapi freshen canvas-lectures-from-outline --all
+	cnvsapi freshen canvas-lectures-summary-page
 	cnvsapi freshen canvas-resources-from-outline --all
-	cd lectures; cnvsapi freshen lecture-headers-from-outline --all
+	cnvsapi freshen canvas-objects-from-outline --all
+	cnvsapi freshen canvas-assignment-groups --all
 	cnvsapi freshen canvas-frontpages-from-outline --all
+	
+objects:
+	cnvsapi freshen canvas-objects-from-outline --all
+	cnvsapi freshen canvas-assignment-groups --all
+	cnvsapi freshen canvas-frontpages-from-outline --all
+
+.PHONY: quizzes
+quizzes:
+	cnvsapi freshen canvas-objects-from-outline --groups=graded_quizzes 
+
+.PHONY: frontpages
+frontpages:
+	cnvsapi freshen canvas-assignment-groups --all
+	cnvsapi freshen canvas-frontpages-from-outline --all
+
+
+.PHONY: discussions
+discussions:
+	cnvsapi freshen canvas-objects-from-outline --groups=graded_discussions --all
+
+.PHONY: surveys
+surveys:
+	cnvsapi freshen canvas-objects-from-outline --groups=graded_surveys --all
