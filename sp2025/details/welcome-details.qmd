@@ -43,4 +43,5 @@ to the lecture slides and video (after it's recorded), and any helpful resources
 The *frontpage* presents a set of quick links to any week in the semester, and also highlights the current week. You can always
 press *Home* on the top left of the Canvas window to return to the current week's *frontpage*.
 
-Below is a gannt chart that highlights the major topics over time for the course and where we are today.
+Below is a gannt chart that highlights the major topics over time for the course and where we are today. The vertical gold bar
+represents today and moves live with the sun.
