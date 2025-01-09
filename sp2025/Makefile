@@ -42,6 +42,7 @@ freshen-all:
 	cnvsapi freshen canvas-resources-from-outline --all
 	cnvsapi freshen canvas-objects-from-outline --all
 	cnvsapi freshen canvas-assignment-groups --all
+	cnvsapi freshen canvas-roster-from-source
 	cnvsapi freshen canvas-frontpages-from-outline --all
 	
 objects:
