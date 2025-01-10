@@ -21,7 +21,7 @@ block_style=""
 ```
 
 ::: {style="`{python} block_style`"}
-**We've got a discord!!!** - The course has a Discord server to serve as an *UNOFFICIAL* hub for collaboration and quick communication about the course. It’s a space where students can ask questions, share resources, and connect with classmates in real time, making it easier to stay engaged and get help when needed.
+**CMSC 408 has a discord!!!** - The course has a Discord server to serve as an *UNOFFICIAL* hub for collaboration and quick communication about the course. It’s a space where students can ask questions, share resources, and connect with classmates in real time, making it easier to stay engaged and get help when needed.
 
 Official course communications and announcements will always be sent through Canvas.
 
@@ -35,10 +35,11 @@ your real name. Once I see your real name on the server, I'll upgrade your role 
 
 ::: {style="`{python} block_style`"}
 <ul class="kl_large_link_grid mx-auto d-block">
-<li style="background:lightgray;"><a href="https://discord.gg/gCbs3UQQ9a">Click here to join</a></li>
+<li style="background:lightgray;"><a href="https://discord.gg/gCbs3UQQ9a">Click here to join the CMSC408 discord</a></li>
 </ul>
 :::
 
+<p>&nbsp;</p>
 ::: {style="`{python} block_style`"}
 ### What is *Discord*?
 

@@ -67,3 +67,7 @@ discussions:
 .PHONY: surveys
 surveys:
 	cnvsapi freshen canvas-objects-from-outline --groups=graded_surveys --all
+
+.PHONY: resources
+resources:
+	cnvsapi freshen canvas-resources-from-outline --all

@@ -10,7 +10,7 @@ title: Welcome - Details
 1. *[Introduce yourself](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356){target="_blank"}* - The course will require completion of a team-based semester-long project. Your goal
 during the first week of the course is to find a partner. It starts with introductions.
 
-1. *[Take the pre-class survey](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/212465){target="blank"}* - I'd like to learn more about the students in my class. Besides the *introduce yourself* stuff from above, I've got a survey with a bunch of questions.
+1. *[Take the pre-class survey](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510){target="blank"}* - I'd like to learn more about the students in my class. Besides the *introduce yourself* stuff from above, I've got a survey with a bunch of questions.
 The survey is *graded*. That means that you get credit for completing it.
 
 1. *[Join the course discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord){target="_blank"}* - Previous
