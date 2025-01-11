@@ -4,3 +4,10 @@ project:
 format:
   html:
     minimal: true
+
+execute:
+  echo: false
+  output: asis
+  enabled: true
+  python: true
+  
