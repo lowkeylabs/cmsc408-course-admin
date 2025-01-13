@@ -3,7 +3,12 @@ date: last-modified
 title: Week 1 - Details
 ---
 
-<p class="lead">The class hasn't yet started, but here are some things you can be doing to keep ahead of the curve.</p>
+<p class="lead">Welcome to the first week of class.  Ready or not, here we go!</p>
+
+Note that the class consists of two sections - a face-to-face, lecture based section and an on-line, asynchronous section.
+The course will be paced to the face-to-face section, focusing on weekly activities.  The lectures will be recorded.
+
+The online, asynchronous students SHOULD DEFINITELY review the lectures. Each will contain good info about the assignments for the week will work.
 
 ### Things to do this week!
 
