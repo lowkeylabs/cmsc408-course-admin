@@ -552,8 +552,6 @@ pace gets really fast. 10/10 professor*
 
 # A long time ago … in a galaxy far, far away …
 
-# A long time ago … in a galaxy far, far away …
-
 ## Early history
 
 <div class="columns">

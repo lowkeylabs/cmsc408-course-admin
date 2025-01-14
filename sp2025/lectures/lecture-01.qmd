@@ -33,7 +33,6 @@ lecture_topics = [
 # Course Mechanics and Overview
 {{< include ../../topics/_cmsc408-overview-sp2025.qmd >}}
 
-# A long time ago ... in a galaxy far, far away ...
 {{< include ../../topics/_intro-to-databases.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
