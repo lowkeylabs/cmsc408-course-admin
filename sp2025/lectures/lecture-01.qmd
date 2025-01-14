@@ -17,21 +17,23 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'Complete the pre-class survey',
-    'Introduce yourself on the discussion group',
-    'Join the discord',
-    'Form your project team'
+    '[Complete the pre-class survey](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510)',
+    '[Introduce yourself on the discussion group](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)',
+    '[Join the discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)',
+    '[Review the semester project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project)'
 ]
 
 lecture_topics = [
-    'Course overview',
-    'Intro to databases'
+    '[Course Mechanics and Overview](#course-mechanics-and-overview)',
+    '[Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)'
 ]
 ```
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
+# Course Mechanics and Overview
 {{< include ../../topics/_cmsc408-overview-sp2025.qmd >}}
 
+# A long time ago ... in a galaxy far, far away ...
 {{< include ../../topics/_intro-to-databases.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

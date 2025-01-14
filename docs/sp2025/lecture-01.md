@@ -14,13 +14,17 @@ Tuesday - Jan 14, 2025
 
 ### Discussion items
 
-- Complete the pre-class survey
+- [Complete the pre-class
+  survey](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510)
 
-- Introduce yourself on the discussion group
+- [Introduce yourself on the discussion
+  group](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)
 
-- Join the discord
+- [Join the
+  discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)
 
-- Form your project team
+- [Review the semester
+  project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project)
 
 </div>
 
@@ -28,9 +32,9 @@ Tuesday - Jan 14, 2025
 
 ### Lecture topics
 
-- Course overview
+- [Course Mechanics and Overview](#course-mechanics-and-overview)
 
-- Intro to databases
+- [Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)
 
 </div>
 
@@ -58,6 +62,8 @@ Tuesday - Jan 14, 2025
 
 </div>
 
+# Course Mechanics and Overview
+
 ## I’m glad you’re here!!!!
 
  
@@ -66,7 +72,7 @@ Tuesday - Jan 14, 2025
 
 <div class="column">
 
-### CMSC 508 - Database Theory
+### CMSC 408 - Database Theory
 
 - Semester course;
 - 3 lecture hours. 3 credits.
@@ -91,7 +97,62 @@ alt="https://spectrum.ieee.org/the-rise-of-sql" />
 
 </div>
 
-## Recommended Textbooks
+## CMSC 408 - Course overview
+
+<div class="columns">
+
+<div class="column" width="40%">
+
+### Course Topics
+
+- Entity Relation Modeling
+  - How do we represent the real-world in a database?
+- Relational Algebra
+  - Underlying mechanics of sorting and searching
+- Normalization
+  - What makes a database suck?
+- SQL
+  - Where the rubber meets the road.
+
+</div>
+
+<div class="column" width="25%">
+
+### Course resources
+
+- [Course
+  canvas](https://virginiacommonwealth.instructure.com/courses/113813)
+- [Course
+  syllabus](https://virginiacommonwealth.instructure.com/courses/113813/assignments/syllabus)
+- [Course
+  calendar](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-outine)
+- [Course
+  Gantt](https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html)
+- [Course
+  discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)
+- [Course
+  assignments](https://virginiacommonwealth.instructure.com/courses/113813/assignments)
+- [Semester
+  project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-project)
+
+</div>
+
+<div class="column" width="35%">
+
+### Course assessment
+
+- 25% - Semester-long project
+- 30% - Weekly homework assignments (9 or so in total)
+- 20% - Four on-line, canvas multiple choice. Practice quizzes provided.
+- 15% - Four on-line discussions.
+- 10% - Two graded surveys.
+- No final examination.
+
+</div>
+
+</div>
+
+## CMSC 408 - Recommended Textbooks
 
 <div class="columns">
 
@@ -124,30 +185,53 @@ alt="Database System Concepts, Sixth Edition, A. Silberschatz, H. Korth, S. Suda
 > retrieval. When I’m building databases, I can’t EVER recall pulling
 > out a text book to look something up!
 
-## Canvas is the OFFICIAL platform
+## CMSC 408 - Roles and Responsibilities
 
-<div class="more-separation">
+<div class="columns">
 
-- YOU are responsible for your own LEARNING. My role is GUIDE and
-  CURATOR.
+<div class="column" width="10%">
 
-- WE are working together as a TEAM so that at completion of the course,
-  you are comfortable with designing and building databases.
-
-- ANYTHING posted to the course canvas is FAIR GAME to be tested. If I
-  think it’s important enough to be shared as part of the course
-  materials on Canvas, I believe that it’s important enough for you to
-  be familiar with it and possibly tested on it.
-
-- I will OFTEN not be able to cover all the material relevant to a
-  specific topic in class. That does NOT mean that it isn’t important.
-  Even if I don’t complete the lecture slides during a class session,
-  you should be familiar with ALL the material in the slides. ANYTHING
-  in the lecture slides is FAIR GAME for testing.
+ 
 
 </div>
 
-## Statement on Generative AI
+<div class="column" width="40%">
+
+### Instructor roles and responsibilities:
+
+- I am your guide and mentor.
+- I will pick the topics and curate materials.
+- I will get you started on the homework assignments.
+- I will use lectures sparingly: intro to new topics, and intro to
+  homeworks, and questions.
+- I will not lecture just to hear myself talk. That is why we have
+  Youtube!
+
+</div>
+
+<div class="column" width="5%">
+
+ 
+
+</div>
+
+<div class="column" width="40%">
+
+### Student roles and responsibilities:
+
+- Review the course resources,
+- Invest the necessary time … EARLY,
+- Get started on homeworks … EARLY,
+- Complete the homeworks on-time,
+- Complete the quizzes on-time,
+- Breath and have fun,
+- You picked CS for a reason - this is it!
+
+</div>
+
+</div>
+
+## CMSC 408 - Statement on Generative AI
 
 - Grades for the course are assigned based on YOUR work, not the work of
   chatgpt, bard or some other generative AI tool. Grades help YOU
@@ -171,10 +255,10 @@ alt="Database System Concepts, Sixth Edition, A. Silberschatz, H. Korth, S. Suda
   **Use of Generative AI is NOT permitted on any of the quizzes.**
 
 - See [this
-  document](https://virginiacommonwealth.instructure.com/courses/105097/files/12032089?wrap=1)
+  document](https://virginiacommonwealth.instructure.com/courses/113813/files?preview=14026400)
   to learn more!
 
-## ABET Student Learning Outcomes
+## CMSC 408 - ABET Student Learning Outcomes
 
 <div class="more-separation">
 
@@ -287,102 +371,6 @@ automate the reptition.
 
 ## CMSC 408 - Assessment and Grading
 
-<div class="columns">
-
-<div class="column">
-
-### Course Links
-
-<a
-href="https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html"
-target="_blank">Course Gantt Chart</a>
-
-<a
-href="https://virginiacommonwealth.instructure.com/courses/113813/assignments"
-target="_blank">Assignments and Grading</a>
-
-</div>
-
-<div class="column">
-
-### Assignment Groups
-
-| Group              | Weight | Notes                            |
-|--------------------|--------|----------------------------------|
-| Projects           | 20%    | 7 deliverables.                  |
-| Graded discussions | 15%    | Four discussions                 |
-| Homeworks          | 30%    | 9 homework assignments           |
-| Graded Surveys     | 10%    | 2 graded surveys                 |
-| Graded Quizzes     | 25%    | 4 graded quizzes                 |
-| Practice Quizzes   | 0%     | Not counted towards final grade. |
-
-</div>
-
-</div>
-
-## CMSC 408 - Assessment and Grading
-
-### Homework Policies
-
-<div class="smaller">
-
-- I observe [flexible deadlines](https://eric.ed.gov/?id=EJ1367855) for
-  homework, NOT FOR QUIZZES OR DELIVERABLES!
-
-- Each homework has a *timeliness* score in the rubric. *On-time* gets
-  full credit. The *timeliness score* is reduced slowly past the
-  submission date.
-
-- You will ALWAYS get credit for submitting assignments. ALWAYS turn
-  something in! I want you to get the practice and LEARN!
-
-- I realize this is NOT your only class. But don’t get too far behind!
-
-- READ homework rubrics to see expectations for each assignment. The
-  rubrics will help you understand what’s important and where you should
-  spend your time.
-
-- The homework assignments are generally aligned with the semester
-  project, so that one reinforces the other. It pays to keep up!
-
-</div>
-
-## CMSC 408 - Assessment and Grading
-
-This will be a busy semester! There will be items due each week.
-
-### Quizzes
-
-<div style="font-size:0.9em;">
-
-Quizzes will be administered on-line using the Respondus lockdown
-browser. It is the responsibility of the student to ensure that
-Respondus works. Quizzes will be adminstered outside of class. NO LATE
-QUIZZES.
-
-Practice quizzes will be available. You can take practice quiz as many
-times as you like. Practice quiz will look exactly like the actual quiz.
-Expect each quiz to take 30-minutes or less.
-
-</div>
-
-## CMSC 408 - Assessment and Grading
-
-This will be a busy semester! There will be items due each week.
-
-### Semester-long project
-
-<div style="font-size:0.9em;">
-
-Students will work in teams of 2 on a semester-long project. The project
-will require the students design, build and deploy a database driven web
-application. *Team Update* deliverables are brief surveys reflecting on
-project status, and should only take about 5-min to complete.
-
-</div>
-
-## CMSC 408 - Assessment and Grading
-
 This will be a busy semester! There will be items due each week.
 
 ### Summary and grading schedule
@@ -405,11 +393,11 @@ the class.
 
 | Group              | Weight | Notes                            |
 |--------------------|--------|----------------------------------|
-| Projects           | 20%    | 7 deliverables.                  |
+| Projects           | 25%    | 7 deliverables.                  |
 | Graded discussions | 15%    | Four discussions                 |
 | Homeworks          | 30%    | 9 homework assignments           |
 | Graded Surveys     | 10%    | 2 graded surveys                 |
-| Graded Quizzes     | 25%    | 4 graded quizzes                 |
+| Graded Quizzes     | 20%    | 4 graded quizzes                 |
 | Practice Quizzes   | 0%     | Not counted towards final grade. |
 
 </center>
@@ -549,6 +537,8 @@ pace gets really fast. 10/10 professor*
 ### *In summary: Don’t panic, you got this!*
 
 </center>
+
+# A long time ago … in a galaxy far, far away …
 
 # A long time ago … in a galaxy far, far away …
 
@@ -890,9 +880,6 @@ spreadsheet](https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtr
 
 - We’ll tie everything together using SQL.
 
-<img src="lecture-01_files\figure-commonmark\mermaid-figure-1.png"
-style="width:8.17in;height:2.29in" />
-
 ## Housekeeping
 
 <div class="columns">
@@ -905,13 +892,17 @@ style="width:8.17in;height:2.29in" />
 
 ### Discussion items
 
-- Complete the pre-class survey
+- [Complete the pre-class
+  survey](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510)
 
-- Introduce yourself on the discussion group
+- [Introduce yourself on the discussion
+  group](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)
 
-- Join the discord
+- [Join the
+  discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)
 
-- Form your project team
+- [Review the semester
+  project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project)
 
 </div>
 
@@ -919,9 +910,9 @@ style="width:8.17in;height:2.29in" />
 
 ### Lecture topics
 
-- Course overview
+- [Course Mechanics and Overview](#course-mechanics-and-overview)
 
-- Intro to databases
+- [Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)
 
 </div>
 
