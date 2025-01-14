@@ -152,6 +152,17 @@ alt="https://spectrum.ieee.org/the-rise-of-sql" />
 
 </div>
 
+<center>
+
+<p>
+
+ 
+</p>
+
+*[OMG - How will I survive? These tips will SAVE YOU
+HOURS™](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
+</center>
+
 ## CMSC 408 - Recommended Textbooks
 
 <div class="columns">
@@ -371,7 +382,8 @@ automate the reptition.
 
 ## CMSC 408 - Assessment and Grading
 
-This will be a busy semester! There will be items due each week.
+This will be a busy semester! There will be [items due each
+week](https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html).
 
 ### Summary and grading schedule
 
@@ -534,7 +546,7 @@ pace gets really fast. 10/10 professor*
 
 <center>
 
-### *In summary: Don’t panic, you got this!*
+### *[In summary: Don’t panic, you got this!](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
 
 </center>
 

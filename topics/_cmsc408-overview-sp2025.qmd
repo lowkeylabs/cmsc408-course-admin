@@ -67,6 +67,11 @@ Students will be required to complete a design project and give an oral presenta
 :::
 ::::
 
+<center>
+<p>&nbsp;</p>
+*[OMG - How will I survive?  These tips will SAVE YOU HOURS&trade;](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
+</center>
+
 ## CMSC 408 - Recommended Textbooks
 
 :::: {.columns}
@@ -221,7 +226,7 @@ We'll be learning docker to containerize a database and application and automate
 
 ## CMSC 408 - Assessment and Grading
 
-This will be a busy semester! There will be items due each week.
+This will be a busy semester! There will be [items due each week](https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html).
 
 ### Summary and grading schedule
 
@@ -326,5 +331,5 @@ Below are tables presenting the grading scheme and deliverable list for the clas
 ::::
 
 <center>
-### *In summary: Don't panic, you got this!*
+### *[In summary: Don't panic, you got this!](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
 </center>
