@@ -1,7 +1,7 @@
 ---
 date: '2025-01-21'
 lecture-id: 3
-title: Entity-relation models 2
+title: 'Entity-relation models '
 ---
 
 ```{python}
@@ -21,8 +21,18 @@ discussion_items = [
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Overview of DB design](#overview-of-database-design)',
+    '[Intro to ER Models](#introduction-to-er-models)',
 ]
 ```
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+# Overview of Database Design
+{{< include ../../topics/_overview-of-database-design.qmd >}}
+# Intro to ER Models
+{{< include ../../topics/_intro-to-er-models.qmd >}}
+<!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

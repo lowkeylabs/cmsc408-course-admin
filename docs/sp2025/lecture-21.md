@@ -33,3 +33,19 @@ Thursday - Apr 3, 2025
  
 
 </div>
+
+    <style></style>
+    <div class='upcoming-calendar'>
+
+| Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
+|:--:|:--:|:--:|:--:|----|----|
+| SQL I | 12 | 4/3 | Thu | L21:Joins and Selects 1 |  |
+| SQL I | 12 | 4/6 | Sun |  | HW6:Constructing a database |
+| SQL II | 13 | 4/8 | Tue | L22:Joins and Selects 2 |  |
+| SQL II | 13 | 4/10 | Thu | L23:Aggregates 1 |  |
+| SQL II | 13 | 4/13 | Sun |  | HW7:Joining tables and reporting |
+| SQL II | 14 | 4/15 | Tue | L24:Subqueries and WITH 1 |  |
+| SQL II | 14 | 4/17 | Thu | L25:Subqueries and WITH 2 |  |
+| SQL II | 14 | 4/20 | Sun |  | HW8:SQL Funhouse |
+
+</div>

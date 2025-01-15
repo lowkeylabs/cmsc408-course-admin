@@ -33,3 +33,19 @@ Tuesday - Feb 4, 2025
  
 
 </div>
+
+    <style></style>
+    <div class='upcoming-calendar'>
+
+| Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
+|:--:|:--:|:--:|:--:|----|----|
+| Relational Alg. | 4 | 2/4 | Tue | L7:Relational Algebra 1 | PQ2:Relational Algebra; HW2:Entity Relation Models |
+| Relational Alg. | 4 | 2/6 | Thu | L8:Relational Algebra 2 |  |
+| Relational Alg. | 4 | 2/9 | Sun |  | Prj4:Video Pitch; Dis2:Relational Alg. |
+| Relational Alg. | 5 | 2/10 | Mon | Last day for progress reports |  |
+| Relational Alg. | 5 | 2/11 | Tue | L9:Analysis and Normal Forms 1 |  |
+| Relational Alg. | 5 | 2/12 | Wed | Career Fair (10am-3pm) |  |
+| Relational Alg. | 5 | 2/13 | Thu | NO CLASS - Interview Day (10am-3pm) | Q2:Relational Algebra |
+| Relational Alg. | 5 | 2/16 | Sun |  | HW3:Modeling Your World |
+
+</div>

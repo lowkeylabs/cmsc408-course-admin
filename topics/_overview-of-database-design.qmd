@@ -1,6 +1,4 @@
-
-# Overview of Database Design
-
+<!-- # Overview of Database Design -->
 
 
 ## Overview of Database Design

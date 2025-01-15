@@ -33,3 +33,19 @@ Thursday - Feb 27, 2025
  
 
 </div>
+
+    <style></style>
+    <div class='upcoming-calendar'>
+
+| Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
+|:--:|:--:|:--:|:--:|----|----|
+| Normal forms | 7 | 2/27 | Thu | L13:Analysis and Normal Forms 5 |  |
+| Normal forms | 7 | 3/2 | Sun |  | Prj5:Design Documentation |
+| Normal forms | 8 | 3/4 | Tue | L14:Analysis and Normal Forms 6 |  |
+| Normal forms | 8 | 3/6 | Thu | L15:Intro to SQL | Q3:Analysis and Normal Forms |
+| Normal forms | 8 | 3/9 | Sun |  | HW4:Analysis and Normal Forms |
+| Spring Break | 9 | 3/11 | Tue | NO CLASS - Spring break (Mar.10-14) |  |
+| Spring Break | 9 | 3/13 | Thu | NO CLASS - Spring break (Mar.10-14) |  |
+| SQL I | 10 | 3/18 | Tue | L16:SQL Selects | PQ4:SQL Basics |
+
+</div>

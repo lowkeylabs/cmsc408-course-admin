@@ -1,7 +1,4 @@
-
-# Introduction to ER Models
-
-
+<!-- # Introduction to ER Models -->
 
 ## Conceptual, Logical, and Physical Data Models
 
@@ -132,7 +129,7 @@ graph ER {
 
 
 
-## Entities in ER Models
+## *Entities* in ER Models
 
 :::: {.columns}
 ::: {.column width=75%}
@@ -155,7 +152,7 @@ Entities represent real-world objects or concepts that are stored in the databas
 
 
 
-## Attributes in ER Models
+## *Attributes* in ER Models
 
 :::: {.columns}
 ::: {.column width=75%}
@@ -177,7 +174,7 @@ Attributes describe the properties or characteristics of entities and relationsh
 
 
 
-## Relationships in ER Models
+## *Relationships* in ER Models
 
 :::: {.columns}
 ::: {.column width=75%}
@@ -199,11 +196,11 @@ Relationships define how entities interact with each other within the database. 
 
 
 
-## Cardinality in Relationships
+## *Cardinality* in Relationships
 
 :::: {.columns}
 ::: {.column width=75%}
-Cardinality defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.
+*Cardinality* defines the number of instances of one entity that can be associated with instances of another entity. Accurately determining cardinality is essential for representing real-world relationships in the database.
 
 - Cardinality types include one-to-one, one-to-many, and many-to-many.
 - One-to-one: Each instance of one entity relates to a single instance of another entity.
@@ -239,11 +236,11 @@ ROOM {
 
 
 
-## Participation in Relationships
+## *Participation* in Relationships
 
 :::: {.columns}
 ::: {.column width=75%}
-Participation indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.
+*Participation* indicates whether all or only some instances of an entity are involved in a relationship. Understanding participation is crucial for accurately modeling the mandatory or optional nature of relationships in a database.
 
 - Participation types include total participation and partial participation.
 - Total Participation (Mandatory): Every instance of an entity must be involved in a relationship with instances of another entity.
@@ -301,7 +298,7 @@ ER diagrams use specific notations to represent entities, relationships, and att
 
 
 
-## Chen notation
+## *Chen* notation
 
 :::: {.columns}
 ::: {.column width="70%"}
@@ -353,7 +350,7 @@ graph ER {
 
 
 
-## Crows Foot notation
+## *Crows Foot* notation
 
 :::: {.columns}
 ::: {.column}
@@ -405,9 +402,9 @@ ROOM {
 
 
 
-## Specialization and Generalization in ER Models
+## *Specialization* and *Generalization* in ER Models
 
-Specialization and generalization are advanced ER modeling techniques used to represent inheritance and hierarchy among entities. These techniques enhance the expressiveness of ER models.
+*Specialization* and *generalization* are advanced ER modeling techniques used to represent inheritance and hierarchy among entities. These techniques enhance the expressiveness of ER models.
 
 :::: {.columns}
 ::: {.column width=95%}

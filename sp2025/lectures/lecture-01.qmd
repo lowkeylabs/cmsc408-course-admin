@@ -24,15 +24,15 @@ discussion_items = [
 ]
 
 lecture_topics = [
-    '[Course Mechanics and Overview](#course-mechanics-and-overview)',
-    '[Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)'
+    '[Course Mechanics and Overview](#course-mechanics-and-overview)'
 ]
 ```
+
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
-# Course Mechanics and Overview
+<!-- lecture-block-begin -->
+# Course mechanics and overview
 {{< include ../../topics/_cmsc408-overview-sp2025.qmd >}}
-
-{{< include ../../topics/_intro-to-databases.qmd >}}
+<!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

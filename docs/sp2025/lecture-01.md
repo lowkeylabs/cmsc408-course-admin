@@ -34,8 +34,6 @@ Tuesday - Jan 14, 2025
 
 - [Course Mechanics and Overview](#course-mechanics-and-overview)
 
-- [Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)
-
 </div>
 
 </div>
@@ -52,17 +50,21 @@ Tuesday - Jan 14, 2025
 | Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
 |:--:|:--:|:--:|:--:|----|----|
 | ER Models | 1 | 1/14 | Tue | L1:Welcome to CMSC408 |  |
-| ER Models | 1 | 1/16 | Thu | L2:Entity-relation models 1 | Srv1:Pre-class survey |
+| ER Models | 1 | 1/16 | Thu | L2:Intro to Databases | Srv1:Pre-class survey |
 | ER Models | 1 | 1/19 | Sun | Last day to add/drop | Prj1:Intros |
 | ER Models | 2 | 1/20 | Mon | NO CLASS - University Closed (MLK) |  |
-| ER Models | 2 | 1/21 | Tue | L3:Entity-relation models 2 |  |
+| ER Models | 2 | 1/21 | Tue | L3:Entity-relation models |  |
 | ER Models | 2 | 1/23 | Thu | L4:ER Models | PQ1:Entity-relation models |
 | ER Models | 2 | 1/26 | Sun |  | HW1:DE Tool Review; Prj2:Team formation; Dis1:ER modeling |
 | ER Models | 3 | 1/28 | Tue | L5:Relational models 1 |  |
 
 </div>
 
-# Course Mechanics and Overview
+<!-- lecture-block-begin -->
+
+# Course mechanics and overview
+
+<!-- # Course Mechanics and Overview -->
 
 ## I’m glad you’re here!!!!
 
@@ -550,345 +552,7 @@ pace gets really fast. 10/10 professor*
 
 </center>
 
-# A long time ago … in a galaxy far, far away …
-
-## Early history
-
-<div class="columns">
-
-<div class="column">
-
-### 1950s and early 1960s:
-
-- Data processing using [magnetic tapes for
-  storage](https://en.wikipedia.org/wiki/Magnetic-tape_data_storage)
-- Tapes provided only sequential access
-- [Punched cards for
-  input](https://en.wikipedia.org/wiki/Punched_card_input/output)
-
-</div>
-
-<div class="column" width="40%">
-
-![](assets/1951_TapeData_P2.jpg)
-
-</div>
-
-</div>
-
-<center>
-
-<em>The history of databases tracks the history of computers</em>
-</center>
-
-## Early history
-
-<div class="columns">
-
-<div class="column">
-
-### Late 1960s and 1970s:
-
-- [Hard disks
-  allowed](https://en.wikipedia.org/wiki/History_of_hard_disk_drives)
-  direct access to data
-- [Network and hierarchical data
-  models](https://en.wikipedia.org/wiki/Database_model) in widespread
-  use
-- [Edgar “Ted” Codd](https://en.wikipedia.org/wiki/Edgar_F._Codd)
-  defines the Relational data model
-- [High-performance (for the era) transaction
-  processing](https://en.wikipedia.org/wiki/Transaction_processing)
-
-</div>
-
-<div class="column" width="40%">
-
-![](assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg)
-
-</div>
-
-</div>
-
-<center>
-
-<em>The history of databases tracks the history of computers</em>
-</center>
-
-## Modern systems
-
-<div class="columns">
-
-<div class="column">
-
-### 1980s:
-
-- Research relational prototypes evolve into commercial systems
-  - SQL becomes industrial standard
-- Parallel and distributed database systems
-- Object-oriented database systems
-
-### 1990s:
-
-- Large decision support and data-mining applications
-- Large multi-terabyte data warehouses
-- Emergence of Web commerce
-
-</div>
-
-<div class="column">
-
-![](assets/1990-computer-center.png)
-
-</div>
-
-</div>
-
-<center>
-
-<em>The history of databases tracks the history of computers</em>
-</center>
-
-## Modern systems
-
-<div class="columns">
-
-<div class="column">
-
-### Early 2000s:
-
-- XML and XQuery standards
-- Automated database administration
-
-### Later 2000s:
-
-- Giant data storage systems
-- Google BigTable, Yahoo PNuts, Amazon, …
-
-### 2022 and Beyond:
-
-<https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4>
-
-</div>
-
-<div class="column">
-
-![](assets/google-data-center.png)
-
-</div>
-
-</div>
-
-## <a
-href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape"
-target="_blank">Open Source Data Engineering Landscape 2024</a>
-
-<img src="assets/data-engineering-landscape-2024.png"
-class="lightbox" />
-
-## <a
-href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape"
-target="_blank">Open Source Data Engineering Landscape 2024</a>
-
-<img src="assets/data-engineering-landscape-2024-with-highlights.png"
-class="lightbox" />
-
-## Why not use spreadsheets?
-
-### Spreadsheets DO work and they ARE viable!
-
-<div class="columns">
-
-<div class="column">
-
-[Here is spreadsheet driven web
-site](https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/)
-
-</div>
-
-<div class="column">
-
-[Here is the
-spreadsheet](https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023)
-
-</div>
-
-</div>
-
-### On the surface spreadsheets share many common elements with databases
-
-<div class="columns">
-
-<div class="column">
-
-### Entities
-
-- *Worksheets* are *Tables*
-- *Rows* are sometimes *Records*
-- *Columns* are sometimes *Fields*
-- *Workbooks* are *Databases* (collections of tables)
-
-</div>
-
-<div class="column">
-
-### Operations
-
-- find rows, insert rows, delete rows, update rows,
-- add columns, remove columns
-- create worksheets, delete worksheets
-- create workbooks, delete workbooks
-
-</div>
-
-</div>
-
-## Why not use spreadsheets?
-
-- Suppose that to add a new person, you need to make changes to three
-  tabs (e.g., ‘Personal Info,’ ‘Contact Info,’ and ‘Employment Info’).
-
-  - *What happens if you are interrupted in the middle of the change and
-    forget where you are? (Atomicity)*
-
-- Imagine that one of the tabs in your spreadsheet has a formula that
-  automatically updates totals or averages when new data are entered.
-
-  - *What would happen if, during an update, the formula fails to
-    recalculate properly? (Consistency)*
-
-- Consider a scenario where two people are editing the spreadsheet at
-  the same time, both trying to add new rows to the same tab.
-
-  - *How might their changes conflict, and what issues could arise?
-    (Isolation)*
-
-- Suppose you have made all the necessary changes to add a new person in
-  your spreadsheet and then your computer crashes before you can save
-  the file.
-
-  - *What happens to the changes? (Durability)*
-
-## Why not use spreadsheets?
-
-- Imagine your spreadsheet contains sensitive information, such as
-  personal or financial data.
-
-  - *What controls could you put in place to ensure that only authorized
-    users can view or edit specific parts of the data (Security)*
-
-- Imagine that your spreadsheet currently manages a few hundred rows of
-  data.
-
-  - *What would happen if you needed to scale this to millions of rows?
-    How would performance be affected, and what challenges might you
-    face in managing such large volumes of data? (Scalability)*
-
-- Imagine that your spreadsheet contains phone numbers across different
-  tabs.
-
-  - *What would happen if a home phone number was changed on one tab but
-    not another? (Normalization and redundancy)*
-
-## On Line Transaction Processing (OLTP) databases
-
-<div class="columns">
-
-<div class="column" width="80%">
-
-- This semester we’ll be exploring Relational, [On Line Transaction
-  Processing
-  (OLTP)](https://en.wikipedia.org/wiki/Online_transaction_processing)
-  Database Management Systems (DBMS), like MySQL, Postgres, SQLITE,
-  Oracle, DB2 and SQLServer.
-
-- A [Database Management System
-  (DBMS)](https://en.wikipedia.org/wiki/Database#Database_management_system)
-  is the software that enables users to define, create, manage, and
-  interact with databases. It serves as an intermediary between the end
-  users, applications, and the database, ensuring that data is
-  organized, stored, retrieved, and modified efficiently and securely.
-
-- [There are many ways to store data in a
-  DBMS](https://en.wikipedia.org/wiki/Database_model).
-
-- We’ll be focusing on the [*Relational*
-  model](https://en.wikipedia.org/wiki/Database_model#Relational_model),
-  where the DBMS stores entities and the relationships between these
-  entities inside a single database (called a
-  [schema](https://en.wikipedia.org/wiki/Database_schema)).
-
-- These databases bundle multiple changes to the database as a
-  [transaction](https://en.wikipedia.org/wiki/Database_transaction).
-  Transactions can be reviewed and rolled back (reversed).
-
-- [ACID (atomicity, consistency, isolation,
-  durability)](https://en.wikipedia.org/wiki/ACID) is a set of
-  properties of transactions intended to guarantee data validity despite
-  errors, power failures, and other mishaps.
-
-- Changes to the database are communicated to the DBMS using a language
-  called [*SQL*, a *structured query
-  language*](https://en.wikipedia.org/wiki/SQL). How does one [pronounce
-  SQL?](https://www.youtube.com/watch?v=S9C8PNX72Ms)
-
-</div>
-
-<div class="column" width="20%">
-
-![](assets/oltp-snip.png)
-
-</div>
-
-</div>
-
-## On Line Transaction Processing (OLTP) databases
-
-<div class="columns">
-
-<div class="column">
-
-- **Fast Query Processing:** These databases prioritize quick query
-  response times to ensure efficient and prompt processing of individual
-  transactions, making them ideal for applications like banking,
-  e-commerce, and order management systems.
-
-- **High Transaction Volume:** OLTP databases are designed to handle a
-  large number of short, atomic transactions, such as inserting,
-  updating, or deleting records, which are typically initiated by
-  end-users in real-time.
-
-</div>
-
-<div class="column">
-
-- **Data Integrity and Consistency:** OLTP systems implement ACID
-  (Atomicity, Consistency, Isolation, Durability) properties to ensure
-  that all transactions are processed reliably, maintaining the
-  integrity and consistency of the data even in the event of system
-  failures.
-
-- **Normalized Data Structure:** OLTP databases typically use a highly
-  normalized schema to minimize data redundancy, optimize storage
-  efficiency, and reduce the complexity of data manipulation during
-  frequent transactions.
-
-</div>
-
-</div>
-
-## CMSC 408 - in a nutshell
-
-- We’ll apply *entity-relation* models to design and describe the
-  contents of a database.
-
-- We’ll apply *relational algebra* to formally describe how we query the
-  database.
-
-- We’ll apply *normalization* to ensure that we minimize redundant
-  information in the database.
-
-- We’ll tie everything together using SQL.
+<!-- lecture-block-end -->
 
 ## Housekeeping
 
@@ -922,8 +586,6 @@ spreadsheet](https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtr
 
 - [Course Mechanics and Overview](#course-mechanics-and-overview)
 
-- [Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)
-
 </div>
 
 </div>
@@ -940,10 +602,10 @@ spreadsheet](https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtr
 | Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
 |:--:|:--:|:--:|:--:|----|----|
 | ER Models | 1 | 1/14 | Tue | L1:Welcome to CMSC408 |  |
-| ER Models | 1 | 1/16 | Thu | L2:Entity-relation models 1 | Srv1:Pre-class survey |
+| ER Models | 1 | 1/16 | Thu | L2:Intro to Databases | Srv1:Pre-class survey |
 | ER Models | 1 | 1/19 | Sun | Last day to add/drop | Prj1:Intros |
 | ER Models | 2 | 1/20 | Mon | NO CLASS - University Closed (MLK) |  |
-| ER Models | 2 | 1/21 | Tue | L3:Entity-relation models 2 |  |
+| ER Models | 2 | 1/21 | Tue | L3:Entity-relation models |  |
 | ER Models | 2 | 1/23 | Thu | L4:ER Models | PQ1:Entity-relation models |
 | ER Models | 2 | 1/26 | Sun |  | HW1:DE Tool Review; Prj2:Team formation; Dis1:ER modeling |
 | ER Models | 3 | 1/28 | Tue | L5:Relational models 1 |  |

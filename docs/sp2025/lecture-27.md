@@ -33,3 +33,18 @@ Thursday - Apr 24, 2025
  
 
 </div>
+
+    <style></style>
+    <div class='upcoming-calendar'>
+
+| Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
+|:--:|:--:|:--:|:--:|----|----|
+| SQL II | 15 | 4/24 | Thu | L27:Procedures and Functions |  |
+| SQL II | 15 | 4/27 | Sun |  | HW9:Even more on SQL |
+| SQL II | 16 | 4/29 | Tue | Last day of classes; L28:Triggers, Views and Security | Srv2:Course evaluation; Prj7:Final Submission |
+| SQL II | 16 | 5/1 | Thu | Finals begin |  |
+| SQL II | 17 | 5/8 | Thu | Finals end |  |
+| SQL II | 17 | 5/10 | Sat | Commencement |  |
+|  | 18 | 5/13 | Tue | Final grades due |  |
+
+</div>

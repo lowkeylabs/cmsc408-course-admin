@@ -1,5 +1,4 @@
-
-# Database design process
+<!-- # Database design process -->
 
 ## Database design process - overview
 

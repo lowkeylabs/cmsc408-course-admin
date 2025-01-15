@@ -1,7 +1,7 @@
 ---
 date: '2025-01-16'
 lecture-id: 2
-title: Entity-relation models 1
+title: Intro to Databases
 ---
 
 ```{python}
@@ -17,12 +17,27 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Complete the pre-class survey](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510)',
+    '[Introduce yourself on the discussion group](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)',
+    '[Join the discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)',
+    '[Review the semester project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project)'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Intro to databases](#a-long-time-ago-in-a-galaxy-far-far-away)',
+    '[Homework 1](#homework-1)',
+    '[Intro to DB design](#database-design-process)'
 ]
 ```
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+# A long time ago in a galaxy far, far away ...
+{{< include ../../topics/_intro-to-databases.qmd >}}
+# Homework 1
+{{< include ../../topics/_homework-1-spring-2025.qmd >}}
+# Database design process
+{{< include ../../topics/_database-design-process.qmd >}}
+<!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

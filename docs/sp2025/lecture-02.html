@@ -6,13 +6,16 @@
 <script src="lecture-02_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-02_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-02_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-02_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-02_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-02_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-02_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-02_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.39">
+<link href="lecture-02_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-02_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-02_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-02_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
 
-  <title>Entity-relation models 1</title>
+  <title>Intro to Databases</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -137,7 +140,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Entity-relation models 1</h1>
+  <h1 class="title">Intro to Databases</h1>
   <p class="subtitle">Lecture 2</p>
 
 <div class="quarto-title-authors">
@@ -153,12 +156,17 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510">Complete the pre-class survey</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356">Introduce yourself on the discussion group</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord">Join the discord</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project">Review the semester project</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><p><a href="#/a-long-time-ago-in-a-galaxy-far-far-away">Intro to databases</a></p></li>
+<li><p><a href="#/homework-1">Homework 1</a></p></li>
+<li><p><a href="#/database-design-process">Intro to DB design</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -184,7 +192,7 @@
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1/16</td>
 <td style="text-align: center;">Thu</td>
-<td>L2:Entity-relation models 1</td>
+<td>L2:Intro to Databases</td>
 <td>Srv1:Pre-class survey</td>
 </tr>
 <tr class="even">
@@ -208,7 +216,585 @@
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">1/21</td>
 <td style="text-align: center;">Tue</td>
-<td>L3:Entity-relation models 2</td>
+<td>L3:Entity-relation models</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/23</td>
+<td style="text-align: center;">Thu</td>
+<td>L4:ER Models</td>
+<td>PQ1:Entity-relation models</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/26</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW1:DE Tool Review; Prj2:Team formation; Dis1:ER modeling</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1/28</td>
+<td style="text-align: center;">Tue</td>
+<td>L5:Relational models 1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1/30</td>
+<td style="text-align: center;">Thu</td>
+<td>L6:Relational models 2</td>
+<td>Q1:Entity-relation models</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- lecture-block-begin -->
+</section>
+<section>
+<section id="a-long-time-ago-in-a-galaxy-far-far-away" class="title-slide slide level1 center">
+<h1>A long time ago in a galaxy far, far away …</h1>
+<!-- # A long time ago ... in a galaxy far, far away ... -->
+</section>
+<section id="early-history" class="slide level2">
+<h2>Early history</h2>
+<div class="columns">
+<div class="column">
+<h3 id="s-and-early-1960s">1950s and early 1960s:</h3>
+<ul>
+<li>Data processing using <a href="https://en.wikipedia.org/wiki/Magnetic-tape_data_storage">magnetic tapes for storage</a></li>
+<li>Tapes provided only sequential access</li>
+<li><a href="https://en.wikipedia.org/wiki/Punched_card_input/output">Punched cards for input</a></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/1951_TapeData_P2.jpg"></p>
+</div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
+</section>
+<section id="early-history-1" class="slide level2">
+<h2>Early history</h2>
+<div class="columns">
+<div class="column">
+<h3 id="late-1960s-and-1970s">Late 1960s and 1970s:</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/History_of_hard_disk_drives">Hard disks allowed</a> direct access to data</li>
+<li><a href="https://en.wikipedia.org/wiki/Database_model">Network and hierarchical data models</a> in widespread use</li>
+<li><a href="https://en.wikipedia.org/wiki/Edgar_F._Codd">Edgar “Ted” Codd</a> defines the Relational data model</li>
+<li><a href="https://en.wikipedia.org/wiki/Transaction_processing">High-performance (for the era) transaction processing</a></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg"></p>
+</div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
+</section>
+<section id="modern-systems" class="slide level2">
+<h2>Modern systems</h2>
+<div class="columns">
+<div class="column">
+<h3 id="s">1980s:</h3>
+<ul>
+<li>Research relational prototypes evolve into commercial systems
+<ul>
+<li>SQL becomes industrial standard</li>
+</ul></li>
+<li>Parallel and distributed database systems</li>
+<li>Object-oriented database systems</li>
+</ul>
+<h3 id="s-1">1990s:</h3>
+<ul>
+<li>Large decision support and data-mining applications</li>
+<li>Large multi-terabyte data warehouses</li>
+<li>Emergence of Web commerce</li>
+</ul>
+</div><div class="column">
+<p><img data-src="assets/1990-computer-center.png"></p>
+</div></div>
+<center>
+<em>The history of databases tracks the history of computers</em>
+</center>
+</section>
+<section id="modern-systems-1" class="slide level2">
+<h2>Modern systems</h2>
+<div class="columns">
+<div class="column">
+<h3 id="early-2000s">Early 2000s:</h3>
+<ul>
+<li>XML and XQuery standards</li>
+<li>Automated database administration</li>
+</ul>
+<h3 id="later-2000s">Later 2000s:</h3>
+<ul>
+<li>Giant data storage systems</li>
+<li>Google BigTable, Yahoo PNuts, Amazon, …</li>
+</ul>
+<h3 id="and-beyond">2022 and Beyond:</h3>
+<p><a href="https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4" class="uri">https://cacm.acm.org/magazines/2022/8/262905-the-seattle-report-on-database-research/fulltext#body-4</a></p>
+</div><div class="column">
+<p><img data-src="assets/google-data-center.png"></p>
+</div></div>
+</section>
+<section id="open-source-data-engineering-landscape-2024" class="slide level2">
+<h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape" target="_blank">Open Source Data Engineering Landscape 2024</a></h2>
+<p><a href="assets/data-engineering-landscape-2024.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="assets/data-engineering-landscape-2024.png"></a></p>
+</section>
+<section id="open-source-data-engineering-landscape-2024-1" class="slide level2">
+<h2><a href="https://practicaldataengineering.substack.com/p/open-source-data-engineering-landscape" target="_blank">Open Source Data Engineering Landscape 2024</a></h2>
+<p><a href="assets/data-engineering-landscape-2024-with-highlights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="assets/data-engineering-landscape-2024-with-highlights.png"></a></p>
+</section>
+<section id="why-not-use-spreadsheets" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<h3 id="spreadsheets-do-work-and-they-are-viable">Spreadsheets DO work and they ARE viable!</h3>
+<div class="columns">
+<div class="column">
+<p><a href="https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/">Here is spreadsheet driven web site</a></p>
+</div><div class="column">
+<p><a href="https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023">Here is the spreadsheet</a></p>
+</div></div>
+<h3 id="on-the-surface-spreadsheets-share-many-common-elements-with-databases">On the surface spreadsheets share many common elements with databases</h3>
+<div class="columns">
+<div class="column">
+<h3 id="entities">Entities</h3>
+<ul>
+<li><em>Worksheets</em> are <em>Tables</em></li>
+<li><em>Rows</em> are sometimes <em>Records</em></li>
+<li><em>Columns</em> are sometimes <em>Fields</em></li>
+<li><em>Workbooks</em> are <em>Databases</em> (collections of tables)</li>
+</ul>
+</div><div class="column">
+<h3 id="operations">Operations</h3>
+<ul>
+<li>find rows, insert rows, delete rows, update rows,</li>
+<li>add columns, remove columns</li>
+<li>create worksheets, delete worksheets</li>
+<li>create workbooks, delete workbooks</li>
+</ul>
+</div></div>
+</section>
+<section id="why-not-use-spreadsheets-1" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<ul>
+<li><p>Suppose that to add a new person, you need to make changes to three tabs (e.g., ‘Personal Info,’ ‘Contact Info,’ and ‘Employment Info’).</p>
+<ul>
+<li><em>What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)</em></li>
+</ul></li>
+<li><p>Imagine that one of the tabs in your spreadsheet has a formula that automatically updates totals or averages when new data are entered.</p>
+<ul>
+<li><em>What would happen if, during an update, the formula fails to recalculate properly? (Consistency)</em></li>
+</ul></li>
+<li><p>Consider a scenario where two people are editing the spreadsheet at the same time, both trying to add new rows to the same tab.</p>
+<ul>
+<li><em>How might their changes conflict, and what issues could arise? (Isolation)</em></li>
+</ul></li>
+<li><p>Suppose you have made all the necessary changes to add a new person in your spreadsheet and then your computer crashes before you can save the file.</p>
+<ul>
+<li><em>What happens to the changes? (Durability)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="why-not-use-spreadsheets-2" class="slide level2">
+<h2>Why not use spreadsheets?</h2>
+<ul>
+<li><p>Imagine your spreadsheet contains sensitive information, such as personal or financial data.</p>
+<ul>
+<li><em>What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)</em></li>
+</ul></li>
+<li><p>Imagine that your spreadsheet currently manages a few hundred rows of data.</p>
+<ul>
+<li><em>What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)</em></li>
+</ul></li>
+<li><p>Imagine that your spreadsheet contains phone numbers across different tabs.</p>
+<ul>
+<li><em>What would happen if a home phone number was changed on one tab but not another? (Normalization and redundancy)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="on-line-transaction-processing-oltp-databases" class="slide level2">
+<h2>On Line Transaction Processing (OLTP) databases</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<ul>
+<li><p>This semester we’ll be exploring Relational, <a href="https://en.wikipedia.org/wiki/Online_transaction_processing">On Line Transaction Processing (OLTP)</a> Database Management Systems (DBMS), like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.</p></li>
+<li><p>A <a href="https://en.wikipedia.org/wiki/Database#Database_management_system">Database Management System (DBMS)</a> is the software that enables users to define, create, manage, and interact with databases. It serves as an intermediary between the end users, applications, and the database, ensuring that data is organized, stored, retrieved, and modified efficiently and securely.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Database_model">There are many ways to store data in a DBMS</a>.</p></li>
+<li><p>We’ll be focusing on the <a href="https://en.wikipedia.org/wiki/Database_model#Relational_model"><em>Relational</em> model</a>, where the DBMS stores entities and the relationships between these entities inside a single database (called a <a href="https://en.wikipedia.org/wiki/Database_schema">schema</a>).</p></li>
+<li><p>These databases bundle multiple changes to the database as a <a href="https://en.wikipedia.org/wiki/Database_transaction">transaction</a>. Transactions can be reviewed and rolled back (reversed).</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/ACID">ACID (atomicity, consistency, isolation, durability)</a> is a set of properties of transactions intended to guarantee data validity despite errors, power failures, and other mishaps.</p></li>
+<li><p>Changes to the database are communicated to the DBMS using a language called <a href="https://en.wikipedia.org/wiki/SQL"><em>SQL</em>, a <em>structured query language</em></a>. How does one <a href="https://www.youtube.com/watch?v=S9C8PNX72Ms">pronounce SQL?</a></p></li>
+</ul>
+</div><div class="column" style="width:20%;">
+<p><img data-src="assets/oltp-snip.png"></p>
+</div></div>
+</section>
+<section id="on-line-transaction-processing-oltp-databases-1" class="slide level2">
+<h2>On Line Transaction Processing (OLTP) databases</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p><strong>Fast Query Processing:</strong> These databases prioritize quick query response times to ensure efficient and prompt processing of individual transactions, making them ideal for applications like banking, e-commerce, and order management systems.</p></li>
+<li><p><strong>High Transaction Volume:</strong> OLTP databases are designed to handle a large number of short, atomic transactions, such as inserting, updating, or deleting records, which are typically initiated by end-users in real-time.</p></li>
+</ul>
+</div><div class="column">
+<ul>
+<li><p><strong>Data Integrity and Consistency:</strong> OLTP systems implement ACID (Atomicity, Consistency, Isolation, Durability) properties to ensure that all transactions are processed reliably, maintaining the integrity and consistency of the data even in the event of system failures.</p></li>
+<li><p><strong>Normalized Data Structure:</strong> OLTP databases typically use a highly normalized schema to minimize data redundancy, optimize storage efficiency, and reduce the complexity of data manipulation during frequent transactions.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="cmsc-408---in-a-nutshell" class="slide level2">
+<h2>CMSC 408 - in a nutshell</h2>
+<ul>
+<li><p>We’ll apply <em>entity-relation</em> models to design and describe the contents of a database.</p></li>
+<li><p>We’ll apply <em>relational algebra</em> to formally describe how we query the database.</p></li>
+<li><p>We’ll apply <em>normalization</em> to ensure that we minimize redundant information in the database.</p></li>
+<li><p>We’ll tie everything together using SQL.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="homework-1" class="title-slide slide level1 center">
+<h1>Homework 1</h1>
+<!-- # Homework 1 - Spring 2025 -->
+</section>
+<section id="homework-1-1" class="slide level2">
+<h2>Homework 1</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="overview">Overview</h3>
+<ul>
+<li>Homeworks 1, 2 and 3 focus on ER diagrams</li>
+<li>Homework 1 focuses on the tools and workflow.</li>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333">Link to Homework 1</a></li>
+</ul>
+<h3 id="general-homework-workflow">General homework workflow</h3>
+<ul>
+<li>Download assignment repository</li>
+<li>Edit files using VS code</li>
+<li>Commit and push changes to GITHUB
+<ul>
+<li>Submit HTML to Canvas</li>
+<li>Submit repo to Gradescope</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The focus of this assignment is on <em>installing</em> and <em>testing</em> the tools.</li>
+<li>Please allow plenty of time!</li>
+<li>Don’t get frustrated. Use <em>Discord</em> to get help.</li>
+<li>Break away from your GUI and try the command line.</li>
+<li>All future assignments will use these same tools.</li>
+</ul>
+</div></div>
+</section>
+<section id="homework-1---tools" class="slide level2">
+<h2>Homework 1 - Tools</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="tools-used">Tools used</h3>
+<p>Below is a list of tools for HW1 and download URLs.</p>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads">GIT</a></li>
+<li><a href="https://cli.github.com/">GH CLI</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto</a></li>
+</ul>
+<p>When installed properly, all these tools should run directly from the command line!</p>
+</div><div class="column" style="width:50%;">
+<h3 id="my-tool-versions">My tool versions</h3>
+<p><img data-src="assets/hw1-sp2025-tool-versions.png"></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If the tools don’t run from CLI, you need to update your PATH environment variable. Ask <a href="https://chatgpt.com/">ChatGPT</a>!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---command-line-interface" class="slide level2">
+<h2>Homework 1 - Command line interface</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<h3 id="windows-powershell">Windows (Powershell)</h3>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/FpRGRLI8Fy8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br> <a href="https://www.youtube.com/watch?v=FpRGRLI8Fy8">https://www.youtube.com/watch?v=FpRGRLI8Fy8</a></p>
+</div><div class="column" style="width:2%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:49%;">
+<h3 id="mac-zsh">Mac (zsh)</h3>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/FfT8OfMpARM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br> <a href="https://www.youtube.com/watch?v=FfT8OfMpARM">https://www.youtube.com/watch?v=FfT8OfMpARM</a></p>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Invest the time to get comfy with the CLI!</em> Direct use of the command line will save you <em>tons</em> of confusion in the long run!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---quarto-and-rendering" class="slide level2">
+<h2>Homework 1 - Quarto and rendering</h2>
+<p>Quarto is a <em>document compiler</em>, MUCH like compiling a source file to create an executable file. Quarto is a wrapper around <em>Jupyter</em> and <em>Pandoc</em>.</p>
+<p><img data-src="assets/quarto-qmd-how-it-works.png"></p>
+<p>For this assignment, you’ll be modifying an existing <em>qmd</em> file, adding your content, rendering the qmd to html and uploading the HTML to Canvas.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>I definitely recommend the <a href="https://quarto.org/docs/get-started/hello/vscode.html">Quarto getting started tutorial</a>! Don’t forget to <em>render</em> the samples I provide in the <em>repository</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---walkthrough" class="slide level2">
+<h2>Homework 1 - Walkthrough</h2>
+<p>Use this as a checklist to complete the assignment. Try ALL of the activities.</p>
+<div class="columns">
+<div class="column" style="width:28%;">
+<h3 id="install-the-tools">Install the tools</h3>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads">GIT</a></li>
+<li><a href="https://cli.github.com/">GH CLI</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto</a></li>
+</ul>
+</div><div class="column" style="width:36%;">
+<h3 id="work-the-cli">Work the CLI</h3>
+<ul>
+<li>Run each tool from the CLI</li>
+<li>Verify versions</li>
+<li>Clone repo using GH</li>
+<li><em>cd</em> into repository</li>
+<li>Render sample QMD files.</li>
+<li>Edit README.md</li>
+<li>Edit <em>report.qmd</em> and <em>render</em></li>
+<li>Commit and push changes</li>
+</ul>
+</div><div class="column" style="width:36%;">
+<h3 id="inside-vs-code">Inside VS code</h3>
+<ul>
+<li>Install Quarto extension</li>
+<li>Make a change</li>
+<li>Commit and push changes within VSC</li>
+<li>Render document within VSC</li>
+</ul>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong><em>Spend time experimenting!</em></strong> This assignment allows you to focus on the tools and workflow. You’ll save time later by investing time now.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="database-design-process" class="title-slide slide level1 center">
+<h1>Database design process</h1>
+<!-- # Database design process -->
+</section>
+<section id="database-design-process---overview" class="slide level2 scrollable">
+<h2>Database design process - overview</h2>
+<div class="columns">
+<div class="column">
+<h3 id="database-design-process-1">Database design process</h3>
+<ol type="1">
+<li><p>Understanding requirements</p></li>
+<li><p>Conceptual design</p></li>
+<li><p>Logical design</p></li>
+<li><p>Physical design</p></li>
+<li><p>Implementation</p></li>
+</ol>
+</div><div class="column">
+<h3 id="notes-1">Notes</h3>
+<ul>
+<li>The basic steps are listed on the left.</li>
+<li>There are many different approaches, some more complicated than others.</li>
+<li>Watch the videos, you’ll see different approaches, but also see what’s similar.</li>
+<li>Don’t overthink it.</li>
+<li>Iterate and spiralize the process. Don’t expect perfection.</li>
+</ul>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>These steps map nicely with the <a href="https://virginiacommonwealth.instructure.com/courses/105097/pages/resource-week-2-semester-project?module_item_id=3767574">Semester Project</a> deliverables! <em>Deliverable 8</em> represents the first three steps of the design.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="database-design-process---some-details" class="slide level2 scrollable">
+<h2>Database design process - some details</h2>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li>Understanding requirements
+<ul>
+<li>Problem domain,</li>
+<li>Need,</li>
+<li>Context, scope and perspective,</li>
+<li>Uses cases, user roles</li>
+<li>Security, privacy</li>
+<li>Use cases, specific queries</li>
+</ul></li>
+<li>Conceptual design
+<ul>
+<li>Entities, attributes, relationships</li>
+<li>ER diagrams</li>
+</ul></li>
+<li>Logical design
+<ul>
+<li>converting entities, attributes and relations, and other odd features to tables.</li>
+<li>Normalization and functional analysis</li>
+</ul></li>
+</ol>
+</div><div class="column">
+<ol start="4" type="1">
+<li>Physical design
+<ul>
+<li>Explicitly defining tables</li>
+<li>Adding integrity constraints, triggers</li>
+<li>Reporting: adding views</li>
+<li>Maintenance: adding procedures</li>
+<li>Considering access: defining an API layer</li>
+</ul></li>
+<li>Implementation and iteration
+<ul>
+<li>code it up,</li>
+<li>load it up,</li>
+<li>test it up,</li>
+<li>see where you screwed it up,</li>
+<li>iterate it up.</li>
+</ul></li>
+</ol>
+</div></div>
+</section>
+<section id="database-design-process---sharing-your-design" class="slide level2">
+<h2>Database design process - sharing your design</h2>
+<dl>
+<dt>Understanding requirements</dt>
+<dd>
+We’ll be using <em>quarto</em> to describe in words the various attributes. We’ll get practice creating requirements. These can get more complicated as one iterates.
+</dd>
+<dt>Conceptual design</dt>
+<dd>
+We’ll be using <a href="https://dl.acm.org/doi/10.1145/320434.320440">Chen diagrams</a> to document our conceptual design. In Quarto we’ll be using <em>graphviz</em> to describe and render these diagrams.
+</dd>
+<dt>Logical design</dt>
+<dd>
+We’ll be using [Crows-foot diagrams] to document our logical design. In Quarto we’ll be using <em>mermaid</em> to describe and render these diagrams.
+</dd>
+<dt>Physical design</dt>
+<dd>
+We’ll be using SQL to document our physical design.
+</dd>
+</dl>
+<!-- lecture-block-end -->
+</section>
+<section id="housekeeping-1" class="slide level2">
+<h2>Housekeeping</h2>
+<div class="columns">
+<div class="column" style="width:9%;">
+
+</div><div class="column" style="width:45%;">
+<h3 id="discussion-items-1">Discussion items</h3>
+<ul>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510">Complete the pre-class survey</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356">Introduce yourself on the discussion group</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord">Join the discord</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project">Review the semester project</a></p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<h3 id="lecture-topics-1">Lecture topics</h3>
+<ul>
+<li><p><a href="#/a-long-time-ago-in-a-galaxy-far-far-away">Intro to databases</a></p></li>
+<li><p><a href="#/homework-1">Homework 1</a></p></li>
+<li><p><a href="#/database-design-process">Intro to DB design</a></p></li>
+</ul>
+</div></div>
+<div style="margin-top:25px">
+<p>&nbsp;</p>
+</div>
+
+    <style></style>
+    <div class="upcoming-calendar">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Week</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Notes and Lectures</th>
+<th data-quarto-table-cell-role="th">Activities and due dates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/16</td>
+<td style="text-align: center;">Thu</td>
+<td>L2:Intro to Databases</td>
+<td>Srv1:Pre-class survey</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/19</td>
+<td style="text-align: center;">Sun</td>
+<td>Last day to add/drop</td>
+<td>Prj1:Intros</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/20</td>
+<td style="text-align: center;">Mon</td>
+<td>NO CLASS - University Closed (MLK)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ER Models</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1/21</td>
+<td style="text-align: center;">Tue</td>
+<td>L3:Entity-relation models</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -261,7 +847,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -670,6 +1256,38 @@
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>
