@@ -5,6 +5,9 @@ Quiz description: For this deliverable you’ll EACH be completing this on-line 
 
     I PREFER 2-person teams.  In the long run, I believe that you will, too.  However, I do permit 3-person teams, however I expect SIGNIFICANTLY more work from the team!
 
+1. Enter the name of your team:
+*  name
+
 1. Enter name of your partner:
 *  name
 

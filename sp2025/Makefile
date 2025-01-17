@@ -71,3 +71,14 @@ surveys:
 .PHONY: resources
 resources:
 	cnvsapi freshen canvas-resources-from-outline --all
+
+
+.PHONY: projects
+projects:
+	cnvsapi freshen canvas-objects-from-outline --groups=projects --all
+
+
+.PHONY: homeworks
+homeworks:
+	cnvsapi freshen canvas-objects-from-outline --groups=homeworks --all
+
