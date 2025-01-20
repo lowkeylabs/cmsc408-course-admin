@@ -1,7 +1,4 @@
-
-# Weak and Strong Entities
-
-
+<!-- # Weak and Strong Entities -->
 
 ## Weak Entities in Database Design
 

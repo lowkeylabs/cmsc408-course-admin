@@ -1,0 +1,7 @@
+---
+title: "Homework 2 - Spring 2025"
+---
+
+{{< include '_homework-2-spring-2025.qmd' >}}
+
+    

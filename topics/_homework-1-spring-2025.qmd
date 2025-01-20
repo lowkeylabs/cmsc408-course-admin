@@ -1,12 +1,11 @@
 <!-- # Homework 1 - Spring 2025 -->
 
-## Homework 1
+## Homework 1 - Data Engineering Tool Review
 :::: {.columns}
 
 ::: {.column width="50%"}
 ### Overview
 
-* Homeworks 1, 2 and 3 focus on ER diagrams
 * Homework 1 focuses on the tools and workflow.
 * [Link to Homework 1](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333)
 

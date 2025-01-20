@@ -6,11 +6,11 @@
 <script src="lecture-03_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-03_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-03_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-03_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-03_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-03_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-03_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-03_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.39">
+  <meta name="generator" content="quarto-1.6.40">
 
   <title>Entity-relation models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -221,11 +221,16 @@
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356">Deliverable 1 - Intros</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307">Deliverable 2 - Team Formation</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913">Discussion 1 - ER Modeling</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333">Homework 1 - DE Tool Review</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170">Practice Quiz 1 - ER Models</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
+<li><p><a href="#/homework-1---de-tool-review">Homework 1 - DE Tool Review</a></p></li>
 <li><p><a href="#/overview-of-database-design">Overview of DB design</a></p></li>
 <li><p><a href="#/introduction-to-er-models">Intro to ER Models</a></p></li>
 </ul>
@@ -317,6 +322,164 @@
 </div>
 <!-- lecture-block-begin -->
 </section>
+<section>
+<section id="homework-1---de-tool-review" class="title-slide slide level1 center">
+<h1>Homework 1 - DE Tool Review</h1>
+<!-- # Homework 1 - Spring 2025 -->
+</section>
+<section id="homework-1---data-engineering-tool-review" class="slide level2">
+<h2>Homework 1 - Data Engineering Tool Review</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="overview">Overview</h3>
+<ul>
+<li>Homework 1 focuses on the tools and workflow.</li>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333">Link to Homework 1</a></li>
+</ul>
+<h3 id="general-homework-workflow">General homework workflow</h3>
+<ul>
+<li>Download assignment repository</li>
+<li>Edit files using VS code</li>
+<li>Commit and push changes to GITHUB
+<ul>
+<li>Submit HTML to Canvas</li>
+<li>Submit repo to Gradescope</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The focus of this assignment is on <em>installing</em> and <em>testing</em> the tools.</li>
+<li>Please allow plenty of time!</li>
+<li>Don’t get frustrated. Use <em>Discord</em> to get help.</li>
+<li>Break away from your GUI and try the command line.</li>
+<li>All future assignments will use these same tools.</li>
+</ul>
+</div></div>
+</section>
+<section id="homework-1---tools" class="slide level2">
+<h2>Homework 1 - Tools</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="tools-used">Tools used</h3>
+<p>Below is a list of tools for HW1 and download URLs.</p>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads">GIT</a></li>
+<li><a href="https://cli.github.com/">GH CLI</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto</a></li>
+</ul>
+<p>When installed properly, all these tools should run directly from the command line!</p>
+</div><div class="column" style="width:50%;">
+<h3 id="my-tool-versions">My tool versions</h3>
+<p><img data-src="assets/hw1-sp2025-tool-versions.png"></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If the tools don’t run from CLI, you need to update your PATH environment variable. Ask <a href="https://chatgpt.com/">ChatGPT</a>!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---command-line-interface" class="slide level2">
+<h2>Homework 1 - Command line interface</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<h3 id="windows-powershell">Windows (Powershell)</h3>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/FpRGRLI8Fy8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br> <a href="https://www.youtube.com/watch?v=FpRGRLI8Fy8">https://www.youtube.com/watch?v=FpRGRLI8Fy8</a></p>
+</div><div class="column" style="width:2%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:49%;">
+<h3 id="mac-zsh">Mac (zsh)</h3>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/FfT8OfMpARM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br> <a href="https://www.youtube.com/watch?v=FfT8OfMpARM">https://www.youtube.com/watch?v=FfT8OfMpARM</a></p>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Invest the time to get comfy with the CLI!</em> Direct use of the command line will save you <em>tons</em> of confusion in the long run!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---quarto-and-rendering" class="slide level2">
+<h2>Homework 1 - Quarto and rendering</h2>
+<p>Quarto is a <em>document compiler</em>, MUCH like compiling a source file to create an executable file. Quarto is a wrapper around <em>Jupyter</em> and <em>Pandoc</em>.</p>
+<p><img data-src="assets/quarto-qmd-how-it-works.png"></p>
+<p>For this assignment, you’ll be modifying an existing <em>qmd</em> file, adding your content, rendering the qmd to html and uploading the HTML to Canvas.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>I definitely recommend the <a href="https://quarto.org/docs/get-started/hello/vscode.html">Quarto getting started tutorial</a>! Don’t forget to <em>render</em> the samples I provide in the <em>repository</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="homework-1---walkthrough" class="slide level2">
+<h2>Homework 1 - Walkthrough</h2>
+<p>Use this as a checklist to complete the assignment. Try ALL of the activities.</p>
+<div class="columns">
+<div class="column" style="width:28%;">
+<h3 id="install-the-tools">Install the tools</h3>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><a href="https://git-scm.com/downloads">GIT</a></li>
+<li><a href="https://cli.github.com/">GH CLI</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto</a></li>
+</ul>
+</div><div class="column" style="width:36%;">
+<h3 id="work-the-cli">Work the CLI</h3>
+<ul>
+<li>Run each tool from the CLI</li>
+<li>Verify versions</li>
+<li>Clone repo using GH</li>
+<li><em>cd</em> into repository</li>
+<li>Render sample QMD files.</li>
+<li>Edit README.md</li>
+<li>Edit <em>report.qmd</em> and <em>render</em></li>
+<li>Commit and push changes</li>
+</ul>
+</div><div class="column" style="width:36%;">
+<h3 id="inside-vs-code">Inside VS code</h3>
+<ul>
+<li>Install Quarto extension</li>
+<li>Make a change</li>
+<li>Commit and push changes within VSC</li>
+<li>Render document within VSC</li>
+</ul>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong><em>Spend time experimenting!</em></strong> This assignment allows you to focus on the tools and workflow. You’ll save time later by investing time now.</p>
+</div>
+</div>
+</div>
+</section></section>
 <section>
 <section id="overview-of-database-design" class="title-slide slide level1 center">
 <h1>Overview of Database Design</h1>
@@ -1855,11 +2018,16 @@ ROOM {
 </div><div class="column" style="width:45%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356">Deliverable 1 - Intros</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307">Deliverable 2 - Team Formation</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913">Discussion 1 - ER Modeling</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333">Homework 1 - DE Tool Review</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170">Practice Quiz 1 - ER Models</a></p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
+<li><p><a href="#/homework-1---de-tool-review">Homework 1 - DE Tool Review</a></p></li>
 <li><p><a href="#/overview-of-database-design">Overview of DB design</a></p></li>
 <li><p><a href="#/introduction-to-er-models">Intro to ER Models</a></p></li>
 </ul>

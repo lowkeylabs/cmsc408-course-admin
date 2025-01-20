@@ -1,7 +1,4 @@
-
-# ER Diagramming
-
-
+<!-- # ER Diagramming -->
 
 ## Standard Symbols in ER Diagrams
 
