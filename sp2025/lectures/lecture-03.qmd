@@ -1,7 +1,7 @@
 ---
 date: '2025-01-21'
 lecture-id: 3
-title: 'Entity-relation models '
+title: Entity-relation models
 ---
 
 ```{python}
@@ -25,6 +25,7 @@ lecture_topics = [
     '[Intro to ER Models](#introduction-to-er-models)',
 ]
 ```
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
