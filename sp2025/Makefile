@@ -82,3 +82,12 @@ projects:
 homeworks:
 	cnvsapi freshen canvas-objects-from-outline --groups=homeworks --all
 
+.PHONY: checklist
+checklist:
+	cnvsapi outline checklist --within-days=14
+
+
+.PHONY: details
+details:
+	cd details && quarto render && cnvsapi freshen canvas-details-from-disk --all --confirm
+	@echo "Details changed. Be sure to freshen frontpages when ready!"
