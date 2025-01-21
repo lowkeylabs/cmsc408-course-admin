@@ -10,21 +10,24 @@ title: 'Entity-relation models '
 lecture_id = 3
 n_rows = 8
 
-housekeeping_margin_column_width = "9%"
-housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
+housekeeping_margin_column_width = "1%"
+housekeeping_left_column_width="55%"
+housekeeping_right_column_width="30%"
 
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    '[Deliverable 1 - Intros](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)',
-    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307)',
-    '[Discussion 1 - ER Modeling](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913)',
-    '[Homework 1 - DE Tool Review](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333)',
-    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170)'
+    '[Deliverable 1 - Intros](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356) - Find a partner! (past due!)',
+    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307) - Tell me your team (Due Sun)',
+    '[Discussion 1 - ER Modeling](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913) - Talking ER models (due Sun)',
+    '[Homework 1 - DE Tool Review](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333) - Practice with Quarto (due Sun)',
+    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170) - (Due Wed ... but ...)',
+    '[Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211165) - (Due Next Thu)',
+	'[Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/) - Lecture notes and study guide.'
 ]
 
 lecture_topics = [
+	'[Practice Quiz 1 Walkthrough](#practice-quiz-1-walkthrough)',
     '[Homework 1 - DE Tool Review](#homework-1---de-tool-review)',
     '[Overview of DB design](#overview-of-database-design)',
     '[Intro to ER Models](#introduction-to-er-models)',
@@ -35,6 +38,8 @@ lecture_topics = [
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+# Practice 1 Quiz Walkthrough
+{{< include ../../topics/_practice-quiz-1-walkthrough-sp2025.qmd >}}
 # Homework 1 - DE Tool Review
 {{< include ../../topics/_homework-1-spring-2025.qmd >}}
 # Overview of Database Design

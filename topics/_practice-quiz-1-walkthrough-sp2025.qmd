@@ -1,0 +1,31 @@
+<!-- # practice-quiz-1-walkthrough-sp2025 -->
+
+
+
+## Practice and Quiz 1 - ER Modeling
+:::: {.columns}
+
+::: {.column width="50%"}
+### Quiz basics
+
+* Quizzes are all about vocabulary and background info.
+* Quizzes are multiple-choice on Canvas.
+* Quizzes REQUIRE the lockdown browser.
+
+* Practice Quizzes and Real Quizzes use the same question bank.
+* Take practice quiz as many times as you like!
+* Take real quiz ONLY ONCE.
+:::
+::: {.column width="50%"}
+### ER Modeling
+
+* Quiz 1 focuses on Entity Relation Modeling.
+* See this [study guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/)
+* Goal is to get familiar with vocabulary.
+* Lectures will use the vocabulary, you can refer to study
+guide to review terms you don't understand.
+* Another way to learn and reinforce!
+:::
+::::
+
+    

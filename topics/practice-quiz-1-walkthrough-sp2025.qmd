@@ -1,0 +1,7 @@
+---
+title: "Practice Quiz Walkthrough"
+---
+
+{{< include '_practice-quiz-1-walkthrough-sp2025.qmd' >}}
+
+    

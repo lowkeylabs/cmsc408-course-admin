@@ -59,7 +59,6 @@ Tuesday - Jan 14, 2025
 | ER Models | 3 | 1/28 | Tue | L5:Relational models 1 |  |
 
 </div>
-
 <!-- lecture-block-begin -->
 
 # Course mechanics and overview
@@ -155,12 +154,9 @@ alt="https://spectrum.ieee.org/the-rise-of-sql" />
 </div>
 
 <center>
-
 <p>
-
  
 </p>
-
 *[OMG - How will I survive? These tips will SAVE YOU
 HOURS™](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
 </center>
@@ -393,7 +389,6 @@ Below are tables presenting the grading scheme and deliverable list for
 the class.
 
 <p>
-
  
 </p>
 
@@ -551,7 +546,6 @@ pace gets really fast. 10/10 professor*
 ### *[In summary: Don’t panic, you got this!](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
 
 </center>
-
 <!-- lecture-block-end -->
 
 ## Housekeeping
