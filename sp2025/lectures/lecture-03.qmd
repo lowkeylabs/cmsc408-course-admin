@@ -30,7 +30,6 @@ lecture_topics = [
 	'[Practice Quiz 1 Walkthrough](#practice-quiz-1-walkthrough)',
     '[Homework 1 - DE Tool Review](#homework-1---de-tool-review)',
     '[Overview of DB design](#overview-of-database-design)',
-    '[Intro to ER Models](#introduction-to-er-models)',
 ]
 ```
 
@@ -44,8 +43,6 @@ lecture_topics = [
 {{< include ../../topics/_homework-1-spring-2025.qmd >}}
 # Overview of Database Design
 {{< include ../../topics/_overview-of-database-design.qmd >}}
-# Intro to ER Models
-{{< include ../../topics/_intro-to-er-models.qmd >}}
 <!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
