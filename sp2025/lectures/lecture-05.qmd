@@ -14,15 +14,38 @@ housekeeping_margin_column_width = "9%"
 housekeeping_left_column_width="45%"
 housekeeping_right_column_width="40%"
 
-housekeeping_vertical_spacer = "25px"
+housekeeping_vertical_spacer = "0px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Deliverable 3 - Harmonize Ideation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072358) - due Sun, 2/2',
+    '[Deliverable 4 - Video Pitch](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768) - due Sun, 2/9',
+    '[Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211165) - due THU, 1/30',
+    '[Homework 2 - ER Diagrams](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335) - due Tue, 2/4 <p>&nbsp;</p>',
+    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307) - Due Sun, 1/26',
+    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170) - Start now!'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Homework 2 - ER Models](#homework-2---er-models)',
+    '[Quiz Study Guide - ER Models](#study-guide---er-models)',
+    '[ER Diagramming Resources](#er-diagramming-resources)',
+    '[Pre-class survey results](#pre-class-survey-results)'
 ]
 ```
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+<!-- lecture-block-begin -->
+# Homework 2 - ER Models
+{{< include "../../topics/_homework-2-spring-2025.qmd" >}}
+# Study Guide - ER Models
+{{< include "../../topics/_er-models-study-guide.qmd" >}}
+# ER Diagramming Resources
+{{< include "../../topics/_er-diagramming-resources.qmd" >}}
+# Pre-class Survey Results
+{{< include "../../topics/_preclass-survey-sp2025.qmd" >}}
+
+
+
+<!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

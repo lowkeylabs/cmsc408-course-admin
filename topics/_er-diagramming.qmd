@@ -74,8 +74,6 @@ graph ER {
 *Chen's notation provides a clear and detailed way to represent complex data relationships.*
 
 
-
-
 ## Practice: Creating ER Diagrams with Chens Notation
 
 Hands-on practice with Chen’s notation helps solidify understanding of entities, relationships, and attributes, and how they are visually represented in ER diagrams.

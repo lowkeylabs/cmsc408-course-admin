@@ -1,0 +1,10 @@
+<!-- # ER Models Study Guide -->
+
+
+## ER Models Study Guide
+
+
+::: {style="text-align:center;"}
+<https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/>
+:::
+

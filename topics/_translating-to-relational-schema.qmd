@@ -24,9 +24,6 @@ Translating ER diagrams into relational schemas is a fundamental step in databas
 
 *Converting ER diagrams to relational schemas is essential for implementing the logical structure of a database.*
 
-
-
-
 ## Mapping Entities to Tables
 
 Mapping entities to tables involves creating a table for each entity in the ER model. Each table consists of columns that represent the attributes of the entity.
@@ -47,9 +44,6 @@ Mapping entities to tables involves creating a table for each entity in the ER m
 ::::
 
 *Mapping entities to tables is the first step in creating a relational schema from an ER model.*
-
-
-
 
 ## Mapping Relationships to Foreign Keys
 
@@ -73,8 +67,6 @@ Relationships in the ER model are implemented using foreign keys in the relation
 *Foreign keys are crucial for maintaining the relationships defined in the ER model.*
 
 
-
-
 ## Handling Composite Attributes
 
 Composite attributes need to be flattened into individual columns in the relational schema. This ensures that each column stores a single, atomic value.
@@ -95,8 +87,6 @@ Composite attributes need to be flattened into individual columns in the relatio
 ::::
 
 *Flattening composite attributes is essential for adhering to relational database design principles.*
-
-
 
 
 ## Dealing with Multivalued Attributes
@@ -143,8 +133,6 @@ Weak entities, which depend on other entities for their existence, require speci
 ::::
 
 *Mapping weak entities requires careful consideration to ensure they are correctly represented in the relational schema.*
-
-
 
 
 ## Handling Many-to-Many Relationships

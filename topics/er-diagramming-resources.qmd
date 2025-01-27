@@ -1,0 +1,7 @@
+---
+title: "ER Diagramming Resources"
+---
+
+{{< include '_er-diagramming-resources.qmd' >}}
+
+    
