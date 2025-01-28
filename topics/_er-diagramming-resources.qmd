@@ -60,10 +60,13 @@
 ::::
 
 ::: {style="text-align:center"}
-There are other tools, but they run external to Quarto. For our purposes, we can get away
-with the rather simple features of graphviz and quarto embedded in Quarto.
+There are other tools, but they run external to Quarto.
 :::
+
 ::: {style="text-align:center"}
-You might consider
-a full-blown tool when you're doing this for money!
+For our purposes, we can get away with the rather simple features of graphviz and quarto embedded in Quarto.
+:::
+
+::: {style="text-align:center"}
+You might consider a full-blown tool when you're doing this for money!
 :::

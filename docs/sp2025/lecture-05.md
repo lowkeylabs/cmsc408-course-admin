@@ -197,9 +197,14 @@ width="675" />](https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-model
 
 <div style="text-align:center">
 
-There are other tools, but they run external to Quarto. For our
-purposes, we can get away with the rather simple features of graphviz
-and quarto embedded in Quarto.
+There are other tools, but they run external to Quarto.
+
+</div>
+
+<div style="text-align:center">
+
+For our purposes, we can get away with the rather simple features of
+graphviz and quarto embedded in Quarto.
 
 </div>
 
