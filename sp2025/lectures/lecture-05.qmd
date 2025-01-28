@@ -26,26 +26,23 @@ discussion_items = [
 ]
 
 lecture_topics = [
-    '[Homework 2 - ER Models](#homework-2---er-models)',
+    '[Pre-class survey results](#pre-class-survey-results)',
     '[Quiz Study Guide - ER Models](#study-guide---er-models)',
     '[ER Diagramming Resources](#er-diagramming-resources)',
-    '[Pre-class survey results](#pre-class-survey-results)'
+    '[Homework 2 - ER Models](#homework-2---er-models)',
 ]
 ```
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 <!-- lecture-block-begin -->
-# Homework 2 - ER Models
-{{< include "../../topics/_homework-2-spring-2025.qmd" >}}
+# Pre-class Survey Results
+{{< include "../../topics/_preclass-survey-sp2025.qmd" >}}
 # Study Guide - ER Models
 {{< include "../../topics/_er-models-study-guide.qmd" >}}
 # ER Diagramming Resources
 {{< include "../../topics/_er-diagramming-resources.qmd" >}}
-# Pre-class Survey Results
-{{< include "../../topics/_preclass-survey-sp2025.qmd" >}}
-
-
-
+# Homework 2 - ER Models
+{{< include "../../topics/_homework-2-spring-2025.qmd" >}}
 <!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
