@@ -5,19 +5,65 @@
 :::: {.columns}
 
 ::: {.column width="50%"}
-### column 1
 
-* bullet 1
-* bullet 2
-* bullet 3
+{{< video https://www.youtube.com/watch?v=LowjDtiNlk4 width="600px" height="320px" >}}
+
 :::
 ::: {.column width="50%"}
-### column 2
 
-1. item 
-1. item
-1. item
+{{< video https://www.youtube.com/watch?v=wMgirP7z4k8 width="600px" height="320px" >}}
+
 :::
 ::::
 
-    
+::: {style="text-align:center"}
+*Both of these videos are very good!*
+:::
+
+## ER Diagramming Resources
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Concepts
+
+* [Figma page and template](https://www.figma.com/resource-library/what-is-an-er-diagram/)
+* [Geeks for Geeks - ER Model](https://www.geeksforgeeks.org/introduction-of-er-model/)
+* [IBM - ER diagrams](https://www.ibm.com/think/topics/entity-relationship-diagram)
+:::
+::: {.column width="50%"}
+
+### Tools
+
+* [Quarto diagramming](https://quarto.org/docs/authoring/diagrams.html)
+* [Quarto graphviz](https://quarto.org/docs/authoring/diagrams.html#graphviz)
+* [Quarto mermaid](https://quarto.org/docs/authoring/diagrams.html#mermaid)
+:::
+::::
+
+
+:::: {.columns}
+::: {.column width="50%"}
+### Chen diagram
+
+* [GraphViz neeto](https://graphviz.org/Gallery/neato/ER.html)
+* [GraphVix Gallery](https://graphviz.org/gallery/)
+:::
+::: {.column width="50%"}
+
+### Crow's Foot
+
+* [Mermaid - ER Diagrams](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
+* [Mermaid - LIVE! ER Diagram](https://mermaid.live/edit#pako:eNp10VFrgzAQB_CvEu659gP4VjQMYZ0l2kJHXrLkrEI0kprCUL_74mrY2rG83fG7_4VkBGkUQgxo00ZcrGh5R_xJjkWZ7ykj87TdTiNJ6Wt2ouwc7dKU0aIgManF9clOUxSZkeQs9UVMei0k_mOyt1OeJdQrDroRHxpJZSyHu_6z7SnZosTmFrJD1oKmHyTNDe1K7r3fIMpKuveq6aR2KkQdWJ4ekzJKdiV9ydk5jKz979RuEE336B_uF5I5GKvQovI7OMAGWrStaJR_7HGZ5jDU2CKHhSqshNPD8gCzp8INpvjsJMSDdbgBa9ylhrgS-uor1ysx4PpfgfSiezemXdH8BSNhkfM)
+
+:::
+::::
+
+::: {style="text-align:center"}
+There are other tools, but they run external to Quarto. For our purposes, we can get away
+with the rather simple features of graphviz and quarto embedded in Quarto.
+:::
+::: {style="text-align:center"}
+You might consider
+a full-blown tool when you're doing this for money!
+:::

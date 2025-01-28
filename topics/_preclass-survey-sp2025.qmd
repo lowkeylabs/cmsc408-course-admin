@@ -2,3 +2,5 @@
 
 ## Preclass Survey Results
 
+[![](assets/preclass-survey-sp2025.png){fig-align="center" width="700px"}](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510/statistics)
+
