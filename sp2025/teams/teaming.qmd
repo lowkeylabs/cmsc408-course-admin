@@ -1,0 +1,297 @@
+---
+title: Clean and store teaming file
+author:
+    - name: John Leonard
+      email: jdleonard@vcu.edu
+format:
+    html:
+        embed-resources: true
+        html-math-method: katex
+        theme: spacelab
+        toc: true
+---
+
+Process teams and prepare a clean teaming workbook.
+
+1. Each students completes survey identifying their team name and partners
+1. This file is downloaded from Canvas.  Most recent submissions are kept.
+1. Data are cleaned.  Students input different group names, or don't add a team name.
+1. Download Canvas seed file that is used to define groups for loading into canvas.
+1. Map canvas seed file to cleaned group data.
+1. Store new mapping to file for upload to canvas.
+
+**Key parameters for this report**
+```{python}
+SQLITE_DB_FILE = "teaming.db"
+SOURCE_SURVEY_RESULTS = "cmsc408-sp2025-deliverable-2-teaming-survey.csv"  # this file is downloaded from Canvas
+CLEAN_GROUP_MAPPING_FILE = "teams_clean.xlsx"  # an interim file for potential later use
+CANVAS_GROUP_SEED_FILE = "sp2025-roster-from-groups-import.csv"  # downloaded from Canvas for editing
+CANVAS_GROUP_UPLOAD_FILE = "sp2025-groups-upload.csv"
+```
+
+## Working with the data
+
+```{python}
+#| echo: false
+import sys
+import pandas as pd
+import sqlite3
+from IPython.display import Markdown
+from cnvsapi import config
+
+def format_column_names(df):
+    results = []
+    for i,column in enumerate(df.columns):
+        results.append(f"'{column}' : '{column}',")
+    return "\n".join( results )
+```
+
+### Load the workbook
+
+Load the file.  Note that we're using *`{python} SOURCE_SURVEY_RESULTS`*.  Canvas creates different
+files depending on something, but I'm not sure what.
+
+```{python}
+# Load the xlsx file into a pandas dataframe
+#df = pd.read_excel( SOURCE_SURVEY_RESULTS )
+df = pd.read_csv(SOURCE_SURVEY_RESULTS)
+
+```
+
+```{python}
+#| echo: false
+
+
+# uncomment this to generate a list (see below) for
+# renaming columns.  This function generates python
+# that can be replaced in this file
+
+if (1):
+    print(format_column_names(df))
+
+```
+```{python}
+#| echo: false
+
+
+# Rename columns (assuming you know the new column names)
+# Replace 'old_col1', 'old_col2', etc., with your actual column names
+# Replace 'new_col1', 'new_col2', etc., with the desired new column names
+df.rename(columns={
+'name' : 'name',
+'id' : 'id',
+'sis_id' : 'sis_id',
+'section' : 'section',
+'section_id' : 'section_id',
+'section_sis_id' : 'section_sis_id',
+'submitted' : 'submitted',
+'attempt' : 'attempt',
+'2819819: Enter the name of your team:' : 'team_name',
+'1.0' : 'cnt1',
+'2819820: Enter name of your partner:' : 'partner_2_name',
+'1.0.1' : 'cnt2',
+'2819821: Enter VID (v-number) of your partner:' : 'partner_2_vid',
+'1.0.2' : 'cnt3',
+'2819822: OPTIONAL: Enter name of the third team member.:' : 'partner_3_name',
+'1.0.3' : 'cnt4',
+'2819823: OPTIONAL: Enter VID (v-number) of the third team member.' : 'partner_3_vid',
+'1.0.4' : 'cnt5',
+'n correct' : 'n_correct',
+'n incorrect' : 'n_incorrect',
+'score' : 'score',    
+}, inplace=True)
+
+```
+
+Keep only the last attempts.  Drop unnecessary columns. Show the columns
+
+```{python}
+# Keep only rows with the largest "attempt" value
+
+max_attempt_indices = df.groupby('name')['attempt'].idxmax()
+df = df.loc[max_attempt_indices]
+
+df = df.drop(['section','section_id','section_sis_id','submitted','attempt','cnt1','cnt2','cnt3','cnt4','cnt5','n_correct','n_incorrect','score'], axis=1)
+
+df.columns
+```
+
+### Store dataframe to data base
+
+Store the uncleaned, raw data to the database.
+```{python}
+# Connect to the SQLite database (or create it if it doesn't exist)
+conn = sqlite3.connect( SQLITE_DB_FILE )
+df.to_sql('raw_table', conn, if_exists='replace', index=False)
+conn.close()
+```
+
+## Clean the dataframe
+
+To clean the dataframe, we autocreate a series of python commands to rename each and every group
+as found in the file, sorted by team_name.  Then, each group name can be reassigned to
+an appropriate name across the team names.
+
+In addition to renaming team names, we sometimes need to directly assign students to teams. This
+happens when a student doesn't input the correct name, or forgot to add their team name.
+
+```{python}
+#| echo: false
+
+cleaned_df = df.copy()
+
+#cleaned_df.loc[cleaned_df['team_name']=='; DROP TABLE Users;','team_name'] = '; DROP TABLE Users;'
+
+## Assigning students to teams
+
+#cleaned_df.loc[cleaned_df['name']=='Ghulam Mujtaba Qasimi','team_name'] = 'Data Detectives'
+#cleaned_df.loc[cleaned_df['name']=='Erin Anderson','team_name'] = 'RamsNationData'
+#cleaned_df.loc[cleaned_df['name']=='Chris Hoang','team_name'] = 'Alaskan Bullworms'
+#cleaned_df.loc[cleaned_df['name']=='Noor Tabanjeh','team_name'] = 'The Girls Room'
+
+## Renaming this team because two groups used it
+
+#cleaned_df.loc[cleaned_df['name']=='Diya Ram Mohan','team_name'] = 'Tech Titans Redux'
+#cleaned_df.loc[cleaned_df['name']=='Houda Lahrouz','team_name'] = 'Tech Titans Redux'
+
+```
+
+### Add missing records
+
+Finally, some students didn't submit a survey, so they've got to be manually added.  These
+missing records are discovered when the survey data are mapped to the import/export file which
+contains a reference one-record-per-student.
+
+```{python}
+# Add missing records from a later step!
+#new_row_df = pd.DataFrame({'name':['Yash Upadhyay'], 'sis_id': ['V00903976'] ,'team_name': ['mantle']})
+#cleaned_df = pd.concat([cleaned_df, new_row_df], ignore_index=True)
+```
+
+### Helper codes
+
+The two blocks of code below generate python that can be pasted in this report.  They python
+can then be edited to clean the data.
+
+```{python}
+
+## Uncomment these to list out code (above) that can be used for data cleaning
+
+if (1):
+    unique_team_names = cleaned_df['team_name'].unique().tolist()
+    unique_team_names = [str(name) for name in unique_team_names]
+    sorted_team_names = sorted(unique_team_names, key=lambda x: x.lower())
+    for team_name in sorted_team_names:
+        print(f"cleaned_df.loc[cleaned_df['team_name']=='{team_name}','team_name'] = '{team_name}'")
+
+```
+
+```{python}
+if (1):
+    for index, row in cleaned_df[ (cleaned_df['team_name'].isna()) | (cleaned_df['team_name']=='nan') ].iterrows():
+        print(f"cleaned_df.loc[cleaned_df['name']=='{row['name']}','team_name'] = 'nan'")
+
+```
+
+### Final mapping of students to groups.
+
+Here is a list of the first 10 records of the resulting, cleaned dataframe.
+
+```{python}
+Markdown( cleaned_df.sort_values(by="team_name").head(10).to_markdown( index=False) )
+```
+
+### Store the cleaned dataframe to data base
+
+Store the cleaned dataframe into a SQL table and into a XLSX file.
+
+```{python}
+# Connect to the SQLite database (or create it if it doesn't exist)
+conn = sqlite3.connect( SQLITE_DB_FILE )
+cleaned_df.to_sql('clean_teams', conn, if_exists='replace', index=False)
+conn.close()
+
+cleaned_df.to_excel( CLEAN_GROUP_MAPPING_FILE, index=False)
+```
+
+## Explore the cleaned data
+
+As these tables are reviewed, they should reveal changes to be made to the python code above.  
+Iterate over this review and mods above until the data are clean!
+
+```{python}
+#| echo: false
+
+
+# Group by 'team_name' and count the number of members per team
+team_sizes = cleaned_df.groupby('team_name').size()
+
+# Count the occurrences of each team size
+team_size_counts = team_sizes.value_counts().sort_index()
+
+# Convert the result to a DataFrame for display
+team_size_table = team_size_counts.reset_index()
+team_size_table.columns = ['team_size', 'number_of_teams']
+
+# Display the table
+Markdown(team_size_table.to_markdown( index=False ))
+```
+
+### Teams with one member
+
+Details of any teams with
+```{python}
+#| echo: false
+team_sizes = cleaned_df.groupby('team_name').size().reset_index(name='team_size')
+teams_of_size_x = team_sizes[team_sizes['team_size'].isin([1])]
+if len(teams_of_size_x)>0:
+    Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] ) ].to_markdown( index=False) )
+else:
+    print(f"**All clean!  No teams of size 1**")
+```
+
+### Teams with four members
+
+List any teams with more than three members.  If these are found, there are probably two fixes required:
+
+* Check to see if you're only selecting the most recent records.  If a student submits the survey more than once there will be
+multiple records for that student and that team.
+* Check to see if two or more teams are sharing the same name.  If this is the case you need to rename one or more of the teams.
+
+```{python}
+#| echo: false
+team_sizes = cleaned_df.groupby('team_name').size().reset_index(name='team_size')
+teams_of_size_x = team_sizes[team_sizes['team_size'].isin([4,5,6])]
+if len(teams_of_size_x)>0:
+    Markdown( cleaned_df[ cleaned_df['team_name'].isin( teams_of_size_x['team_name'] )].sort_values(by='team_name').to_markdown( index=False) )
+else:
+    print(f"**All clean!  No teams of sizes 4, 5 or 6.**")
+```
+
+## Merge with group data
+
+Finally, we'll merge the survey results with the import/export seed file from Canvas.
+
+Any errors will reveal students missing the submission.
+
+```{python}
+canvas_df = pd.read_csv( CANVAS_GROUP_SEED_FILE )
+
+merged_df = pd.merge(canvas_df, cleaned_df, left_on='user_id', right_on='sis_id',  how='left')
+no_match_df = merged_df[merged_df['sis_id'].isna()]
+if no_match_df.shape[0]>0:
+    Markdown( no_match_df.to_markdown( index=False) )
+else:
+    print("**All students submitted a survey.**")
+```
+
+### Save merged file to export CSV for importing into Canvas
+
+```{python}
+merged_df = merged_df[ ['name_x','canvas_user_id','user_id','login_id','sections','team_name']]
+merged_df.rename(columns={
+    'name_x' : 'name',
+    'team_name' : 'group_name'
+}, inplace=True)
+merged_df.sort_values(by='group_name').to_csv( CANVAS_GROUP_UPLOAD_FILE ,index=False)
+```

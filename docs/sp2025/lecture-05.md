@@ -14,6 +14,8 @@ Tuesday - Jan 28, 2025
 
 ### Discussion items
 
+- Homeworks and README files
+
 - [Deliverable 3 - Harmonize
   Ideation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072358) -
   due Sun, 2/2
@@ -50,19 +52,19 @@ Tuesday - Jan 28, 2025
 
 ### Lecture topics
 
-- [Homework 2 - ER Models](#homework-2---er-models)
+- [Pre-class survey results](#pre-class-survey-results)
 
 - [Quiz Study Guide - ER Models](#study-guide---er-models)
 
 - [ER Diagramming Resources](#er-diagramming-resources)
 
-- [Pre-class survey results](#pre-class-survey-results)
+- [Homework 2 - ER Models](#homework-2---er-models)
 
 </div>
 
 </div>
 
-<div style="margin-top:0px">
+<div style="margin-top:-20px">
 
  
 
@@ -85,6 +87,132 @@ Tuesday - Jan 28, 2025
 </div>
 
 <!-- lecture-block-begin -->
+
+# Pre-class Survey Results
+
+<!-- # Preclass Survey SP2025 -->
+
+## Preclass Survey Results
+
+[<img src="assets/preclass-survey-sp2025.png" data-fig-align="center"
+width="700" />](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/216510/statistics)
+
+# Study Guide - ER Models
+
+<!-- # ER Models Study Guide -->
+
+## ER Models Study Guide
+
+<div style="text-align:center;">
+
+<https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/>
+
+</div>
+
+[<img src="assets/er-models-study-guide.png" data-fig-align="center"
+width="675" />](https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/)
+
+# ER Diagramming Resources
+
+<!-- # ER Diagramming Resources -->
+
+## ER Diagramming Resources
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+<https://www.youtube.com/watch?v=LowjDtiNlk4>
+
+</div>
+
+<div class="column" width="50%">
+
+<https://www.youtube.com/watch?v=wMgirP7z4k8>
+
+</div>
+
+</div>
+
+<div style="text-align:center">
+
+*Both of these videos are very good!*
+
+</div>
+
+## ER Diagramming Resources
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+### Concepts
+
+- [Figma page and
+  template](https://www.figma.com/resource-library/what-is-an-er-diagram/)
+- [Geeks for Geeks - ER
+  Model](https://www.geeksforgeeks.org/introduction-of-er-model/)
+- [IBM - ER
+  diagrams](https://www.ibm.com/think/topics/entity-relationship-diagram)
+
+</div>
+
+<div class="column" width="50%">
+
+### Tools
+
+- [Quarto diagramming](https://quarto.org/docs/authoring/diagrams.html)
+- [Quarto
+  graphviz](https://quarto.org/docs/authoring/diagrams.html#graphviz)
+- [Quarto
+  mermaid](https://quarto.org/docs/authoring/diagrams.html#mermaid)
+
+</div>
+
+</div>
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+### Chen diagram
+
+- [GraphViz neeto](https://graphviz.org/Gallery/neato/ER.html)
+- [GraphVix Gallery](https://graphviz.org/gallery/)
+
+</div>
+
+<div class="column" width="50%">
+
+### Crow’s Foot
+
+- [Mermaid - ER
+  Diagrams](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
+- [Mermaid - LIVE! ER
+  Diagram](https://mermaid.live/edit#pako:eNp10VFrgzAQB_CvEu659gP4VjQMYZ0l2kJHXrLkrEI0kprCUL_74mrY2rG83fG7_4VkBGkUQgxo00ZcrGh5R_xJjkWZ7ykj87TdTiNJ6Wt2ouwc7dKU0aIgManF9clOUxSZkeQs9UVMei0k_mOyt1OeJdQrDroRHxpJZSyHu_6z7SnZosTmFrJD1oKmHyTNDe1K7r3fIMpKuveq6aR2KkQdWJ4ekzJKdiV9ydk5jKz979RuEE336B_uF5I5GKvQovI7OMAGWrStaJR_7HGZ5jDU2CKHhSqshNPD8gCzp8INpvjsJMSDdbgBa9ylhrgS-uor1ysx4PpfgfSiezemXdH8BSNhkfM)
+
+</div>
+
+</div>
+
+<div style="text-align:center">
+
+There are other tools, but they run external to Quarto.
+
+</div>
+
+<div style="text-align:center">
+
+For our purposes, we can get away with the rather simple features of
+graphviz and quarto embedded in Quarto.
+
+</div>
+
+<div style="text-align:center">
+
+You might consider a full-blown tool when you’re doing this for money!
+
+</div>
 
 # Homework 2 - ER Models
 
@@ -143,54 +271,6 @@ books. Purchases have a purchase ID, date, and total amount.
 
 </div>
 
-# Study Guide - ER Models
-
-<!-- # ER Models Study Guide -->
-
-## ER Models Study Guide
-
-<div style="text-align:center;">
-
-<https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/>
-
-</div>
-
-# ER Diagramming Resources
-
-<!-- # ER Diagramming Resources -->
-
-## ER Diagramming Resources
-
-<div class="columns">
-
-<div class="column" width="50%">
-
-### column 1
-
-- bullet 1
-- bullet 2
-- bullet 3
-
-</div>
-
-<div class="column" width="50%">
-
-### column 2
-
-1.  item
-2.  item
-3.  item
-
-</div>
-
-</div>
-
-# Pre-class Survey Results
-
-<!-- # Preclass Survey SP2025 -->
-
-## Preclass Survey Results
-
 <!-- lecture-block-end -->
 
 ## Housekeeping
@@ -204,6 +284,8 @@ books. Purchases have a purchase ID, date, and total amount.
 <div class="column" width="45%">
 
 ### Discussion items
+
+- Homeworks and README files
 
 - [Deliverable 3 - Harmonize
   Ideation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072358) -
@@ -241,19 +323,19 @@ books. Purchases have a purchase ID, date, and total amount.
 
 ### Lecture topics
 
-- [Homework 2 - ER Models](#homework-2---er-models)
+- [Pre-class survey results](#pre-class-survey-results)
 
 - [Quiz Study Guide - ER Models](#study-guide---er-models)
 
 - [ER Diagramming Resources](#er-diagramming-resources)
 
-- [Pre-class survey results](#pre-class-survey-results)
+- [Homework 2 - ER Models](#homework-2---er-models)
 
 </div>
 
 </div>
 
-<div style="margin-top:0px">
+<div style="margin-top:-20px">
 
  
 

@@ -1,0 +1,176 @@
+name,canvas_user_id,user_id,login_id,sections,group_name
+"Leyden, Ethan",86220,V00999100,leydene,CMSC-408-901 - DATABASES - Fall 2024,; DROP TABLE Users;
+"Martin, Kennedy",146197,V00909624,martink6,CMSC-408-901 - DATABASES - Fall 2024,; DROP TABLE Users;
+"Eldering, Nate",73308,V00987626,elderingn,CMSC-408-901 - DATABASES - Fall 2024,ACID Alliance
+"Mikawa, Ken",164936,V00962164,mikawakc,CMSC-408-901 - DATABASES - Fall 2024,ACID Alliance
+"Hailu, Ebenezer",73490,V00977544,hailuea,CMSC-408-901 - DATABASES - Fall 2024,Agere
+"Gubay, Daniel",66520,V00980301,gubaydd,CMSC-408-901 - DATABASES - Fall 2024,Agere
+"Choi, Jessica",115858,V01027946,choijs5,CMSC-408-901 - DATABASES - Fall 2024,Alaskan Bullworms
+"Hoang, Chris",30925,V00962867,hoangc3,CMSC-408-901 - DATABASES - Fall 2024,Alaskan Bullworms
+"Lyu, Isaac",61696,V00977637,lyuid,CMSC-408-901 - DATABASES - Fall 2024,Alaskan Bullworms
+"Kashef, Ziad",68833,V00990248,kashefze,CMSC-408-901 - DATABASES - Fall 2024,Amethyst Nation
+"Gafar, Tariq",74606,V00982867,gafarta,CMSC-408-901 - DATABASES - Fall 2024,Amethyst Nation
+"Hossain, Zanika",118521,V01030830,hossainzt,CMSC-408-901 - DATABASES - Fall 2024,Baker Hossain
+"Baker, Matthew",85159,V01001302,bakermj2,CMSC-408-901 - DATABASES - Fall 2024,Baker Hossain
+"DuBrueler, Ethan",179692,V01062905,dubruelerem,CMSC-408-901 - DATABASES - Fall 2024,Ballot Bros
+"Ott, Michael",147717,V01041161,ottm,CMSC-408-901 - DATABASES - Fall 2024,Ballot Bros
+"Hendrickson, Noah",123590,V01032296,hendricksonnl,CMSC-408-901 - DATABASES - Fall 2024,Ballot Bros
+"Moses, August",71608,V00995786,mosesa3,CMSC-408-901 - DATABASES - Fall 2024,Beetle Bytes
+"Tran, Angela",117505,V01029441,tranan7,CMSC-408-901 - DATABASES - Fall 2024,Beetle Bytes
+"Browder, Rebecca",155993,V01043946,browderrj,CMSC-408-901 - DATABASES - Fall 2024,Better Than Never
+"Thompson, Levi",189825,V01078147,thompsonle2,CMSC-408-901 - DATABASES - Fall 2024,Better Than Never
+"Netala, Jonathan",66843,V00975054,netalajd,CMSC-408-901 - DATABASES - Fall 2024,BiblioFile
+"Illas, Alex",172891,V01043671,illasaj,CMSC-408-901 - DATABASES - Fall 2024,BiblioFile
+"Ta, Ryan",115829,V01027479,tard,CMSC-408-901 - DATABASES - Fall 2024,Blue
+"Chaluvadi, Gokul",102641,V01016907,chaluvadig,CMSC-408-901 - DATABASES - Fall 2024,Blue
+"Richards, Ian",109785,V01002379,richardsig,CMSC-408-901 - DATABASES - Fall 2024,Box Combo Bandits
+"Weaver, Jeffrey",124056,V01015421,weaverjs,CMSC-408-901 - DATABASES - Fall 2024,Box Combo Bandits
+"Lemma, Christian",114915,V01025835,lemmacs,CMSC-408-901 - DATABASES - Fall 2024,Busy Bots
+"Corral, Britney",104110,V01009194,corralba,CMSC-408-901 - DATABASES - Fall 2024,Busy Bots
+"Luu, Vy",37243,V00962177,luuvt,CMSC-408-901 - DATABASES - Fall 2024,Caitlin and Vy
+"Ngo, Caitlin",77122,V00991267,ngoca,CMSC-408-901 - DATABASES - Fall 2024,Caitlin and Vy
+"Reid, Paul",104637,V01011857,reidp,CMSC-408-901 - DATABASES - Fall 2024,Chaewon Fan Club
+"Sarzaba, Samuel",104884,V01014230,sarzabase,CMSC-408-901 - DATABASES - Fall 2024,Chaewon Fan Club
+"Smith, Andre",72239,V00993317,smithaa9,CMSC-408-901 - DATABASES - Fall 2024,CityBite DB
+"Blanco, Santiago",81157,V00975585,blancos2,CMSC-408-901 - DATABASES - Fall 2024,CityBite DB
+"Koh, Michelle",120035,V01031147,kohme,CMSC-408-901 - DATABASES - Fall 2024,Cuisine Creators
+"James, Sona",109148,V01014485,jamess9,CMSC-408-901 - DATABASES - Fall 2024,Cuisine Creators
+"Hill, Isaiah",185975,V01075364,hillis,CMSC-408-901 - DATABASES - Fall 2024,Dabugs
+"Butterfield, Lavale",185770,V00926879,butterfieldl,CMSC-408-901 - DATABASES - Fall 2024,Dabugs
+"Sarker, Mahmuda",14274,V00794784,sarkermm,CMSC-408-901 - DATABASES - Fall 2024,Data Detectives
+"Qasimi, Ghulam Mujtaba",108271,V01008866,gqasimi,CMSC-408-901 - DATABASES - Fall 2024,Data Detectives
+"Juarez, Ally",71518,V00993654,juareza,CMSC-408-901 - DATABASES - Fall 2024,Data Divas
+"Shilling, Ava",117537,V01030483,shillingar,CMSC-408-901 - DATABASES - Fall 2024,Data Divas
+"Choudhary, Priya",67994,V00985656,choudharyp2,CMSC-408-901 - DATABASES - Fall 2024,Data Duo
+"Patel, Bindi",105772,V01015061,patelb10,CMSC-408-901 - DATABASES - Fall 2024,Data Duo
+"Darko, Isabella",118748,V01030833,darkoim,CMSC-408-901 - DATABASES - Fall 2024,Data Dynamos
+"Sterling, Sienna",102874,V01015395,sterlingsr,CMSC-408-901 - DATABASES - Fall 2024,Data Dynamos
+"Rother, Joseph",136838,V01036808,rotherjf,CMSC-408-901 - DATABASES - Fall 2024,Data Fried Base
+"Chiou, Derek",103375,V01006916,chioudj,CMSC-408-901 - DATABASES - Fall 2024,Data Fried Base
+"Ahmed, Mohammed",38109,V00913840,ahmedm12,CMSC-408-901 - DATABASES - Fall 2024,Data Mario Bros
+"Le, Hoang",59134,V00981522,leht8,CMSC-408-901 - DATABASES - Fall 2024,Data Mario Bros
+"Parkyn, Katherine",137291,V01035499,parkynkh,CMSC-408-901 - DATABASES - Fall 2024,DataHive
+"Bautista, Gianni",11396,V00823976,bautistag,CMSC-408-901 - DATABASES - Fall 2024,DataHive
+"Marandina, Lindsey",51883,V00943736,marandinalc,CMSC-408-901 - DATABASES - Fall 2024,Databaes
+"Randeri, Neil",99200,V00998657,randerin,CMSC-408-901 - DATABASES - Fall 2024,Databaes
+"Hackett, Dajuan",64944,V00974555,hackettdc,CMSC-408-901 - DATABASES - Fall 2024,Database Defenders
+"Herkamp, Wyatt",198321,V01085594,herkampwj,CMSC-408-901 - DATABASES - Fall 2024,Database Defenders
+"Pomeroy, Josh",27420,V00954102,pomeroyjd,CMSC-408-901 - DATABASES - Fall 2024,Databases 2: the SQL
+"Norris, Raleigh",113986,V01025503,norrisrp,CMSC-408-901 - DATABASES - Fall 2024,Databases 2: the SQL
+"Kamani, Dhilan",23689,V00906461,kamanids,CMSC-591-901 - TOP:DATABASES FOR MS BIOINFO O - Fall 2024,Dex Devs
+"Taylor, Chase",29366,V00950041,taylorac3,CMSC-408-901 - DATABASES - Fall 2024,Dex Devs
+"Meredith, William",86244,V00974292,meredithw,CMSC-408-901 - DATABASES - Fall 2024,Dex Devs
+"Drake, Emily",137347,V01035278,drakeer2,CMSC-408-901 - DATABASES - Fall 2024,Dungeons and Dashboards
+"Simoni, Eric",137846,V00965222,simonie2,CMSC-408-901 - DATABASES - Fall 2024,Dungeons and Dashboards
+"Decker, Edson",88671,V00915138,deckere2,CMSC-408-901 - DATABASES - Fall 2024,Edson and Zoe's team
+"Wood, Zoe",29580,V00943934,woodzc,CMSC-408-901 - DATABASES - Fall 2024,Edson and Zoe's team
+"Koroma, Abdul",43220,V00925064,koromaar2,CMSC-408-901 - DATABASES - Fall 2024,Eri-Lone
+"Desta, Samuel",30879,V00962641,destasw,CMSC-408-901 - DATABASES - Fall 2024,Eri-Lone
+"Westry, Kennedy",75116,V00995693,westrykj,CMSC-408-901 - DATABASES - Fall 2024,Fashizzle My Nizzle
+"Agoe-Sowah, Israel",103480,V01016420,agoesowahia,CMSC-408-901 - DATABASES - Fall 2024,Fashizzle My Nizzle
+"Mussim, Aneesh",23332,V00912804,mussima,CMSC-408-901 - DATABASES - Fall 2024,FitLog
+"Davidkov, Alex",188040,V01075976,davidkovak,CMSC-408-901 - DATABASES - Fall 2024,FitLog
+"Velasquez, Alan",139649,V01038862,velasquezaj,CMSC-408-901 - DATABASES - Fall 2024,Full Steam Ahead
+"McDaniel, John",118851,V01028261,mcdanieljm2,CMSC-408-901 - DATABASES - Fall 2024,Full Steam Ahead
+"Emdee, Ivan",71458,V00995491,emdeein,CMSC-408-901 - DATABASES - Fall 2024,Git Pushers
+"Soltanian, Sam",63023,V00972601,soltanians,CMSC-408-901 - DATABASES - Fall 2024,Git Pushers
+"Hurlbert, Calvin",22740,V00917920,hurlbertc,CMSC-408-901 - DATABASES - Fall 2024,Harmony Trove
+"Kohout, Connor",20701,V00877953,kohoutck,CMSC-408-901 - DATABASES - Fall 2024,Harmony Trove
+"West, James",64145,V00981688,westj9,CMSC-408-901 - DATABASES - Fall 2024,HelpIForgotThePassword!
+"Tarongoy, Josh",183875,V01071246,tarongoyj,CMSC-408-901 - DATABASES - Fall 2024,HelpIForgotThePassword!
+"Olivar, Victor",61547,V00981678,olivarvf,CMSC-408-901 - DATABASES - Fall 2024,Join Table Junkies
+"Carpenter, Tyree",39620,V00819665,carpentertd,CMSC-408-901 - DATABASES - Fall 2024,Join Table Junkies
+"Swetlow, Nate",76162,V00943227,swetlownt,CMSC-408-901 - DATABASES - Fall 2024,Join Table Junkies
+"Mezick, Tayah",26832,V00945764,mezickts,CMSC-408-901 - DATABASES - Fall 2024,Key Lime Pi
+"Malatesta, Christopher",76381,V00977642,malatestacn,CMSC-408-901 - DATABASES - Fall 2024,Key Lime Pi
+"James, Smeetha",59291,V00980840,jamess7,CMSC-408-901 - DATABASES - Fall 2024,Key Lime Pi
+"Doutt, Luca",81197,V00993084,douttl,CMSC-408-901 - DATABASES - Fall 2024,LDJ
+"Polen, Daniel",183115,V00962050,polenda,CMSC-408-901 - DATABASES - Fall 2024,LDJ
+"Hughes, Joe",188086,V01070749,hughesj5,CMSC-408-901 - DATABASES - Fall 2024,LDJ
+"Lauer, Alexa",186114,V01071319,lauera,CMSC-591-901 - TOP:DATABASES FOR MS BIOINFO O - Fall 2024,Last Minute
+"Black, Jason",181451,V01072001,blackjm4,CMSC-408-901 - DATABASES - Fall 2024,Last Minute
+"Glasheen, Sterling",125195,V01034274,glasheensm,CMSC-408-901 - DATABASES - Fall 2024,MangoDBz
+"Sahu, Ankita",113373,V01009969,sahua3,CMSC-408-901 - DATABASES - Fall 2024,MangoDBz
+"Rathi, Aryan",102681,V01014466,rathia,CMSC-408-901 - DATABASES - Fall 2024,Mills E. Godwin
+"Leake, Philip",41166,V00938249,leakepa,CMSC-408-901 - DATABASES - Fall 2024,Mills E. Godwin
+"Young-Diggs, Amaris",104800,V01014450,youngdiggsac,CMSC-408-901 - DATABASES - Fall 2024,Money Trees
+"Mathur, Prakhar",104311,V01004211,mathurp6,CMSC-408-901 - DATABASES - Fall 2024,Money Trees
+"Zeyar, Htoomyat",83277,V00998458,zeyarh,CMSC-408-901 - DATABASES - Fall 2024,NEXUS INTELLIGENCE
+"Nguyen, Peter",28758,V00957051,nguyenph11,CMSC-408-901 - DATABASES - Fall 2024,NEXUS INTELLIGENCE
+"Abdelrahman Babiker, Ahmed",124415,V01015686,abdelrahmaaa,CMSC-408-901 - DATABASES - Fall 2024,"Nah, I'd win"
+"Dang, Thien",24424,V00907217,dangtp,CMSC-408-901 - DATABASES - Fall 2024,"Nah, I'd win"
+"Casey, Nicholas",166663,V01060943,caseynv,CMSC-408-901 - DATABASES - Fall 2024,NextGen Innovators
+"Odidika, Amaka",62289,V00979940,odidikaa,CMSC-408-901 - DATABASES - Fall 2024,NextGen Innovators
+"Aidarus, Sawiya",77675,V00985309,aidarussa,CMSC-408-901 - DATABASES - Fall 2024,OTTDB
+"Lee, Megan",89193,V00991326,leem12,CMSC-408-901 - DATABASES - Fall 2024,OTTDB
+"Vivian, Haley",48150,V00977226,vivianhe,CMSC-408-901 - DATABASES - Fall 2024,Paladins of SQL
+"Sharma, Esha",29175,V00933609,esharma,CMSC-408-901 - DATABASES - Fall 2024,Paladins of SQL
+"Holden, Connor",69235,V00982713,holdencj,CMSC-408-901 - DATABASES - Fall 2024,Programmer Pizza
+"Anthony, David",208581,V00619680,anthonyde,CMSC-408-901 - DATABASES - Fall 2024,Programmer Pizza
+"Tondi, Natalia",185649,V01074069,tondin,CMSC-408-901 - DATABASES - Fall 2024,RamsNationData
+"Anderson, Erin",91992,V00905126,andersones3,CMSC-408-901 - DATABASES - Fall 2024,RamsNationData
+"Manikonda, Nikitha",60270,V00980756,manikondan2,CMSC-408-901 - DATABASES - Fall 2024,Rhythmic Minds
+"Abdelrazek, Ayten",33736,V00957687,abdelrazekam,CMSC-408-901 - DATABASES - Fall 2024,Rhythmic Minds
+"Almareh, Gamal",68828,V00991879,almarehgt,CMSC-408-901 - DATABASES - Fall 2024,SELECT * FROM Swag
+"Castro, Christopher",184055,V00792593,castrocm5,CMSC-408-901 - DATABASES - Fall 2024,SELECT * FROM Swag
+"Castle, William",119691,V01026013,castlewr,CMSC-408-901 - DATABASES - Fall 2024,SIS Inc.
+"Ceballos, Jacob",136011,V01019431,ceballosj,CMSC-408-901 - DATABASES - Fall 2024,SIS Inc.
+"Elliott, Richard",84087,V01000504,elliottr2,CMSC-408-901 - DATABASES - Fall 2024,SQL Avengers
+"Thomas, Ariana",140245,V01035502,thomasan3,CMSC-408-901 - DATABASES - Fall 2024,SQL Avengers
+"Elbanna, Waleed",41130,V00938243,elbannawa,CMSC-408-901 - DATABASES - Fall 2024,SQL FC
+"Fayyadh, Ghalian",109253,V01020373,fayyadhg,CMSC-408-901 - DATABASES - Fall 2024,SQL FC
+"Rahemi, Artin",160041,V01051093,rahemia,CMSC-408-901 - DATABASES - Fall 2024,SQL Sorcerers
+"Vo, Brian",140179,V00947012,vobq2,CMSC-408-901 - DATABASES - Fall 2024,SQL Sorcerers
+"Patel, Kush",72264,V00991968,patelku2,CMSC-408-901 - DATABASES - Fall 2024,SQLuxe
+"Zheng, Erick",61380,V00984172,zhenge,CMSC-408-901 - DATABASES - Fall 2024,SQLuxe
+"Sharma, Ronit",111615,V01022760,sharmarp,CMSC-408-901 - DATABASES - Fall 2024,Schema Squad
+"Marreddi, Sohil",62654,V00979993,marreddiss,CMSC-408-901 - DATABASES - Fall 2024,Schema Squad
+"Castro, Stella",102474,V01012424,castrosk,CMSC-408-901 - DATABASES - Fall 2024,Syntax Sorcerers
+"Otalora, Jessica",134464,V00916290,otaloraj,CMSC-408-901 - DATABASES - Fall 2024,Syntax Sorcerers
+"Simes, Shane",74876,V00975794,simess,CMSC-408-901 - DATABASES - Fall 2024,TEAM NAME
+"Clyde, Cameron",65872,V00989404,clydecp,CMSC-408-901 - DATABASES - Fall 2024,TEAM NAME
+"Malik, Kibria",67980,V00991908,malikkz,CMSC-408-901 - DATABASES - Fall 2024,TableTitans
+"Henry, Stef",179660,V01069930,henrys5,CMSC-408-901 - DATABASES - Fall 2024,TableTitans
+"Trieu, Carissa",60680,V00981904,trieuc3,CMSC-408-901 - DATABASES - Fall 2024,Team Business
+"Balaji, Ashwath",104407,V01011608,balajia,CMSC-408-901 - DATABASES - Fall 2024,Team Business
+"Nguyen, Mai",125064,V01034465,nguyenm33,CMSC-408-901 - DATABASES - Fall 2024,Team Fei
+"Nguyen, Daniel",123293,V01031173,nguyend35,CMSC-408-901 - DATABASES - Fall 2024,Team Fei
+"Gillam, Grace",40860,V00939209,gillamga,CMSC-408-901 - DATABASES - Fall 2024,Team Grakta
+"Shethna, Ekta",59801,V00981111,shethnaec,CMSC-408-901 - DATABASES - Fall 2024,Team Grakta
+"Tran, David",63547,V00987373,trand11,CMSC-408-901 - DATABASES - Fall 2024,Team Rocket
+"Nguyen, Alex",107102,V01015746,nguyena57,CMSC-408-901 - DATABASES - Fall 2024,Team Rocket
+"Gonzaga, Parker",118755,V01024879,gonzagapv,CMSC-408-901 - DATABASES - Fall 2024,Team Rocket
+"Inge, Neil",150502,V01041924,ingen,CMSC-408-901 - DATABASES - Fall 2024,Team Team
+"Southerland, Will",113066,V00973426,southerlandw,CMSC-408-901 - DATABASES - Fall 2024,Team Team
+"Bray, Robert",115140,V01026899,brayrl,CMSC-408-901 - DATABASES - Fall 2024,Tech Titans
+"Ssebawanzi, Bulonziyee",119626,V01029943,ssebawanzibn,CMSC-408-901 - DATABASES - Fall 2024,Tech Titans
+"Lahrouz, Houda",154388,V01044266,lahrouzh,CMSC-408-901 - DATABASES - Fall 2024,Tech Titans Redux
+"Ram Mohan, Diya",40609,V00970717,rammd,CMSC-408-901 - DATABASES - Fall 2024,Tech Titans Redux
+"Scott, Ethan",83577,V00885468,scottea3,CMSC-408-901 - DATABASES - Fall 2024,The Based Data Databasers
+"Cupps, Owen",185962,V01049492,cuppsos,CMSC-408-901 - DATABASES - Fall 2024,The Based Data Databasers
+"Topchyan, Mariam",23949,V00906709,topchyanma,CMSC-591-901 - TOP:DATABASES FOR MS BIOINFO O - Fall 2024,The BioTechs
+"Coates, Danielle",66312,V00991083,coatesdk,CMSC-408-901 - DATABASES - Fall 2024,The BioTechs
+"Hamidou, Yousra",155066,V01044006,hamidouy,CMSC-591-901 - TOP:DATABASES FOR MS BIOINFO O - Fall 2024,The BioTechs
+"Agudelo, Sant",118336,V00932663,agudelos2,CMSC-408-901 - DATABASES - Fall 2024,The Cancelled Flight
+"Barlow, Ryan",105712,V01002077,barlowrm3,CMSC-408-901 - DATABASES - Fall 2024,The Cancelled Flight
+"Nelson, Andrew",119867,V01025780,nelsonas4,CMSC-408-901 - DATABASES - Fall 2024,The Data Duo
+"Smith, Hunter",118888,V01030006,smithhr3,CMSC-408-901 - DATABASES - Fall 2024,The Data Duo
+"Tabanjeh, Noor",105453,V01017118,tabanjehnm,CMSC-408-901 - DATABASES - Fall 2024,The Girls Room
+"Martinez Baires, Katie",25881,V00916908,martinezk4,CMSC-408-901 - DATABASES - Fall 2024,The Girls Room
+"Harris, Angela",34087,V00952672,harrisam2,CMSC-408-901 - DATABASES - Fall 2024,The Girls Room
+"Zafar, Osman",32397,V00949721,zafarom,CMSC-408-901 - DATABASES - Fall 2024,The SQL Guys
+"Scruggs, Ahmad",73352,V00995265,scruggsaz,CMSC-408-901 - DATABASES - Fall 2024,The SQL Guys
+"Novalski, Christian",136232,V01036551,novalskicj,CMSC-408-901 - DATABASES - Fall 2024,The SQLites
+"Duckett, Margarette",118436,V01026887,duckettme,CMSC-408-901 - DATABASES - Fall 2024,The SQLites
+"Wheeler, Bryan",160741,V01044225,wheelerbt2,CMSC-408-901 - DATABASES - Fall 2024,Third School's a Charm
+"Marks, Montel",179876,V01056170,marksm2,CMSC-408-901 - DATABASES - Fall 2024,Third School's a Charm
+"O'Rahilly, Elyse",183943,V00613630,orahillyek,CMSC-408-901 - DATABASES - Fall 2024,Totally Not Spyware
+"Drake, Colin",19818,V00884180,cdrake3,CMSC-408-901 - DATABASES - Fall 2024,Totally Not Spyware
+"Beaudoin, Carter",108600,V01015550,beaudoinc,CMSC-408-901 - DATABASES - Fall 2024,Totally Not Spyware
+"Newman, David",135991,V01033873,newmand3,CMSC-408-901 - DATABASES - Fall 2024,WizKidz
+"Dizon, Parker",72203,V00995707,dizonpr,CMSC-408-901 - DATABASES - Fall 2024,WizKidz
+"Arif, Arbab",79205,V00984945,arifa6,CMSC-408-901 - DATABASES - Fall 2024,WizKidz
+"Jenkins, James",119753,V01025667,jenkinsjb2,CMSC-408-901 - DATABASES - Fall 2024,databased on what
+"Lee, Allen",58877,V00981374,leea18,CMSC-408-901 - DATABASES - Fall 2024,databased on what
+"Upadhyay, Yash",25642,V00903976,upadhyayy,CMSC-408-901 - DATABASES - Fall 2024,mantle
+"Islam, Nafci",69368,V00977632,islamn,CMSC-408-901 - DATABASES - Fall 2024,mantle

@@ -3,8 +3,12 @@
 
 ## ER Models Study Guide
 
-
 ::: {style="text-align:center;"}
 <https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/>
 :::
+
+
+
+[![](assets/er-models-study-guide.png){fig-align="center" width="675px"}](https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/)
+
 
