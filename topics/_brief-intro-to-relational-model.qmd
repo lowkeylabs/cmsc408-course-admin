@@ -53,7 +53,7 @@ in the student-courses table represent pairs of students and courses or "student
 logical designs into actual SQL.
 
 * We'll also explore the fundamentals of relational algebra and how
-we tersly communicate operatings that we can perform on the data and how those
+we tersely communicate operatings that we can perform on the data and how those
 operations look in SQL.
 
 * Finally, we'll examine ways to minimize duplication of data by *functionally* analyzing 

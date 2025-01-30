@@ -298,7 +298,7 @@ To run the application and use the data base
 
 - MERN Mondo/MySQL : Express : React : Node
 
-## DBMS used in CMSC 508
+## DBMS used in CMSC 408
 
 <div class="columns">
 
@@ -620,7 +620,7 @@ courses or “student-course tuples”.
   logical designs into actual SQL.
 
 - We’ll also explore the fundamentals of relational algebra and how we
-  tersly communicate operatings that we can perform on the data and how
+  tersely communicate operatings that we can perform on the data and how
   those operations look in SQL.
 
 - Finally, we’ll examine ways to minimize duplication of data by

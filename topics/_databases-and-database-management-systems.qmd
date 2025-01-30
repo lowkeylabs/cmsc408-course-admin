@@ -131,7 +131,7 @@ Using NodeJS full stack
 : * MEAN  Mongo/MySQL : Express : Angular : Node
 : * MERN  Mondo/MySQL : Express : React : Node
 
-## DBMS used in CMSC 508
+## DBMS used in CMSC 408
 
 :::: {.columns}
 ::: {.column}
