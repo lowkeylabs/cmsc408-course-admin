@@ -1,5 +1,4 @@
-
-# Brief intro to relational model
+<!-- # Brief intro to relational model -->
 
 ## Relational Database Model
 

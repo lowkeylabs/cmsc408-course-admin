@@ -554,7 +554,7 @@ across transactions.
 
 # Brief intro to relational models
 
-# Brief intro to relational model
+<!-- # Brief intro to relational model -->
 
 ## Relational Database Model
 
