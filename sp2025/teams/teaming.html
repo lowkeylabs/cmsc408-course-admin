@@ -3149,9 +3149,9 @@ vertical-align: -.125em;
 <li>Store new mapping to file for upload to canvas.</li>
 </ol>
 <p><strong>Key parameters for this report</strong></p>
-<div id="4ecc50ce" class="cell" data-execution_count="1">
+<div id="efb2ca8f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SQLITE_DB_FILE <span class="op">=</span> <span class="st">&quot;teaming.db&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>SOURCE_SURVEY_RESULTS <span class="op">=</span> <span class="st">&quot;cmsc408-sp2025-deliverable-2-teaming-survey.csv&quot;</span>  <span class="co"># this file is downloaded from Canvas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>SOURCE_SURVEY_RESULTS <span class="op">=</span> <span class="st">&quot;Deliverable 2 - Team formation Survey Student Analysis Report (3).csv&quot;</span>  <span class="co"># this file is downloaded from Canvas</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>CLEAN_GROUP_MAPPING_FILE <span class="op">=</span> <span class="st">&quot;teams_clean.xlsx&quot;</span>  <span class="co"># an interim file for potential later use</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>CANVAS_GROUP_SEED_FILE <span class="op">=</span> <span class="st">&quot;sp2025-roster-from-groups-import.csv&quot;</span>  <span class="co"># downloaded from Canvas for editing</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>CANVAS_GROUP_UPLOAD_FILE <span class="op">=</span> <span class="st">&quot;sp2025-groups-upload.csv&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3160,13 +3160,13 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="working-with-the-data">Working with the data</h2>
 <section id="load-the-workbook" class="level3">
 <h3 class="anchored" data-anchor-id="load-the-workbook">Load the workbook</h3>
-<p>Load the file. Note that we’re using <em>cmsc408-sp2025-deliverable-2-teaming-survey.csv</em>. Canvas creates different files depending on something, but I’m not sure what.</p>
-<div id="e923d1aa" class="cell" data-execution_count="3">
+<p>Load the file. Note that we’re using <em>Deliverable 2 - Team formation Survey Student Analysis Report (3).csv</em>. Canvas creates different files depending on something, but I’m not sure what.</p>
+<div id="3fc1c968" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the xlsx file into a pandas dataframe</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#df = pd.read_excel( SOURCE_SURVEY_RESULTS )</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(SOURCE_SURVEY_RESULTS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0cca9b08" class="cell" data-execution_count="4">
+<div id="51cddd02" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>&#39;name&#39; : &#39;name&#39;,
 &#39;id&#39; : &#39;id&#39;,
@@ -3192,7 +3192,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>Keep only the last attempts. Drop unnecessary columns. Show the columns</p>
-<div id="0767fddb" class="cell" data-execution_count="6">
+<div id="1b85d3a5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows with the largest &quot;attempt&quot; value</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>max_attempt_indices <span class="op">=</span> df.groupby(<span class="st">&#39;name&#39;</span>)[<span class="st">&#39;attempt&#39;</span>].idxmax()</span>
@@ -3201,21 +3201,32 @@ vertical-align: -.125em;
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">&#39;section&#39;</span>,<span class="st">&#39;section_id&#39;</span>,<span class="st">&#39;section_sis_id&#39;</span>,<span class="st">&#39;submitted&#39;</span>,<span class="st">&#39;attempt&#39;</span>,<span class="st">&#39;cnt1&#39;</span>,<span class="st">&#39;cnt2&#39;</span>,<span class="st">&#39;cnt3&#39;</span>,<span class="st">&#39;cnt4&#39;</span>,<span class="st">&#39;cnt5&#39;</span>,<span class="st">&#39;n_correct&#39;</span>,<span class="st">&#39;n_incorrect&#39;</span>,<span class="st">&#39;score&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="206">
 <pre><code>Index([&#39;name&#39;, &#39;id&#39;, &#39;sis_id&#39;, &#39;team_name&#39;, &#39;partner_2_name&#39;, &#39;partner_2_vid&#39;,
        &#39;partner_3_name&#39;, &#39;partner_3_vid&#39;],
       dtype=&#39;object&#39;)</code></pre>
 </div>
 </div>
+<p>Clean VID values</p>
+<div id="47466f69" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_vid(value):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.isna(value):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> value</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> <span class="bu">str</span>(value).upper()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> value <span class="cf">if</span> value.startswith(<span class="st">&#39;V&#39;</span>) <span class="cf">else</span> <span class="ss">f&#39;V</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">&#39;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>vid_columns <span class="op">=</span> [<span class="st">&#39;sis_id&#39;</span>, <span class="st">&#39;partner_2_vid&#39;</span>, <span class="st">&#39;partner_3_vid&#39;</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>df[vid_columns] <span class="op">=</span> df[vid_columns].<span class="bu">map</span>(clean_vid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="store-dataframe-to-data-base" class="level3">
 <h3 class="anchored" data-anchor-id="store-dataframe-to-data-base">Store dataframe to data base</h3>
 <p>Store the uncleaned, raw data to the database.</p>
-<div id="a70d7e42" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>( SQLITE_DB_FILE )</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df.to_sql(<span class="st">&#39;raw_table&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dd04e103" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>( SQLITE_DB_FILE )</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.to_sql(<span class="st">&#39;raw_table&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -3226,106 +3237,131 @@ vertical-align: -.125em;
 <section id="add-missing-records" class="level3">
 <h3 class="anchored" data-anchor-id="add-missing-records">Add missing records</h3>
 <p>Finally, some students didn’t submit a survey, so they’ve got to be manually added. These missing records are discovered when the survey data are mapped to the import/export file which contains a reference one-record-per-student.</p>
-<div id="db370cee" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add missing records from a later step!</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#new_row_df = pd.DataFrame({&#39;name&#39;:[&#39;Yash Upadhyay&#39;], &#39;sis_id&#39;: [&#39;V00903976&#39;] ,&#39;team_name&#39;: [&#39;mantle&#39;]})</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaned_df = pd.concat([cleaned_df, new_row_df], ignore_index=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f1803349" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add missing records from a later step!</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>new_rows <span class="op">=</span> [</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;SeyiYash Upadhyay&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V01011000&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;Entergalactic Coders&#39;</span>},</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Caitlin Berdeguez&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V01013162&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;Team DC&#39;</span>},</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Braeden Ferguson&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V00950948&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;Schema Squad&#39;</span>},</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Austin Glass&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V00280987&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;ag&#39;</span>},</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Smeetha James&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V00980840&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;sj&#39;</span>},</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Ahmed Salih&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V00994293&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;as&#39;</span>},</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Andre Smith&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V00993317&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;asm&#39;</span>},</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Marcio Tejeda&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V00959413&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;mt&#39;</span>},</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    {<span class="st">&#39;name&#39;</span>:<span class="st">&#39;Di-Huy Tran&#39;</span>, <span class="st">&#39;sis_id&#39;</span>: <span class="st">&#39;V01045876&#39;</span> ,<span class="st">&#39;team_name&#39;</span>: <span class="st">&#39;dt&#39;</span>},    </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>cleaned_df <span class="op">=</span> pd.concat([cleaned_df, pd.DataFrame(new_rows)], ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="helper-codes" class="level3">
 <h3 class="anchored" data-anchor-id="helper-codes">Helper codes</h3>
+<div id="06dae220" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add team size back to original dataframe</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>cleaned_df[<span class="st">&#39;team_size&#39;</span>] <span class="op">=</span> cleaned_df.groupby(<span class="st">&#39;team_name&#39;</span>)[<span class="st">&#39;team_name&#39;</span>].transform(<span class="st">&#39;count&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The two blocks of code below generate python that can be pasted in this report. They python can then be edited to clean the data.</p>
-<div id="156fb430" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Uncomment these to list out code (above) that can be used for data cleaning</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span>):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> cleaned_df[<span class="st">&#39;team_name&#39;</span>].unique().tolist()</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> [<span class="bu">str</span>(name) <span class="cf">for</span> name <span class="kw">in</span> unique_team_names]</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    sorted_team_names <span class="op">=</span> <span class="bu">sorted</span>(unique_team_names, key<span class="op">=</span><span class="kw">lambda</span> x: x.lower())</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> team_name <span class="kw">in</span> sorted_team_names:</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e8bcdd70" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Uncomment these to list out code (above) that can be used for data cleaning</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span>):</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> cleaned_df[<span class="st">&#39;team_name&#39;</span>].unique().tolist()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    unique_team_names <span class="op">=</span> [<span class="bu">str</span>(name) <span class="cf">for</span> name <span class="kw">in</span> unique_team_names]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    sorted_team_names <span class="op">=</span> <span class="bu">sorted</span>(unique_team_names, key<span class="op">=</span><span class="kw">lambda</span> x: x.lower())</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> team_name <span class="kw">in</span> sorted_team_names:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;</span><span class="sc">{</span>team_name<span class="sc">}</span><span class="ss">&#39;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;408 Crew&#39;,&#39;team_name&#39;] = &#39;408 Crew&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;408 crew&#39;,&#39;team_name&#39;] = &#39;408 crew&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;A Squared&#39;,&#39;team_name&#39;] = &#39;A Squared&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;a^2&#39;,&#39;team_name&#39;] = &#39;a^2&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Arceus&#39;,&#39;team_name&#39;] = &#39;Arceus&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;A-squared&#39;,&#39;team_name&#39;] = &#39;A-squared&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;ag&#39;,&#39;team_name&#39;] = &#39;ag&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;as&#39;,&#39;team_name&#39;] = &#39;as&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;asm&#39;,&#39;team_name&#39;] = &#39;asm&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Big Stink&#39;,&#39;team_name&#39;] = &#39;Big Stink&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Binary Brains&#39;,&#39;team_name&#39;] = &#39;Binary Brains&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Bookworms&#39;,&#39;team_name&#39;] = &#39;Bookworms&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Bryce Strobel&#39;,&#39;team_name&#39;] = &#39;Bryce Strobel&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Buff and Bumble&#39;,&#39;team_name&#39;] = &#39;Buff and Bumble&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Byte Sized Bandits&#39;,&#39;team_name&#39;] = &#39;Byte Sized Bandits&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;CamboViet&#39;,&#39;team_name&#39;] = &#39;CamboViet&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Cloud Navigators&#39;,&#39;team_name&#39;] = &#39;Cloud Navigators&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;CMSC 408&#39;,&#39;team_name&#39;] = &#39;CMSC 408&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Code Crusaders&#39;,&#39;team_name&#39;] = &#39;Code Crusaders&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;CtrlAltElite&#39;,&#39;team_name&#39;] = &#39;CtrlAltElite&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Data Demons&#39;,&#39;team_name&#39;] = &#39;Data Demons&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Data Dynamos&#39;,&#39;team_name&#39;] = &#39;Data Dynamos&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Data Knights&#39;,&#39;team_name&#39;] = &#39;Data Knights&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Data Legends&#39;,&#39;team_name&#39;] = &#39;Data Legends&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Data Trio&#39;,&#39;team_name&#39;] = &#39;Data Trio&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Database FC&#39;,&#39;team_name&#39;] = &#39;Database FC&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;DataTrio&#39;,&#39;team_name&#39;] = &#39;DataTrio&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;dt&#39;,&#39;team_name&#39;] = &#39;dt&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Entergalactic Coders&#39;,&#39;team_name&#39;] = &#39;Entergalactic Coders&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Fulcrum&#39;,&#39;team_name&#39;] = &#39;Fulcrum&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;G&amp;C&#39;,&#39;team_name&#39;] = &#39;G&amp;C&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Goobers&#39;,&#39;team_name&#39;] = &#39;Goobers&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Millionaire Minions&#39;,&#39;team_name&#39;] = &#39;Millionaire Minions&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Minion&#39;,&#39;team_name&#39;] = &#39;Minion&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Monacan Chiefs&#39;,&#39;team_name&#39;] = &#39;Monacan Chiefs&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Monkey Munchers&#39;,&#39;team_name&#39;] = &#39;Monkey Munchers&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;nan&#39;,&#39;team_name&#39;] = &#39;nan&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;not yet decided&#39;,&#39;team_name&#39;] = &#39;not yet decided&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;mt&#39;,&#39;team_name&#39;] = &#39;mt&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;na&#39;,&#39;team_name&#39;] = &#39;na&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Open Valve&#39;,&#39;team_name&#39;] = &#39;Open Valve&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Pixel Pioneers&#39;,&#39;team_name&#39;] = &#39;Pixel Pioneers&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Random Word Generators&#39;,&#39;team_name&#39;] = &#39;Random Word Generators&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Relational Rebels&#39;,&#39;team_name&#39;] = &#39;Relational Rebels&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Schema Squad&#39;,&#39;team_name&#39;] = &#39;Schema Squad&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Secondhand Friends&#39;,&#39;team_name&#39;] = &#39;Secondhand Friends&#39;
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;sj&#39;,&#39;team_name&#39;] = &#39;sj&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Static Duo&#39;,&#39;team_name&#39;] = &#39;Static Duo&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;static duo&#39;,&#39;team_name&#39;] = &#39;static duo&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Strikers&#39;,&#39;team_name&#39;] = &#39;Strikers&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Team Arceus&#39;,&#39;team_name&#39;] = &#39;Team Arceus&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Team Awesome&#39;,&#39;team_name&#39;] = &#39;Team Awesome&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;team awesome&#39;,&#39;team_name&#39;] = &#39;team awesome&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Team Crusaders&#39;,&#39;team_name&#39;] = &#39;Team Crusaders&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Team DC&#39;,&#39;team_name&#39;] = &#39;Team DC&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Team Umizumi&#39;,&#39;team_name&#39;] = &#39;Team Umizumi&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Team UmiZumi&#39;,&#39;team_name&#39;] = &#39;Team UmiZumi&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;The Data Duo&#39;,&#39;team_name&#39;] = &#39;The Data Duo&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;The Optimizers&#39;,&#39;team_name&#39;] = &#39;The Optimizers&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;the strikers&#39;,&#39;team_name&#39;] = &#39;the strikers&#39;
 cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;The Triangles&#39;,&#39;team_name&#39;] = &#39;The Triangles&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warrior of Bytes&#39;,&#39;team_name&#39;] = &#39;Warrior of Bytes&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Btye&#39;,&#39;team_name&#39;] = &#39;Warriors of Btye&#39;
-cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;team_name&#39;] = &#39;Warriors of Byte&#39;</code></pre>
+cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Bytes&#39;,&#39;team_name&#39;] = &#39;Warriors of Bytes&#39;</code></pre>
 </div>
 </div>
-<div id="404f1acc" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span>):</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> cleaned_df[ (cleaned_df[<span class="st">&#39;team_name&#39;</span>].isna()) <span class="op">|</span> (cleaned_df[<span class="st">&#39;team_name&#39;</span>]<span class="op">==</span><span class="st">&#39;nan&#39;</span>) ].iterrows():</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;name&#39;]==&#39;</span><span class="sc">{</span>row[<span class="st">&#39;name&#39;</span>]<span class="sc">}</span><span class="ss">&#39;,&#39;team_name&#39;] = &#39;nan&#39;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d99d4ac7" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Uncomment to generate list of students and teams for later assignment</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span>):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> cleaned_df[cleaned_df[<span class="st">&#39;team_size&#39;</span>] <span class="op">==</span> <span class="dv">1</span>].iterrows():</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Safely retrieve the partner&#39;s team name</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        partner_2_team_name_series <span class="op">=</span> cleaned_df.loc[cleaned_df[<span class="st">&#39;sis_id&#39;</span>] <span class="op">==</span> row[<span class="st">&#39;partner_2_vid&#39;</span>], <span class="st">&#39;team_name&#39;</span>]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract first valid value if exists, otherwise set to empty string</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        partner_2_team_name <span class="op">=</span> partner_2_team_name_series.iloc[<span class="dv">0</span>] <span class="cf">if</span> <span class="kw">not</span> partner_2_team_name_series.empty <span class="cf">else</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print formatted statement</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;</span><span class="sc">{</span>row[<span class="st">&#39;name&#39;</span>]<span class="sc">}</span><span class="ss">&#39;, &#39;team_name&#39;] = &#39;</span><span class="sc">{</span>row[<span class="st">&#39;team_name&#39;</span>]<span class="sc">}</span><span class="ss">&#39;  ## </span><span class="sc">{</span>row[<span class="st">&#39;partner_2_name&#39;</span>]<span class="sc">}</span><span class="ss"> : </span><span class="sc">{</span>partner_2_team_name<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>cleaned_df.loc[cleaned_df[&#39;name&#39;]==&#39;Lindsey Marandina&#39;,&#39;team_name&#39;] = &#39;nan&#39;</code></pre>
+<pre><code>cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Jacob Stephens&#39;, &#39;team_name&#39;] = &#39;Big Stink&#39;  ## Its Just Me : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Nehemiah Akeredolu&#39;, &#39;team_name&#39;] = &#39;na&#39;  ## Mohamed Elnafe : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Austin Glass&#39;, &#39;team_name&#39;] = &#39;ag&#39;  ## nan : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Smeetha James&#39;, &#39;team_name&#39;] = &#39;sj&#39;  ## nan : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Ahmed Salih&#39;, &#39;team_name&#39;] = &#39;as&#39;  ## nan : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Andre Smith&#39;, &#39;team_name&#39;] = &#39;asm&#39;  ## nan : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Marcio Tejeda&#39;, &#39;team_name&#39;] = &#39;mt&#39;  ## nan : 
+cleaned_df.loc[cleaned_df[&#39;name&#39;] == &#39;Di-Huy Tran&#39;, &#39;team_name&#39;] = &#39;dt&#39;  ## nan : </code></pre>
 </div>
 </div>
 </section>
 <section id="final-mapping-of-students-to-groups." class="level3">
 <h3 class="anchored" data-anchor-id="final-mapping-of-students-to-groups.">Final mapping of students to groups.</h3>
 <p>Here is a list of the first 10 records of the resulting, cleaned dataframe.</p>
-<div id="7afca63c" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Markdown( cleaned_df.sort_values(by<span class="op">=</span><span class="st">&quot;team_name&quot;</span>).head(<span class="dv">10</span>).to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
+<div id="10577260" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Markdown( cleaned_df.sort_values(by<span class="op">=</span><span class="st">&quot;team_name&quot;</span>).head(<span class="dv">10</span>).to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="214">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 19%">
+<col style="width: 17%">
 <col style="width: 5%">
 <col style="width: 7%">
-<col style="width: 10%">
-<col style="width: 19%">
+<col style="width: 9%">
+<col style="width: 15%">
 <col style="width: 11%">
 <col style="width: 13%">
 <col style="width: 11%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3337,10 +3373,22 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <th style="text-align: left;">partner_2_vid</th>
 <th style="text-align: left;">partner_3_name</th>
 <th style="text-align: left;">partner_3_vid</th>
+<th style="text-align: right;">team_size</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">Kelechukwu Onyedeke</td>
+<td style="text-align: right;">25873</td>
+<td style="text-align: left;">V00916901</td>
+<td style="text-align: left;">408 Crew</td>
+<td style="text-align: left;">Christopher Torres</td>
+<td style="text-align: left;">V01079608</td>
+<td style="text-align: left;">Lindsey Marandina</td>
+<td style="text-align: left;">V00943736</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Christopher Torres</td>
 <td style="text-align: right;">196599</td>
 <td style="text-align: left;">V01079608</td>
@@ -3349,46 +3397,40 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <td style="text-align: left;">V00916901</td>
 <td style="text-align: left;">Lindsey Marandina</td>
 <td style="text-align: left;">V00943736</td>
+<td style="text-align: right;">3</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Kelechukwu Onyedeke</td>
-<td style="text-align: right;">25873</td>
-<td style="text-align: left;">V00916901</td>
-<td style="text-align: left;">408 crew</td>
+<tr class="odd">
+<td style="text-align: left;">Lindsey Marandina</td>
+<td style="text-align: right;">51883</td>
+<td style="text-align: left;">V00943736</td>
+<td style="text-align: left;">408 Crew</td>
 <td style="text-align: left;">Christopher Torres</td>
 <td style="text-align: left;">V01079608</td>
-<td style="text-align: left;">Lindsey Marandina</td>
-<td style="text-align: left;">V00943736</td>
+<td style="text-align: left;">Kelechukwu Onyedeke</td>
+<td style="text-align: left;">V00916901</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Angela Pantigozo-Cuellar</td>
+<td style="text-align: right;">113623</td>
+<td style="text-align: left;">V01025475</td>
+<td style="text-align: left;">A-squared</td>
+<td style="text-align: left;">Arya Nalavade</td>
+<td style="text-align: left;">V00986870</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Arya Nalavade</td>
 <td style="text-align: right;">62388</td>
 <td style="text-align: left;">V00986870</td>
-<td style="text-align: left;">A Squared</td>
+<td style="text-align: left;">A-squared</td>
 <td style="text-align: left;">Ang Pantigozo-Cuellar</td>
 <td style="text-align: left;">V01025475</td>
 <td style="text-align: left;">nan</td>
 <td style="text-align: left;">nan</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nima Behboudi</td>
-<td style="text-align: right;">196067</td>
-<td style="text-align: left;">V01080146</td>
-<td style="text-align: left;">Arceus</td>
-<td style="text-align: left;">Sriram Sathvik Vangipurpau</td>
-<td style="text-align: left;">V01026262</td>
-<td style="text-align: left;">Muhammad Amjad</td>
-<td style="text-align: left;">V01052051</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sriram Sathvik Vangipurapu</td>
-<td style="text-align: right;">114722</td>
-<td style="text-align: left;">V01026262</td>
-<td style="text-align: left;">Arceus</td>
-<td style="text-align: left;">Nima Behboudi</td>
-<td style="text-align: left;">V01080146</td>
-<td style="text-align: left;">Muhammad Amjad</td>
-<td style="text-align: left;">V01052051</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Jacob Stephens</td>
@@ -3399,6 +3441,7 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <td style="text-align: left;">nan</td>
 <td style="text-align: left;">nan</td>
 <td style="text-align: left;">nan</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Rayan Maazouz</td>
@@ -3409,6 +3452,7 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <td style="text-align: left;">V01035856</td>
 <td style="text-align: left;">nan</td>
 <td style="text-align: left;">nan</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ismail Jalil</td>
@@ -3419,26 +3463,29 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <td style="text-align: left;">V01071257</td>
 <td style="text-align: left;">nan</td>
 <td style="text-align: left;">nan</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Leiliani Clark</td>
-<td style="text-align: right;">103565</td>
-<td style="text-align: left;">V01013390</td>
-<td style="text-align: left;">Bookworms</td>
-<td style="text-align: left;">Trinitey Tran</td>
-<td style="text-align: left;">00981869</td>
-<td style="text-align: left;">nan</td>
-<td style="text-align: left;">nan</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Trinitey Tran</td>
 <td style="text-align: right;">65925</td>
 <td style="text-align: left;">V00981869</td>
 <td style="text-align: left;">Bookworms</td>
 <td style="text-align: left;">Leiliani Clark</td>
-<td style="text-align: left;">01013390</td>
+<td style="text-align: left;">V01013390</td>
 <td style="text-align: left;">nan</td>
 <td style="text-align: left;">nan</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Leiliani Clark</td>
+<td style="text-align: right;">103565</td>
+<td style="text-align: left;">V01013390</td>
+<td style="text-align: left;">Bookworms</td>
+<td style="text-align: left;">Trinitey Tran</td>
+<td style="text-align: left;">V00981869</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">2</td>
 </tr>
 </tbody>
 </table>
@@ -3448,13 +3495,13 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <section id="store-the-cleaned-dataframe-to-data-base" class="level3">
 <h3 class="anchored" data-anchor-id="store-the-cleaned-dataframe-to-data-base">Store the cleaned dataframe to data base</h3>
 <p>Store the cleaned dataframe into a SQL table and into a XLSX file.</p>
-<div id="c31ccd21" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>( SQLITE_DB_FILE )</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_sql(<span class="st">&#39;clean_teams&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_excel( CLEAN_GROUP_MAPPING_FILE, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cb783290" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database (or create it if it doesn&#39;t exist)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>( SQLITE_DB_FILE )</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cleaned_df.to_sql(<span class="st">&#39;clean_teams&#39;</span>, conn, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>conn.close()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>cleaned_df.sort_values(by<span class="op">=</span>[<span class="st">&quot;team_size&quot;</span>,<span class="st">&quot;team_name&quot;</span>]).to_excel( CLEAN_GROUP_MAPPING_FILE, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -3462,8 +3509,8 @@ cleaned_df.loc[cleaned_df[&#39;team_name&#39;]==&#39;Warriors of Byte&#39;,&#39;
 <h2 class="anchored" data-anchor-id="explore-the-cleaned-data">Explore the cleaned data</h2>
 <p>As these tables are reviewed, they should reveal changes to be made to the python code above.<br>
 Iterate over this review and mods above until the data are clean!</p>
-<div id="7062e44e" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
+<div id="6863f033" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="216">
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
@@ -3474,15 +3521,15 @@ Iterate over this review and mods above until the data are clean!</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: right;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: right;">26</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">13</td>
 </tr>
 </tbody>
 </table>
@@ -3490,7 +3537,129 @@ Iterate over this review and mods above until the data are clean!</p>
 </div>
 <section id="teams-with-one-member" class="level3">
 <h3 class="anchored" data-anchor-id="teams-with-one-member">Teams with one member</h3>
-<p>Details of any teams with</p>
+<p>Details of any teams with just one member.</p>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>team_sizes <span class="op">=</span> cleaned_df.groupby(<span class="st">&#39;team_name&#39;</span>).size().reset_index(name<span class="op">=</span><span class="st">&#39;team_size&#39;</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>teams_of_size_x <span class="op">=</span> team_sizes[team_sizes[<span class="st">&#39;team_size&#39;</span>].isin([<span class="dv">1</span>])]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(teams_of_size_x)<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>( cleaned_df[ cleaned_df[<span class="st">&#39;team_name&#39;</span>].isin( teams_of_size_x[<span class="st">&#39;team_name&#39;</span>] ) ].to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;**All clean!  No teams of size 1**&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">sis_id</th>
+<th style="text-align: left;">team_name</th>
+<th style="text-align: left;">partner_2_name</th>
+<th style="text-align: left;">partner_2_vid</th>
+<th style="text-align: right;">partner_3_name</th>
+<th style="text-align: right;">partner_3_vid</th>
+<th style="text-align: right;">team_size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Jacob Stephens</td>
+<td style="text-align: right;">185526</td>
+<td style="text-align: left;">V01070745</td>
+<td style="text-align: left;">Big Stink</td>
+<td style="text-align: left;">Its Just Me</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nehemiah Akeredolu</td>
+<td style="text-align: right;">121176</td>
+<td style="text-align: left;">V01029185</td>
+<td style="text-align: left;">na</td>
+<td style="text-align: left;">Mohamed Elnafe</td>
+<td style="text-align: left;">VUNKNOWN</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Austin Glass</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">V00280987</td>
+<td style="text-align: left;">ag</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smeetha James</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">V00980840</td>
+<td style="text-align: left;">sj</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ahmed Salih</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">V00994293</td>
+<td style="text-align: left;">as</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Andre Smith</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">V00993317</td>
+<td style="text-align: left;">asm</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Marcio Tejeda</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">V00959413</td>
+<td style="text-align: left;">mt</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Di-Huy Tran</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">V01045876</td>
+<td style="text-align: left;">dt</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: left;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="teams-with-four-members" class="level3">
 <h3 class="anchored" data-anchor-id="teams-with-four-members">Teams with four members</h3>
@@ -3499,7 +3668,7 @@ Iterate over this review and mods above until the data are clean!</p>
 <li>Check to see if you’re only selecting the most recent records. If a student submits the survey more than once there will be multiple records for that student and that team.</li>
 <li>Check to see if two or more teams are sharing the same name. If this is the case you need to rename one or more of the teams.</li>
 </ul>
-<div id="39de2fcc" class="cell" data-execution_count="16">
+<div id="6f998690" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-stdout">
 <pre><code>**All clean!  No teams of sizes 4, 5 or 6.**</code></pre>
 </div>
@@ -3510,25 +3679,33 @@ Iterate over this review and mods above until the data are clean!</p>
 <h2 class="anchored" data-anchor-id="merge-with-group-data">Merge with group data</h2>
 <p>Finally, we’ll merge the survey results with the import/export seed file from Canvas.</p>
 <p>Any errors will reveal students missing the submission.</p>
-<div id="1f13ac70" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>canvas_df <span class="op">=</span> pd.read_csv( CANVAS_GROUP_SEED_FILE )</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> pd.merge(canvas_df, cleaned_df, left_on<span class="op">=</span><span class="st">&#39;user_id&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;sis_id&#39;</span>,  how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>no_match_df <span class="op">=</span> merged_df[merged_df[<span class="st">&#39;sis_id&#39;</span>].isna()]</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> no_match_df.shape[<span class="dv">0</span>]<span class="op">&gt;</span><span class="dv">0</span>:</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    Markdown( no_match_df.to_markdown( index<span class="op">=</span><span class="va">False</span>) )</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;**All students submitted a survey.**&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f05194f4" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>canvas_df <span class="op">=</span> pd.read_csv( CANVAS_GROUP_SEED_FILE )</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> pd.merge(canvas_df, cleaned_df, left_on<span class="op">=</span><span class="st">&#39;user_id&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;sis_id&#39;</span>,  how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>no_match_df <span class="op">=</span> merged_df[merged_df[<span class="st">&#39;sis_id&#39;</span>].isna()]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> no_match_df.shape[<span class="dv">0</span>]<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> no_match_df.iterrows():</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print formatted statement</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">{{</span><span class="ss">&#39;name&#39;:&#39;</span><span class="sc">{</span>row[<span class="st">&quot;name_x&quot;</span>]<span class="sc">}</span><span class="ss">&#39;, &#39;sis_id&#39;: &#39;</span><span class="sc">{</span>row[<span class="st">&quot;user_id&quot;</span>]<span class="sc">}</span><span class="ss">&#39; ,&#39;team_name&#39;: &#39;(missing)&#39;</span><span class="ch">}}</span><span class="ss">,&quot;</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    print( no_match_df.to_markdown( index=False) )</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;**All students submitted a survey.**&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>**All students submitted a survey.**</code></pre>
+</div>
 </div>
 <section id="save-merged-file-to-export-csv-for-importing-into-canvas" class="level3">
 <h3 class="anchored" data-anchor-id="save-merged-file-to-export-csv-for-importing-into-canvas">Save merged file to export CSV for importing into Canvas</h3>
-<div id="22efabe5" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> merged_df[ [<span class="st">&#39;name_x&#39;</span>,<span class="st">&#39;canvas_user_id&#39;</span>,<span class="st">&#39;user_id&#39;</span>,<span class="st">&#39;login_id&#39;</span>,<span class="st">&#39;sections&#39;</span>,<span class="st">&#39;team_name&#39;</span>]]</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>merged_df.rename(columns<span class="op">=</span>{</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;name_x&#39;</span> : <span class="st">&#39;name&#39;</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;team_name&#39;</span> : <span class="st">&#39;group_name&#39;</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>merged_df.sort_values(by<span class="op">=</span><span class="st">&#39;group_name&#39;</span>).to_csv( CANVAS_GROUP_UPLOAD_FILE ,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b2f389bc" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> merged_df[ [<span class="st">&#39;name_x&#39;</span>,<span class="st">&#39;canvas_user_id&#39;</span>,<span class="st">&#39;user_id&#39;</span>,<span class="st">&#39;login_id&#39;</span>,<span class="st">&#39;sections&#39;</span>,<span class="st">&#39;team_name&#39;</span>]]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>merged_df.rename(columns<span class="op">=</span>{</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;name_x&#39;</span> : <span class="st">&#39;name&#39;</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;team_name&#39;</span> : <span class="st">&#39;group_name&#39;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>merged_df.sort_values(by<span class="op">=</span><span class="st">&#39;group_name&#39;</span>).to_csv( CANVAS_GROUP_UPLOAD_FILE ,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
