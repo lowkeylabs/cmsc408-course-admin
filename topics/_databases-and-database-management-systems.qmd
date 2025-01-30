@@ -1,5 +1,4 @@
-
-# Databases and Database Management Systems
+<!-- # Databases and Database Management Systems -->
 
 ## A database ecosystem
 

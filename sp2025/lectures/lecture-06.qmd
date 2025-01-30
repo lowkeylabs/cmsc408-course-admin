@@ -17,12 +17,33 @@ housekeeping_right_column_width="40%"
 housekeeping_vertical_spacer = "25px"
 
 discussion_items = [
-    'This is a placeholder Lecture.'
+    '[Deliverable 3 - Harmonize Ideation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072358) - due Sun, 2/2',
+    '[Deliverable 4 - Video Pitch](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768) - due Sun, 2/9',
+    '[Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211165) - due THU, 1/30',
+    '[Homework 2 - ER Diagrams](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335) - due Tue, 2/4 <p>&nbsp;</p>',
+    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307) - Due Sun, 1/26',
+    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170) - Start now!'
 ]
 
 lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
+    '[Taking stock](#taking-stock)',
+    '[Databases and DBMS](#databases-and-dbms)',
+    '[Intro to SQL](#intro-to-sql)',
+    '[Brief intro to relational models](#brief-intro-to-relational-models)'
 ]
 ```
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+# Taking stock
+{{< include  ../../topics/_taking-stock-after-er-models.qmd >}}
+# Databases and DBMS
+{{< include  ../../topics/_databases-and-database-management-systems.qmd >}}
+# Intro to SQL
+{{< include  ../../topics/_intro-to-sql.qmd >}}
+# Brief intro to relational models
+{{< include  ../../topics/_brief-intro-to-relational-model.qmd >}}
+<!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
