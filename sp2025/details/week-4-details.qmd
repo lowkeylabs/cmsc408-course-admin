@@ -10,9 +10,9 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 # Uncomment as necessary.  These take time to load so only use what you need.
 
-#pages = config.get_pages()
-#quizzes = config.get_quizzes()
-#assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
+pages = config.get_pages()
+quizzes = config.get_quizzes()
+assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
 #files = config.get_files()
 
 # Here is an example of how these are expanded.
@@ -27,9 +27,24 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
+<p class="lead">New topic - relational models and algebra</p>
 
-*Details will be updated closer to the week.*
+### Things to do this week
+
+```{python}
+print(f"""
+<b>{expand_quiz(quizzes, "Practice Quiz 2 ","practice quiz 2", url_type="anchor", target="_blank")}</b> - Get started on practice quiz 2.  This quiz focuses on relational algebra.
+
+<b>{expand_assignment(assignments,"Deliverable 4 - Video Pitch","Deliverable 4 - Video Pitch",url_type="anchor")}</b> - You are working with your team mate(s) to refine your semester project idea, then put together a video that *pitches* your idea.  A passing grade is your OK to proceed with deliverable 5.  Up in the resources I provide an example of what this video pitch might look like.
+
+<b>{expand_assignment(assignments,"Homework 2 - ER modeling","Homework 2 - Entity Relation Models",url_type="anchor")}</b> - Practice makes perfect!  You are getting practice creating ER diagrams from descriptions
+of a databases.
+
+<b>{expand_assignment(assignments,"Harmonize discussion 2 - Relational algebra","Discussion 2 - Relational Alg.",url_type="anchor")}</b> - A little tougher. I want to pick a relational algebra topic and then explain it in a post.  You will also be offering tips or suggestions to explanations posted by other students.
+
+""")
+```
+
 
 
 ```{python}
