@@ -1,0 +1,7 @@
+---
+title: "Homework 3 - Modeling your world SP2025"
+---
+
+{{< include '_homework-3-modeling-your-world-sp2025.qmd' >}}
+
+    

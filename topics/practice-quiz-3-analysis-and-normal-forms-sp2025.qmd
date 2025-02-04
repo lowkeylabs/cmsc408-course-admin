@@ -1,0 +1,7 @@
+---
+title: "Practice Quiz 3 - Analysis and Normal Forms SP2025"
+---
+
+{{< include '_practice-quiz-3-analysis-and-normal-forms-sp2025.qmd' >}}
+
+    

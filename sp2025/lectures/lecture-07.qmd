@@ -14,18 +14,23 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 #pages = config.get_pages()
 #quizzes = config.get_quizzes()
 assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
-
+quizzes = config.get_quizzes()
 
 discussion_items = [
+    f'{expand_quiz(quizzes, "Practice Quiz 2 ","practice quiz 2", url_type="anchor", target="_blank")} - due Feb. 4, TUE',
+    f'{expand_assignment(assignments,"Homework 2 - ER Modeling ","Homework 2 - Entity Relation Models",url_type="anchor")} - due Feb. 4, TUE',
+    f'{expand_assignment(assignments,"Discussion 2 - Relational Algebra","Discussion 2 - Relational Alg.",url_type="anchor")} - due Feb. 9, SUN',
     f'{expand_assignment(assignments,"Del.4 - Video Pitch","Deliverable 4 - Video Pitch",url_type="anchor")} - due Feb. 9, SUN',
 ]
 
 lecture_topics = [
+    '[Deliverable 4 Notes](#deliverable-4-notes)',
     '[Relational models](#relational-models)',
+    '[Relationships and Cardinalty](#relationships-and-cardinality)',
     '[Query Languages](#query-languages)',
     '[Relational Algebra](#relational-algebra-1)',
     '[Basic Operations](#basic-operations)',
-    '[Set Operations](#set-operations)'
+
 ]
 
 
@@ -44,23 +49,30 @@ housekeeping_vertical_spacer = "25px"
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+# Deliverable 4 Notes
+{{< include ../../topics/_deliverable-4-video-pitch-sp2025.qmd >}}
+
 # Relational Models
 {{< include ../../topics/_relational-models.qmd >}}
 
 <!-- query languages serves as a bridge between ER diagrams/relational models and SQL
 The shift occurs when we start talking about records inside tables.
 How do we describe the operations? -->
+
+# Relationships and Cardinality
+{{< include ../../topics/_relationships-and-cardinality.qmd >}}
+
 # Query Languages
 {{< include "../../topics/_query-languages.qmd" >}}
 
 <!-- This conversation is more abstract, focusing on the operators and their operations
 and eventually, what it means to records and tables.-->
+
 # Relational Algebra
 {{< include "../../topics/_relational-algebra.qmd" >}}
+
 # Basic Operations
 {{< include ../../topics/_basic-operations.qmd >}}
-# Set Operations
-{{< include ../../topics/_set-operations.qmd >}}
 
 
 <!-- lecture-block-end -->

@@ -1,7 +1,4 @@
-
-# Join Operations
-
-
+<!-- # Join Operations -->
 
 ## Introduction to Join Operations in Relational Algebra
 

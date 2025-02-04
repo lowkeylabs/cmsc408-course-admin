@@ -1,0 +1,40 @@
+<!-- # Homework 3 - Modeling your world SP2025 -->
+
+## Homework 3 - Modeling Your World
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Overview
+
+* Homeworks 2 and 3 focus on ER diagrams
+* Homework 2 offers practice creating ER diagrams that I define.
+* **Homework 3** offers practice defining your models, then drawing them.
+* [Link to Homework 3](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011)
+
+### General homework workflow
+* *Same as homework 2!*
+* Download assignment repository
+* Edit files using VS code
+* Commit and push changes to GITHUB
+    * Submit HTML to Canvas
+    * Submit repo to Gradescope
+
+### Safety Tips
+* Read the QMD and MD files in the REPO!
+
+:::
+::: {.column width="50%"}
+### Notes
+* The focus is on *writing* your own models, in prep for diagramming.
+* Of course, you get to eat your own dog food and create the diagrams, too!
+* Please allow plenty of time!
+* Don't get frustrated.  Use *Discord* and *ChatGPT* to get help.
+* Use the command line to render, and commit.
+
+### Worked example: Comic Book Management System  
+Consider a comic book store that wants to manage comic books, authors, and customers. Each comic book has a comic ID, title, genre, and publication date. Authors have an author ID, name, and biography. Customers have a customer ID, name, and contact information. A comic book can be written by multiple authors, and each author can contribute to multiple comic books. A customer can purchase multiple comic books, and each purchase involves a single customer and one or more comic books. Purchases have a purchase ID, date, and total amount.
+
+:::
+::::
+

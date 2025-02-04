@@ -1,7 +1,4 @@
-
-# Renaming and Division
-
-
+<!-- # Renaming and Division -->
 
 ## Renaming in Relational Algebra
 

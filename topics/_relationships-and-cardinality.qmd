@@ -1,7 +1,4 @@
-
-# Relationships and Cardinality
-
-
+<!-- # Relationships and Cardinality -->
 
 ## Understanding Relationships in Databases
 
@@ -22,8 +19,6 @@ Relationships connect entities in a database, defining how data points relate to
 ::::
 
 *Relationships are the glue that binds different entities in a database model.*
-
-
 
 
 ## Types of Relationships: One-to-One
@@ -47,8 +42,6 @@ One-to-one relationships link one instance of an entity to one instance of anoth
 *One-to-one relationships provide direct connections between pairs of entities.*
 
 
-
-
 ## Types of Relationships: One-to-Many
 
 One-to-many relationships are the most common type in database design, linking one entity to multiple instances of another entity.
@@ -70,8 +63,6 @@ One-to-many relationships are the most common type in database design, linking o
 *One-to-many relationships structure data so that a single entity can relate to multiple others.*
 
 
-
-
 ## Types of Relationships: Many-to-Many
 
 Many-to-many relationships occur when multiple instances of one entity are related to multiple instances of another entity, necessitating an associative entity to manage the relationship.
@@ -91,8 +82,6 @@ Many-to-many relationships occur when multiple instances of one entity are relat
 ::::
 
 *Many-to-many relationships are crucial for managing complex associations between entities.*
-
-
 
 
 ## Cardinality: Defining Relationship Multiplicity
@@ -117,11 +106,6 @@ Cardinality defines the number of instances of one entity that can be associated
 
 
 
-
-
-
-
-
 ## Depicting Relationships in ER Diagrams
 
 ER diagrams visually represent relationships between entities, using standardized symbols and notations to convey cardinality and participation constraints.
@@ -143,8 +127,6 @@ ER diagrams visually represent relationships between entities, using standardize
 *ER diagrams provide a visual representation of how entities in a database are interconnected.*
 
 
-
-
 ## Mapping Relationships to Relational Tables
 
 Mapping relationships from an ER model to a relational schema involves translating relationships into foreign keys, ensuring data integrity across tables.
@@ -164,8 +146,6 @@ Mapping relationships from an ER model to a relational schema involves translati
 ::::
 
 *Mapping relationships correctly is key to creating a well-structured relational database.*
-
-
 
 
 ## Examples of Common Relationships in Databases

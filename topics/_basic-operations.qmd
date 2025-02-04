@@ -929,59 +929,6 @@ On the preceding slide:
 
 
 
-## Larger Reporting Systems
-
-
-Relational algebra operations are commonly used in reporting systems to query data, extract insights, and generate reports. Below are examples of larger operations as applied in practice.
-
-
-:::: {.columns}
-::: {.column width=47%}
-1. Example: Generating a list of employees eligible for a bonus.
-
-   - Selection operation to filter eligible employees based on criteria (e.g., performance).
-   - Projection to display only relevant fields (e.g., Name, Department).
-   - Union to combine results from different departments.
-
-1. Example: Generating a report of products sold by specific vendors.
-
-   - Selection to filter products by vendor ID.
-   - Projection to display product name and vendor details.
-   - Cartesian product to cross-reference products with vendor data.
-:::
-::: {.column width=6%}
-:::
-::: {.column width=47%}
-3. Example: Compiling a list of employees not assigned to any projects.
-
-   - Anti-join to find employees not in the project assignment table.
-   - Projection to show employee names and departments.
-   - Set difference to exclude employees with assignments from the employee list.
-
-1. Example: Producing a report of sales trends over time.
-
-   - Selection to filter sales data by date range.
-   - Aggregation to calculate sales totals by month or quarter.
-   - Join to merge sales data with product or category details.
-:::
-::::
-
-<!-- -->
-
-Note that these examples introduce additional operators to complement the *Selection*, *Projection* and *Union* already discussed.  That's what we'll discuss next!
-
-
-
-## Larger Reporting Systems
-
-
-On the preceding slide:
-
-- Each of these examples is considered a *single query* even though they contains multiple single relational operations.
-
-- Your semester long project must document 20 unique queries.  To accomplish this, you'll need plenty of entities (tables).
-
-
 
 ## Conclusion: Mastering Basic Relational Algebra
 

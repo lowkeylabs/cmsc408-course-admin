@@ -1,0 +1,55 @@
+<!-- # Deliverable 4 - Video Pitch SP2025 -->
+
+
+## Deliverable 4 - [Video Pitch](https://vcu.mediaspace.kaltura.com/media/CMSC408-SP2025-Video-Pitch-Example/1_3pync139)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Creating the Video Pitch
+
+* **As a group, pick the topic**
+
+* **Create a video using Zoom (or whatever).**
+	- Use your VCU email to log into Zoom,
+	- Record "to the cloud"
+
+* **Look for the video in Kaltura**
+	- <https://vcu.mediaspace.kaltura.com/my-media>
+	- *Launch Editor* and trim as necessary
+
+* **Change permissions**
+	- *Edit* video and *Publish* to to *anyone with link*
+	- *Save* changes
+	- *Share* tab, get *Embed* `iframe` codes
+
+* **Add to Quarto**
+	- *Paste* into *reports.qmd*
+	- *Render* and verify that it works.
+
+:::
+::: {.column width="50%"}
+### Creating the SHARED repository
+
+* **ONE PERSON on the team should "go first"**
+	* <https://classroom.github.com/a/8kcaaebR>
+	* You'll be asked to name your team
+	* You're github username will be added to the team
+
+* **OTHERS ON THE TEAM**
+	* <https://classroom.github.com/a/8kcaaebR>
+	* Select your team from the list to *join* it.
+	* You're github username will be added to the team.
+
+* **Review the Scaffold and make your report**
+	* Review *report.qmd*
+	* Render to create *report.html*
+
+* **Finally ...**
+	* Each team mamber uploads the repo to gradescope INDIVIDUALLY,
+	* One person uploaded the HTML document to Canvas FOR THE TEAM.
+
+:::
+::::
+
+    

@@ -1,0 +1,7 @@
+---
+title: "Deliverable 4 - Video Pitch SP2025"
+---
+
+{{< include '_deliverable-4-video-pitch-sp2025.qmd' >}}
+
+    
