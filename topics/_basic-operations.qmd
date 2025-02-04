@@ -1,5 +1,4 @@
-
-# Basic Operations
+<!-- # Basic Operations -->
 
 
 
@@ -539,6 +538,7 @@ The union operation combines tuples from two relations, eliminating duplicates. 
 #| echo: false
 import matplotlib.pyplot as plt
 from matplotlib_venn import venn2
+plt.figure(figsize=(5,2.5),facecolor="none")
 
 # Define the two sets
 set_A = {1, 2, 3, 4}

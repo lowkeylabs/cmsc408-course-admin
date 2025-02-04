@@ -1,5 +1,4 @@
-
-# Relational Models
+<!-- # Relational Models -->
 
 ## Relational Model - Entities
 

@@ -3,10 +3,32 @@ date: '2025-02-04'
 lecture-id: 7
 title: Relational Algebra 1
 ---
-
 ```{python}
 #| echo: false
 #| label: setup
+from cnvsapi.config import config
+from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, expand_file
+
+# Uncomment as necessary.  These take time to load so only use what you need.
+
+#pages = config.get_pages()
+#quizzes = config.get_quizzes()
+assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
+
+
+discussion_items = [
+    f'{expand_assignment(assignments,"Del.4 - Video Pitch","Deliverable 4 - Video Pitch",url_type="anchor")} - due Feb. 9, SUN',
+]
+
+lecture_topics = [
+    '[Relational models](#relational-models)',
+    '[Query Languages](#query-languages)',
+    '[Relational Algebra](#relational-algebra-1)',
+    '[Basic Operations](#basic-operations)',
+    '[Set Operations](#set-operations)'
+]
+
+
 lecture_id = 7
 n_rows = 8
 
@@ -16,13 +38,31 @@ housekeeping_right_column_width="40%"
 
 housekeeping_vertical_spacer = "25px"
 
-discussion_items = [
-    'This is a placeholder Lecture.'
-]
-
-lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
-]
 ```
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+# Relational Models
+{{< include ../../topics/_relational-models.qmd >}}
+
+<!-- query languages serves as a bridge between ER diagrams/relational models and SQL
+The shift occurs when we start talking about records inside tables.
+How do we describe the operations? -->
+# Query Languages
+{{< include "../../topics/_query-languages.qmd" >}}
+
+<!-- This conversation is more abstract, focusing on the operators and their operations
+and eventually, what it means to records and tables.-->
+# Relational Algebra
+{{< include "../../topics/_relational-algebra.qmd" >}}
+# Basic Operations
+{{< include ../../topics/_basic-operations.qmd >}}
+# Set Operations
+{{< include ../../topics/_set-operations.qmd >}}
+
+
+<!-- lecture-block-end -->
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

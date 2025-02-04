@@ -1,5 +1,4 @@
-
-# Set Operations
+<!-- # Set Operations -->
 
 
 
@@ -95,10 +94,13 @@ The intersection operation retrieves rows that are common to two relations. It i
 ::: {.column width=6%}
 :::
 ::: {.column width=47%}
+
 ```{python}
 #| echo: false
 import matplotlib.pyplot as plt
 from matplotlib_venn import venn2
+
+plt.figure(figsize=(5,2.5),facecolor="none")
 
 # Define the two sets
 set_A = {1, 2, 3, 4}
@@ -124,6 +126,8 @@ venn.get_label_by_id('11').set_text('')
 
 # Make the background transparent
 plt.gca().set_facecolor('none')
+plt.gca().set_aspect('equal')
+
 
 # Display the plot
 plt.title('A ∩ B')
@@ -278,6 +282,7 @@ Difference in relational algebra subtracts one relation from another, returning 
 #| echo: false
 import matplotlib.pyplot as plt
 from matplotlib_venn import venn2
+plt.figure(figsize=(5,2.5),facecolor="none")
 
 # Define the two sets
 set_A = {1, 2, 3, 4}

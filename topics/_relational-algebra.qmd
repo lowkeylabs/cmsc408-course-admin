@@ -1,5 +1,4 @@
-
-# Relational Algebra
+<!-- # Relational Algebra -->
 
 ## Relational Algebraic Operators and Operations
 

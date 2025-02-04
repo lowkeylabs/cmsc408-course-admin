@@ -1,5 +1,4 @@
-
-# Query languages
+<!-- # Query languages -->
 
 ## Query Language Family Tree
 
