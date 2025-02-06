@@ -1,0 +1,26 @@
+<!-- # Deliverable 7 - Project Implementation SP2025 -->
+
+## Deliverable 7 - Semester Project
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/deliverable-12.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}
+:::
+::: {.column width=40%}
+### Final Submission
+
+* Previous activities
+    - Project pitch
+    - Project design
+
+* Project Submission
+    - Web design
+    - Screenshots of each screen
+    - Reports page
+    - Future considerations
+    - Reflection
+:::
+::::
+
+<center>Jump to assignment and discuss submission</center>
+<center>We'll talk more about this next week!</center>

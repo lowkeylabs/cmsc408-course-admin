@@ -1,0 +1,7 @@
+---
+title: Homework 8 Discussion SP2025
+---
+
+{{< include '_homework-8-discussion-sp2025.qmd' >}}
+
+    

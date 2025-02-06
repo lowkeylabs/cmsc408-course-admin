@@ -1,22 +1,29 @@
-# Practice Quiz 2 - Relational Algebra SP2025
+<!-- # Practice Quiz 2 - Relational Algebra SP2025 -->
 
-## Slide 1
+## Practice Quiz 2 - Relational Algebra
+
 :::: {.columns}
+::: {.column width="40%"}
+### Practice Quiz 2
 
-::: {.column width="50%"}
-### column 1
+* Open now
+* 30 multiple choice questions
+* Multiple attempts
 
-* bullet 1
-* bullet 2
-* bullet 3
+### Quiz 2 - Relational Algebra
+
+* Due Feb. 18, THU
+
+* 30 multiple choice
+
+* 1 attempt
+
+* Take the Practice Quiz!
+
 :::
-::: {.column width="50%"}
-### column 2
+::: {.column width="60%"}
+![](assets/quiz-relational-alg-r-and-s.png){fig-width=50%}
 
-1. item 
-1. item
-1. item
+The quiz is all about practice with relational algebraic operators.
 :::
 ::::
-
-    

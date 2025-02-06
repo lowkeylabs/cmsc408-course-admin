@@ -1,0 +1,288 @@
+<!-- # Homework 7 - Advanced Queries SP2025 -->
+
+## Homework 7 - REMINDER - discussion
+
+Are you having issues with homework 7?
+
+Try commenting out this block of code.
+
+```{.python}
+if not errors:
+    messages,errors = execute_ddl_from_file( ddl_file_name, cnx)
+```
+
+Run your DDL file manually from VSCode, and then rebuild your QMD.
+
+
+## Homework 7 - Explore people and skills
+
+Using the new queries, let's refine our analysis
+of the company resume database (homeworks 6 and 7).
+
+* By using `LEFT JOIN` we're assured of at least one record for
+every instance in `SKILLS`.
+* If there is no match, the `peopleskills.skills_id` returns NULL
+* By testing `peopleskills.skills_id` for `NULL` we explore usage 
+patterns of `skills`.
+
+<p>&nbsp;</p>
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skills are unused?
+
+Let's start easy ...
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NULL
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skills are used? (#1)
+
+This table is a problem.  We need to somehow remove duplicate records.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NOT NULL
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skills are used? (#2)
+
+We can remove duplicates with `GROUP BY` to aggregate (combine) duplicate records.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+FROM
+  skills
+    left join peopleskills 
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NOT NULL
+GROUP BY
+  skills.tag,
+  skills.id,
+  peopleskills.skills_id
+ORDER BY
+  skills.tag
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+* Only fields in `GROUP BY` can be listed in SELECT.
+* Non-aggregate fields do not need to be listed!
+
+## Homework 7 - Which skills are used? (#3)
+
+Same query as before, removing additional GROUP BY fields
+
+```{python}
+sql = """SELECT
+  skills.tag as "Used Skills"
+FROM
+  skills
+    left join peopleskills 
+      on (skills.id=peopleskills.skills_id)
+WHERE
+  peopleskills.skills_id IS NOT NULL
+GROUP BY
+  skills.tag
+ORDER BY
+  skills.tag
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+### Notes
+* `peopleskills.skills_id` is used to filter records, but is
+not projected (used) in the SELECT statement
+* `skills.tag` is used for grouping and is also projected (used) in SELECT.
+
+
+## Homework 7 - How many times is each skill used?
+
+This query counts `NON-NULL` values of `peopleskills.skills_id`.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id) as "Times Used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+* What would happen if I used `COUNT(skills.tag)` instead?
+
+## Homework 7 - Which skills are most used? #1
+
+To find the skills most used I can sort by `COUNT`
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id)
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+ORDER BY
+  COUNT(peopleskills.skills_id) DESC
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skill is most used? #2
+
+To find the most used, I can TRY using LIMIT
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id)
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+ORDER BY
+  COUNT(peopleskills.skills_id) DESC
+LIMIT
+  1
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+### Is this correct?
+
+* No, this approach breaks when there are ties.
+
+## Homework 7 - Which skill is most used? #3
+
+In another (sub-optimal) approach, I can manually pick the `MAX` from the
+list using `HAVING`.
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id) as "Most used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+HAVING
+  COUNT(peopleskills.skills_id)=6
+ORDER BY
+  skills.tag
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+* In this example, we *hardcode* the maximum value we observed in the data 
+into the `HAVING` clause.  
+
+* This works for these data, but it would be great if we could 
+calculate the `6` automatically!
+
+## Homework 7 - Which skill is most used? #4
+
+OK - let's find the largest number of times a skill is used.
+
+```{python}
+sql = """SELECT
+  COUNT(peopleskills.skills_id) as "Most used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+ORDER BY
+  COUNT(peopleskills.skills_id) DESC
+LIMIT 
+  1
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+
+## Homework 7 - Which skill is most used? #5
+
+Can we combine the last query into our original query?
+
+YES - these are call sub-queries - and we'll dive into them next week!
+
+```{python}
+sql = """SELECT
+  skills.tag,
+  COUNT(peopleskills.skills_id) as "Most used"
+FROM
+  skills
+    left join peopleskills
+      on (skills.id=peopleskills.skills_id)
+GROUP BY
+  skills.tag
+HAVING
+  COUNT(peopleskills.skills_id)=(
+    SELECT
+      COUNT(peopleskills.skills_id) as "max_use"
+    FROM
+      skills
+        left join peopleskills
+          on (skills.id=peopleskills.skills_id)
+    GROUP BY
+      skills.tag
+    ORDER BY
+      COUNT(peopleskills.skills_id) DESC
+    LIMIT 
+      1
+  )
+ORDER BY
+  skills.tag
+"""
+show_sql_and_results( cnx, sql,widths=[45,5,50] )
+```
+

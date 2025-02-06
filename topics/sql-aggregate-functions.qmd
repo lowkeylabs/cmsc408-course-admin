@@ -1,0 +1,7 @@
+---
+title: "SQL Aggregate Functions"
+---
+
+{{< include '_sql-aggregate-functions.qmd' >}}
+
+    

@@ -1,0 +1,30 @@
+<!-- # Deliverable 6 - Getting Started with Docker SP2025 -->
+
+## Deliverable 9 - Getting started with Docker
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/del9-starting-with-docker.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+
+* Install docker
+
+<p>&nbsp;</p>
+
+* Play with containers
+    - Simple
+    - More Complex
+
+<p>&nbsp;</p>
+
+* Gather ideas and code
+    - Semester project architecture
+    - Web server code
+    - Database code
+    - (capstone project?)
+:::
+::::
+

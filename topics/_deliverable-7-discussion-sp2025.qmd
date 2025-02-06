@@ -1,0 +1,27 @@
+<!-- # Deliverable 7 - discussion SP2025 -->
+
+## Deliverable 7 - Semester Project
+
+:::: {.columns}
+::: {.column}
+### Discussion items
+
+* Review project docs 
+
+* [Review rubric](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535)
+
+### Learning Objective
+
+One learning objective for this project is for you to demonstrate that you can chase down what you need to complete a project!
+
+:::
+::: {.column}
+### Potential resources
+There is TONS of stuff available on-line.
+
+* [Programming Knowledge (video)](https://www.youtube.com/watch?v=ah5M4Umuf9w)
+* [Tutorial Republic (tutorial)](https://www.tutorialrepublic.com/php-tutorial/php-mysql-crud-application.php)
+* [Medium article (article)](https://medium.com/@omer_14630/building-a-simple-crud-api-with-php-and-mysql-a-step-by-step-guide-aa31f9ab5a3b)
+
+:::
+::::

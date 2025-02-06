@@ -1,4 +1,4 @@
-# SQL - Stored Procedures
+<!-- # SQL - Stored Procedures -->
 
 ## SQL Procedures - Introduction
 

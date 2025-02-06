@@ -1,0 +1,25 @@
+<!-- # Homework 8 - discussion -->
+
+## Homework 8 discussion
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework8-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534){target="_blank"}
+:::
+::: {.column width=40%}
+### Learning Objectives
+
+* A full exploration of `SELECT`
+
+* A full exploration of subqueries and CTEs
+
+* Introduction to data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+:::
+::::
+
+<center>We'll jump to the command line to get the project started!</center>

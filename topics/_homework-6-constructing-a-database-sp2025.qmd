@@ -1,0 +1,27 @@
+<!-- Homework 6 - Creating and using a database -->
+
+
+## Homework 6 - Constructing a database
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/hw6-screenshot.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
+:::
+::: {.column width=40%}
+### Learning Objectives
+
+* Analyze a DB problem
+
+* Create a database from scratch
+    - Build the DDL file
+    - Document DB in report
+
+* Working all the tools
+    - Understanding the workflow(s)
+    - VS code and direct connection
+    - Create and test blocks
+    - Quarto and DB connection
+    - Create entire DB at once
+:::
+::::
+

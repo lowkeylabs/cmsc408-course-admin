@@ -1,7 +1,7 @@
 ---
 date: '2025-02-27'
 lecture-id: 13
-title: Analysis and Normal Forms 5
+title: Analysis and Normal Forms 4
 ---
 
 ```{python}

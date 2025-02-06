@@ -1,0 +1,17 @@
+<!-- # Quarto Python and SQL Setup -->
+
+## Software setup
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/hw5-setup-guide.png)](https://vcu-ssg.github.io/ssg-quarto-python-setup/){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+* Install and test all the tools!
+<p>&nbsp;</p>
+![](./assets/hw5-version-testing.png)
+
+:::
+::::

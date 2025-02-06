@@ -1,0 +1,54 @@
+<!-- # Primary and Foreign Keys -->
+
+## Primary and Foreign Keys
+:::: {.columns}
+::: {.column width=60%}
+
+```{sql}
+drop table if exists peopleskills;
+CREATE TABLE peopleskills (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    skills_id INT NOT NULL,
+    people_id INT NOT NULL,
+    date_acquired DATE NOT NULL,
+    FOREIGN KEY (skills_id) REFERENCES skills(id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE   
+    ,FOREIGN KEY (people_id) REFERENCES people(id) 
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+```
+
+:::
+::: {.column width=40%}
+* Primary and Foreign Keys are known as "integrity constraints"
+* They provide clues to the DBMS about how to handle relationships
+between records in different tables.
+* They are checked when records are added, deleted and updated
+:::
+::::
+
+
+
+## [Foreign Keys](https://www.mysqltutorial.org/mysql-foreign-key/)
+
+MySQL has five reference options: CASCADE, SET NULL, NO ACTION, RESTRICT, and SET DEFAULT.
+
+CASCADE
+: if a row from the parent table is deleted or updated, the values of the matching rows in the child table are automatically deleted or updated.
+
+SET NULL
+: if a row from the parent table is deleted or updated, the values of the foreign key column (or columns) in the child table are set to NULL.
+
+RESTRICT
+: if a row from the parent table has a matching row in the child table, MySQL rejects deleting or updating rows in the parent table.
+
+NO ACTION
+: is the same as RESTRICT.
+
+SET DEFAULT
+: is recognized by the MySQL parser. However, this action is rejected by both InnoDB and NDB tables.
+
+<center>Jump to code and review MY-DDL-SQL</center>

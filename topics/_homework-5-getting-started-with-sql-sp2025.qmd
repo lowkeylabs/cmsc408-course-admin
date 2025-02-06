@@ -1,0 +1,144 @@
+
+# Homework 6 - connecting to DBMS
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=50%}
+###  Overview of the assignment
+
+* We're using mysql DBMS.
+* There are multiple ways to connect
+* Lots of tools to install
+
+*Each approach is handy for one aspect of development. You need to use all the ways!*
+
+:::
+::: {.column width=50%}
+### Ways to connect
+
+1. phpMyAdmin - via the web
+1. ssh - to a linux terminal
+1. vscode - using SQLTools extension
+1. python - using a connection
+
+:::
+::::
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=50%}
+###  1. phpmyadmin
+
+* <http://cmcs508.com/phpmyadmin>
+<p>&nbsp;</p>
+* Username:  23FA_<eid>, 23FA_jdleonard
+<p>&nbsp;</p>
+* Password: Shout4_<eid>_GOME
+<p>&nbsp;</p>
+* for example, Shout4_jdleonard_GOME
+<p>&nbsp;</p>
+*This approach is most useful for managing the DBMS but NOT very useful for development.*
+
+:::
+::: {.column width=50%}
+### 2. SSH to the server
+
+* Open a terminal window on your local machine.
+
+* Enter these commands on your terminal.
+
+```sql
+ssh 23FA_jdleonard@cmsc508.com
+password: <your EID goes here>
+
+mysql -p
+password: <your Shout4 GOME password>
+```
+
+<p>&nbsp;</p>
+*This is the quickest and most efficient approach for directly managing the DBMS but not very useful for development.*
+
+:::
+::::
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=50%}
+###  3. Visual Studio Code
+
+* Install:
+
+    * SQLTOOLS extension
+    * SQLTOOLS mysql connector
+
+* You should see a DB icon on the left
+
+* See the connection screen!
+
+<p>&nbsp;</p>
+*This approach is most useful for directly building and coding SQL code.  Lots of cutting and pasting commands through an DB window.*
+
+:::
+::: {.column width=50%}
+
+
+![](assets/L13-vscode-db-connect.png)
+
+:::
+::::
+
+## Homework 6 - connecting to DBMS
+
+:::: {.columns}
+::: {.column width=40%}
+### 4. Python code
+
+* Create your hw6 repository
+
+* Install pyenv, poetry, quarto
+
+* Install libraries
+
+    * Auto: using poetry
+    * Manually using pip
+    * matplotlib jupyter plotly
+    * python-dotenv sqlalchemy pymysql
+
+* Create a .env file
+
+* Create your python code
+
+:::
+::: {.column width=60%}
+### See explorer.qmd for details!
+
+```{python}
+#| eval: true
+#| echo: true
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("HW6_USER"),
+  'password': os.getenv("HW6_PASSWORD"),
+  'host': os.getenv("HW6_HOST"),
+  'database': os.getenv("HW6_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+<p>&nbsp;</p>
+*This approach is most useful for developing the wrapper application around the SQL code.*
+
+:::
+::::
+

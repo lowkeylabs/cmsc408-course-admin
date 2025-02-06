@@ -1,5 +1,4 @@
-
-# SQL Injection
+<!-- # SQL Injection -->
 
 ## SQL Injection - Introduction
 

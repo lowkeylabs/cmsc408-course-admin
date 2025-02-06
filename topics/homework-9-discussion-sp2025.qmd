@@ -1,0 +1,7 @@
+---
+title: "Homework 9 - discussion SP2025"
+---
+
+{{< include '_homework-9-discussion-sp2025.qmd' >}}
+
+    

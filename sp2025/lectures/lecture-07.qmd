@@ -1,8 +1,9 @@
 ---
 date: '2025-02-04'
 lecture-id: 7
-title: Relational Algebra 1
+title: Relational models 3
 ---
+
 ```{python}
 #| echo: false
 #| label: setup
@@ -27,12 +28,7 @@ lecture_topics = [
     '[Deliverable 4 Notes](#deliverable-4-notes)',
     '[Relational models](#relational-models)',
     '[Relationships and Cardinalty](#relationships-and-cardinality)',
-    '[Query Languages](#query-languages)',
-    '[Relational Algebra](#relational-algebra-1)',
-    '[Basic Operations](#basic-operations)',
-
 ]
-
 
 lecture_id = 7
 n_rows = 8
@@ -53,26 +49,13 @@ housekeeping_vertical_spacer = "25px"
 {{< include ../../topics/_deliverable-4-video-pitch-sp2025.qmd >}}
 
 # Relational Models
+<!-- this one can stretch really long! -->
 {{< include ../../topics/_relational-models.qmd >}}
 
-<!-- query languages serves as a bridge between ER diagrams/relational models and SQL
-The shift occurs when we start talking about records inside tables.
-How do we describe the operations? -->
-
 # Relationships and Cardinality
+<!-- needs more examples.  A repeat of prior stuff.  Helps reinforce relational models
+but very chatgpt-antiseptic -->
 {{< include ../../topics/_relationships-and-cardinality.qmd >}}
-
-# Query Languages
-{{< include "../../topics/_query-languages.qmd" >}}
-
-<!-- This conversation is more abstract, focusing on the operators and their operations
-and eventually, what it means to records and tables.-->
-
-# Relational Algebra
-{{< include "../../topics/_relational-algebra.qmd" >}}
-
-# Basic Operations
-{{< include ../../topics/_basic-operations.qmd >}}
 
 
 <!-- lecture-block-end -->

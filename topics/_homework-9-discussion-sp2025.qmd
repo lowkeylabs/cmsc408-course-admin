@@ -1,0 +1,38 @@
+<!-- # Homework 9 - discussion SP2025 -->
+
+## Homework 9 - discussion
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/homework9-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918){target="_blank"}
+:::
+::: {.column width=40%}
+### HW9 Learning Objectives
+
+* Deeper understand of `SELECT`
+
+* Deeper exploration of `CTS`s
+
+* More data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+### Solution (without SQL)
+
+* [HW9 - solution](./assets/homework9-solution.html){target="_blank"}
+
+
+### Potential issue:
+
+Set `show_size=True` in your code. This will ensure that the rows and columns count is included in your code!
+
+```python
+
+def run_sql_and_return_html( cnx, sql, show_size=True):
+
+```
+
+:::
+::::

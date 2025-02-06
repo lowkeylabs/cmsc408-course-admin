@@ -1,0 +1,13 @@
+---
+title: Homework 5 - Getting started with SQL SP2025
+tasl:
+    source: fa2023\lectures\lect13-sql-selects.qmd
+    tags:
+    - lecture
+    - lecture-13
+    topic: Homework 6 - connecting to DBMS
+---
+
+{{< include '_homework-5-getting-started-with-sql-sp2025.qmd' >}}
+
+    

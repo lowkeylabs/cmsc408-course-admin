@@ -1,0 +1,7 @@
+---
+title: "Deliverable 7 - discussion SP2025"
+---
+
+{{< include '_deliverable-7-discussion-sp2025.qmd' >}}
+
+    

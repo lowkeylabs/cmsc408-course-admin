@@ -1,0 +1,26 @@
+<!-- # phpmyadmin - Getting Started -->
+
+## PhpMyAdmin - getting started
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/phpmyadmin-login.png)](https://cmsc508.com/phpmyadmin/){target="_blank"}
+:::
+::: {.column width=30%}
+### Learning Objectives
+<p>&nbsp;</p>
+* Verify your login to DBMS
+<p>&nbsp;</p>
+* Username format:
+    - 24fa_(your EID)
+    - For example: 24fa_jdleonard
+<p>&nbsp;</p>
+* Password format
+    - Shout4_(your EID)_JOY
+    - For example: Shout4_jdleonard_JOY
+<p>&nbsp;</p>
+* Explore the DBMS
+    - what can I access?
+    - what is inside?
+:::
+::::

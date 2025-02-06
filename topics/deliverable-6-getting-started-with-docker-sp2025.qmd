@@ -1,0 +1,7 @@
+---
+title: "Deliverable 6 - Getting Started with Docker SP2025"
+---
+
+{{< include '_deliverable-6-getting-started-with-docker-sp2025.qmd' >}}
+
+    

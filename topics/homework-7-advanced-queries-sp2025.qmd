@@ -1,0 +1,7 @@
+---
+title: "Homework 7 - Advanced Queries SP2025"
+---
+
+{{< include '_homework-7-advanced-queries-sp2025.qmd' >}}
+
+    

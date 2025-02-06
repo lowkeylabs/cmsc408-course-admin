@@ -1,0 +1,7 @@
+---
+title: "phpmyadmin - Getting Started"
+---
+
+{{< include '_phpmyadmin-getting-started.qmd' >}}
+
+    

@@ -1,0 +1,32 @@
+<!-- # Homework 4 - Normalization Worked Example SP2025 -->
+
+
+
+## Homework 4 Worked Examples
+
+* [Homework 4 template](https://classroom.github.com/a/WM1zTPQo){target="_blank"}
+
+* (In class we opened terminal window to download template and review template.  See lecture video.)
+
+
+
+## Slide 1
+:::: {.columns}
+
+::: {.column width="50%"}
+### column 1
+
+* bullet 1
+* bullet 2
+* bullet 3
+:::
+::: {.column width="50%"}
+### column 2
+
+1. item 
+1. item
+1. item
+:::
+::::
+
+    

@@ -1,0 +1,7 @@
+---
+title: "Exploring Joins"
+---
+
+{{< include '_exploring-joins.qmd' >}}
+
+    

@@ -1,0 +1,7 @@
+---
+title: "Quarto Python and SQL Setup"
+---
+
+{{< include '_quarto-python-and-sql-setup.qmd' >}}
+
+    

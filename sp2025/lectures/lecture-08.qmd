@@ -1,8 +1,9 @@
 ---
 date: '2025-02-06'
 lecture-id: 8
-title: Relational Algebra 2
+title: Relational Algebra 1
 ---
+
 ```{python}
 #| echo: false
 #| label: setup
@@ -25,13 +26,15 @@ discussion_items = [
 
 lecture_topics = [
     '[Deliverable 4 Notes](#deliverable-4-notes)',
+    '[Query Languages](#query-languages)',
+    '[Relational Algebra](#relational-algebra)',
+    '[Basic Operations](#basic-operations)',
     '[Set Operations](#set-operations)',
-    '[Join Operations](#join-operations)',
-    '[Renaming and Division](#rename-and-division)',
+    '[Practice Quiz 2 discussion](#practice-quiz-2---relational-algebra)',
 ]
 
 
-lecture_id = 7
+lecture_id = 8
 n_rows = 8
 
 housekeeping_margin_column_width = "9%"
@@ -46,14 +49,29 @@ housekeeping_vertical_spacer = "25px"
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
-# Practice Quiz 2 - Relational Algebra
-{{< include ../../topics/_practice-quiz-2-relational-algebra-sp2025.qmd >}}
+
+# Deliverable 4 Notes
+{{< include ../../topics/_deliverable-4-video-pitch-sp2025.qmd >}}
+
+
+# Query Languages
+<!-- query languages serves as a bridge between ER diagrams/relational models and SQL
+The shift occurs when we start talking about records inside tables.
+How do we describe the operations? -->
+{{< include "../../topics/_query-languages.qmd" >}}
+
+# Relational Algebra
+<!-- This conversation is more abstract, focusing on the operators and their operations
+and eventually, what it means to records and tables.-->
+{{< include "../../topics/_relational-algebra.qmd" >}}
+
+# Basic Operations
+{{< include ../../topics/_basic-operations.qmd >}}
+
 # Set Operations
 {{< include ../../topics/_set-operations.qmd >}}
-# Join Operations
-{{< include ../../topics/_join-operations.qmd >}}
-# Renaming and Division
-{{< include ../../topics/_renaming-and-division.qmd >}}
-<!-- lecture-block-end -->
+
+# Practice Quiz 2 - Relational Algebra
+{{< include ../../topics/_practice-quiz-2-relational-algebra-sp2025.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

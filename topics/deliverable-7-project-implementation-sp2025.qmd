@@ -1,0 +1,7 @@
+---
+title: "Deliverable 7 - Project Implementation SP2025"
+---
+
+{{< include '_deliverable-7-project-implementation-sp2025.qmd' >}}
+
+    

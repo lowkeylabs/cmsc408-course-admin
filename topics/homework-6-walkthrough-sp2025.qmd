@@ -1,0 +1,7 @@
+---
+title: "Homework 6 - Walkthrough SP2025"
+---
+
+{{< include '_homework-6-walkthrough-sp2025.qmd' >}}
+
+    

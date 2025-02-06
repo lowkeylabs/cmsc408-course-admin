@@ -1,4 +1,4 @@
-# TRIGGERS in SQL
+<!-- # TRIGGERS in SQL -->
 
 ## TRIGGERS in SQL
 

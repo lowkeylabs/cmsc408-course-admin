@@ -1,0 +1,7 @@
+---
+title: "QMD and Python debugging strategies"
+---
+
+{{< include '_qmd-and-python-debugging-strategies.qmd' >}}
+
+    

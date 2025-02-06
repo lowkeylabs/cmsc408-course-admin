@@ -1,0 +1,36 @@
+<!-- # Deliverable 5 - Sample Review SP2025 -->
+
+## Deliverable 5 discussion
+
+:::: {.columns}
+::: {.column width=50%}
+* [Example deliverable 8](./assets/sample-deliverable-08.html){target="_blank"}
+
+### Questions
+ 
+1. Can an Outfit be used by multiple Stylists? 
+1. Can a Client create their own outfits?  That is, can a client be their own stylist?
+1. Can a Stylist be a client?
+1. Can a Client work with multiple Stylists?
+
+How would these change the shape of the database? 
+
+### What else is needed?
+
+* I believe that the report needs some data tables.  *Use ChatGPT to help!*
+
+:::
+::: {.column width=50%}
+### Adding a time component
+
+What happens to this client-stylist-outfit system *over time*?
+
+1. A client might adopt a stylist for a period of time using them for several big events/projects.  Then their tastes change and they switch to another Stylist for another period of time.  OR, rather than being based on period of time, 
+
+1. A client might switch stylists for different big events, for example, grammies, Oscars, VMAs, etc.
+
+How would the shape of the database change by adding an *Event* entity with a date, title, description, theme, and somehow consider dates in your model.
+
+
+:::
+::::

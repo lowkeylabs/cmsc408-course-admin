@@ -1,0 +1,107 @@
+<!-- # Homework 6 - Walkthrough SP2025 -->
+
+## Homework 6 - Updates!
+
+* I fixed a few issues in the main project repository.
+    * If you haven't yet created your repository then you're OK. You'll get all the changes when you create your repo.
+    * If you have created the project, then you need to merge my changes into your code:
+
+```{bash}
+git fetch upstream
+git merge upstream/main
+git push
+```
+
+* In general this should work, depending on how many changes to your QMD file you've made.
+
+* In some cases, you may get merge errors.
+
+* If you do get errors then try to fix the merge on your own.
+
+## Homework 6 - Build your database incrementally!
+
+* You *don't need* primary keys, foreign keys or unique field constraints.
+
+* Primary, foreign keys, and UNIQUE are *integrity constraints*.
+
+* They are all OPTIONAL and can added later.
+
+* You can do "joins" without primary and foreign key, just use caution.
+
+* Tables and records connect on values in the table.
+
+* Primary keys, foreign keys and UNIQUE are your friends, don't ignore them.  With them, you can trust your database.
+
+## Homework 6 - the DDL file
+
+### Starter commands
+
+* commands to create the database
+* DROP TABLE, CREATE TABLE, INSERT INTO
+
+### Data constraints
+
+* attributes to ensure that only good data gets into the database
+* Data types: INT, DATE, VARCHAR(255), VARCHAR(4096)
+* Data attributes:  NOT NULL, DEFAULT 
+
+## Homework 6 - Integrity constraints
+
+### Letting the DBMS run your DB!
+
+* attributes to ensure that everything remains related properly
+* PRIMARY KEY, FOREIGN KEY: wiring between tables
+* UNIQUE: integrity across records
+
+### Integrity constraints: Potential issues
+
+QUESTION: what happens when a record mentioned in a foreign key is deleted?
+
+EXAMPLE: what happens when we delete a SKILL and the skill is referenced in PEOPLESKILLS?
+
+New statements:
+
+* FOREIGN KEY ... **ON UPDATE**  ... **ON DELETE**
+
+## Integrity constraints - [Foreign Keys](https://www.mysqltutorial.org/mysql-foreign-key/)
+
+MySQL has five reference options: CASCADE, SET NULL, NO ACTION, RESTRICT, and SET DEFAULT.
+
+CASCADE
+: if a row from the parent table is deleted or updated, the values of the matching rows in the child table are automatically deleted or updated.
+
+SET NULL
+: if a row from the parent table is deleted or updated, the values of the foreign key column (or columns) in the child table are set to NULL.
+
+RESTRICT
+: if a row from the parent table has a matching row in the child table, MySQL rejects deleting or updating rows in the parent table.
+
+NO ACTION
+: is the same as RESTRICT.
+
+SET DEFAULT
+: is recognized by the MySQL parser. However, this action is rejected by both InnoDB and NDB tables.
+
+## Homework 6 - By example
+
+:::: {.columns}
+::: {.column width=60%}
+[![](./assets/hw6-screenshot.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
+:::
+::: {.column width=40%}
+### Learning Objectives
+
+* Analyze a DB problem
+
+* Create a database from scratch
+    - Build the DDL file
+    - Document DB in report
+
+* Working all the tools
+    - Understanding the workflow(s)
+    - VS code and direct connection
+    - Create and test blocks
+    - Quarto and DB connection
+    - Create entire DB at once
+:::
+::::

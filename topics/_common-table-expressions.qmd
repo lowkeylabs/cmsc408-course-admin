@@ -1,0 +1,176 @@
+<!-- # Common Table Expressions -->
+
+## Common Table Expressions (CTE)
+
+:::: {.columns}
+::: {.column}
+### CTE
+
+A Common Table Expression (CTE) is a temporary result set defined within an SQL statement.
+
+CTE are defined using the WITH keyword at the beginning of a query.
+
+CTE SIGNIFICANTLY simplify complex queries, improves readability, and allows reusing query logic.
+:::
+::: {.column}
+### Example CTE
+```{.sql}
+WITH cte_name AS (
+    SELECT columns
+    FROM table
+    WHERE condition
+)
+SELECT * FROM cte_name;
+```
+:::
+::::
+
+## CTE Example #1
+
+*List employees with salaries greater than average salary.*
+
+```{python}
+sql = """
+WITH avg_salary AS (
+    SELECT AVG(salary) AS average_salary
+    FROM employees
+)
+SELECT last_name, salary
+FROM employees, avg_salary
+WHERE salary > avg_salary.average_salary;
+"""
+show_sql_and_results( cnx,sql,widths=default_widths,show_size=True )
+```
+
+## CTE Example #2
+
+*List employees with salaries greater than the average salary
+of the big-salary departments (i.e., avg salary > $7000)*
+
+```{python}
+sql = """
+with big_salary_depts as (
+    SELECT department_id
+    FROM employees
+    GROUP BY department_id
+    HAVING AVG(salary) > 7000
+), big_salary_dept_avg as (
+    select avg(salary) as big_depts_avg_salary
+    from employees 
+    where department_id in (select * from big_salary_depts)
+)
+SELECT last_name
+FROM employees
+WHERE salary > (select * from big_salary_dept_avg)
+ORDER BY last_name
+"""
+show_sql_and_results( cnx,sql,widths=default_widths,show_size=True )
+```
+
+## CTE Example #3
+
+*List employees with salaries greater than the average salary
+of the big-salary departments (i.e., avg salary > $7000)*
+
+Same question - different solution
+
+```{python}
+sql = """
+with big_salary_depts as (
+    SELECT department_id
+    FROM employees
+    GROUP BY department_id
+    HAVING AVG(salary) > 7000
+), big_salary_dept_avg as (
+    select avg(salary) as big_depts_avg_salary
+    from employees 
+    where department_id in (select * from big_salary_depts)
+)
+SELECT last_name, salary, big_depts_avg_salary
+FROM employees a, big_salary_dept_avg
+WHERE salary > big_depts_avg_salary
+ORDER BY last_name
+"""
+show_sql_and_results( cnx,sql,widths=default_widths,show_size=True )
+```
+
+## CTE Example #4
+
+*List employees and their manager_id using a recursive CTE*
+
+```{python}
+sql = """
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, manager_id, last_name, 1 AS level_id
+    FROM employees
+    WHERE manager_id IS NULL  -- Starting point (top-level manager)
+    UNION ALL
+    SELECT e.employee_id, e.manager_id, e.last_name, eh.level_id + 1
+    FROM employees AS e
+    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id
+)
+SELECT * 
+FROM employee_hierarchy
+ORDER BY level_id;
+"""
+show_sql_and_results( cnx,sql,widths=default_widths )
+```
+
+## CTE Example #5
+
+*List the average salaries for each managerial level in the company*
+
+```{python}
+sql = """
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, manager_id, last_name, salary, 1 AS "Level ID"
+    FROM employees
+    WHERE manager_id IS NULL  -- Starting point (top-level manager)
+    UNION ALL
+    SELECT e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` + 1
+    FROM employees AS e
+    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id
+), eh1 as (
+SELECT `Level ID`,round(avg(salary),2) as "Avg Salary"
+FROM employee_hierarchy
+GROUP BY `Level ID`
+)
+select * from eh1 order by `Level ID`
+"""
+show_sql_and_results( cnx,sql,widths=[60,2,38] )
+```
+
+## CTE Example #6
+
+*List employeee, managerial levels, salaries, flagging those employees
+with lower than average salaries for their managerial level.*
+
+::: {style="font-size: 0.8em;"}
+```{python}
+sql = """
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, manager_id, last_name, salary, 1 AS "Level ID"
+    FROM employees
+    WHERE manager_id IS NULL  -- Starting point (top-level manager)
+    UNION ALL
+    SELECT e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` + 1
+    FROM employees AS e
+    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id
+), eh1 as (
+SELECT `Level ID`,round(avg(salary),2) as "Avg Salary"
+FROM employee_hierarchy
+GROUP BY `Level ID`
+)
+select
+  last_name, eh0.`Level ID`, 
+  round(salary,2) as salary, `Avg Salary`,
+  case when salary < `Avg Salary` then '<-- LOW!' else '' end as flag
+from
+  employee_hierarchy eh0 
+    left join eh1 eh1 on (eh0.`Level ID`=eh1.`Level ID`)
+order by
+  eh0.`Level ID`, last_name
+"""
+show_sql_and_results( cnx,sql,widths=[50,2,48],show_size=True )
+```
+:::

@@ -1,8 +1,9 @@
 ---
 date: '2025-02-11'
 lecture-id: 9
-title: Analysis and Normal Forms 1
+title: Relational Algebra 2
 ---
+
 ```{python}
 #| echo: false
 #| label: setup
@@ -22,13 +23,13 @@ discussion_items = [
 ]
 
 lecture_topics = [
+    '[Practice Quiz 2 discussion](#practice-quiz-2---relational-algebra)',
     '[Homework 3 - Modeling Your World](#homework-3---modeling-your-world)',
     '[Join Operations](#join-operations)',
-    '[Renaming and Division](#rename-and-division)',
+    '[Renaming and Division](#renaming-and-division)',
 ]
 
-
-lecture_id = 7
+lecture_id = 9
 n_rows = 8
 
 housekeeping_margin_column_width = "9%"
@@ -43,6 +44,9 @@ housekeeping_vertical_spacer = "25px"
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+# Practice Quiz 2 - Relational Algebra
+{{< include ../../topics/_practice-quiz-2-relational-algebra-sp2025.qmd >}}
+
 # Homework 3 - Modeling your world
 {{< include ../../topics/_homework-3-modeling-your-world-sp2025.qmd >}}
 # Join Operations

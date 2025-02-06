@@ -1,0 +1,7 @@
+---
+title: "Homework 7 - Joining tables and reporting SP2025"
+---
+
+{{< include '_homework-7-joining-tables-and-reporting-sp2025.qmd' >}}
+
+    
