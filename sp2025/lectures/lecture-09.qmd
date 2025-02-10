@@ -46,7 +46,6 @@ housekeeping_vertical_spacer = "25px"
 <!-- lecture-block-begin -->
 # Practice Quiz 2 - Relational Algebra
 {{< include ../../topics/_practice-quiz-2-relational-algebra-sp2025.qmd >}}
-
 # Homework 3 - Modeling your world
 {{< include ../../topics/_homework-3-modeling-your-world-sp2025.qmd >}}
 # Join Operations
