@@ -110,7 +110,7 @@ digraph RelationalDataModel {
 :::
 ::::
 
-## Join example - *Inner Join* 
+## Example 1: Join example - *Inner Join* 
 
 :::: {.columns}
 ::: {.column width=30%}
@@ -172,7 +172,7 @@ digraph RelationalDataModel {
 ::::
 
 
-## Join example - *Left Join* or *Left Outer Join*
+## Example 2: Join example - *Left Join* or *Left Outer Join*
 
 :::: {.columns}
 ::: {.column width=30%}
@@ -242,7 +242,7 @@ digraph RelationalDataModel {
 ::::
 
 
-## Join example - *Right Join* or *Right Outer Join*
+## Example 3: Join example - *Right Join* or *Right Outer Join*
 
 :::: {.columns}
 ::: {.column width=30%}
@@ -307,7 +307,7 @@ digraph RelationalDataModel {
 :::
 ::::
 
-## Join example - *Outer Join* or *Full Outer Join*
+## Example 4: Join example - *Outer Join* or *Full Outer Join*
 
 :::: {.columns}
 ::: {.column width=30%}
@@ -375,8 +375,6 @@ digraph RelationalDataModel {
 
 :::
 ::::
-
-
 
 ## Inner Join: Definition and Use
 
