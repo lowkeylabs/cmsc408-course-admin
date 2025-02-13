@@ -28,50 +28,36 @@ discussion-items:
 lecture-id: 4
 lecture-topics:
 - topic: Intro to ER Models
-  url: _intro-to-er-models
+  url: _intro-to-er-models.qmd
 - topic: ER Diagramming
-  url: _er-diagramming
+  url: _er-diagramming.qmd
 - topic: Weak and Strong Entities
-  url: _weak-and-strong-entities
+  url: _weak-and-strong-entities.qmd
 title: ER Models
 ---
 
 ```{python}
 #| echo: false
-#| label: setup
-lecture_id = 4
-n_rows = 8
-
-housekeeping_margin_column_width = "9%"
-housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
-
-housekeeping_vertical_spacer = "25px"
-
-discussion_items = [
-    '[Deliverable 1 - Intros](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356) - Due Sun, 1/19',
-    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307) - Due Sun, 1/26',
-    '[Discussion 1 - ER Modeling](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913) - Due Sun, 1/26',
-    '[Homework 1 - DE Tool Review](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333) - Due Sun, 1/26',
-    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170) - Start now!'
-]
-
-lecture_topics = [
-    '[Intro to ER Models](#introduction-to-er-models)',
-    '[ER Diagramming](#er-diagramming)',
-    '[Weak and Strong Entities](#weak-and-strong-entities)'
-]
+this_file = 'lecture-04.qmd'
 ```
 
+{{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+
 # Intro to ER Models
+
 {{< include ../../topics/_intro-to-er-models.qmd >}}
+
 # ER Diagramming
+
 {{< include ../../topics/_er-diagramming.qmd >}}
+
 # Weak and Strong Entities
+
 {{< include ../../topics/_weak-and-strong-entities.qmd >}}
 <!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

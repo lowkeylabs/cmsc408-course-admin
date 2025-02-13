@@ -151,17 +151,18 @@
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
-<div class="column" style="width:9%;">
+<div class="column" style="width:5%;">
 
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211171">Practice Quiz 2 </a> - due Feb.&nbsp;4, TUE</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335">Homework 2 - ER Modeling </a> - due Feb.&nbsp;4, TUE</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075914">Discussion 2 - Relational Algebra</a> - due Feb.&nbsp;9, SUN</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768">Del.4 - Video Pitch</a> - due Feb.&nbsp;9, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081389">Practice Quiz 2 - Relational Algebra</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335">Homework 2 - Entity Relation Models</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768">Deliverable 4 - Video Pitch</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075914">Discussion 2 - Relational Alg.</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329">Quiz 2 - Relational Algebra</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
 <li><p><a href="#/deliverable-4-notes">Deliverable 4 Notes</a></p></li>
@@ -169,7 +170,7 @@
 <li><p><a href="#/relational-algebra">Relational Algebra</a></p></li>
 <li><p><a href="#/basic-operations">Basic Operations</a></p></li>
 <li><p><a href="#/set-operations">Set Operations</a></p></li>
-<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 discussion</a></p></li>
+<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 - Relational Algebra</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -324,9 +325,6 @@
 <section>
 <section id="query-languages" class="title-slide slide level1 center">
 <h1>Query Languages</h1>
-<!-- query languages serves as a bridge between ER diagrams/relational models and SQL
-The shift occurs when we start talking about records inside tables.
-How do we describe the operations? -->
 <!-- # Query languages -->
 </section>
 <section id="query-language-family-tree" class="slide level2">
@@ -459,8 +457,6 @@ How do we describe the operations? -->
 <section>
 <section id="relational-algebra-1" class="title-slide slide level1 center">
 <h1>Relational Algebra</h1>
-<!-- This conversation is more abstract, focusing on the operators and their operations
-and eventually, what it means to records and tables.-->
 <!-- # Relational Algebra -->
 </section>
 <section id="relational-algebraic-operators-and-operations" class="slide level2">
@@ -790,7 +786,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="8161baf0" class="cell" data-execution_count="4">
+<div id="d2e02536" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -847,7 +843,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>σ(ID=3)(Courses) returns:</p>
-<div id="8e012e29" class="cell" data-execution_count="5">
+<div id="09234db3" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -884,7 +880,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="4db7c7a2" class="cell" data-execution_count="6">
+<div id="dbd5a9c0" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -941,7 +937,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>σ(Course=‘CMSC408’)(Courses) returns:</p>
-<div id="b1c051e1" class="cell" data-execution_count="7">
+<div id="5d86429c" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -989,7 +985,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="5827da57" class="cell" data-execution_count="8">
+<div id="3a9bec6f" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1046,7 +1042,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>σ(Enrl&lt;=100)(Courses) returns:</p>
-<div id="e292b690" class="cell" data-execution_count="9">
+<div id="f782ab9b" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1176,7 +1172,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="34e921b6" class="cell" data-execution_count="10">
+<div id="83e2b1d6" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1233,7 +1229,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(ID,Course)(Courses) returns:</p>
-<div id="f76f7862" class="cell" data-execution_count="11">
+<div id="62ca0644" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1287,7 +1283,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="975edd54" class="cell" data-execution_count="12">
+<div id="8302cdd5" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1344,7 +1340,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(Course)(Courses) returns:</p>
-<div id="658bcfd7" class="cell" data-execution_count="13">
+<div id="4b2798c3" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1389,7 +1385,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="cbe80dc1" class="cell" data-execution_count="14">
+<div id="a80e7cee" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1446,7 +1442,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(Term)(Courses) returns:</p>
-<div id="f05c3b88" class="cell" data-execution_count="15">
+<div id="4f204a25" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1485,7 +1481,7 @@ and eventually, what it means to records and tables.-->
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="f96805e8" class="cell" data-execution_count="16">
+<div id="ef0a38a4" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1542,7 +1538,7 @@ and eventually, what it means to records and tables.-->
 
 </div><div class="column" style="width:47%;">
 <p>Π(Term,ID)(Courses) returns:</p>
-<div id="4df9cc17" class="cell" data-execution_count="17">
+<div id="7ca8c754" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1602,11 +1598,11 @@ and eventually, what it means to records and tables.-->
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<div id="9a2dc047" class="cell" data-execution_count="19">
+<div id="3f82a1b0" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="lecture-08_files/figure-revealjs/cell-20-output-1.png" width="299" height="229"></p>
+<p><img data-src="lecture-08_files/figure-revealjs/cell-21-output-1.png" width="299" height="229"></p>
 </figure>
 </div>
 </div>
@@ -1689,7 +1685,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="155f3174" class="cell" data-execution_count="20">
+<div id="ed50db01" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1723,7 +1719,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="e223bf31" class="cell" data-execution_count="21">
+<div id="4b1000e7" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1764,7 +1760,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
-<div id="76eea69e" class="cell" data-execution_count="22">
+<div id="4f824834" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1817,7 +1813,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="3e8445c4" class="cell" data-execution_count="23">
+<div id="cfea6421" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1851,7 +1847,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses3( Course,Term )</em>:</p>
-<div id="daa19139" class="cell" data-execution_count="24">
+<div id="6b12448e" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1932,7 +1928,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="e10b9588" class="cell" data-execution_count="26">
+<div id="06c272df" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1989,7 +1985,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:47%;">
 <p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
 <p>Π(Name,GPA)(σ(Grad_Year=2023)(Students))</p>
-<div id="a1364178" class="cell" data-execution_count="27">
+<div id="b0484f76" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2026,7 +2022,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="54148c26" class="cell" data-execution_count="28">
+<div id="e570f7a5" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2083,7 +2079,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:47%;">
 <p>Find the majors of all students with a GPA greater than 3.5</p>
 <p>Π(Major)(σ(GPA&gt;3.5)(Students))</p>
-<div id="6ab80eb1" class="cell" data-execution_count="29">
+<div id="8b54d0b9" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2117,7 +2113,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="cecceb3e" class="cell" data-execution_count="30">
+<div id="121423fc" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2174,7 +2170,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:47%;">
 <p>Find the ID and Names of all students in computer science.</p>
 <p>Π(ID,Name)(σ(Major=CS)(Students))</p>
-<div id="9f145bd3" class="cell" data-execution_count="31">
+<div id="b5fd412d" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2316,11 +2312,11 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<div id="f7a5d3e7" class="cell" data-execution_count="33">
+<div id="e39ab5ec" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="lecture-08_files/figure-revealjs/cell-34-output-1.png" width="299" height="229"></p>
+<p><img data-src="lecture-08_files/figure-revealjs/cell-35-output-1.png" width="299" height="229"></p>
 </figure>
 </div>
 </div>
@@ -2403,7 +2399,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="df54fa26" class="cell" data-execution_count="34">
+<div id="3d724f2b" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2437,7 +2433,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="b0e1905a" class="cell" data-execution_count="35">
+<div id="e248e805" class="cell" data-execution_count="36">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2478,7 +2474,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> <span class="math inline">\(\cap\)</span> <em>Courses2</em> returns:</p>
-<div id="4e429b58" class="cell" data-execution_count="36">
+<div id="f91b6d1f" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2521,11 +2517,11 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<div id="a0e13f8a" class="cell" data-execution_count="37">
+<div id="83d0c442" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="lecture-08_files/figure-revealjs/cell-38-output-1.png" width="299" height="229"></p>
+<p><img data-src="lecture-08_files/figure-revealjs/cell-39-output-1.png" width="299" height="229"></p>
 </figure>
 </div>
 </div>
@@ -2600,7 +2596,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="420a6509" class="cell" data-execution_count="38">
+<div id="f679fef3" class="cell" data-execution_count="39">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2634,7 +2630,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="da62595c" class="cell" data-execution_count="39">
+<div id="dc5974d2" class="cell" data-execution_count="40">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2675,7 +2671,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> <span class="math inline">\(-\)</span> <em>Courses2</em> returns:</p>
-<div id="43c3399f" class="cell" data-execution_count="40">
+<div id="7eafd522" class="cell" data-execution_count="41">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2712,7 +2708,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="f28dd9ca" class="cell" data-execution_count="41">
+<div id="e1c3f818" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2746,7 +2742,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="fc435621" class="cell" data-execution_count="42">
+<div id="5692c6da" class="cell" data-execution_count="43">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2787,7 +2783,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses2</em> <span class="math inline">\(-\)</span> <em>Courses1</em> returns:</p>
-<div id="0c3691be" class="cell" data-execution_count="43">
+<div id="9245e9cf" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2954,17 +2950,18 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
-<div class="column" style="width:9%;">
+<div class="column" style="width:5%;">
 
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211171">Practice Quiz 2 </a> - due Feb.&nbsp;4, TUE</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335">Homework 2 - ER Modeling </a> - due Feb.&nbsp;4, TUE</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075914">Discussion 2 - Relational Algebra</a> - due Feb.&nbsp;9, SUN</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768">Del.4 - Video Pitch</a> - due Feb.&nbsp;9, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081389">Practice Quiz 2 - Relational Algebra</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335">Homework 2 - Entity Relation Models</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768">Deliverable 4 - Video Pitch</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075914">Discussion 2 - Relational Alg.</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329">Quiz 2 - Relational Algebra</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
 <li><p><a href="#/deliverable-4-notes">Deliverable 4 Notes</a></p></li>
@@ -2972,7 +2969,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <li><p><a href="#/relational-algebra">Relational Algebra</a></p></li>
 <li><p><a href="#/basic-operations">Basic Operations</a></p></li>
 <li><p><a href="#/set-operations">Set Operations</a></p></li>
-<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 discussion</a></p></li>
+<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 - Relational Algebra</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">

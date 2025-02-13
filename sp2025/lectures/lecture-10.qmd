@@ -24,6 +24,12 @@ this_file = 'lecture-10.qmd'
 {{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
-{{< include "./_template-lecture-body.qmd" >}}
+<!-- lecture-block-begin -->
+
+# Analysis and Normal Forms
+
+{{< include ../../topics/_analysis-and-normal-forms.qmd >}}
+<!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -32,56 +32,42 @@ discussion-items:
 lecture-id: 6
 lecture-topics:
 - topic: Taking stock
-  url: _taking-stock-after-er-models
+  url: _taking-stock-after-er-models.qmd
 - topic: Databases and DBMS
-  url: _databases-and-database-management-systems
+  url: _databases-and-database-management-systems.qmd
 - topic: Intro to SQL
-  url: _intro-to-sql
+  url: _intro-to-sql.qmd
 - topic: Brief intro to relational models
-  url: _brief-intro-to-relational-model
+  url: _brief-intro-to-relational-model.qmd
 title: Relational models 2
 ---
 
 ```{python}
 #| echo: false
-#| label: setup
-lecture_id = 6
-n_rows = 8
-
-housekeeping_margin_column_width = "9%"
-housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
-
-housekeeping_vertical_spacer = "25px"
-
-discussion_items = [
-    '[Deliverable 3 - Harmonize Ideation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072358) - due Sun, 2/2',
-    '[Deliverable 4 - Video Pitch](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768) - due Sun, 2/9',
-    '[Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211165) - due THU, 1/30',
-    '[Homework 2 - ER Diagrams](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335) - due Tue, 2/4 <p>&nbsp;</p>',
-    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307) - Due Sun, 1/26',
-    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170) - Start now!'
-]
-
-lecture_topics = [
-    '[Taking stock](#taking-stock)',
-    '[Databases and DBMS](#databases-and-dbms)',
-    '[Intro to SQL](#intro-to-sql)',
-    '[Brief intro to relational models](#brief-intro-to-relational-models)'
-]
+this_file = 'lecture-06.qmd'
 ```
 
+{{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+
 # Taking stock
-{{< include  ../../topics/_taking-stock-after-er-models.qmd >}}
+
+{{< include ../../topics/_taking-stock-after-er-models.qmd >}}
+
 # Databases and DBMS
-{{< include  ../../topics/_databases-and-database-management-systems.qmd >}}
+
+{{< include ../../topics/_databases-and-database-management-systems.qmd >}}
+
 # Intro to SQL
-{{< include  ../../topics/_intro-to-sql.qmd >}}
+
+{{< include ../../topics/_intro-to-sql.qmd >}}
+
 # Brief intro to relational models
-{{< include  ../../topics/_brief-intro-to-relational-model.qmd >}}
+
+{{< include ../../topics/_brief-intro-to-relational-model.qmd >}}
 <!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

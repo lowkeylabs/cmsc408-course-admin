@@ -26,6 +26,16 @@ this_file = 'lecture-11.qmd'
 {{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
-{{< include "./_template-lecture-body.qmd" >}}
+<!-- lecture-block-begin -->
+
+# BCNF Terms and Definitions
+
+{{< include ../../topics/_bcnf-terms-and-definitions.qmd >}}
+
+# Recognizing BCNF
+
+{{< include ../../topics/_recognizing-bcnf.qmd >}}
+<!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -148,20 +148,22 @@
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
-<div class="column" style="width:9%;">
+<div class="column" style="width:5%;">
 
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211166">Quiz 2</a> - due Feb.&nbsp;13, THURS</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011">Homework 3 - ER Modeling </a> - due Feb.&nbsp;16, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329">Quiz 2 - Relational Algebra</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011">Homework 3 - Modeling Your World</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 discussion</a></p></li>
-<li><p><a href="#/homework-3---modeling-your-world">Homework 3 - Modeling Your World</a></p></li>
+<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 - Relational Algebra</a></p></li>
+<li><p><a href="#/homework-3---modeling-your-world">Homework 3 - Modeling your world</a></p></li>
+<li><p><a href="#/join-examples">Join Examples</a></p></li>
 <li><p><a href="#/join-operations">Join Operations</a></p></li>
+<li><p><a href="#/join-use-cases">Join Use Cases</a></p></li>
 <li><p><a href="#/renaming-and-division">Renaming and Division</a></p></li>
 </ul>
 </div></div>
@@ -1226,7 +1228,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students(VID,Name,Major)</em>:</p>
-<div id="ad836382" class="cell" data-execution_count="5">
+<div id="448c3fbe" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1269,7 +1271,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Enrollments(VID,Course,Term,Enrl)</em>:</p>
-<div id="add64205" class="cell" data-execution_count="6">
+<div id="51c48db1" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1315,7 +1317,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </div><div class="column" style="width:47%;">
 <p><strong>Find all the data for students enrolled in classes</strong></p>
 <p><em>Students</em> ⋈ (<em>VID</em>) <em>Enrollments</em>;</p>
-<div id="1c1ec230" class="cell" data-execution_count="7">
+<div id="8f009bf4" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1368,7 +1370,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
-<div id="c828df36" class="cell" data-execution_count="9">
+<div id="a5efcf2c" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1411,7 +1413,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
-<div id="43ed1ccd" class="cell" data-execution_count="10">
+<div id="fa27ee53" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1452,7 +1454,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Menu</em> ⋈ (<em>DishID</em>) <em>Orders</em> returns:</p>
-<div id="b3740ba8" class="cell" data-execution_count="11">
+<div id="dd0f3a18" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1593,7 +1595,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
-<div id="782008a9" class="cell" data-execution_count="13">
+<div id="8326858b" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1636,7 +1638,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 </div>
 </div>
 <p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
-<div id="4f577c61" class="cell" data-execution_count="14">
+<div id="df741582" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1677,7 +1679,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 
 </div><div class="column" style="width:47%;">
 <p><em>Menu</em> ⟕ <em>Orders</em> on <em>DishID</em> returns:</p>
-<div id="dd994f2c" class="cell" data-execution_count="15">
+<div id="7007ec3a" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1738,7 +1740,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
-<div id="516d74d2" class="cell" data-execution_count="17">
+<div id="e8efecc5" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1781,7 +1783,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 </div>
 </div>
 <p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
-<div id="1cf29d9c" class="cell" data-execution_count="18">
+<div id="5cfb749d" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1822,7 +1824,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 
 </div><div class="column" style="width:47%;">
 <p><em>Menu</em> ⟖ <em>Orders</em> on <em>DishID</em> returns:</p>
-<div id="018a83eb" class="cell" data-execution_count="19">
+<div id="f9329906" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1967,7 +1969,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Players(PlayerID, PlayerName, Position)</em>:</p>
-<div id="dcd2ee8e" class="cell" data-execution_count="21">
+<div id="4ebaaa21" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2010,7 +2012,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 </div>
 </div>
 <p>and <em>Teams(TeamID, PlayerID, TeamName)</em>:</p>
-<div id="5aeda256" class="cell" data-execution_count="22">
+<div id="7cbdb56b" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2056,7 +2058,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 
 </div><div class="column" style="width:47%;">
 <p><em>Players</em> ⋈ <em>Teams</em> on <em>PlayerID</em> returns:</p>
-<div id="c4387df1" class="cell" data-execution_count="23">
+<div id="31523185" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2132,7 +2134,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Cameras(CameraID, CameraModel, LensType)</em>:</p>
-<div id="2eb4e9aa" class="cell" data-execution_count="25">
+<div id="d4bb037f" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2175,7 +2177,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 </div>
 </div>
 <p>and <em>Images(ImageID, CameraID, ImageDescription)</em>:</p>
-<div id="052f5309" class="cell" data-execution_count="26">
+<div id="d5d2530f" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2221,7 +2223,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 
 </div><div class="column" style="width:47%;">
 <p><em>Cameras</em> ⋈ (<em>CameraID</em>) <em>Images</em> returns:</p>
-<div id="e4ae13ce" class="cell" data-execution_count="27">
+<div id="a9c242d4" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2375,7 +2377,7 @@ R_1 \bowtie \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Dogs(DogID, Name, Breed, Age)</em>:</p>
-<div id="4c5e5508" class="cell" data-execution_count="29">
+<div id="08a1a861" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2423,7 +2425,7 @@ R_1 \bowtie \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Kennels(DogID, KennelID, ArrivalDate)</em>:</p>
-<div id="d987eda1" class="cell" data-execution_count="30">
+<div id="c925c642" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2464,7 +2466,7 @@ R_1 \bowtie \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Dogs</em> <span class="math inline">\(\bowtie\)</span> <em>Kennels</em> on <em>DogID</em> returns:</p>
-<div id="09df407a" class="cell" data-execution_count="31">
+<div id="aa291585" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2514,7 +2516,7 @@ R_1 \bowtie \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Buses(BusID, Route, Capacity, DriverID)</em>:</p>
-<div id="4a5ec636" class="cell" data-execution_count="33">
+<div id="a303634e" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2562,7 +2564,7 @@ R_1 \bowtie \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Passengers(PassengerID, BusID, DriverID, Seat)</em>:</p>
-<div id="57e4d646" class="cell" data-execution_count="34">
+<div id="6bc67bc3" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2613,7 +2615,7 @@ R_1 \bowtie \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Buses</em> <span class="math inline">\(\bowtie\)</span> <em>Passengers</em> on <em>BusID</em> and <em>DriverID</em> returns:</p>
-<div id="64d07ed6" class="cell" data-execution_count="35">
+<div id="732096ee" class="cell" data-execution_count="36">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2751,7 +2753,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Authors(AuthorID, AuthorName, BooksWritten)</em>:</p>
-<div id="0aed2ddc" class="cell" data-execution_count="37">
+<div id="a2cc96df" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2794,7 +2796,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Books(BookID, AuthorID, Title)</em>:</p>
-<div id="4f4168ad" class="cell" data-execution_count="38">
+<div id="3fbee212" class="cell" data-execution_count="39">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2840,7 +2842,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Authors</em> ⨝ θ <em>Books</em> where <em>BooksWritten &gt; 3</em>:</p>
-<div id="83930b60" class="cell" data-execution_count="39">
+<div id="c6dcbed7" class="cell" data-execution_count="40">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2895,7 +2897,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Stores(StoreID, StoreName, Location)</em>:</p>
-<div id="a6c2d37f" class="cell" data-execution_count="41">
+<div id="c72de320" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2933,7 +2935,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Games(GameID, StoreID, GameTitle, Price)</em>:</p>
-<div id="7066111f" class="cell" data-execution_count="42">
+<div id="15fe3e2c" class="cell" data-execution_count="43">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2984,7 +2986,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Stores</em> ⨝ θ (<em>Price &gt; 50</em>) <em>Games</em> return :</p>
-<div id="6b1f9b95" class="cell" data-execution_count="43">
+<div id="e562abed" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3335,7 +3337,7 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Customers(CustomerID, DishID)</em>:</p>
-<div id="189b22ab" class="cell" data-execution_count="45">
+<div id="3c7a071f" class="cell" data-execution_count="46">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3381,7 +3383,7 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 </div>
 </div>
 <p>and <em>DimSum(DishID, DishName)</em>:</p>
-<div id="1a889401" class="cell" data-execution_count="46">
+<div id="cbf96ae7" class="cell" data-execution_count="47">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3418,7 +3420,7 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 
 </div><div class="column" style="width:47%;">
 <p>Find the customers who have ordered all dim sum dishes:</p>
-<div id="acf13cf2" class="cell" data-execution_count="47">
+<div id="9660c1c8" class="cell" data-execution_count="48">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3572,20 +3574,22 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 <section id="housekeeping-1" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
-<div class="column" style="width:9%;">
+<div class="column" style="width:5%;">
 
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211166">Quiz 2</a> - due Feb.&nbsp;13, THURS</p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011">Homework 3 - ER Modeling </a> - due Feb.&nbsp;16, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329">Quiz 2 - Relational Algebra</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011">Homework 3 - Modeling Your World</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 discussion</a></p></li>
-<li><p><a href="#/homework-3---modeling-your-world">Homework 3 - Modeling Your World</a></p></li>
+<li><p><a href="#/practice-quiz-2---relational-algebra">Practice Quiz 2 - Relational Algebra</a></p></li>
+<li><p><a href="#/homework-3---modeling-your-world">Homework 3 - Modeling your world</a></p></li>
+<li><p><a href="#/join-examples">Join Examples</a></p></li>
 <li><p><a href="#/join-operations">Join Operations</a></p></li>
+<li><p><a href="#/join-use-cases">Join Use Cases</a></p></li>
 <li><p><a href="#/renaming-and-division">Renaming and Division</a></p></li>
 </ul>
 </div></div>
