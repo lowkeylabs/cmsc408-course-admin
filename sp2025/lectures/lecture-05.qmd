@@ -1,6 +1,48 @@
 ---
 date: '2025-01-28'
+discussion-items:
+- options: .
+  post_text: .
+  topic: Homeworks and README files
+  url: .
+- options: target="_blank"
+  post_text: '- due Sun, 2/2'
+  topic: Deliverable 3 - Harmonize Ideation
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072358
+- options: target="_blank"
+  post_text: '- due Sun, 2/9'
+  topic: Deliverable 4 - Video Pitch
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768
+- options: target="_blank"
+  post_text: '- due Tue, 2/4 <p>&nbsp;</p>'
+  topic: Homework 2 - ER Diagrams
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335
+- options: target="_blank"
+  post_text: '- Due Sun, 1/26'
+  topic: Deliverable 2 - Team Formation
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1131331
+- options: target="_blank"
+  post_text: '- Start now!'
+  topic: Practice Quiz 1 - ER Models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081388
+- options: target="_blank"
+  post_text: '- due 1/30, THU'
+  topic: Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072328
+- options: target="_blank"
+  post_text: '- due 2/04, TUE'
+  topic: Practice Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081389
 lecture-id: 5
+lecture-topics:
+- topic: Pre-class Survey Results
+  url: _preclass-survey-sp2025
+- topic: Study Guide - ER Models
+  url: _er-models-study-guide
+- topic: ER Diagramming Resources
+  url: _er-diagramming-resources
+- topic: Homework 2 - ER Models
+  url: _homework-2-spring-2025
 title: Relational models 1
 ---
 

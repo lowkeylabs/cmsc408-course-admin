@@ -1,6 +1,40 @@
 ---
 date: '2025-02-06'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 2/04, TUE'
+  topic: Practice Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081389
+- options: target="_blank"
+  post_text: '- due 2/04, TUE'
+  topic: Homework 2 - Entity Relation Models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335
+- options: target="_blank"
+  post_text: '- due 2/09, SUN'
+  topic: Deliverable 4 - Video Pitch
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768
+- options: target="_blank"
+  post_text: '- due 2/09, SUN'
+  topic: Discussion 2 - Relational Alg.
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075914
+- options: target="_blank"
+  post_text: '- due 2/13, THU'
+  topic: Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329
 lecture-id: 8
+lecture-topics:
+- topic: Deliverable 4 Notes
+  url: _deliverable-4-video-pitch-sp2025
+- topic: Query Languages
+  url: _query-languages
+- topic: Relational Algebra
+  url: _relational-algebra
+- topic: Basic Operations
+  url: _basic-operations
+- topic: Set Operations
+  url: _set-operations
+- topic: Practice Quiz 2 - Relational Algebra
+  url: _practice-quiz-2-relational-algebra-sp2025
 title: Relational Algebra 1
 ---
 

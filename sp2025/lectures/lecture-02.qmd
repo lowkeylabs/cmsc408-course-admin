@@ -1,6 +1,34 @@
 ---
 date: '2025-01-16'
+discussion-items:
+- options: target="_blank"
+  post_text: .
+  topic: Deliverable 1 - Intros
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356
+- options: target="_blank"
+  post_text: .
+  topic: Join the discord
+  url: https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord
+- options: target="_blank"
+  post_text: .
+  topic: Review the semester project
+  url: https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project
+- options: target="_blank"
+  post_text: '- due 1/16, THU'
+  topic: Survey 1 - Pre-class survey
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1114425
+- options: target="_blank"
+  post_text: '- due 1/23, THU'
+  topic: Practice Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081388
 lecture-id: 2
+lecture-topics:
+- topic: A long time ago in a galaxy far, far away ...
+  url: _intro-to-databases
+- topic: Homework 1
+  url: _homework-1-spring-2025
+- topic: Database design process
+  url: _database-design-process
 title: Intro to Databases
 ---
 

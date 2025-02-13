@@ -1,6 +1,30 @@
 ---
 date: '2025-02-04'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 2/04, TUE'
+  topic: Homework 2 - Entity Relation Models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335
+- options: target="_blank"
+  post_text: '- due 2/04, TUE'
+  topic: Practice Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081389
+- options: target="_blank"
+  post_text: '- due 2/09, SUN'
+  topic: Deliverable 4 - Video Pitch
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075768
+- options: target="_blank"
+  post_text: '- due 2/09, SUN'
+  topic: Discussion 2 - Relational Alg.
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075914
 lecture-id: 7
+lecture-topics:
+- topic: Deliverable 4 Notes
+  url: _deliverable-4-video-pitch-sp2025
+- topic: Relational Models
+  url: _relational-models
+- topic: Relationships and Cardinality
+  url: _relationships-and-cardinality
 title: Relational models 3
 ---
 

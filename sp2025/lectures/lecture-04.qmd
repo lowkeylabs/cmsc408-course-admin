@@ -1,6 +1,38 @@
 ---
 date: '2025-01-23'
+discussion-items:
+- options: target="_blank"
+  post_text: '- Due Sun, 1/19'
+  topic: Deliverable 1 - Intros
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356
+- options: target="_blank"
+  post_text: '- due 1/26, SUN'
+  topic: Deliverable 2 - Team formation
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1131331
+- options: target="_blank"
+  post_text: '- Due Sun, 1/26'
+  topic: Discussion 1 - ER Modeling
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913
+- options: target="_blank"
+  post_text: '- Due Sun, 1/26'
+  topic: Homework 1 - DE Tool Review
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333
+- options: target="_blank"
+  post_text: '- due 1/23, THU'
+  topic: Practice Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081388
+- options: target="_blank"
+  post_text: '- due 1/30, THU'
+  topic: Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072328
 lecture-id: 4
+lecture-topics:
+- topic: Intro to ER Models
+  url: _intro-to-er-models
+- topic: ER Diagramming
+  url: _er-diagramming
+- topic: Weak and Strong Entities
+  url: _weak-and-strong-entities
 title: ER Models
 ---
 

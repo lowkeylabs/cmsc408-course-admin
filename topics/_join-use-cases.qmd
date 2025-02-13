@@ -1,0 +1,113 @@
+<!-- # Join Use Cases -->
+
+<!-- expand this section with example questions and their solution with relational algebra -->
+
+
+
+## Use Cases: Inner Join
+
+
+Inner join is commonly used in scenarios where you only need matching data from two relations. It's ideal for combining related data.
+
+
+:::: {.columns}
+::: {.column width=98%}
+- Frequently used when matching foreign keys with primary keys.
+- Example: retrieving student records with matching course registrations.
+- Ideal for filtering data to include only relevant, connected records.
+- Used when non-matching data is not important for the query.
+- Popular in most applications like finance, HR, and inventory systems.
+:::
+::: {.column width=1%}
+:::
+::: {.column width=1%}
+
+:::
+::::
+
+<!-- -->
+
+*Inner join is ideal when you only care about related records from two relations.*
+
+
+
+## Use Cases: Left and Right Outer Joins
+
+
+Outer joins are useful when you want to keep all records from one side, even if they don't have a match in the other relation.
+
+
+:::: {.columns}
+::: {.column width=98%}
+- Left outer join is often used in master-detail relationships.
+- Example: retrieving all customers and their orders, including customers without orders.
+- Right outer join can be used when focusing on all records from a detail table.
+- Used when incomplete data is acceptable, such as optional relationships.
+- Often used in customer management systems to track unfilled orders.
+:::
+::: {.column width=1%}
+:::
+::: {.column width=1%}
+
+:::
+::::
+
+<!-- -->
+
+*Left and right outer joins are valuable when you need non-matching data from one side.*
+
+
+
+## Use Cases: Full Outer Join
+
+
+Full outer join is used in scenarios where you need to retain all data, even if some entries don't match. This join is comprehensive.
+
+
+:::: {.columns}
+::: {.column width=98%}
+- Often used in data integration tasks.
+- Example: merging two datasets where both may contain unmatched records.
+- Used in scenarios like combining employee records from different departments.
+- Useful in data warehousing and analytics to ensure no data is lost.
+- Common in reconciling data from different sources with partial overlap.
+:::
+::: {.column width=1%}
+:::
+::: {.column width=1%}
+
+:::
+::::
+
+<!-- -->
+
+*Full outer join ensures no data is lost when combining two relations with missing matches.*
+
+
+
+## Combining Joins for Complex Queries
+
+
+Different join types can be combined to solve complex queries involving multiple relations. This is often used in real-world database systems.
+
+
+:::: {.columns}
+::: {.column width=98%}
+- Inner and outer joins can be combined in complex queries.
+- Example: joining multiple relations with inner joins, then an outer join to fill gaps.
+- Different join types solve different parts of the same query.
+- Used in multi-table queries for comprehensive data retrieval.
+- Often seen in reporting systems that need complete data coverage.
+:::
+::: {.column width=1%}
+:::
+::: {.column width=1%}
+
+:::
+::::
+
+<!-- -->
+
+*Combining join operations allows complex queries that satisfy multiple data needs.*
+
+

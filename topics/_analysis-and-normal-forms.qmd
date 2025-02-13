@@ -1,5 +1,4 @@
-
-# Analysis and Normal forms
+<!-- # Analysis and Normal forms -->
 
 ## Relational database design to date
 

@@ -324,30 +324,9 @@
 </div></div>
 </section></section>
 <section>
-<section id="join-operations" class="title-slide slide level1 center">
-<h1>Join Operations</h1>
-<!-- # Join Operations -->
-</section>
-<section id="introduction-to-join-operations-in-relational-algebra" class="slide level2">
-<h2>Introduction to Join Operations in Relational Algebra</h2>
-<p>Join operations allow you to combine data from two or more relations based on a condition. Understanding these operations is key to querying relational databases effectively.</p>
-<div class="columns">
-<div class="column" style="width:98%;">
-<ul>
-<li>Joins combine related data from different relations.</li>
-<li>The result of a join operation is another <em>relation</em>. <strong>&lt;- TOTALLY AWESOME!</strong></li>
-<li>A condition (join predicate) specifies how to match tuples from different relations.</li>
-<li>Common types of joins include inner and outer joins.</li>
-<li>Joins are fundamental to multi-relation queries.</li>
-<li>Different types of joins solve different query requirements.</li>
-</ul>
-</div><div class="column" style="width:1%;">
-
-</div><div class="column" style="width:1%;">
-
-</div></div>
-<!-- -->
-<p><em>Joins are essential in connecting data from multiple tables in relational databases.</em></p>
+<section id="join-examples" class="title-slide slide level1 center">
+<h1>Join Examples</h1>
+<!-- # Join Examples -->
 </section>
 <section id="joining-two-tables" class="slide level2">
 <h2>Joining two tables</h2>
@@ -1137,6 +1116,31 @@
 </div>
 </div>
 </div></div>
+</section></section>
+<section>
+<section id="join-operations" class="title-slide slide level1 center">
+<h1>Join Operations</h1>
+<!-- # Join Operations -->
+</section>
+<section id="introduction-to-join-operations-in-relational-algebra" class="slide level2">
+<h2>Introduction to Join Operations in Relational Algebra</h2>
+<p>Join operations allow you to combine data from two or more relations based on a condition. Understanding these operations is key to querying relational databases effectively.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Joins combine related data from different relations.</li>
+<li>The result of a join operation is another <em>relation</em>. <strong>&lt;- TOTALLY AWESOME!</strong></li>
+<li>A condition (join predicate) specifies how to match tuples from different relations.</li>
+<li>Common types of joins include inner and outer joins.</li>
+<li>Joins are fundamental to multi-relation queries.</li>
+<li>Different types of joins solve different query requirements.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<p><em>Joins are essential in connecting data from multiple tables in relational databases.</em></p>
 </section>
 <section id="inner-join-definition-and-use" class="slide level2">
 <h2>Inner Join: Definition and Use</h2>
@@ -1222,7 +1226,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students(VID,Name,Major)</em>:</p>
-<div id="3df430d5" class="cell" data-execution_count="5">
+<div id="ad836382" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1265,7 +1269,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Enrollments(VID,Course,Term,Enrl)</em>:</p>
-<div id="b292470b" class="cell" data-execution_count="6">
+<div id="add64205" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1311,7 +1315,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </div><div class="column" style="width:47%;">
 <p><strong>Find all the data for students enrolled in classes</strong></p>
 <p><em>Students</em> ⋈ (<em>VID</em>) <em>Enrollments</em>;</p>
-<div id="1e15213a" class="cell" data-execution_count="7">
+<div id="1c1ec230" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1364,7 +1368,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
-<div id="e65a99a3" class="cell" data-execution_count="9">
+<div id="c828df36" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1407,7 +1411,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
-<div id="1434aa8f" class="cell" data-execution_count="10">
+<div id="43ed1ccd" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1448,7 +1452,7 @@ R_1 \bowtie_{condition} \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Menu</em> ⋈ (<em>DishID</em>) <em>Orders</em> returns:</p>
-<div id="3c5e0af8" class="cell" data-execution_count="11">
+<div id="b3740ba8" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1589,7 +1593,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
-<div id="0bd1682b" class="cell" data-execution_count="13">
+<div id="782008a9" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1632,7 +1636,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 </div>
 </div>
 <p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
-<div id="5807eafc" class="cell" data-execution_count="14">
+<div id="4f577c61" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1673,7 +1677,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 
 </div><div class="column" style="width:47%;">
 <p><em>Menu</em> ⟕ <em>Orders</em> on <em>DishID</em> returns:</p>
-<div id="aecbc4f1" class="cell" data-execution_count="15">
+<div id="dd994f2c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1734,7 +1738,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
-<div id="46d4658e" class="cell" data-execution_count="17">
+<div id="516d74d2" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1777,7 +1781,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 </div>
 </div>
 <p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
-<div id="a47f860e" class="cell" data-execution_count="18">
+<div id="1cf29d9c" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1818,7 +1822,7 @@ R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R
 
 </div><div class="column" style="width:47%;">
 <p><em>Menu</em> ⟖ <em>Orders</em> on <em>DishID</em> returns:</p>
-<div id="aca0f41b" class="cell" data-execution_count="19">
+<div id="018a83eb" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -1963,7 +1967,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Players(PlayerID, PlayerName, Position)</em>:</p>
-<div id="3f5bda8c" class="cell" data-execution_count="21">
+<div id="dcd2ee8e" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2006,7 +2010,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 </div>
 </div>
 <p>and <em>Teams(TeamID, PlayerID, TeamName)</em>:</p>
-<div id="56a86619" class="cell" data-execution_count="22">
+<div id="5aeda256" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2052,7 +2056,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 
 </div><div class="column" style="width:47%;">
 <p><em>Players</em> ⋈ <em>Teams</em> on <em>PlayerID</em> returns:</p>
-<div id="560442bd" class="cell" data-execution_count="23">
+<div id="c4387df1" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2128,7 +2132,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Cameras(CameraID, CameraModel, LensType)</em>:</p>
-<div id="6b71f738" class="cell" data-execution_count="25">
+<div id="2eb4e9aa" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2171,7 +2175,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 </div>
 </div>
 <p>and <em>Images(ImageID, CameraID, ImageDescription)</em>:</p>
-<div id="43cad49c" class="cell" data-execution_count="26">
+<div id="052f5309" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2217,7 +2221,7 @@ R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  
 
 </div><div class="column" style="width:47%;">
 <p><em>Cameras</em> ⋈ (<em>CameraID</em>) <em>Images</em> returns:</p>
-<div id="f1aae615" class="cell" data-execution_count="27">
+<div id="e4ae13ce" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2371,7 +2375,7 @@ R_1 \bowtie \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Dogs(DogID, Name, Breed, Age)</em>:</p>
-<div id="4184af04" class="cell" data-execution_count="29">
+<div id="4c5e5508" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2419,7 +2423,7 @@ R_1 \bowtie \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Kennels(DogID, KennelID, ArrivalDate)</em>:</p>
-<div id="ca863348" class="cell" data-execution_count="30">
+<div id="d987eda1" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2460,7 +2464,7 @@ R_1 \bowtie \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Dogs</em> <span class="math inline">\(\bowtie\)</span> <em>Kennels</em> on <em>DogID</em> returns:</p>
-<div id="5d6f2465" class="cell" data-execution_count="31">
+<div id="09df407a" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2510,7 +2514,7 @@ R_1 \bowtie \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Buses(BusID, Route, Capacity, DriverID)</em>:</p>
-<div id="fd5e5670" class="cell" data-execution_count="33">
+<div id="4a5ec636" class="cell" data-execution_count="33">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2558,7 +2562,7 @@ R_1 \bowtie \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Passengers(PassengerID, BusID, DriverID, Seat)</em>:</p>
-<div id="460e2957" class="cell" data-execution_count="34">
+<div id="57e4d646" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2609,7 +2613,7 @@ R_1 \bowtie \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Buses</em> <span class="math inline">\(\bowtie\)</span> <em>Passengers</em> on <em>BusID</em> and <em>DriverID</em> returns:</p>
-<div id="f633ff41" class="cell" data-execution_count="35">
+<div id="64d07ed6" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2747,7 +2751,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Authors(AuthorID, AuthorName, BooksWritten)</em>:</p>
-<div id="f81fd133" class="cell" data-execution_count="37">
+<div id="0aed2ddc" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2790,7 +2794,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Books(BookID, AuthorID, Title)</em>:</p>
-<div id="c6cbae2c" class="cell" data-execution_count="38">
+<div id="4f4168ad" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2836,7 +2840,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Authors</em> ⨝ θ <em>Books</em> where <em>BooksWritten &gt; 3</em>:</p>
-<div id="cb80c275" class="cell" data-execution_count="39">
+<div id="83930b60" class="cell" data-execution_count="39">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2891,7 +2895,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Stores(StoreID, StoreName, Location)</em>:</p>
-<div id="5f3373c0" class="cell" data-execution_count="41">
+<div id="a6c2d37f" class="cell" data-execution_count="41">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2929,7 +2933,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 </div>
 </div>
 <p>and <em>Games(GameID, StoreID, GameTitle, Price)</em>:</p>
-<div id="d8d17cbd" class="cell" data-execution_count="42">
+<div id="7066111f" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -2980,7 +2984,7 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 
 </div><div class="column" style="width:47%;">
 <p><em>Stores</em> ⨝ θ (<em>Price &gt; 50</em>) <em>Games</em> return :</p>
-<div id="90217e9a" class="cell" data-execution_count="43">
+<div id="6b1f9b95" class="cell" data-execution_count="43">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3024,7 +3028,12 @@ R_1 \bowtie_{\theta} \emptyset = \emptyset
 <p>In this <strong>Theta Join</strong>, we apply a condition (<code>Price &gt; 50</code>) to filter the video games, then join the result with the <code>Stores</code> table on the common column <code>StoreID</code>. This example only includes games that are priced above $50 and returns the store details for those games.</p>
 <p>For instance, only games like <code>Super Smash</code> and <code>Mario Kart</code> will be included in the result, along with the corresponding stores. Games priced $50 or below (like <code>Fortnite</code>) are excluded from the result.</p>
 </div></div>
-<!-- -->
+</section></section>
+<section>
+<section id="join-use-cases" class="title-slide slide level1 center">
+<h1>Join Use Cases</h1>
+<!-- # Join Use Cases -->
+<!-- expand this section with example questions and their solution with relational algebra -->
 </section>
 <section id="use-cases-inner-join" class="slide level2">
 <h2>Use Cases: Inner Join</h2>
@@ -3326,7 +3335,7 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Customers(CustomerID, DishID)</em>:</p>
-<div id="d96bc529" class="cell" data-execution_count="45">
+<div id="189b22ab" class="cell" data-execution_count="45">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3372,7 +3381,7 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 </div>
 </div>
 <p>and <em>DimSum(DishID, DishName)</em>:</p>
-<div id="7b44abc9" class="cell" data-execution_count="46">
+<div id="1a889401" class="cell" data-execution_count="46">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">
@@ -3409,7 +3418,7 @@ R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
 
 </div><div class="column" style="width:47%;">
 <p>Find the customers who have ordered all dim sum dishes:</p>
-<div id="8aba90f8" class="cell" data-execution_count="47">
+<div id="acf13cf2" class="cell" data-execution_count="47">
 <div class="cell-output cell-output-display">
 
    <div style="text-align: center;">

@@ -1,6 +1,14 @@
 ---
 date: '2025-04-01'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 4/06, SUN'
+  topic: Homework 6 - Constructing a database
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343
 lecture-id: 20
+lecture-topics:
+- topic: When ready, the complete lecture will replace this one.
+  url: .
 title: Even more C-R-U-D
 ---
 

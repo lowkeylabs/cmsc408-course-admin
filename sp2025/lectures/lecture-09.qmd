@@ -1,6 +1,28 @@
 ---
 date: '2025-02-11'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 2/13, THU'
+  topic: Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329
+- options: target="_blank"
+  post_text: '- due 2/16, SUN'
+  topic: Homework 3 - Modeling Your World
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011
 lecture-id: 9
+lecture-topics:
+- topic: Practice Quiz 2 - Relational Algebra
+  url: _practice-quiz-2-relational-algebra-sp2025
+- topic: Homework 3 - Modeling your world
+  url: _homework-3-modeling-your-world-sp2025
+- topic: Join Examples
+  url: _join-examples
+- topic: Join Operations
+  url: _join-operations
+- topic: Join Use Cases
+  url: _join-use-cases
+- topic: Renaming and Division
+  url: _renaming-and-division
 title: Relational Algebra 2
 ---
 
@@ -48,8 +70,16 @@ housekeeping_vertical_spacer = "25px"
 {{< include ../../topics/_practice-quiz-2-relational-algebra-sp2025.qmd >}}
 # Homework 3 - Modeling your world
 {{< include ../../topics/_homework-3-modeling-your-world-sp2025.qmd >}}
+
+# Join Examples
+{{< include ../../topics/_join-examples.qmd >}}
+
 # Join Operations
 {{< include ../../topics/_join-operations.qmd >}}
+
+# Join Use Cases
+{{< include ../../topics/_join-use-cases.qmd >}}
+
 # Renaming and Division
 {{< include ../../topics/_renaming-and-division.qmd >}}
 <!-- lecture-block-end -->

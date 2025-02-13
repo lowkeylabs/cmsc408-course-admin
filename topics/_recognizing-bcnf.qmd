@@ -1,5 +1,4 @@
-
-# Recognizing BCNF
+<!-- # Recognizing BCNF -->
 
 ## Boyce-Codd Normal Form (BCNF) - Example 1
 
@@ -31,6 +30,7 @@ A relation is in BCNF if and only if it is in 1NF, and for every non-trivial fun
 :::
 :::
 ::::
+
 ### Trival:  $X \rightarrow X$
 
 ```{dot}
