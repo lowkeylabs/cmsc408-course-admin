@@ -1,0 +1,326 @@
+<!-- # Join Examples -->
+
+## Joining two tables
+
+:::: {.columns}
+::: {.column width=30%}
+### Example
+
+* Two relations - `Students` and `Courses`.
+
+* Foreign key in `Students` connects to Primary Key in `Courses`.
+
+* We get *different* joins depending on what happens to the tuples *WITHOUT* matching foreign keys.
+
+:::
+::: {.column width=70%}
+
+```{dot}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="4" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td><td><b>crs_id</b></td></tr>
+    <tr><td align="left">Amara Singh</td><td>1991</td><td>1</td><td port="r1">NULL</td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td align="left">Chen Wei</td><td>1978</td><td>3</td><td port="r3">NULL</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td>4</td><td port="r4">2</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td>5</td><td port="r5">3</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td>6</td><td port="r6">3</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c4">5</td><td>CMSC452</td><td>3</td></tr>
+</table>
+    >];
+
+    student:r2 -> course:c1 [label="" dir=none constraint=false];
+    student:r4 -> course:c2 [label="" dir=none constraint=false];
+    student:r5 -> course:c3 [label="" dir=none constraint=false];
+    student:r6 -> course:c3 [label="" dir=none constraint=false];
+
+}
+
+```
+:::
+::::
+
+## Example 1: Join example - *Inner Join* 
+
+:::: {.columns}
+::: {.column width=30%}
+### Example
+
+* Two relations - `Students` and `Courses`.
+
+* Foreign key in `Students` connects to Primary Key in `Courses`.
+
+* We get *different* joins depending on what happens to the tuples *WITHOUT* matching foreign keys.
+
+* In this example *We only keep records that connect, with valid foreign keys*.
+
+* This is an example of a *Inner Join*
+
+:::
+::: {.column width=70%}
+```{dot}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="4" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td><td><b>crs_id</b></td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td>4</td><td port="r4">2</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td>5</td><td port="r5">3</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td>6</td><td port="r6">3</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c3a">3</td><td>CMSC508</td><td>3</td></tr>
+</table>
+    >];
+
+    student:r2 -> course:c1 [label="" dir=none constraint=false];
+    student:r4 -> course:c2 [label="" dir=none constraint=false];
+    student:r5 -> course:c3 [label="" dir=none constraint=false];
+    student:r6 -> course:c3a [label="" dir=none constraint=false];
+
+}
+
+```
+
+:::
+::::
+
+
+## Example 2: Join example - *Left Join* or *Left Outer Join*
+
+:::: {.columns}
+::: {.column width=30%}
+### Example
+
+* Two relations - `Students` and `Courses`.
+
+* Foreign key in `Students` connects to Primary Key in `Courses`.
+
+* We get *different* joins depending on what happens to the tuples *WITHOUT* matching foreign keys.
+
+* In this example *We Keep records from the left table that don't connect with the right table*.
+
+* One record from the right table didn't have a match, so it's dropped from the resulting relation.
+
+* This is an example of a *Left Join*
+
+:::
+::: {.column width=70%}
+```{dot}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="4" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td><td><b>crs_id</b></td></tr>
+    <tr><td align="left">Amara Singh</td><td>1991</td><td>1</td><td port="r1">NULL</td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td align="left">Chen Wei</td><td>1978</td><td>3</td><td port="r3">NULL</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td>4</td><td port="r4">2</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td>5</td><td port="r5">3</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td>6</td><td port="r6">3</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c0">NULL</td><td>NULL</td><td>NULL</td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c00">NULL</td><td>NULL</td><td>NULL</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c3a">3</td><td>CMSC508</td><td>3</td></tr>
+</table>
+    >];
+
+    student:r1 -> course:c0 [label="" dir=none constraint=false];
+    student:r2 -> course:c1 [label="" dir=none constraint=false];
+    student:r3 -> course:c00 [label="" dir=none constraint=false];
+    student:r4 -> course:c2 [label="" dir=none constraint=false];
+    student:r5 -> course:c3 [label="" dir=none constraint=false];
+    student:r6 -> course:c3a [label="" dir=none constraint=false];
+
+}
+
+```
+
+:::
+::::
+
+
+## Example 3: Join example - *Right Join* or *Right Outer Join*
+
+:::: {.columns}
+::: {.column width=30%}
+### Example
+
+* Two relations - `Students` and `Courses`.
+
+* Foreign key in `Students` connects to Primary Key in `Courses`.
+
+* We get *different* joins depending on what happens to the tuples *WITHOUT* matching foreign keys.
+
+* In this example *We keep all records from the right table even without a match, and only
+keep tables from the left that have a match*.
+
+* This is an example of a *Right Join*
+
+:::
+::: {.column width=70%}
+```{dot}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="4" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td><td><b>crs_id</b></td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td>4</td><td port="r4">2</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td>5</td><td port="r5">3</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td>6</td><td port="r6">3</td></tr>
+    <tr><td align="left">NULL</td><td>NULL</td><td>NULL</td><td port="r7">NULL</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c3a">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c4">5</td><td>CMSC452</td><td>3</td></tr>
+</table>
+    >];
+
+    student:r2 -> course:c1 [label="" dir=none constraint=false];
+    student:r4 -> course:c2 [label="" dir=none constraint=false];
+    student:r5 -> course:c3 [label="" dir=none constraint=false];
+    student:r6 -> course:c3a [label="" dir=none constraint=false];
+    student:r7 -> course:c4 [label="" dir=none constraint=false];
+
+}
+
+```
+
+:::
+::::
+
+## Example 4: Join example - *Outer Join* or *Full Outer Join*
+
+:::: {.columns}
+::: {.column width=30%}
+### Example
+
+* Two relations - `Students` and `Courses`.
+
+* Foreign key in `Students` connects to Primary Key in `Courses`.
+
+* We get *different* joins depending on what happens to the tuples *WITHOUT* matching foreign keys.
+
+* In this example *We keep records at least one record from both tables*.
+
+* This is an example of a *Outer Join* or *Full Outer Join*
+
+:::
+::: {.column width=70%}
+```{dot}
+//| echo: false
+//| fig-width: 550px
+//| fig-height: 250px
+digraph RelationalDataModel {
+
+    graph [nodesep=1.0 bgcolor=transparent]
+    node [shape=plaintext fontname="Arial" fontsize=10 color="cyan"];
+
+    student [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="4" align="center"><b>Students</b></td></tr>
+    <tr><td><b>name</b></td><td><b>year</b></td><td><b>id</b></td><td><b>crs_id</b></td></tr>
+    <tr><td align="left">Amara Singh</td><td>1991</td><td>1</td><td port="r1">NULL</td></tr>
+    <tr><td align="left">Youssef El-Mohamed</td><td>1987</td><td>2</td><td port="r2">1</td></tr>
+    <tr><td align="left">Chen Wei</td><td>1978</td><td>3</td><td port="r3">NULL</td></tr>
+    <tr><td align="left">Olga Petrova</td><td>NULL</td><td>4</td><td port="r4">2</td></tr>
+    <tr><td align="left">Kwame Nkrumah</td><td>1965</td><td>5</td><td port="r5">3</td></tr>
+    <tr><td align="left">Lucia Gonzalez</td><td>1980</td><td>6</td><td port="r6">3</td></tr>
+    <tr><td align="left">NULL</td><td>NULL</td><td>NULL</td><td port="r7">NULL</td></tr>
+</table>
+    >];
+
+    course [label=<
+<table border="0" cellborder="1" cellspacing="0">
+    <tr><td colspan="3" align="center"><b>Courses</b></td></tr>
+    <tr><td><b>id</b></td><td><b>name</b></td><td><b>hours</b></td></tr>
+    <tr><td port="c0">NULL</td><td>NULL</td><td>NULL</td></tr>
+    <tr><td port="c1">1</td><td>CMSC391</td><td>3</td></tr>
+    <tr><td port="c00">NULL</td><td>NULL</td><td>NULL</td></tr>
+    <tr><td port="c2">2</td><td>CMSC475</td><td>3</td></tr>
+    <tr><td port="c3">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c3a">3</td><td>CMSC508</td><td>3</td></tr>
+    <tr><td port="c4">5</td><td>CMSC452</td><td>3</td></tr>
+</table>
+    >];
+
+    student:r1 -> course:c0 [label="" dir=none constraint=false];
+    student:r2 -> course:c1 [label="" dir=none constraint=false];
+    student:r3 -> course:c00 [label="" dir=none constraint=false];
+    student:r4 -> course:c2 [label="" dir=none constraint=false];
+    student:r5 -> course:c3 [label="" dir=none constraint=false];
+    student:r6 -> course:c3a [label="" dir=none constraint=false];
+    student:r7 -> course:c4 [label="" dir=none constraint=false];
+}
+
+```
+
+:::
+::::

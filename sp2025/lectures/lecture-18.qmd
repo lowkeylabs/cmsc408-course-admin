@@ -1,28 +1,34 @@
 ---
 date: '2025-03-25'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 3/27, THU'
+  topic: Quiz 4 - SQL Basics
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331
+- options: target="_blank"
+  post_text: '- due 3/30, SUN'
+  topic: Deliverable 6 - Docker Scaffold
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772
 lecture-id: 18
+lecture-topics:
+- topic: When ready, the complete lecture will replace this one.
+  url: .
 title: SQL C-R-U-D
 ---
 
 ```{python}
 #| echo: false
-#| label: setup
-lecture_id = 18
-n_rows = 8
-
-housekeeping_margin_column_width = "9%"
-housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
-
-housekeeping_vertical_spacer = "25px"
-
-discussion_items = [
-    'This is a placeholder Lecture.'
-]
-
-lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
-]
+this_file = 'lecture-18.qmd'
 ```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# When ready, the complete lecture will replace this one.
+<!-- no url provided in Topics tab -->
+<!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

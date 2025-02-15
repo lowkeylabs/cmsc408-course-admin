@@ -1,0 +1,4 @@
+
+# sample.qmd
+
+{{< include "_sample.qmd" >}}

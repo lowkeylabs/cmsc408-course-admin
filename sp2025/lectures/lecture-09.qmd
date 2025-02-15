@@ -1,57 +1,65 @@
 ---
 date: '2025-02-11'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 2/13, THU'
+  topic: Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329
+- options: target="_blank"
+  post_text: '- due 2/16, SUN'
+  topic: Homework 3 - Modeling Your World
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011
 lecture-id: 9
+lecture-topics:
+- topic: Practice Quiz 2 - Relational Algebra
+  url: _practice-quiz-2-relational-algebra-sp2025.qmd
+- topic: Homework 3 - Modeling your world
+  url: _homework-3-modeling-your-world-sp2025.qmd
+- topic: Join Examples
+  url: _join-examples.qmd
+- topic: Join Operations
+  url: _join-operations.qmd
+- topic: Join Use Cases
+  url: _join-use-cases.qmd
+- topic: Renaming and Division
+  url: _renaming-and-division.qmd
 title: Relational Algebra 2
 ---
 
 ```{python}
 #| echo: false
-#| label: setup
-from cnvsapi.config import config
-from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, expand_file
-
-# Uncomment as necessary.  These take time to load so only use what you need.
-
-#pages = config.get_pages()
-#quizzes = config.get_quizzes()
-assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
-quizzes = config.get_quizzes()
-
-discussion_items = [
-    f'{expand_quiz(quizzes, "Quiz 2","Quiz 2 - Relational Algebra - Requires Respondus LockDown Browser + Webcam", url_type="anchor", target="_blank")} - due Feb. 13, THURS',
-    f'{expand_assignment(assignments,"Homework 3 - ER Modeling ","Homework 3 - Modeling your world",url_type="anchor")} - due Feb. 16, SUN',
-]
-
-lecture_topics = [
-    '[Practice Quiz 2 discussion](#practice-quiz-2---relational-algebra)',
-    '[Homework 3 - Modeling Your World](#homework-3---modeling-your-world)',
-    '[Join Operations](#join-operations)',
-    '[Renaming and Division](#renaming-and-division)',
-]
-
-lecture_id = 9
-n_rows = 8
-
-housekeeping_margin_column_width = "9%"
-housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
-
-housekeeping_vertical_spacer = "25px"
-
+this_file = 'lecture-09.qmd'
 ```
 
-
+{{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+
 # Practice Quiz 2 - Relational Algebra
+
 {{< include ../../topics/_practice-quiz-2-relational-algebra-sp2025.qmd >}}
+
 # Homework 3 - Modeling your world
+
 {{< include ../../topics/_homework-3-modeling-your-world-sp2025.qmd >}}
+
+# Join Examples
+
+{{< include ../../topics/_join-examples.qmd >}}
+
 # Join Operations
+
 {{< include ../../topics/_join-operations.qmd >}}
+
+# Join Use Cases
+
+{{< include ../../topics/_join-use-cases.qmd >}}
+
 # Renaming and Division
+
 {{< include ../../topics/_renaming-and-division.qmd >}}
 <!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

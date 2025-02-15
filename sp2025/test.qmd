@@ -1,0 +1,25 @@
+---
+title: sample code
+format: html
+---
+
+# Direct include
+
+The graphviz plot below is generated from code in an *include* metacode.  The block below works as expected.
+
+{{< include "_sample.qmd" >}}
+
+
+# Include from python
+
+The next plot is not being redered properly.  Rather than a figure, it's displaying the contents of the graphviz diagram as code.
+
+
+```{python}
+#| echo: false
+#| output: asis
+
+print('\n\n{{< include "_sample.qmd" >}}')
+
+```
+

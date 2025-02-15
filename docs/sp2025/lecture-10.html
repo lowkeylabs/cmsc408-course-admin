@@ -12,7 +12,7 @@
 <link href="lecture-10_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.40">
 
-  <title>Analysis and Normal Forms 2</title>
+  <title>Analysis and Normal Forms 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -137,7 +137,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Analysis and Normal Forms 2</h1>
+  <h1 class="title">Analysis and Normal Forms 1</h1>
   <p class="subtitle">Lecture 10</p>
 
 <div class="quarto-title-authors">
@@ -148,17 +148,18 @@
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <div class="columns">
-<div class="column" style="width:9%;">
+<div class="column" style="width:5%;">
 
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>This is a placeholder Lecture.</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075915">Discussion 3 - Normal forms</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390">Practice Quiz 3 - Analysis and Normal Forms</a></p></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>When ready, the complete lecture will replace this one.</li>
+<li><a href="#/analysis-and-normal-forms">Analysis and Normal Forms</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -184,7 +185,7 @@
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">2/18</td>
 <td style="text-align: center;">Tue</td>
-<td>L10:Analysis and Normal Forms 2</td>
+<td>L10:Analysis and Normal Forms 1</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -192,7 +193,7 @@
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">2/20</td>
 <td style="text-align: center;">Thu</td>
-<td>L11:Analysis and Normal Forms 3</td>
+<td>L11:Analysis and Normal Forms 2</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -208,7 +209,7 @@
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">2/25</td>
 <td style="text-align: center;">Tue</td>
-<td>L12:Analysis and Normal Forms 4</td>
+<td>L12:Analysis and Normal Forms 3</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
 <tr class="odd">
@@ -216,7 +217,7 @@
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">2/27</td>
 <td style="text-align: center;">Thu</td>
-<td>L13:Analysis and Normal Forms 5</td>
+<td>L13:Analysis and Normal Forms 4</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -232,7 +233,2129 @@
 <td style="text-align: center;">8</td>
 <td style="text-align: center;">3/4</td>
 <td style="text-align: center;">Tue</td>
-<td>L14:Analysis and Normal Forms 6</td>
+<td>L14:Analysis and Normal Forms 5</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">3/6</td>
+<td style="text-align: center;">Thu</td>
+<td>L15:Intro to SQL</td>
+<td>Q3:Analysis and Normal Forms</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- lecture-block-begin -->
+</section>
+<section>
+<section id="analysis-and-normal-forms" class="title-slide slide level1 center">
+<h1>Analysis and Normal Forms</h1>
+<!-- # Analysis and Normal forms -->
+</section>
+<section id="relational-database-design-to-date" class="slide level2 scrollable">
+<h2>Relational database design to date</h2>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li>Identify main entities and relationships
+<ul>
+<li>Chen diagrams</li>
+</ul></li>
+<li>Populate entities with attributes
+<ul>
+<li>Chen diagrams</li>
+<li>Crows foot diagrams</li>
+</ul></li>
+<li>Define the cardinality and participation of the relationships
+<ul>
+<li>Crows foot diagrams</li>
+</ul></li>
+<li>Refine and simplify the model
+<ul>
+<li>Relational model notation</li>
+</ul></li>
+<li>Translate the model to relational schemas
+<ul>
+<li>Define keys</li>
+<li>Define queries using relational algebra</li>
+</ul></li>
+</ol>
+</div><div class="column">
+<div style="text-align:center; font-size:20pt">
+<p><strong>Are we there yet?</strong></p>
+<p>NO!!!! Then what else?</p>
+<p><img data-src="assets/beyond-here-there-be-dragons.png"></p>
+</div>
+</div></div>
+</section>
+<section id="in-the-beginning-there-was-a-google-form" class="slide level2">
+<h2>In the beginning … there was a google form …</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/fd-example-form.png" class="quarto-figure quarto-figure-center" height="390"></p>
+</figure>
+</div>
+</section>
+<section id="and-then-there-were-data-but" class="slide level2">
+<h2>… and then there were data, but …</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 36%">
+<col style="width: 22%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>Course</th>
+<th>Instructor</th>
+<th>Languages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508 Databases</td>
+<td>John Leonard</td>
+<td>SQL, Python, Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508 Databases</td>
+<td>Alberto Cano</td>
+<td>SQL, Python, C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC475 UI/UX design</td>
+<td>John Leonar</td>
+<td>Javascript, Python</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC441 Capstone</td>
+<td>Bob Dahlberg</td>
+<td>COBOL, FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320 Data Structures</td>
+<td>Sarah Adams</td>
+<td>C++, Java, Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC210 Software Design</td>
+<td>Michael Turner</td>
+<td>Java, C#</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC515 Computer Vision</td>
+<td>Emily Parker</td>
+<td>Python, MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430 Web Development</td>
+<td>Jessica Clark</td>
+<td>HTML, CSS, JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CMSC610 Machine Learning</td>
+<td>Albert Cano</td>
+<td>Python, R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:40%;">
+<p><strong>But the data were ill-formed and unusable</strong></p>
+<ul>
+<li>Each row represents a response</li>
+<li>Can relational algebra be used?</li>
+<li>Which instructors know SQL?</li>
+<li>Who teaches CMSC508?</li>
+<li>Is there redundant data?</li>
+<li>Are there typos?</li>
+</ul>
+<p><strong>How do we describe what we see?</strong></p>
+<p><strong>How do we fix it?</strong></p>
+<p><strong>How do we know when it’s fixed?</strong></p>
+</div></div>
+</section>
+<section id="normal-forms" class="slide level2">
+<h2>Normal forms</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Database normalization is the process of reorganizing the relations to minimize data redundancy.</p>
+<p>Normalization involves breaking down a table into less redundant and smaller tables without losing information by using functional dependencies.</p>
+<p>The objective is to isolate data to minimize duplicates and so modifications of an attribute can be made in just one table and then propagated through the rest of the database using the defined foreign keys and joins.</p>
+<p>Escalating through the different normal forms removes more and more redundancy.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/normal-forms-picture.png"></p>
+</div></div>
+</section>
+<section id="normal-forms-1" class="slide level2">
+<h2>Normal forms</h2>
+<div class="columns">
+<div class="column">
+<h3 id="the-usual-suspects">The usual suspects</h3>
+<dl>
+<dt>First Normal Form - 1NF</dt>
+<dd>
+A relation is in 1NF if and only if the domain of each attribute contains only atomic (indivisible) values and the value of each attribute contains only a single value from that domain.
+</dd>
+<dt>Second Normal Form - 2NF</dt>
+<dd>
+A relation is in 2NF if and only if it is in 1NF and all non-prime attributes (attributes not part of any candidate key) are fully functionally dependent on the entire candidate key.
+</dd>
+<dt>Third Normal Form - 3NF</dt>
+<dd>
+A relation is in 3NF if and only if it is in 2NF, and it has no transitive dependencies.
+</dd>
+<dt>Boyce-Codd Normal Form - BCNF</dt>
+<dd>
+A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency A -&gt; B, A is a superkey.
+</dd>
+</dl>
+</div><div class="column">
+<h3 id="crazy-talk">Crazy talk</h3>
+<dl>
+<dt>Fourth Normal Form - 4NF</dt>
+<dd>
+A relation is in 4NF if and only if it is in BCNF, and it has no multi-valued dependencies.
+</dd>
+<dt>Fifth Normal Form - 5NF</dt>
+<dd>
+A relation is in 5NF if and only if it is in 4NF, and it avoids join dependencies.
+</dd>
+<dt>Sixth Normal Form - 6NF</dt>
+<dd>
+A relation is in 6NF if and only if it is in 5NF, and it further eliminates all join dependencies and assures that every join dependency can be enforced by the superkeys of the relation.
+</dd>
+<dt>Seventh Normal Form - 7NF</dt>
+<dd>
+A relation is in 7NF if and only if it is in 6NF, and it eliminates all combinatorial join dependencies, ensuring that every possible join dependency is addressed.
+</dd>
+</dl>
+</div></div>
+</section>
+<section id="lets-get-normal---our-starting-position" class="slide level2">
+<h2>Let’s get normal - Our starting position</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 36%">
+<col style="width: 22%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>Course</th>
+<th>Instructor</th>
+<th>Languages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508 Databases</td>
+<td>John Leonard</td>
+<td>SQL, Python, Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508 Databases</td>
+<td>Alberto Cano</td>
+<td>SQL, Python, C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC475 UI/UX design</td>
+<td>John Leonar</td>
+<td>Javascript, Python</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC441 Capstone</td>
+<td>Bob Dahlberg</td>
+<td>COBOL, FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320 Data Structures</td>
+<td>Sarah Adams</td>
+<td>C++, Java, Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC210 Software Design</td>
+<td>Michael Turner</td>
+<td>Java, C#</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC515 Computer Vision</td>
+<td>Emily Parker</td>
+<td>Python, MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430 Web Development</td>
+<td>Jessica Clark</td>
+<td>HTML, CSS, JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CMSC610 Machine Learning</td>
+<td>Albert Cano</td>
+<td>Python, R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:39%;">
+<div title="First Normal Form">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>First Normal Form</strong></p>
+</div>
+<div class="callout-content">
+<p>A relation is in 1NF if and only if the domain of each attribute contains only atomic (indivisible) values and the value of each attribute contains only a single value from that domain.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:10pt">
+<ul>
+<li>No multi-valued attributes. No arrays/lists in a cell.</li>
+<li>NOT REQUIRED BUT YOU SHOULD: break composite values</li>
+</ul>
+</div>
+<h3 id="ok---lets-do-it.">OK - let’s do it.</h3>
+<div style="margin-top:-10px">
+<p>First, we remove multi-valued attributes by giving <em>Languages</em> their own row</p>
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+</div></div>
+</section>
+<section id="lets-get-normal---first-normal-form" class="slide level2">
+<h2>Let’s get normal - First normal form</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>Course</th>
+<th>Instructor</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508 Databases</td>
+<td>John Leonard</td>
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>CMSC508 Databases</td>
+<td>John Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508 Databases</td>
+<td>John Leonard</td>
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508 Databases</td>
+<td>Alberto Cano</td>
+<td>SQL</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>CMSC508 Databases</td>
+<td>Alberto Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508 Databases</td>
+<td>Alberto Cano</td>
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC475 UI/UX design</td>
+<td>John Leonard</td>
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>CMSC475 UI/UX design</td>
+<td>John Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>CMSC441 Capstone</td>
+<td>Bob Dahlberg</td>
+<td>COBOL</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC441 Capstone</td>
+<td>Bob Dahlberg</td>
+<td>FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320 Data Structures</td>
+<td>Sarah Adams</td>
+<td>C++</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>CMSC320 Data Structures</td>
+<td>Sarah Adams</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320 Data Structures</td>
+<td>Sarah Adams</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC210 Software Design</td>
+<td>Michael Turner</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>CMSC210 Software Design</td>
+<td>Michael Turner</td>
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC515 Computer Vision</td>
+<td>Emily Parker</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC515 Computer Vision</td>
+<td>Emily Parker</td>
+<td>MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430 Web Development</td>
+<td>Jessica Clark</td>
+<td>HTML</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>CMSC430 Web Development</td>
+<td>Jessica Clark</td>
+<td>CSS</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430 Web Development</td>
+<td>Jessica Clark</td>
+<td>JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CMSC610 Machine Learning</td>
+<td>Alberto Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>CMSC610 Machine Learning</td>
+<td>Alberto Cano</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:39%;">
+<div title="First Normal Form">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>First Normal Form</strong></p>
+</div>
+<div class="callout-content">
+<p>A relation is in 1NF if and only if the domain of each attribute contains only atomic (indivisible) values and the value of each attribute contains only a single value from that domain.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:10pt">
+<ul>
+<li>No multi-valued attributes. No arrays/lists in a cell.</li>
+<li>NOT REQUIRED BUT YOU SHOULD: break composite values</li>
+</ul>
+</div>
+<h3 id="dont-stop-now---lets-keep-going">Don’t stop now - let’s keep going!</h3>
+<div style="margin-top:-10px">
+<p>Now let’s separate the composite attributes <em>Course</em> and <em>Instructor</em> into components.</p>
+</div>
+</div></div>
+</section>
+<section id="lets-get-normal---first-normal-form-1" class="slide level2 scrollable">
+<h2>Let’s get normal - First Normal Form</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div style="font-size:10pt">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 19%">
+<col style="width: 28%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>First</th>
+<th>Last</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>John</td>
+<td>Leonard</td>
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>SQL</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>COBOL</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>C++</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>HTML</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>CSS</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:39%;">
+<div title="First Normal Form">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>First Normal Form</strong></p>
+</div>
+<div class="callout-content">
+<p>A relation is in 1NF if and only if the domain of each attribute contains only atomic (indivisible) values and the value of each attribute contains only a single value from that domain.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:10pt">
+<ul>
+<li>No multi-valued attributes. No arrays/lists in a cell.</li>
+<li>NOT REQUIRED BUT YOU SHOULD: break composite values</li>
+</ul>
+</div>
+<h3 id="where-do-we-go-from-here">Where do we go from here?</h3>
+<div style="margin-top:-10px">
+<ol type="A">
+<li>How many entities do we have?</li>
+<li>Can you identify redundancies?</li>
+<li>What is primary/candidate key? Why?</li>
+<li>What are functional dependencies?</li>
+<li>How would you remove redundancies?</li>
+</ol>
+</div>
+</div></div>
+</section>
+<section id="goal---get-to-boyce-codd-normal-form-3.5nf" class="slide level2">
+<h2>Goal - get to Boyce Codd Normal Form (3.5NF)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div style="font-size:10pt">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 19%">
+<col style="width: 28%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>First</th>
+<th>Last</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>John</td>
+<td>Leonard</td>
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>SQL</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>COBOL</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>C++</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>HTML</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>CSS</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:39%;">
+<div title="BCNF or 3.5NF">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>BCNF or 3.5NF</strong></p>
+</div>
+<div class="callout-content">
+<p>A relation is in BCNF if and only if it is in 1NF, and for every non-trivial functional dependency A -&gt; B, A is a superkey.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:10pt">
+<dl>
+<dt>Keys</dt>
+<dd>
+Uniquely define entire rows.
+</dd>
+<dt>Functional Dependencies</dt>
+<dd>
+Uniquely defines relationships within rows.
+</dd>
+<dt>BCNF</dt>
+<dd>
+If you have a relationship within a row, it better be with a key!
+</dd>
+</dl>
+<p><em>The key, the whole key and nothing but the key, so help me Codd!</em></p>
+</div>
+<h3 id="how-do-we-get-there-from-here">How do we get there from here?</h3>
+<div style="margin-top:-10px">
+<p>We need to decompose the table replacing duplicate data with foreign keys. This will remove redundancy at the expense of creating new tables with joins.</p>
+</div>
+</div></div>
+</section>
+<section id="here-is-there---a-fully-bcnf-schema" class="slide level2">
+<h2>Here is there - a fully BCNF schema</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>Course Code</th>
+<th>First</th>
+<th>Last</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>John</td>
+<td>Leonard</td>
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>CMSC508</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>SQL</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>CMSC508</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC508</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC475</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>CMSC475</td>
+<td>John</td>
+<td>Leonard</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>CMSC441</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>COBOL</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC441</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>C++</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>CMSC320</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC320</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC210</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>CMSC210</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>CMSC515</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC515</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>HTML</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>CMSC430</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>CSS</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC430</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CMSC610</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>CMSC610</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:28%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Course Code</th>
+<th>Course Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMSC210</td>
+<td>Software Design</td>
+</tr>
+<tr class="even">
+<td>CMSC320</td>
+<td>Data Structures</td>
+</tr>
+<tr class="odd">
+<td>CMSC430</td>
+<td>Web Development</td>
+</tr>
+<tr class="even">
+<td>CMSC441</td>
+<td>Capstone</td>
+</tr>
+<tr class="odd">
+<td>CMSC475</td>
+<td>UI/UX design</td>
+</tr>
+<tr class="even">
+<td>CMSC508</td>
+<td>Databases</td>
+</tr>
+<tr class="odd">
+<td>CMSC515</td>
+<td>Computer Vision</td>
+</tr>
+<tr class="even">
+<td>CMSC610</td>
+<td>Machine Learning</td>
+</tr>
+</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>First</th>
+<th>Last</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alberto</td>
+<td>Cano</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Dahlberg</td>
+</tr>
+<tr class="odd">
+<td>Sarah</td>
+<td>Adams</td>
+</tr>
+<tr class="even">
+<td>John</td>
+<td>Leonard</td>
+</tr>
+<tr class="odd">
+<td>Michael</td>
+<td>Turner</td>
+</tr>
+<tr class="even">
+<td>Emily</td>
+<td>Parker</td>
+</tr>
+<tr class="odd">
+<td>Jessica</td>
+<td>Clark</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:10%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>COBOL</td>
+</tr>
+<tr class="odd">
+<td>FORTRAN</td>
+</tr>
+<tr class="even">
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>MATLAB</td>
+</tr>
+<tr class="odd">
+<td>HTML</td>
+</tr>
+<tr class="even">
+<td>CSS</td>
+</tr>
+<tr class="odd">
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:9%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>RID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+</tr>
+<tr class="even">
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+</tr>
+<tr class="even">
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+</section>
+<section id="try-2---towards-bcnf" class="slide level2">
+<h2>Try 2 - towards BCNF</h2>
+<div style="font-size:10pt">
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>CID</th>
+<th>Course Code</th>
+<th>Course Name</th>
+<th>PID</th>
+<th>First</th>
+<th>Last</th>
+<th>LID</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>1</td>
+<td>John</td>
+<td>Leonard</td>
+<td>1</td>
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>1</td>
+<td>John</td>
+<td>Leonard</td>
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>1</td>
+<td>John</td>
+<td>Leonard</td>
+<td>3</td>
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>2</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>1</td>
+<td>SQL</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>2</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+<td>2</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>4</td>
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+<td>1</td>
+<td>John</td>
+<td>Leonard</td>
+<td>5</td>
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+<td>1</td>
+<td>John</td>
+<td>Leonard</td>
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>3</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+<td>3</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>6</td>
+<td>COBOL</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+<td>3</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+<td>7</td>
+<td>FORTRAN</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>4</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>4</td>
+<td>C++</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>4</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>8</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+<td>4</td>
+<td>Sarah</td>
+<td>Adams</td>
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>5</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+<td>5</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>8</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>5</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+<td>5</td>
+<td>Michael</td>
+<td>Turner</td>
+<td>9</td>
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>6</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+<td>6</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>6</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+<td>6</td>
+<td>Emily</td>
+<td>Parker</td>
+<td>10</td>
+<td>MATLAB</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>7</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>7</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>11</td>
+<td>HTML</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>7</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>7</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>12</td>
+<td>CSS</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>7</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+<td>7</td>
+<td>Jessica</td>
+<td>Clark</td>
+<td>5</td>
+<td>JavaScript</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>8</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+<td>2</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>8</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+<td>2</td>
+<td>Alberto</td>
+<td>Cano</td>
+<td>13</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="try-2---final-bcnf-solution" class="slide level2">
+<h2>Try 2 - Final BCNF solution</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>CID</th>
+<th>Course Code</th>
+<th>Course Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CMSC508</td>
+<td>Databases</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>CMSC475</td>
+<td>UI/UX design</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>CMSC441</td>
+<td>Capstone</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>CMSC320</td>
+<td>Data Structures</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CMSC210</td>
+<td>Software Design</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>CMSC515</td>
+<td>Computer Vision</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>CMSC430</td>
+<td>Web Development</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>CMSC610</td>
+<td>Machine Learning</td>
+</tr>
+</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>PID</th>
+<th>First</th>
+<th>Last</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>John</td>
+<td>Leonard</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Alberto</td>
+<td>Cano</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Bob</td>
+<td>Dahlberg</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Sarah</td>
+<td>Adams</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Michael</td>
+<td>Turner</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Emily</td>
+<td>Parker</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Jessica</td>
+<td>Clark</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:12%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>LID</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>SQL</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Python</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Perl</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>C++</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Javascript</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>COBOL</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>FORTRAN</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Java</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>C#</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>MATLAB</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>HTML</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>CSS</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:5%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>RID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+</tr>
+<tr class="even">
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+</tr>
+<tr class="even">
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:15%;">
+<div style="font-size:10pt">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>RID</th>
+<th>CID</th>
+<th>PID</th>
+<th>LID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>6</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>6</td>
+<td>6</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>7</td>
+<td>7</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>7</td>
+<td>7</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>7</td>
+<td>7</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>8</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>8</td>
+<td>2</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:42%;">
+<h3 id="discussion">Discussion</h3>
+<ul>
+<li>The attributes in each relation depend on the primary key, the whole key and nothing else.</li>
+<li>No duplicates in each table.</li>
+<li>We can reconstruct the original table</li>
+</ul>
+<div style="font-size:10pt">
+<p><span class="math display">\[
+Original = Join \bowtie Crse \bowtie Inst \bowtie Lang \bowtie Resp
+\]</span></p>
+<h3 id="queries">Queries</h3>
+<p>Who knows SQL? <span class="math display">\[
+\pi_{(First, Last)}(\theta_{(Language=SQL)}Join \bowtie Lang \bowtie Inst)
+\]</span></p>
+<p>What courses are taught by python programmers?</p>
+<p><span class="math display">\[
+\pi_{Course Name}(\theta_{(Language=python)}Join \bowtie Lang \bowtie Inst \bowtie Crse)
+\]</span></p>
+<p>What languages are known by instructors of CMSC508?</p>
+<p><span class="math display">\[
+\pi_{Language}(\theta_{(Course Code=CMSC508)}Join \bowtie Lang \bowtie Inst \bowtie Crse)
+\]</span></p>
+</div>
+</div></div>
+</section>
+<section id="this-cs---we-need-an-algorithm" class="slide level2">
+<h2>This CS - we need an algorithm!</h2>
+<p>The preceding examples show how an original table can be decomposed to minimize redundancy and improve integrity.</p>
+<p>
+&nbsp;
+</p>
+<p>This manual, <em>by inspection</em> approach is not acceptable for computer science!</p>
+<p>
+&nbsp;
+</p>
+<p>So of course, we can develop a notation and implement an algoritm to analyze relations.</p>
+<p>
+&nbsp;
+</p>
+<p>This algorithm can be used to clean up original tables, or verify existing tables are BCNF.</p>
+<p>
+&nbsp;
+</p>
+<p>We’ll be spending the next bunch of lectures working with these algorithms.</p>
+<!-- lecture-block-end -->
+</section>
+<section id="housekeeping-1" class="slide level2">
+<h2>Housekeeping</h2>
+<div class="columns">
+<div class="column" style="width:5%;">
+
+</div><div class="column" style="width:52%;">
+<h3 id="discussion-items-1">Discussion items</h3>
+<ul>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075915">Discussion 3 - Normal forms</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390">Practice Quiz 3 - Analysis and Normal Forms</a></p></li>
+</ul>
+</div><div class="column" style="width:43%;">
+<h3 id="lecture-topics-1">Lecture topics</h3>
+<ul>
+<li><a href="#/analysis-and-normal-forms">Analysis and Normal Forms</a></li>
+</ul>
+</div></div>
+<div style="margin-top:25px">
+<p>&nbsp;</p>
+</div>
+
+    <style></style>
+    <div class="upcoming-calendar">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Week</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Notes and Lectures</th>
+<th data-quarto-table-cell-role="th">Activities and due dates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2/18</td>
+<td style="text-align: center;">Tue</td>
+<td>L10:Analysis and Normal Forms 1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2/20</td>
+<td style="text-align: center;">Thu</td>
+<td>L11:Analysis and Normal Forms 2</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2/23</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>Dis3:Normal forms</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">Tue</td>
+<td>L12:Analysis and Normal Forms 3</td>
+<td>PQ3:Analysis and Normal Forms</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">2/27</td>
+<td style="text-align: center;">Thu</td>
+<td>L13:Analysis and Normal Forms 4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">3/2</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>Prj5:Design Documentation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">3/4</td>
+<td style="text-align: center;">Tue</td>
+<td>L14:Analysis and Normal Forms 5</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -261,7 +2384,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>

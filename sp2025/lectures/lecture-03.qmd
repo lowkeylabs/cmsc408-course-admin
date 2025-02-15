@@ -1,48 +1,67 @@
 ---
 date: '2025-01-21'
+discussion-items:
+- options: target="_blank"
+  post_text: '- Find a partner! (past due!)'
+  topic: Deliverable 1 - Intros
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356
+- options: target="_blank"
+  post_text: '- due 1/26, SUN'
+  topic: Deliverable 2 - Team Formation
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1131331
+- options: target="_blank"
+  post_text: '- Talking ER models (due Sun)'
+  topic: Discussion 1 - ER Modeling
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913
+- options: target="_blank"
+  post_text: '- Practice with Quarto (due Sun)'
+  topic: Homework 1 - DE Tool Review
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333
+- options: target="_blank"
+  post_text: '- (Due Next Thu)'
+  topic: Quiz 1 - ER Models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211165
+- options: target="_blank"
+  post_text: '- Lecture notes and study guide.'
+  topic: Study Guide
+  url: https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/
+- options: target="_blank"
+  post_text: '- due 1/23, THU'
+  topic: Practice Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081388
 lecture-id: 3
+lecture-topics:
+- topic: Practice 1 Quiz Walkthrough
+  url: _practice-quiz-1-walkthrough-sp2025.qmd
+- topic: Homework 1 - DE Tool Review
+  url: _homework-1-spring-2025.qmd
+- topic: Overview of Database Design
+  url: _overview-of-database-design.qmd
 title: 'Entity-relation models '
 ---
 
 ```{python}
 #| echo: false
-#| label: setup
-lecture_id = 3
-n_rows = 8
-
-housekeeping_margin_column_width = "1%"
-housekeeping_left_column_width="55%"
-housekeeping_right_column_width="30%"
-
-housekeeping_vertical_spacer = "25px"
-
-discussion_items = [
-    '[Deliverable 1 - Intros](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356) - Find a partner! (past due!)',
-    '[Deliverable 2 - Team Formation](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/218307) - Tell me your team (Due Sun)',
-    '[Discussion 1 - ER Modeling](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075913) - Talking ER models (due Sun)',
-    '[Homework 1 - DE Tool Review](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072333) - Practice with Quarto (due Sun)',
-    '[Practice Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211170) - (Due Wed ... but ...)',
-    '[Quiz 1 - ER Models](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211165) - (Due Next Thu)',
-	'[Study Guide](https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/) - Lecture notes and study guide.'
-]
-
-lecture_topics = [
-	'[Practice Quiz 1 Walkthrough](#practice-quiz-1-walkthrough)',
-    '[Homework 1 - DE Tool Review](#homework-1---de-tool-review)',
-    '[Overview of DB design](#overview-of-database-design)',
-]
+this_file = 'lecture-03.qmd'
 ```
 
-
+{{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+
 # Practice 1 Quiz Walkthrough
+
 {{< include ../../topics/_practice-quiz-1-walkthrough-sp2025.qmd >}}
+
 # Homework 1 - DE Tool Review
+
 {{< include ../../topics/_homework-1-spring-2025.qmd >}}
+
 # Overview of Database Design
+
 {{< include ../../topics/_overview-of-database-design.qmd >}}
 <!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

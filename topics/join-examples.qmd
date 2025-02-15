@@ -1,0 +1,7 @@
+---
+title: "Join Examples"
+---
+
+{{< include '_join-examples.qmd' >}}
+
+    

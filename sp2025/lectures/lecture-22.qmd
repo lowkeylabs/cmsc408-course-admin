@@ -1,28 +1,30 @@
 ---
 date: '2025-04-08'
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 4/13, SUN'
+  topic: Homework 7 - Joining tables and reporting
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345
 lecture-id: 22
+lecture-topics:
+- topic: When ready, the complete lecture will replace this one.
+  url: .
 title: Joins and Selects 2
 ---
 
 ```{python}
 #| echo: false
-#| label: setup
-lecture_id = 22
-n_rows = 8
-
-housekeeping_margin_column_width = "9%"
-housekeeping_left_column_width="45%"
-housekeeping_right_column_width="40%"
-
-housekeeping_vertical_spacer = "25px"
-
-discussion_items = [
-    'This is a placeholder Lecture.'
-]
-
-lecture_topics = [
-    'When ready, the complete lecture will replace this one.'
-]
+this_file = 'lecture-22.qmd'
 ```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# When ready, the complete lecture will replace this one.
+<!-- no url provided in Topics tab -->
+<!-- lecture-block-end -->
+
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
