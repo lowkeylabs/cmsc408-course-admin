@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cmsc408-course-admin"
-version = "0.2.4"
+version = "0.2.5"
 description = ""
 authors = ["John Leonard <jdleonard@vcu.edu>"]
 readme = "README.md"
@@ -19,8 +19,8 @@ pandas = "^2.0.3"
 numpy = "^2.1.0"
 loguru = "^0.7.0"
 python-frontmatter = "^1.0.0"
-cnvsapi = {path = "./helpers/cnvsapi-0.9.25-py3-none-any.whl"}
-tasl = {path = "./helpers/tasl-0.2.5-py3-none-any.whl"}
+cnvsapi = {path = "./helpers/cnvsapi-0.9.26-py3-none-any.whl"}
+tasl = {path = "./helpers/tasl-0.2.6-py3-none-any.whl"}
 nbformat = "^5.9.2"
 matplotlib-venn = "^0.11.9"
 revealjs = "^0.2.10"

@@ -1,30 +1,7 @@
 
+-include ~/.makefilehelp
 
 .PHONY: help test all
-
-help.title = This help message
-help:
-	@echo "Available targets:"
-	@awk -F '[:=]' '\
-		/^[a-zA-Z0-9_-]+:/ && !/^[.](PHONY|help):/ { \
-			target = $$1; \
-			if (!(target in titles)) { \
-				titles[target] = "no title provided"; \
-			} \
-			order[++count] = target; \
-		} \
-		/^[a-zA-Z0-9_-]+[.]title[[:space:]]*=/ { \
-			split($$1, parts, "."); \
-			target = parts[1]; \
-			titles[target] = $$2; \
-			gsub(/^[ \t]+/, "", titles[target]); \
-		} \
-		END { \
-			for (i = 1; i <= count; i++) { \
-				target = order[i]; \
-				printf "  %-15s %s\n", target, titles[target]; \
-			} \
-		}' Makefile
 
 test:
 	cnvsapi freshen canvas-lectures-from-outline --all
@@ -84,7 +61,7 @@ homeworks:
 
 .PHONY: checklist
 checklist:
-	cnvsapi outline checklist --within-days=14
+	cnvsapi outline checklist --within-days=17
 
 
 .PHONY: details
