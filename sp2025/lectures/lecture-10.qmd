@@ -1,6 +1,18 @@
 ---
 date: '2025-02-18'
 discussion-items:
+- options: ''
+  post_text: ''
+  topic: README and assignment separation.
+  url: ''
+- options: ''
+  post_text: ''
+  topic: Deliverable 4 - still being graded.
+  url: ''
+- options: target="_blank"
+  post_text: ''
+  topic: Resources on the Canvas homepage.
+  url: https://virginiacommonwealth.instructure.com/courses/113813/
 - options: target="_blank"
   post_text: '- due 2/23, SUN'
   topic: Discussion 3 - Normal forms
