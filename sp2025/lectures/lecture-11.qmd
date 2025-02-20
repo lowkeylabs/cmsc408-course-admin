@@ -1,6 +1,14 @@
 ---
 date: '2025-02-20'
 discussion-items:
+- options: ''
+  post_text: ''
+  topic: Deliverable 4 graded.
+  url: ''
+- options: target="_blank"
+  post_text: '- due 3/2, SUN'
+  topic: Deliverable 5 - Design document
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770
 - options: target="_blank"
   post_text: '- due 2/23, SUN'
   topic: Discussion 3 - Normal forms
