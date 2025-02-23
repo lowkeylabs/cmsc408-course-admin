@@ -5,9 +5,10 @@ help.title = Use to clone or create homework assignments
 # cmsc408-sp2025-hw3-autograder
 courses := cmsc408 cmsc427
 terms := fa2023 sp2024 fa2024 sp2025
-hw-sp2025 := hw1 hw2 hw3 hw4 hw5 hw6 hw7 hw8 hw9 del4 del5 del6 del7
+hw-sp2025 := hw1 hw2 hw3 hw4 hw5 hw6 hw7 hw8 hw9 del4 del5 del6 del7 semproj
 hw-fa2024 := hw1 hw2 hw3 hw4 hw5 hw6 hw7 hw8 hw9 del9
 folders := autograder template
+all-folders := $(folders) jleonard99
 
 # Makefile helpers
 
@@ -25,7 +26,7 @@ define \n
 endef
 
 # Targets
-repo-targets := $(foreach course,$(courses),$(foreach term,$(terms),$(foreach folder,$(folders),$(foreach hw,$(hw-$(term)),$(course)-$(term)-$(hw)-$(folder)))))
+repo-targets := $(foreach course,$(courses),$(foreach term,$(terms),$(foreach folder,$(all-folders),$(foreach hw,$(hw-$(term)),$(course)-$(term)-$(hw)-$(folder)))))
 assignment-roots := $(foreach course,$(courses),$(foreach term,$(terms),$(foreach hw,$(hw-$(term)),$(course)-$(term)-$(hw))))
 repo-clone := $(foreach repo,$(repo-targets),$(repo)-clone)
 
