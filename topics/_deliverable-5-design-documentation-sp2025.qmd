@@ -53,4 +53,7 @@ to scaffold for details.
 <center>
 *We discussed these elements in class. Watch the video!*
 </center>
-    
+
+<center>
+[example 1](https://virginiacommonwealth.instructure.com/courses/105097/gradebook/speed_grader?assignment_id=1037296&student_id=109148)  [example 2](https://virginiacommonwealth.instructure.com/courses/105097/gradebook/speed_grader?assignment_id=1037296&student_id=118748)  [example 3](https://virginiacommonwealth.instructure.com/courses/105097/gradebook/speed_grader?assignment_id=1037296&student_id=38109)  [example 4](https://virginiacommonwealth.instructure.com/courses/105097/gradebook/speed_grader?assignment_id=1037296&student_id=66312)
+</center>
