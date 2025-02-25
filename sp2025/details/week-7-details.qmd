@@ -10,7 +10,7 @@ this_file = "week-00-details.qmd"
 
 <!-- overview-block-begin -->
 
-<p class="lead">More on normal forms. We'll discuss homework 4, practice quiz 4 and project deliverable 8!</p>
+<p class="lead">Homework 4 and practice quiz 3 go hand-in-hand.  Don't forget Project Deliverable 5 - design!</p>
     
 <!-- overview-block-end -->
 
@@ -18,10 +18,10 @@ this_file = "week-00-details.qmd"
 #### Things to do this week
 
 
-[Deliverable 5 - Design Documentation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770) Design Documentation
+[Deliverable 5 - Design Documentation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770) is one of the key deliverables for the semester project.  It's a large activity - invest the time!
 
 
-[Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390)  - add description to course workbook.
+[Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390) is the practice quiz for Normal Forms. Work this practice quiz in conjunction with homework 4.
 
 <!-- deliverables-block-end -->
 

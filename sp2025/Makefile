@@ -29,7 +29,7 @@ objects:
 
 .PHONY: quizzes
 quizzes:
-	cnvsapi freshen canvas-objects-from-outline --groups=graded_quizzes 
+	cnvsapi freshen canvas-objects-from-outline --groups=graded_quizzes --all
 
 .PHONY: frontpages
 frontpages:
