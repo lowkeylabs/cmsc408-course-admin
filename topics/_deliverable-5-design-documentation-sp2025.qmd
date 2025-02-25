@@ -1,22 +1,56 @@
-# Deliverable 5 - Design Documentation SP2025
+<!-- # Deliverable 5 - Design Documentation SP2025 -->
 
-## Slide 1
+
+## Deliverable 5 - Design Documentation
+
+<p>&nbsp;</p>
+
 :::: {.columns}
+::: {.column width="33%"}
+### Project deliverables
 
-::: {.column width="50%"}
-### column 1
+Below is a list of the semester project deliverables.
 
-* bullet 1
-* bullet 2
-* bullet 3
+1. Intros (solo)
+1. Team formation (solo)
+1. Ideation (solo)
+1. Video pitch (team)
+1. *Design Docs (team)*
+1. Docker scaffold (solo)
+1. Final Submission (team)
+
 :::
-::: {.column width="50%"}
-### column 2
+::: {.column width="33%"}
+### Key Deliverable 5 Sections
 
-1. item 
-1. item
-1. item
+Below is a list of *novel* sections in deliverable 5. Refer 
+to scaffold for details.
+
+1. Video Summary
+1. Problem Description
+	- [Ethics and more](https://www.datacamp.com/blog/introduction-to-data-ethics)
+1. Database Design
+	- [Gantt Chart](https://mermaid.js.org/syntax/gantt.html)
+
+(plus Reflection and README)
 :::
+
+::: {.column width="33%"}
+### Special Repo Features
+
+1. Team repository - everyone contributes.
+1. Deliverable 5 - *Not* report.qmd this time!
+1. Deliverable 7 - your final project will go here, too.
+1. Deliverable 4 - copy report.qmd and assets to this repo.
+1. Note special structure, too.
+
+[[link to repo template]](https://github.com/cmsc-vcu/cmsc408-sp2025-semproj-template)
+
+:::
+
 ::::
 
+<center>
+*We discussed these elements in class. Watch the video!*
+</center>
     

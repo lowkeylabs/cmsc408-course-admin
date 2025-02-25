@@ -1,22 +1,40 @@
-# Practice Quiz 3 - Analysis and Normal Forms SP2025
+<!-- # Practice Quiz 3 - Analysis and Normal Forms SP2025 -->
 
-## Slide 1
+## Practice Quiz 3 
+
+Below are key terms and definitions for the quiz. You'll be defining these in HW4!
+
 :::: {.columns}
-
-::: {.column width="50%"}
-### column 1
-
-* bullet 1
-* bullet 2
-* bullet 3
+::: {.column width="33%"}
+* Schema
+* Relation
+* Attribute
+* Tuple
+* Functional dependency
+* Candidate Key
+* Primary Key
+* Super Key
+* Composite Key
 :::
-::: {.column width="50%"}
-### column 2
-
-1. item 
-1. item
-1. item
+::: {.column width="33%"}
+* Prime attributes
+* Non-prime attributes
+* Armstrong’s axioms
+* Partial Dependency
+* Transitive Dependency
+* Attribute Closure
+* Decomposition
+* Lossless decomposition 
+* Denormalization
+:::
+::: {.column width="33%"}
+* Trivial functional dependencies 
+* Closure of a set of FDs 
+* Minimum canonical cover
+* First normal form (1NF)
+* Second normal form (2NF)
+* Third normal form (3NF)
+* Boyce Codd normal form (BCNF)
+* Fourth normal form (4NF)
 :::
 ::::
-
-    

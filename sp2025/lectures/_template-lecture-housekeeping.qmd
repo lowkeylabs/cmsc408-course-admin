@@ -26,9 +26,9 @@ for i,item in enumerate(discussion_items):
         opts = item.get("opts","")
         if opts:
             opts = f"{{ {opts} }}"
-        post_text = item.get("post-text","")
-        if url:
-            s = f"\n* [{topic}]({url}){opts}{post_text}"
+        post_text = item.get("post_text","")
+        if url and not url==".":
+            s = f"\n* [{topic}]({url}){opts} {post_text}"
         else:
             s = f"\n* {topic}"
         print(s)

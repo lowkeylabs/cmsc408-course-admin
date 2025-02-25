@@ -2,17 +2,25 @@
 date: '2025-02-25'
 discussion-items:
 - options: target="_blank"
-  post_text: '- due 2/25, TUE'
+  post_text: '- get started!'
   topic: Practice Quiz 3 - Analysis and Normal Forms
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390
 - options: target="_blank"
   post_text: '- due 3/02, SUN'
   topic: Deliverable 5 - Design Documentation
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770
+- options: target="_blank"
+  post_text: '- due 3/09, SUN'
+  topic: Homework 4 - Analysis and Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339
 lecture-id: 12
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Practice Quiz 3 - Analysis and Normal Forms
+  url: _practice-quiz-3-analysis-and-normal-forms-sp2025.qmd
+- topic: Deliverable 5 - Design Documentation
+  url: _deliverable-5-design-documentation-sp2025.qmd
+- topic: Homework 4 - Analysis and Normal Forms
+  url: _homework-4-analysis-and-normal-forms-sp2025.qmd
 title: Analysis and Normal Forms 3
 ---
 
@@ -26,8 +34,17 @@ this_file = 'lecture-12.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Practice Quiz 3 - Analysis and Normal Forms
+
+{{< include ../../topics/_practice-quiz-3-analysis-and-normal-forms-sp2025.qmd >}}
+
+# Deliverable 5 - Design Documentation
+
+{{< include ../../topics/_deliverable-5-design-documentation-sp2025.qmd >}}
+
+# Homework 4 - Analysis and Normal Forms
+
+{{< include ../../topics/_homework-4-analysis-and-normal-forms-sp2025.qmd >}}
 <!-- lecture-block-end -->
 
 

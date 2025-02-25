@@ -1,22 +1,13 @@
-# Homework 4 - Analysis and Normal Forms SP2025
+<!-- # Homework 4 - Analysis and Normal Forms SP2025 -->
 
-## Slide 1
-:::: {.columns}
+## Homework 4 - Analysis and Normal Forms
 
-::: {.column width="50%"}
-### column 1
+### Problem statement
 
-* bullet 1
-* bullet 2
-* bullet 3
-:::
-::: {.column width="50%"}
-### column 2
+* [Homework 4 problem statement](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339)
 
-1. item 
-1. item
-1. item
-:::
-::::
+### GITHUB Classroom Template
 
-    
+* [Homework 4 template]( https://github.com/cmsc-vcu/cmsc408-sp2025-hw4-template)
+
+* (In class we opened a terminal window to download the template and explore the assignment.  See the video for details.)
