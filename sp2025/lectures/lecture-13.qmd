@@ -1,6 +1,10 @@
 ---
 date: '2025-02-27'
 discussion-items:
+- options: ''
+  post_text: ''
+  topic: Check CANVAS for new resources on ethics.
+  url: ''
 - options: target="_blank"
   post_text: '- due 3/02, SUN'
   topic: Deliverable 5 - Design Documentation
@@ -9,10 +13,14 @@ discussion-items:
   post_text: '- due 3/06, THU'
   topic: Quiz 3 - Analysis and Normal Forms
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330
+- options: target="_blank"
+  post_text: '- due 3/09, SUN'
+  topic: Homework 4 - Analysis and Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339
 lecture-id: 13
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Homework 4 - Analysis and Normal Forms
+  url: _homework-4-analysis-and-normal-forms-sp2025.qmd
 title: Analysis and Normal Forms 4
 ---
 
@@ -26,8 +34,9 @@ this_file = 'lecture-13.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Homework 4 - Analysis and Normal Forms
+
+{{< include ../../topics/_homework-4-analysis-and-normal-forms-sp2025.qmd >}}
 <!-- lecture-block-end -->
 
 

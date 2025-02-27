@@ -35,4 +35,16 @@ Review ALL the resources above. Here are some additional notes:
 
 [BCNF](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-bcnf-3) Another video from Decomplexify - Good description of BCNF!
 
+
+[Intro to data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-intro-to-data-ethics) an important section in your deliverable 5.  Let's learn together!
+
+
+[Data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-data-ethics) explores your role as a data scientist and data ethics.
+
+
+[Privacy and ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-privacy-and-ethics) although this is 10 years old, she is SO SPOT ON!
+
+
+[BBC data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-bbc-data-ethics) a nice video from the BBC on data privacy and ethics.
+
 <!-- resources-block-end -->

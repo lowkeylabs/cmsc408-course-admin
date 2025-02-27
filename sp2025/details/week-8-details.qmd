@@ -18,10 +18,10 @@ this_file = "week-00-details.qmd"
 #### Things to do this week
 
 
-[Homework 4 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339)  - add description to course workbook.
+[Homework 4 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339) focuses on normal forms and analysis. Successful completion of homework 4 will REALLY help you with Quiz 3!
 
 
-[Quiz 3 - Analysis and Normal Forms - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330)  - add description to course workbook.
+[Quiz 3 - Analysis and Normal Forms - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330) focuses on normal forms and definitions.  Good luck!
 
 <!-- deliverables-block-end -->
 
@@ -30,9 +30,27 @@ this_file = "week-00-details.qmd"
 
 Review ALL the resources above. Here are some additional notes:
     
+[Normal Forms (text)](https://www.geeksforgeeks.org/normal-forms-in-dbms/) A normal-form walkthrough with definitions.
+
+
 [Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-8-normal-forms-3) Another video from Decomplexify - what are the various normal forms?
 
 
 [BCNF](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-8-bcnf-3) Another video from Decomplexify - Good description of BCNF!
+
+
+[Closures w/ examples](https://vertabelo.com/blog/closure-of-a-set-of-attributes/) Closures are confusing. This page might help!
+
+
+[Intro to data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-8-intro-to-data-ethics) an important section in your deliverable 5.  Let's learn together!
+
+
+[Data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-8-data-ethics) explores your role as a data scientist and data ethics.
+
+
+[Privacy and ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-8-privacy-and-ethics) although this is 10 years old, she is SO SPOT ON!
+
+
+[BBC data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-8-bbc-data-ethics) a nice video from the BBC on data privacy and ethics.
 
 <!-- resources-block-end -->

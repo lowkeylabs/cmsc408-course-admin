@@ -8,6 +8,7 @@
 
 ### GITHUB Classroom Template
 
-* [Homework 4 template]( https://github.com/cmsc-vcu/cmsc408-sp2025-hw4-template)
+* [Homework 4 template](https://classroom.github.com/a/GaapFisM)
 
 * (In class we opened a terminal window to download the template and explore the assignment.  See the video for details.)
+
