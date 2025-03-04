@@ -1,0 +1,338 @@
+<!-- # Normalization - Example 1 -->
+
+## Normalization - Example 1 - Issues
+
+Is this a *good* table/relation? NO!
+
+::: {style="font-size:10pt; padding-top:0px; padding-bottom:0px"}
+
+| Stu_ID | Stu_Name    | Crse_ID | Crse_Name   | Ins_ID | Ins_Name    | Ins_Dept          | Crse_Dept |
+|--------|------------|---------|------------|--------|------------|------------------|-----------|
+| 101    | Alice Smith | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 101    | Alice Smith | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+| 101    | Alice Smith | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS105  | Cybersecurity | 205 | Dr. Smith  | Computer Science | CS        |
+| 104    | Emma White | CS106  | Software Eng. | 206 | Dr. Wilson | Software Eng.    | SE        |
+| 104    | Emma White | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 104    | Emma White | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+
+:::
+
+### Issue 1: **Redundancy**
+   - Instructor details (`Instructor_Name`, `Instructor_Dept`) repeat for every course they teach.
+   - Course details (`Course_Name`, `Course_Dept`) repeat for every student enrolled in that course.
+
+
+## Normalization - Example 1 - Issues
+
+Is this a *good* table/relation? NO!
+
+::: {style="font-size:10pt;"}
+
+| Stu_ID | Stu_Name    | Crse_ID | Crse_Name   | Ins_ID | Ins_Name    | Ins_Dept          | Crse_Dept |
+|--------|------------|---------|------------|--------|------------|------------------|-----------|
+| 101    | Alice Smith | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 101    | Alice Smith | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+| 101    | Alice Smith | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS105  | Cybersecurity | 205 | Dr. Smith  | Computer Science | CS        |
+| 104    | Emma White | CS106  | Software Eng. | 206 | Dr. Wilson | Software Eng.    | SE        |
+| 104    | Emma White | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 104    | Emma White | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+
+
+:::
+
+### Issue 2: **Insertion Anomalies**
+   - If we want to **add a new course** that has no students yet, we must insert a row with a `NULL` `Student_ID`.
+
+## Normalization - Example 1 - Issues
+
+Is this a *good* table/relation? NO!
+
+::: {style="font-size:10pt;"}
+
+| Stu_ID | Stu_Name    | Crse_ID | Crse_Name   | Ins_ID | Ins_Name    | Ins_Dept          | Crse_Dept |
+|--------|------------|---------|------------|--------|------------|------------------|-----------|
+| 101    | Alice Smith | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 101    | Alice Smith | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+| 101    | Alice Smith | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS105  | Cybersecurity | 205 | Dr. Smith  | Computer Science | CS        |
+| 104    | Emma White | CS106  | Software Eng. | 206 | Dr. Wilson | Software Eng.    | SE        |
+| 104    | Emma White | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 104    | Emma White | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+
+
+:::
+
+
+### Issue 3: **Update Anomalies**
+   - If **Dr. Jones’ department changes**, we must update **multiple rows**.
+
+## Normalization - Example 1 - Issues
+
+Is this a *good* table/relation? NO!
+
+::: {style="font-size:10pt;"}
+
+| Stu_ID | Stu_Name    | Crse_ID | Crse_Name   | Ins_ID | Ins_Name    | Ins_Dept          | Crse_Dept |
+|--------|------------|---------|------------|--------|------------|------------------|-----------|
+| 101    | Alice Smith | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 101    | Alice Smith | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+| 101    | Alice Smith | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS105  | Cybersecurity | 205 | Dr. Smith  | Computer Science | CS        |
+| 104    | Emma White | CS106  | Software Eng. | 206 | Dr. Wilson | Software Eng.    | SE        |
+| 104    | Emma White | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 104    | Emma White | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+
+
+:::
+
+### Issue 4: **Deletion Anomalies**
+   - If the last student **drops CS106**, the course information is lost entirely.
+
+## Normalization - Example 1 - Normalize it!
+
+How do we fix it?  Normalize it!
+
+::: {style="font-size:10pt;"}
+
+| Stu_ID | Stu_Name    | Crse_ID | Crse_Name   | Ins_ID | Ins_Name    | Ins_Dept          | Crse_Dept |
+|--------|------------|---------|------------|--------|------------|------------------|-----------|
+| 101    | Alice Smith | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 101    | Alice Smith | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+| 101    | Alice Smith | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS102  | Algorithms | 202    | Dr. Adams  | Computer Science | CS        |
+| 102    | Charlie Doe | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS104  | Networks   | 204    | Dr. Taylor | Electrical Eng.  | EE        |
+| 103    | David Lee  | CS105  | Cybersecurity | 205 | Dr. Smith  | Computer Science | CS        |
+| 104    | Emma White | CS106  | Software Eng. | 206 | Dr. Wilson | Software Eng.    | SE        |
+| 104    | Emma White | CS101  | Databases  | 201    | Dr. Jones  | Computer Science | CS        |
+| 104    | Emma White | CS101  | Databases  | 207    | Dr. Smith  | Computer Science | CS        |
+
+
+:::
+
+<p>&nbsp;</p>
+
+:::: {.columns}
+::: {.column}
+
+### List the relation and functional dependencies
+
+* $R(A,B,C,D,E,F,G,H)$
+* $FD( A \rightarrow B; C \rightarrow D,H ; E \rightarrow F,G)$
+
+:::
+::: {.column}
+### Calculators
+
+* [Cho Calculator](http://raymondcho.net/RelationalDatabaseTools/RelationalDatabaseTools.html)
+* [Kitsugo Calculator](https://kitsugo.com/tool/database-normalizer/)
+
+:::
+::::
+
+## Normalization - Example 1 - Normalize it to BCNF
+
+::: {style="font-size:0.8em;"}
+
+:::: {.columns}
+::: {.column width=33%}
+
+### Table 1: Students
+
+Eliminate Partial Dependency on Stu_ID
+
+| Stu_ID | Stu_Name |
+|--------|------------|
+| 101    | Alice Smith |
+| 102    | Charlie Doe |
+| 103    | David Lee  |
+| 104    | Emma White |
+
+<p>&nbsp;</p>
+
+### Table 2: Courses
+
+Eliminate Partial Dependency on Crse_ID
+
+| Crse_ID | Crse_Name   | Crse_Dept |
+|---------|------------|-----------|
+| CS101  | Databases  | CS        |
+| CS102  | Algorithms | CS        |
+| CS104  | Networks   | EE        |
+| CS105  | Cybersecurity | CS    |
+| CS106  | Software Eng. | SE   |
+
+:::
+::: {.column width=33%}
+
+### Table 3: Instructors
+
+Eliminate Partial Dependency on Ins_ID
+
+| Ins_ID | Ins_Name  | Ins_Dept          |
+|--------|----------|------------------|
+| 201    | Dr. Jones  | Computer Science |
+| 202    | Dr. Adams  | Computer Science |
+| 204    | Dr. Taylor | Electrical Eng.  |
+| 205    | Dr. Smith  | Computer Science |
+| 206    | Dr. Wilson | Software Eng.    |
+| 207    | Dr. Smith  | Computer Science |
+
+:::
+::: {.column width=33%}
+
+### Table 4: Course Enrollment
+
+BCNF Compliant.  This table resolves the many-to-many relationship among students, courses, and instructors.
+
+| Stu_ID | Crse_ID | Ins_ID |
+|--------|---------|--------|
+| 101    | CS101  | 201    |
+| 101    | CS101  | 207    |
+| 101    | CS102  | 202    |
+| 102    | CS102  | 202    |
+| 102    | CS104  | 204    |
+| 103    | CS104  | 204    |
+| 103    | CS105  | 205    |
+| 104    | CS106  | 206    |
+| 104    | CS101  | 201    |
+| 104    | CS101  | 207    |
+
+:::
+::::
+
+:::
+
+::: {style="text-align:right"}
+**But wait**, what if we need to add another instructor to CS102?
+:::
+
+## Normalization - Example 1
+
+:::: {.columns}
+::: {.column width="30%"}
+| Stu_ID | Crse_ID | Ins_ID |
+|--------|---------|--------|
+| 101    | CS101  | 201    |
+| 101    | CS101  | 207    |
+| 101    | CS102  | 202    |
+| 102    | CS102  | 202    |
+| 102    | CS104  | 204    |
+| 103    | CS104  | 204    |
+| 103    | CS105  | 205    |
+| 104    | CS106  | 206    |
+| 104    | CS101  | 201    |
+| 104    | CS101  | 207    |
+:::
+::: {.column width="70%"}
+Let's look at the current **Table 4**:
+
+*Look at all the duplicate pairs! Lots of redundancy!*
+
+**Table 4 (Course Enrollment)** has a **composite key (Stu_ID, Crse_ID, Ins_ID)**, which assumes a student is enrolled in a course **under a specific instructor**. It is *BCNF*
+
+However, **since courses have multiple instructors**, this can cause redundancy.
+
+For example, to add a new instructor to a course, **all students in the course must be update**!
+
+This is called a **multi-value dependency**.
+
+We can eliminate it by breaking the table into two.
+
+This removes multivalued dependencies and decomposes the schema to **4NF**.
+
+Try the [Kitsugo Calculator](https://kitsugo.com/tool/database-normalizer/)
+
+with $C \rightarrow\rightarrow E$
+
+:::
+::::
+
+
+## Normalization - Example 1
+
+
+:::: {.columns}
+::: {.column width=40%}
+
+Here is the old **Table 4**:
+
+| Stu_ID | Crse_ID | Ins_ID |
+|--------|---------|--------|
+| 101    | CS101  | 201    |
+| 101    | CS101  | 207    |
+| 101    | CS102  | 202    |
+| 102    | CS102  | 202    |
+| 102    | CS104  | 204    |
+| 103    | CS104  | 204    |
+| 103    | CS105  | 205    |
+| 104    | CS106  | 206    |
+| 104    | CS101  | 201    |
+| 104    | CS101  | 207    |
+
+:::
+::: {.column width=30%}
+
+### Stu_ID →→ Crse_ID
+
+This table tracks **which courses a student is taking**.
+
+| Stu_ID | Crse_ID |
+|--------|---------|
+| 101    | CS101  |
+| 101    | CS102  |
+| 102    | CS102  |
+| 102    | CS104  |
+| 103    | CS104  |
+| 103    | CS105  |
+| 104    | CS106  |
+| 104    | CS101  |
+
+:::
+::: {.column width=30%}
+
+### Crse_ID →→ Ins_ID
+
+This table tracks **which instructors teach each course**.
+
+| Crse_ID | Ins_ID |
+|---------|--------|
+| CS101  | 201    |
+| CS101  | 207    |
+| CS102  | 202    |
+| CS104  | 204    |
+| CS105  | 205    |
+| CS106  | 206    |
+
+:::
+::::
+
+## Normalization - Example 1 - Summary
+
+* As database designer, YOU determine the functional dependencies
+
+* Using *Entities* as your guide, you can decompose larger tables into smaller.
+
+* Always think about the mechanics of adding, removing or updating records.  How many changes need to be made?
+
+* Always eliminate redundancy - that is - duplicates.
+
+* When you're done, look at your results!
+
+* If you see composite key with duplicate pairs, break it up.
+
+

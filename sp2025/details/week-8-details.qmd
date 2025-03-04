@@ -10,7 +10,7 @@ this_file = "week-00-details.qmd"
 
 <!-- overview-block-begin -->
 
-<p class="lead">This week we start SQL.  We'll start slow, getting tools and software assembled and installed on your computers.  For some, this will be easy.  Others may struggle ... be patient and use the TAs!</p>
+<p class="lead">This week we'll finish up normal forms then start on SQL. The SQL part will start slow, getting tools and software assembled and installed on your computers.  For some, this will be easy.  Others may struggle ... be patient and use the TAs!</p>
     
 <!-- overview-block-end -->
 

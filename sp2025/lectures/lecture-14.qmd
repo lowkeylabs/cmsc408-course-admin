@@ -11,8 +11,8 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339
 lecture-id: 14
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Normalization - example 1
+  url: _normalization-example-1.qmd
 title: Analysis and Normal Forms 5
 ---
 
@@ -26,8 +26,9 @@ this_file = 'lecture-14.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Normalization - example 1
+
+{{< include ../../topics/_normalization-example-1.qmd >}}
 <!-- lecture-block-end -->
 
 

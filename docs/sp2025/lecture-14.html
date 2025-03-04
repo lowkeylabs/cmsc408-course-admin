@@ -6,11 +6,11 @@
 <script src="lecture-14_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-14_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-14_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-14_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-14_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-14_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-14_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-14_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+  <meta name="generator" content="quarto-1.6.42">
 
   <title>Analysis and Normal Forms 5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="lecture-14_files/libs/revealjs/dist/theme/quarto-67f8f91f68d53fc8ccb8d34b88cf51f7.css">
+  <link rel="stylesheet" href="lecture-14_files/libs/revealjs/dist/theme/quarto-ba3afb5a2be93b52b572f3e3ea6a706a.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-14_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-14_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -153,13 +153,13 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a> - due 3/06, THU</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a> - due 3/09, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><a href="#/normalization---example-1">Normalization - example 1</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -250,9 +250,1130 @@
 <!-- lecture-block-begin -->
 </section>
 <section>
-<section id="when-ready-the-complete-lecture-will-replace-this-one." class="title-slide slide level1 center">
-<h1>When ready, the complete lecture will replace this one.</h1>
-<!-- no url provided in Topics tab -->
+<section id="normalization---example-1" class="title-slide slide level1 center">
+<h1>Normalization - example 1</h1>
+<!-- # Normalization - Example 1 -->
+</section>
+<section id="normalization---example-1---issues" class="slide level2">
+<h2>Normalization - Example 1 - Issues</h2>
+<p>Is this a <em>good</em> table/relation? NO!</p>
+<div style="font-size:10pt; padding-top:0px; padding-bottom:0px">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Stu_Name</th>
+<th>Crse_ID</th>
+<th>Crse_Name</th>
+<th>Ins_ID</th>
+<th>Ins_Name</th>
+<th>Ins_Dept</th>
+<th>Crse_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>David Lee</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>David Lee</td>
+<td>CS105</td>
+<td>Cybersecurity</td>
+<td>205</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS106</td>
+<td>Software Eng.</td>
+<td>206</td>
+<td>Dr.&nbsp;Wilson</td>
+<td>Software Eng.</td>
+<td>SE</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="issue-1-redundancy">Issue 1: <strong>Redundancy</strong></h3>
+<ul>
+<li>Instructor details (<code>Instructor_Name</code>, <code>Instructor_Dept</code>) repeat for every course they teach.</li>
+<li>Course details (<code>Course_Name</code>, <code>Course_Dept</code>) repeat for every student enrolled in that course.</li>
+</ul>
+</section>
+<section id="normalization---example-1---issues-1" class="slide level2">
+<h2>Normalization - Example 1 - Issues</h2>
+<p>Is this a <em>good</em> table/relation? NO!</p>
+<div style="font-size:10pt;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Stu_Name</th>
+<th>Crse_ID</th>
+<th>Crse_Name</th>
+<th>Ins_ID</th>
+<th>Ins_Name</th>
+<th>Ins_Dept</th>
+<th>Crse_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>David Lee</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>David Lee</td>
+<td>CS105</td>
+<td>Cybersecurity</td>
+<td>205</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS106</td>
+<td>Software Eng.</td>
+<td>206</td>
+<td>Dr.&nbsp;Wilson</td>
+<td>Software Eng.</td>
+<td>SE</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="issue-2-insertion-anomalies">Issue 2: <strong>Insertion Anomalies</strong></h3>
+<ul>
+<li>If we want to <strong>add a new course</strong> that has no students yet, we must insert a row with a <code>NULL</code> <code>Student_ID</code>.</li>
+</ul>
+</section>
+<section id="normalization---example-1---issues-2" class="slide level2">
+<h2>Normalization - Example 1 - Issues</h2>
+<p>Is this a <em>good</em> table/relation? NO!</p>
+<div style="font-size:10pt;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Stu_Name</th>
+<th>Crse_ID</th>
+<th>Crse_Name</th>
+<th>Ins_ID</th>
+<th>Ins_Name</th>
+<th>Ins_Dept</th>
+<th>Crse_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>David Lee</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>David Lee</td>
+<td>CS105</td>
+<td>Cybersecurity</td>
+<td>205</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS106</td>
+<td>Software Eng.</td>
+<td>206</td>
+<td>Dr.&nbsp;Wilson</td>
+<td>Software Eng.</td>
+<td>SE</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="issue-3-update-anomalies">Issue 3: <strong>Update Anomalies</strong></h3>
+<ul>
+<li>If <strong>Dr.&nbsp;Jones’ department changes</strong>, we must update <strong>multiple rows</strong>.</li>
+</ul>
+</section>
+<section id="normalization---example-1---issues-3" class="slide level2">
+<h2>Normalization - Example 1 - Issues</h2>
+<p>Is this a <em>good</em> table/relation? NO!</p>
+<div style="font-size:10pt;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Stu_Name</th>
+<th>Crse_ID</th>
+<th>Crse_Name</th>
+<th>Ins_ID</th>
+<th>Ins_Name</th>
+<th>Ins_Dept</th>
+<th>Crse_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>David Lee</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>David Lee</td>
+<td>CS105</td>
+<td>Cybersecurity</td>
+<td>205</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS106</td>
+<td>Software Eng.</td>
+<td>206</td>
+<td>Dr.&nbsp;Wilson</td>
+<td>Software Eng.</td>
+<td>SE</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="issue-4-deletion-anomalies">Issue 4: <strong>Deletion Anomalies</strong></h3>
+<ul>
+<li>If the last student <strong>drops CS106</strong>, the course information is lost entirely.</li>
+</ul>
+</section>
+<section id="normalization---example-1---normalize-it" class="slide level2">
+<h2>Normalization - Example 1 - Normalize it!</h2>
+<p>How do we fix it? Normalize it!</p>
+<div style="font-size:10pt;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Stu_Name</th>
+<th>Crse_ID</th>
+<th>Crse_Name</th>
+<th>Ins_ID</th>
+<th>Ins_Name</th>
+<th>Ins_Dept</th>
+<th>Crse_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS102</td>
+<td>Algorithms</td>
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>Charlie Doe</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>David Lee</td>
+<td>CS104</td>
+<td>Networks</td>
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+<td>EE</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>David Lee</td>
+<td>CS105</td>
+<td>Cybersecurity</td>
+<td>205</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS106</td>
+<td>Software Eng.</td>
+<td>206</td>
+<td>Dr.&nbsp;Wilson</td>
+<td>Software Eng.</td>
+<td>SE</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+<td>CS101</td>
+<td>Databases</td>
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+<td>CS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column">
+<h3 id="list-the-relation-and-functional-dependencies">List the relation and functional dependencies</h3>
+<ul>
+<li><span class="math inline">\(R(A,B,C,D,E,F,G,H)\)</span></li>
+<li><span class="math inline">\(FD( A \rightarrow B; C \rightarrow D,H ; E \rightarrow F,G)\)</span></li>
+</ul>
+</div><div class="column">
+<h3 id="calculators">Calculators</h3>
+<ul>
+<li><a href="http://raymondcho.net/RelationalDatabaseTools/RelationalDatabaseTools.html">Cho Calculator</a></li>
+<li><a href="https://kitsugo.com/tool/database-normalizer/">Kitsugo Calculator</a></li>
+</ul>
+</div></div>
+</section>
+<section id="normalization---example-1---normalize-it-to-bcnf" class="slide level2">
+<h2>Normalization - Example 1 - Normalize it to BCNF</h2>
+<div style="font-size:0.8em;">
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="table-1-students">Table 1: Students</h3>
+<p>Eliminate Partial Dependency on Stu_ID</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Stu_Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>Alice Smith</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>Charlie Doe</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>David Lee</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>Emma White</td>
+</tr>
+</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<h3 id="table-2-courses">Table 2: Courses</h3>
+<p>Eliminate Partial Dependency on Crse_ID</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Crse_ID</th>
+<th>Crse_Name</th>
+<th>Crse_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CS101</td>
+<td>Databases</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>CS102</td>
+<td>Algorithms</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>CS104</td>
+<td>Networks</td>
+<td>EE</td>
+</tr>
+<tr class="even">
+<td>CS105</td>
+<td>Cybersecurity</td>
+<td>CS</td>
+</tr>
+<tr class="odd">
+<td>CS106</td>
+<td>Software Eng.</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:33%;">
+<h3 id="table-3-instructors">Table 3: Instructors</h3>
+<p>Eliminate Partial Dependency on Ins_ID</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Ins_ID</th>
+<th>Ins_Name</th>
+<th>Ins_Dept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>201</td>
+<td>Dr.&nbsp;Jones</td>
+<td>Computer Science</td>
+</tr>
+<tr class="even">
+<td>202</td>
+<td>Dr.&nbsp;Adams</td>
+<td>Computer Science</td>
+</tr>
+<tr class="odd">
+<td>204</td>
+<td>Dr.&nbsp;Taylor</td>
+<td>Electrical Eng.</td>
+</tr>
+<tr class="even">
+<td>205</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+</tr>
+<tr class="odd">
+<td>206</td>
+<td>Dr.&nbsp;Wilson</td>
+<td>Software Eng.</td>
+</tr>
+<tr class="even">
+<td>207</td>
+<td>Dr.&nbsp;Smith</td>
+<td>Computer Science</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:33%;">
+<h3 id="table-4-course-enrollment">Table 4: Course Enrollment</h3>
+<p>BCNF Compliant. This table resolves the many-to-many relationship among students, courses, and instructors.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Crse_ID</th>
+<th>Ins_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>CS101</td>
+<td>207</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>CS105</td>
+<td>205</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS106</td>
+<td>206</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS101</td>
+<td>207</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div style="text-align:right">
+<p><strong>But wait</strong>, what if we need to add another instructor to CS102?</p>
+</div>
+</section>
+<section id="normalization---example-1-1" class="slide level2">
+<h2>Normalization - Example 1</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Crse_ID</th>
+<th>Ins_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>CS101</td>
+<td>207</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>CS105</td>
+<td>205</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS106</td>
+<td>206</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS101</td>
+<td>207</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:70%;">
+<p>Let’s look at the current <strong>Table 4</strong>:</p>
+<p><em>Look at all the duplicate pairs! Lots of redundancy!</em></p>
+<p><strong>Table 4 (Course Enrollment)</strong> has a <strong>composite key (Stu_ID, Crse_ID, Ins_ID)</strong>, which assumes a student is enrolled in a course <strong>under a specific instructor</strong>. It is <em>BCNF</em></p>
+<p>However, <strong>since courses have multiple instructors</strong>, this can cause redundancy.</p>
+<p>For example, to add a new instructor to a course, <strong>all students in the course must be update</strong>!</p>
+<p>This is called a <strong>multi-value dependency</strong>.</p>
+<p>We can eliminate it by breaking the table into two.</p>
+<p>This removes multivalued dependencies and decomposes the schema to <strong>4NF</strong>.</p>
+<p>Try the <a href="https://kitsugo.com/tool/database-normalizer/">Kitsugo Calculator</a></p>
+<p>with <span class="math inline">\(C \rightarrow\rightarrow E\)</span></p>
+</div></div>
+</section>
+<section id="normalization---example-1-2" class="slide level2">
+<h2>Normalization - Example 1</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Here is the old <strong>Table 4</strong>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Crse_ID</th>
+<th>Ins_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>CS101</td>
+<td>207</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>CS105</td>
+<td>205</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS106</td>
+<td>206</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS101</td>
+<td>207</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<h3 id="stu_id-crse_id">Stu_ID →→ Crse_ID</h3>
+<p>This table tracks <strong>which courses a student is taking</strong>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stu_ID</th>
+<th>Crse_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101</td>
+<td>CS101</td>
+</tr>
+<tr class="even">
+<td>101</td>
+<td>CS102</td>
+</tr>
+<tr class="odd">
+<td>102</td>
+<td>CS102</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>CS104</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>CS104</td>
+</tr>
+<tr class="even">
+<td>103</td>
+<td>CS105</td>
+</tr>
+<tr class="odd">
+<td>104</td>
+<td>CS106</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>CS101</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<h3 id="crse_id-ins_id">Crse_ID →→ Ins_ID</h3>
+<p>This table tracks <strong>which instructors teach each course</strong>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Crse_ID</th>
+<th>Ins_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CS101</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>CS101</td>
+<td>207</td>
+</tr>
+<tr class="odd">
+<td>CS102</td>
+<td>202</td>
+</tr>
+<tr class="even">
+<td>CS104</td>
+<td>204</td>
+</tr>
+<tr class="odd">
+<td>CS105</td>
+<td>205</td>
+</tr>
+<tr class="even">
+<td>CS106</td>
+<td>206</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="normalization---example-1---summary" class="slide level2">
+<h2>Normalization - Example 1 - Summary</h2>
+<ul>
+<li><p>As database designer, YOU determine the functional dependencies</p></li>
+<li><p>Using <em>Entities</em> as your guide, you can decompose larger tables into smaller.</p></li>
+<li><p>Always think about the mechanics of adding, removing or updating records. How many changes need to be made?</p></li>
+<li><p>Always eliminate redundancy - that is - duplicates.</p></li>
+<li><p>When you’re done, look at your results!</p></li>
+<li><p>If you see composite key with duplicate pairs, break it up.</p></li>
+</ul>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -263,13 +1384,13 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a> - due 3/06, THU</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a> - due 3/09, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><a href="#/normalization---example-1">Normalization - example 1</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
