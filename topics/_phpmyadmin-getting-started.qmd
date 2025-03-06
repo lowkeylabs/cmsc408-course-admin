@@ -4,7 +4,7 @@
 
 :::: {.columns}
 ::: {.column width=70%}
-[![](./assets/phpmyadmin-login.png)](https://cmsc508.com/phpmyadmin/){target="_blank"}
+[![](./assets/phpmyadmin-login.png)](https://cmsc-vcu.com/phpmyadmin/){target="_blank"}
 :::
 ::: {.column width=30%}
 ### Learning Objectives
@@ -12,12 +12,12 @@
 * Verify your login to DBMS
 <p>&nbsp;</p>
 * Username format:
-    - 24fa_(your EID)
-    - For example: 24fa_jdleonard
+    - sp25_(your EID)
+    - For example: sp25_jdleonard
 <p>&nbsp;</p>
 * Password format
-    - Shout4_(your EID)_JOY
-    - For example: Shout4_jdleonard_JOY
+    - Shout4_(your EID)_joY
+    - For example: Shout4_jdleonard_joY
 <p>&nbsp;</p>
 * Explore the DBMS
     - what can I access?

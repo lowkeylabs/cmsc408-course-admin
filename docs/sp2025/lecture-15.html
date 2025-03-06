@@ -6,11 +6,11 @@
 <script src="lecture-15_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-15_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-15_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-15_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-15_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-15_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-15_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-15_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+  <meta name="generator" content="quarto-1.6.42">
 
   <title>Intro to SQL</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,8 +30,73 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lecture-15_files/libs/revealjs/dist/theme/quarto-67f8f91f68d53fc8ccb8d34b88cf51f7.css">
+  <link rel="stylesheet" href="lecture-15_files/libs/revealjs/dist/theme/quarto-ba3afb5a2be93b52b572f3e3ea6a706a.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-15_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-15_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -153,13 +218,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a> - due 3/06, THU</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a> - due 3/09, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><p><a href="#/connecting-to-dbms">Connecting to DBMS</a></p></li>
+<li><p><a href="#/getting-started-with-phpmyadmin">Getting started with phpmyadmin</a></p></li>
+<li><p><a href="#/intro-to-sql-(repeat)">Intro to SQL (repeat)</a></p></li>
+<li><p><a href="#/mysql-dbms-(repeat)">mySql DBMS (repeat)</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -250,9 +318,378 @@
 <!-- lecture-block-begin -->
 </section>
 <section>
-<section id="when-ready-the-complete-lecture-will-replace-this-one." class="title-slide slide level1 center">
-<h1>When ready, the complete lecture will replace this one.</h1>
-<!-- no url provided in Topics tab -->
+<section id="connecting-to-dbms" class="title-slide slide level1 center">
+<h1>Connecting to DBMS</h1>
+<!-- # Connecting to DBMS -->
+</section>
+<section id="connecting-to-dbms-1" class="slide level2 scrollable">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="overview-of-the-hw5-and-beyond">Overview of the HW5 and beyond</h3>
+<ul>
+<li>We’re using mysql DBMS.</li>
+<li>There are multiple ways to connect</li>
+<li>Lots of tools to install</li>
+</ul>
+<p><em>Each approach is handy for one aspect of development. You need to use all the ways!</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="ways-to-connect">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li>python - using a connection</li>
+</ol>
+</div></div>
+</section>
+<section id="connecting-to-dbms-2" class="slide level2">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="phpmyadmin">1. phpmyadmin</h3>
+<p>
+&nbsp;
+</p>
+<p>Visit this URL:</p>
+<ul>
+<li><a href="http://cmcs-vcu.com/phpmyadmin" class="uri">http://cmcs-vcu.com/phpmyadmin</a></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>Username: sp25_(your eid)</p>
+<ul>
+<li>for example: <em>sp25_jdleonard</em></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>Password: Shout4_(your eid)_joY</p>
+<ul>
+<li>for example, <em>Shout4_jdleonard_joY</em></li>
+<li>Note capitalization!</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p><em>This approach is most useful for managing the DBMS but NOT very useful for development.</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="connecting-via-ssh">2. connecting via SSH</h3>
+<p>
+&nbsp;
+</p>
+<p>We’ll explore this option when we discuss docker containers.</p>
+<p>
+&nbsp;
+</p>
+<p><em>This approach is most useful for automating management of DBMS but NOT very useful for development.</em></p>
+</div></div>
+</section>
+<section id="connecting-to-dbms-3" class="slide level2">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="visual-studio-code">3. Visual Studio Code</h3>
+<ul>
+<li><p>Install:</p>
+<ul>
+<li>SQLTOOLS extension</li>
+<li>SQLTOOLS mysql connector</li>
+</ul></li>
+<li><p>You should see a DB icon on the left</p></li>
+<li><p>See the connection screen!</p></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p><em>This approach is most useful for directly building and coding SQL code. Lots of cutting and pasting commands through an DB window.</em></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/vscode-to-dbms.png"></p>
+</div></div>
+</section>
+<section id="connecting-to-dbms-4" class="slide level2">
+<h2>Connecting to DBMS</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="python-code">4. Python code</h3>
+<ul>
+<li><p>Clone your homework repository</p></li>
+<li><p>Install pyenv, poetry, quarto</p></li>
+<li><p>Install libraries - different ways</p>
+<ul>
+<li>Auto: using poetry</li>
+<li>Manually using pip</li>
+<li>matplotlib jupyter plotly</li>
+<li>python-dotenv sqlalchemy pymysql</li>
+</ul></li>
+<li><p>Create a .env file</p></li>
+<li><p>Create your python code</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<h3 id="see-explorer.qmd-for-details">See explorer.qmd for details!</h3>
+<div id="28fe4f35" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-4"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb1-5"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb1-6"><a href=""></a>load_dotenv()</span>
+<span id="cb1-7"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb1-8"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb1-9"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"HW5_USER"</span>),</span>
+<span id="cb1-10"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"HW5_PASSWORD"</span>),</span>
+<span id="cb1-11"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"HW5_HOST"</span>),</span>
+<span id="cb1-12"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"HW5_DB_NAME"</span>)</span>
+<span id="cb1-13"><a href=""></a>}</span>
+<span id="cb1-14"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-15"><a href=""></a></span>
+<span id="cb1-16"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb1-17"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>
+&nbsp;
+</p>
+<p><em>This approach is most useful for developing the wrapper application around the SQL code.</em></p>
+</div></div>
+</section></section>
+<section>
+<section id="getting-started-with-phpmyadmin" class="title-slide slide level1 center">
+<h1>Getting started with phpmyadmin</h1>
+<!-- # phpmyadmin - Getting Started -->
+</section>
+<section id="phpmyadmin---getting-started" class="slide level2">
+<h2>PhpMyAdmin - getting started</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><a href="https://cmsc-vcu.com/phpmyadmin/" target="_blank"><img data-src="./assets/phpmyadmin-login.png"></a></p>
+</div><div class="column" style="width:30%;">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Verify your login to DBMS
+<p>
+&nbsp;
+</p></li>
+<li>Username format:
+<ul>
+<li>sp25_(your EID)</li>
+<li>For example: sp25_jdleonard
+<p>
+&nbsp;
+</p></li>
+</ul></li>
+<li>Password format
+<ul>
+<li>Shout4_(your EID)_joY</li>
+<li>For example: Shout4_jdleonard_joY
+<p>
+&nbsp;
+</p></li>
+</ul></li>
+<li>Explore the DBMS
+<ul>
+<li>what can I access?</li>
+<li>what is inside?</li>
+</ul></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="intro-to-sql-repeat" class="title-slide slide level1 center">
+<h1>Intro to SQL (repeat)</h1>
+<!-- # Intro to SQL -->
+</section>
+<section id="interacting-with-the-database" class="slide level2">
+<h2>Interacting with the database</h2>
+<p>A <strong>DBMS</strong> is software that manages databases, providing an interface between users, applications, and the database. The DBMS handles the internal mechanics of data storage, querying, transaction management, and access control. When users or applications issue commands, the DBMS processes these commands and ensures that the database remains consistent, efficient, and secure.</p>
+<p>Interacting with a <strong>Database Management System (DBMS)</strong> and a <strong>database</strong> involves several layers of operations, each designed to handle a specific aspect of how data is stored, managed, secured, and retrieved.</p>
+<p><em>SQL</em> (structured query language) is the computer language we use to interact with the DBMS.</p>
+</section>
+<section id="sql-structured-query-language" class="slide level2">
+<h2>SQL (Structured Query Language )</h2>
+<p><strong>SQL (Structured Query Language)</strong>: is a standardized language used for managing and querying relational databases. It provides commands for defining, manipulating, controlling, and retrieving data in databases.</p>
+<ul>
+<li><p><strong>ANSI SQL Standard</strong>: ANSI (American National Standards Institute) defines the core SQL standard, ensuring a common foundation for relational database operations across different systems, though specific features may vary by vendor. The most recent version of the SQL standard is SQL:2023, formally adopted in June 2023.</p></li>
+<li><p><strong>SQL Dialects by Vendor</strong>: While adhering to ANSI SQL, many database vendors (like <strong>MySQL</strong>, <strong>PostgreSQL</strong>, <strong>Oracle</strong>, <strong>SQL Server</strong>) extend SQL with proprietary features (e.g., Oracle’s PL/SQL, Microsoft’s T-SQL) to support additional functionalities unique to their systems.</p></li>
+</ul>
+</section>
+<section id="sql-command-groups" class="slide level2">
+<h2>SQL command groups</h2>
+<p>SQL commands are grouped based on what they do to/for the DBMS. We sometimes refer to these groups as separate <em>languages</em>: <strong>DDL</strong>, <strong>DML</strong>, <strong>DCL</strong>, and <strong>TCL</strong>.</p>
+<ul>
+<li><p><strong>Design and Structure (DDL)</strong>: When building a database, DDL is the first interaction, defining how data will be stored and structured. This foundational step ensures the database can efficiently support future operations.</p></li>
+<li><p><strong>Manipulating and Retrieving Data (DML)</strong>: The core daily interactions with the database happen through DML. Whether adding new entries, retrieving data, or updating records, these operations are what end-users experience.</p></li>
+<li><p><strong>Security and Permissions (DCL)</strong>: Modern databases are often accessed by multiple users and applications. Ensuring that data access is controlled and secure is essential, and DCL ensures that only the right users have the appropriate access levels.</p></li>
+<li><p><strong>Maintaining Data Integrity (TCL)</strong>: In multi-user environments or where transactions involve complex steps (e.g., financial transactions, inventory updates), TCL ensures that the database remains in a consistent state even when failures or conflicts occur.</p></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language" class="slide level2">
+<h2>DDL (Data Definition Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Defines the structure and organization of the database.</li>
+<li><strong>Role</strong>: DDL commands interact directly with the <strong>DBMS</strong> to create, modify, or delete database objects such as tables, indexes, and schemas.</li>
+<li><strong>Example</strong>: When creating a new table, the <strong>DBMS</strong> allocates the necessary storage and manages the metadata that defines the table structure. DDL commands ensure that the database schema evolves as the application grows.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Creating a new table to store user data.</li>
+<li>Altering the structure of an existing table to accommodate new fields.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language-1" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<p>Key DDL commands include:</p>
+<ol type="1">
+<li><strong><code>CREATE</code></strong>: Used to create new database objects like tables, indexes, views, or databases.</li>
+<li><strong><code>ALTER</code></strong>: Used to modify the structure of an existing database object (e.g., adding or removing columns in a table).</li>
+<li><strong><code>DROP</code></strong>: Used to delete database objects like tables, indexes, or entire databases.</li>
+<li><strong><code>TRUNCATE</code></strong>: Removes all records from a table, but keeps the table structure intact.</li>
+<li><strong><code>RENAME</code></strong>: Used to rename database objects.</li>
+</ol>
+<p>DDL commands define and change the structure or schema of a database, unlike DML, which focuses on manipulating the data within those structures.</p>
+</section>
+<section id="ddl-data-definition-language-2" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>DDL compiler generates a set of tables stored in a data dictionary</li>
+<li>Data dictionary contains metadata about:
+<ul>
+<li>Database tables, fields and data types</li>
+<li>Primary and foreign keys</li>
+<li>Data integrity constrants</li>
+<li>Referential integrity</li>
+<li>Access and authorization rules</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>CREATE TABLE person (</span>
+<span id="cb2-2"><a href=""></a>    person_id INT PRIMARY KEY,</span>
+<span id="cb2-3"><a href=""></a>    person_first_name VARCHAR(50),</span>
+<span id="cb2-4"><a href=""></a>    person_last_name VARCHAR(50),</span>
+<span id="cb2-5"><a href=""></a>    person_city VARCHAR(50)</span>
+<span id="cb2-6"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes">Notes</h3>
+<ol type="1">
+<li>Fields are strongly typed,</li>
+<li>INT, VARCHAR(width), (lots more!)</li>
+<li>Additional attributed can be defined:
+<ul>
+<li>PRIMARY KEY, FOREIGN KEY, etc.</li>
+</ul></li>
+</ol>
+</div></div>
+</section>
+<section id="dml-data-manipulation-language" class="slide level2">
+<h2>DML (Data Manipulation Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages the actual data within the database.</li>
+<li><strong>Role</strong>: DML commands interact with the <strong>DB</strong> to insert, retrieve, update, and delete data. The <strong>DBMS</strong> processes these requests and ensures the data is accessed efficiently and accurately.</li>
+<li><strong>Example</strong>: When querying data (e.g., <code>SELECT</code>), the <strong>DBMS</strong> retrieves the requested information from the database, handles the query optimizations, and returns results to the user or application.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Retrieving customer data for an e-commerce application.</li>
+<li>Inserting new product information into a database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dcl-data-control-language" class="slide level2">
+<h2>DCL (Data Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Controls access to the data within the database.</li>
+<li><strong>Role</strong>: DCL commands interact with the <strong>DBMS</strong> to manage user permissions and security. This ensures that only authorized users can access or modify specific parts of the database.</li>
+<li><strong>Example</strong>: Granting access to a developer to only read the data while restricting their ability to modify or delete it.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Granting access to specific tables for an application.</li>
+<li>Revoking permissions from users who should no longer access the database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tcl-transaction-control-language" class="slide level2">
+<h2>TCL (Transaction Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages and controls database transactions.</li>
+<li><strong>Role</strong>: TCL commands work closely with the <strong>DBMS</strong> to ensure that changes made to the database maintain <strong>ACID (Atomicity, Consistency, Isolation, Durability)</strong> properties. This ensures that transactions are processed reliably.</li>
+<li><strong>Example</strong>: When performing a <code>COMMIT</code> after multiple <code>INSERT</code> operations, the <strong>DBMS</strong> makes the changes permanent. If any part of the transaction fails, a <code>ROLLBACK</code> can undo all the changes to ensure data integrity.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Performing multiple updates to an inventory system and committing them only when all changes are successfully made.</li>
+<li>Rolling back a transaction if a bank transfer fails midway, ensuring no partial changes occur.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sql-summary" class="slide level2">
+<h2>SQL Summary</h2>
+<p>SQL is the overarching language for interacting with the relational database management system.</p>
+<p>SQL commands are organized into <em>languages</em> that play a distinct roles in the overall functioning of the DBMS. Together, they allow the applications programmer to:</p>
+<ul>
+<li><strong>Define the structure</strong> (DDL),</li>
+<li><strong>Manipulate the data</strong> (DML),</li>
+<li><strong>Secure the database</strong> (DCL), and</li>
+<li><strong>Ensure reliable transactions</strong> (TCL).</li>
+</ul>
+<p>By interacting with these layers, the DBMS provides a seamless, powerful way to manage data efficiently, ensuring that applications can scale, users can access information securely, and data integrity is maintained across transactions.</p>
+</section></section>
+<section>
+<section id="mysql-dbms-repeat" class="title-slide slide level1 center">
+<h1>mySql DBMS (repeat)</h1>
+<!-- # MySQL DBMS -->
+</section>
+<section id="mysql-dbms" class="slide level2">
+<h2>MYSQL DBMS</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<h3 id="leveraging-the-power">Leveraging the power</h3>
+<p>What not simply use 2-D arrays or other data structures in our programs? Why use a data base at all?</p>
+<ul>
+<li><p>The DBMS will DO LOTS OF WORK for us AUTOMATICALLY. We simply need to know how to tell it what we want it to do.</p></li>
+<li><p>We can provide these management and operating rules when tables are created.</p></li>
+<li><p>The DBMS will enforce the rules in real-time behind the scenes.</p></li>
+<li><p>The DBMS maintains several databases specifically for the management of the database itself!</p>
+<ul>
+<li><em>information_schema</em></li>
+<li><em>performance_schema</em></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L13-dbms-overview.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="mysql-dbms-1" class="slide level2">
+<h2>MySQL DBMS</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img data-src="assets/L13-mysql-col1.png"></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/L13-mysql-col2.png"></p>
+</div><div class="column" style="width:45%;">
+<h3 id="mysql-documentation">MYSQL Documentation</h3>
+<p><img data-src="assets/L13-mysql-col3.png"></p>
+<h3 id="two-types-of-statements">Two types of statements:</h3>
+<ul>
+<li>Data Definition Statement (DDL)</li>
+<li>Data Manipulation Statements (DML)</li>
+</ul>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/" target="_blank">https://dev.mysql.com/doc/refman/8.0/en/</a></p>
+</div></div>
+</section>
+<section id="ddl---data-definition-language" class="slide level2">
+<h2>DDL - Data Definition Language</h2>
+<p><img data-src="assets/L13-mysql-ddl.png"></p>
+</section>
+<section id="dml---data-manipulation-language" class="slide level2">
+<h2>DML - Data Manipulation Language</h2>
+<p><img data-src="assets/L13-mysql-dml.png"></p>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -263,13 +700,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330">Quiz 3 - Analysis and Normal Forms</a> - due 3/06, THU</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339">Homework 4 - Analysis and Normal Forms</a> - due 3/09, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><p><a href="#/connecting-to-dbms">Connecting to DBMS</a></p></li>
+<li><p><a href="#/getting-started-with-phpmyadmin">Getting started with phpmyadmin</a></p></li>
+<li><p><a href="#/intro-to-sql-(repeat)">Intro to SQL (repeat)</a></p></li>
+<li><p><a href="#/mysql-dbms-(repeat)">mySql DBMS (repeat)</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">

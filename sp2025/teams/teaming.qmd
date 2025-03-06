@@ -27,6 +27,9 @@ SOURCE_SURVEY_RESULTS = "Deliverable 2 - Team formation Survey Student Analysis 
 CLEAN_GROUP_MAPPING_FILE = "teams_clean.xlsx"  # an interim file for potential later use
 CANVAS_GROUP_SEED_FILE = "sp2025-roster-from-groups-import.csv"  # downloaded from Canvas for editing
 CANVAS_GROUP_UPLOAD_FILE = "sp2025-groups-upload.csv"
+ADD_USERS_SCRIPT_FILE = "sp2025-add-users-and-db.sh"
+REMOVE_USERS_SCRIPT_FILE = "sp2025-remove-users-and-db.sh"
+ADD_TEAM_AND_USER_SCRIPT_FILE = "sp2025-add-group-and-user.sh"
 ```
 
 ## Working with the data
@@ -401,4 +404,26 @@ merged_df.rename(columns={
     'team_name' : 'group_name'
 }, inplace=True)
 merged_df.sort_values(by='group_name').to_csv( CANVAS_GROUP_UPLOAD_FILE ,index=False)
+```
+
+## Add server user accounts
+
+```{python}
+
+# Write add-users script 
+with open(ADD_USERS_SCRIPT_FILE, "w") as f:
+    for i,row in merged_df.iterrows():
+        f.write(f"./add-mysql-user-and-db.sh -u sp25_{row['login_id']} -p Shout4_{row['login_id']}_joY\n")
+
+# Write remove-users-and-db script 
+with open(REMOVE_USERS_SCRIPT_FILE, "w") as f:
+    for i,row in merged_df.iterrows():
+        f.write(f"./remove-user-and-db.sh -u sp25_{row['login_id']}\n")
+
+# Write group-users-and-db script 
+with open(ADD_TEAM_AND_USER_SCRIPT_FILE, "w") as f:
+    for i,row in merged_df.iterrows():
+        g = row['group_name'].lower().replace(" ","_")
+        f.write(f"./add-groupdb-and-user.sh -g sp25_{g} -u sp25_{row['login_id']}\n")
+
 ```

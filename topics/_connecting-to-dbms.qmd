@@ -1,11 +1,10 @@
-
-# Connecting to DBMS
+<!-- # Connecting to DBMS -->
 
 ## Connecting to DBMS
 
 :::: {.columns}
 ::: {.column width=50%}
-###  Overview of the assignment
+###  Overview of the HW5 and beyond
 
 * We're using mysql DBMS.
 * There are multiple ways to connect
@@ -30,37 +29,38 @@
 :::: {.columns}
 ::: {.column width=50%}
 ###  1. phpmyadmin
+<p>&nbsp;</p>
+Visit this URL:
 
-* <http://cmcs508.com/phpmyadmin>
+* <http://cmcs-vcu.com/phpmyadmin>
+
 <p>&nbsp;</p>
-* Username:  24fa_(eid)
+ Username: sp25_(your eid)
+
+   - for example: *sp25_jdleonard*
+
 <p>&nbsp;</p>
-    - for example: *24fa_jdleonard*
+
+Password: Shout4_(your eid)_joY
+ 
+   - for example, *Shout4_jdleonard_joY*
+   - Note capitalization!
+
 <p>&nbsp;</p>
-* Password: Shout4_(eid)_JOY
-<p>&nbsp;</p>
-    - for example, *Shout4_jdleonard_JOY*
-<p>&nbsp;</p>
+
 *This approach is most useful for managing the DBMS but NOT very useful for development.*
 
 :::
 ::: {.column width=50%}
-### 2. SSH to the server
-
-* Open a terminal window on your local machine.
-
-* Enter these commands on your terminal.
-
-```sql
-ssh 24fa_jdleonard@cmsc508.com
-password: (Shout4_jdleonard_JOY)
-
-mysql -p
-password: (Shout4_jdleonard_JOY)
-```
+### 2. connecting via SSH
 
 <p>&nbsp;</p>
-*This is the quickest and most efficient approach for directly managing the DBMS but not very useful for development.*
+We'll explore this option when we discuss docker
+containers.
+
+<p>&nbsp;</p>
+*This approach is most useful for automating management of DBMS but
+NOT very useful for development.*
 
 :::
 ::::
@@ -87,7 +87,7 @@ password: (Shout4_jdleonard_JOY)
 ::: {.column width=50%}
 
 
-![](assets/L13-vscode-db-connect.png)
+![](assets/vscode-to-dbms.png)
 
 :::
 ::::

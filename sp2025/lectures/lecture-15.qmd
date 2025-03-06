@@ -11,8 +11,14 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339
 lecture-id: 15
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Connecting to DBMS
+  url: _connecting-to-dbms.qmd
+- topic: Getting started with phpmyadmin
+  url: _phpmyadmin-getting-started.qmd
+- topic: Intro to SQL (repeat)
+  url: _intro-to-sql.qmd
+- topic: mySql DBMS (repeat)
+  url: _mysql-dbms.qmd
 title: Intro to SQL
 ---
 
@@ -26,8 +32,21 @@ this_file = 'lecture-15.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Connecting to DBMS
+
+{{< include ../../topics/_connecting-to-dbms.qmd >}}
+
+# Getting started with phpmyadmin
+
+{{< include ../../topics/_phpmyadmin-getting-started.qmd >}}
+
+# Intro to SQL (repeat)
+
+{{< include ../../topics/_intro-to-sql.qmd >}}
+
+# mySql DBMS (repeat)
+
+{{< include ../../topics/_mysql-dbms.qmd >}}
 <!-- lecture-block-end -->
 
 

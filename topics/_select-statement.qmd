@@ -1,5 +1,4 @@
-
-# Getting to SELECT
+<!-- # Getting to SELECT -->
 
 ## Getting to Select
 
@@ -82,6 +81,7 @@ the DBMS.
 
 :::: {.columns}
 ::: {.column width=60%}
+
 ```{python}
 #| eval: true
 #| echo: fenced
@@ -329,7 +329,7 @@ result.head(20)
 ### Using * to select all columns
 ```{python}
 #| echo: fenced
-#| code-line-numbers: 4
+#  code-line-numbers: 4
 result = pd.read_sql("""
 select * from regions
 """,cnx)
@@ -341,7 +341,7 @@ result
 ### Selecting only one attribute
 ```{python regions}
 #| echo: fenced
-#| code-line-numbers: 4-7
+#  code-line-numbers: 4-7
 result = pd.read_sql("""
 select
   region_name
@@ -358,7 +358,7 @@ result
 
 ::: {style="font-size: 50%;"}
 ```{python}
-#| echo: false
+# echo: false
 result = pd.read_sql("""
 select * from employees
 """,cnx)
@@ -373,7 +373,7 @@ result.head(20)
 ### Gathering all last names
 ```{python}
 #| echo: fenced
-#| code-line-numbers: 4
+#| code-line-numbers: 4-4
 result = pd.read_sql("""
 select last_name from employees
 """,cnx)
@@ -385,7 +385,7 @@ result
 ### Eliminating duplicates with DISTINCT
 ```{python}
 #| echo: fenced
-#| code-line-numbers: 4
+#| code-line-numbers: 4-4
 result = pd.read_sql("""
 select distinct last_name from employees
 """,cnx)
