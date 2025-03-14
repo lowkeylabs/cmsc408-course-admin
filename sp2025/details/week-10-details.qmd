@@ -24,7 +24,7 @@ this_file = "week-00-details.qmd"
 [Homework 5 - Getting started with SQL](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341) is all about getting the software installed and tested.  It's a big job!
 
 
-[Practice Quiz 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081391)  - add description to course workbook.
+[Practice Quiz 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081391) is the practice quiz for SQL.
 
 <!-- deliverables-block-end -->
 
