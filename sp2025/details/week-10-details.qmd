@@ -10,7 +10,7 @@ this_file = "week-00-details.qmd"
 
 <!-- overview-block-begin -->
 
-<p class="lead">Review of homework 5, introducing deliverable 9, continue exploring SELECT statements.</p>
+<p class="lead">Review of homework 5, introduce and explore SELECT statements.</p>
     
 <!-- overview-block-end -->
 
@@ -21,7 +21,7 @@ this_file = "week-00-details.qmd"
 [Discussion 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075916) SQL Basics
 
 
-[Homework 5 - Getting started with SQL](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341)  - add description to course workbook.
+[Homework 5 - Getting started with SQL](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341) is all about getting the software installed and tested.  It's a big job!
 
 
 [Practice Quiz 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081391)  - add description to course workbook.
@@ -33,6 +33,12 @@ this_file = "week-00-details.qmd"
 
 Review ALL the resources above. Here are some additional notes:
     
-[Full stack apache/php](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-10-full-stack-apache-slash-php-3) Nice overview of deliverable 9!
+[SQL tool setup](https://vcu-ssg.github.io/ssg-quarto-python-setup/) Helpful walkthrough and tutorial for software tool installation!!!
+
+
+[11 SQL Questions](https://medium.com/@ritika_DataAnalyst/11-practical-sql-interview-questions-i-failed-to-answer-during-an-interview-f3a40205ddff) is a fun reference on questions you might get asked about SQL for a job interview!
+
+
+[Docker for DS](https://www.kdnuggets.com/2023/07/docker-tutorial-data-scientists.html) a precursor to the next project deliverable - using Docker for app development.
 
 <!-- resources-block-end -->
