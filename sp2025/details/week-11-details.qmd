@@ -10,7 +10,7 @@ this_file = "week-00-details.qmd"
 
 <!-- overview-block-begin -->
 
-<p class="lead">Quiz 5 - SQL basics. Review docker and deliverable 9. Introduce homework 6 and building a database from scratch.</p>
+<p class="lead">Quiz 5 - SQL basics. Review docker assignment. Introduce homework 6 and building a database from scratch.</p>
     
 <!-- overview-block-end -->
 
@@ -18,10 +18,10 @@ this_file = "week-00-details.qmd"
 #### Things to do this week
 
 
-[Deliverable 6 - Docker Scaffold](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772) Docker Scaffold
+[Deliverable 6 - Docker Scaffold](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772) is an accelerator project to get you jump-started with docker for this semester-long project.
 
 
-[Quiz 4 - SQL Basics - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331)  - add description to course workbook.
+[Quiz 4 - SQL Basics - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331) focuses on basic SQL statements and structure.  This is the last quiz!!
 
 <!-- deliverables-block-end -->
 
