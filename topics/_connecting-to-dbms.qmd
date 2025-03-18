@@ -115,7 +115,7 @@ NOT very useful for development.*
 
 :::
 ::: {.column width=60%}
-### See explorer.qmd for details!
+### See helper.qmd for details!
 
 ```{python}
 #| eval: true

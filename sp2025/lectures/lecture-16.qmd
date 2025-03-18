@@ -15,8 +15,10 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341
 lecture-id: 16
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Homework 5 - Getting started
+  url: _homework-5-getting-started-with-sql-sp2025.qmd
+- topic: Getting to SELECT
+  url: _select-statement.qmd
 title: SQL Selects
 ---
 
@@ -30,8 +32,13 @@ this_file = 'lecture-16.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Homework 5 - Getting started
+
+{{< include ../../topics/_homework-5-getting-started-with-sql-sp2025.qmd >}}
+
+# Getting to SELECT
+
+{{< include ../../topics/_select-statement.qmd >}}
 <!-- lecture-block-end -->
 
 

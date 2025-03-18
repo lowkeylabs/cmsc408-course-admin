@@ -1,241 +1,254 @@
 <!-- # Getting to SELECT -->
 
-## Getting to Select
-
-:::: {.columns}
-::: {.column}
-
-### Database access workflow
-
-1. Retrieving credentials into your program.  *No hardcoding!*
-
-1. Connecting to the database using a *local database engine.*
-
-1. Through the life of the program:
-
-    a. Sending the *query* to the DBMS through the connection.
-    a. Retriving the *result set*
-
-1. Finally, closing the connection.
-:::
-::: {.column}
-### Key terms
-<p>&nbsp;</p>
-credentials
-: host, username, password, database
-
-local database engine
-: software on your machine that manages the connection through the internet
-to your remote server.
-
-query
-: a command sent to the remove database server
-
-result set
-: the package returned from the remote server.  It may contain
-data or error information.
-
-:::
-::::
-
-## Database connection
-
-:::: {.columns}
-::: {.column width=60%}
 ```{python}
-#| eval: true
-#| echo: fenced
+#| echo: false
+
 import os
+import re
+import sys
+import copy
 import pandas as pd
-from dotenv import load_dotenv
-from sqlalchemy import create_engine,text
-# load credentials from .env file
-load_dotenv()
-# store these credentials a dictionary for later reference
-config = {
-  'user': os.getenv("HW5_USER"),
-  'password': os.getenv("HW5_PASSWORD"),
-  'host': os.getenv("HW5_HOST"),
-  'database': os.getenv("HW5_DB_NAME")
-}
-engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
-
-# create a database connection.  THIS IS THE ACTUAL CONNECTION!
-cnx = create_engine(engine_uri)
-```
-:::
-::: {.column width=40%}
-### Connection block
-
-This single block of code general sits at the top of all your QMD files.
-
-This block of code creates the `cnx` variable - the actually connection
-to the database.
-
-We'll use `cnx` later in the code whenever we want to talk with
-the DBMS.
-:::
-::::
-
-## Database connection - Imports
-
-:::: {.columns}
-::: {.column width=60%}
-
-```{python}
-#| eval: true
-#| echo: fenced
-#| code-line-numbers: 4-7
-import os
-import pandas as pd
-from dotenv import load_dotenv
-from sqlalchemy import create_engine,text
-# load credentials from .env file
-load_dotenv()
-# store these credentials a dictionary for later reference
-config = {
-  'user': os.getenv("HW5_USER"),
-  'password': os.getenv("HW5_PASSWORD"),
-  'host': os.getenv("HW5_HOST"),
-  'database': os.getenv("HW5_DB_NAME")
-}
-engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
-
-# create a database connection.  THIS IS THE ACTUAL CONNECTION!
-cnx = create_engine(engine_uri)
-```
-:::
-::: {.column width=40%}
-### Imports
-
-The `import` commands load modules into your *python* program. 
-
-These modules must first be installed in your virtual environment using 
-`poetry` or `pip` to install the necessary modules.  I prefer `poetry`!
-
-`dotenv` module is used to load environment variable from disk into memory.
-
-`sqlalchemy` module provides many different tools for connecting to, managing, and querying databases.
-`sqlalchemy` is known as an *Object Relational Mapper* or *ORM*.  When used to it's full extent
-it allows to you seamlessly load and store objects without having to think about the SQL.
-
-But that kind of defeats the purpose for this class!  So we'll only use a few of the tools provided.
-
-:::
-::::
-
-## Database connection - Load .env into environment
-
-:::: {.columns}
-::: {.column width=60%}
-```{python}
-#| eval: true
-#| echo: fenced
-#| code-line-numbers: 8-16
-import os
-import pandas as pd
-from dotenv import load_dotenv
-from sqlalchemy import create_engine,text
-# load credentials from .env file
-load_dotenv()
-# store these credentials a dictionary for later reference
-config = {
-  'user': os.getenv("HW5_USER"),
-  'password': os.getenv("HW5_PASSWORD"),
-  'host': os.getenv("HW5_HOST"),
-  'database': os.getenv("HW5_DB_NAME")
-}
-engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
-
-# create a database connection.  THIS IS THE ACTUAL CONNECTION!
-cnx = create_engine(engine_uri)
-```
-:::
-::: {.column width=40%}
-### Getting your connection variables.
-
-Rather than hard-coding your database connection into your code, we'll
-store the connection information on your disk and load it when your program starts.
-
-`load_dotenv()` searches for a `.env` file and if found, loads the contents into your environment.
-
-`os.getenv()` searches for a *key* in the environnment and if found returns it's *value*.
-
-A database connection is defined by four attributes:
-  * Server name
-  * Database name
-  * Username
-  * Password
-
-To minimize pollution in the namespace we'll store these four separate variables in a single dictionary for later reference.
-
-:::
-::::
-
-## Database connection - Create connection
-
-:::: {.columns}
-::: {.column width=60%}
-```{python}
-#| eval: true
-#| echo: fenced
-#| code-line-numbers: 17-20
-import os
-import pandas as pd
-from dotenv import load_dotenv
-from sqlalchemy import create_engine,text
-# load credentials from .env file
-load_dotenv()
-# store these credentials a dictionary for later reference
-config = {
-  'user': os.getenv("HW5_USER"),
-  'password': os.getenv("HW5_PASSWORD"),
-  'host': os.getenv("HW5_HOST"),
-  'database': os.getenv("HW5_DB_NAME")
-}
-engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
-
-# create a database connection.  THIS IS THE ACTUAL CONNECTION!
-cnx = create_engine(engine_uri)
-```
-:::
-::: {.column width=40%}
-### Creating the connection
-
-Armed with our connection varaibles we create a connection string and open a connection to the database using a *local database engine.*
-
-A connection to ANY database and server starts with a [*connection string*](https://www.connectionstrings.com/){target="_blank"}
-
-Through the connection string you can customize the connection and how information passes through it.
-
-Connection strings are used by your *local database engine* to *locate the database host*, *open the appropriate port*, 
-*pass credentials like username and password*, and finally *select the database to use*.
-
-Connection strings also manage which languages and character sets are used, sizes of transmission buffers, and more.
-
-*RTFM* for your [*local database engine*!](https://docs.sqlalchemy.org/en/20/core/engines.html){target="_blank"}
-
-:::
-::::
-
-## Another helper block
-
-In my code I created another block with a function.
-
-Normally, you'd set `echo: false` to not display the code.
-
-
-```{python}
-#| echo: fenced
 from tabulate import tabulate
-from IPython.display import display, Markdown
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
+from sqlalchemy.exc import ArgumentError, NoSuchModuleError, OperationalError, ProgrammingError
 
-def display_dataframe_as_table( df, width="100%" ):
-    """ Display dataframe in pretty format for Quarto """
-    markdown_table = tabulate(df, headers='keys',showindex=False)
-    html_table = markdown_table
-    display(Markdown(html_table))
+
+def run_sql_and_return_df(cnx, sql, show_size=True):
+    """Given an SQL command and connection string, return a DataFrame."""
+
+    # Check if the connection is None
+    if cnx is None:
+        error_message = "No valid connection. See above."
+        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
+
+    try:
+        df = pd.read_sql(sql, cnx)
+        if df.empty:
+            # Create a single-row DataFrame with all columns as None
+            df = pd.DataFrame([["no records returned"]+ [''] * (len(df.columns) - 1) ], columns=df.columns)
+
+        df = df.replace("None","NULL")
+        return df
+
+    except OperationalError as e:
+        # Catch connection or database errors
+        error_message = f"Operational Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['OperationalError'], 'ErrorMessage': [error_message]})
+    except ProgrammingError as e:
+        # Catch SQL syntax errors or issues with the command
+        error_message = f"Programming Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['ProgrammingError'], 'ErrorMessage': [error_message]})
+#    except mysql.connector.Error as e:
+#        # Catch MySQL-specific errors
+#        error_message = f"MySQL Connector Error: {str(e)}"
+#        df = pd.DataFrame({'ErrorType': ['MySQL Connector Error'], 'ErrorMessage': [error_message]})
+    except Exception as e:
+        # Catch all other exceptions
+        error_message = f"Unknown Error: {str(e)}"
+        df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
+    
+    return df
+
+def run_sql_and_return_html( cnx, sql, show_size=True):
+    """ """
+    df = run_sql_and_return_df( cnx, sql, show_size )
+
+    # Convert the DataFrame to HTML and use custom styling to span columns if needed
+    html_output = df.to_html(index=False, na_rep="NULL", justify="center")
+    html_output = re.sub(r'\bNone\b', 'NULL', html_output)
+    
+    # Add colspan attribute to span columns if rendering in an environment that supports it
+    html_output = html_output.replace('<td>no records found</td>', f'<td colspan="{len(df.columns)}">no records found</td>')
+    
+    # Append a row at the bottom with row and column count information
+    if show_size and (len(df)>0):
+        row_count = len(df)
+        col_count = len(df.columns)
+        count_row = f'<tr><td colspan="{col_count}" style="text-align: left;">Total Rows: {row_count}, Total Columns: {col_count}</td></tr>'
+        html_output = html_output.replace('</tbody>', f'{count_row}</tbody>')
+
+    return html_output
+
+def create_database_engine(uri):
+    """Create an SQLAlchemy engine with error handling and test the connection."""
+
+    try:
+        # Attempt to create the engine
+        engine = create_engine(uri)
+
+        # Test the connection with a lightweight query
+
+        run_sql_and_return_df(engine,"select 1 from dual")
+
+#        with engine.connect() as connection:
+#            connection.execute(text("SELECT 1"))
+        
+        return engine  # Return the engine if connection test is successful
+
+    except ArgumentError as e:
+        error_message = f"URI Error: {e}"
+    except NoSuchModuleError as e:
+        error_message = f"Database driver not found: {e}"
+    except OperationalError as e:
+        error_message = f"Operational error: {e}"
+    except Exception as e:
+        error_message = f"An unexpected error occurred: {e}"
+    
+    return None  # Return None if any error occurs
+
+
+def create_db_wrapper( config_map ):
+
+    # load and store credentials
+    load_dotenv()
+    config = {}
+    for key in config_map.keys():
+        config[key] = os.getenv(config_map[key])
+
+    errors = []
+    for param in config.keys():
+        if config[param] is None:
+            flag = True
+            errors.append(f"Missing {config_map[param]} in .env file.")
+
+    cnx = None
+    error_df=""
+    if errors:
+        errors.append("All subsequent SQL commands will fail.")
+        errors.append("Fix the .env file and rerun quarto ...")
+        # Convert errors to a DataFrame
+        error_df = pd.DataFrame({'Errors loading .env file': errors})
+        print(f"{'\n'.join(errors)}")
+    else:
+    # build a sqlalchemy engine string
+        engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+        # create and test the database connection.
+        cnx = create_database_engine( engine_uri )
+    return cnx,config
+
+   
+
+def split_sql_commands(sql):
+    # Initialize default delimiter
+    delimiter = ';'
+    statements = []
+    buffer = []
+
+    # Split on newline to process line by line
+    lines = sql.splitlines()
+    
+    for line in lines:
+        # Check if the line is a DELIMITER command
+        delimiter_match = re.match(r'^DELIMITER\s+(\S+)', line.strip(), re.IGNORECASE)
+        
+        if delimiter_match:
+            # If there's a buffer with previous statements, join them and add to statements
+            if buffer:
+                statements.append(" ".join(buffer).strip())
+                buffer = []
+            # Set the new delimiter from DELIMITER command
+            delimiter = delimiter_match.group(1)
+            continue
+
+        # Use the current delimiter to split statements
+        parts = re.split(re.escape(delimiter), line)
+        
+        # Process all parts except the last (incomplete) part
+        for part in parts[:-1]:
+            buffer.append(part)
+            statements.append(" ".join(buffer).strip())
+            buffer = []
+
+        # The last part may be incomplete, so add it to the buffer
+        buffer.append(parts[-1])
+
+    # Add any remaining buffer as the last statement
+    if buffer:
+        statements.append(" ".join(buffer).strip())
+        
+    return [stmt for stmt in statements if stmt]
+
+
+def execute_ddl(cnx,ddl_commands):
+    """
+    Executes DDL statements from a file on a given SQLAlchemy connection, 
+    capturing any errors and results.
+    """
+    messages = []
+    errors = []
+
+    # Check if the connection is None
+    if cnx is None:
+        error_message = "No valid connection. See above."
+        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
+        return df.to_html(index=False)
+
+    # Split commands if needed
+    ddl_statements = split_sql_commands( ddl_commands )
+#    ddl_statements = [cmd.strip() for cmd in ddl_commands.split(';') if cmd.strip()]
+
+    with cnx.connect() as connection:
+        for statement in ddl_statements:
+            try:
+                result = connection.execute(text(statement))
+                # Capture the result, if any
+                result_info = result.rowcount if result.rowcount != -1 else "No rows affected"
+                messages.append(f"Executed statement: {statement}<br/>Result: {result_info}<br/>")
+            except Exception as e:
+                # Capture the error message if execution fails
+                errors.append(f"<hr/>Error executing statement: <b>{statement}</b><br/>    Error: {str(e)}<br/>")
+
+#    return messages, errors
+
+    if errors:
+        df = pd.DataFrame({'Errors': errors})
+        return df.to_html(index=False)
+
+    return None
+
 ```
+
+## Homework 5 - Making the connection
+
+:::: {.columns}
+::: {.column}
+```{python}
+#| echo: fenced
+
+# Load these variables from first .env file found.
+config_map = {
+  'user': "CMSC408_HW5_USER",
+  'password': "CMSC408_HW5_PASSWORD",
+  'host': "CMSC408_HW5_HOST",
+  'database': "CMSC408_HW5_DB_NAME"
+}
+
+cnx,config = create_db_wrapper( config_map )
+  
+```
+:::
+::: {.column}
+### Connecting to a database
+
+* A ***.env*** file contains key-value pairs
+* The *config_map* maps needed keys and values.
+* ANY database connection requires at least 4 values:
+  * username and password
+  * host computer name
+  * host database name
+  * other values are often used to manage connection
+
+### Helper Function
+
+I provide a helper function `create_db_wrapper` to encapsulate the details.
+
+Look in *helpers.py* to see the connection code.  The majority of the code
+contains exception handling to work smoothly with *Quarto*.
+
+:::
+::::
 
 ## Select statement
 
@@ -312,15 +325,39 @@ FROM
 
 ## *Regions* table
 
-::: {style="font-size: 50%;"}
+Two different helper functions provided in homework 5: *run_sql_and_return_df* and *run_sql_and_return_html*.
+
+:::: {.columns}
+::: {.column}
+
+::: {style="font-size: 100%;"}
 ```{python}
-#| echo: false
-result = pd.read_sql("""
-select * from regions
-""",cnx)
-result.head(20)
+#| echo: fenced
+run_sql_and_return_df(cnx,"""
+select 
+  *
+from
+  regions
+""")
 ```
 :::
+
+:::
+::: {.column}
+::: {style="font-size: 100%;"}
+```{python}
+#| echo: fenced
+run_sql_and_return_html(cnx,"""
+select 
+  *
+from
+  regions
+""")
+```
+:::
+
+:::
+::::
 
 ## SELECT clause and examples
 
@@ -329,11 +366,10 @@ result.head(20)
 ### Using * to select all columns
 ```{python}
 #| echo: fenced
-#  code-line-numbers: 4
-result = pd.read_sql("""
+#| code-line-numbers: 4-4
+run_sql_and_return_html(cnx,"""
 select * from regions
-""",cnx)
-result
+""")
 ```
 
 :::
@@ -341,28 +377,26 @@ result
 ### Selecting only one attribute
 ```{python regions}
 #| echo: fenced
-#  code-line-numbers: 4-7
-result = pd.read_sql("""
+#| code-line-numbers: 4-7
+run_sql_and_return_html(cnx,"""
 select
   region_name
 from
   regions
-""",cnx)
-result
+""")
 ```
 :::
 ::::
 
 
-## *Employees* table - first 20 rows
+## *Employees* table - first 15 rows
 
 ::: {style="font-size: 50%;"}
 ```{python}
-# echo: false
-result = pd.read_sql("""
-select * from employees
-""",cnx)
-result.head(20)
+#| echo: fenced
+run_sql_and_return_html(cnx,"""
+select * from employees limit 15
+""")
 ```
 :::
 
@@ -374,10 +408,9 @@ result.head(20)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-4
-result = pd.read_sql("""
+run_sql_and_return_html(cnx,"""
 select last_name from employees
-""",cnx)
-result
+""")
 ```
 
 :::
@@ -386,10 +419,9 @@ result
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-4
-result = pd.read_sql("""
+run_sql_and_return_html(cnx,"""
 select distinct last_name from employees
-""",cnx)
-result
+""")
 ```
 
 :::
@@ -403,11 +435,10 @@ result
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-5
-result = pd.read_sql("""
+run_sql_and_return_html(cnx,"""
 select concat(last_name,',',first_name)
 from employees
-""",cnx)
-result.head(7)
+""")
 ```
 
 :::
@@ -416,11 +447,10 @@ result.head(7)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-5
-result = pd.read_sql("""
+pd.read_sql("""
 select concat(last_name,',',first_name) as full_name
-from employees
+from employees limit 7
 """,cnx)
-result.head(7)
 ```
 
 :::
@@ -434,14 +464,13 @@ result.head(7)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-8
-result = pd.read_sql("""
+pd.read_sql("""
 select
   27 as "Literal",
   now() as "Current Time" 
 from
   dual
 """,cnx)
-result.head(7)
 ```
 <p>&nbsp;</p>
 Note that we're using a built-in table named *dual* that 
@@ -456,12 +485,11 @@ The attribute can be a function or arithmetic operation
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select concat(last_name,',',first_name) as full_name,
 salary*12 as "Annual Salary"
-from employees
+from employees limit 5
 """,cnx)
-result.head(5)
 ```
 
 :::
@@ -487,7 +515,7 @@ result.head(5)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 5-10
-result = pd.read_sql("""
+pd.read_sql("""
 -- note that this is a monthly salary!
 SELECT
   last_name, first_name, salary
@@ -495,8 +523,9 @@ FROM
   employees
 WHERE
   salary > 10000
+LIMIT
+  5
 """,cnx)
-result.head(5)
 
 ```
 
@@ -514,12 +543,11 @@ result.head(5)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select last_name,department_id
 from employees
-where department_id=110;
+where department_id=110 limit 7;
 """,cnx)
-result.head(7)
 ```
 <p>&nbsp;</p>
 Data types matter.  You'll get an error
@@ -532,12 +560,12 @@ The attribute can be a function or arithmetic operation
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select concat(last_name,',',first_name) as full_name, salary
 from employees
-where salary BETWEEN 10000 and 12000;
+where salary BETWEEN 10000 and 12000
+limit 5;
 """,cnx)
-result.head(5)
 ```
 
 :::
@@ -551,12 +579,11 @@ result.head(5)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select last_name,department_id
 from employees
 where department_id in (100,145,146)
 """,cnx)
-result.head(7)
 ```
 <p>&nbsp;</p>
 
@@ -566,12 +593,11 @@ result.head(7)
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select last_name,department_id
 from employees
 where department_id=30 or department_id=70 or department_id=120
 """,cnx)
-result
 ```
 <p>&nbsp;</p>
 
@@ -586,12 +612,11 @@ result
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select distinct department_id
 from employees
 order by department_id
 """,cnx)
-result
 ```
 <p>&nbsp;</p>
 
@@ -601,12 +626,12 @@ result
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-6
-result = pd.read_sql("""
+pd.read_sql("""
 select last_name,job_id,manager_id
 from employees
 where manager_id is NULL
+limit 7
 """,cnx)
-result.head(7)
 ```
 <p>&nbsp;</p>
 
@@ -624,7 +649,7 @@ NULL must be all caps!!
 #| eval: false
 #| echo: fenced
 #| code-line-numbers: 5-13
-result = pd.read_sql("""
+pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Name",
   salary as "Monthly",
@@ -635,7 +660,6 @@ order by
   last_name,
   first_name
 """,cnx)
-result
 ```
 <p>&nbsp;</p>
 What are the NaN "not a number" entries?
@@ -649,7 +673,7 @@ list?
 ```{python}
 #| echo: false
 #| eval: true
-result = pd.read_sql("""
+pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Name",
   salary as "Monthly",
@@ -657,7 +681,6 @@ select
 from employees
 order by last_name, first_name
 """,cnx)
-result
 ```
 :::
 ::::
@@ -681,7 +704,7 @@ IFNULL( expr1, expr2 ) replaces NULL with a value.
 #| eval: false
 #| echo: fenced
 #| code-line-numbers: 5-10
-result = pd.read_sql("""
+pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Name",
   salary as "Monthly",
@@ -689,7 +712,6 @@ select
 from employees
 order by last_name, first_name
 """,cnx)
-result
 ```
 :::
 ::::
@@ -702,7 +724,7 @@ result
 ```{python}
 #| echo: false
 #| eval: true
-result = pd.read_sql("""
+pd.read_sql("""
 
 select 
   concat(last_name,',',first_name) as "Name",
@@ -715,7 +737,6 @@ order by
   first_name
 
 """,cnx)
-result
 ```
 :::
 ::: {.column width=50%}
@@ -723,7 +744,7 @@ result
 ```{python}
 #| echo: false
 #| eval: true
-result = pd.read_sql("""
+pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Name",
   salary as "Monthly",
@@ -731,7 +752,6 @@ select
 from employees
 order by last_name, first_name
 """,cnx)
-result
 ```
 :::
 ::::
@@ -764,11 +784,10 @@ Examples:
 #| eval: true
 #| echo: fenced
 #| code-line-numbers: 5-6
-result = pd.read_sql("""
+pd.read_sql("""
 select last_name from employees
 where last_name like 'MC%%'
 """,cnx)
-result
 ```
 :::
 ::: {.column width=50%}
@@ -777,11 +796,11 @@ result
 #| eval: true
 #| echo: fenced
 #| code-line-numbers: 5-6
-result = pd.read_sql("""
+pd.read_sql("""
 SELECT phone_number FROM employees
 WHERE phone_number LIKE '%%123%%';
 """,cnx)
-result
+
 ```
 :::
 ::::
@@ -808,7 +827,7 @@ Attributes in *ORDER BY* can be computed!
 #| eval: true
 #| echo: fenced
 #| code-line-numbers: 5-10
-result = pd.read_sql("""
+pd.read_sql("""
 select 
   concat(last_name,',',first_name) as "Full Name", salary as "Monthly"
 from employees
@@ -816,7 +835,6 @@ order by
   salary desc,
   last_name, first_name
 """,cnx)
-result
 ```
 :::
 ::::
@@ -825,10 +843,14 @@ result
 
 :::: {.columns}
 ::: {.column}
+### Major statement clauses
+
 * `SELECT` - variable to project
 * `FROM` - tables to combine
 * `WHERE` - filters to apply
 * `ORDER BY` - order of results
+
+### Inside each clause
 
 * `CONCAT` - combining columns
 * `AS` - Renaming columns
@@ -841,6 +863,8 @@ See the [MySQL *SELECT* documentation](https://dev.mysql.com/doc/refman/8.0/en/s
 
 :::
 ::: {.column}
+### Filters and functions
+
 * `WHERE`
     * AND, OR, NOT
     * `<` `<=` `=` `=>` `>`
