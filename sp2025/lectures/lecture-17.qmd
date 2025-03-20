@@ -15,8 +15,12 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331
 lecture-id: 17
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Save You Hours™
+  url: _save-you-hours.qmd
+- topic: Python-Quarto setup
+  url: _python-quarto-setup.qmd
+- topic: Homework 5 - Getting started
+  url: _homework-5-getting-started-with-sql-sp2025.qmd
 title: SQL Toolset
 ---
 
@@ -30,8 +34,17 @@ this_file = 'lecture-17.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Save You Hours™
+
+{{< include ../../topics/_save-you-hours.qmd >}}
+
+# Python-Quarto setup
+
+{{< include ../../topics/_python-quarto-setup.qmd >}}
+
+# Homework 5 - Getting started
+
+{{< include ../../topics/_homework-5-getting-started-with-sql-sp2025.qmd >}}
 <!-- lecture-block-end -->
 
 

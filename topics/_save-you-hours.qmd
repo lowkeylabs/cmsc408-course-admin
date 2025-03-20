@@ -1,0 +1,21 @@
+<!-- # Save You Hours -->
+
+##
+
+[![](assets/save-you-hours.png)](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)
+
+## Save You Hours™
+
+:::: {.columns}
+::: {.column width=70%}
+[![](./assets/resource-analytics.png){fig-align="center" width=450px}](https://virginiacommonwealth.instructure.com/courses/113813/external_tools/34){target="_blank"}
+:::
+::: {.column width=30%}
+### Analytics
+
+* Who is looking at what?
+
+* Let's explore
+
+:::
+::::

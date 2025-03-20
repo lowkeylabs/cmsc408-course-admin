@@ -1,4 +1,4 @@
-# Python-Quarto Setup
+<!-- # Python-Quarto Setup -->
 
 ## Issue - VS code is blocking extensions
 
@@ -110,7 +110,7 @@ from crashes.
 ::::
 
 
-## Issue - Wrong environments
+## Issue - VSCode - Wrong environments
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -130,7 +130,7 @@ from crashes.
 ::::
 
 
-## Issue - Wrong environments
+## Issue - VSCode - Wrong environments
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -149,7 +149,7 @@ from crashes.
 :::
 ::::
 
-## Issue - Wrong environments
+## Issue - VSCode - Wrong environments
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -165,6 +165,84 @@ from crashes.
 ### To fix: click on python version
 
 * Click on the version and select the correct environment.
+:::
+::::
+
+## Issue - Poetry - key commands
+
+### Install *shell* plugin for versions > 2.0
+
+```{bash}
+poetry self add poetry-plugin-shell
+```
+*See: <https://github.com/python-poetry/poetry-plugin-shell>*
+
+### Create virtual environment, install packages, open shell
+
+```{bash}
+poetry install
+pip list
+poetry shell  or poetry run pwsh
+pip list
+```
+
+### Once in shell - quarto can do it's thing!
+
+
+```{bash}
+quarto render report.qmd
+```
+
+## Issue - Poetry - I'm getting WIERD ERRORS
+
+### I'm getting wierd errors when running `poetry install`
+
+```{bash}
+poetry lock --regenerate
+```
+This command realigns the packages to your current version of python.
+
+### Switch versions of python for my project
+
+```{bash}
+poetry env info
+poetry env remove --all
+poetry env info
+poetry env use 3.13.2
+poetry lock --regenerate
+poetry install
+poetry shell
+```
+
+This will show you your current environment settings, clear out old
+environments, sets poetry to use 3.13.2 (or whatever), regenerate the lock file
+to the new version of python, and then install packages.
+
+## Issue - Python/Quarto not connecting to database
+
+### Missing or incorrect *.env* file
+
+```{bash}
+cp .env.sample .env
+code .env
+```
+*Edit .env file using VSCode and save to disk*
+
+### Possible .env locations
+
+:::: {.columns}
+::: {.column}
+* `load_dotenv` package looks *up* the directory chain until it finds the first .env file.
+
+* I recommend keeping the *.env* file in your user home folder!
+:::
+::: {.column}
+1. same folder as *report.qmd*
+1. home folder of project
+1. home folder of user
+	- C:\\Users\\jdleonard
+	- /home/jdleonard
+
 :::
 ::::
 

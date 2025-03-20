@@ -1,0 +1,51 @@
+<!-- # Mobile App Curated Resources -->
+
+## Mobile App Curated Resources
+
+:::: {.columns}
+::: {.column}
+This page curates and describes the resource link on the [Canvas Week 11 home page.](https://virginiacommonwealth.instructure.com/courses/93957)
+<p>&nbsp;</p>
+### Mobile Design Guidelines
+* [Mobile basics: Android](https://developer.android.com/design/ui/mobile) - Android design guidelines
+* [Mobile basics: iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios) - iOS design guidelines
+
+### Building mobile apps
+* [Mobile basics](https://reactnative.dev/docs/getting-started) - Starting point in react native documentation.
+* [What is react-native?](https://medium.com/@waadlingaadil/what-is-react-native-lft-1-648d1787fd58) - overview of react-native.
+* [What is expo snack?](https://medium.com/@waadlingaadil/how-to-use-expo-snacks-in-react-native-lft-2-653853c9f503) - overview of expo and snacks.
+:::
+::: {.column}
+### React and react native
+* [Thinking in React](https://react.dev/learn/thinking-in-react) - very important to review.  Helps get your head around things!
+* [React quick start](https://react.dev/learn) - some of this overlaps with react-native.
+* [React lifecycle and hooks](https://levelup.gitconnected.com/react-lifecycle-methods-and-their-equivalents-in-functional-components-5677a3fa623d) - comparison of class and function components.
+* [When to NOT use useEffect](https://react.dev/learn/you-might-not-need-an-effect) - interactivity is difficult to grasp in React.  Overusing
+the *useEffect* feature can cause issues.
+
+### Video tutorial series
+* [React Native tutorial](https://www.youtube.com/playlist?list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1) - a youtube tutorial series with TONS of SHORT videos.
+
+:::
+::::
+
+## React and React-native GOTCHAS
+
+:::: {.columns}
+::: {.column}
+### The world of React and RN ...
+As you work your way through the various materials and resources, you'll see that
+there are several DIFFERENT flavors of code and sometimes competing code bases and tools.
+
+Articles and videos may cover topics from one perspective, and this may be different from YOUR perspective.
+:::
+::: {.column}
+### In this class ...
+In this class we'll focus on the **bold** features (*functional components*,*expo*, and *javascript*).  You should become alert to these differences when you search for examples!
+
+* [Class components vs **function components**](https://www.freecodecamp.org/news/functional-vs-class-components-react-native/)
+* [**Expo** vs. React Native](https://blog.stackademic.com/expo-vs-vanilla-react-native-765e6aff5b51)
+* [**Javascript** vs. Typescript](https://www.emizentech.com/blog/react-with-typescript-or-javascript.html)
+:::
+::::
+
