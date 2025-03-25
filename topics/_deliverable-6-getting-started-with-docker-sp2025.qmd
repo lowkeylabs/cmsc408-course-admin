@@ -37,5 +37,293 @@ and web server on your own computer.
 :::
 ::::
 
+## Docker Infrastructure
+
+:::: {.columns}
+::: {.column width=70%}
+![](assets/docker-infrastructure.png)
+:::
+
+::: {.column width=30%}
+### Vocabulary
+* **Registry** - maintained by Docker.
+
+* **Docker host** - running on your local machine.
+
+* ** Docker client** - YOU and your CLI
+
+* **image** - a disk image, stored in the *registry* or *locally*.
+
+* **container** - a ready-to-run application connected to your OS: *run* and *stop*.
+
+* **volume** - a shared folder/file system between container and OS.
+
+* **port** - a network connection, usually remapped from *local*:*container*
+
+:::
+::::
+
+## Deliverable 6 Examples
+
+
+* [nginx-static-example](https://github.com/vcu-ssg/ssg-quarto-docker-tutorial/tree/main/site/example-nginx-static-example) - creates a simple, static web server with the html file stored inside the container.
+
+* [nginx-static-volume](https://github.com/vcu-ssg/ssg-quarto-docker-tutorial/tree/main/site/example-nginx-static-volume) - creates a simple web server container with the html files stored on your local disk.
+
+* [apache-php-remote-mysql](https://github.com/vcu-ssg/ssg-quarto-docker-tutorial/tree/main/site/example-apache-php-remote-mysql) - creates a local apache web server serving html/php pages from your local disk, connected to cmsc508.com using your username and password.
+
+* [apache-php-local-mysql](https://github.com/vcu-ssg/ssg-quarto-docker-tutorial/tree/main/site/example-apache-php-local-mysql) - creates a local apache setb server serving html/php pages from your local disk, connected to a locally running mysql DB and locally running phpmyadmin.
+
+* [production-example-1](https://github.com/vcu-ssg/ssg-quarto-docker-tutorial/tree/main/site/example-production-example-1) - creates a localling running nginx load balancer and reverse proxy, apache-php server, mysql database and phpmyadmin all talking together.
+
+## Deliverable 6 - nginx-static-example
+
+:::: {.columns}
+::: {.column width=55%}
+
+### Step 1: Build image and run it
+```{bash}
+cd nginx-static-example
+docker build -t nginx-test .
+docker run -d -p 8080:80 nginx-test
+```
+Point browser at localhost:8080 and enjoy!
+
+&nbsp;
+
+### Step 2: Examine environment
+```{bash}
+docker ps
+docker container ls --all
+docker image ls --all
+```
+
+&nbsp;
+
+### Step 3: Clean up environment
+```{bash}
+docker stop <name>
+
+docker rm <name>
+
+docker rmi <name>:<version>
+```
+
+
+:::
+::: {.column width=5%}
+<p>&nbsp;</p>
+:::
+::: {.column width=40%}
+### Overview
+
+In this example, we're creating a simple, isolated
+container with an operating system and web server.
+
+We'll connect to it through port 8080.
+### Gotchas
+
+Before moving to next task:
+
+* Be sure to *docker stop* running containers
+
+* Be sure to *docker rm* unused containers, they keep ports!
+:::
+::::
+
+## Deliverable 6 - nginx-static-volume
+
+:::: {.columns}
+::: {.column width=55%}
+
+### Step 1: Build image and run it
+```{bash}
+cd nginx-static-volumne
+docker-compose up -d
+```
+Point browser at localhost:8080 and enjoy!
+
+&nbsp;
+
+### Step 2: Examine environment
+```{bash}
+docker ps
+cd site
+## Edit the HTML file and enjoy the results!
+```
+
+&nbsp;
+
+### Step 3: Clean up environment
+```{bash}
+docker stop <name>
+
+docker rm <name>
+
+docker rmi <name>:<version>
+```
+
+
+:::
+::: {.column width=5%}
+<p>&nbsp;</p>
+:::
+::: {.column width=40%}
+### Overview
+
+In this example, we'll create a web server container,
+with the container file system mapped to our local folder.
+
+### Gotchas
+
+* The site is live.  You can edit to your heart's content! 
+
+* Be sure to refresh after changing content.
+
+Before moving to next task:
+
+* Be sure to *docker stop* running containers
+
+* Be sure to *docker rm* unused containers, they keep ports!
+
+:::
+::::
+
+## Deliverable 6 - apachephp-remote-mysql
+
+
+:::: {.columns}
+::: {.column width=55%}
+
+### Step 1: Build image and run it
+```{bash}
+cd example-apache-php-remote-mysql
+docker-compose up -d
+```
+Point browser at localhost:8080 and enjoy!
+
+&nbsp;
+
+### Step 2: Examine environment
+```{bash}
+docker ps
+cd site
+## view contents of index.php
+## Watch a few PHP videos to see how it all works ...
+```
+
+&nbsp;
+
+### Step 3: Clean up environment
+```{bash}
+docker stop <name>
+
+docker rm <name>
+
+docker rmi <name>:<version>
+```
+
+
+:::
+::: {.column width=5%}
+<p>&nbsp;</p>
+:::
+::: {.column width=40%}
+### Overview
+
+In this example, we create a web server running PHP and connect
+it to our database stored on *cmsc-vcu.com*.
+
+### Gotchas
+
+* Be sure to create a *.env* file INSIDE THE TASK FOLDER.  Docker is
+not very smart and will look for the *.env* file ONLY in current directory.
+
+* The site is live.  You can edit to your heart's content! 
+
+* Be sure to refresh after changing content.
+
+Before moving to next task:
+
+* Be sure to *docker stop* running containers
+
+* Be sure to *docker rm* unused containers, they keep ports!
+
+:::
+::::
+
+## Deliverable 6 - apacpe-php-local-mysql
+
+
+:::: {.columns}
+::: {.column width=55%}
+
+### Step 1: Build image and run it
+```{bash}
+cd example-apache-php-local-mysql
+docker-compose up -d
+```
+
+* Point browser at localhost:8080 to see web site
+
+* Point browser at localhost:8081 to see phpmyadmin
+
+&nbsp;
+
+### Step 2: Examine environment
+```{bash}
+docker ps
+cd site
+cd db
+## view contents of index.php
+## Watch a few PHP videos to see how it all works ...
+```
+
+&nbsp;
+
+### Step 3: Clean up environment
+```{bash}
+docker stop <name>
+
+docker rm <name>
+
+docker rmi <name>:<version>
+```
+
+
+:::
+::: {.column width=5%}
+<p>&nbsp;</p>
+:::
+::: {.column width=40%}
+### Overview
+
+In this example, we orchestrate 3 different containers, 
+one serving up *mysql database*, a second to run *phpmyqdmin*,
+and a third to host your *local web site*.
+
+
+### Gotchas
+
+* Be sure to create a *.env* file INSIDE THE TASK FOLDER.  Docker is
+not very smart and will look for the *.env* file ONLY in current directory.
+
+* This *.env* file needs another password, see *.env-sample*!
+
+* Be sure to refresh after changing content.
+
+Before moving to next task:
+
+* Be sure to *docker stop* running containers
+
+* Be sure to *docker rm* unused containers, they keep ports!
+
+:::
+::::
+
+## Deliverable 6 - production-example-1
+
+* a bit more complicated, but this runs the same as all the others.
 
 {{< include ./assets/_rest-of-class-working-examples.qmd >}}
+
