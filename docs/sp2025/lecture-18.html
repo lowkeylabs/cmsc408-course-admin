@@ -6,13 +6,13 @@
 <script src="lecture-18_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-18_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-18_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-18_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-18_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-18_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-18_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-18_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+  <meta name="generator" content="quarto-1.6.42">
 
-  <title>SQL C-R-U-D</title>
+  <title>SQL and Docker</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="lecture-18_files/libs/revealjs/dist/theme/quarto-67f8f91f68d53fc8ccb8d34b88cf51f7.css">
+  <link rel="stylesheet" href="lecture-18_files/libs/revealjs/dist/theme/quarto-ba3afb5a2be93b52b572f3e3ea6a706a.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-18_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-18_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -137,7 +137,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">SQL C-R-U-D</h1>
+  <h1 class="title">SQL and Docker</h1>
   <p class="subtitle">Lecture 18</p>
 
 <div class="quarto-title-authors">
@@ -153,13 +153,17 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331">Quiz 4 - SQL Basics</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772">Deliverable 6 - Docker Scaffold</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341">Homework 5 - Getting started</a> - due 3/23, SUN</p></li>
+<li><p><a href="https://vcu-ssg.github.io/ssg-quarto-python-setup/">(Python-Quarto Setup Website)</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331">Quiz 4 - SQL Basics</a> - due 3/27, THU</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772">Deliverable 6 - Docker Scaffold</a> - due 3/30, SUN</p></li>
+<li><p><a href="https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/">(Docker tutorial website)</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours">SAVE YOU HOURS™</a></p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><a href="#/del-6---semester-project-and-docker">Del 6 - Semester project and Docker</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -185,7 +189,7 @@
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">3/25</td>
 <td style="text-align: center;">Tue</td>
-<td>L18:SQL C-R-U-D</td>
+<td>L18:SQL and Docker</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -250,9 +254,60 @@
 <!-- lecture-block-begin -->
 </section>
 <section>
-<section id="when-ready-the-complete-lecture-will-replace-this-one." class="title-slide slide level1 center">
-<h1>When ready, the complete lecture will replace this one.</h1>
-<!-- no url provided in Topics tab -->
+<section id="del-6---semester-project-and-docker" class="title-slide slide level1 center">
+<h1>Del 6 - Semester project and Docker</h1>
+<!-- # Deliverable 6 - Getting Started with Docker SP2025 -->
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/Something-Completely-Different.gif" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+</figure>
+</div>
+</section>
+<section id="deliverable-6---getting-started-with-docker" class="slide level2 scrollable">
+<h2>Deliverable 6 - Getting started with Docker</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772" target="_blank"><img data-src="./assets/del6-starting-with-docker-sp2025.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<h3 id="overview">Overview</h3>
+<p>You’ll be installing and using DOCKER to stand up a database and web server on your own computer.</p>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ol type="1">
+<li><p>Install docker</p></li>
+<li><p>Play with containers</p>
+<ul>
+<li>Simple</li>
+<li>More Complex</li>
+</ul></li>
+<li><p>Gather ideas and code</p>
+<ul>
+<li>Semester project architecture</li>
+<li>Web server code</li>
+<li>Database code</li>
+<li>(capstone project?)</li>
+</ul></li>
+<li><p><a href="https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/">See this helper site!</a></p></li>
+</ol>
+</div></div>
+<!-- _rest-of-class-working-examples.qmd -->
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center">
+<div style="font-size:2em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<p>We spend the rest of the class working examples.</p>
+</div>
+<div style="font-size:2em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<p>Refer to the video for details.</p>
+</div>
+</div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -263,13 +318,17 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331">Quiz 4 - SQL Basics</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772">Deliverable 6 - Docker Scaffold</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341">Homework 5 - Getting started</a> - due 3/23, SUN</p></li>
+<li><p><a href="https://vcu-ssg.github.io/ssg-quarto-python-setup/">(Python-Quarto Setup Website)</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331">Quiz 4 - SQL Basics</a> - due 3/27, THU</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772">Deliverable 6 - Docker Scaffold</a> - due 3/30, SUN</p></li>
+<li><p><a href="https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/">(Docker tutorial website)</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours">SAVE YOU HOURS™</a></p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><a href="#/del-6---semester-project-and-docker">Del 6 - Semester project and Docker</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -295,7 +354,7 @@
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">3/25</td>
 <td style="text-align: center;">Tue</td>
-<td>L18:SQL C-R-U-D</td>
+<td>L18:SQL and Docker</td>
 <td></td>
 </tr>
 <tr class="even">

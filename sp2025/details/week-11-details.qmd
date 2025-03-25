@@ -30,7 +30,13 @@ this_file = "week-00-details.qmd"
 
 Review ALL the resources above. Here are some additional notes:
     
-[Full stack apache/php](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-full-stack-apache-slash-php-2) Nice overview of deliverable 9!
+[Del.6 - Docker tutorial](https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/) A CMSC408 website for deliverable 6.
+
+
+[Python-Quarto Site](https://vcu-ssg.github.io/ssg-quarto-python-setup/) Setup site for python and quarto (HW5)
+
+
+[Full stack apache/php](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-full-stack-apache-slash-php-2) Nice overview of deliverable 6.
 
 
 [CRUD and PHP (video)](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-crud-and-php-video-2) A good place start with PHP and CRUD for the semester-long project!
@@ -40,5 +46,8 @@ Review ALL the resources above. Here are some additional notes:
 
 
 [CRUD/PHP example (video)](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-crud-slash-php-example-video-2) Another example using PHP to create a CRUD website.
+
+
+[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours) Uhhh ... Please read me!
 
 <!-- resources-block-end -->

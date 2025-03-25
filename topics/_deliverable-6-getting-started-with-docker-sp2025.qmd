@@ -1,30 +1,41 @@
 <!-- # Deliverable 6 - Getting Started with Docker SP2025 -->
 
-## Deliverable 9 - Getting started with Docker
+
+##
+
+![](assets/Something-Completely-Different.gif){width=85% fig-align=center}
+
+
+## Deliverable 6 - Getting started with Docker
 
 :::: {.columns}
 ::: {.column width=70%}
-[![](./assets/del9-starting-with-docker.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/967286){target="_blank"}
+[![](./assets/del6-starting-with-docker-sp2025.png){width=85% fig-align=center}](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772){target="_blank"}
 :::
 ::: {.column width=30%}
+### Overview
+
+You'll be installing and using DOCKER to stand up a database
+and web server on your own computer.
+
 ### Learning Objectives
-<p>&nbsp;</p>
 
-* Install docker
+1. Install docker
 
-<p>&nbsp;</p>
-
-* Play with containers
+1. Play with containers
     - Simple
     - More Complex
 
-<p>&nbsp;</p>
-
-* Gather ideas and code
+1. Gather ideas and code
     - Semester project architecture
     - Web server code
     - Database code
     - (capstone project?)
+
+1. [See this helper site!](https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/)
+
 :::
 ::::
 
+
+{{< include ./assets/_rest-of-class-working-examples.qmd >}}

@@ -1,0 +1,4 @@
+<!-- # Rest of class working examples -->
+
+{{< include ./assets/_rest-of-class-working-examples.qmd >}}
+

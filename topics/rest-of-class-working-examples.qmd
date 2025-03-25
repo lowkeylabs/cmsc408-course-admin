@@ -1,0 +1,7 @@
+---
+title: "Rest of class working examples"
+---
+
+{{< include '_rest-of-class-working-examples.qmd' >}}
+
+    
