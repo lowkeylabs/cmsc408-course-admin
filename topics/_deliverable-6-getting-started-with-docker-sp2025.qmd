@@ -1,6 +1,5 @@
 <!-- # Deliverable 6 - Getting Started with Docker SP2025 -->
 
-
 ##
 
 ![](assets/Something-Completely-Different.gif){width=85% fig-align=center}
@@ -76,7 +75,7 @@ and web server on your own computer.
 
 * [production-example-1](https://github.com/vcu-ssg/ssg-quarto-docker-tutorial/tree/main/site/example-production-example-1) - creates a localling running nginx load balancer and reverse proxy, apache-php server, mysql database and phpmyadmin all talking together.
 
-## Deliverable 6 - nginx-static-example
+## Deliverable 6 - nginx-static-example (Part 1)
 
 :::: {.columns}
 ::: {.column width=55%}
@@ -96,6 +95,7 @@ Point browser at localhost:8080 and enjoy!
 docker ps
 docker container ls --all
 docker image ls --all
+docker 
 ```
 
 &nbsp;
@@ -103,9 +103,7 @@ docker image ls --all
 ### Step 3: Clean up environment
 ```{bash}
 docker stop <name>
-
 docker rm <name>
-
 docker rmi <name>:<version>
 ```
 
@@ -115,21 +113,96 @@ docker rmi <name>:<version>
 <p>&nbsp;</p>
 :::
 ::: {.column width=40%}
+
 ### Overview
 
 In this example, we're creating a simple, isolated
 container with an operating system and web server.
 
 We'll connect to it through port 8080.
+
 ### Gotchas
 
-Before moving to next task:
+* the HTML files are stored INSIDE the container.  You can't edit them directly.
+
+### Before moving to next task:
 
 * Be sure to *docker stop* running containers
 
 * Be sure to *docker rm* unused containers, they keep ports!
 :::
 ::::
+
+## Deliverable 6 - nginx-static-example (Part 2)
+
+:::: {.columns}
+::: {.column width=55%}
+
+### Step 1: Build image, create container, start it
+```{bash}
+cd nginx-static-example
+docker build -t nginx-test .
+docker create -p 8080:80 --name local-nginx nginx-test
+docker image ls --all
+docker container ls --all
+docker start local-nginx
+```
+
+### Step 2: Examine INSIDE the container
+```{bash}
+docker exec -it local-nginx bash
+ls -alF
+apt update
+apt install nano
+cd /usr/share/nginx/HTML
+nano index.html
+exit  # to leave container shell
+```
+
+### Step 3: stop and start the container
+```{bash}
+docker stop local-nginx
+docker start local-nginx
+```
+We don't lose any changes we made to the container.
+
+:::
+
+::: {.column width=5%}
+
+<p>&nbsp;</p>
+
+:::
+
+::: {.column width=40%}
+
+### Overview
+
+Same as previous example, but we'll explore INSIDE the container a bit!
+
+We'll connect to it through port 8080.
+
+### Gotchas
+
+* We use `docker exec bash` to run `bash` command INSIDE the container.
+* `-it local-nginx` runs command *interactively* in container *local-nginx*.
+
+### Before moving to next task:
+
+```{bash}
+# wsl/mac/linux
+docker stop $(docker ps -q)
+docker container rm $(docker ps --all -q)
+# powershell
+docker ps -q | ForEach-Object {docker stop $_}
+docker ps --all -q | ForEach-Object {docker rm $_}
+```
+
+
+:::
+::::
+
+
 
 ## Deliverable 6 - nginx-static-volume
 
@@ -169,6 +242,7 @@ docker rmi <name>:<version>
 <p>&nbsp;</p>
 :::
 ::: {.column width=40%}
+
 ### Overview
 
 In this example, we'll create a web server container,
@@ -176,11 +250,11 @@ with the container file system mapped to our local folder.
 
 ### Gotchas
 
-* The site is live.  You can edit to your heart's content! 
+* The site is live in the *./site* folder.  You can edit to your heart's content! 
 
-* Be sure to refresh after changing content.
+* Be sure to refresh the browser after changing content.
 
-Before moving to next task:
+### Before moving to next task:
 
 * Be sure to *docker stop* running containers
 
@@ -229,21 +303,24 @@ docker rmi <name>:<version>
 <p>&nbsp;</p>
 :::
 ::: {.column width=40%}
+
 ### Overview
 
 In this example, we create a web server running PHP and connect
 it to our database stored on *cmsc-vcu.com*.
+
+You could use this approach for your semester project.
 
 ### Gotchas
 
 * Be sure to create a *.env* file INSIDE THE TASK FOLDER.  Docker is
 not very smart and will look for the *.env* file ONLY in current directory.
 
-* The site is live.  You can edit to your heart's content! 
+* The site is live in *./site*  You can edit to your heart's content! 
 
 * Be sure to refresh after changing content.
 
-Before moving to next task:
+### Before moving to next task:
 
 * Be sure to *docker stop* running containers
 
@@ -296,12 +373,12 @@ docker rmi <name>:<version>
 <p>&nbsp;</p>
 :::
 ::: {.column width=40%}
+
 ### Overview
 
 In this example, we orchestrate 3 different containers, 
 one serving up *mysql database*, a second to run *phpmyqdmin*,
 and a third to host your *local web site*.
-
 
 ### Gotchas
 
@@ -312,7 +389,7 @@ not very smart and will look for the *.env* file ONLY in current directory.
 
 * Be sure to refresh after changing content.
 
-Before moving to next task:
+### Before moving to next task:
 
 * Be sure to *docker stop* running containers
 
@@ -323,7 +400,78 @@ Before moving to next task:
 
 ## Deliverable 6 - production-example-1
 
-* a bit more complicated, but this runs the same as all the others.
+:::: {.columns}
+::: {.column width=55%}
 
-{{< include ./assets/_rest-of-class-working-examples.qmd >}}
+### Step 1: Build image and run it
+```{bash}
+cd example-apache-php-local-mysql
+docker-compose up -d
+```
+
+* Point browser at localhost:8080 to see web site
+
+* This browser supports application routing, no more port 8081!  Try:
+
+<https://localhost:8080/phpmyadmin>  
+
+&nbsp;
+
+### Step 2: Examine environment
+```{bash}
+docker ps
+cd site
+cd db
+## view contents of index.php
+## Watch a few PHP videos to see how it all works ...
+```
+
+&nbsp;
+
+### Step 3: Clean up environment
+```{bash}
+docker stop <name>
+
+docker rm <name>
+
+docker rmi <name>:<version>
+```
+
+
+:::
+::: {.column width=5%}
+<p>&nbsp;</p>
+:::
+::: {.column width=40%}
+
+### Overview
+
+In this example, we orchestrate 3 different containers and a router container:
+one serving up *mysql database*, a second to run *phpmyqdmin*, a third to host your *local web site*,
+and the router container to seamlessly allow the different applications to share
+the main web port 8080.
+
+### Gotchas
+
+* Be sure to create a *.env* file INSIDE THE TASK FOLDER.  Docker is
+not very smart and will look for the *.env* file ONLY in current directory.
+
+* This *.env* file needs another password, see *.env-sample*!
+
+* Be sure to refresh after changing content.
+
+### Before moving to next task:
+
+* Be sure to *docker stop* running containers
+
+* Be sure to *docker rm* unused containers, they keep ports!
+
+:::
+::::
+
+
+
+
+
+
 

@@ -1,5 +1,4 @@
-
-# Creating and populating tables
+<!-- # Creating and populating tables -->
 
 ## Data Definition Language (DDL)
 
@@ -24,6 +23,7 @@
 
 :::
 ::: {.column width=39%}
+
 ### General workflow
 
 There are many approaches to database creation.  For this class I recommend the following workflow:
