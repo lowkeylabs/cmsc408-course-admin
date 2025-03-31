@@ -18,7 +18,7 @@ this_file = "week-00-details.qmd"
 #### Things to do this week
 
 
-[Homework 6 - Constructing a database](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343)  - add description to course workbook.
+[Homework 6 - Constructing a database](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343) creates a complete database for the first time!
 
 <!-- deliverables-block-end -->
 
