@@ -1,11 +1,30 @@
 <!-- Homework 6 - Creating and using a database -->
 
+## Homework 6 - Constructing a database
+
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1Y8UTG11hS6CQjRKVBdrrrZQqb0BlG_Tzr0Mp8gO4mU8/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
+
+<center>
+[Homework 6 Canvas Page](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343)
+</center>
 
 ## Homework 6 - Constructing a database
 
 :::: {.columns}
 ::: {.column width=60%}
-[![](./assets/hw6-screenshot.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966531){target="_blank"}
+### The Challenge
+Your boss came to you all excited with another one of their great ideas. “I want you to build me a DATABASE!” 
+
+Your company consists of a ragtag bunch of designers and developers trying to pay for school by picking up project work under the tutelage of world famous sensei of Kill-Bill fame. Business has been slow and your sensei is looking for ways to jumpstart this frankenstein.
+
+The database will represent a company-wide resume capturing the collective skills and certifications of all the people in your company. The database will capture skills, employees and their roles within the company.  The database will help your sensei find employees with specific skills, list the skills of any employee and help find gaps in the skill sets of employees in specific roles.
+
 :::
 ::: {.column width=40%}
 ### Learning Objectives
@@ -25,3 +44,39 @@
 :::
 ::::
 
+## Homework 6 - Build your database incrementally!
+
+:::: {.columns}
+::: {.column}
+### DDL Starter commands
+
+* commands to create the database
+* DROP TABLE, CREATE TABLE, INSERT INTO
+
+### Data constraints
+
+* attributes to ensure that only good data gets into the database
+* Data types: INT, DATE, VARCHAR(255), VARCHAR(4096)
+* Data attributes:  NOT NULL, DEFAULT 
+
+:::
+::: {.column}
+
+### Tips and tricks
+
+* Start simple - not too much at once!
+
+* You *don't need* primary keys, foreign keys or unique field constraints.
+
+* Primary, foreign keys, and UNIQUE are *integrity constraints*.
+
+* They are all OPTIONAL and can added later.
+
+* You can do "joins" without primary and foreign key, just use caution.
+
+* Tables and records connect on values in the table.
+
+* Primary keys, foreign keys and UNIQUE are your friends, don't ignore them.  With them, you can trust your database.
+
+:::
+::::

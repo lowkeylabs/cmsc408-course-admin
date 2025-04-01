@@ -2,14 +2,22 @@
 date: '2025-04-01'
 discussion-items:
 - options: target="_blank"
+  post_text: '- due 3/30, SUN'
+  topic: Deliverable 6 - Docker Scaffold
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772
+- options: target="_blank"
   post_text: '- due 4/06, SUN'
-  topic: Homework 6 - Constructing a database
+  topic: Homework 6 - Creating and using a DB
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343
 lecture-id: 20
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
-title: Even more C-R-U-D
+- topic: Creating and populating databases
+  url: _creating-and-populating-tables.qmd
+- topic: Homework 6 - walkthrough
+  url: _homework-6-constructing-a-database-sp2025.qmd
+- topic: .
+  url: _rest-of-class-working-examples.qmd
+title: More C-R-U-D
 ---
 
 ```{python}
@@ -22,8 +30,18 @@ this_file = 'lecture-20.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Creating and populating databases
+
+{{< include ../../topics/_creating-and-populating-tables.qmd >}}
+
+# Homework 6 - walkthrough
+
+{{< include ../../topics/_homework-6-constructing-a-database-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_rest-of-class-working-examples.qmd >}}
 <!-- lecture-block-end -->
 
 
