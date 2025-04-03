@@ -1,6 +1,4 @@
-
-
-# SQL Joins
+<!-- # SQL Joins -->
 
 ## SQL Joins
 
@@ -53,12 +51,11 @@ LIMIT
 ::::
 
 
-
 ## SQL Joins
 :::: {.columns}
 ::: {.column width=60%}
 
-### Example from HW7
+### Example from HW6
 
 ```{sql}
 SELECT 
@@ -78,27 +75,9 @@ WHERE
 * Multiple joins can occur in the same SQL statement.  These are usually processed left to right.
 * The *JOIN* command create a single large table for selecting, projecting and ordering.
 * The *ON* statement specific how the tables connect.
-* FOREIGN KEYS and JOINS are similar - but the DBMS doesn't share!
+* Syntax for FOREIGN KEYS and JOINS are similar - but each plays a different roll.
 * SAFETY TIP - build joins slowly and carefully until you're comfy!
 :::
 ::::
 
-
-## SQL Joins
-
-:::: {.columns}
-::: {.column width=60%}
-[![](./assets/homework7.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966535){target="_blank"}
-:::
-::: {.column width=40%}
-### SQL Joins
-
-* Let's explore *joins* in
-the context of homework 7.
-
-* We'll be spending a significant amount of time
-with joins and aggregates!
-
-:::
-::::
 

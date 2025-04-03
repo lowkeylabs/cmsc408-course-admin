@@ -18,7 +18,7 @@ this_file = "week-00-details.qmd"
 #### Things to do this week
 
 
-[Homework 7 - Joining tables and reporting](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345)  - add description to course workbook.
+[Homework 7 - Joining tables and reporting](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345) extends our first database with new tables and more complicated queries.
 
 <!-- deliverables-block-end -->
 

@@ -2,13 +2,21 @@
 date: '2025-04-03'
 discussion-items:
 - options: target="_blank"
+  post_text: '- due 3/30, SUN'
+  topic: Deliverable 6 - Docker Scaffold
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772
+- options: target="_blank"
   post_text: '- due 4/06, SUN'
-  topic: Homework 6 - Constructing a database
+  topic: Homework 6 - Creating and using a DB
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343
 lecture-id: 21
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Intro to SQL joins
+  url: _sql-joins.qmd
+- topic: Homework 6 - reminders and walkthrough
+  url: _homework-6-walkthrough-sp2025.qmd
+- topic: .
+  url: _rest-of-class-working-examples.qmd
 title: Joins and Selects 1
 ---
 
@@ -22,8 +30,18 @@ this_file = 'lecture-21.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Intro to SQL joins
+
+{{< include ../../topics/_sql-joins.qmd >}}
+
+# Homework 6 - reminders and walkthrough
+
+{{< include ../../topics/_homework-6-walkthrough-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_rest-of-class-working-examples.qmd >}}
 <!-- lecture-block-end -->
 
 
