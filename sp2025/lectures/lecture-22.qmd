@@ -3,12 +3,14 @@ date: '2025-04-08'
 discussion-items:
 - options: target="_blank"
   post_text: '- due 4/13, SUN'
-  topic: Homework 7 - Joining tables and reporting
+  topic: Homework 7 - Joining and Reporting
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345
 lecture-id: 22
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Homework 7 - Joining and Reporting
+  url: _homework-7-joining-tables-and-reporting-sp2025.qmd
+- topic: SQL Join Examples
+  url: _sql-joins-examples.qmd
 title: Joins and Selects 2
 ---
 
@@ -22,8 +24,13 @@ this_file = 'lecture-22.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Homework 7 - Joining and Reporting
+
+{{< include ../../topics/_homework-7-joining-tables-and-reporting-sp2025.qmd >}}
+
+# SQL Join Examples
+
+{{< include ../../topics/_sql-joins-examples.qmd >}}
 <!-- lecture-block-end -->
 
 

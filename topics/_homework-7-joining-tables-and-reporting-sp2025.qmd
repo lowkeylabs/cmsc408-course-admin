@@ -2,5 +2,91 @@
 
 ## Homework 7 - Joining tables and reporting
 
-talk about homework 7
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1ct6zyJ50iOvz-xQPgnv28i-tKZBKEB1atwKiIWiRvAs/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
 
+<center>
+[Homework 7 Canvas Page](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345)
+</center>
+
+## Homework 7 - Joining tables and reporting
+
+:::: {.columns}
+::: {.column width=50%}
+### The Challenge
+Your boss came to you all excited with another one of their great ideas. “I want you to build me a DATABASE!” 
+
+Your company consists of a ragtag bunch of designers and developers trying to pay for school by picking up project work under the tutelage of world famous sensei of Kill-Bill fame. Business has been slow and your sensei is looking for ways to jumpstart this frankenstein.
+
+The database will represent a company-wide resume capturing the collective skills and certifications of all the people in your company. The database will capture skills, employees and their roles within the company.  The database will help your sensei find employees with specific skills, list the skills of any employee and help find gaps in the skill sets of employees in specific roles.
+
+:::
+::: {.column width=50%}
+### Learning Objectives
+
+* In HW7, we're completing the database started in HW6.
+
+* Adding additional tables and data
+    - Copy and modify the DDL file from HW6
+	- Use the `report.qmd` file as provided.
+
+* Introducing integrity constraints
+	- Data constraints - value checking on input
+	- Referential constraints - connection checking in INSERT and DELTE
+
+* Working all the tools
+    - Understanding the workflow(s)
+    - VS code and direct connection
+    - Create and test blocks
+    - Quarto and DB connection
+    - Create entire DB at once
+:::
+::::
+
+## Homework 7 - Build your database incrementally!
+
+:::: {.columns}
+::: {.column}
+### DDL Starter commands
+
+* commands to create the database
+* DROP TABLE, CREATE TABLE, INSERT INTO
+
+### Data integrity constraints
+
+* attributes to ensure that only good data gets into the database
+* Data types: INT, DATE, VARCHAR(255), VARCHAR(4096)
+* Data attributes:  NOT NULL, DEFAULT, UNIQUE, CHECK
+* Combined attributes PRIMARY KEY, FOREIGN KEY
+
+### Referential integrity constraints
+
+* Enforcing cardinality and participation
+* Ensuring integrity on INSERT and DELETE
+* Referential attributes: FOREIGN KEY, PRIMARY KEY
+* Referential actions: ON DELETE, ON UPDATE
+
+:::
+::: {.column}
+
+### Tips and tricks
+
+* Start simple - not too much at once!
+
+* You *don't need* primary keys, foreign keys or unique field constraints.
+
+* They are all OPTIONAL and can added later.
+
+* You can do "joins" without primary and foreign key, just use caution.
+
+* Tables and records connect on values in the table.
+
+* Primary keys, foreign keys and UNIQUE are your friends, don't ignore them.  With them, you can trust your database.
+
+:::
+::::
