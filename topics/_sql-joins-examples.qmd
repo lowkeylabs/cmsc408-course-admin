@@ -58,7 +58,7 @@ def run_sql_and_return_df(sql, cnx):
         error_message = f"Unknown Error: {str(e)}"
         df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
     
-    return (df.to_html(index) if RETURN_HTML_TABLE else df)
+    return (df.to_html(index=False) if RETURN_HTML_TABLE else df)
 
 def create_database_engine(uri):
     """Create an SQLAlchemy engine with error handling and test the connection."""
@@ -126,7 +126,7 @@ def run_ddl_and_confirm(sql, cnx):
         error_message = f"Unknown Error: {str(e)}"
         df = pd.DataFrame({'ErrorType': ['UnknownError'], 'ErrorMessage': [error_message]})
     
-    return (df.to_html(index) if RETURN_HTML_TABLE else df)
+    return (df.to_html(index=False) if RETURN_HTML_TABLE else df)
 
 
 def execute_ddl_from_file(filename, cnx):
@@ -195,7 +195,6 @@ else:
 
     # create and test the database connection.
     cnx = create_database_engine( engine_uri )
-
 
 ```
 

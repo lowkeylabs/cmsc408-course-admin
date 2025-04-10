@@ -30,6 +30,7 @@ pymysql = "^1.1.0"
 text2qti = "^0.7.1"
 cryptography = "^43.0.3"
 click = "^8.1.8"
+markdown = "^3.7"
 
 [build-system]
 requires = ["poetry-core"]

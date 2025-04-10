@@ -7,8 +7,14 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345
 lecture-id: 23
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: Homework 7 - Joining and Reporting
+  url: _homework-7-joining-tables-and-reporting-sp2025.qmd
+- topic: SQL Aggregate Functions
+  url: _sql-aggregate-functions.qmd
+- topic: Homework 7 - Advanced Functions
+  url: _homework-7-advanced-queries-sp2025.qmd
+- topic: .
+  url: _rest-of-class-working-examples.qmd
 title: Aggregates 1
 ---
 
@@ -22,8 +28,22 @@ this_file = 'lecture-23.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# Homework 7 - Joining and Reporting
+
+{{< include ../../topics/_homework-7-joining-tables-and-reporting-sp2025.qmd >}}
+
+# SQL Aggregate Functions
+
+{{< include ../../topics/_sql-aggregate-functions.qmd >}}
+
+# Homework 7 - Advanced Functions
+
+{{< include ../../topics/_homework-7-advanced-queries-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_rest-of-class-working-examples.qmd >}}
 <!-- lecture-block-end -->
 
 

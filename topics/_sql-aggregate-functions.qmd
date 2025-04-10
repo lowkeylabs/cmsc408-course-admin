@@ -3,7 +3,18 @@
 ```{python}
 #| echo: false
 
-from slide_helper import create_database_engine, run_sql_and_return_df, run_ddl_and_confirm, run_ddl_from_file, show_sql_and_results
+from helpers import create_database_engine, run_sql_and_return_df, run_sql_and_return_html, create_db_wrapper, execute_ddl_from_file,show_sql_and_results
+
+# Load these variables from .env file.
+config_map = {
+  'user': "CMSC408_USER",
+  'password': "CMSC408_PASSWORD",
+  'host': "CMSC408_HOST",
+  'database': "CMSC408_DB_NAME"
+}
+
+cnx,config = create_db_wrapper( config_map )
+
 ```
 
 ## SQL - Aggregate Functions - Revisit the SELECT
@@ -113,11 +124,12 @@ Aggregate functions return values for blocks of records
 engine_uri = "sqlite:///lecture-23.db"
 # create and test the database connection.
 cnx = create_database_engine( engine_uri )
+ddl_file = "./lecture-23.ddl"
 
 if not cnx:
     print(f""" Connection not created """)
 else:
-    messages, errors = run_ddl_from_file(cnx,"./lecture-23.ddl")
+    messages, errors = execute_ddl_from_file("./lecture-23.ddl",cnx)
     if errors:
         print(f"""## Error loading lecture-23.ddl
     {errors}
@@ -130,15 +142,15 @@ else:
 ### Here is a quick look at the `people` table
 
 ```{python}
-sql = f"""SELECT
+run_sql_and_return_df(cnx,f"""SELECT
   id,
   first_name,
   last_name,
   email
 FROM
   people;
-"""
-show_sql_and_results( cnx, sql )
+""")
+
 ```
 
 
@@ -149,12 +161,12 @@ show_sql_and_results( cnx, sql )
 COUNT returns the number records for a column.  Use `*` to for all records.
 
 ```{python}
-sql = """SELECT
+show_sql_and_results( cnx,f"""SELECT
   count(*)
 FROM
   people
-"""
-show_sql_and_results( cnx,sql)
+""")
+
 ```
 
 ## SQL - Aggregate Functions - COUNT #2
@@ -164,12 +176,11 @@ show_sql_and_results( cnx,sql)
 COUNT returns the number of NON-NULL values in a column.
 
 ```{python}
-sql = """SELECT
+show_sql_and_results(cnx, f"""SELECT
   count(email)
 from
   people
-"""
-show_sql_and_results( cnx,sql)
+""")
 ```
 `email` contains `NULL` values, and these are ignored when using `COUNT`
 

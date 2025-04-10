@@ -1,19 +1,5 @@
 <!-- # Homework 7 - Advanced Queries SP2025 -->
 
-## Homework 7 - REMINDER - discussion
-
-Are you having issues with homework 7?
-
-Try commenting out this block of code.
-
-```{.python}
-if not errors:
-    messages,errors = execute_ddl_from_file( ddl_file_name, cnx)
-```
-
-Run your DDL file manually from VSCode, and then rebuild your QMD.
-
-
 ## Homework 7 - Explore people and skills
 
 Using the new queries, let's refine our analysis

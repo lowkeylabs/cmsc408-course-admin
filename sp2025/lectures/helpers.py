@@ -240,6 +240,7 @@ def execute_ddl_from_file(filename, cnx):
 
     return messages, errors
 
+from IPython.display import Markdown
 def show_sql_and_results( cnx, sql,widths=[35,5,60],headers=["SQL Code","Result set"],left_side_text=None, show_size=False):
     s1 = f"""
 :::: {{.columns}}
