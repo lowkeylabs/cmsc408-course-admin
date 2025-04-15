@@ -18,7 +18,7 @@ this_file = "week-00-details.qmd"
 #### Things to do this week
 
 
-[Homework 8 - SQL Funhouse](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072347)  - add description to course workbook.
+[Homework 8 - SQL Funhouse](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072347) explores the SELECT statement and all the different ways to gain insights from raw data using SQL.
 
 <!-- deliverables-block-end -->
 

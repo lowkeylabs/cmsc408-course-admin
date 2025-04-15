@@ -1,4 +1,3 @@
-
 <!-- # Homework 8 - SQL Funhouse -->
 
 ## Homework 8 - The World Bank
@@ -11,9 +10,10 @@ The World Bank also conducts research and analysis to address global development
 
 <p>&nbsp;</p>
 
-- <https://www.worldbank.org/en/home> - the home page
+- <https://www.worldbank.org/ext/en/home> - the home page
 
 - <https://data.worldbank.org/> - the data home page
+
 
 ## Homework 8 - World Development Indicators (WDI)
 
@@ -21,7 +21,7 @@ The World Development Indicators (WDI) is a comprehensive and extensive database
 
 It includes data on economic indicators like GDP, inflation rates, and trade, as well as social indicators such as education, health, and poverty.
 
-Researchers, policymakers, analysts and *students in CMSC 508* use the WDI to track development progress, conduct comparative analyses, and make informed decisions to improve the well-being of people around the world.
+Researchers, policymakers, analysts and *students in CMSC 408* use the WDI to track development progress, conduct comparative analyses, and make informed decisions to improve the well-being of people around the world.
 
 <p>&nbsp;</p>
 
@@ -29,6 +29,19 @@ Researchers, policymakers, analysts and *students in CMSC 508* use the WDI to tr
 
 - <https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators> - the data set and meta data
 
-- <https://cmsc508.com/phpmyadmin>
+- <https://cmsc-vcu.com/phpmyadmin>
 
 
+## Homework 8 - SQL Funhouse!
+
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1SY8BYsvbuMtAgaJGr7tCZCDhpAGGVvJXSsZbI8CDsXI/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
+
+<center>
+[Homework 8 Canvas Page](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072347)
+</center>
