@@ -366,8 +366,8 @@
 <h2>Sample data - employees table from HR database</h2>
 <p>First 20 records from <code>employees</code> table in your <code>sp25_&lt;eid&gt;_hr</code> database.</p>
 <div style="font-size: 0.5em;">
-<div id="11550101" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="52">
+<div id="ecc66365" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <table border="1" class="dataframe">
 
 <thead>
@@ -1399,8 +1399,8 @@ Total Rows: 20, Total Columns: 11
 <section id="subquery-in-the-where-clause" class="slide level2">
 <h2>Subquery in the WHERE clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="ba8e76df" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="53">
+<div id="31de5417" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code">SQL Code</h3>
@@ -1561,8 +1561,8 @@ Zlotkey
 <section id="subquery-in-the-select-clause" class="slide level2">
 <h2>Subquery in the SELECT clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="f33226d5" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="54">
+<div id="229a06d4" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-1">SQL Code</h3>
@@ -1775,8 +1775,8 @@ Zlotkey
 <section id="subquery-in-the-from-clause" class="slide level2">
 <h2>Subquery in the FROM clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="a626a475" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="55">
+<div id="ef2dd24d" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-2">SQL Code</h3>
@@ -1918,8 +1918,8 @@ NULL
 <h2>Single-value subqueries</h2>
 <p><em>Find employees hired before the earliest hire date in the Sales department.</em></p>
 <p>The <em>inner query</em> or <em>subquery</em> returns a single value - the earliest hire date of employees from department 100. The <em>outer query</em> or <em>main query</em> uses this value in a comparison with <em>hire_data</em></p>
-<div id="1ec5537d" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="56">
+<div id="72620eb9" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-3">SQL Code</h3>
@@ -1981,8 +1981,8 @@ Gietz
 <h2>Multi-value subqueries</h2>
 <p>List the employees in large departments (this with more than 5 employees).</p>
 <p>The <em>inner query</em> returns a list of department ids. The <em>outer query</em> uses the <code>IN</code> operator to test of <code>department_id</code> is in the returned list.</p>
-<div id="ed967b84" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="57">
+<div id="260c972d" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-4">SQL Code</h3>
@@ -2474,8 +2474,8 @@ Grant
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>The <em>inner query</em> returns the average salary for the department that matches the department id of the employee in the outer query.</p>
 <p>You can also get the same list by using a <em>join</em> in the <code>FROM</code> clause.</p>
-<div id="842d9cc3" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="58">
+<div id="c7675d09" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-5">SQL Code</h3>
@@ -2818,8 +2818,8 @@ Zlotkey
 <h2>Subquery as a virtual table</h2>
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>Here is the example as before, joining a subquery.</p>
-<div id="d0e4bdf4" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="59">
+<div id="1ad7002b" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
 <div class="columns">
 <div class="column" style="width:70%;">
 <h3 id="sql-code-6">SQL Code</h3>
@@ -3164,8 +3164,8 @@ Zlotkey
 <section id="nested-subqueries" class="slide level2">
 <h2>Nested subqueries</h2>
 <p><em>List employees who earn more than the average salary in departments with an average salary above $7,000 per month.</em></p>
-<div id="2caa1f33" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="60">
+<div id="c6fb04d8" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <div class="columns">
 <div class="column" style="width:70%;">
 <h3 id="sql-code-7">SQL Code</h3>
@@ -3341,8 +3341,8 @@ Higgins
 <section id="cte-example-1" class="slide level2">
 <h2>CTE Example #1</h2>
 <p><em>List employees with salaries greater than average salary.</em></p>
-<div id="48103199" class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="63">
+<div id="85996ac8" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-8">SQL Code</h3>
@@ -3794,8 +3794,8 @@ Total Rows: 51, Total Columns: 2
 <section id="cte-example-2" class="slide level2">
 <h2>CTE Example #2</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
-<div id="8e1728ec" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="64">
+<div id="ed7c107b" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-9">SQL Code</h3>
@@ -3939,8 +3939,8 @@ Total Rows: 19, Total Columns: 1
 <h2>CTE Example #3</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
 <p>Same question - different solution</p>
-<div id="cecc6d88" class="cell" data-execution_count="19">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="65">
+<div id="7a5cb98e" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-10">SQL Code</h3>
@@ -4203,8 +4203,8 @@ Total Rows: 19, Total Columns: 3
 <section id="cte-example-4" class="slide level2">
 <h2>CTE Example #4</h2>
 <p><em>List employees and their manager_id using a recursive CTE</em></p>
-<div id="c889aa9b" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="66">
+<div id="38ef0fc8" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-11">SQL Code</h3>
@@ -5752,8 +5752,8 @@ Gietz
 <section id="cte-example-5" class="slide level2">
 <h2>CTE Example #5</h2>
 <p><em>List the average salaries for each managerial level in the company</em></p>
-<div id="4cc04a85" class="cell" data-execution_count="21">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="67">
+<div id="6d6b9d3b" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <div class="columns">
 <div class="column" style="width:60%;">
 <h3 id="sql-code-12">SQL Code</h3>
@@ -5832,8 +5832,8 @@ Avg Salary
 <h2>CTE Example #6</h2>
 <p><em>List employeee, managerial levels, salaries, flagging those employees with lower than average salaries for their managerial level.</em></p>
 <div style="font-size: 0.8em;">
-<div id="ff2b7c83" class="cell" data-execution_count="22">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="68">
+<div id="9c5bcaf0" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="sql-code-13">SQL Code</h3>
