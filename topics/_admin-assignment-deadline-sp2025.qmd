@@ -1,0 +1,20 @@
+<!-- # ADMIN - Assignment Deadline SP2025 -->
+
+##
+
+::: {style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0px;"}
+
+::: {style="font-size:2.5em;width:100%;text-align:center;font-weight:bold;margin:0px;"}
+Submission Deadline
+:::
+
+::: {style="font-size:3em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:0px;"}
+Tuesday - April 29 - Midnight
+:::
+
+::: {style="font-size:2.5em;width:100%;text-align:center;font-weight:bold;margin:0x;"}
+No late work will be accepted.
+:::
+
+:::
+

@@ -1,0 +1,7 @@
+---
+title: "ADMIN - Assignment Deadline SP2025"
+---
+
+{{< include '_admin-assignment-deadline-sp2025.qmd' >}}
+
+    

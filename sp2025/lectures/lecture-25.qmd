@@ -7,8 +7,16 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072347
 lecture-id: 25
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
+- topic: .
+  url: _admin-assignment-deadline-sp2025.qmd
+- topic: Subqueries in SQL
+  url: _sql-subqueries.qmd
+- topic: Common Table Expressions
+  url: _sql-common-table-expressions.qmd
+- topic: Homework 8 - SQL Funhouse
+  url: _homework-8-discussion-sp2025.qmd
+- topic: .
+  url: _admin-work-session-in-class.qmd
 title: Subqueries and WITH 2
 ---
 
@@ -22,8 +30,27 @@ this_file = 'lecture-25.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+
+
+
+{{< include ../../topics/_admin-assignment-deadline-sp2025.qmd >}}
+
+# Subqueries in SQL
+
+{{< include ../../topics/_sql-subqueries.qmd >}}
+
+# Common Table Expressions
+
+{{< include ../../topics/_sql-common-table-expressions.qmd >}}
+
+# Homework 8 - SQL Funhouse
+
+{{< include ../../topics/_homework-8-discussion-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_admin-work-session-in-class.qmd >}}
 <!-- lecture-block-end -->
 
 

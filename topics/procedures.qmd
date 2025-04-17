@@ -1,6 +1,0 @@
----
-title: Procedures
-tags: []
----
-
-{{< include _procedures.qmd >}}

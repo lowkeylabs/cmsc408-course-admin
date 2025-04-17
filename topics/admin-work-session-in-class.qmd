@@ -1,0 +1,7 @@
+---
+title: "ADMIN - work session in class"
+---
+
+{{< include '_admin-work-session-in-class.qmd' >}}
+
+    

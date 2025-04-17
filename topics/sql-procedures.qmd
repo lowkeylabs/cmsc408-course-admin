@@ -1,0 +1,6 @@
+---
+title: SQL Procedures
+tags: []
+---
+
+{{< include _sql-procedures.qmd >}}

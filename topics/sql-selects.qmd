@@ -1,5 +1,5 @@
 ---
-title: SELECT statement
+title: SQL Selects
 tasl:
     source: fa2023\lectures\lect13-sql-selects.qmd
     tags:
@@ -8,6 +8,6 @@ tasl:
     topic: SELECT statement
 ---
 
-{{< include '_select-statement.qmd' >}}
+{{< include '_sql-selects.qmd' >}}
 
     

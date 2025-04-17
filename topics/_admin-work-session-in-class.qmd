@@ -1,16 +1,18 @@
-<!-- # Rest of class working examples -->
-
-<!-- _rest-of-class-working-examples.qmd -->
+<!-- # ADMIN - work session in class -->
 
 ##
 
 ::: {style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center"}
+
 ::: {style="font-size:1.8em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;"}
 We spend the rest of the class working examples.
 :::
+
 ::: {style="font-size:1.8em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;"}
 Refer to the video for details.
 :::
+
 :::
+
 
 

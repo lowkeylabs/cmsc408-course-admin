@@ -18,7 +18,7 @@ lecture-topics:
 - topic: Homework 5 - Getting started
   url: _homework-5-getting-started-with-sql-sp2025.qmd
 - topic: Getting to SELECT
-  url: _select-statement.qmd
+  url: _sql-selects.qmd
 title: SQL Selects
 ---
 
@@ -38,7 +38,7 @@ this_file = 'lecture-16.qmd'
 
 # Getting to SELECT
 
-{{< include ../../topics/_select-statement.qmd >}}
+{{< include ../../topics/_sql-selects.qmd >}}
 <!-- lecture-block-end -->
 
 

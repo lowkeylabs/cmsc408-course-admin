@@ -16,7 +16,7 @@ lecture-topics:
 - topic: Getting started with phpmyadmin
   url: _phpmyadmin-getting-started.qmd
 - topic: Intro to SQL (repeat)
-  url: _intro-to-sql.qmd
+  url: _sql-intro.qmd
 - topic: mySql DBMS (repeat)
   url: _mysql-dbms.qmd
 title: Intro to SQL
@@ -42,7 +42,7 @@ this_file = 'lecture-15.qmd'
 
 # Intro to SQL (repeat)
 
-{{< include ../../topics/_intro-to-sql.qmd >}}
+{{< include ../../topics/_sql-intro.qmd >}}
 
 # mySql DBMS (repeat)
 

@@ -1,7 +1,0 @@
----
-title: "Triggers"
----
-
-{{< include '_triggers.qmd' >}}
-
-    

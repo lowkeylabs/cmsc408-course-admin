@@ -1,0 +1,7 @@
+---
+title: SQL Intro
+---
+
+{{< include '_sql-intro.qmd' >}}
+
+    

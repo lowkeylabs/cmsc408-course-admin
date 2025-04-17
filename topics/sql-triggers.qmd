@@ -1,0 +1,7 @@
+---
+title: SQL Triggers
+---
+
+{{< include '_sql-triggers.qmd' >}}
+
+    

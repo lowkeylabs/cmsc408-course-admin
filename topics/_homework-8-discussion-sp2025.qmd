@@ -4,7 +4,7 @@
 
 :::: {.columns}
 ::: {.column width=60%}
-[![](./assets/homework8-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/966534){target="_blank"}
+[![](./assets/homework-8-sp2025.jpg){fig-align="center" height=375}](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072347){target="_blank"}
 :::
 ::: {.column width=40%}
 ### Learning Objectives
