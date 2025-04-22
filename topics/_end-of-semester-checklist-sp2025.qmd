@@ -1,0 +1,38 @@
+<!-- # End of Semester Checklist - sp2025 -->
+
+## End of Semester Checklist
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Lecture update
+
+- Lecture on Thursday, April 24 is CANCELLED. Review the slides!
+
+- Lecture on Tuesday, April 29 is CANCELLED. Review the slides!
+
+- I will be submitting course updates via Canvas Announcements.  We will have no scheduled in-class activities.
+
+- Please use the Discord and the TAs as your first stop for questions.
+
+- My response time over the next week will be slow.
+
+:::
+::: {.column width="50%"}
+### End of semester checklist
+
+It's end of the semester time! Plenty to do to ensure that you earn your best grade possible!
+
+- No final exam.  I've got plenty to assess your learning and comprehension.
+
+- [Check the gradebook](https://virginiacommonwealth.instructure.com/courses/113813/gradebook). It was updated over the weekend.
+
+	- Verify your scores and email me if you have any questions
+	- Submit any missing assignments, discussions or quizzes.
+
+- Complete the [course evaluation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397). You'll get credit towards your final grade AND you'll be helping improve the course for the next group of students. Thank you!
+
+:::
+::::
+
+

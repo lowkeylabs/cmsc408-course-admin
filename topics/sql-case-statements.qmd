@@ -1,0 +1,7 @@
+---
+title: "SQL CASE statements"
+---
+
+{{< include '_sql-case-statements.qmd' >}}
+
+    

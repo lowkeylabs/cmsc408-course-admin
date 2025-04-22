@@ -1,0 +1,7 @@
+---
+title: "End of Semester Checklist - sp2025"
+---
+
+{{< include '_end-of-semester-checklist-sp2025.qmd' >}}
+
+    

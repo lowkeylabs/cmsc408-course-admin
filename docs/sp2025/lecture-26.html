@@ -6,13 +6,13 @@
 <script src="lecture-26_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-26_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-26_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-26_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-26_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-26_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-26_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-26_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+  <meta name="generator" content="quarto-1.6.42">
 
-  <title>Views and Indexes</title>
+  <title>Views, CASE and more</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,8 +30,73 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lecture-26_files/libs/revealjs/dist/theme/quarto-67f8f91f68d53fc8ccb8d34b88cf51f7.css">
+  <link rel="stylesheet" href="lecture-26_files/libs/revealjs/dist/theme/quarto-ba3afb5a2be93b52b572f3e3ea6a706a.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-26_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-26_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -137,7 +202,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Views and Indexes</h1>
+  <h1 class="title">Views, CASE and more</h1>
   <p class="subtitle">Lecture 26</p>
 
 <div class="quarto-title-authors">
@@ -153,14 +218,17 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349">Homework 9 - Even more on SQL</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075774">Deliverable 7 - Final Submission</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397">Survey 2 - Course evaluation</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349">Homework 9 - Even more on SQL</a> - due 4/27, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075774">Deliverable 7 - Final Submission</a> - due 4/29, TUE</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397">Survey 2 - Course evaluation</a> - due 4/29, TUE</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><p><a href="#/end-of-semester-checklist">End of semester checklist</a></p></li>
+<li><p><a href="#/views">Views</a></p></li>
+<li><p><a href="#/case-statements">CASE statements</a></p></li>
+<li><p><a href="#/homework-9---more-sql">Homework 9 - More SQL</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -186,7 +254,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/22</td>
 <td style="text-align: center;">Tue</td>
-<td>L26:Views and Indexes</td>
+<td>L26:Views, CASE and more</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -194,7 +262,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/24</td>
 <td style="text-align: center;">Thu</td>
-<td>L27:Procedures and Functions</td>
+<td>L27:NO LECTURE - See slides</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -210,7 +278,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4/29</td>
 <td style="text-align: center;">Tue</td>
-<td>Last day of classes; L28:Triggers, Views and Security</td>
+<td>Last day of classes; L28:NO LECTURE - See slides</td>
 <td>Srv2:Course evaluation; Prj7:Final Submission</td>
 </tr>
 <tr class="odd">
@@ -221,39 +289,671 @@
 <td>Finals begin</td>
 <td></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">SQL II</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">5/8</td>
-<td style="text-align: center;">Thu</td>
-<td>Finals end</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">SQL II</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">5/10</td>
-<td style="text-align: center;">Sat</td>
-<td>Commencement</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">5/13</td>
-<td style="text-align: center;">Tue</td>
-<td>Final grades due</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 </div>
 <!-- lecture-block-begin -->
 </section>
 <section>
-<section id="when-ready-the-complete-lecture-will-replace-this-one." class="title-slide slide level1 center">
-<h1>When ready, the complete lecture will replace this one.</h1>
-<!-- no url provided in Topics tab -->
+<section id="end-of-semester-checklist" class="title-slide slide level1 center">
+<h1>End of semester checklist</h1>
+<!-- # End of Semester Checklist - sp2025 -->
+</section>
+<section id="end-of-semester-checklist-1" class="slide level2">
+<h2>End of Semester Checklist</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="lecture-update">Lecture update</h3>
+<ul>
+<li><p>Lecture on Thursday, April 24 is CANCELLED. Review the slides!</p></li>
+<li><p>Lecture on Tuesday, April 29 is CANCELLED. Review the slides!</p></li>
+<li><p>I will be submitting course updates via Canvas Announcements. We will have no scheduled in-class activities.</p></li>
+<li><p>Please use the Discord and the TAs as your first stop for questions.</p></li>
+<li><p>My response time over the next week will be slow.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="end-of-semester-checklist-2">End of semester checklist</h3>
+<p>It’s end of the semester time! Plenty to do to ensure that you earn your best grade possible!</p>
+<ul>
+<li><p>No final exam. I’ve got plenty to assess your learning and comprehension.</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/gradebook">Check the gradebook</a>. It was updated over the weekend.</p>
+<ul>
+<li>Verify your scores and email me if you have any questions</li>
+<li>Submit any missing assignments, discussions or quizzes.</li>
+</ul></li>
+<li><p>Complete the <a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397">course evaluation</a>. You’ll get credit towards your final grade AND you’ll be helping improve the course for the next group of students. Thank you!</p></li>
+</ul>
+</div></div>
+<!-- # ADMIN - Assignment Deadline SP2025 -->
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0px;">
+<div style="font-size:2.5em;width:100%;text-align:center;font-weight:bold;margin:0px;">
+<p>Submission Deadline</p>
+</div>
+<div style="font-size:3em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:0px;">
+<p>Tuesday - April 29 - Midnight</p>
+</div>
+<div style="font-size:2.5em;width:100%;text-align:center;font-weight:bold;margin:0x;">
+<p>No late work will be accepted.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="views" class="title-slide slide level1 center">
+<h1>Views</h1>
+<!-- # VIEWS in SQL -->
+</section>
+<section id="views-in-sql" class="slide level2">
+<h2>VIEWS in SQL</h2>
+<div class="columns">
+<div class="column">
+<h3 id="what-is-a-view">What is a VIEW?</h3>
+<ul>
+<li>A View is a virtual table in SQL.</li>
+<li>It does not store data itself but retrieves data from one or more underlying tables.</li>
+<li>Similar to CTE, but permanent across SELECT statements.</li>
+</ul>
+<h3 id="why-use-views">Why Use VIEWS?</h3>
+<ul>
+<li>Simplify complex queries.</li>
+<li>Provide an abstraction layer for security.</li>
+<li>Hide the complexity of underlying database schema.</li>
+<li>Very useful with API development</li>
+</ul>
+</div><div class="column">
+<p><img data-src="./assets/sql-view.jpg"></p>
+</div></div>
+</section>
+<section id="views---creating-a-view" class="slide level2">
+<h2>VIEWS - Creating a VIEW</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax">Syntax</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> view_name <span class="kw">AS</span></span>
+<span id="cb1-2"><a href=""></a><span class="kw">SELECT</span> column1, column2, <span class="op">..</span>.</span>
+<span id="cb1-3"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb1-4"><a href=""></a><span class="kw">WHERE</span> condition;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>CREATE VIEW is a DDL statement</li>
+<li>VIEWS should be defined in same DDL file that creates your database</li>
+<li>VIEWS should be designed with API to simplify API queries.</li>
+</ul>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> customer_orders <span class="kw">AS</span></span>
+<span id="cb2-2"><a href=""></a>  <span class="kw">SELECT</span> </span>
+<span id="cb2-3"><a href=""></a>    customers.customer_name, orders.order_date</span>
+<span id="cb2-4"><a href=""></a>  <span class="kw">FROM</span></span>
+<span id="cb2-5"><a href=""></a>    customers</span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">JOIN</span> orders <span class="kw">ON</span> </span>
+<span id="cb2-7"><a href=""></a>    customers.customer_id <span class="op">=</span> orders.customer_id;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="views-in-sql-when-and-when-not" class="slide level2">
+<h2>VIEWS in SQL: When and When NOT</h2>
+<div class="columns">
+<div class="column">
+<h3 id="when-to-use-a-view">When to Use a View</h3>
+<ul>
+<li><p><strong>Simplify Complex Queries</strong>: Use views to encapsulate complex SQL logic, making it easier for developers and users to work with pre-defined query results.</p></li>
+<li><p><strong>Enhance Security</strong>: Views can restrict access to specific columns or rows in a table, providing a controlled way to expose data without granting direct table access.</p></li>
+<li><p><strong>Abstract Schema Complexity</strong>: Use views to present a simplified version of the database schema, especially when the underlying schema is complex or frequently changing.</p></li>
+<li><p><strong>Enable Reusability</strong>: Views allow you to reuse commonly used query patterns, reducing duplication and improving maintainability across your database applications.</p></li>
+</ul>
+</div><div class="column">
+<h3 id="when-not-to-use-a-view">When NOT to Use a View</h3>
+<ul>
+<li><p><strong>Performance-Critical Scenarios</strong>: Avoid views when they involve complex queries or large datasets, as they can negatively impact query performance, especially if not indexed appropriately.</p></li>
+<li><p><strong>Dynamic Data Needs</strong>: Do not use views if the data requires frequent real-time updates or parameterized filtering, as views are static by nature and cannot accept parameters.</p></li>
+<li><p><strong>Data Manipulation Requirements</strong>: Views are unsuitable when you need to frequently update, delete, or insert data, as not all views are updatable and may cause unexpected behavior.</p></li>
+<li><p><strong>Overabstraction</strong>: Avoid creating too many nested or layered views, as this can lead to confusion, reduced readability, and maintenance challenges.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="views-in-sql-benefits-and-considerations" class="slide level2">
+<h2>VIEWS in SQL: Benefits and Considerations</h2>
+<div class="columns">
+<div class="column">
+<h3 id="other-ddl-commands">Other DDL commands</h3>
+<ul>
+<li>CREATE VIEW</li>
+<li>DROP VIEW</li>
+<li>CREATE OR REPLACE VIEW</li>
+</ul>
+<h3 id="benefits-of-views">Benefits of Views</h3>
+<ul>
+<li>Data abstraction and security.</li>
+<li>Reusability of complex queries.</li>
+<li>Performance optimization by precomputing results.</li>
+</ul>
+</div><div class="column">
+<h3 id="considerations">Considerations</h3>
+<ul>
+<li>Views can hide underlying schema complexity, but overuse can lead to confusion.</li>
+<li>Views may impact query performance if they involve complex operations or large datasets.</li>
+<li>Views are NOT tables, they are reevaluated every time they’re called.</li>
+<li>Views are NOT a substitute for a well-structured WITH query.</li>
+<li>WARNING - changes in underlying tables can affect view results.</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="case-statements" class="title-slide slide level1 center">
+<h1>CASE statements</h1>
+<!-- # SQL CASE statements -->
+</section>
+<section id="sql-case-statements" class="slide level2">
+<h2>SQL CASE statements</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-is-a-case-statement">What is a CASE statement?</h3>
+<ul>
+<li><code>CASE</code> is SQL’s way of adding <strong>conditional logic</strong> (like <code>if-else</code>) inside queries.<br>
+</li>
+<li><code>CASE</code> lets you <strong>return different values</strong> depending on conditions you define.<br>
+</li>
+<li><code>CASE</code> helps <strong>transform or categorize data</strong> without changing the original table.</li>
+</ul>
+<p><code>CASE</code> can be used in <code>SELECT</code>, <code>WHERE</code>, <code>ORDER BY</code>, and even inside aggregate functions.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="why-use-case">Why use CASE?</h3>
+<ul>
+<li><p>Adds if-else logic to your SQL <code>SELECT</code>, <code>ORDER BY</code>, or <code>WHERE</code> clauses.</p></li>
+<li><p>Creates custom labels or buckets (e.g., pass/fail, high/medium/low).</p></li>
+<li><p>Replaces the need for multiple queries with a single flexible query.</p></li>
+<li><p>Combined with GROUP BY, <code>CASE</code> is part of standard PIVOT TABLE pattern.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="case-statement-in-select" class="slide level2">
+<h2>CASE statement in SELECT</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-1">Syntax</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb3-2"><a href=""></a>  column_name,</span>
+<span id="cb3-3"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> result1</span>
+<span id="cb3-5"><a href=""></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> result2</span>
+<span id="cb3-6"><a href=""></a>    <span class="cf">ELSE</span> default_result</span>
+<span id="cb3-7"><a href=""></a>  <span class="cf">END</span> <span class="kw">AS</span> new_column</span>
+<span id="cb3-8"><a href=""></a><span class="kw">FROM</span> table_name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>CASE is a DML statement</li>
+<li>CASE statements can be used in <code>SELECT</code>, <code>ORDER BY</code>, or <code>WHERE</code></li>
+</ul>
+</div><div class="column">
+<h3 id="example---grades">Example - Grades</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a href=""></a>  student_name,</span>
+<span id="cb4-3"><a href=""></a>  grade,</span>
+<span id="cb4-4"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">THEN</span> <span class="st">'A'</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">THEN</span> <span class="st">'B'</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">70</span> <span class="cf">THEN</span> <span class="st">'C'</span></span>
+<span id="cb4-8"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">60</span> <span class="cf">THEN</span> <span class="st">'D'</span></span>
+<span id="cb4-9"><a href=""></a>    <span class="cf">ELSE</span> <span class="st">'F'</span></span>
+<span id="cb4-10"><a href=""></a>  <span class="cf">END</span> <span class="kw">AS</span> letter_grade</span>
+<span id="cb4-11"><a href=""></a><span class="kw">FROM</span> student_scores;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="case-in-select-before-and-after" class="slide level2">
+<h2>CASE in SELECT – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="raw-data-student_scores">Raw Data – <code>student_scores</code></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>+----------------+-------+</span>
+<span id="cb5-2"><a href=""></a>| student_name   | grade |</span>
+<span id="cb5-3"><a href=""></a>+----------------+-------+</span>
+<span id="cb5-4"><a href=""></a>| Alice Johnson  | 94    |</span>
+<span id="cb5-5"><a href=""></a>| Bob Smith      | 82    |</span>
+<span id="cb5-6"><a href=""></a>| Carol Chen     | 76    |</span>
+<span id="cb5-7"><a href=""></a>| David Lee      | 67    |</span>
+<span id="cb5-8"><a href=""></a>| Eva Martínez   | 58    |</span>
+<span id="cb5-9"><a href=""></a>+----------------+-------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="query-result-with-case">Query Result – With <code>CASE</code></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb6-2"><a href=""></a>| student_name   | grade | letter_grade |</span>
+<span id="cb6-3"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb6-4"><a href=""></a>| Alice Johnson  | 94    | A            |</span>
+<span id="cb6-5"><a href=""></a>| Bob Smith      | 82    | B            |</span>
+<span id="cb6-6"><a href=""></a>| Carol Chen     | 76    | C            |</span>
+<span id="cb6-7"><a href=""></a>| David Lee      | 67    | D            |</span>
+<span id="cb6-8"><a href=""></a>| Eva Martínez   | 58    | F            |</span>
+<span id="cb6-9"><a href=""></a>+----------------+-------+--------------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="case-in-select-before-and-after-1" class="slide level2">
+<h2>CASE in SELECT – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example---grades-1">Example - Grades</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb7-2"><a href=""></a>  student_name,</span>
+<span id="cb7-3"><a href=""></a>  grade,</span>
+<span id="cb7-4"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb7-5"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">THEN</span> <span class="st">'A'</span></span>
+<span id="cb7-6"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">THEN</span> <span class="st">'B'</span></span>
+<span id="cb7-7"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">70</span> <span class="cf">THEN</span> <span class="st">'C'</span></span>
+<span id="cb7-8"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">60</span> <span class="cf">THEN</span> <span class="st">'D'</span></span>
+<span id="cb7-9"><a href=""></a>    <span class="cf">ELSE</span> <span class="st">'F'</span></span>
+<span id="cb7-10"><a href=""></a>  <span class="cf">END</span> <span class="kw">AS</span> letter_grade</span>
+<span id="cb7-11"><a href=""></a><span class="kw">FROM</span> student_scores;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="query-result-with-case-1">Query Result – With <code>CASE</code></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb8-2"><a href=""></a>| student_name   | grade | letter_grade |</span>
+<span id="cb8-3"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb8-4"><a href=""></a>| Alice Johnson  | 94    | A            |</span>
+<span id="cb8-5"><a href=""></a>| Bob Smith      | 82    | B            |</span>
+<span id="cb8-6"><a href=""></a>| Carol Chen     | 76    | C            |</span>
+<span id="cb8-7"><a href=""></a>| David Lee      | 67    | D            |</span>
+<span id="cb8-8"><a href=""></a>| Eva Martínez   | 58    | F            |</span>
+<span id="cb8-9"><a href=""></a>+----------------+-------+--------------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="case-statement-in-order-by" class="slide level2">
+<h2>CASE statement in ORDER BY</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-2">Syntax</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb9-2"><a href=""></a>  column_name,</span>
+<span id="cb9-3"><a href=""></a>  other_column</span>
+<span id="cb9-4"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb9-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb9-6"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb9-7"><a href=""></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> sort_priority1</span>
+<span id="cb9-8"><a href=""></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> sort_priority2</span>
+<span id="cb9-9"><a href=""></a>    <span class="cf">ELSE</span> default_priority</span>
+<span id="cb9-10"><a href=""></a>  <span class="cf">END</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Useful for <strong>custom sorting</strong></li>
+<li>Replaces fixed sorting rules with <strong>dynamic logic</strong></li>
+<li>Can be combined with ascending/descending order</li>
+</ul>
+</div><div class="column">
+<h3 id="example-custom-department-sort">Example – Custom Department Sort</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb10-2"><a href=""></a>  employee_name,</span>
+<span id="cb10-3"><a href=""></a>  department</span>
+<span id="cb10-4"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb10-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="cf">CASE</span> department</span>
+<span id="cb10-7"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Executive'</span> <span class="cf">THEN</span> <span class="dv">1</span></span>
+<span id="cb10-8"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="dv">2</span></span>
+<span id="cb10-9"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="dv">3</span></span>
+<span id="cb10-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="dv">4</span></span>
+<span id="cb10-11"><a href=""></a>  <span class="cf">END</span>,</span>
+<span id="cb10-12"><a href=""></a>  department</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example overrides the default sort order, forcing specific departments to come before others in the result set.</p>
+</div></div>
+</section>
+<section id="case-in-order-by-before-and-after" class="slide level2">
+<h2>CASE in ORDER BY – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="sample-data-employees">Sample Data – <code>employees</code></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>+------------------+-------------+</span>
+<span id="cb11-2"><a href=""></a>| employee_name    | department  |</span>
+<span id="cb11-3"><a href=""></a>+------------------+-------------+</span>
+<span id="cb11-4"><a href=""></a>| Alice Johnson    | Sales       |</span>
+<span id="cb11-5"><a href=""></a>| Bob Smith        | Engineering |</span>
+<span id="cb11-6"><a href=""></a>| Carol Chen       | Executive   |</span>
+<span id="cb11-7"><a href=""></a>| David Lee        | Marketing   |</span>
+<span id="cb11-8"><a href=""></a>| Eva Martínez     | Sales       |</span>
+<span id="cb11-9"><a href=""></a>| Frank Patel      | Engineering |</span>
+<span id="cb11-10"><a href=""></a>+------------------+-------------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="ordered-result-custom-sort">Ordered Result – Custom Sort</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>+------------------+-------------+</span>
+<span id="cb12-2"><a href=""></a>| employee_name    | department  |</span>
+<span id="cb12-3"><a href=""></a>+------------------+-------------+</span>
+<span id="cb12-4"><a href=""></a>| Carol Chen       | Executive   |</span>
+<span id="cb12-5"><a href=""></a>| Bob Smith        | Engineering |</span>
+<span id="cb12-6"><a href=""></a>| Frank Patel      | Engineering |</span>
+<span id="cb12-7"><a href=""></a>| Alice Johnson    | Sales       |</span>
+<span id="cb12-8"><a href=""></a>| Eva Martínez     | Sales       |</span>
+<span id="cb12-9"><a href=""></a>| David Lee        | Marketing   |</span>
+<span id="cb12-10"><a href=""></a>+------------------+-------------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Custom order: Executive → Engineering → Sales → (others)</p>
+</div></div>
+</section>
+<section id="case-in-order-by-before-and-after-1" class="slide level2">
+<h2>CASE in ORDER BY – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-custom-department-sort-1">Example – Custom Department Sort</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb13-2"><a href=""></a>  employee_name,</span>
+<span id="cb13-3"><a href=""></a>  department</span>
+<span id="cb13-4"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb13-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb13-6"><a href=""></a>  <span class="cf">CASE</span> department</span>
+<span id="cb13-7"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Executive'</span> <span class="cf">THEN</span> <span class="dv">1</span></span>
+<span id="cb13-8"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="dv">2</span></span>
+<span id="cb13-9"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="dv">3</span></span>
+<span id="cb13-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="dv">4</span></span>
+<span id="cb13-11"><a href=""></a>  <span class="cf">END</span>,</span>
+<span id="cb13-12"><a href=""></a>  department</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="ordered-result-custom-sort-1">Ordered Result – Custom Sort</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>+------------------+-------------+</span>
+<span id="cb14-2"><a href=""></a>| employee_name    | department  |</span>
+<span id="cb14-3"><a href=""></a>+------------------+-------------+</span>
+<span id="cb14-4"><a href=""></a>| Carol Chen       | Executive   |</span>
+<span id="cb14-5"><a href=""></a>| Bob Smith        | Engineering |</span>
+<span id="cb14-6"><a href=""></a>| Frank Patel      | Engineering |</span>
+<span id="cb14-7"><a href=""></a>| Alice Johnson    | Sales       |</span>
+<span id="cb14-8"><a href=""></a>| Eva Martínez     | Sales       |</span>
+<span id="cb14-9"><a href=""></a>| David Lee        | Marketing   |</span>
+<span id="cb14-10"><a href=""></a>+------------------+-------------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Custom order: Executive → Engineering → Sales → (others)</p>
+</div></div>
+</section>
+<section id="case-statement-in-where" class="slide level2">
+<h2>CASE statement in WHERE</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-3">Syntax</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb15-2"><a href=""></a>  column_name,</span>
+<span id="cb15-3"><a href=""></a>  other_column</span>
+<span id="cb15-4"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb15-5"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb15-6"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb15-7"><a href=""></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> boolean_result1</span>
+<span id="cb15-8"><a href=""></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> boolean_result2</span>
+<span id="cb15-9"><a href=""></a>    <span class="cf">ELSE</span> default_boolean</span>
+<span id="cb15-10"><a href=""></a>  <span class="cf">END</span> <span class="op">=</span> <span class="kw">TRUE</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Allows <strong>conditional filtering</strong><br>
+</li>
+<li>Not commonly used, but helpful for <strong>complex logic</strong><br>
+</li>
+<li>Must evaluate to a boolean (<code>TRUE</code>/<code>FALSE</code>)</li>
+</ul>
+</div><div class="column">
+<h3 id="example-conditional-filter-by-role">Example – Conditional Filter by Role</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb16-2"><a href=""></a>  employee_name,</span>
+<span id="cb16-3"><a href=""></a>  department,</span>
+<span id="cb16-4"><a href=""></a>  <span class="kw">role</span></span>
+<span id="cb16-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb16-6"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb16-7"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb16-8"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Manager'</span></span>
+<span id="cb16-9"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Engineer'</span></span>
+<span id="cb16-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="kw">FALSE</span></span>
+<span id="cb16-11"><a href=""></a>  <span class="cf">END</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Selects specific department-role pairs. Applied to each row.</p>
+<ul>
+<li><p>If the employee is in the Sales department, they must have the role ‘Manager’.</p></li>
+<li><p>If the employee is in Engineering, they must have the role ‘Engineer’.</p></li>
+<li><p>Employees in any other department are excluded.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="case-in-where-before-and-after" class="slide level2">
+<h2>CASE in WHERE – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="sample-data-employees-1">Sample Data – <code>employees</code></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb17-2"><a href=""></a>| employee_name    | department  | role      |</span>
+<span id="cb17-3"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb17-4"><a href=""></a>| Alice Johnson    | Sales       | Manager   |</span>
+<span id="cb17-5"><a href=""></a>| Bob Smith        | Sales       | Rep       |</span>
+<span id="cb17-6"><a href=""></a>| Carol Chen       | Engineering | Engineer  |</span>
+<span id="cb17-7"><a href=""></a>| David Lee        | Engineering | Manager   |</span>
+<span id="cb17-8"><a href=""></a>| Eva Martínez     | Marketing   | Manager   |</span>
+<span id="cb17-9"><a href=""></a>| Frank Patel      | Engineering | Engineer  |</span>
+<span id="cb17-10"><a href=""></a>| Grace O'Connor   | Sales       | Manager   |</span>
+<span id="cb17-11"><a href=""></a>+------------------+-------------+-----------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="filtered-result-with-case">Filtered Result – With CASE</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb18-2"><a href=""></a>| employee_name    | department  | role      |</span>
+<span id="cb18-3"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb18-4"><a href=""></a>| Alice Johnson    | Sales       | Manager   |</span>
+<span id="cb18-5"><a href=""></a>| Carol Chen       | Engineering | Engineer  |</span>
+<span id="cb18-6"><a href=""></a>| Frank Patel      | Engineering | Engineer  |</span>
+<span id="cb18-7"><a href=""></a>| Grace O'Connor   | Sales       | Manager   |</span>
+<span id="cb18-8"><a href=""></a>+------------------+-------------+-----------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Only includes: - <strong>Sales + Manager</strong> - <strong>Engineering + Engineer</strong></p>
+</div></div>
+</section>
+<section id="case-in-where-before-and-after-1" class="slide level2">
+<h2>CASE in WHERE – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-conditional-filter-by-role-1">Example – Conditional Filter by Role</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb19-2"><a href=""></a>  employee_name,</span>
+<span id="cb19-3"><a href=""></a>  department,</span>
+<span id="cb19-4"><a href=""></a>  <span class="kw">role</span></span>
+<span id="cb19-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb19-6"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb19-7"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb19-8"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Manager'</span></span>
+<span id="cb19-9"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Engineer'</span></span>
+<span id="cb19-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="kw">FALSE</span></span>
+<span id="cb19-11"><a href=""></a>  <span class="cf">END</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="filtered-result-with-case-1">Filtered Result – With CASE</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb20-2"><a href=""></a>| employee_name    | department  | role      |</span>
+<span id="cb20-3"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb20-4"><a href=""></a>| Alice Johnson    | Sales       | Manager   |</span>
+<span id="cb20-5"><a href=""></a>| Carol Chen       | Engineering | Engineer  |</span>
+<span id="cb20-6"><a href=""></a>| Frank Patel      | Engineering | Engineer  |</span>
+<span id="cb20-7"><a href=""></a>| Grace O'Connor   | Sales       | Manager   |</span>
+<span id="cb20-8"><a href=""></a>+------------------+-------------+-----------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Only includes: - <strong>Sales + Manager</strong> - <strong>Engineering + Engineer</strong></p>
+</div></div>
+</section>
+<section id="case-statement-for-pivot-tables" class="slide level2">
+<h2>CASE statement for Pivot Tables</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-4">Syntax</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb21-2"><a href=""></a>  group_column,</span>
+<span id="cb21-3"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> label1,</span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> label2,</span>
+<span id="cb21-5"><a href=""></a>  <span class="op">..</span>.</span>
+<span id="cb21-6"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb21-7"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> group_column;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Simulates a <strong>pivot table</strong> using <code>CASE</code> + <code>SUM</code></li>
+<li>Converts <strong>row values into columns</strong></li>
+<li>Used for <strong>categorical counts or sums</strong></li>
+</ul>
+</div><div class="column">
+<h3 id="example-count-by-gender">Example – Count by Gender</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb22-2"><a href=""></a>  department,</span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'F'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> female_count,</span>
+<span id="cb22-4"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'M'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> male_count</span>
+<span id="cb22-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb22-6"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> department;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>This example counts how many males and females are in each department.</li>
+<li>Standard design pattern for creating pivot tables.</li>
+</ul>
+</div></div>
+</section>
+<section id="case-statement-for-pivot-tables-1" class="slide level2">
+<h2>CASE statement for Pivot Tables</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-sample-employees-table.">Example – Sample <code>employees</code> table.</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href=""></a><span class="op">+</span><span class="co">----+-----------------+-------------+--------+</span></span>
+<span id="cb23-2"><a href=""></a>| <span class="kw">ID</span> | employee_name   | department  | gender |</span>
+<span id="cb23-3"><a href=""></a><span class="op">+</span><span class="co">----+-----------------+-------------+--------+</span></span>
+<span id="cb23-4"><a href=""></a>|  <span class="dv">1</span> | Alice Johnson   | Engineering | F      |</span>
+<span id="cb23-5"><a href=""></a>|  <span class="dv">2</span> | Bob Smith       | Sales       | M      |</span>
+<span id="cb23-6"><a href=""></a>|  <span class="dv">3</span> | Carol Chen      | Engineering | F      |</span>
+<span id="cb23-7"><a href=""></a>|  <span class="dv">4</span> | David Lee       | Sales       | M      |</span>
+<span id="cb23-8"><a href=""></a>|  <span class="dv">5</span> | Eva Martínez    | Marketing   | F      |</span>
+<span id="cb23-9"><a href=""></a>|  <span class="dv">6</span> | Frank Patel     | Engineering | M      |</span>
+<span id="cb23-10"><a href=""></a>|  <span class="dv">7</span> | Grace O<span class="st">''</span>Connor | Marketing   | F      |</span>
+<span id="cb23-11"><a href=""></a>|  <span class="dv">8</span> | Henry Davis     | Sales       | M      |</span>
+<span id="cb23-12"><a href=""></a>|  <span class="dv">9</span> | Irene Thompson  | Engineering | F      |</span>
+<span id="cb23-13"><a href=""></a><span class="op">+</span><span class="co">----+-----------------+-------------+--------+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="example-sample-employees-table.-1">Example – Sample <code>employees</code> table.</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb24-2"><a href=""></a>| department  | female_count | male_count  |</span>
+<span id="cb24-3"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb24-4"><a href=""></a>| Engineering |      <span class="dv">3</span>       |      <span class="dv">1</span>      |</span>
+<span id="cb24-5"><a href=""></a>| Sales       |      <span class="dv">0</span>       |      <span class="dv">3</span>      |</span>
+<span id="cb24-6"><a href=""></a>| Marketing   |      <span class="dv">2</span>       |      <span class="dv">0</span>      |</span>
+<span id="cb24-7"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Answers question: <em>Gender by Department</em></li>
+<li>Very standard SQL design pattern</li>
+</ul>
+</div></div>
+</section>
+<section id="case-statement-for-pivot-tables-2" class="slide level2">
+<h2>CASE statement for Pivot Tables</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-count-by-gender-1">Example – Count by Gender</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb25-2"><a href=""></a>  department,</span>
+<span id="cb25-3"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'F'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> female_count,</span>
+<span id="cb25-4"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'M'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> male_count</span>
+<span id="cb25-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb25-6"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> department;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<h3 id="example-sample-employees-table.-2">Example – Sample <code>employees</code> table.</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb26-2"><a href=""></a>| department  | female_count | male_count  |</span>
+<span id="cb26-3"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb26-4"><a href=""></a>| Engineering |      <span class="dv">3</span>       |      <span class="dv">1</span>      |</span>
+<span id="cb26-5"><a href=""></a>| Sales       |      <span class="dv">0</span>       |      <span class="dv">3</span>      |</span>
+<span id="cb26-6"><a href=""></a>| Marketing   |      <span class="dv">2</span>       |      <span class="dv">0</span>      |</span>
+<span id="cb26-7"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Answers question: <em>Gender by Department</em></li>
+<li>Very standard SQL design pattern</li>
+</ul>
+</div></div>
+</section>
+<section id="before-group-by-preparing-for-pivot" class="slide level2">
+<h2>Before GROUP BY: Preparing for Pivot</h2>
+<div class="columns">
+<div class="column">
+<h3 id="query-no-group-by">Query (No GROUP BY)</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb27-2"><a href=""></a>  department,</span>
+<span id="cb27-3"><a href=""></a>  gender,</span>
+<span id="cb27-4"><a href=""></a>  <span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'F'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span> <span class="kw">AS</span> is_female,</span>
+<span id="cb27-5"><a href=""></a>  <span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'M'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span> <span class="kw">AS</span> is_male</span>
+<span id="cb27-6"><a href=""></a><span class="kw">FROM</span> employees;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>CASE</code> transforms gender into numeric indicators<br>
+</li>
+<li>Useful for preparing <strong>per-row</strong> values for aggregation<br>
+</li>
+<li>Still shows one row per employee</li>
+<li>Employee name can be shown if desired.</li>
+</ul>
+</div><div class="column">
+<h3 id="output-table">Output Table</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href=""></a>+-------------+--------+-----------+---------+</span>
+<span id="cb28-2"><a href=""></a>| department  | gender | is_female | is_male |</span>
+<span id="cb28-3"><a href=""></a>+-------------+--------+-----------+---------+</span>
+<span id="cb28-4"><a href=""></a>| Engineering | F      |     1     |    0    |</span>
+<span id="cb28-5"><a href=""></a>| Sales       | M      |     0     |    1    |</span>
+<span id="cb28-6"><a href=""></a>| Engineering | F      |     1     |    0    |</span>
+<span id="cb28-7"><a href=""></a>| Sales       | M      |     0     |    1    |</span>
+<span id="cb28-8"><a href=""></a>| Marketing   | F      |     1     |    0    |</span>
+<span id="cb28-9"><a href=""></a>| Engineering | M      |     0     |    1    |</span>
+<span id="cb28-10"><a href=""></a>| Marketing   | F      |     1     |    0    |</span>
+<span id="cb28-11"><a href=""></a>| Sales       | M      |     0     |    1    |</span>
+<span id="cb28-12"><a href=""></a>| Engineering | F      |     1     |    0    |</span>
+<span id="cb28-13"><a href=""></a>+-------------+--------+-----------+---------+</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="case-statement-summary" class="slide level2">
+<h2>CASE Statement Summary</h2>
+<div class="columns">
+<div class="column">
+<h3 id="what-is-case">What is <code>CASE</code>?</h3>
+<ul>
+<li>SQL’s version of <code>if-then-else</code></li>
+<li>Adds conditional logic to queries</li>
+<li>Evaluates <strong>top-down</strong>, returns first match</li>
+<li>Defaults to <code>NULL</code> if no condition matches</li>
+</ul>
+</div><div class="column">
+<h3 id="where-is-it-used">Where is it used?</h3>
+<ul>
+<li><code>SELECT</code> – to create new computed columns<br>
+</li>
+<li><code>ORDER BY</code> – to sort by custom rules<br>
+</li>
+<li><code>WHERE</code> – to apply conditional filtering<br>
+</li>
+<li><code>GROUP BY</code> + aggregate – to pivot or count conditionally<br>
+</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="homework-9---more-sql" class="title-slide slide level1 center">
+<h1>Homework 9 - More SQL</h1>
+<!-- # Homework 9 -->
+</section>
+<section id="homework-9---population-analysis" class="slide level2">
+<h2>Homework 9 - Population Analysis</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>
+<iframe style="width: 900px; height: 350px;" src="https://docs.google.com/document/d/1kxPfIE-fOXYF6msgJBY-A4EL72DH38TU3r_s8K8HOhU/preview" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *">
+</iframe>
+</p>
+<center>
+<a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349" target="_blank">Homework 9 Canvas Page</a>
+</center>
+</div><div class="column" style="width:40%;">
+<h3 id="hw9-learning-objectives">HW9 Learning Objectives</h3>
+<ul>
+<li><p>Deeper understand of <code>SELECT</code></p></li>
+<li><p>Deeper exploration of <code>CTE</code>s</p></li>
+<li><p>More data analysis</p></li>
+</ul>
+<h3 id="data-source">Data Source</h3>
+<ul>
+<li><a href="https://data.worldbank.org/indicator" target="_blank">World Bank Indicators</a></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="model-solution-without-sql">Model Solution (without SQL)</h3>
+<ul>
+<li><p><a href="./assets/hw9-example-sp2025.html" target="_blank">HW9 - outputs only</a></p></li>
+<li><p><a href="./assets/hw8-example-sp2025.html" target="_blank">HW8 - outputs only</a></p></li>
+</ul>
+</div></div>
+<!-- # ADMIN - work session in class -->
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center">
+<div style="font-size:1.8em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<p>We spend the rest of the class working examples.</p>
+</div>
+<div style="font-size:1.8em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<p>Refer to the video for details.</p>
+</div>
+</div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -264,14 +964,17 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349">Homework 9 - Even more on SQL</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075774">Deliverable 7 - Final Submission</a></p></li>
-<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397">Survey 2 - Course evaluation</a></p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349">Homework 9 - Even more on SQL</a> - due 4/27, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075774">Deliverable 7 - Final Submission</a> - due 4/29, TUE</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397">Survey 2 - Course evaluation</a> - due 4/29, TUE</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><a href="#/when-ready,-the-complete-lecture-will-replace-this-one.">When ready, the complete lecture will replace this one.</a></li>
+<li><p><a href="#/end-of-semester-checklist">End of semester checklist</a></p></li>
+<li><p><a href="#/views">Views</a></p></li>
+<li><p><a href="#/case-statements">CASE statements</a></p></li>
+<li><p><a href="#/homework-9---more-sql">Homework 9 - More SQL</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -297,7 +1000,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/22</td>
 <td style="text-align: center;">Tue</td>
-<td>L26:Views and Indexes</td>
+<td>L26:Views, CASE and more</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -305,7 +1008,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/24</td>
 <td style="text-align: center;">Thu</td>
-<td>L27:Procedures and Functions</td>
+<td>L27:NO LECTURE - See slides</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -321,7 +1024,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4/29</td>
 <td style="text-align: center;">Tue</td>
-<td>Last day of classes; L28:Triggers, Views and Security</td>
+<td>Last day of classes; L28:NO LECTURE - See slides</td>
 <td>Srv2:Course evaluation; Prj7:Final Submission</td>
 </tr>
 <tr class="odd">
@@ -330,30 +1033,6 @@
 <td style="text-align: center;">5/1</td>
 <td style="text-align: center;">Thu</td>
 <td>Finals begin</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SQL II</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">5/8</td>
-<td style="text-align: center;">Thu</td>
-<td>Finals end</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">SQL II</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">5/10</td>
-<td style="text-align: center;">Sat</td>
-<td>Commencement</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">5/13</td>
-<td style="text-align: center;">Tue</td>
-<td>Final grades due</td>
 <td></td>
 </tr>
 </tbody>

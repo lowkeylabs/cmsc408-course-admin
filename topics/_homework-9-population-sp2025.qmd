@@ -5,14 +5,23 @@
 
 :::: {.columns}
 ::: {.column width=60%}
-[![](./assets/homework9-page.png)](https://virginiacommonwealth.instructure.com/courses/105097/assignments/1047918){target="_blank"}
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1kxPfIE-fOXYF6msgJBY-A4EL72DH38TU3r_s8K8HOhU/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
+<center>
+[Homework 9 Canvas Page](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349){target="_blank"}
+</center>
 :::
 ::: {.column width=40%}
 ### HW9 Learning Objectives
 
 * Deeper understand of `SELECT`
 
-* Deeper exploration of `CTS`s
+* Deeper exploration of `CTE`s
 
 * More data analysis
 
@@ -20,9 +29,15 @@
 
 * [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
 
-### Solution (without SQL)
+<p>&nbsp;</p>
 
-* [HW9 - solution](./assets/homework9-solution.html){target="_blank"}
+### Model Solution (without SQL)
+
+* [HW9 - outputs only](./assets/hw9-example-sp2025.html){target="_blank"}
+
+
+* [HW8 - outputs only](./assets/hw8-example-sp2025.html){target="_blank"}
+
 
 :::
 ::::

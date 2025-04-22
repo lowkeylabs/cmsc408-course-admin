@@ -267,7 +267,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/22</td>
 <td style="text-align: center;">Tue</td>
-<td>L26:Views and Indexes</td>
+<td>L26:Views, CASE and more</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -275,7 +275,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/24</td>
 <td style="text-align: center;">Thu</td>
-<td>L27:Procedures and Functions</td>
+<td>L27:NO LECTURE - See slides</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -291,7 +291,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4/29</td>
 <td style="text-align: center;">Tue</td>
-<td>Last day of classes; L28:Triggers, Views and Security</td>
+<td>Last day of classes; L28:NO LECTURE - See slides</td>
 <td>Srv2:Course evaluation; Prj7:Final Submission</td>
 </tr>
 <tr class="odd">
@@ -300,14 +300,6 @@
 <td style="text-align: center;">5/1</td>
 <td style="text-align: center;">Thu</td>
 <td>Finals begin</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SQL II</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">5/8</td>
-<td style="text-align: center;">Thu</td>
-<td>Finals end</td>
 <td></td>
 </tr>
 </tbody>
@@ -366,7 +358,7 @@
 <h2>Sample data - employees table from HR database</h2>
 <p>First 20 records from <code>employees</code> table in your <code>sp25_&lt;eid&gt;_hr</code> database.</p>
 <div style="font-size: 0.5em;">
-<div id="ecc66365" class="cell" data-execution_count="6">
+<div id="0e70263b" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table border="1" class="dataframe">
 
@@ -1399,7 +1391,7 @@ Total Rows: 20, Total Columns: 11
 <section id="subquery-in-the-where-clause" class="slide level2">
 <h2>Subquery in the WHERE clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="31de5417" class="cell" data-execution_count="7">
+<div id="dc623c5a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -1561,7 +1553,7 @@ Zlotkey
 <section id="subquery-in-the-select-clause" class="slide level2">
 <h2>Subquery in the SELECT clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="229a06d4" class="cell" data-execution_count="8">
+<div id="c5b30729" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -1775,7 +1767,7 @@ Zlotkey
 <section id="subquery-in-the-from-clause" class="slide level2">
 <h2>Subquery in the FROM clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="ef2dd24d" class="cell" data-execution_count="9">
+<div id="8d7d7222" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -1918,7 +1910,7 @@ NULL
 <h2>Single-value subqueries</h2>
 <p><em>Find employees hired before the earliest hire date in the Sales department.</em></p>
 <p>The <em>inner query</em> or <em>subquery</em> returns a single value - the earliest hire date of employees from department 100. The <em>outer query</em> or <em>main query</em> uses this value in a comparison with <em>hire_data</em></p>
-<div id="72620eb9" class="cell" data-execution_count="10">
+<div id="29262710" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -1981,7 +1973,7 @@ Gietz
 <h2>Multi-value subqueries</h2>
 <p>List the employees in large departments (this with more than 5 employees).</p>
 <p>The <em>inner query</em> returns a list of department ids. The <em>outer query</em> uses the <code>IN</code> operator to test of <code>department_id</code> is in the returned list.</p>
-<div id="260c972d" class="cell" data-execution_count="11">
+<div id="4190d405" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -2474,7 +2466,7 @@ Grant
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>The <em>inner query</em> returns the average salary for the department that matches the department id of the employee in the outer query.</p>
 <p>You can also get the same list by using a <em>join</em> in the <code>FROM</code> clause.</p>
-<div id="c7675d09" class="cell" data-execution_count="12">
+<div id="8b87898c" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -2818,7 +2810,7 @@ Zlotkey
 <h2>Subquery as a virtual table</h2>
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>Here is the example as before, joining a subquery.</p>
-<div id="1ad7002b" class="cell" data-execution_count="13">
+<div id="22efd5a0" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -3164,7 +3156,7 @@ Zlotkey
 <section id="nested-subqueries" class="slide level2">
 <h2>Nested subqueries</h2>
 <p><em>List employees who earn more than the average salary in departments with an average salary above $7,000 per month.</em></p>
-<div id="c6fb04d8" class="cell" data-execution_count="14">
+<div id="1eebf271" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -3341,7 +3333,7 @@ Higgins
 <section id="cte-example-1" class="slide level2">
 <h2>CTE Example #1</h2>
 <p><em>List employees with salaries greater than average salary.</em></p>
-<div id="85996ac8" class="cell" data-execution_count="17">
+<div id="3a340594" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -3794,7 +3786,7 @@ Total Rows: 51, Total Columns: 2
 <section id="cte-example-2" class="slide level2">
 <h2>CTE Example #2</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
-<div id="ed7c107b" class="cell" data-execution_count="18">
+<div id="4306591c" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -3939,7 +3931,7 @@ Total Rows: 19, Total Columns: 1
 <h2>CTE Example #3</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
 <p>Same question - different solution</p>
-<div id="7a5cb98e" class="cell" data-execution_count="19">
+<div id="7b200ef5" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -4203,7 +4195,7 @@ Total Rows: 19, Total Columns: 3
 <section id="cte-example-4" class="slide level2">
 <h2>CTE Example #4</h2>
 <p><em>List employees and their manager_id using a recursive CTE</em></p>
-<div id="38ef0fc8" class="cell" data-execution_count="20">
+<div id="06864cfe" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <div class="columns">
 <div class="column" style="width:54%;">
@@ -5752,7 +5744,7 @@ Gietz
 <section id="cte-example-5" class="slide level2">
 <h2>CTE Example #5</h2>
 <p><em>List the average salaries for each managerial level in the company</em></p>
-<div id="6d6b9d3b" class="cell" data-execution_count="21">
+<div id="01e4c133" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -5832,7 +5824,7 @@ Avg Salary
 <h2>CTE Example #6</h2>
 <p><em>List employeee, managerial levels, salaries, flagging those employees with lower than average salaries for their managerial level.</em></p>
 <div style="font-size: 0.8em;">
-<div id="9c5bcaf0" class="cell" data-execution_count="22">
+<div id="e023b427" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -7769,7 +7761,7 @@ We’ll jump to the command line to get the project started!
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/22</td>
 <td style="text-align: center;">Tue</td>
-<td>L26:Views and Indexes</td>
+<td>L26:Views, CASE and more</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -7777,7 +7769,7 @@ We’ll jump to the command line to get the project started!
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/24</td>
 <td style="text-align: center;">Thu</td>
-<td>L27:Procedures and Functions</td>
+<td>L27:NO LECTURE - See slides</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -7793,7 +7785,7 @@ We’ll jump to the command line to get the project started!
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4/29</td>
 <td style="text-align: center;">Tue</td>
-<td>Last day of classes; L28:Triggers, Views and Security</td>
+<td>Last day of classes; L28:NO LECTURE - See slides</td>
 <td>Srv2:Course evaluation; Prj7:Final Submission</td>
 </tr>
 <tr class="odd">
@@ -7802,14 +7794,6 @@ We’ll jump to the command line to get the project started!
 <td style="text-align: center;">5/1</td>
 <td style="text-align: center;">Thu</td>
 <td>Finals begin</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SQL II</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">5/8</td>
-<td style="text-align: center;">Thu</td>
-<td>Finals end</td>
 <td></td>
 </tr>
 </tbody>

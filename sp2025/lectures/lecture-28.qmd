@@ -11,9 +11,11 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397
 lecture-id: 28
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
-title: Triggers, Views and Security
+- topic: End of semester checklist
+  url: _end-of-semester-checklist-sp2025.qmd
+- topic: HARD DEADLINE
+  url: _admin-assignment-deadline-sp2025.qmd
+title: NO LECTURE - See slides
 ---
 
 ```{python}
@@ -26,8 +28,13 @@ this_file = 'lecture-28.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# End of semester checklist
+
+{{< include ../../topics/_end-of-semester-checklist-sp2025.qmd >}}
+
+# HARD DEADLINE
+
+{{< include ../../topics/_admin-assignment-deadline-sp2025.qmd >}}
 <!-- lecture-block-end -->
 
 

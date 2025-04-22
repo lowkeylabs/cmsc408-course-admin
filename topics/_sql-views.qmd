@@ -7,6 +7,7 @@
 ### What is a VIEW?
 - A View is a virtual table in SQL.
 - It does not store data itself but retrieves data from one or more underlying tables.
+- Similar to CTE, but permanent across SELECT statements.
 
 ### Why Use VIEWS?
 - Simplify complex queries.

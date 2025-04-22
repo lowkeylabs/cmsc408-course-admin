@@ -10,7 +10,7 @@ this_file = "week-00-details.qmd"
 
 <!-- overview-block-begin -->
 
-<p class="lead">Fall break - we're almost done.  Take a deep breath and relax!</p>
+<p class="lead">More on SELECTS and other finishing-up topics</p>
     
 <!-- overview-block-end -->
 

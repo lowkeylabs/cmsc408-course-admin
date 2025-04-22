@@ -15,9 +15,17 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397
 lecture-id: 27
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
-title: Procedures and Functions
+- topic: End of semester checklist
+  url: _end-of-semester-checklist-sp2025.qmd
+- topic: HARD DEADLINE
+  url: _admin-assignment-deadline-sp2025.qmd
+- topic: SQL Procedures
+  url: _sql-procedures.qmd
+- topic: SQL Triggers
+  url: _sql-triggers.qmd
+- topic: Security - SQL Injection
+  url: _sql-injection.qmd
+title: NO LECTURE - See slides
 ---
 
 ```{python}
@@ -30,8 +38,25 @@ this_file = 'lecture-27.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# End of semester checklist
+
+{{< include ../../topics/_end-of-semester-checklist-sp2025.qmd >}}
+
+# HARD DEADLINE
+
+{{< include ../../topics/_admin-assignment-deadline-sp2025.qmd >}}
+
+# SQL Procedures
+
+{{< include ../../topics/_sql-procedures.qmd >}}
+
+# SQL Triggers
+
+{{< include ../../topics/_sql-triggers.qmd >}}
+
+# Security - SQL Injection
+
+{{< include ../../topics/_sql-injection.qmd >}}
 <!-- lecture-block-end -->
 
 

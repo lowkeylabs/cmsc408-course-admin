@@ -15,9 +15,19 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397
 lecture-id: 26
 lecture-topics:
-- topic: When ready, the complete lecture will replace this one.
-  url: .
-title: Views and Indexes
+- topic: End of semester checklist
+  url: _end-of-semester-checklist-sp2025.qmd
+- topic: .
+  url: _admin-assignment-deadline-sp2025.qmd
+- topic: Views
+  url: _sql-views.qmd
+- topic: CASE statements
+  url: _sql-case-statements.qmd
+- topic: Homework 9 - More SQL
+  url: _homework-9-population-sp2025.qmd
+- topic: .
+  url: _admin-work-session-in-class.qmd
+title: Views, CASE and more
 ---
 
 ```{python}
@@ -30,8 +40,31 @@ this_file = 'lecture-26.qmd'
 
 <!-- lecture-block-begin -->
 
-# When ready, the complete lecture will replace this one.
-<!-- no url provided in Topics tab -->
+# End of semester checklist
+
+{{< include ../../topics/_end-of-semester-checklist-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_admin-assignment-deadline-sp2025.qmd >}}
+
+# Views
+
+{{< include ../../topics/_sql-views.qmd >}}
+
+# CASE statements
+
+{{< include ../../topics/_sql-case-statements.qmd >}}
+
+# Homework 9 - More SQL
+
+{{< include ../../topics/_homework-9-population-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_admin-work-session-in-class.qmd >}}
 <!-- lecture-block-end -->
 
 

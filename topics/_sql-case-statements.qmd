@@ -1,0 +1,567 @@
+<!-- # SQL CASE statements -->
+
+## SQL CASE statements
+:::: {.columns}
+
+::: {.column width="50%"}
+### What is a CASE statement?
+
+- `CASE` is SQL’s way of adding **conditional logic** (like `if-else`) inside queries.  
+- `CASE` lets you **return different values** depending on conditions you define.  
+- `CASE` helps **transform or categorize data** without changing the original table.
+
+`CASE` can be used in `SELECT`, `WHERE`, `ORDER BY`, and even inside aggregate functions.  
+
+:::
+::: {.column width="50%"}
+### Why use CASE?
+
+* Adds if-else logic to your SQL `SELECT`, `ORDER BY`, or `WHERE` clauses.
+
+* Creates custom labels or buckets (e.g., pass/fail, high/medium/low).
+
+* Replaces the need for multiple queries with a single flexible query.
+
+* Combined with GROUP BY, `CASE` is part of standard PIVOT TABLE pattern.
+
+:::
+::::
+
+## CASE statement in SELECT
+
+:::: {.columns}
+::: {.column}
+### Syntax
+```sql
+SELECT
+  column_name,
+  CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    ELSE default_result
+  END AS new_column
+FROM table_name;
+```
+
+* CASE is a DML statement
+* CASE statements can be used in `SELECT`, `ORDER BY`, or `WHERE`
+
+
+:::
+::: {.column}
+### Example - Grades
+```sql
+SELECT
+  student_name,
+  grade,
+  CASE
+    WHEN grade >= 90 THEN 'A'
+    WHEN grade >= 80 THEN 'B'
+    WHEN grade >= 70 THEN 'C'
+    WHEN grade >= 60 THEN 'D'
+    ELSE 'F'
+  END AS letter_grade
+FROM student_scores;
+```
+:::
+::::
+
+
+## CASE in SELECT – Before and After
+
+:::: {.columns}
+::: {.column}
+### Raw Data – `student_scores`
+```text
++----------------+-------+
+| student_name   | grade |
++----------------+-------+
+| Alice Johnson  | 94    |
+| Bob Smith      | 82    |
+| Carol Chen     | 76    |
+| David Lee      | 67    |
+| Eva Martínez   | 58    |
++----------------+-------+
+```
+
+:::
+
+::: {.column}
+### Query Result – With `CASE`
+```text
++----------------+-------+--------------+
+| student_name   | grade | letter_grade |
++----------------+-------+--------------+
+| Alice Johnson  | 94    | A            |
+| Bob Smith      | 82    | B            |
+| Carol Chen     | 76    | C            |
+| David Lee      | 67    | D            |
+| Eva Martínez   | 58    | F            |
++----------------+-------+--------------+
+```
+:::
+::::
+
+## CASE in SELECT – Before and After
+
+:::: {.columns}
+::: {.column}
+### Example - Grades
+```sql
+SELECT
+  student_name,
+  grade,
+  CASE
+    WHEN grade >= 90 THEN 'A'
+    WHEN grade >= 80 THEN 'B'
+    WHEN grade >= 70 THEN 'C'
+    WHEN grade >= 60 THEN 'D'
+    ELSE 'F'
+  END AS letter_grade
+FROM student_scores;
+```
+:::
+
+::: {.column}
+### Query Result – With `CASE`
+```text
++----------------+-------+--------------+
+| student_name   | grade | letter_grade |
++----------------+-------+--------------+
+| Alice Johnson  | 94    | A            |
+| Bob Smith      | 82    | B            |
+| Carol Chen     | 76    | C            |
+| David Lee      | 67    | D            |
+| Eva Martínez   | 58    | F            |
++----------------+-------+--------------+
+```
+:::
+::::
+
+
+## CASE statement in ORDER BY
+
+:::: {.columns}
+::: {.column}
+### Syntax
+```sql
+SELECT
+  column_name,
+  other_column
+FROM table_name
+ORDER BY
+  CASE
+    WHEN condition1 THEN sort_priority1
+    WHEN condition2 THEN sort_priority2
+    ELSE default_priority
+  END;
+```
+
+* Useful for **custom sorting**
+* Replaces fixed sorting rules with **dynamic logic**
+* Can be combined with ascending/descending order
+:::
+
+::: {.column}
+### Example – Custom Department Sort
+```sql
+SELECT
+  employee_name,
+  department
+FROM employees
+ORDER BY
+  CASE department
+    WHEN 'Executive' THEN 1
+    WHEN 'Engineering' THEN 2
+    WHEN 'Sales' THEN 3
+    ELSE 4
+  END,
+  department
+```
+
+This example overrides the default sort order, forcing specific departments to come before others in the result set.
+:::
+::::
+
+## CASE in ORDER BY – Before and After
+
+:::: {.columns}
+::: {.column}
+### Sample Data – `employees`
+```text
++------------------+-------------+
+| employee_name    | department  |
++------------------+-------------+
+| Alice Johnson    | Sales       |
+| Bob Smith        | Engineering |
+| Carol Chen       | Executive   |
+| David Lee        | Marketing   |
+| Eva Martínez     | Sales       |
+| Frank Patel      | Engineering |
++------------------+-------------+
+```
+:::
+
+::: {.column}
+### Ordered Result – Custom Sort
+```text
++------------------+-------------+
+| employee_name    | department  |
++------------------+-------------+
+| Carol Chen       | Executive   |
+| Bob Smith        | Engineering |
+| Frank Patel      | Engineering |
+| Alice Johnson    | Sales       |
+| Eva Martínez     | Sales       |
+| David Lee        | Marketing   |
++------------------+-------------+
+```
+
+Custom order: Executive → Engineering → Sales → (others)
+:::
+::::
+
+## CASE in ORDER BY – Before and After
+
+:::: {.columns}
+::: {.column}
+### Example – Custom Department Sort
+```sql
+SELECT
+  employee_name,
+  department
+FROM employees
+ORDER BY
+  CASE department
+    WHEN 'Executive' THEN 1
+    WHEN 'Engineering' THEN 2
+    WHEN 'Sales' THEN 3
+    ELSE 4
+  END,
+  department
+```
+:::
+
+::: {.column}
+### Ordered Result – Custom Sort
+```text
++------------------+-------------+
+| employee_name    | department  |
++------------------+-------------+
+| Carol Chen       | Executive   |
+| Bob Smith        | Engineering |
+| Frank Patel      | Engineering |
+| Alice Johnson    | Sales       |
+| Eva Martínez     | Sales       |
+| David Lee        | Marketing   |
++------------------+-------------+
+```
+
+Custom order: Executive → Engineering → Sales → (others)
+:::
+::::
+
+
+
+## CASE statement in WHERE
+
+:::: {.columns}
+::: {.column}
+### Syntax
+```sql
+SELECT
+  column_name,
+  other_column
+FROM table_name
+WHERE
+  CASE
+    WHEN condition1 THEN boolean_result1
+    WHEN condition2 THEN boolean_result2
+    ELSE default_boolean
+  END = TRUE;
+```
+
+* Allows **conditional filtering**  
+* Not commonly used, but helpful for **complex logic**  
+* Must evaluate to a boolean (`TRUE`/`FALSE`)
+:::
+
+::: {.column}
+### Example – Conditional Filter by Role
+```sql
+SELECT
+  employee_name,
+  department,
+  role
+FROM employees
+WHERE
+  CASE
+    WHEN department = 'Sales' THEN role = 'Manager'
+    WHEN department = 'Engineering' THEN role = 'Engineer'
+    ELSE FALSE
+  END;
+```
+Selects specific department-role pairs.  Applied to each row.
+
+* If the employee is in the Sales department, they must have the role 'Manager'.
+
+* If the employee is in Engineering, they must have the role 'Engineer'.
+
+* Employees in any other department are excluded.
+
+:::
+::::
+
+## CASE in WHERE – Before and After
+
+:::: {.columns}
+::: {.column}
+### Sample Data – `employees`
+```text
++------------------+-------------+-----------+
+| employee_name    | department  | role      |
++------------------+-------------+-----------+
+| Alice Johnson    | Sales       | Manager   |
+| Bob Smith        | Sales       | Rep       |
+| Carol Chen       | Engineering | Engineer  |
+| David Lee        | Engineering | Manager   |
+| Eva Martínez     | Marketing   | Manager   |
+| Frank Patel      | Engineering | Engineer  |
+| Grace O'Connor   | Sales       | Manager   |
++------------------+-------------+-----------+
+```
+:::
+
+::: {.column}
+### Filtered Result – With CASE
+```text
++------------------+-------------+-----------+
+| employee_name    | department  | role      |
++------------------+-------------+-----------+
+| Alice Johnson    | Sales       | Manager   |
+| Carol Chen       | Engineering | Engineer  |
+| Frank Patel      | Engineering | Engineer  |
+| Grace O'Connor   | Sales       | Manager   |
++------------------+-------------+-----------+
+```
+Only includes:
+- **Sales + Manager**
+- **Engineering + Engineer**
+:::
+::::
+
+## CASE in WHERE – Before and After
+
+:::: {.columns}
+::: {.column}
+### Example – Conditional Filter by Role
+```sql
+SELECT
+  employee_name,
+  department,
+  role
+FROM employees
+WHERE
+  CASE
+    WHEN department = 'Sales' THEN role = 'Manager'
+    WHEN department = 'Engineering' THEN role = 'Engineer'
+    ELSE FALSE
+  END;
+```
+:::
+
+::: {.column}
+### Filtered Result – With CASE
+```text
++------------------+-------------+-----------+
+| employee_name    | department  | role      |
++------------------+-------------+-----------+
+| Alice Johnson    | Sales       | Manager   |
+| Carol Chen       | Engineering | Engineer  |
+| Frank Patel      | Engineering | Engineer  |
+| Grace O'Connor   | Sales       | Manager   |
++------------------+-------------+-----------+
+```
+Only includes:
+- **Sales + Manager**
+- **Engineering + Engineer**
+:::
+::::
+
+## CASE statement for Pivot Tables
+
+:::: {.columns}
+::: {.column}
+### Syntax
+```sql
+SELECT
+  group_column,
+  SUM(CASE WHEN condition1 THEN value ELSE 0 END) AS label1,
+  SUM(CASE WHEN condition2 THEN value ELSE 0 END) AS label2,
+  ...
+FROM table_name
+GROUP BY group_column;
+```
+
+* Simulates a **pivot table** using `CASE` + `SUM`
+* Converts **row values into columns**
+* Used for **categorical counts or sums**
+:::
+
+::: {.column}
+### Example – Count by Gender
+```sql
+SELECT
+  department,
+  SUM(CASE WHEN gender = 'F' THEN 1 ELSE 0 END) AS female_count,
+  SUM(CASE WHEN gender = 'M' THEN 1 ELSE 0 END) AS male_count
+FROM employees
+GROUP BY department;
+```
+
+* This example counts how many males and females are in each department.
+* Standard design pattern for creating pivot tables.
+
+:::
+::::
+
+## CASE statement for Pivot Tables
+
+:::: {.columns}
+::: {.column}
+### Example – Sample `employees` table.
+```sql
++----+-----------------+-------------+--------+
+| ID | employee_name   | department  | gender |
++----+-----------------+-------------+--------+
+|  1 | Alice Johnson   | Engineering | F      |
+|  2 | Bob Smith       | Sales       | M      |
+|  3 | Carol Chen      | Engineering | F      |
+|  4 | David Lee       | Sales       | M      |
+|  5 | Eva Martínez    | Marketing   | F      |
+|  6 | Frank Patel     | Engineering | M      |
+|  7 | Grace O''Connor | Marketing   | F      |
+|  8 | Henry Davis     | Sales       | M      |
+|  9 | Irene Thompson  | Engineering | F      |
++----+-----------------+-------------+--------+
+
+```
+:::
+
+::: {.column}
+### Example – Sample `employees` table.
+```sql
++-------------+--------------+-------------+
+| department  | female_count | male_count  |
++-------------+--------------+-------------+
+| Engineering |      3       |      1      |
+| Sales       |      0       |      3      |
+| Marketing   |      2       |      0      |
++-------------+--------------+-------------+
+
+```
+
+* Answers question: *Gender by Department*
+* Very standard SQL design pattern
+
+:::
+::::
+
+## CASE statement for Pivot Tables
+
+:::: {.columns}
+::: {.column}
+
+### Example – Count by Gender
+```sql
+SELECT
+  department,
+  SUM(CASE WHEN gender = 'F' THEN 1 ELSE 0 END) AS female_count,
+  SUM(CASE WHEN gender = 'M' THEN 1 ELSE 0 END) AS male_count
+FROM employees
+GROUP BY department;
+
+```
+:::
+
+::: {.column}
+### Example – Sample `employees` table.
+```sql
++-------------+--------------+-------------+
+| department  | female_count | male_count  |
++-------------+--------------+-------------+
+| Engineering |      3       |      1      |
+| Sales       |      0       |      3      |
+| Marketing   |      2       |      0      |
++-------------+--------------+-------------+
+
+```
+* Answers question: *Gender by Department*
+* Very standard SQL design pattern
+
+:::
+::::
+
+## Before GROUP BY: Preparing for Pivot
+
+:::: {.columns}
+::: {.column}
+### Query (No GROUP BY)
+```sql
+SELECT
+  department,
+  gender,
+  CASE WHEN gender = 'F' THEN 1 ELSE 0 END AS is_female,
+  CASE WHEN gender = 'M' THEN 1 ELSE 0 END AS is_male
+FROM employees;
+```
+
+* `CASE` transforms gender into numeric indicators  
+* Useful for preparing **per-row** values for aggregation  
+* Still shows one row per employee
+* Employee name can be shown if desired.
+:::
+
+::: {.column}
+### Output Table
+```text
++-------------+--------+-----------+---------+
+| department  | gender | is_female | is_male |
++-------------+--------+-----------+---------+
+| Engineering | F      |     1     |    0    |
+| Sales       | M      |     0     |    1    |
+| Engineering | F      |     1     |    0    |
+| Sales       | M      |     0     |    1    |
+| Marketing   | F      |     1     |    0    |
+| Engineering | M      |     0     |    1    |
+| Marketing   | F      |     1     |    0    |
+| Sales       | M      |     0     |    1    |
+| Engineering | F      |     1     |    0    |
++-------------+--------+-----------+---------+
+```
+
+:::
+::::
+
+## CASE Statement Summary
+
+:::: {.columns}
+::: {.column}
+### What is `CASE`?
+
+- SQL’s version of `if-then-else`
+- Adds conditional logic to queries
+- Evaluates **top-down**, returns first match
+- Defaults to `NULL` if no condition matches
+:::
+
+::: {.column}
+### Where is it used?
+
+- `SELECT` – to create new computed columns  
+- `ORDER BY` – to sort by custom rules  
+- `WHERE` – to apply conditional filtering  
+- `GROUP BY` + aggregate – to pivot or count conditionally  
+:::
+::::
+

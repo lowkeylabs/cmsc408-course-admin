@@ -276,7 +276,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/22</td>
 <td style="text-align: center;">Tue</td>
-<td>L26:Views and Indexes</td>
+<td>L26:Views, CASE and more</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -284,7 +284,7 @@
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/24</td>
 <td style="text-align: center;">Thu</td>
-<td>L27:Procedures and Functions</td>
+<td>L27:NO LECTURE - See slides</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -300,7 +300,7 @@
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4/29</td>
 <td style="text-align: center;">Tue</td>
-<td>Last day of classes; L28:Triggers, Views and Security</td>
+<td>Last day of classes; L28:NO LECTURE - See slides</td>
 <td>Srv2:Course evaluation; Prj7:Final Submission</td>
 </tr>
 <tr class="even">
@@ -352,8 +352,8 @@
 <h2>Sample data - employees table from HR database</h2>
 <p>First 20 records from <code>employees</code> table in your <code>sp25_&lt;eid&gt;_hr</code> database.</p>
 <div style="font-size: 0.5em;">
-<div id="5d06581c" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="98">
+<div id="0a2dcf76" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <table border="1" class="dataframe">
 
 <thead>
@@ -1385,8 +1385,8 @@ Total Rows: 20, Total Columns: 11
 <section id="subquery-in-the-where-clause" class="slide level2">
 <h2>Subquery in the WHERE clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="84142f55" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="99">
+<div id="e883bf35" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code">SQL Code</h3>
@@ -1500,7 +1500,7 @@ Ozer
 </tr>
 <tr>
 <td>
-Abel
+Cambrault
 </td>
 <td>
 11000.0
@@ -1508,7 +1508,7 @@ Abel
 </tr>
 <tr>
 <td>
-Cambrault
+Abel
 </td>
 <td>
 11000.0
@@ -1547,8 +1547,8 @@ Zlotkey
 <section id="subquery-in-the-select-clause" class="slide level2">
 <h2>Subquery in the SELECT clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="79357d41" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="100">
+<div id="a4d9943c" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-1">SQL Code</h3>
@@ -1698,7 +1698,7 @@ Ozer
 </tr>
 <tr>
 <td>
-Abel
+Cambrault
 </td>
 <td>
 11000.0
@@ -1709,7 +1709,7 @@ Abel
 </tr>
 <tr>
 <td>
-Cambrault
+Abel
 </td>
 <td>
 11000.0
@@ -1761,8 +1761,8 @@ Zlotkey
 <section id="subquery-in-the-from-clause" class="slide level2">
 <h2>Subquery in the FROM clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="6ce3a217" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="101">
+<div id="ee996af2" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-2">SQL Code</h3>
@@ -1904,8 +1904,8 @@ NULL
 <h2>Single-value subqueries</h2>
 <p><em>Find employees hired before the earliest hire date in the Sales department.</em></p>
 <p>The <em>inner query</em> or <em>subquery</em> returns a single value - the earliest hire date of employees from department 100. The <em>outer query</em> or <em>main query</em> uses this value in a comparison with <em>hire_data</em></p>
-<div id="938b0324" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="102">
+<div id="b2e7b094" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-3">SQL Code</h3>
@@ -1967,8 +1967,8 @@ Gietz
 <h2>Multi-value subqueries</h2>
 <p>List the employees in large departments (this with more than 5 employees).</p>
 <p>The <em>inner query</em> returns a list of department ids. The <em>outer query</em> uses the <code>IN</code> operator to test of <code>department_id</code> is in the returned list.</p>
-<div id="b4af26fb" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="103">
+<div id="61089c3c" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-4">SQL Code</h3>
@@ -2460,8 +2460,8 @@ Grant
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>The <em>inner query</em> returns the average salary for the department that matches the department id of the employee in the outer query.</p>
 <p>You can also get the same list by using a <em>join</em> in the <code>FROM</code> clause.</p>
-<div id="f50a707f" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="104">
+<div id="cd223adc" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-5">SQL Code</h3>
@@ -2804,8 +2804,8 @@ Zlotkey
 <h2>Subquery as a virtual table</h2>
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>Here is the example as before, joining a subquery.</p>
-<div id="5b9552a1" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="105">
+<div id="57e91959" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
 <div class="columns">
 <div class="column" style="width:70%;">
 <h3 id="sql-code-6">SQL Code</h3>
@@ -3010,7 +3010,7 @@ Kaufling
 King
 </td>
 <td>
-24000.0
+10000.0
 </td>
 </tr>
 <tr>
@@ -3018,7 +3018,7 @@ King
 King
 </td>
 <td>
-10000.0
+24000.0
 </td>
 </tr>
 <tr>
@@ -3150,8 +3150,8 @@ Zlotkey
 <section id="nested-subqueries" class="slide level2">
 <h2>Nested subqueries</h2>
 <p><em>List employees who earn more than the average salary in departments with an average salary above $7,000 per month.</em></p>
-<div id="07fb231f" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="106">
+<div id="c05d20a2" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <div class="columns">
 <div class="column" style="width:70%;">
 <h3 id="sql-code-7">SQL Code</h3>
@@ -3327,8 +3327,8 @@ Higgins
 <section id="cte-example-1" class="slide level2">
 <h2>CTE Example #1</h2>
 <p><em>List employees with salaries greater than average salary.</em></p>
-<div id="363f0f19" class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="109">
+<div id="ad35512b" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-8">SQL Code</h3>
@@ -3780,8 +3780,8 @@ Total Rows: 51, Total Columns: 2
 <section id="cte-example-2" class="slide level2">
 <h2>CTE Example #2</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
-<div id="ca600673" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="110">
+<div id="8ab8ca7f" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-9">SQL Code</h3>
@@ -3925,8 +3925,8 @@ Total Rows: 19, Total Columns: 1
 <h2>CTE Example #3</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
 <p>Same question - different solution</p>
-<div id="a58925ae" class="cell" data-execution_count="19">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="111">
+<div id="39857d16" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-10">SQL Code</h3>
@@ -4189,8 +4189,8 @@ Total Rows: 19, Total Columns: 3
 <section id="cte-example-4" class="slide level2">
 <h2>CTE Example #4</h2>
 <p><em>List employees and their manager_id using a recursive CTE</em></p>
-<div id="75f256ff" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="112">
+<div id="915f4c3c" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-11">SQL Code</h3>
@@ -5738,8 +5738,8 @@ Gietz
 <section id="cte-example-5" class="slide level2">
 <h2>CTE Example #5</h2>
 <p><em>List the average salaries for each managerial level in the company</em></p>
-<div id="01e06498" class="cell" data-execution_count="21">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="113">
+<div id="5ebfa510" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <div class="columns">
 <div class="column" style="width:60%;">
 <h3 id="sql-code-12">SQL Code</h3>
@@ -5818,8 +5818,8 @@ Avg Salary
 <h2>CTE Example #6</h2>
 <p><em>List employeee, managerial levels, salaries, flagging those employees with lower than average salaries for their managerial level.</em></p>
 <div style="font-size: 0.8em;">
-<div id="fdda5417" class="cell" data-execution_count="22">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="114">
+<div id="98bb9988" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="sql-code-13">SQL Code</h3>
@@ -7702,10 +7702,10 @@ Total Rows: 107, Total Columns: 5
 <section id="section" class="slide level2">
 <h2></h2>
 <div style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center">
-<div style="font-size:2em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<div style="font-size:1.8em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
 <p>We spend the rest of the class working examples.</p>
 </div>
-<div style="font-size:2em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<div style="font-size:1.8em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
 <p>Refer to the video for details.</p>
 </div>
 </div>
@@ -7777,7 +7777,7 @@ Total Rows: 107, Total Columns: 5
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/22</td>
 <td style="text-align: center;">Tue</td>
-<td>L26:Views and Indexes</td>
+<td>L26:Views, CASE and more</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -7785,7 +7785,7 @@ Total Rows: 107, Total Columns: 5
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">4/24</td>
 <td style="text-align: center;">Thu</td>
-<td>L27:Procedures and Functions</td>
+<td>L27:NO LECTURE - See slides</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -7801,7 +7801,7 @@ Total Rows: 107, Total Columns: 5
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4/29</td>
 <td style="text-align: center;">Tue</td>
-<td>Last day of classes; L28:Triggers, Views and Security</td>
+<td>Last day of classes; L28:NO LECTURE - See slides</td>
 <td>Srv2:Course evaluation; Prj7:Final Submission</td>
 </tr>
 <tr class="even">
