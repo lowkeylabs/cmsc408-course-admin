@@ -1,0 +1,117 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"\"\n",
+        "---"
+      ],
+      "id": "3a63ec76"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "#| output: asis\n",
+        "\n",
+        "import pandas as pd\n",
+        "\n",
+        "from cnvsapi.build_utils import get_current_week_from_lecture_id, get_outline_objects, extract_outline\n",
+        "from datetime import datetime, timedelta\n",
+        "\n",
+        "output_file = \"./modules-gantt.mmd\"\n",
+        "\n",
+        "\n",
+        "outline_df = extract_outline().copy()\n",
+        "outline_df.loc[:,'date'] = pd.to_datetime(outline_df['DateCanvas']).dt.date\n",
+        "\n",
+        "summary_df = outline_df.groupby('Module').agg(\n",
+        "    earliest_date=('date', 'min'),\n",
+        "    latest_date=('date', 'max')\n",
+        ").reset_index()\n",
+        "summary_df = summary_df.sort_values(by='earliest_date').reset_index(drop=True)\n",
+        "\n",
+        "# Find the row(s) where \"Notes, Lectures\" contains \"Classes begin\"\n",
+        "matching_rows = outline_df[outline_df['Notes, Lectures'].str.lower().str.contains('classes begin', na=False)]\n",
+        "first_date = pd.to_datetime(matching_rows['date'].iloc[0]).date()  - timedelta(days=1)\n",
+        "if first_date is not None:\n",
+        "    summary_df.at[0, 'earliest_date'] = first_date\n",
+        "\n",
+        "matching_rows = outline_df[outline_df['Notes, Lectures'].str.lower().str.contains('last day of classes', na=False)]\n",
+        "last_date = pd.to_datetime(matching_rows['date'].iloc[0]).date()\n",
+        "if last_date is not None:\n",
+        "    summary_df.at[summary_df.index[-1], 'latest_date'] = last_date\n",
+        "# Add one day to the latest dates to account for the 24-hours of the last day\n",
+        "summary_df['latest_date'] = summary_df['latest_date'].apply(lambda x: x + timedelta(days=1))\n"
+      ],
+      "id": "e9532280",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def make_gantt():\n",
+        "    \"\"\" make gant chart \"\"\"\n",
+        "\n",
+        "    #original_date_str = \"1/7/2024\"\n",
+        "    #original_date = datetime.strptime(original_date_str, \"%m/%d/%Y\")\n",
+        "    #new_date = original_date + timedelta(weeks=(week_id - 1) )\n",
+        "    #new_date_str = new_date.strftime(\"%m/%d/%Y\").lstrip(\"0\").replace(\"/0\", \"/\")\n",
+        "\n",
+        "\n",
+        "    # VCU gold: #FFB300\n",
+        "\n",
+        "    # Define the content you want to write to the file\n",
+        "    content = []\n",
+        "    content.append(f\"\"\"gantt\n",
+        "    dateFormat YYYY-MM-DD\n",
+        "    axisFormat %b %e\n",
+        "    #todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5\n",
+        "\"\"\"\n",
+        "    )\n",
+        "    content.append('    section Modules')\n",
+        "    for i,item in summary_df.iterrows():\n",
+        "        content.append(f\"    {item['Module']} : m{i}, {item['earliest_date']}, {item['latest_date']}\")\n",
+        "\n",
+        "    # Open the file in write mode ('w' will create the file if it doesn't exist or overwrite it if it does)\n",
+        "    with open(output_file, \"w\") as file:\n",
+        "        file.write(\"\\n\".join(content))\n",
+        "\n",
+        "make_gantt()"
+      ],
+      "id": "7140f00f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "::: {.no-filter}\n",
+        "\n",
+        "```{mermaid}\n",
+        "%%| echo: false\n",
+        "%%| file: ./modules-gantt.mmd\n",
+        "```\n",
+        "\n",
+        ":::"
+      ],
+      "id": "cfe6572d"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/home/john/.cache/pypoetry/virtualenvs/cmsc408-course-admin-SiVgiy2p-py3.13/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
