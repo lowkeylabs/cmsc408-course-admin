@@ -58,7 +58,7 @@ def make_gantt():
     content.append(f"""gantt
     dateFormat YYYY-MM-DD
     axisFormat %b %e
-    todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5
+    #todayMarker stroke-width:7px,stroke:#FFB300,opacity:0.5
 """
     )
     content.append('    section Modules')
