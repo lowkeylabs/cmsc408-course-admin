@@ -514,13 +514,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "cnvsapi"
-version = "0.9.30"
+version = "0.9.31"
 description = "Canvas utilities"
 optional = false
 python-versions = ">=3.12.8,<4.0.0"
 groups = ["main"]
 files = [
-    {file = "cnvsapi-0.9.30-py3-none-any.whl", hash = "sha256:bcd5b1747487221625f791d2240d483cbd948490a1f6d4a435446b2fcd9e998b"},
+    {file = "cnvsapi-0.9.31-py3-none-any.whl", hash = "sha256:0b1816f46b9bf53f73fce82b61facecf717a6a727bcbe1231aad524af90c2f3a"},
 ]
 
 [package.dependencies]
@@ -553,7 +553,7 @@ tomlkit = ">=0.11.8,<0.12.0"
 
 [package.source]
 type = "file"
-url = "helpers/cnvsapi-0.9.30-py3-none-any.whl"
+url = "helpers/cnvsapi-0.9.31-py3-none-any.whl"
 
 [[package]]
 name = "colorama"
@@ -4274,4 +4274,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0.0"
-content-hash = "f81c2776471c73c9820e966a80faec175f9c575d45bc4d0470d0fd527f9488fb"
+content-hash = "284d55dc68865f832c5be94a1fa5f1334cbc0348a9dfae8c77e47652d6dcddd1"
