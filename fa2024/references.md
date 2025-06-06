@@ -13,6 +13,10 @@ Go back through evernote and chrome history (both accounts) to locate good mediu
 <https://budibase.com/blog/data/cap-vs-acid/>
 
 
+# why you need to know SQL
+
+<ttps://medium.com/javarevisited/the-best-programming-languages-to-learn-in-2025-no-its-not-just-python-again-4f827eecd0bb>
+
 
 Just remember that there are 3 different basic designs.
 
