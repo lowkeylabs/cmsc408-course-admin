@@ -1,0 +1,8 @@
+---
+date: last-modified
+title: Instructor - Details
+---
+
+Instructor - Details
+
+This is a template file.  Have at it!

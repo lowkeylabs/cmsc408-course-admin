@@ -1,0 +1,22 @@
+---
+title: "Template lecture"
+lecture-id: 99
+date: 1999-12-31
+
+---
+
+
+```{python}
+#| echo: false
+this_file = "./lecture-99.qmd"
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+{{< include "./_template-lecture-body.qmd" >}}
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

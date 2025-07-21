@@ -1,0 +1,38 @@
+---
+date: last-modified
+title: Week 12 - Details
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+
+<p class="lead">This week we expand our DDL by introducing keys and more.  Joins are next on the table (heh heh) as we explore real POWAH of databases!</p>
+    
+<!-- overview-block-end -->
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Homework 6 - Constructing a database](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343) creates a complete database for the first time!
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Keys made easy](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-12-keys-made-easy-2) Another one of those cool videos.  Enjoy!
+
+
+[Joins - Part 1](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-12-joins-part-1-2) First of 2 on SQL.  Enjoy the entire series! https://www.youtube.com/playlist?list=PLi01XoE8jYojRqM4qGBF1U90Ee1Ecb5tt
+
+
+[Joins - Part 2](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-12-joins-part-2-2) Second of 2 on SQL.  Enjoy the entire series! https://www.youtube.com/playlist?list=PLi01XoE8jYojRqM4qGBF1U90Ee1Ecb5tt
+
+<!-- resources-block-end -->

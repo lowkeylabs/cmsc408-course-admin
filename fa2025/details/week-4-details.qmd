@@ -1,0 +1,71 @@
+---
+date: last-modified
+title: Week 4 - Details
+---
+
+```{python}
+#| label: Loading canvas data
+from cnvsapi.config import config
+from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, expand_file
+
+# Uncomment as necessary.  These take time to load so only use what you need.
+
+pages = config.get_pages()
+quizzes = config.get_quizzes()
+assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
+#files = config.get_files()
+
+# Here is an example of how these are expanded.
+# expand_xxx( xxx, "title","resource name", url_type, **kwargs )
+# url_type="anchor" ->  <a href="resource name" **kwargs>title</a>
+# url_type="img" -> <img src="resource_name" title="title" **kwargs )
+#
+# expand_quiz(quizzes, "Take the Pre-class survey","pre-class survey", url_type="anchor", target="_blank")
+# expand_page(pages, "Join the course discord","resource-course-discord", url_type="anchor", target="_blank")
+# expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")
+# expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")
+
+```
+
+<p class="lead">New topic - relational models and algebra</p>
+
+### Things to do this week
+
+```{python}
+print(f"""
+<b>{expand_quiz(quizzes, "Practice Quiz 2 ","practice quiz 2", url_type="anchor", target="_blank")}</b> - Get started on practice quiz 2.  This quiz focuses on relational algebra.
+
+<b>{expand_assignment(assignments,"Deliverable 4 - Video Pitch","Deliverable 4 - Video Pitch",url_type="anchor")}</b> - You are working with your team mate(s) to refine your semester project idea, then put together a video that *pitches* your idea.  A passing grade is your OK to proceed with deliverable 5.  Up in the resources I provide an example of what this video pitch might look like.
+
+<b>{expand_assignment(assignments,"Homework 2 - ER modeling","Homework 2 - Entity Relation Models",url_type="anchor")}</b> - Practice makes perfect!  You are getting practice creating ER diagrams from descriptions
+of a databases.
+
+<b>{expand_assignment(assignments,"Harmonize discussion 2 - Relational algebra","Discussion 2 - Relational Alg.",url_type="anchor")}</b> - A little tougher. I want to pick a relational algebra topic and then explain it in a post.  You will also be offering tips or suggestions to explanations posted by other students.
+
+""")
+```
+
+
+
+```{python}
+# example of grid using the designplus kl_large_link_grid class.
+#print(f"""
+#<ul class="kl_large_link_grid">
+#<li>{expand_page(pages,"Course Instructor","course-instructor",url_type="anchor")}</li>
+#<li>{expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Course Textbooks","resource-textbooks",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Student Resources","resource-student-resources",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Canvas Resources","resource-canvas-resources",url_type="anchor")}</li>
+#<li>{expand_page(pages,"SAVE YOU HOURS&trade;","resource-save-you-hours",url_type="anchor")}</li>
+#</ul>
+#""")
+```
+
+```{python}
+## This is an example of how one includes an image within the page.
+## Note that other html attributes (e.g., width=, height=, etc.) can be added
+## This will return a canvas-ready <img /> tag .
+#print(f"""
+#{expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")}
+#""")
+```

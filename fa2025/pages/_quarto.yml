@@ -1,0 +1,12 @@
+
+project:
+  output-dir: ./html
+
+format:
+  html:
+    minimal: true
+
+execute:
+  echo: false
+  output: asis
+  

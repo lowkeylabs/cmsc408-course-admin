@@ -1,0 +1,29 @@
+---
+date: last-modified
+title: Week 17 - Details
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+
+<p class="lead">This is the last week of school - and we're only meeting on Monday. Keep focused on finishing out your semester-long project!</p>
+    
+<!-- overview-block-end -->
+
+<!-- deliverables-block-begin -->
+### Things to do this week
+
+Complete the deliverable list above!
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+### And don't forget the resources
+
+The resources above were carefully curated
+to accelerate your learning and help you successfully
+complete the deliverables.  *Check them out!*
+<!-- resources-block-end -->

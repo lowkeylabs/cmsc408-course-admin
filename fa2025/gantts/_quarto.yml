@@ -1,0 +1,12 @@
+project:
+  output-dir: ../../docs/fa2025
+
+format:
+    html:
+        minimal: true
+        embed-resources: true
+        css: styles.css
+
+execute:
+    echo: false
+

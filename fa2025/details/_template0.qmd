@@ -1,0 +1,29 @@
+---
+title: Template - Details
+date: last-modified
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+### Welcome to a new week!
+
+*Details will be updated closer to the week.*
+<!-- overview-block-end -->
+
+<!-- deliverables-block-begin -->
+### Things to do this week
+
+Complete the deliverable list above!
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+### And don't forget the resources
+
+The resources above were carefully curated
+to accelerate your learning and help you successfully
+complete the deliverables.  *Check them out!*
+<!-- resources-block-end -->

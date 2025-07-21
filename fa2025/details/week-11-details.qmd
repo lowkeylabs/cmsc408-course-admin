@@ -1,0 +1,53 @@
+---
+date: last-modified
+title: Week 11 - Details
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+
+<p class="lead">Quiz 5 - SQL basics. Review docker assignment. Introduce homework 6 and building a database from scratch.</p>
+    
+<!-- overview-block-end -->
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Deliverable 6 - Docker Scaffold](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772) is an accelerator project to get you jump-started with docker for this semester-long project.
+
+
+[Quiz 4 - SQL Basics - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331) focuses on basic SQL statements and structure.  This is the last quiz!!
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Del.6 - Docker tutorial](https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/) A CMSC408 website for deliverable 6.
+
+
+[Python-Quarto Site](https://vcu-ssg.github.io/ssg-quarto-python-setup/) Setup site for python and quarto (HW5)
+
+
+[Full stack apache/php](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-full-stack-apache-slash-php-2) Nice overview of deliverable 6.
+
+
+[CRUD and PHP (video)](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-crud-and-php-video-2) A good place start with PHP and CRUD for the semester-long project!
+
+
+[PHP connections (video)](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-php-connections-video-2) This video can help explain the index.php file in our docker examples!
+
+
+[CRUD/PHP example (video)](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-11-crud-slash-php-example-video-2) Another example using PHP to create a CRUD website.
+
+
+[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours) Uhhh ... Please read me!
+
+<!-- resources-block-end -->

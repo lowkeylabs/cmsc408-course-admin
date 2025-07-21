@@ -1,0 +1,32 @@
+```{python}
+#| echo: false
+#| label: setup
+
+# Extract the filename
+from cnvsapi.build_utils import get_yaml_header
+content = get_yaml_header( this_file )
+
+lecture_id = content['lecture-id']
+
+n_rows = 8
+if "n_rows" in content.keys():
+    n_rows = content["n_rows"]
+
+discussion_items = [
+    'This is a placeholder Lecture.'
+]
+if "discussion-items" in content.keys():
+    discussion_items = content["discussion-items"]
+
+lecture_topics = [
+    'When ready, the complete lecture will replace this one.'
+]
+if "lecture-topics" in content.keys():
+    lecture_topics = content["lecture-topics"]
+
+housekeeping_margin_column_width = "5%"
+housekeeping_left_column_width="52%"
+housekeeping_right_column_width="43%"
+
+housekeeping_vertical_spacer = "25px"
+```

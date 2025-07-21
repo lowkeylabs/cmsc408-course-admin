@@ -90,7 +90,7 @@ entry = "CANVAS_API_TOKEN"
 60923 = "CMSC-508-901-FA2022 - DATA BASE THEORY"
 85746 = "CMSC-508-901-FA2023 - DATA BASE THEORY"
 105097 = "CMSC408 - Fall 2024"
-93957 = "CMSC475 - Spring 2023"
+93957 = "CMSC475 - Spring 2024"
 86151 = "COAR 463/CMSC 391-FA2023 - INTRO TO GAME DEVELOPMENT"
 56466 = "COAR-463-701-SP2022 - HNR:INTRO TO GAME DEVELOPMENT"
 10439 = "DATA SCIENCE SKILLS"
@@ -103,11 +103,26 @@ entry = "CANVAS_API_TOKEN"
 103446 = "SSG - Fall 2024"
 19975 = "UAC and GAC Minutes"
 35849 = "VCU Template - jdleonard"
+96946 = "CMSC 235 - Dev"
+122236 = "CMSC-408-901 - DATABASES - Fall 2025"
+120624 = "CMSC-441-903 - SR DESIGN STUDIO I (LAB/PROJ) - Fall 2025"
+124086 = "CMSC-445-001, COAR-463-001 - INTRO TO GAME DEVELOPMENT - Fall 2025"
+102929 = "CMSC-451-901 - SENIOR PROJECT I - Fall 2024"
+114076 = "CMSC-492-001 - INDEPENDENT STUDY - Spring 2025"
+107207 = "CMSC-492-002 - INDEPENDENT STUDY - Fall 2024"
+123148 = "CMSC-492-002 - INDEPENDENT STUDY - Fall 2025"
+107281 = "CMSC-654 - MEMORY AND MALWARE FORENSICS - Fall 2024"
+113813 = "CMSC408 - Spring 2025"
+113806 = "CMSC427 - Spring 2025"
+121170 = "ENGR-497-L52 - VERTICALLY INTEGRATED PROJECTS - Fall 2025"
+111710 = "Senior Design - Spring 2025"
+114162 = "SSG-VIP - Spring 2025"
+114872 = "VCUO Master CMSC 408 Databases"
 
 
 [course]
 # this is the default course id.  Select from list above.
-course_id = 105097
+course_id = 122236
 
 
 [course.00000]
@@ -119,14 +134,14 @@ syllabus_course_summary = true
 lecture_slides_template = "template-lecture-0.qmd"
 syllabus_gdoc_key = "1Ts04YflffdnW95O4YWCQTnY7VFZW40OiShb0tXY0bPU"
 
-[course.105097]
-outline_gsheet_key = "1THrFa8qAZskEbqAe48xcE4Xdx-Sci5UUkoeiL_wxf9M"
-outline_google_folder = "1-vljcqBePkmM5jhK-iALqsV_F1cpbgmD"
-syllabus_gdoc_key = "1nOUlwdnRIXFP55BDyBX8e6ay3Xj9HB0SOLmy5DdSfFc"
+[course.122236]
+outline_gsheet_key = "1hR61Vw5U8YOSQQLeS9M8Yt9w_Uz-flL4kU03hjE4x_s"
+outline_google_folder = "1059eEfxoZNoEGKdYQ05GUPrQTRsafYnV"
+syllabus_gdoc_key = "1siGN9VxR1-vWf2NUtqnAXovEMAOQ_DYieU52fmheNuw"
 syllabus_course_summary = true
 lecture_slides_template = "_template-lecture.qmd"
-lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2024/"
+lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/"
 frontpage_additional_weeks = 99
-zoom_lecture_url="https://vcu.zoom.us/j/84401855863"
+zoom_lecture_url="https://vcu.zoom.us/j/82826642531"
 use_outline_lectures_tab = false
 show_frontpage_vcr_buttons = true
