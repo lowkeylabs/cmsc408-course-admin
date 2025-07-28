@@ -1,0 +1,13 @@
+
+format:
+  html:
+    mermaid:
+      theme: default
+      themeVariables:
+        ganttCriticalTaskColor: "#ffaaaa"
+        ganttCriticalTaskBorderColor: "#ffffff"
+        ganttDoneTaskColor: "#aaffaa"
+        ganttDoneTaskBorderColor: "#ffffff"
+        ganttActiveTaskColor: "#ffffff"
+        ganttActiveTaskBorderColor: "#ffffff"
+

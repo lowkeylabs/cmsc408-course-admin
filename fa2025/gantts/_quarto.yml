@@ -1,11 +1,20 @@
 project:
-  output-dir: ../../docs/fa2025
+  output-dir: ../../docs/sp2025
 
 format:
     html:
         minimal: true
         embed-resources: true
         css: styles.css
+        mermaid:
+          theme: default
+          themeVariables:
+            ganttCriticalTaskColor: "#ffaaaa"
+            ganttCriticalTaskBorderColor: "#aa0000"
+            ganttDoneTaskColor: "#aaffaa"
+            ganttDoneTaskBorderColor: "#00aa00"
+            ganttActiveTaskColor: "#000000"
+            ganttActiveTaskBorderColor: "#0000aa"        
 
 execute:
     echo: false

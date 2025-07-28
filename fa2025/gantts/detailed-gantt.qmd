@@ -78,14 +78,22 @@ def make_gantt():
         content.append(f"    section {item['Module']}")
         content.append(f"    {item['Module']} : m{i}, {item['earliest_date']}, {item['latest_date']}")
         for j,row in deliverables_df.iterrows():
-            content.append(f"    {clean_title(row['outline_entry'])} : milestone, {row['canvas_due_at']}, 0d")
+
+            task_type = "active"
+            if clean_title(row['outline_entry']).startswith("HW"):
+                task_type = "active"
+            elif clean_title(row['outline_entry']).lower().startswith("dis"):
+                task_type = "done"
+            else:
+                task_type="default"
+            content.append(f"    {clean_title(row['outline_entry'])} : milestone, {task_type}, {row['canvas_due_at']}, 0d")
         content.append("")
 
     projects_df = objects_df[ (objects_df['canvas_assignment_group']=="Projects") ]
     if not projects_df.empty:
         content.append(f"    section Semester Project")
         for j,row in projects_df.sort_values(by='canvas_due_at').reset_index(drop=True).iterrows():
-            content.append(f"    {clean_title(row['outline_entry'])} : milestone, {row['canvas_due_at']}, 0d")
+            content.append(f"    {clean_title(row['outline_entry'])} : milestone, default, {row['canvas_due_at']}, 0d")
         content.append("")
 
 
@@ -95,6 +103,7 @@ def make_gantt():
 
 make_gantt()
 ```
+
 
 ::: {.no-filter}
 ```{mermaid}
