@@ -1,0 +1,237 @@
+---
+title: final notes
+format:
+    html:
+        embed-resources: true
+---
+
+# At beginning of class
+
+* Highlight expected skills:
+  * GIT
+  * GH
+  * terminal / command line skills
+  * Markdown
+  * light python - be able to read code and copy
+  * change versions of python 
+  * follow instructions and install software on your computer
+
+# Technologies used by students in spring 2025
+
+* docker, xamp (provided)
+* AWS lightsail
+* Supabase
+
+# Discussion on semester-long project
+
+Reinforce that the semester-long project parallels the course.  Skills in the course will map to the deliverables
+of the semester-long project.  If you keep up with the homework, you'll be prepared to complete the deliverables of the project.
+
+The semester-long-project is a semester-long project, not a day-long or week-long project.  Don't delay and put it off until
+the end of the term.  You won't enjoy life.
+
+The semester-long project requires that YOU learn NEW skills NOT covered by the instructor in the class.  This is an important
+learning outcome of our computer science program:  graduates are able to learn and use a new technology on their own. (get correct ABET language here.)
+
+As part of the semester-long project, students will develop and deploy a FULL-STACK web-based database application.  We'll be learning the database stuff in class.  The STUDENT TEAMS are REQUIRED to TEACH THEMSELVES the front-end stuff.
+
+
+Here is a **revised table of full-stack technologies organized by decade**, now **including XAMPP and LAMP**, along with a column indicating the **current relevance** or "vibe" of each stack. This version helps students see where technologies sit historically, what they were used for, and how modern alternatives have evolved.
+
+---
+
+### 🧱 Full-Stack Technologies by Decade (Including XAMPP and LAMP)
+
+| Decade    | Stack / Tech               | Database                  | Backend                              | Frontend                      | Deployment / Infra                       | Vibe / Relevance Today            |
+| --------- | -------------------------- | ------------------------- | ------------------------------------ | ----------------------------- | ---------------------------------------- | --------------------------------- |
+| **1990s** | Classic CGI / Perl         | Oracle, MySQL             | Perl, ASP Classic                    | Static HTML, early JS         | On-prem servers, FTP                     | ⚠️ Obsolete, historical interest  |
+| **2000s** | **LAMP**                   | **MySQL**                 | **PHP**                              | HTML + PHP embedded logic     | Linux + Apache                           | 🟡 Still used in legacy apps      |
+| **2000s** | **XAMPP**                  | **MySQL**                 | **PHP, Perl**                        | HTML + PHP embedded logic     | Local GUI stack (Windows/macOS)          | 🟡 Common in intro/legacy courses |
+| **2000s** | Java + JSP + Spring        | MySQL, Oracle             | Java + Spring                        | HTML, JSP                     | Tomcat, WAR files                        | 🔴 Dated, enterprise-only usage   |
+| **2010s** | **MERN**                   | **MongoDB**               | **Express (Node.js)**                | **React**                     | Heroku, Docker, AWS                      | 🟢 Still widely used              |
+| **2010s** | Django / Flask             | PostgreSQL, SQLite        | Python                               | Bootstrap, Jinja templates    | Heroku, Docker                           | 🟢 Stable, great for learning     |
+| **2010s** | Ruby on Rails              | PostgreSQL                | Ruby                                 | Embedded Ruby templates       | Heroku, Capistrano                       | 🟡 Faded trend, still elegant     |
+| **2020s** | **Supabase + Next.js**     | PostgreSQL (managed)      | Supabase Edge Functions, Next.js API | React, Next.js                | Vercel, Netlify, Fly.io                  | 🟢 Modern, minimal DevOps         |
+| **2020s** | Firebase + React           | Firebase RTDB / Firestore | Firebase Functions (Node.js)         | React, Vue                    | Firebase Hosting, Vercel                 | 🟢 Frontend-first simplicity      |
+| **2020s** | PlanetScale + Vite + React | MySQL (PlanetScale)       | Node.js, serverless                  | React + Vite                  | Vercel, Netlify, Railway                 | 🟢 Fresh, scalable, cloud-native  |
+| **2020s** | Deno + Fresh / Bun         | SQLite, Fauna, edge DBs   | Deno, Bun                            | JSX/TSX                       | Edge functions (Deno Deploy, Cloudflare) | 🧪 Experimental, cutting-edge     |
+| **2020s** | Astro + Supabase           | Supabase (PostgreSQL)     | Astro SSR or API routes              | Astro islands (React/Vue/etc) | Cloudflare Pages, Vercel                 | 🟢 Very modern, low JS footprint  |
+
+---
+
+### 🔎 Summary of XAMPP and LAMP
+
+| Feature            | LAMP                           | XAMPP                               |
+| ------------------ | ------------------------------ | ----------------------------------- |
+| Platform           | Linux                          | Cross-platform (Windows/macOS)      |
+| Purpose            | Web hosting stack              | Local development                   |
+| Default Web Server | Apache                         | Apache                              |
+| Use in 2020s       | Mostly legacy PHP or WordPress | Local dev / teaching legacy PHP     |
+| Modern Alt         | Docker + Apache/PHP container  | VS Code Dev Containers, Live Server |
+
+---
+
+### ✅ Recommendation for Students
+
+| Student Type            | Recommended Stack                       |
+| ----------------------- | --------------------------------------- |
+| Beginners               | Supabase + React (with Auth/UI tools)   |
+| Interested in DevOps    | Docker + Flask/Postgres                 |
+| Wanting modern frontend | Next.js + Supabase or Firebase          |
+| Exploring legacy tech   | XAMPP or LAMP (for contrast/comparison) |
+
+Would you like a printable handout or visual timeline chart to share with your class?
+
+
+
+### Prompt:
+
+I'm teaching a database class where students are building full-stack applications. I want a comprehensive table that organizes full-stack technologies by **decade**, showing:
+
+- Typical **stacks** (e.g., LAMP, XAMPP, MERN, Supabase + Next.js)
+- The **database**, **backend**, **frontend**, and **deployment/infra** components of each stack
+- A column for **vibe or relevance today** (e.g., "modern", "dated", "experimental")
+- Include both **legacy stacks** like LAMP/XAMPP and **modern stacks** like Supabase, Vercel, Firebase, Bun, Deno, etc.
+
+Also include:
+- A follow-up summary table comparing XAMPP and LAMP
+- A recommendation section suggesting which stack types are best for different student personas (e.g., beginner, devops-inclined, modern frontend)
+
+Format everything in well-aligned markdown tables, with clean labels and emoji status indicators (🟢 modern, 🟡 dated, 🔴 obsolete, 🧪 experimental).
+
+
+# Stack comparison
+| Decade | Stack / Tech              | Database               | Backend                        | Frontend                   | Deployment / Infra              | API ✅ | Mobile 📱 | GraphQL 🧩 | Vibe / Relevance Today           |
+|--------|---------------------------|------------------------|--------------------------------|----------------------------|----------------------------------|--------|------------|--------------|----------------------------------|
+| 1990s  | CGI / Perl                | Oracle, MySQL         | Perl, ASP Classic              | Static HTML, early JS      | On-prem, FTP                    | ❌     | ❌         | ❌           | 🔴 Obsolete                     |
+| 2000s  | LAMP                      | MySQL                 | PHP                            | HTML + PHP embedded logic  | Apache on Linux                 | ⚠️ REST via PHP | ⚠️ HTML wrappers | ❌     | 🟡 Legacy / functional         |
+| 2000s  | XAMPP                     | MySQL                 | PHP, Perl                      | HTML + PHP embedded logic  | Local dev on Windows/macOS      | ⚠️     | ❌         | ❌           | 🟡 Educational, limited modern use |
+| 2010s  | AWS Lightsail             | MySQL, PostgreSQL     | Any (Node.js, Flask, etc.)     | Any                        | VPS-style cloud                 | ✅     | ⚠️ Mobile backend possible     | ⚠️ Self-hosted                | 🟡 Practical but not "modern"   |
+| 2010s  | Django / Flask            | PostgreSQL, SQLite    | Python                         | Bootstrap + Jinja          | Heroku, Docker, EC2             | ✅ REST | ⚠️ With mobile adapters        | ⚠️ 3rd-party packages        | 🟢 Stable, great for learning   |
+| 2010s  | Ruby on Rails             | PostgreSQL            | Ruby                           | Embedded Ruby templates     | Heroku, Capistrano              | ✅ REST | ⚠️          | 🧩 via gems                  | 🟡 Declining, still elegant   |
+| 2020s  | Supabase + Next.js        | ✅ PostgreSQL          | Supabase Functions, Next.js API| React + Next.js            | Vercel, Netlify, Fly.io         | ✅ REST & GraphQL | 📱 via Expo + Supabase SDK     | 🧩 Native support            | 🟢 Best SQL full-stack option  |
+| 2020s  | PlanetScale + Vite + React| ✅ MySQL               | Serverless / Node.js           | React + Vite               | Railway, Vercel                 | ✅ REST | 📱 JS SDK support              | 🧩 via GraphQL Gateway       | 🟢 Modern, scalable            |
+| 2020s  | Astro + Supabase          | ✅ PostgreSQL          | API Routes (Astro SSR)         | Astro + React/Vue/etc.     | Cloudflare Pages, Vercel        | ✅     | ⚠️ Not mobile-native           | ⚠️ GraphQL possible          | 🟢 Lightweight, content-friendly |
+| 2020s  | Deno + Fresh / Bun        | ✅ SQLite, edge DBs    | Deno or Bun                    | JSX/TSX                    | Cloudflare, Deno Deploy         | ✅     | ⚠️ Lightweight mobile support | ⚠️ Experimental              | 🧪 Cutting-edge, evolving      |
+
+
+# Recommendation
+
+| Student Goal              | Best Stack(s)                                  |
+|---------------------------|------------------------------------------------|
+| API-first with SQL        | Supabase + Next.js, PlanetScale + Node.js      |
+| Mobile app with SQL       | Supabase + Expo, Django + REST API             |
+| GraphQL with SQL          | Supabase, PlanetScale (via GraphQL proxy)      |
+| Full control / SSH access | AWS Lightsail, Flask + PostgreSQL              |
+| Minimal DevOps            | Supabase, Vercel, Netlify                      |
+
+
+# another set of recommendations
+
+*review the recommendations - order by ease of implementation, less-steep learning curve for undergraduates in a DATABASE course, who have to implement a front end on their own with minimal guidance from professor.*
+
+### Ranked Recommendations (Easiest to Hardest)
+
+| Rank | Student Goal              | Recommended Stack(s)                             | Why It's a Good Fit for Students                                                                 |
+|------|---------------------------|--------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| 1    | Easy full-stack with SQL  | **Supabase + Next.js (or React)**               | 🟢 Built-in PostgreSQL, Auth, REST, optional GraphQL. <br>🟢 Great docs, live UI, minimal setup. <br>🟢 Easy to scaffold both frontend and backend. |
+| 2    | Mobile-first + SQL        | **Supabase + Expo (React Native)**              | 🟢 Mobile SDKs, handles auth/storage. <br>🟡 Slightly more complex than web. <br>🟢 Works well for teams wanting an app-like experience. |
+| 3    | Simple backend + SQL      | **Django + PostgreSQL**                         | 🟢 Admin panel out-of-the-box. <br>🟡 Needs some setup, but great structure and ORM. <br>🟡 Templated frontend may feel dated unless React is added. |
+| 4    | Fully customizable VPS    | **Flask + PostgreSQL on AWS Lightsail**         | 🟡 Teaches full control (SSH, server setup). <br>🔴 Requires Linux skills, deploy pain points. <br>🟡 Good if guided by tutorials. |
+| 5    | Modern SQL + JS           | **PlanetScale + Vite + React**                  | 🟢 Very modern. <br>🟡 PlanetScale uses MySQL with branching and requires Git integration. <br>🟡 GraphQL needs external layer. |
+| 6    | Cutting-edge exploration  | **Deno + Fresh / Bun + SQLite**                 | 🧪 Very fast, modern DX. <br>🔴 Thin docs, small community. <br>🔴 Not good for solo learners without web experience. |
+
+
+### Why Firebase, XAMPP, and LAMP Were Omitted
+
+| Stack       | Reason for Exclusion from Top List                         |
+|-------------|-------------------------------------------------------------|
+| **Firebase**| ❌ Not SQL-based. Firestore and RTDB are NoSQL.             |
+| **XAMPP**   | 🟡 Teaches old PHP/MySQL, but lacks modern dev practices.   |
+| **LAMP**    | 🟡 SQL-compatible but dated. Encourages poor frontend/backend separation. |
+
+
+### Instructor Summary
+
+- **Best All-Around Stack for Undergrads**:  
+  ✅ **Supabase + Next.js** — combines modern frontend with easy backend and real SQL. Minimal setup, strong docs, and fits the real-world skills students will use.
+
+- **Best for Ambitious or Experienced Teams**:  
+  🔧 **PlanetScale + React** or **Flask + PostgreSQL on AWS Lightsail** — offer full control but require stronger Git, CLI, and deployment skills.
+
+- **Best for Mobile Apps**:  
+  📱 **Supabase + Expo** — gives mobile-first experience with authentication and SQL out of the box.
+
+- **Avoid** NoSQL platforms like Firebase unless you're teaching polyglot persistence or client-side–only apps.
+
+- **Encourage** students to document how they connect their frontend to SQL-based queries, especially if they use GraphQL or REST APIs.
+
+
+# course redesign
+
+*I'm teaching ER diagrams, relational algebra, normalization and SQL in a 15-week course. Concurrently, students are working on an independent full-stack project where they need to implement a CRUD front end using the technology of their choice.  I pace the lectures so that by the end of week 13 students have a working back-end.  But it is their responsibility to select a front-end technology and implement it concurrently.  Your thoughts?*
+
+That’s a strong, well-scaffolded design—you're anchoring students in **core database principles (ER, RA, NF, SQL)** while giving them **autonomy** and **real-world experience** in building a full-stack app. You're also giving them **enough backend grounding** by Week 13 to ensure the front-end work has substance behind it.
+
+Here are my thoughts and suggestions to maximize learning and reduce pitfalls:
+
+---
+
+## ✅ Strengths of Your Approach
+
+| Area                            | Strength                                                                                                       |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Theory-practice integration** | Students don’t just memorize SQL—they apply it to a real app with CRUD operations.                             |
+| **Project realism**             | Mirrors real-world scenarios: backend-first, frontend concurrency, tech choice autonomy.                       |
+| **Timing**                      | Week 13 is a good deadline for a database-backed backend; gives 2 weeks to polish front-end.                   |
+| **Skill exposure**              | Students learn ER modeling, normalization, SQL—and must figure out how to use APIs or ORM tools to power a UI. |
+
+---
+
+## ⚠️ Risks to Mitigate
+
+| Risk                               | Recommendation                                                                                                             |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend overwhelm**             | Provide a curated list of front-end starter stacks (React + Vite, Next.js, Astro, etc.) with simple examples.              |
+| **API/data integration confusion** | Introduce API design and GraphQL/REST concepts lightly by mid-semester (around Weeks 7–9).                                 |
+| **Disconnect from DB schema**      | Encourage students to generate their front-end from their actual schema (via Swagger, Supabase, or GraphQL introspection). |
+| **Late panic**                     | Midway milestone: require a basic front-end skeleton (even static pages with buttons) by Week 9 or 10.                     |
+
+---
+
+## 🗓️ Suggested Timeline Overlay (15 Weeks)
+
+| Week  | Core Lecture Topic             | Project Recommendation                             |
+| ----- | ------------------------------ | -------------------------------------------------- |
+| 1–2   | ER modeling                    | Design project topic + initial ERD                 |
+| 3–4   | Relational model & constraints | Translate ERD to relational schema                 |
+| 5–6   | Relational algebra             | Assign queries to model key use cases              |
+| 7–8   | Normalization                  | Refine schema, introduce REST vs GraphQL           |
+| 9     | SQL SELECT + Aggregation       | Midpoint: front-end mockup + API plan due          |
+| 10–11 | SQL JOINs, Subqueries          | Begin implementing frontend form → API → DB        |
+| 12–13 | SQL INSERT, UPDATE, DELETE     | Full backend working (CRUD API + database tested)  |
+| 14    | Transactions, views, indexes   | Frontend final polish + integration                |
+| 15    | Capstone demo                  | Present full app, highlight ERD → DB → UI workflow |
+
+---
+
+## 🧩 Support Suggestions
+
+* ✅ Offer **1–3 frontend templates** (e.g., Supabase + Next.js, Django + Bootstrap, Vite + React) that students can fork
+* ✅ Provide a **sample repo with REST or GraphQL** endpoints they can experiment against early
+* ✅ Use class time for **low-stakes design reviews** (e.g., "Show your form flow and where it maps to SQL")
+
+---
+
+## 📚 Teaching Philosophy Bonus
+
+You're implicitly teaching students the **Double Diamond** of product design:
+
+> Discover (ERD/Modeling) → Define (Schema) → Develop (API/backend) → Deliver (Frontend UX)
+
+This helps them understand how **database theory enables real user interaction**, and gives them a **portfolio-worthy deliverable** with practical relevance.
+
+
+references
+
+https://medium.com/@hadiyolworld007/why-every-python-data-analyst-should-learn-these-7-duckdb-queries-8ba916a6be61
