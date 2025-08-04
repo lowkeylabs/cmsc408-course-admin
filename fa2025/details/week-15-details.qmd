@@ -1,0 +1,59 @@
+---
+date: last-modified
+title: Week 15 - Details
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+
+<p class="lead">More on SELECTS and other finishing-up topics</p>
+    
+<!-- overview-block-end -->
+
+#### Lecture update 
+
+- Lectures on Thursday, April 24 and Tuesday, April 29 are CANCELLED.  I will be submitting course updates
+via Canvas Announcements.  We will have no scheduled in-class activities.
+
+#### End of semester checklist
+
+It's end of the semester time! Plenty to do to ensure that you earn your best grade possible!
+
+- [Check the gradebook](https://virginiacommonwealth.instructure.com/courses/113813/gradebook).
+
+	- Verify your scores and email me if you have any questions
+	- Submit any missing assignments, discussions or quizzes.
+
+- Complete the [course evaluation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397). You'll get credit towards your final grade AND you'll be helping 
+improve the course for the next group of students. Thank you!
+
+Please use the Discord and the TAs as your first stop for questions.  My response time over the next week will be slow.
+
+#### IMPORTANT
+
+* **No late submissions will be accepted.  Midnight, April 29 is the deadline.**
+
+* **Once Canvas closes, it's done. You've still got time to get stuff done!**
+
+* **April 29 is the deadline. No late submissions will be accepted.**
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Homework 9 - Even more on SQL](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349) - enjoyed homework 8? Wait until you work on this one!
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+### And don't forget the resources
+
+The resources above were carefully curated
+to accelerate your learning and help you successfully
+complete the deliverables.  *Check them out!*
+<!-- resources-block-end -->

@@ -1,0 +1,10 @@
+---
+title: ""
+---
+
+<https://medium.com/stackademic/graphql-vs-rest-which-is-right-for-your-project-bd242e37a461>
+
+
+<https://medium.com/@harishsingh8529/i-rewrote-our-sql-schema-in-2-days-heres-why-our-queries-now-run-10x-faster-ccfd6b65f3c9>
+
+<https://www.kdnuggets.com/build-your-own-simple-data-pipeline-with-python-and-docker>

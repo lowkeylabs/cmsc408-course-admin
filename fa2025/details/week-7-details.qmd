@@ -1,0 +1,50 @@
+---
+date: last-modified
+title: Week 7 - Details
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+
+<p class="lead">Homework 4 and practice quiz 3 go hand-in-hand.  Don't forget Project Deliverable 5 - design!</p>
+    
+<!-- overview-block-end -->
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Deliverable 5 - Design Documentation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770) is one of the key deliverables for the semester project.  It's a large activity - invest the time!
+
+
+[Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390) is the practice quiz for Normal Forms. Work this practice quiz in conjunction with homework 4.
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-normal-forms-3) Another video from Decomplexify - what are the various normal forms?
+
+
+[BCNF](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-bcnf-3) Another video from Decomplexify - Good description of BCNF!
+
+
+[Intro to data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-intro-to-data-ethics) an important section in your deliverable 5.  Let's learn together!
+
+
+[Data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-data-ethics) explores your role as a data scientist and data ethics.
+
+
+[Privacy and ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-privacy-and-ethics) although this is 10 years old, she is SO SPOT ON!
+
+
+[BBC data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-bbc-data-ethics) a nice video from the BBC on data privacy and ethics.
+
+<!-- resources-block-end -->

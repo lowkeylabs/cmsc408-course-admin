@@ -1,0 +1,39 @@
+---
+date: last-modified
+title: Week 9 - Details
+---
+
+```{python}
+#| echo: false
+this_file = "week-00-details.qmd"
+```
+
+<!-- overview-block-begin -->
+
+<p class="lead">Take it easy!</p>
+    
+<!-- overview-block-end -->
+
+<!-- deliverables-block-begin -->
+### Things to do this week
+
+Complete the deliverable list above!
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[PhpMyAdmin](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-9-phpmyadmin-3) A good overview of PhyMyAdmin.
+
+
+[MAC - installing pyenv](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-9-mac-installing-pyenv-3) OK video on installing pyenv on a mac. Easy to follow.
+
+
+[PC - installing pyenv](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-9-pc-installing-pyenv-3) Installing pyenv on a PC.
+
+
+[Intro to poetry](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-9-intro-to-poetry-3) Poetry is a GREAT tool for managing dependencies and virtual environments.  It combines SetupTools and VENV into one simple program to use.
+
+<!-- resources-block-end -->
