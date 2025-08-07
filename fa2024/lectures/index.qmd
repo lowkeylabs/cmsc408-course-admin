@@ -64,7 +64,7 @@ def get_day_of_week(date_string):
 lecture_files = get_lect_qmd_files()
 
 print("<div class='item-list'>")
-for i,lecture_file in enumerate( lecture_files ):
+for i,lecture_file in enumerate( sorted(lecture_files) ):
     filename = filename_to_html( lecture_file )
     date = get_date_from_frontmatter( os.path.basename(lecture_file) )
     dow = get_day_of_week( date )

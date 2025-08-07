@@ -62,7 +62,7 @@ expected.
 
 <center>***Jump to command line and run a little demonstration.***</center>
 
-{{< include "../../topics/_select-statement.qmd" >}}
+{{< include "../../topics/_sql-selects.qmd" >}}
 {{< include "../../topics/_creating-and-populating-tables.qmd" >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

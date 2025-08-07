@@ -45,8 +45,8 @@ This Monday - 12/9 - by Midnight
 No late work will be accepted.
 :::
 
-{{< include "../../topics/_triggers.qmd" >}}
-{{< include "../../topics/_views.qmd" >}}
+{{< include "../../topics/_sql-triggers.qmd" >}}
+{{< include "../../topics/_sql-views.qmd" >}}
 {{< include "../../topics/_sql-injection.qmd" >}}
 
 ## 

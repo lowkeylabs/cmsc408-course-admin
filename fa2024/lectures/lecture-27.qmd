@@ -102,6 +102,6 @@ There is TONS of stuff available on-line.
 :::
 ::::
 
-{{< include "../../topics/_procedures.qmd" >}}
+{{< include "../../topics/_sql-procedures.qmd" >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}

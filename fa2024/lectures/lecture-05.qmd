@@ -36,7 +36,7 @@ lecture_topics = [
 {{< include  ../../topics/_fa2024-week-4-deliverables.qmd >}}
 {{< include  ../../topics/_taking-stock-after-er-models.qmd >}}
 {{< include  ../../topics/_databases-and-database-management-systems.qmd >}}
-{{< include  ../../topics/_intro-to-sql.qmd >}}
+{{< include  ../../topics/_sql-intro.qmd >}}
 {{< include  ../../topics/_brief-intro-to-relational-model.qmd >}}
 
 {{< include "./_template-lecture-housekeeping.qmd" >}}
