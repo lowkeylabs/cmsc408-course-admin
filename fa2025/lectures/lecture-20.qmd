@@ -1,0 +1,23 @@
+---
+date: '2025-10-29'
+discussion-items: []
+lecture-id: 20
+lecture-topics: []
+title: More C-R-U-D
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-20.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -1,0 +1,23 @@
+---
+date: '2025-08-27'
+discussion-items: []
+lecture-id: 3
+lecture-topics: []
+title: 'Entity-relation models '
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-03.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

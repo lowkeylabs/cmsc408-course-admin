@@ -1,0 +1,23 @@
+---
+date: '2025-09-24'
+discussion-items: []
+lecture-id: 10
+lecture-topics: []
+title: Analysis and Normal Forms 1
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-10.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

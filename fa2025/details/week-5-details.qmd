@@ -27,26 +27,10 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">This week is shortened for the [CAREER FAIR!](https://egr.vcu.edu/current-students/career-services/students/career-fair/)</p>
+<p class="lead">Welcome to a new week!</p>
 
-Be sure that you drop into the [Internship and Career Fair](https://egr.vcu.edu/current-students/career-services/students/career-fair/) this Wednesday, Feb. 12, if you set some up good luck with your interviews on Thursday, Interview Day!
+*Details will be updated closer to the week.*
 
-**There will be no class on Thursday, February 13.**
-
-#### Things to do this week!
-
-[Quiz 2 on relational algebra ](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211166) is due Thursday evening, Feb. 13th.  This quiz requires the lockdown browser, and will run just like the previous quizzes.
-
-A [Practice Quiz 2](https://virginiacommonwealth.instructure.com/courses/113813/quizzes/211171) is available.  You can take the practice
-quiz as many times as you like.
-
-[Homework 3 - Modeling your World](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011) is available for scaffolding
-and is due Sunday, February 16.  This assignment is very much like the others - you're to create Chen and Crows Foot diagrams.  What's different?
-You're be drafting the little write-ups, too!  This gives you good practice looking around your world and distilling what you see into a
-brief, terse database description.
-
-In the lecture this week we'll be covering more on Relational Algebra, specifically on joins.  This is one of the harder concepts
-of relational algebra, relational modeling, and databases.  Once you get the concept - you'll own databases.
 
 ```{python}
 # example of grid using the designplus kl_large_link_grid class.

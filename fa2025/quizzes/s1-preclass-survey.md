@@ -1,5 +1,5 @@
 Quiz title: Pre-class survey
-Quiz description: This is a simple survey to help me learn more about you. This activity is what is called a "graded survey", that is, you submit it and get points for submitting ANYTHING! Your individual responses don't have a right or wrong answers  (Translated - successful completion of this survey means an easy 10 points!)
+Quiz description: This is a simple survey to help me learn more about you. This activity is what is called a "graded survey", that is, you submit it and get points for submitting ANYTHING! Your individual responses don't have a right or wrong answers  (Translated - successful completion of this survey means an easy 5 points!)
 
     I plan to share AGGREGATE SURVEY RESULTS with the class.  No details about individuals, simply aggregate responses. Any fill-in-the-blank responses will not be shared, either. I think you'll find some of the questions and answers fun.
 
@@ -107,7 +107,7 @@ b) Agree
 c) Neutral
 d) Disagree
 e) Strongly disagree
-f) Don't know, not sure, I use a Mac.
+f) I use a Mac; I don't know, or just not sure.
 
 
 1. I'm comfortable writing python programs.
@@ -257,6 +257,7 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
+
 1. I depend on Discord for clarifications and answers to my questions.
 *a) Strongly agree
 b) Agree
@@ -264,6 +265,7 @@ c) Neutral
 d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
+
 
 1. I depend on study sessions with peers for clarifications and answers to my questions.
 *a) Strongly agree
@@ -273,10 +275,12 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
+
 1. Which types of projects do you prefer?
 *a) Individual projects
 b) Team-based projects
 c) I'm comfy with either.
+
 
 1. Which learning method(s) works best for you? (Select all that apply)
 [*] Lectures

@@ -1,5 +1,5 @@
 project:
-  output-dir: ../../docs/sp2025
+  output-dir: ../../docs/fa2025
 
 format:
     html:

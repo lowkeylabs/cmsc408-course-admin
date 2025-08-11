@@ -1,0 +1,23 @@
+---
+date: '2025-08-25'
+discussion-items: []
+lecture-id: 2
+lecture-topics: []
+title: Intro to Databases
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-02.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

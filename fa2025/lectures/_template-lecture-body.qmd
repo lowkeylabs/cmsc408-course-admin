@@ -5,13 +5,15 @@
 #| echo: false
 #| output: asis
 
-for i,item in enumerate(lecture_topics):
-    if "topic" in item.keys():
-        print(f"\n# {item["topic"]}")
+if lecture_topics:
+    for i,item in enumerate(lecture_topics):
+        if "topic" in item.keys():
+            print(f"\n# {item["topic"]}")
 
-    if "url" in item.keys():
-        print(f"\n{{{{< include ../../topics/{item['url']} >}}}}")
-
+        if "url" in item.keys():
+            print(f"\n{{{{< include ../../topics/{item['url']} >}}}}")
+else:
+    print(f"\n (no lecture topics)"
 ```
 
 <!-- lecture-block-end -->

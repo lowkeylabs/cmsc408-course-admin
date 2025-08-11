@@ -18,24 +18,26 @@ print(f"""
 ### Discussion items
 """)
 
-for i,item in enumerate(discussion_items):
+if discussion_items:
+    for i,item in enumerate(discussion_items):
 
-    if isinstance(item,dict):
-        topic = item.get("topic","topic")
-        url = item.get("url",None)
-        opts = item.get("opts","")
-        if opts:
-            opts = f"{{ {opts} }}"
-        post_text = item.get("post_text","")
-        if url and not url==".":
-            s = f"\n* [{topic}]({url}){opts} {post_text}"
-        else:
-            s = f"\n* {topic}"
-        print(s)
+        if isinstance(item,dict):
+            topic = item.get("topic","topic")
+            url = item.get("url",None)
+            opts = item.get("opts","")
+            if opts:
+                opts = f"{{ {opts} }}"
+            post_text = item.get("post_text","")
+            if url and not url==".":
+                s = f"\n* [{topic}]({url}){opts} {post_text}"
+            else:
+                s = f"\n* {topic}"
+            print(s)
 
-    elif isinstance(item,str):
-        print(f"* {item}\n")
-    
+        elif isinstance(item,str):
+            print(f"* {item}\n")
+else:
+    print(f"* (under construction))")
 
 print(f"""
 :::
@@ -43,19 +45,22 @@ print(f"""
 ### Lecture topics
 """)
 
-for i,item in enumerate(lecture_topics):
-    if isinstance(item,dict):
-        topic = item.get("topic","topic")
-        url = item.get("url","url")  # this contains filename to include
+if lecture_topics:
+    for i,item in enumerate(lecture_topics):
+        if isinstance(item,dict):
+            topic = item.get("topic","topic")
+            url = item.get("url","url")  # this contains filename to include
 
-        internal_link = f"#"+topic.lower().replace(" ","-")
-        s = f"\n* [{topic}]({internal_link})"
-        if not topic in ["&nbsp;",".","(blank)","blank"]:
-            print(s)
+            internal_link = f"#"+topic.lower().replace(" ","-")
+            s = f"\n* [{topic}]({internal_link})"
+            if not topic in ["&nbsp;",".","(blank)","blank"]:
+                print(s)
 
-    elif isinstance(item,str):
-        if not item in ["&nbsp;",".","(blank)","blank"]:
-            print(f"* {item}\n")
+        elif isinstance(item,str):
+            if not item in ["&nbsp;",".","(blank)","blank"]:
+                print(f"* {item}\n")
+else:
+    print(f"* (under construction)")
 
 print(f"""
 

@@ -1,7 +1,11 @@
 .SILENT:
-SHELL := C:/Users/JohnLeonard/AppData/Local/Microsoft/WindowsApps/bash.exe
-.SHELLFLAGS := -c
-PATH := /usr/local/bin:/usr/bin:$(PATH)
+
+-include ~/.makefilehelp
+
+
+#SHELL := C:/Users/JohnLeonard/AppData/Local/Microsoft/WindowsApps/bash.exe
+#.SHELLFLAGS := -c
+#PATH := /usr/local/bin:/usr/bin:$(PATH)
 
 # Define a variable for the source files
 MD_FILES := $(wildcard *.md)
@@ -14,17 +18,13 @@ ZIP_FILES := $(MD_FILES:.md=.zip)
 	@echo "Creating $(@) from $(<)"
 	text2qti $<
 
-.PHONY: help
-help:
-	@echo "Available targets in the Makefile:"
-	@grep -E "^[a-zA-Z0-9_-]+\.help" Makefile | sed -E "s/\.help[[:space:]]*:?\s*/:\t/"
-
 .PHONY: start-all
+start-all.title = hide
 start-all:
 	@echo "Building $(ZIP_FILES)"
 	@echo "---------------------"
 
-all.help = Not used
+all.title = Create quiz bank with all quizzes
 .PHONY: all
 all: clean start-all $(ZIP_FILES)
 	@echo "---------------------"
@@ -37,7 +37,7 @@ quiz2-bank.zip : q2-bank-erd-blooms-2.zip q2-bank-erd-blooms-3.zip q2-bank-erd-b
 all: $(ZIP_FILES)
 
 # Clean target to remove generated .zip files
-clean.help = Remove zip files
+clean.help = Clean folder
 .PHONY: clean
 clean:
 	rm -f *.zip

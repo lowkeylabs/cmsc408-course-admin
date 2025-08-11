@@ -4,47 +4,53 @@ title: Week 7 - Details
 ---
 
 ```{python}
-#| echo: false
-this_file = "week-00-details.qmd"
+#| label: Loading canvas data
+from cnvsapi.config import config
+from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, expand_file
+
+# Uncomment as necessary.  These take time to load so only use what you need.
+
+#pages = config.get_pages()
+#quizzes = config.get_quizzes()
+#assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
+#files = config.get_files()
+
+# Here is an example of how these are expanded.
+# expand_xxx( xxx, "title","resource name", url_type, **kwargs )
+# url_type="anchor" ->  <a href="resource name" **kwargs>title</a>
+# url_type="img" -> <img src="resource_name" title="title" **kwargs )
+#
+# expand_quiz(quizzes, "Take the Pre-class survey","pre-class survey", url_type="anchor", target="_blank")
+# expand_page(pages, "Join the course discord","resource-course-discord", url_type="anchor", target="_blank")
+# expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")
+# expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")
+
 ```
 
-<!-- overview-block-begin -->
+<p class="lead">Welcome to a new week!</p>
 
-<p class="lead">Homework 4 and practice quiz 3 go hand-in-hand.  Don't forget Project Deliverable 5 - design!</p>
-    
-<!-- overview-block-end -->
-
-<!-- deliverables-block-begin -->
-#### Things to do this week
+*Details will be updated closer to the week.*
 
 
-[Deliverable 5 - Design Documentation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770) is one of the key deliverables for the semester project.  It's a large activity - invest the time!
+```{python}
+# example of grid using the designplus kl_large_link_grid class.
+#print(f"""
+#<ul class="kl_large_link_grid">
+#<li>{expand_page(pages,"Course Instructor","course-instructor",url_type="anchor")}</li>
+#<li>{expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Course Textbooks","resource-textbooks",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Student Resources","resource-student-resources",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Canvas Resources","resource-canvas-resources",url_type="anchor")}</li>
+#<li>{expand_page(pages,"SAVE YOU HOURS&trade;","resource-save-you-hours",url_type="anchor")}</li>
+#</ul>
+#""")
+```
 
-
-[Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390) is the practice quiz for Normal Forms. Work this practice quiz in conjunction with homework 4.
-
-<!-- deliverables-block-end -->
-
-<!-- resources-block-begin -->
-#### Notes on the Resources
-
-Review ALL the resources above. Here are some additional notes:
-    
-[Normal Forms](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-normal-forms-3) Another video from Decomplexify - what are the various normal forms?
-
-
-[BCNF](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-bcnf-3) Another video from Decomplexify - Good description of BCNF!
-
-
-[Intro to data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-intro-to-data-ethics) an important section in your deliverable 5.  Let's learn together!
-
-
-[Data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-data-ethics) explores your role as a data scientist and data ethics.
-
-
-[Privacy and ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-privacy-and-ethics) although this is 10 years old, she is SO SPOT ON!
-
-
-[BBC data ethics](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-7-bbc-data-ethics) a nice video from the BBC on data privacy and ethics.
-
-<!-- resources-block-end -->
+```{python}
+## This is an example of how one includes an image within the page.
+## Note that other html attributes (e.g., width=, height=, etc.) can be added
+## This will return a canvas-ready <img /> tag .
+#print(f"""
+#{expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")}
+#""")
+```

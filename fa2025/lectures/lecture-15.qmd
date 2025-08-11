@@ -1,0 +1,23 @@
+---
+date: '2025-10-13'
+discussion-items: []
+lecture-id: 15
+lecture-topics: []
+title: Intro to SQL
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-15.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -43,7 +43,7 @@ def get_lect_qmd_files():
     current_directory = os.getcwd()
     # Use glob to find all files matching the pattern
     file_pattern = os.path.join(current_directory, "lect*.qmd")
-    return glob.glob(file_pattern)
+    return sorted(glob.glob(file_pattern))
 
 def filename_to_html( file_name ):
     file_name = os.path.basename( lecture_file )

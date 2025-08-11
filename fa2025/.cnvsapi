@@ -24,18 +24,28 @@ headshot_endpoint = "https://sasbimid.vcu.edu:8343/images"
 
 endpoint = "https://virginiacommonwealth.instructure.com"
 
-[lecture]
-default_qmd_template = "template0"
-template0 = "template-lecture-0.qmd"
-template0_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','lectures.scss']
-template1 = "template-lecture-0.qmd"
-template1_folder = "C:/Users/jdleonard/Projects/ssg-canvas-cli/templates"
-template1_extras = ['template-lecture-housekeeping.qmd','_quarto.yml','_extensions','assets']
+[lectures]
+default = "template0"
+template0.folder = "./lectures"
+template0.file = "_template-lecture-0.qmd"
 
+[pages]
+default = "template0"
+template0.folder = "./pages"
 
-[roster]
-default_qmd_template = "template0"
-template0 = "template-roster-0.qmd"
+[details]
+default = "template0"
+template0.folder = "./details"
+
+[gantts]
+default = "template0"
+template0.folder = "./gantts"
+
+[rosters]
+default = "template0"
+template0.folder = "./rosters"
+template0.file = "_template-roster-0.qmd"
+
 
 [assessment.rubric]
 default = "report1"
@@ -139,9 +149,12 @@ outline_gsheet_key = "1hR61Vw5U8YOSQQLeS9M8Yt9w_Uz-flL4kU03hjE4x_s"
 outline_google_folder = "1059eEfxoZNoEGKdYQ05GUPrQTRsafYnV"
 syllabus_gdoc_key = "1siGN9VxR1-vWf2NUtqnAXovEMAOQ_DYieU52fmheNuw"
 syllabus_course_summary = true
-lecture_slides_template = "_template-lecture.qmd"
+lecture_slides_template = "_template-lecture-0.qmd"
 lecture_slides_endpoint = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/"
 frontpage_additional_weeks = 99
 zoom_lecture_url="https://vcu.zoom.us/j/82826642531"
 use_outline_lectures_tab = false
 show_frontpage_vcr_buttons = true
+frontpage_gantt_url = "https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/modules-gantt.html"
+frontpage_gantt_height = 320
+local_page_folder = "./pages"

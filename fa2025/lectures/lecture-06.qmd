@@ -1,0 +1,23 @@
+---
+date: '2025-09-10'
+discussion-items: []
+lecture-id: 6
+lecture-topics: []
+title: Relational models 2
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-06.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}

@@ -4,60 +4,53 @@ title: Week 16 - Details
 ---
 
 ```{python}
-#| echo: false
-this_file = "week-00-details.qmd"
+#| label: Loading canvas data
+from cnvsapi.config import config
+from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, expand_file
+
+# Uncomment as necessary.  These take time to load so only use what you need.
+
+#pages = config.get_pages()
+#quizzes = config.get_quizzes()
+#assignments = config.get_assignment_groups(include=['assignments']) # from Canvas
+#files = config.get_files()
+
+# Here is an example of how these are expanded.
+# expand_xxx( xxx, "title","resource name", url_type, **kwargs )
+# url_type="anchor" ->  <a href="resource name" **kwargs>title</a>
+# url_type="img" -> <img src="resource_name" title="title" **kwargs )
+#
+# expand_quiz(quizzes, "Take the Pre-class survey","pre-class survey", url_type="anchor", target="_blank")
+# expand_page(pages, "Join the course discord","resource-course-discord", url_type="anchor", target="_blank")
+# expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")
+# expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")
+
 ```
 
-<!-- overview-block-begin -->
+<p class="lead">Welcome to a new week!</p>
 
-<p class="lead">This is the last week of school. No class on Tuesday! Keep focused on finishing out your semester-long project!</p>
-    
-<!-- overview-block-end -->
-
-#### Lecture update 
-
-- Lecture on Tuesday, April 29 is CANCELLED.  I will be submitting course updates
-via Canvas Announcements.  We will have no scheduled in-class activities.
-
-#### End of semester checklist
-
-It's end of the semester time! Plenty to do to ensure that you earn your best grade possible!
-
-- [Check the gradebook](https://virginiacommonwealth.instructure.com/courses/113813/gradebook).
-
-	- Verify your scores and email me if you have any questions
-	- Submit any missing assignments, discussions or quizzes.
-
-- Complete the [course evaluation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397). You'll get credit towards your final grade AND you'll be helping 
-improve the course for the next group of students. Thank you!
-
-Please use the Discord and the TAs as your first stop for questions.  My response time over the next week will be slow.
-
-#### IMPORTANT
-
-* **No late submissions will be accepted.  Midnight, April 29 is the deadline.**
-
-* **Once Canvas closes, it's done. You've still got time to get stuff done!**
-
-* **April 29 is the deadline. No late submissions will be accepted.**
+*Details will be updated closer to the week.*
 
 
+```{python}
+# example of grid using the designplus kl_large_link_grid class.
+#print(f"""
+#<ul class="kl_large_link_grid">
+#<li>{expand_page(pages,"Course Instructor","course-instructor",url_type="anchor")}</li>
+#<li>{expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Course Textbooks","resource-textbooks",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Student Resources","resource-student-resources",url_type="anchor")}</li>
+#<li>{expand_page(pages,"Canvas Resources","resource-canvas-resources",url_type="anchor")}</li>
+#<li>{expand_page(pages,"SAVE YOU HOURS&trade;","resource-save-you-hours",url_type="anchor")}</li>
+#</ul>
+#""")
+```
 
-<!-- deliverables-block-begin -->
-#### Things to do this week
-
-
-[Survey 2 - Course evaluation](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397) - course evaluations are important.  Submit a pic of your submission screen for points!  Thank you for completing the survey!
-
-
-[Deliverable 7 - Final Submission](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075774) is your final project report submission.
-
-<!-- deliverables-block-end -->
-
-<!-- resources-block-begin -->
-### And don't forget the resources
-
-The resources above were carefully curated
-to accelerate your learning and help you successfully
-complete the deliverables.  *Check them out!*
-<!-- resources-block-end -->
+```{python}
+## This is an example of how one includes an image within the page.
+## Note that other html attributes (e.g., width=, height=, etc.) can be added
+## This will return a canvas-ready <img /> tag .
+#print(f"""
+#{expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")}
+#""")
+```

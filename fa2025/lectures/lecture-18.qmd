@@ -1,0 +1,23 @@
+---
+date: '2025-10-22'
+discussion-items: []
+lecture-id: 18
+lecture-topics: []
+title: SQL and Docker
+---
+
+```{python}
+#| echo: false
+this_file = 'lecture-18.qmd'
+```
+
+{{< include "./_template-lecture-init.qmd" >}}
+{{< include "./_template-lecture-housekeeping.qmd" >}}
+
+<!-- lecture-block-begin -->
+
+# (lecture materials under construction) 
+<!-- lecture-block-end -->
+
+
+{{< include "./_template-lecture-housekeeping.qmd" >}}
