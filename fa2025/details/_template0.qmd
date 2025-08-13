@@ -28,8 +28,18 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+<!-- resources-block-end -->
+
 
 
 ```{python}

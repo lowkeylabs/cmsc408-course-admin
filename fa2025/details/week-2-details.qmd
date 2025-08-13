@@ -28,8 +28,38 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+
+<p class="lead">Database design and entity relation modeling.</p>
+    
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Discussion 1 - ER modeling](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241106) ER modeling
+
+
+[Homework 1 - DE Tool Review](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241133) explores different data tools and how they all fit together.
+
+
+[Practice Quiz 1 - Entity-relation models](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241146) is the practice quiz for entity-relation models.
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Quarto Overview](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-2-quarto-overview) - You'll be spending LOTS of time this semester using Quarto.  It's important that you get a feel for how this important data science tool works.
+
+<!-- resources-block-end -->
+
 
 
 ```{python}

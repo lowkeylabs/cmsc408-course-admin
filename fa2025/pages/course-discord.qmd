@@ -35,7 +35,7 @@ your real name. Once I see your real name on the server, I'll upgrade your role 
 
 ::: {style="`{python} block_style`"}
 <ul class="kl_large_link_grid mx-auto d-block">
-<li style="background:lightgray;"><a href="https://discord.gg/gCbs3UQQ9a">Click here to join the CMSC408 discord</a></li>
+<li style="background:lightgray;"><a href="https://discord.gg/5bsRKdSwKj">Click here to join the CMSC408 Fall 2025 discord</a></li>
 </ul>
 :::
 

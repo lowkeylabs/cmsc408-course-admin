@@ -27,7 +27,7 @@ files = config.get_files()
 
 ```
 
-<p class="lead">Welcome to CMSC 408!</p>
+<p class="lead">Welcome to a new week</p>
 
 
 

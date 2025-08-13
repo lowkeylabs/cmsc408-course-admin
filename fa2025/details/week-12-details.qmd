@@ -28,8 +28,26 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+
+<p class="lead">More joins and aggregates.  Lots MORE!</p>
+    
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Homework 9 - Even more on SQL](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141) - enjoyed homework 8? Wait until you work on this one!
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+<!-- resources-block-end -->
+
 
 
 ```{python}

@@ -28,8 +28,29 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+
+<p class="lead">Redundant content is a challenge in databases.  Normalization describes the way we minimize duplicate and redundent content.</p>
+    
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Discussion 3 - Normal forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241112) is a challenging discussion because you need to know about normalization to get started. I HIGHLY recommend that you watch the *Normal Forms* video in the resources.
+
+
+[Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241148) is the practice quiz for Normal Forms. Work this practice quiz in conjunction with homework 4.
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+<!-- resources-block-end -->
+
 
 
 ```{python}

@@ -28,8 +28,29 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+
+<p class="lead">Entity-relation models are used to describe databases. Let's explore!</p>
+    
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Homework 2 - Entity Relation Models](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134) offers practice on designing databases.
+
+
+[Quiz 1 - Entity-relation models - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241119) focuses on vocabulary associated with ER models.  Don't forget the practice quiz!
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+<!-- resources-block-end -->
+
 
 
 ```{python}

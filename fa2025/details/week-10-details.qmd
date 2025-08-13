@@ -28,8 +28,29 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+
+<p class="lead">Quiz 5 - SQL basics. Review docker assignment. Introduce homework 6 and building a database from scratch.</p>
+    
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Discussion 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241116) SQL Basics
+
+
+[Homework 7 - Joining tables and reporting](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241139) extends our first database with new tables and more complicated queries.
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+<!-- resources-block-end -->
+
 
 
 ```{python}

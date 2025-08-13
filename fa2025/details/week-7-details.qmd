@@ -28,8 +28,29 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 ```
 
 <p class="lead">Welcome to a new week!</p>
-
 *Details will be updated closer to the week.*
+
+<!-- overview-block-begin -->
+
+<p class="lead">Finish up normal forms.</p>
+    
+<!-- overview-block-end -->
+
+
+<!-- deliverables-block-begin -->
+#### Things to do this week
+
+
+[Homework 4 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136) focuses on normal forms and analysis. Successful completion of homework 4 will REALLY help you with Quiz 3!
+
+
+[Quiz 3 - Analysis and Normal Forms - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241127) focuses on normal forms and definitions.  Good luck!
+
+<!-- deliverables-block-end -->
+
+<!-- resources-block-begin -->
+<!-- resources-block-end -->
+
 
 
 ```{python}
