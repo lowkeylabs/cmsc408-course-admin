@@ -14,25 +14,7 @@ Monday - Aug 25, 2025
 
 ### Discussion items
 
-- [Deliverable 1 -
-  Intros](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)
-  .
-
-- [Join the
-  discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)
-  .
-
-- [Review the semester
-  project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project)
-  .
-
-- [Survey 1 - Pre-class
-  survey](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1114425) -
-  due 1/16, THU
-
-- [Practice Quiz 1 - Entity-relation
-  models](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081388) -
-  due 1/23, THU
+- (under construction))
 
 </div>
 
@@ -84,25 +66,7 @@ Monday - Aug 25, 2025
 
 ### Discussion items
 
-- [Deliverable 1 -
-  Intros](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072356)
-  .
-
-- [Join the
-  discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)
-  .
-
-- [Review the semester
-  project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-week-1-course-project)
-  .
-
-- [Survey 1 - Pre-class
-  survey](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1114425) -
-  due 1/16, THU
-
-- [Practice Quiz 1 - Entity-relation
-  models](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081388) -
-  due 1/23, THU
+- (under construction))
 
 </div>
 

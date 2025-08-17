@@ -1,14 +1,6 @@
 ---
 date: '2025-10-08'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 3/06, THU'
-  topic: Quiz 3 - Analysis and Normal Forms
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330
-- options: target="_blank"
-  post_text: '- due 3/09, SUN'
-  topic: Homework 4 - Analysis and Normal Forms
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339
+discussion-items: []
 lecture-id: 14
 lecture-topics: []
 title: Analysis and Normal Forms 5

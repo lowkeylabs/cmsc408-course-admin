@@ -1,10 +1,6 @@
 ---
 date: '2025-11-05'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 4/13, SUN'
-  topic: Homework 7 - Joining and Reporting
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345
+discussion-items: []
 lecture-id: 22
 lecture-topics: []
 title: Joins and Selects 2

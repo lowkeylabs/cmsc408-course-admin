@@ -1,14 +1,6 @@
 ---
 date: '2025-10-29'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 3/30, SUN'
-  topic: Deliverable 6 - Docker Scaffold
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772
-- options: target="_blank"
-  post_text: '- due 4/06, SUN'
-  topic: Homework 6 - Creating and using a DB
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072343
+discussion-items: []
 lecture-id: 20
 lecture-topics: []
 title: More C-R-U-D

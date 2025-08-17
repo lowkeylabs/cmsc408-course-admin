@@ -10,4 +10,8 @@ $(lectures) :
 
 
 all.title = Make all lecture files
-all : $(lectures)
+all :
+	cnvsapi freshen lecture-headers-from-outline --all
+	quarto render --to revealjs
+
+

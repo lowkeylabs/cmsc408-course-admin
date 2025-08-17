@@ -1,18 +1,6 @@
 ---
 date: '2025-10-15'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 3/18, TUE'
-  topic: Practice Quiz 4 - SQL Basics
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081391
-- options: target="_blank"
-  post_text: '- due 3/23, SUN'
-  topic: Discussion 4 - SQL Basics
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075916
-- options: target="_blank"
-  post_text: '- due 3/23, SUN'
-  topic: Homework 5 - Getting started with SQL
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341
+discussion-items: []
 lecture-id: 16
 lecture-topics: []
 title: SQL Selects

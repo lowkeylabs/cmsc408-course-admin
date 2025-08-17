@@ -1,18 +1,6 @@
 ---
 date: '2025-12-01'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 4/27, SUN'
-  topic: Homework 9 - Even more on SQL
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072349
-- options: target="_blank"
-  post_text: '- due 4/29, TUE'
-  topic: Deliverable 7 - Final Submission
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075774
-- options: target="_blank"
-  post_text: '- due 4/29, TUE'
-  topic: Survey 2 - Course evaluation
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081397
+discussion-items: []
 lecture-id: 27
 lecture-topics: []
 title: SQL topics

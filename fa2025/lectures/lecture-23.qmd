@@ -1,10 +1,6 @@
 ---
 date: '2025-11-10'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 4/13, SUN'
-  topic: Homework 7 - Joining tables and reporting
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072345
+discussion-items: []
 lecture-id: 23
 lecture-topics: []
 title: Aggregates 1

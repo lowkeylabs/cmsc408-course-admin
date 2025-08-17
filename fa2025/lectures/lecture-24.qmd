@@ -1,14 +1,6 @@
 ---
 date: '2025-11-12'
-discussion-items:
-- options: .
-  post_text: .
-  topic: Homework update
-  url: .
-- options: target="_blank"
-  post_text: '- due 4/20, SUN'
-  topic: Homework 8 - SQL Funhouse
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072347
+discussion-items: []
 lecture-id: 24
 lecture-topics: []
 title: Subqueries and WITH 1

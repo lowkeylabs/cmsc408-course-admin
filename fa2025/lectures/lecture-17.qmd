@@ -1,18 +1,6 @@
 ---
 date: '2025-10-20'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 3/23, SUN'
-  topic: Discussion 4 - SQL Basics
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075916
-- options: target="_blank"
-  post_text: '- due 3/23, SUN'
-  topic: Homework 5 - Getting started with SQL
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341
-- options: target="_blank"
-  post_text: '- due 3/27, THU'
-  topic: Quiz 4 - SQL Basics
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331
+discussion-items: []
 lecture-id: 17
 lecture-topics: []
 title: SQL Toolset

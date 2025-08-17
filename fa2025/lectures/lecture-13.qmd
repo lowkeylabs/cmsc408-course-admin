@@ -1,22 +1,6 @@
 ---
 date: '2025-10-06'
-discussion-items:
-- options: ''
-  post_text: ''
-  topic: Check CANVAS for new resources on ethics.
-  url: ''
-- options: target="_blank"
-  post_text: '- due 3/02, SUN'
-  topic: Deliverable 5 - Design Documentation
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770
-- options: target="_blank"
-  post_text: '- due 3/06, THU'
-  topic: Quiz 3 - Analysis and Normal Forms
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072330
-- options: target="_blank"
-  post_text: '- due 3/09, SUN'
-  topic: Homework 4 - Analysis and Normal Forms
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072339
+discussion-items: []
 lecture-id: 13
 lecture-topics: []
 title: Analysis and Normal Forms 4

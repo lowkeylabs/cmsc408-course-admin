@@ -1,30 +1,6 @@
 ---
 date: '2025-10-22'
-discussion-items:
-- options: target="_blank"
-  post_text: '- due 3/23, SUN'
-  topic: Homework 5 - Getting started
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072341
-- options: target="_blank"
-  post_text: ''
-  topic: (Python-Quarto Setup Website)
-  url: https://vcu-ssg.github.io/ssg-quarto-python-setup/
-- options: target="_blank"
-  post_text: '- due 3/27, THU'
-  topic: Quiz 4 - SQL Basics
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072331
-- options: target="_blank"
-  post_text: '- due 3/30, SUN'
-  topic: Deliverable 6 - Docker Scaffold
-  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075772
-- options: target="_blank"
-  post_text: ''
-  topic: (Docker tutorial website)
-  url: https://vcu-ssg.github.io/ssg-quarto-docker-tutorial/
-- options: target="_blank"
-  post_text: ''
-  topic: SAVE YOU HOURS™
-  url: https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours
+discussion-items: []
 lecture-id: 18
 lecture-topics: []
 title: SQL and Docker
