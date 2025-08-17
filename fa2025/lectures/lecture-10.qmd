@@ -1,6 +1,26 @@
 ---
 date: '2025-09-24'
-discussion-items: []
+discussion-items:
+- options: ''
+  post_text: ''
+  topic: README and assignment separation.
+  url: ''
+- options: ''
+  post_text: ''
+  topic: Deliverable 4 - still being graded.
+  url: ''
+- options: target="_blank"
+  post_text: ''
+  topic: Resources on the Canvas homepage.
+  url: https://virginiacommonwealth.instructure.com/courses/113813/
+- options: target="_blank"
+  post_text: '- due 2/23, SUN'
+  topic: Discussion 3 - Normal forms
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075915
+- options: target="_blank"
+  post_text: '- due 2/25, TUE'
+  topic: Practice Quiz 3 - Analysis and Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390
 lecture-id: 10
 lecture-topics: []
 title: Analysis and Normal Forms 1
@@ -16,7 +36,6 @@ this_file = 'lecture-10.qmd'
 
 <!-- lecture-block-begin -->
 
-# (lecture materials under construction) 
 <!-- lecture-block-end -->
 
 

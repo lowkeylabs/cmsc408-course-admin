@@ -1,6 +1,22 @@
 ---
 date: '2025-09-29'
-discussion-items: []
+discussion-items:
+- options: ''
+  post_text: ''
+  topic: Deliverable 4 graded.
+  url: ''
+- options: target="_blank"
+  post_text: '- due 3/2, SUN'
+  topic: Deliverable 5 - Design document
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075770
+- options: target="_blank"
+  post_text: '- due 2/23, SUN'
+  topic: Discussion 3 - Normal forms
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1075915
+- options: target="_blank"
+  post_text: '- due 2/25, TUE'
+  topic: Practice Quiz 3 - Analysis and Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1081390
 lecture-id: 11
 lecture-topics: []
 title: Analysis and Normal Forms 2
@@ -16,7 +32,6 @@ this_file = 'lecture-11.qmd'
 
 <!-- lecture-block-begin -->
 
-# (lecture materials under construction) 
 <!-- lecture-block-end -->
 
 

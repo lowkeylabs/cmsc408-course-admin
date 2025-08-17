@@ -1,6 +1,14 @@
 ---
 date: '2025-09-22'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 2/13, THU'
+  topic: Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072329
+- options: target="_blank"
+  post_text: '- due 2/16, SUN'
+  topic: Homework 3 - Modeling Your World
+  url: https://virginiacommonwealth.instructure.com/courses/113813/assignments/1085011
 lecture-id: 9
 lecture-topics: []
 title: Relational Algebra 2
@@ -16,7 +24,6 @@ this_file = 'lecture-09.qmd'
 
 <!-- lecture-block-begin -->
 
-# (lecture materials under construction) 
 <!-- lecture-block-end -->
 
 
