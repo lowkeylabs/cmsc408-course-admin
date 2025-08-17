@@ -27,31 +27,38 @@ files = config.get_files()
 
 ```
 
-<p class="lead">Welcome to a new week</p>
+<p class="lead">Welcome to CMSC 408 - Databases</p>
 
+I'm glad you're here!
 
+<p class="lead">General Overview of the Course</p>
 
+This course introduces students to the fundamentals of databases and how they are used to solve real-world problems. Students will learn how to design databases, implement them in SQL, and work with data through queries and reports. Along the way, they will practice analyzing problems, creating data models, and translating those models into working database systems. By the end of the course, students will be able to build and use databases to organize information and support decision-making.
 
+<p class="lead">Course resources and quick links</p>
+
+Below are some quick links/buttons for your reference: the syllabus, gantt outline, instructor and TA backgrounds, and general VCU links.
 
 ```{python}
 # example of grid using the designplus kl_large_link_grid class.
 print(f"""
 <ul class="kl_large_link_grid">
 <li>{expand_page(pages,"Course Instructor","course-instructor",url_type="anchor")}</li>
+<li><a href="https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/detailed-gantt.html">Course Gantt</a></li>
 <li>{expand_assignment(assignments,"Course Syllabus","syllabus",url_type="anchor")}</li>
-<li>{expand_page(pages,"Course Textbooks","resource-textbooks",url_type="anchor")}</li>
+<li>{expand_page(pages,"SAVE YOU HOURS&trade;","resource-save-you-hours",url_type="anchor")}</li>
 <li>{expand_page(pages,"Student Resources","resource-student-resources",url_type="anchor")}</li>
 <li>{expand_page(pages,"Canvas Resources","resource-canvas-resources",url_type="anchor")}</li>
-<li>{expand_page(pages,"SAVE YOU HOURS&trade;","resource-save-you-hours",url_type="anchor")}</li>
 </ul>
 """)
 ```
 
-```{python}
-## This is an example of how one includes an image within the page.
-## Note that other html attributes (e.g., width=, height=, etc.) can be added
-## This will return a canvas-ready <img /> tag .
-#print(f"""
-#{expand_file("Picture of me","headshot-20210731.png",url_type="img", width="200px")}
-#""")
-```
+<p class="lead">About this page</p>
+
+This page represents the *frontpage* for every week.
+
+The *frontpage* lists the deliverables due this week, provides links to helpful resources and references. Each *frontpage* includes a document with context about what's happening this week.
+
+The top of the *frontpage* presents a set of quick links to any week in the semester.  We show past weeks and 3 weeks into the future.  The *frontpage* also highlights the current week. You can always press *Home* on the top left of the Canvas window to return to the current week's *frontpage*.
+
+The bottom of each *frontpage* shows a gannt chart that highlights the major topics over time for the course and where we are today. The vertical gold bar represents today and moves live with the sun.

@@ -26,9 +26,12 @@ b) Android
 
 
 1. My primary computer for this class is: Mac or Windows or Linux?
-*a) Mac
-b) Windows
-C) Linux
+*a) Mac - laptop
+b) Mac - desktop
+c) Windows - laptop
+d) Windows - desktop
+e) Linux - laptop
+f) Linux - desktop
 
 
 1. This semester I will be a:
@@ -110,25 +113,7 @@ e) Strongly disagree
 f) I use a Mac; I don't know, or just not sure.
 
 
-1. I'm comfortable writing python programs.
-*a) Strongly agree
-b) Agree
-c) Neutral
-d) Disagree
-e) Strongly disagree
-f) Don't know, not sure.
-
-
-1. I'm comfortable writing javascript programs.
-*a) Strongly agree
-b) Agree
-c) Neutral
-d) Disagree
-e) Strongly disagree
-f) Don't know, not sure.
-
-
-1. I'm comfortable using Figma.
+1. I'm comfortable writing Python programs.
 *a) Strongly agree
 b) Agree
 c) Neutral
@@ -173,42 +158,6 @@ e) Strongly disagree
 f) Don't know, not sure.
 
 
-1. I'm comfortable using HTML and CSS to build web pages.
-*a) Strongly agree
-b) Agree
-c) Neutral
-d) Disagree
-e) Strongly disagree
-f) Don't know, not sure.
-
-
-1. I'm comfortable using Node, React, NextJS, and other JS tools to create web sites.
-*a) Strongly agree
-b) Agree
-c) Neutral
-d) Disagree
-e) Strongly disagree
-f) Don't know, not sure.
-
-
-1. I'm comfortable using Django, Flask, and Python to create web sites.
-*a) Strongly agree
-b) Agree
-c) Neutral
-d) Disagree
-e) Strongly disagree
-f) Don't know, not sure.
-
-
-1. I'm comfortable using Apache and PHP to create web sites.
-*a) Strongly agree
-b) Agree
-c) Neutral
-d) Disagree
-e) Strongly disagree
-f) Don't know, not sure.
-
-
 1. This course directly aligns with my career goals.
 *a) Strongly agree
 b) Agree
@@ -216,6 +165,7 @@ c) Neutral
 d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
+
 
 1. I depend on lecture SLIDES and lecture notes for clarifications and answers to my questions.
 *a) Strongly agree
@@ -225,6 +175,7 @@ d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
 
+
 1. I depend on lecture VIDEOS for clarifications and answers to my questions.
 *a) Strongly agree
 b) Agree
@@ -232,6 +183,7 @@ c) Neutral
 d) Disagree
 e) Strongly disagree
 f) Don't know, not sure.
+
 
 1. I depend on outside materials (videos, articles, websites) for clarifications and answers to my questions.
 *a) Strongly agree

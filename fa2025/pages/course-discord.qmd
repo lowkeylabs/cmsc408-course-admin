@@ -35,9 +35,14 @@ your real name. Once I see your real name on the server, I'll upgrade your role 
 
 ::: {style="`{python} block_style`"}
 <ul class="kl_large_link_grid mx-auto d-block">
-<li style="background:lightgray;"><a href="https://discord.gg/5bsRKdSwKj">Click here to join the CMSC408 Fall 2025 discord</a></li>
+<li style="background:lightgray;"><a href="https://discord.gg/5bsRKdSwKj">Join the F25 CMSC408 discord</a></li>
 </ul>
 :::
+
+** NOTE: The invite assumes that you already have a Discord account.  If you don't, or if you're browser is logged into a different account, you might get an error.**
+
+** If you encounter problems, log directly into discord and use the "+" key to add a new server and use this invite: <https://discord.gg/5bsRKdSwKj> **
+
 
 <p>&nbsp;</p>
 ::: {style="`{python} block_style`"}

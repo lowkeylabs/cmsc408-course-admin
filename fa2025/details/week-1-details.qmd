@@ -27,21 +27,30 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### And so we begin!
 
-<!-- overview-block-begin -->
+This will be a very busy semester!  This course will have homework assignments due almost every week.
 
-<p class="lead">Overview of the course, grading, projects and more.  Introduction to databases and ER modeling.</p>
-    
-<!-- overview-block-end -->
+Check out the Welcome page for more details on the course.
 
+Base on feedback from past student evaluations, I am dropping the semester-long project.  Grades for the 
+course will depend on homeworks, quizzes, and participation in online discussions.
+
+Each week I update this *frontpage* with a fresh list of *things to do* and additional *notes on resources*.  Be 
+sure to regularly visit this Canvas to keep on track.
+
+This page also contains links to the lecture slides and video of the lecture. **ON-LINE STUDENTS** I *highly* suggest
+that you review the slides AND watch the lecture.  I provide lots of *undocumented* details in the lecture,
+guaranteed to *Save you time*.
+
+Finally - the lecture slides will be changed and edited up until the lecture itself.  SO - if you do choose to look
+ahead, remember that future lectures can change.
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
 
 
-[Survey 1 - Pre-class survey - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241131)  - add description to course workbook.
+[Survey 1 - Pre-class survey - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241131) - I want to know more about you!  Please take this pre-class survey!
 
 <!-- deliverables-block-end -->
 
@@ -50,10 +59,16 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 Review ALL the resources above. Here are some additional notes:
     
+[Course Discord](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord) - The course has a discord server!  Follow this link to find the invite.
+
+
 [Databases on real hardware (video and notes)](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-1-databases-on-real-hardware-video-and-notes) I REALLY love mainframes!  These beasts drive the world, yet they are shunned. This cool video introduces you to a Z16 - VCU owns one!
 
 
 [ACID explained](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-1-acid-explained) What makes databases different than spreadsheets?While they share many common attributes - and one can use a spreadsheet like a database - there is one HUGE difference ... ACID!
+
+
+[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours) - It's really easy to get lost in this course.  There is TONS of stuff coming at you very fast.  Check out this page to get a list of suggestions to help keep you on track.
 
 <!-- resources-block-end -->
 
