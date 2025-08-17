@@ -533,13 +533,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "cnvsapi"
-version = "0.9.34"
+version = "0.9.35"
 description = "Canvas utilities"
 optional = false
 python-versions = ">=3.12.8,<4.0.0"
 groups = ["main"]
 files = [
-    {file = "cnvsapi-0.9.34-py3-none-any.whl", hash = "sha256:6d48c1775bac999dec3358d1c54f749ae12a147277e54077f301a9145ca0d57a"},
+    {file = "cnvsapi-0.9.35-py3-none-any.whl", hash = "sha256:3b103f5b33a117b615edc4c4440503d27f5c8d0eb8092e05aeca8e891985d900"},
 ]
 
 [package.dependencies]
@@ -572,7 +572,7 @@ tomlkit = ">=0.11.8,<0.12.0"
 
 [package.source]
 type = "file"
-url = "helpers/cnvsapi-0.9.34-py3-none-any.whl"
+url = "helpers/cnvsapi-0.9.35-py3-none-any.whl"
 
 [[package]]
 name = "colorama"
@@ -3150,14 +3150,14 @@ files = [
 
 [[package]]
 name = "pyfiglet"
-version = "1.0.3"
+version = "1.0.4"
 description = "Pure-python FIGlet implementation"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pyfiglet-1.0.3-py3-none-any.whl", hash = "sha256:671bd101ca6a08dc2d94c6a2cda75a862c5e162b980af47d0ba4023837e36489"},
-    {file = "pyfiglet-1.0.3.tar.gz", hash = "sha256:bad3b55d2eccb30d4693ccfd94573c2a3477dd75f86a0e5465cea51bdbfe2875"},
+    {file = "pyfiglet-1.0.4-py3-none-any.whl", hash = "sha256:65b57b7a8e1dff8a67dc8e940a117238661d5e14c3e49121032bd404d9b2b39f"},
+    {file = "pyfiglet-1.0.4.tar.gz", hash = "sha256:db9c9940ed1bf3048deff534ed52ff2dafbbc2cd7610b17bb5eca1df6d4278ef"},
 ]
 
 [[package]]
@@ -4498,4 +4498,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0.0"
-content-hash = "bf9299efb08f49dcaeb2e7edc678a5190bc1c2002df4e735b5d66b83d3b22b52"
+content-hash = "342fef7c14009917e89b350e257d0aa510a1e242380f8538b46ab1ad42da6dcf"
