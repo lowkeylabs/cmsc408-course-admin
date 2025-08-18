@@ -1,0 +1,12 @@
+---
+title: "cmsc408-overview"
+tasl:
+    tags:
+    - lecture
+    - lecture-01
+    topic: CMSC 408 Overview
+---
+
+{{< include '_cmsc408-overview-fa2025.qmd' >}}
+
+    
