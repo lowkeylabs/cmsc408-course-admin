@@ -6,11 +6,11 @@
 <script src="lecture-01_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-01_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-01_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-01_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-01_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-01_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-01_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+  <meta name="generator" content="quarto-1.7.32">
 
   <title>Welcome to CMSC408</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,12 +153,13 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord">Join the discord</a> .</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232172">Survey 1 - Pre-class survey</a> - due 8/21, THU</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><a href="#/course-mechanics-and-overview">Course mechanics and overview</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -246,6 +247,339 @@
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="course-mechanics-and-overview" class="title-slide slide level1 center">
+<h1>Course mechanics and overview</h1>
+<!-- # Course Mechanics and Overview -->
+</section>
+<section id="im-glad-youre-here" class="slide level2">
+<h2>I’m glad you’re here!!!!</h2>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column">
+<h3 id="cmsc-408---database-theory">CMSC 408 - Database Theory</h3>
+<ul>
+<li>Semester course;</li>
+<li>3 lecture hours. 3 credits.</li>
+<li>Prerequisite: CMSC 303 with a minimum grade of C.</li>
+</ul>
+<p>Design and implementation of relational database systems. Emphasis is placed on entity-relationship diagrams, relational algebra, normal forms and normalization. Introduction to SQL. Discussion of physical level issues.</p>
+<p>Students will be required to complete a design project and give an oral presentation of the project.</p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L01-rise-of-sql.png"></p>
+<figcaption><a href="https://spectrum.ieee.org/the-rise-of-sql" class="uri">https://spectrum.ieee.org/the-rise-of-sql</a></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="cmsc-408---course-overview" class="slide level2">
+<h2>CMSC 408 - Course overview</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="course-topics">Course Topics</h3>
+<ul>
+<li>Entity Relation Modeling
+<ul>
+<li>How do we represent the real-world in a database?</li>
+</ul></li>
+<li>Relational Algebra
+<ul>
+<li>Underlying mechanics of sorting and searching</li>
+</ul></li>
+<li>Normalization
+<ul>
+<li>What makes a database suck?</li>
+</ul></li>
+<li>SQL
+<ul>
+<li>Where the rubber meets the road.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:25%;">
+<h3 id="course-resources">Course resources</h3>
+<ul>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/122236">Course canvas</a></li>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/syllabus">Course syllabus</a></li>
+<li><a href="https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/detailed-gantt.html">Course gantt</a></li>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord">Course discord</a></li>
+<li><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments">Course assignments</a></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<h3 id="course-assessment">Course assessment</h3>
+<ul>
+<li>60% - Weekly homework assignments (12 or so in total)</li>
+<li>20% - Four on-line, canvas multiple choice. Practice quizzes provided.</li>
+<li>15% - Four on-line discussions.</li>
+<li>5% - Two graded surveys.</li>
+<li>No final examination.</li>
+</ul>
+</div></div>
+<center>
+<p>
+&nbsp;
+</p>
+<em><a href="https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours">OMG - How will I survive? These tips will SAVE YOU HOURS™</a></em>
+</center>
+</section>
+<section id="cmsc-408---recommended-textbooks" class="slide level2">
+<h2>CMSC 408 - Recommended Textbooks</h2>
+<center>
+<p>
+&nbsp;
+</p>
+No textbooks. All resources are available online.
+</center>
+</section>
+<section id="cmsc-408---roles-and-responsibilities" class="slide level2">
+<h2>CMSC 408 - Roles and Responsibilities</h2>
+<div class="columns">
+<div class="column" style="width:10%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:40%;">
+<h3 id="instructor-roles-and-responsibilities">Instructor roles and responsibilities:</h3>
+<ul>
+<li>I am your guide and mentor.</li>
+<li>I will pick the topics and curate materials.</li>
+<li>I will get you started on the homework assignments.</li>
+<li>I will use lectures sparingly: intro to new topics, and intro to homeworks, and questions.</li>
+<li>I will not lecture just to hear myself talk. That is why we have Youtube!</li>
+</ul>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:40%;">
+<h3 id="student-roles-and-responsibilities">Student roles and responsibilities:</h3>
+<ul>
+<li>Review the course resources,</li>
+<li>Invest the necessary time … EARLY,</li>
+<li>Get started on homeworks … EARLY,</li>
+<li>Complete the homeworks on-time,</li>
+<li>Complete the quizzes on-time,</li>
+<li>Breath and have fun,</li>
+<li>You picked CS for a reason - this is it!</li>
+</ul>
+</div></div>
+</section>
+<section id="cmsc-408---statement-on-generative-ai" class="slide level2">
+<h2>CMSC 408 - Statement on Generative AI</h2>
+<ul>
+<li><p>Grades for the course are assigned based on YOUR work, not the work of chatgpt, bard or some other generative AI tool. Grades help YOU understand where you are on the journey towards mastery of any pile of material.</p></li>
+<li><p>Generative AI can be a real asset in computing. You don’t need to memorize syntax, or struggle to hunt around to find some arcane code necessary to make your program work. But remember, it is supposed to be YOUR program.</p></li>
+<li><p>Homework assignments are designed to give you practice using the tools to create programs. The focus of the homework assignments is on the higher level cognitive skills - designing, comparing, judging, analyzing, assessing. <strong>Use of Generative AI IS permitted on homework assignments and the semester project</strong>, in so much as it can help the coding go faster. YOU are responsible for the design and should be able to explain it to anyone that asks.</p></li>
+<li><p>Quizzes are designed to test your knowledge of the course material. <strong>Use of Generative AI is NOT permitted on any of the quizzes.</strong></p></li>
+<li><p>See <a href="assets/ITiCSE_2023_WG4_Mature_Draft_Jul_9_2023_AppendixD.pdf">this document</a> to learn more!</p></li>
+</ul>
+</section>
+<section id="cmsc-408---abet-student-learning-outcomes" class="slide level2">
+<h2>CMSC 408 - ABET Student Learning Outcomes</h2>
+<div class="more-separation">
+<p>SLO1 - <em>Analyze a complex computing problem and apply principles of computing and other relevant disciplines to identify solutions;</em></p>
+<p>SLO2 - <em>Design, implement and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline;</em></p>
+<p>SLO3 - <em>Communicate effectively in a variety of professional contexts;</em></p>
+<p>SLO4 - <em>Recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles;</em></p>
+<p>SLO5 - <em>Function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline;</em></p>
+<p>SLO6 - <em>Apply computer science theory and software development fundamentals to produce computing-based solutions;</em></p>
+<p>SLO7 - <em>Acquire and apply new knowledge as needed, using appropriate learning strategies.</em></p>
+</div>
+</section>
+<section id="cmsc-408---learning-outcomes" class="slide level2 scrollable">
+<h2>CMSC 408 - Learning Outcomes</h2>
+<div style="font-size:90%;">
+<ol type="1">
+<li><p>Demonstrate an understanding of the concepts underlying database design. <em>(ABET SLO 1, SLO 7)</em></p></li>
+<li><p>Analyze problems to identify data requirements, types and relations. <em>(SLO 1)</em></p></li>
+<li><p>Create E-R and relational designs from problem statements. <em>(SLO 2)</em></p></li>
+<li><p>Design data structures and functions to store and process the information. <em>(SLO 2)</em></p></li>
+<li><p>Design and implement databases using SQL language. <em>(SLO 6)</em></p></li>
+<li><p>Query and manipulate data using SQL language. <em>(SLO 6)</em></p></li>
+<li><p>Design and implement reports using data queried from a database. <em>(SLO 3, SLO 6)</em></p></li>
+<li><p>Incorporate strategies to ensure safe and secure storage and access to the database. <em>(SLO 4)</em></p></li>
+</ol>
+</div>
+</section>
+<section id="cmsc-408---tool-sets-and-rationale" class="slide level2">
+<h2>CMSC 408 - Tool sets and rationale</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<h3 id="tool-sets-well-be-using">Tool sets we’ll be using …</h3>
+<div class="more-separation">
+<ul>
+<li><p>SQL, MySQL, SQLITE, and DUCKDB</p></li>
+<li><p>VSCODE and various extensions</p></li>
+<li><p>Quarto, mermaid and graphviz</p></li>
+<li><p>GIT, GH and GITHUB</p></li>
+<li><p>Python, Pyenv and Poetry</p></li>
+<li><p>Docker and docker compose</p></li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<h3 id="what-you-should-expect">What you should expect …</h3>
+<p>This is a programming class. Be prepared for TONS of coding.</p>
+<p>We’ll be learning and improving through practice and repitition. There will be LOTS of opportunity to practice.</p>
+<p>We’ll be learning to <em>code</em> documentation and graphics using Quarto with markdown, mermaid and graphviz.</p>
+<p>We’ll be learning how to communicate designs using ER diagrams and crows-feet diagrams.</p>
+<p>We’ll be learning to create, retrieve, update and delete database objects using SQL.</p>
+<p>We’ll be learning docker to containerize a database and application and automate the repetition.</p>
+<p>Wait - did I say: “This is a programming class. Be prepared for TONS of coding.”</p>
+</div></div>
+</section>
+<section id="cmsc-408---assessment-and-grading" class="slide level2">
+<h2>CMSC 408 - Assessment and Grading</h2>
+<p>This will be a busy semester! There will be <a href="https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/detailed-gantt.html">items due each week</a>.</p>
+<h3 id="summary-and-grading-schedule">Summary and grading schedule</h3>
+<p>Below are tables presenting the grading scheme and deliverable list for the class.</p>
+<p>
+&nbsp;
+</p>
+<div style="font-size:0.9em;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<center>
+<h3 id="assignment-groups">Assignment Groups</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Weight</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Homeworks</td>
+<td>60%</td>
+<td>12 homework assignments</td>
+</tr>
+<tr class="even">
+<td>Graded Quizzes</td>
+<td>20%</td>
+<td>Four graded quizzes</td>
+</tr>
+<tr class="odd">
+<td>Graded discussions</td>
+<td>15%</td>
+<td>Four discussions</td>
+</tr>
+<tr class="even">
+<td>Graded Surveys</td>
+<td>5%</td>
+<td>2 graded surveys</td>
+</tr>
+<tr class="odd">
+<td>Practice Quizzes</td>
+<td>0%</td>
+<td>Not counted towards grade.</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div><div class="column" style="width:50%;">
+<center>
+<h3 id="grading">Grading</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Score</th>
+<th style="text-align: center;">Grade</th>
+<th style="text-align: center;">Fall 2023</th>
+<th style="text-align: center;">Fall 2024</th>
+<th style="text-align: center;">Spr 2025</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">90 &lt;= X</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">112</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80 &lt;= X &lt; 90</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">70 &lt;= X &lt; 80</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 &lt;= X &lt; 70</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X &lt; 60</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div></div>
+</div>
+</section>
+<section id="advice-from-your-peers" class="slide level2">
+<h2>Advice from your peers</h2>
+<p>&nbsp;</p>
+<h3 id="from-course-evaluation-responses-fall-2024spring-2025">From course evaluation responses, Fall 2024/Spring 2025</h3>
+<div style="font-size: 125%; margin-left:10%; margin-right:10%; margin-top: 5%">
+<p><strong><em>Discuss the level of difficulty of this course, the pace of the course, and the level of effort required to complete the work in this course.</em></strong></p>
+</div>
+</section>
+<section id="advice-from-your-peers-1" class="slide level2">
+<h2>Advice from your peers</h2>
+<div class="columns">
+<div class="column">
+<p><em>This course struck a balance in terms of difficulty, with a manageable pace and well–structured assignments that reinforced the lectures. While some tasks required significant effort, particularly with SQL queries and debugging, they were instrumental in solidifying concepts. The recitation sessions were especially helpful for clarifying concepts and working through problem sets, providing a hands–on approach that complemented the lectures effectively.</em></p>
+<p>&nbsp;</p>
+<p><em>The course is not difficult, you will succeed if you keep up with assignments. It’s fairly well paced, and the assignments are easy to follow and really help you learn.</em></p>
+<p>&nbsp;</p>
+<p><em>Lot of the material that was covered in this class was all very new to me, but Professor Leonard designed the course in a way that wasn’t too overwhelming. I felt like the pace of the course was just right. Even the times I was falling behind a little bit, I was able to pick myself back up pretty quickly since the deadlines weren’t super strict. </em></p>
+</div><div class="column">
+<p><em>This class in my opinion was perfectly balanced in difficulty. The pace was great, it was quick, but not way too quick it was overwhelming. This class requires a lot of effort, but if you stay on top of it and keep up with the assignments you’ll do fine. If you fall behind a bit on assignments it’s going to be pretty difficult to catch up (while not being impossible).</em></p>
+<p>&nbsp;</p>
+<p><em>I think the level of difficulty and effort needed for this class is perfect. It is hard enough to be engaging but easy enough for it to be possible and learn.</em></p>
+<p>&nbsp;</p>
+<p><em>The course has a ton of assignments, and it is imperative that you don’t procrastinate and start the assignments immediately. Paired with the semester–long group project with another student, the heavy workload contributes to the majority of the difficulty of the class.</em></p>
+</div></div>
+</section>
+<section id="advice-from-your-peers-2" class="slide level2">
+<h2>Advice from your peers</h2>
+<div class="columns">
+<div class="column">
+<p><em>I found the course difficulty to be well balanced. If a student goes to class, asks questions, and makes an effort to do their assignment they should have no problem at all passing. The pace of the course was perfect and allowed enough time for each unit to be processed before moving on to the next one. </em></p>
+<p>&nbsp;</p>
+<p><em>The workload for this course is very challenging to manage. Having to create a whole database and then do weekly homework assignments is very difficult.</em> &nbsp;</p>
+<p><em>This course required an intense amount of coding. However, given the clear expectations and due dates, I was able to plan ahead to meet deadlines. </em></p>
+</div><div class="column">
+<p><em>This course was quite difficult, mainly due to the amount of time that each assignment took. It felt like there was a really steep learning curve. The pacing of the course felt fine at first, but we spent so much time on database theory, that it felt like we were rushed through the application portion of the course. This course took A LOT OF EFFORT. I learned a lot, but I think there were so many things introduced that I don’t have a great understanding of most of the tools we had to use. Filling out reports was time consuming and felt unnecessarily long.</em></p>
+<p>&nbsp;</p>
+<p><em>This course was fairly difficult, but the professor made it very doable. The course pace was good, except by the end of the semester the pace gets really fast. 10/10 professor</em></p>
+</div></div>
+<center>
+<h3 id="in-summary-dont-panic-you-got-this"><em><a href="https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours">In summary: Don’t panic, you got this!</a></em></h3>
+</center>
+</section>
+<section id="changes-this-semester" class="slide level2">
+<h2>Changes this semester</h2>
+<p>Based on feedback from students, here is a list of changes I’m making this semester:</p>
+<ul>
+<li><p>Removed semester-long project. Greater focus on homeworks.</p></li>
+<li><p>Added more SQL content by shortening earlier modules.</p></li>
+<li><p>Refocused workflows towards data science over web-app backends.</p></li>
+</ul>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +590,13 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord">Join the discord</a> .</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232172">Survey 1 - Pre-class survey</a> - due 8/21, THU</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><a href="#/course-mechanics-and-overview">Course mechanics and overview</a></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -363,7 +698,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>

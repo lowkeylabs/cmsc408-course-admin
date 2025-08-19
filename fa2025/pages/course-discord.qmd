@@ -39,9 +39,9 @@ your real name. Once I see your real name on the server, I'll upgrade your role 
 </ul>
 :::
 
-** NOTE: The invite assumes that you already have a Discord account.  If you don't, or if you're browser is logged into a different account, you might get an error.**
+**NOTE: The invite assumes that you already have a Discord account.  If you don't, or if you're browser is logged into a different account, you might get an error.**
 
-** If you encounter problems, log directly into discord and use the "+" key to add a new server and use this invite: <https://discord.gg/5bsRKdSwKj> **
+**If you encounter problems, log directly into discord and use the "+" key to add a new server and use this invite: <https://discord.gg/5bsRKdSwKj>**
 
 
 <p>&nbsp;</p>

@@ -31,17 +31,17 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 This will be a very busy semester!  This course will have homework assignments due almost every week.
 
-Check out the Welcome page for more details on the course.
+Check out the [Welcome page](https://virginiacommonwealth.instructure.com/courses/122236/pages/welcome-front-page) for more details on the course.
 
 Base on feedback from past student evaluations, I am dropping the semester-long project.  Grades for the 
-course will depend on homeworks, quizzes, and participation in online discussions.
+course will depend on homeworks, quizzes, and participation in online discussions.  See [Canvas Syllabus](https://virginiacommonwealth.instructure.com/courses/122236/assignments/syllabus) for all the gory details.
 
 Each week I update this *frontpage* with a fresh list of *things to do* and additional *notes on resources*.  Be 
-sure to regularly visit this Canvas to keep on track.
+sure to regularly visit this Canvas to keep on track.  This page also contains links to the lecture slides and video of the lecture.
 
-This page also contains links to the lecture slides and video of the lecture. **ON-LINE STUDENTS** I *highly* suggest
+**ON-LINE STUDENTS** I *highly* suggest
 that you review the slides AND watch the lecture.  I provide lots of *undocumented* details in the lecture,
-guaranteed to *Save you time*.
+guaranteed to *[Save you Hours](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours)*.
 
 Finally - the lecture slides will be changed and edited up until the lecture itself.  SO - if you do choose to look
 ahead, remember that future lectures can change.

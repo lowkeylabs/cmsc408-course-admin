@@ -14,7 +14,13 @@ Wednesday - Aug 20, 2025
 
 ### Discussion items
 
-- (under construction))
+- [Join the
+  discord](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord)
+  .
+
+- [Survey 1 - Pre-class
+  survey](https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232172) -
+  due 8/21, THU
 
 </div>
 
@@ -22,7 +28,7 @@ Wednesday - Aug 20, 2025
 
 ### Lecture topics
 
-- (under construction)
+- [Course mechanics and overview](#course-mechanics-and-overview)
 
 </div>
 
@@ -52,6 +58,504 @@ Wednesday - Aug 20, 2025
 
 <!-- lecture-block-begin -->
 
+# Course mechanics and overview
+
+<!-- # Course Mechanics and Overview -->
+
+## I’m glad you’re here!!!!
+
+ 
+
+<div class="columns">
+
+<div class="column">
+
+### CMSC 408 - Database Theory
+
+- Semester course;
+- 3 lecture hours. 3 credits.
+- Prerequisite: CMSC 303 with a minimum grade of C.
+
+Design and implementation of relational database systems. Emphasis is
+placed on entity-relationship diagrams, relational algebra, normal forms
+and normalization. Introduction to SQL. Discussion of physical level
+issues.
+
+Students will be required to complete a design project and give an oral
+presentation of the project.
+
+</div>
+
+<div class="column">
+
+<img src="assets/L01-rise-of-sql.png" data-fig-align="center"
+alt="https://spectrum.ieee.org/the-rise-of-sql" />
+
+</div>
+
+</div>
+
+## CMSC 408 - Course overview
+
+<div class="columns">
+
+<div class="column" width="40%">
+
+### Course Topics
+
+- Entity Relation Modeling
+  - How do we represent the real-world in a database?
+- Relational Algebra
+  - Underlying mechanics of sorting and searching
+- Normalization
+  - What makes a database suck?
+- SQL
+  - Where the rubber meets the road.
+
+</div>
+
+<div class="column" width="25%">
+
+### Course resources
+
+``` python
+term = "fa2025"
+canvas_id = 122236
+links = [
+    dict(name="Course canvas", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}"),
+    dict(name="Course syllabus", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}/assignments/syllabus"),
+    dict(name="Course gantt", url=f"https://lowkeylabs.github.io/cmsc408-course-admin/{term}/detailed-gantt.html"),
+    dict(name="Course discord", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}/pages/resource-course-discord"),
+    dict(name="Course assignments", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}/assignments"),
+]
+
+# Print markdown
+for item in links:
+    print(f"* [{item['name']}]({item['url']})")
+```
+
+- [Course
+  canvas](https://virginiacommonwealth.instructure.com/courses/122236)
+- [Course
+  syllabus](https://virginiacommonwealth.instructure.com/courses/122236/assignments/syllabus)
+- [Course
+  gantt](https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/detailed-gantt.html)
+- [Course
+  discord](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord)
+- [Course
+  assignments](https://virginiacommonwealth.instructure.com/courses/122236/assignments)
+
+</div>
+
+<div class="column" width="35%">
+
+### Course assessment
+
+- 60% - Weekly homework assignments (12 or so in total)
+- 20% - Four on-line, canvas multiple choice. Practice quizzes provided.
+- 15% - Four on-line discussions.
+- 5% - Two graded surveys.
+- No final examination.
+
+</div>
+
+</div>
+
+<center>
+
+<p>
+
+ 
+</p>
+
+*[OMG - How will I survive? These tips will SAVE YOU
+HOURS™](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours)*
+</center>
+
+## CMSC 408 - Recommended Textbooks
+
+<center>
+
+<p>
+
+ 
+</p>
+
+No textbooks. All resources are available online.
+</center>
+
+## CMSC 408 - Roles and Responsibilities
+
+<div class="columns">
+
+<div class="column" width="10%">
+
+ 
+
+</div>
+
+<div class="column" width="40%">
+
+### Instructor roles and responsibilities:
+
+- I am your guide and mentor.
+- I will pick the topics and curate materials.
+- I will get you started on the homework assignments.
+- I will use lectures sparingly: intro to new topics, and intro to
+  homeworks, and questions.
+- I will not lecture just to hear myself talk. That is why we have
+  Youtube!
+
+</div>
+
+<div class="column" width="5%">
+
+ 
+
+</div>
+
+<div class="column" width="40%">
+
+### Student roles and responsibilities:
+
+- Review the course resources,
+- Invest the necessary time … EARLY,
+- Get started on homeworks … EARLY,
+- Complete the homeworks on-time,
+- Complete the quizzes on-time,
+- Breath and have fun,
+- You picked CS for a reason - this is it!
+
+</div>
+
+</div>
+
+## CMSC 408 - Statement on Generative AI
+
+- Grades for the course are assigned based on YOUR work, not the work of
+  chatgpt, bard or some other generative AI tool. Grades help YOU
+  understand where you are on the journey towards mastery of any pile of
+  material.
+
+- Generative AI can be a real asset in computing. You don’t need to
+  memorize syntax, or struggle to hunt around to find some arcane code
+  necessary to make your program work. But remember, it is supposed to
+  be YOUR program.
+
+- Homework assignments are designed to give you practice using the tools
+  to create programs. The focus of the homework assignments is on the
+  higher level cognitive skills - designing, comparing, judging,
+  analyzing, assessing. **Use of Generative AI IS permitted on homework
+  assignments and the semester project**, in so much as it can help the
+  coding go faster. YOU are responsible for the design and should be
+  able to explain it to anyone that asks.
+
+- Quizzes are designed to test your knowledge of the course material.
+  **Use of Generative AI is NOT permitted on any of the quizzes.**
+
+- See [this
+  document](assets/ITiCSE_2023_WG4_Mature_Draft_Jul_9_2023_AppendixD.pdf)
+  to learn more!
+
+## CMSC 408 - ABET Student Learning Outcomes
+
+<div class="more-separation">
+
+SLO1 - *Analyze a complex computing problem and apply principles of
+computing and other relevant disciplines to identify solutions;*
+
+SLO2 - *Design, implement and evaluate a computing-based solution to
+meet a given set of computing requirements in the context of the
+program’s discipline;*
+
+SLO3 - *Communicate effectively in a variety of professional contexts;*
+
+SLO4 - *Recognize professional responsibilities and make informed
+judgments in computing practice based on legal and ethical principles;*
+
+SLO5 - *Function effectively as a member or leader of a team engaged in
+activities appropriate to the program’s discipline;*
+
+SLO6 - *Apply computer science theory and software development
+fundamentals to produce computing-based solutions;*
+
+SLO7 - *Acquire and apply new knowledge as needed, using appropriate
+learning strategies.*
+
+</div>
+
+## CMSC 408 - Learning Outcomes
+
+<div style="font-size:90%;">
+
+1.  Demonstrate an understanding of the concepts underlying database
+    design. *(ABET SLO 1, SLO 7)*
+
+2.  Analyze problems to identify data requirements, types and relations.
+    *(SLO 1)*
+
+3.  Create E-R and relational designs from problem statements. *(SLO 2)*
+
+4.  Design data structures and functions to store and process the
+    information. *(SLO 2)*
+
+5.  Design and implement databases using SQL language. *(SLO 6)*
+
+6.  Query and manipulate data using SQL language. *(SLO 6)*
+
+7.  Design and implement reports using data queried from a database.
+    *(SLO 3, SLO 6)*
+
+8.  Incorporate strategies to ensure safe and secure storage and access
+    to the database. *(SLO 4)*
+
+</div>
+
+## CMSC 408 - Tool sets and rationale
+
+<div class="columns">
+
+<div class="column" width="35%">
+
+### Tool sets we’ll be using …
+
+<div class="more-separation">
+
+- SQL, MySQL, SQLITE, and DUCKDB
+
+- VSCODE and various extensions
+
+- Quarto, mermaid and graphviz
+
+- GIT, GH and GITHUB
+
+- Python, Pyenv and Poetry
+
+- Docker and docker compose
+
+</div>
+
+</div>
+
+<div class="column" width="65%">
+
+### What you should expect …
+
+This is a programming class. Be prepared for TONS of coding.
+
+We’ll be learning and improving through practice and repitition. There
+will be LOTS of opportunity to practice.
+
+We’ll be learning to *code* documentation and graphics using Quarto with
+markdown, mermaid and graphviz.
+
+We’ll be learning how to communicate designs using ER diagrams and
+crows-feet diagrams.
+
+We’ll be learning to create, retrieve, update and delete database
+objects using SQL.
+
+We’ll be learning docker to containerize a database and application and
+automate the repetition.
+
+Wait - did I say: “This is a programming class. Be prepared for TONS of
+coding.”
+
+</div>
+
+</div>
+
+## CMSC 408 - Assessment and Grading
+
+This will be a busy semester! There will be [items due each
+week](https://lowkeylabs.github.io/cmsc408-course-admin/fa2025/detailed-gantt.html).
+
+### Summary and grading schedule
+
+Below are tables presenting the grading scheme and deliverable list for
+the class.
+
+<p>
+
+ 
+</p>
+
+<div style="font-size:0.9em;">
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+<center>
+
+### Assignment Groups
+
+| Group              | Weight | Notes                      |
+|--------------------|--------|----------------------------|
+| Homeworks          | 60%    | 12 homework assignments    |
+| Graded Quizzes     | 20%    | Four graded quizzes        |
+| Graded discussions | 15%    | Four discussions           |
+| Graded Surveys     | 5%     | 2 graded surveys           |
+| Practice Quizzes   | 0%     | Not counted towards grade. |
+
+</center>
+
+</div>
+
+<div class="column" width="50%">
+
+<center>
+
+### Grading
+
+|     Score      | Grade | Fall 2023 | Fall 2024 | Spr 2025 |
+|:--------------:|:-----:|:---------:|:---------:|:--------:|
+|    90 \<= X    |   A   |    112    |    100    |    25    |
+| 80 \<= X \< 90 |   B   |    13     |    45     |    23    |
+| 70 \<= X \< 80 |   C   |     2     |    18     |    8     |
+| 60 \<= X \< 70 |   D   |     1     |     6     |    5     |
+|    X \< 60     |   F   |     3     |     7     |    4     |
+
+</center>
+
+</div>
+
+</div>
+
+</div>
+
+## Advice from your peers
+
+ 
+
+### From course evaluation responses, Fall 2024/Spring 2025
+
+<div style="font-size: 125%; margin-left:10%; margin-right:10%; margin-top: 5%">
+
+***Discuss the level of difficulty of this course, the pace of the
+course, and the level of effort required to complete the work in this
+course.***
+
+</div>
+
+## Advice from your peers
+
+<div class="columns">
+
+<div class="column">
+
+*This course struck a balance in terms of difficulty, with a manageable
+pace and well–structured assignments that reinforced the lectures. While
+some tasks required significant effort, particularly with SQL queries
+and debugging, they were instrumental in solidifying concepts. The
+recitation sessions were especially helpful for clarifying concepts and
+working through problem sets, providing a hands–on approach that
+complemented the lectures effectively.*
+
+ 
+
+*The course is not difficult, you will succeed if you keep up with
+assignments. It’s fairly well paced, and the assignments are easy to
+follow and really help you learn.*
+
+ 
+
+*Lot of the material that was covered in this class was all very new to
+me, but Professor Leonard designed the course in a way that wasn’t too
+overwhelming. I felt like the pace of the course was just right. Even
+the times I was falling behind a little bit, I was able to pick myself
+back up pretty quickly since the deadlines weren’t super strict. *
+
+</div>
+
+<div class="column">
+
+*This class in my opinion was perfectly balanced in difficulty. The pace
+was great, it was quick, but not way too quick it was overwhelming. This
+class requires a lot of effort, but if you stay on top of it and keep up
+with the assignments you’ll do fine. If you fall behind a bit on
+assignments it’s going to be pretty difficult to catch up (while not
+being impossible).*
+
+ 
+
+*I think the level of difficulty and effort needed for this class is
+perfect. It is hard enough to be engaging but easy enough for it to be
+possible and learn.*
+
+ 
+
+*The course has a ton of assignments, and it is imperative that you
+don’t procrastinate and start the assignments immediately. Paired with
+the semester–long group project with another student, the heavy workload
+contributes to the majority of the difficulty of the class.*
+
+</div>
+
+</div>
+
+## Advice from your peers
+
+<div class="columns">
+
+<div class="column">
+
+*I found the course difficulty to be well balanced. If a student goes to
+class, asks questions, and makes an effort to do their assignment they
+should have no problem at all passing. The pace of the course was
+perfect and allowed enough time for each unit to be processed before
+moving on to the next one. *
+
+ 
+
+*The workload for this course is very challenging to manage. Having to
+create a whole database and then do weekly homework assignments is very
+difficult.*  
+
+*This course required an intense amount of coding. However, given the
+clear expectations and due dates, I was able to plan ahead to meet
+deadlines. *
+
+</div>
+
+<div class="column">
+
+*This course was quite difficult, mainly due to the amount of time that
+each assignment took. It felt like there was a really steep learning
+curve. The pacing of the course felt fine at first, but we spent so much
+time on database theory, that it felt like we were rushed through the
+application portion of the course. This course took A LOT OF EFFORT. I
+learned a lot, but I think there were so many things introduced that I
+don’t have a great understanding of most of the tools we had to use.
+Filling out reports was time consuming and felt unnecessarily long.*
+
+ 
+
+*This course was fairly difficult, but the professor made it very
+doable. The course pace was good, except by the end of the semester the
+pace gets really fast. 10/10 professor*
+
+</div>
+
+</div>
+
+<center>
+
+### *[In summary: Don’t panic, you got this!](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours)*
+
+</center>
+
+## Changes this semester
+
+Based on feedback from students, here is a list of changes I’m making
+this semester:
+
+- Removed semester-long project. Greater focus on homeworks.
+
+- Added more SQL content by shortening earlier modules.
+
+- Refocused workflows towards data science over web-app backends.
+
 <!-- lecture-block-end -->
 
 ## Housekeeping
@@ -66,7 +570,13 @@ Wednesday - Aug 20, 2025
 
 ### Discussion items
 
-- (under construction))
+- [Join the
+  discord](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord)
+  .
+
+- [Survey 1 - Pre-class
+  survey](https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232172) -
+  due 8/21, THU
 
 </div>
 
@@ -74,7 +584,7 @@ Wednesday - Aug 20, 2025
 
 ### Lecture topics
 
-- (under construction)
+- [Course mechanics and overview](#course-mechanics-and-overview)
 
 </div>
 

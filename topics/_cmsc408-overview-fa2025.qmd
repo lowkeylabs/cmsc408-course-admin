@@ -44,25 +44,33 @@ Students will be required to complete a design project and give an oral presenta
 :::
 ::: {.column width=25%}
 ### Course resources
+```{python}
+#| output: asis
+term = "fa2025"
+canvas_id = 122236
+links = [
+    dict(name="Course canvas", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}"),
+    dict(name="Course syllabus", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}/assignments/syllabus"),
+    dict(name="Course gantt", url=f"https://lowkeylabs.github.io/cmsc408-course-admin/{term}/detailed-gantt.html"),
+    dict(name="Course discord", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}/pages/resource-course-discord"),
+    dict(name="Course assignments", url=f"https://virginiacommonwealth.instructure.com/courses/{canvas_id}/assignments"),
+]
 
-* [Course canvas](https://virginiacommonwealth.instructure.com/courses/113813)
-* [Course syllabus](https://virginiacommonwealth.instructure.com/courses/113813/assignments/syllabus)
-* [Course calendar](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-outine)
-* [Course Gantt](https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html)
-* [Course discord](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-discord)
-* [Course assignments](https://virginiacommonwealth.instructure.com/courses/113813/assignments)
-* [Semester project](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-course-project)
+# Print markdown
+for item in links:
+    print(f"* [{item['name']}]({item['url']})")
+
+```
   
 :::
 
 ::: {.column width=35%}
 ### Course assessment
 
-* 25% - Semester-long project 
-* 30% - Weekly homework assignments (9 or so in total) 
+* 60% - Weekly homework assignments (12 or so in total) 
 * 20% - Four on-line, canvas multiple choice. Practice quizzes provided.
 * 15% - Four on-line discussions.
-* 10% - Two graded surveys.
+* 5% - Two graded surveys.
 * No final examination.
 
 :::
@@ -70,7 +78,7 @@ Students will be required to complete a design project and give an oral presenta
 
 <center>
 <p>&nbsp;</p>
-*[OMG - How will I survive?  These tips will SAVE YOU HOURS&trade;](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
+*[OMG - How will I survive?  These tips will SAVE YOU HOURS&trade;](https://virginiacommonwealth.instructure.com/courses/`{python} canvas_id`/pages/resource-save-you-hours)*
 </center>
 
 ## CMSC 408 - Recommended Textbooks
@@ -123,7 +131,7 @@ No textbooks.  All resources are available online.
 
 * Quizzes are designed to test your knowledge of the course material. **Use of Generative AI is NOT permitted on any of the quizzes.**
 
-* See [this document](https://virginiacommonwealth.instructure.com/courses/113813/files?preview=14026400) to learn more!
+* See [this document](assets/ITiCSE_2023_WG4_Mature_Draft_Jul_9_2023_AppendixD.pdf) to learn more!
 
 
 ## CMSC 408 - ABET Student Learning Outcomes
@@ -164,10 +172,6 @@ SLO7 - *Acquire and apply new knowledge as needed, using appropriate learning st
 
 1. Design and implement reports using data queried from a database. *(SLO 3, SLO 6)*
 
-1. Work effectively as part of a team to design, implement and deploy a database-driven web application *(SLO 5)*
-
-1. Communicate project requirements, design decisions, and progress effectively to team members and stakeholder *(SLO 3)*
-
 1. Incorporate strategies to ensure safe and secure storage and access to the database. *(SLO 4)*
 :::
 
@@ -178,7 +182,7 @@ SLO7 - *Acquire and apply new knowledge as needed, using appropriate learning st
 ### Tool sets we'll be using ...
 
 ::: {.more-separation}
-* SQL, MySQL, and SQLITE
+* SQL, MySQL, SQLITE, and DUCKDB
 
 * VSCODE and various extensions
 
@@ -206,7 +210,9 @@ We'll be learning how to communicate designs using ER diagrams and crows-feet di
 
 We'll be learning to create, retrieve, update and delete database objects using SQL.
 
-We'll be learning docker to containerize a database and application and automate the reptition.
+We'll be learning docker to containerize a database and application and automate the repetition.
+
+Wait - did I say:  "This is a programming class.  Be prepared for TONS of coding."
 
 :::
 ::::
@@ -214,7 +220,7 @@ We'll be learning docker to containerize a database and application and automate
 
 ## CMSC 408 - Assessment and Grading
 
-This will be a busy semester! There will be [items due each week](https://lowkeylabs.github.io/cmsc408-course-admin/sp2025/detailed-gantt.html).
+This will be a busy semester! There will be [items due each week](https://lowkeylabs.github.io/cmsc408-course-admin/`{python} term`/detailed-gantt.html).
 
 ### Summary and grading schedule
 
@@ -222,48 +228,50 @@ Below are tables presenting the grading scheme and deliverable list for the clas
 
 <p>&nbsp;</p>
 
+::: {style="font-size:0.9em;"}
 :::: {.columns}
-::: {.column width="60%"}
+::: {.column width="50%"}
 
 <center>
 ### Assignment Groups
 | Group     | Weight     | Notes     |
 |--------------|--------------|--------------|
-| Projects | 25% | 7 deliverables. |
+| Homeworks | 60% | 12 homework assignments |
+| Graded Quizzes | 20% | Four graded quizzes |
 | Graded discussions | 15% | Four discussions |
-| Homeworks | 30% | 9 homework assignments |
-| Graded Surveys | 10% | 2 graded surveys |
-| Graded Quizzes | 20% | 4 graded quizzes |
-| Practice Quizzes | 0% | Not counted towards final grade. |
+| Graded Surveys | 5% | 2 graded surveys |
+| Practice Quizzes | 0% | Not counted towards grade. |
 </center>
 
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 
 <center>
 ### Grading
-| Score | Grade | Fall 2023 |
-|:-----:|:-----:|:---------:|
-| 90 <= X   |   A   | 112 |
-| 80 <= X < 90 | B | 13 |
-| 70 <= X < 80 | C | 2 |
-| 60 <= X < 70 | D | 1 |
-|  X < 60 | F | 3 |
+| Score | Grade | Fall 2023 | Fall 2024 | Spr 2025 |
+|:-----:|:-----:|:---------:|:--:|:--:|
+| 90 <= X   |   A   | 112 | 100 | 25 |
+| 80 <= X < 90 | B | 13 | 45 | 23 |
+| 70 <= X < 80 | C | 2 | 18 | 8 |
+| 60 <= X < 70 | D | 1 | 6 | 5 |
+|  X < 60 | F | 3 | 7 | 4 |
 </center>
 
 :::
 ::::
 
+:::
+
 ## Advice from your peers
 
 &nbsp;
 
-### From course evaluation responses, Fall 2023:
+### From course evaluation responses, Fall 2024/Spring 2025
 
 ::: {style="font-size: 125%; margin-left:10%; margin-right:10%; margin-top: 5%"}
 
-*Discuss the level of difficulty of this course, the pace of the course, and the level of effort required to complete the work in this course.*
+***Discuss the level of difficulty of this course, the pace of the course, and the level of effort required to complete the work in this course.***
 
 :::
 
@@ -271,22 +279,36 @@ Below are tables presenting the grading scheme and deliverable list for the clas
 
 :::: {.columns}
 ::: {.column}
-*This course is easy if you keep up with the work. Having assignments due every week along with the semester-long project is a lot to take on.*
+*This course struck a balance in terms of difficulty, with a manageable pace and well–structured assignments that reinforced the
+lectures. While some tasks required significant effort, particularly with SQL queries and debugging, they were instrumental in
+solidifying concepts. The recitation sessions were especially helpful for clarifying concepts and working through problem sets,
+providing a hands–on approach that complemented the lectures effectively.*
 
 &nbsp;
 
-*I think there is a lot of work involved with this course, but so long as you stay on top of the assignments, you will be sucessful, as they are not really difficult, more so there is just a large quantity of them.*
-
-&nbsp;
-
-*The course was definitely difficult if not well prepared but the professor gives every single tool one needs to succeed. The pace was perfect and there is nothing I would change about it.*
-::: 
-::: {.column}
-*The pace was quick and the work was not easy. Each week the homework presented new concepts that were progressively more difficult, and it was very easy to fall behind. Not the class with the sort of work you can leave till the last minute, minimum, a couple hours per assignment.*
+*The course is not difficult, you will succeed if you keep up with assignments. It's fairly well paced, and the assignments are easy to
+follow and really help you learn.*
 
 &nbsp;
 
 *Lot of the material that was covered in this class was all very new to me, but Professor Leonard designed the course in a way that wasn't too overwhelming. I felt like the pace of the course was just right. Even the times I was falling behind a little bit, I was able to pick myself back up pretty quickly since the deadlines weren't super strict. *
+
+::: 
+::: {.column}
+*This class in my opinion was perfectly balanced in difficulty. The pace was great, it was quick, but not way too quick it was
+overwhelming. This class requires a lot of effort, but if you stay on top of it and keep up with the assignments you'll do fine. If you fall
+behind a bit on assignments it's going to be pretty difficult to catch up (while not being impossible).*
+
+&nbsp;
+
+*I think the level of difficulty and effort needed for this class is perfect. It is hard enough to be engaging but easy enough for it to be
+possible and learn.*
+
+&nbsp;
+
+*The course has a ton of assignments, and it is imperative that you don't procrastinate and start the assignments immediately.
+Paired with the semester–long group project with another student, the heavy workload contributes to the majority of the difficulty of
+the class.*
 
 :::
 ::::
@@ -300,17 +322,16 @@ Below are tables presenting the grading scheme and deliverable list for the clas
 &nbsp;
 
 *The workload for this course is very challenging to manage. Having to create a whole database and then do weekly homework assignments is very difficult.*
-
 &nbsp;
 
 *This course required an intense amount of coding. However, given the clear expectations and due dates,  I was able to plan ahead to meet deadlines. *
 ::: 
 ::: {.column}
-*This course is pretty easy, but I don't think it needs to be harder. It takes not much effort but still I feel like I am very good with databases, api's, even better at using python. I am still not good at writing queries though.*
-
-&nbsp;
-
-*There is a large level of effort required to this course. Especially towards the end of the semester the assignments and projects can be time consuming. That being said the professor gives more than enough time to complete them and he is very helpful if a section ends up being confusing for the class.*
+*This course was quite difficult, mainly due to the amount of time that each assignment took. It felt like there was a really steep
+learning curve. The pacing of the course felt fine at first, but we spent so much time on database theory, that it felt like we were
+rushed through the application portion of the course. This course took A LOT OF EFFORT. I learned a lot, but I think there were so
+many things introduced that I don't have a great understanding of most of the tools we had to use. Filling out reports was time
+consuming and felt unnecessarily long.*
 
 &nbsp;
 
@@ -319,5 +340,16 @@ Below are tables presenting the grading scheme and deliverable list for the clas
 ::::
 
 <center>
-### *[In summary: Don't panic, you got this!](https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours)*
+### *[In summary: Don't panic, you got this!](https://virginiacommonwealth.instructure.com/courses/`{python} canvas_id`/pages/resource-save-you-hours)*
 </center>
+
+## Changes this semester
+
+Based on feedback from students, here is a list of changes I'm making this semester:
+
+* Removed semester-long project.  Greater focus on homeworks.
+
+* Added more SQL content by shortening earlier modules.
+
+* Refocused workflows towards data science over web-app backends.
+

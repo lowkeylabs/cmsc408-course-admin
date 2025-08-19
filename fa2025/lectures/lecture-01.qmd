@@ -1,8 +1,19 @@
 ---
 date: '2025-08-20'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: .
+  topic: Join the discord
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord
+- options: target="_blank"
+  post_text: '- due 8/21, THU'
+  topic: Survey 1 - Pre-class survey
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232172
 lecture-id: 1
-lecture-topics: []
+lecture-topics:
+- id: '3'
+  topic: Course mechanics and overview
+  url: _cmsc408-overview-fa2025.qmd
 title: Welcome to CMSC408
 ---
 
@@ -16,6 +27,9 @@ this_file = 'lecture-01.qmd'
 
 <!-- lecture-block-begin -->
 
+# Course mechanics and overview
+
+{{< include ../../topics/_cmsc408-overview-fa2025.qmd >}}
 <!-- lecture-block-end -->
 
 
