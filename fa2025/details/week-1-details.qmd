@@ -70,6 +70,9 @@ Review ALL the resources above. Here are some additional notes:
 
 [SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours) - It's really easy to get lost in this course.  There is TONS of stuff coming at you very fast.  Check out this page to get a list of suggestions to help keep you on track.
 
+
+[Lockdown Browser](https://learningsystems.vcu.edu/instructional-tools/respondus-lockdown-browser--monitor/) - We're using the respondus lockdown browser for online quizzes.  The preclass survey uses lockdown browser so you can work out any issues BEFORE we start with the real quizzes.
+
 <!-- resources-block-end -->
 
 
