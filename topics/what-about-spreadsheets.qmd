@@ -1,0 +1,7 @@
+---
+title: "What about spreadsheets"
+---
+
+{{< include '_what-about-spreadsheets.qmd' >}}
+
+    

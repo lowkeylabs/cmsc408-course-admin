@@ -1,0 +1,7 @@
+---
+title: Open Source Landscape 2025
+---
+
+{{< include '_open-source-landscape-2025.qmd' >}}
+
+    

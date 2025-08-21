@@ -1,0 +1,119 @@
+<!-- # What about spreadsheets -->
+
+## Why not use spreadsheets?
+
+### Spreadsheets DO work and they ARE viable!
+
+:::: {.columns}
+::: {.column}
+[Here is spreadsheet driven web site](https://vcu-ssg.github.io/ssg-quarto-cmsc-courses/)
+:::
+::: {.column}
+[Here is the spreadsheet](https://docs.google.com/spreadsheets/d/1qrN3L7eRLsM-aVMHYaLQN-FMYtrTJf0_h6dLKlUdPkk/edit#gid=107368023)
+:::
+::::
+
+### On the surface spreadsheets share many common elements with databases
+
+:::: {.columns}
+::: {.column}
+### Entities
+* *Worksheets* are *Tables*
+* *Rows* are sometimes *Records*
+* *Columns* are sometimes *Fields*
+* *Workbooks* are *Databases* (collections of tables)
+:::
+::: {.column}
+### Operations
+* find rows, insert rows, delete rows, update rows,
+* add columns, remove columns
+* create worksheets, delete worksheets
+* create workbooks, delete workbooks
+:::
+::::
+
+## Why not use spreadsheets?
+
+* Suppose that to add a new person, you need to make changes to three tabs (e.g., 'Personal Info,' 'Contact Info,' and 'Employment Info'). 
+
+    - *What happens if you are interrupted in the middle of the change and forget where you are? (Atomicity)*
+
+* Imagine that one of the tabs in your spreadsheet has a formula that automatically updates totals or averages when new data are entered. 
+
+    - *What would happen if, during an update, the formula fails to recalculate properly?  (Consistency)*
+
+* Consider a scenario where two people are editing the spreadsheet at the same time, both trying to add new rows to the same tab.
+
+    - *How might their changes conflict, and what issues could arise?  (Isolation)*
+
+* Suppose you have made all the necessary changes to add a new person in your spreadsheet and then your computer crashes before you can save the file.
+
+    - *What happens to the changes? (Durability)*
+
+## Why not use spreadsheets?
+
+* Imagine your spreadsheet contains sensitive information, such as personal or financial data.
+
+    - *What controls could you put in place to ensure that only authorized users can view or edit specific parts of the data (Security)*
+
+* Imagine that your spreadsheet currently manages a few hundred rows of data.
+
+    - *What would happen if you needed to scale this to millions of rows? How would performance be affected, and what challenges might you face in managing such large volumes of data? (Scalability)*
+
+* Imagine that your spreadsheet contains phone numbers across different tabs.
+
+    - *What would happen if a home phone number was changed on one tab but not another? (Normalization and redundancy)*
+
+## On Line Transaction Processing (OLTP) databases
+
+:::: {.columns}
+::: {.column width=80%}
+
+* This semester we'll be exploring Relational, [On Line Transaction Processing (OLTP)](https://en.wikipedia.org/wiki/Online_transaction_processing) Database Management Systems (DBMS), like MySQL, Postgres, SQLITE, Oracle, DB2 and SQLServer.
+
+* A [Database Management System (DBMS)](https://en.wikipedia.org/wiki/Database#Database_management_system) is the software that enables users to define, create, manage, and interact with databases. It serves as an intermediary between the end users, applications, and the database, ensuring that data is organized, stored, retrieved, and modified efficiently and securely.
+
+* [There are many ways to store data in a DBMS](https://en.wikipedia.org/wiki/Database_model).
+
+* We'll be focusing on the [*Relational* model](https://en.wikipedia.org/wiki/Database_model#Relational_model), where the DBMS stores entities and the relationships between these entities inside a single database (called a [schema](https://en.wikipedia.org/wiki/Database_schema)).
+
+* These databases bundle multiple changes to the database as a [transaction](https://en.wikipedia.org/wiki/Database_transaction). Transactions can be reviewed and rolled back (reversed).
+
+* [ACID (atomicity, consistency, isolation, durability)](https://en.wikipedia.org/wiki/ACID) is a set of properties of transactions intended to guarantee data validity despite errors, power failures, and other mishaps.
+
+* Changes to the database are communicated to the DBMS using a language called [*SQL*, a *structured query language*](https://en.wikipedia.org/wiki/SQL). How does one [pronounce SQL?](https://www.youtube.com/watch?v=S9C8PNX72Ms)
+
+:::
+::: {.column width=20%}
+![](assets/oltp-snip.png)
+:::
+::::
+
+## On Line Transaction Processing (OLTP) databases
+
+:::: {.columns}
+::: {.column}
+
+- **Fast Query Processing:** These databases prioritize quick query response times to ensure efficient and prompt processing of individual transactions, making them ideal for applications like banking, e-commerce, and order management systems.
+
+- **High Transaction Volume:** OLTP databases are designed to handle a large number of short, atomic transactions, such as inserting, updating, or deleting records, which are typically initiated by end-users in real-time.
+
+:::
+::: {.column}
+
+- **Data Integrity and Consistency:** OLTP systems implement ACID (Atomicity, Consistency, Isolation, Durability) properties to ensure that all transactions are processed reliably, maintaining the integrity and consistency of the data even in the event of system failures.
+
+- **Normalized Data Structure:** OLTP databases typically use a highly normalized schema to minimize data redundancy, optimize storage efficiency, and reduce the complexity of data manipulation during frequent transactions.
+
+:::
+::::
+
+## CMSC 408 - in a nutshell
+
+* We'll apply *entity-relation* models to design and describe the contents of a database.
+
+* We'll apply *relational algebra* to formally describe how we query the database.
+
+* We'll apply *normalization* to ensure that we minimize redundant information in the database.
+
+* We'll tie everything together using SQL.

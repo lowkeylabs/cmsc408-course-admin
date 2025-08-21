@@ -28,10 +28,6 @@
 :::
 ::::
 
-::: {.callout-note}
-These steps map nicely with the [Semester Project](https://virginiacommonwealth.instructure.com/courses/105097/pages/resource-week-2-semester-project?module_item_id=3767574) deliverables!  *Deliverable 8* represents the first three steps of the design.
-:::
-
 
 ## Database design process - some details
 

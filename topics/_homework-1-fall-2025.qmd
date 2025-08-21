@@ -45,7 +45,7 @@ the command line!
 ::: {.column width="50%"}
 ### My tool versions
 
-![](assets/hw1-sp2025-tool-versions.png)
+![](assets/hw1-fa2025-tool-versions.png)
 
 :::
 ::::

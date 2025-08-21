@@ -1,8 +1,42 @@
 ---
 date: '2025-08-25'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: .
+  topic: Join the discord
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord
+- options: target="_blank"
+  post_text: '- Past due!'
+  topic: Survey 1 - Pre-class survey
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232172
+- options: target="_blank"
+  post_text: '- start 8/25, MON'
+  topic: Practice Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232173
+- options: target="_blank"
+  post_text: '- start 8/27, WED'
+  topic: Discussion 1 - ER models
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241106
 lecture-id: 2
-lecture-topics: []
+lecture-topics:
+- id: '8'
+  topic: A long time ago in a galaxy far, far away ...
+  url: _intro-to-databases.qmd
+- id: '9'
+  topic: .
+  url: _what-about-spreadsheets.qmd
+- id: '10'
+  topic: Today's landscape
+  url: _open-source-landscape-2025.qmd
+- id: '11'
+  topic: Homework 1
+  url: _homework-1-fall-2025.qmd
+- id: '12'
+  topic: Database design process
+  url: _database-design-process.qmd
+- id: '13'
+  topic: Intro to ER Models
+  url: _intro-to-er-models.qmd
 title: Intro to Databases
 ---
 
@@ -16,6 +50,30 @@ this_file = 'lecture-02.qmd'
 
 <!-- lecture-block-begin -->
 
+# A long time ago in a galaxy far, far away ...
+
+{{< include ../../topics/_intro-to-databases.qmd >}}
+
+
+
+
+{{< include ../../topics/_what-about-spreadsheets.qmd >}}
+
+# Today's landscape
+
+{{< include ../../topics/_open-source-landscape-2025.qmd >}}
+
+# Homework 1
+
+{{< include ../../topics/_homework-1-fall-2025.qmd >}}
+
+# Database design process
+
+{{< include ../../topics/_database-design-process.qmd >}}
+
+# Intro to ER Models
+
+{{< include ../../topics/_intro-to-er-models.qmd >}}
 <!-- lecture-block-end -->
 
 
