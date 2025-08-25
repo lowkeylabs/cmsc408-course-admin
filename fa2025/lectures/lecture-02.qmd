@@ -26,7 +26,7 @@ lecture-topics:
   topic: .
   url: _what-about-spreadsheets.qmd
 - id: '10'
-  topic: Today's landscape
+  topic: Today's data tools landscape
   url: _open-source-landscape-2025.qmd
 - id: '11'
   topic: Homework 1
@@ -59,7 +59,7 @@ this_file = 'lecture-02.qmd'
 
 {{< include ../../topics/_what-about-spreadsheets.qmd >}}
 
-# Today's landscape
+# Today's data tools landscape
 
 {{< include ../../topics/_open-source-landscape-2025.qmd >}}
 

@@ -27,15 +27,9 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Finally!  We get started!
 
-<!-- overview-block-begin -->
-
-<p class="lead">Database design and entity relation modeling.</p>
-    
-<!-- overview-block-end -->
-
+This week we'll ramp up the course rhythm.
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
