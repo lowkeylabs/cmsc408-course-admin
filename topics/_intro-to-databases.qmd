@@ -24,8 +24,9 @@
 ### Late 1960s and 1970s:
 * [Hard disks allowed](https://en.wikipedia.org/wiki/History_of_hard_disk_drives) direct access to data
 * [Network and hierarchical data models](https://en.wikipedia.org/wiki/Database_model) in widespread use
-* [Edgar "Ted" Codd](https://en.wikipedia.org/wiki/Edgar_F._Codd) defines the Relational data model
+* [Edgar "Ted" Codd](https://en.wikipedia.org/wiki/Edgar_F._Codd) defines the [Relational data model](https://dl.acm.org/doi/pdf/10.1145/362384.362685)
 * [High-performance (for the era) transaction processing](https://en.wikipedia.org/wiki/Transaction_processing)
+* First [UPC codes](https://www.smithsonianmag.com/innovation/history-bar-code-180956704/) scanned in 1974 at a supermarket.
 :::
 ::: {.column width="40%"}
 ![](assets/1970-IBM_2314_DiskDrives_and_IBM_2540_CardReader_Punch.jpg)
@@ -50,6 +51,7 @@
 * Large decision support and data-mining applications
 * Large multi-terabyte data warehouses
 * Emergence of Web commerce
+* [QR Code](https://en.wikipedia.org/wiki/QR_code) was invented in 1994 to track car parts.
 :::
 ::: {.column}
 ![](assets/1990-computer-center.png)
