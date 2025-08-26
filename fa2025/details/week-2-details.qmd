@@ -29,7 +29,15 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 #### Finally!  We get started!
 
-This week we'll ramp up the course rhythm.
+This week we're emphasizing the weekly course rhythm:
+
+* Review the lecture slides and videos, especially the front matter intro.
+
+* Review the resource notes below and check out the resource links above.
+
+* Get started on the deliverables EARLY.  I set time aside on the Wednesday lecture to answer questions about homeworks and do walkthroughs.
+
+* Don't get behind!
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
@@ -50,7 +58,22 @@ This week we'll ramp up the course rhythm.
 
 Review ALL the resources above. Here are some additional notes:
     
-[Quarto Overview](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-2-quarto-overview) - You'll be spending LOTS of time this semester using Quarto.  It's important that you get a feel for how this important data science tool works.
+[Database design](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-database-design) A curated set of videos describing database design and offering examples to help get you started.  ER modeling is only one step of the larger process.
+
+
+[ER Modeling](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-er-modeling) A curated set of videos providing greater detail on difference aspects of ER modeling, including entities, attributes, relationships, cardinality and participation.
+
+
+[Quarto Overview](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-2-quarto-overview) You'll be spending LOTS of time this semester using Quarto.  It's important that you get a feel for how this important data science tool works.
+
+
+[WSL Tools](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-wsl-tools) Windows Subsystem for Linux (WSL) is a great tool to learn.  You get all the features of a linux system, without having to give up all the Windows tools, utilities, and of course ... games!
+
+
+[GIT Tools](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-git-tools) Learning GIT and GITHUB is really, really important to your success in this class.  I assembled these videos to help you get started.
+
+
+[Practice Quiz 1](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241146) You can take the practice quiz as many times as you like.  The real quiz will be exactly the same, except you'll need the lockdown browser.
 
 <!-- resources-block-end -->
 
