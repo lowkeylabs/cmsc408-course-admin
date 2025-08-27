@@ -22,8 +22,8 @@ all:
 	cnvsapi freshen canvas-frontpages-from-outline --all
 
 
-welcome:
-	cnvsapi freshen local-details-from-outline --include-weeks=welcome
+welcome instructor:
+	cnvsapi freshen local-details-from-outline --include-weeks=$(@)
 	quarto render $(@)-details.qmd
 	cnvsapi freshen canvas-details-from-disk --include-words=$(@)- --confirm
 	cnvsapi freshen canvas-frontpages-from-outline --include-weeks=$(@)

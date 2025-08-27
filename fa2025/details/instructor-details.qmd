@@ -27,7 +27,7 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
+### Instructor details
 
 *Details will be updated closer to the week.*
 

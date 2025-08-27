@@ -2,11 +2,19 @@
 date: '2025-08-27'
 discussion-items:
 - options: target="_blank"
+  post_text: ''
+  topic: Teaching Assistants - hours are posted
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-instructor
+- options: target="_blank"
+  post_text: ''
+  topic: No class next Monday, Sept. 1st. - Labor Day!!!
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-instructor
+- options: target="_blank"
   post_text: '- start 8/27, WED'
   topic: Discussion 1 - ER models
   url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241106
 - options: target="_blank"
-  post_text: '- Practice with Quarto (due Sun)'
+  post_text: '- due 8/31, SUN'
   topic: Homework 1 - DE Tool Review
   url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241133
 - options: target="_blank"
@@ -23,24 +31,24 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232173
 lecture-id: 3
 lecture-topics:
-- id: '19'
+- id: '21'
   topic: Practice 1 Quiz Walkthrough
   url: _practice-quiz-1-walkthrough-fa2025.qmd
-- id: '20'
-  topic: Homework 1 - DE Tool Review
-  url: _homework-1-fall-2025.qmd
-- id: '21'
-  topic: ER Diagramming
-  url: _er-diagramming.qmd
 - id: '22'
-  topic: Weak and Strong Entities
-  url: _weak-and-strong-entities.qmd
-- id: '23'
   topic: Study Guide - ER Models
   url: _er-models-study-guide.qmd
-- id: '24'
+- id: '23'
   topic: ER Diagramming Resources
   url: _er-diagramming-resources.qmd
+- id: '24'
+  topic: Homework 1 - DE Tool Review (WALKTHRU)
+  url: _homework-1-fall-2025.qmd
+- id: '25'
+  topic: ER Diagramming
+  url: _er-diagramming.qmd
+- id: '26'
+  topic: Weak and Strong Entities
+  url: _weak-and-strong-entities.qmd
 title: 'Entity-relation models '
 ---
 
@@ -58,7 +66,15 @@ this_file = 'lecture-03.qmd'
 
 {{< include ../../topics/_practice-quiz-1-walkthrough-fa2025.qmd >}}
 
-# Homework 1 - DE Tool Review
+# Study Guide - ER Models
+
+{{< include ../../topics/_er-models-study-guide.qmd >}}
+
+# ER Diagramming Resources
+
+{{< include ../../topics/_er-diagramming-resources.qmd >}}
+
+# Homework 1 - DE Tool Review (WALKTHRU)
 
 {{< include ../../topics/_homework-1-fall-2025.qmd >}}
 
@@ -69,14 +85,6 @@ this_file = 'lecture-03.qmd'
 # Weak and Strong Entities
 
 {{< include ../../topics/_weak-and-strong-entities.qmd >}}
-
-# Study Guide - ER Models
-
-{{< include ../../topics/_er-models-study-guide.qmd >}}
-
-# ER Diagramming Resources
-
-{{< include ../../topics/_er-diagramming-resources.qmd >}}
 <!-- lecture-block-end -->
 
 
