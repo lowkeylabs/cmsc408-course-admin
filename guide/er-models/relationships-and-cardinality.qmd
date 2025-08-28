@@ -139,7 +139,7 @@ One-to-many relationships are the most common type in database design, linking o
 - A one-to-many relationship occurs when a single instance of one entity is associated with multiple instances of another.
 - Examples include a teacher and the students they teach or a department and its employees.
 - These relationships are depicted with a single line connecting the "one" side to multiple lines on the "many" side.
-- The "one" side often contains a foreign key that points to the primary key on the "many" side.
+- The "many" side often contains a foreign key that points to the primary key on the "one" side.
 - One-to-many relationships organize data hierarchically and are essential for relational databases.
 :::
 ::: {.column width=5%}
