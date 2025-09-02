@@ -7,9 +7,9 @@
 ::: {.column width="50%"}
 ### Overview
 
-* Homeworks 2 and 3 focus on ER diagrams
+* Homeworks 2 focuses on ER diagrams
 * Homework 2 offers practice creating ER diagrams that I define.
-* [Link to Homework 2](https://virginiacommonwealth.instructure.com/courses/113813/assignments/1072335)
+* [Link to Homework 2](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134)
 
 ### General homework workflow
 * *Same as homework 1!*

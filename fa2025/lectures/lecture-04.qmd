@@ -1,8 +1,48 @@
 ---
 date: '2025-09-03'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- past due'
+  topic: Discussion 1 - ER models
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241106
+- options: target="_blank"
+  post_text: '- past due'
+  topic: Homework 1 - DE Tool Review
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241133
+- options: target="_blank"
+  post_text: '- past due'
+  topic: Quiz 1 - ER Models
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232168
+- options: target="_blank"
+  post_text: '- need I say more?'
+  topic: Save You Hours™
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours
+- options: target="_blank"
+  post_text: '- check it out!'
+  topic: ER models study guide
+  url: https://lowkeylabs.github.io/cmsc408-course-admin/guide/er-models/
+- options: target="_blank"
+  post_text: '- use them!'
+  topic: We've got 2 teaching assistants
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-instructor
+- options: target="_blank"
+  post_text: '- use it!'
+  topic: We've got a discord
+  url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord
 lecture-id: 4
-lecture-topics: []
+lecture-topics:
+- id: '34'
+  topic: Homework 2 - ER diagrams
+  url: _homework-2-fall-2025.qmd
+- id: '35'
+  topic: Intro to ER Models
+  url: _intro-to-er-models.qmd
+- id: '36'
+  topic: ER Diagramming
+  url: _er-diagramming.qmd
+- id: '37'
+  topic: Weak and Strong Entities
+  url: _weak-and-strong-entities.qmd
 title: ER Models
 ---
 
@@ -16,6 +56,21 @@ this_file = 'lecture-04.qmd'
 
 <!-- lecture-block-begin -->
 
+# Homework 2 - ER diagrams
+
+{{< include ../../topics/_homework-2-fall-2025.qmd >}}
+
+# Intro to ER Models
+
+{{< include ../../topics/_intro-to-er-models.qmd >}}
+
+# ER Diagramming
+
+{{< include ../../topics/_er-diagramming.qmd >}}
+
+# Weak and Strong Entities
+
+{{< include ../../topics/_weak-and-strong-entities.qmd >}}
 <!-- lecture-block-end -->
 
 
