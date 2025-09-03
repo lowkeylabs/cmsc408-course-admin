@@ -9,6 +9,10 @@ discussion-items:
   post_text: ''
   topic: No class next Monday, Sept. 1st. - Labor Day!!!
   url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-instructor
+- options: ''
+  post_text: ''
+  topic: Resources - thoughts videos or shorts ...
+  url: ''
 - options: target="_blank"
   post_text: '- start 8/27, WED'
   topic: Discussion 1 - ER models
@@ -31,22 +35,22 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232173
 lecture-id: 3
 lecture-topics:
-- id: '21'
+- id: '22'
   topic: Practice 1 Quiz Walkthrough
   url: _practice-quiz-1-walkthrough-fa2025.qmd
-- id: '22'
+- id: '23'
   topic: Study Guide - ER Models
   url: _er-models-study-guide.qmd
-- id: '23'
+- id: '24'
   topic: ER Diagramming Resources
   url: _er-diagramming-resources.qmd
-- id: '24'
+- id: '25'
   topic: Homework 1 - DE Tool Review (WALKTHRU)
   url: _homework-1-fall-2025.qmd
-- id: '25'
+- id: '26'
   topic: ER Diagramming
   url: _er-diagramming.qmd
-- id: '26'
+- id: '27'
   topic: Weak and Strong Entities
   url: _weak-and-strong-entities.qmd
 title: 'Entity-relation models '
