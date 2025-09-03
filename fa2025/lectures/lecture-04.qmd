@@ -2,6 +2,14 @@
 date: '2025-09-03'
 discussion-items:
 - options: target="_blank"
+  post_text: '- Due 9/7, SUN'
+  topic: Homework 2 - ER Models
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134
+- options: target="_blank"
+  post_text: '- email me your github userid'
+  topic: Problems accessing HW2?
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134
+- options: target="_blank"
   post_text: '- past due'
   topic: Discussion 1 - ER models
   url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241106
@@ -31,18 +39,21 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord
 lecture-id: 4
 lecture-topics:
-- id: '34'
+- id: '37'
   topic: Homework 2 - ER diagrams
   url: _homework-2-fall-2025.qmd
-- id: '35'
+- id: '38'
   topic: Intro to ER Models
   url: _intro-to-er-models.qmd
-- id: '36'
+- id: '39'
   topic: ER Diagramming
   url: _er-diagramming.qmd
-- id: '37'
+- id: '40'
   topic: Weak and Strong Entities
   url: _weak-and-strong-entities.qmd
+- id: '41'
+  topic: Homework 2 - ER diagrams
+  url: _homework-2-fall-2025.qmd
 title: ER Models
 ---
 
@@ -71,6 +82,10 @@ this_file = 'lecture-04.qmd'
 # Weak and Strong Entities
 
 {{< include ../../topics/_weak-and-strong-entities.qmd >}}
+
+# Homework 2 - ER diagrams
+
+{{< include ../../topics/_homework-2-fall-2025.qmd >}}
 <!-- lecture-block-end -->
 
 
