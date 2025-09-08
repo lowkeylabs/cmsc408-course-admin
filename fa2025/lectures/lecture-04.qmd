@@ -37,21 +37,25 @@ discussion-items:
   post_text: '- use it!'
   topic: We've got a discord
   url: https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-course-discord
+- options: target="_blank"
+  post_text: '- really? you''re killing us!'
+  topic: Homework 3 - date shift!
+  url: ''
 lecture-id: 4
 lecture-topics:
-- id: '37'
+- id: '38'
   topic: Homework 2 - ER diagrams
   url: _homework-2-fall-2025.qmd
-- id: '38'
+- id: '39'
   topic: Intro to ER Models
   url: _intro-to-er-models.qmd
-- id: '39'
+- id: '40'
   topic: ER Diagramming
   url: _er-diagramming.qmd
-- id: '40'
+- id: '41'
   topic: Weak and Strong Entities
   url: _weak-and-strong-entities.qmd
-- id: '41'
+- id: '42'
   topic: Homework 2 - ER diagrams
   url: _homework-2-fall-2025.qmd
 title: ER Models
