@@ -1,5 +1,26 @@
 <!-- # Brief intro to relational model -->
 
+
+## Entity-Relationship Models
+
+:::: {.columns}
+::: {.column width=75%}
+
+Entities
+: These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
+
+Attributes
+: Attributes are properties or characteristics that describe the entities. For example, if you're modeling a *Customer* entity, attributes could include *CustomerID,* *Name,* *Email,* etc.
+
+Relationships
+: Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
+:::
+::: {.column width=25%}
+![](assets/er-diagram-shade-none.png)
+:::
+::::
+
+
 ## Relational Database Model
 
 :::: {.columns}

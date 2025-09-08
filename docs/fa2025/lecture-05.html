@@ -6,11 +6,11 @@
 <script src="lecture-05_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-05_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-05_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-05_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-05_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-05_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-05_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-05_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+  <meta name="generator" content="quarto-1.7.32">
 
   <title>Relational models 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-05_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -153,12 +219,18 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134">Homework 2 - ER Diagrams</a> - past due (last night!)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232168">Quiz 1 - Entity-relation models</a> - past due</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232174">Practice Quiz 2 - Relational Algebra</a> - due 9/15 (next week)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135">Homework 3 - Modeling your world</a> - due 9/15 (next week)</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/taking-stock">Taking stock</a></p></li>
+<li><p><a href="#/databases-and-dbms">Databases and DBMS</a></p></li>
+<li><p><a href="#/intro-to-sql">Intro to SQL</a></p></li>
+<li><p><a href="#/brief-intro-to-relational-models">Brief intro to relational models</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -200,7 +272,7 @@
 <td style="text-align: center;">9/14</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Dis2:Relational Alg.</td>
+<td>HW3:Modeling Your World; CANCELLED</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Relational Alg.</td>
@@ -219,14 +291,6 @@
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Relational Alg.</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9/21</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW3:Modeling Your World</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
@@ -234,7 +298,7 @@
 <td>L9:Relational Algebra 2</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
@@ -242,10 +306,482 @@
 <td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
 <td></td>
 </tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9/25</td>
+<td style="text-align: center;">Thu</td>
+<td>Interview Day (10am-3pm)</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="taking-stock" class="title-slide slide level1 center">
+<h1>Taking stock</h1>
+<!-- # Catching our collective breaths and taking stock -->
+</section>
+<section id="course-to-date" class="slide level2">
+<h2>Course to date</h2>
+<div class="columns">
+<div class="column">
+<h3 id="topics">Topics</h3>
+<ul>
+<li>Database design</li>
+<li>Conceptual design
+<ul>
+<li>entities, attributes and relationships</li>
+<li>Chen diagrams</li>
+</ul></li>
+<li>Logical design
+<ul>
+<li>Cardinality and Participation</li>
+<li>Crow’s foot diagrams</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<h3 id="skills-and-tools">Skills and tools</h3>
+<ul>
+<li>Quarto workflow and output formats</li>
+<li>GITHUB and git</li>
+<li>graphviz (not just for ER diagrams!)</li>
+<li>mermaid (not just for ER diagrams!)</li>
+<li>Zoom videos and Kaltura</li>
+</ul>
+</div></div>
+<h3 id="next-up">Next up:</h3>
+<ul>
+<li>DBMS, SQL and the Relational Model
+<ul>
+<li>Understanding the DBMS platform</li>
+<li>Interacting with a DBMS</li>
+<li>Bridging the gap between ER-diagrams and SQL</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="databases-and-dbms" class="title-slide slide level1 center">
+<h1>Databases and DBMS</h1>
+<!-- # Databases and Database Management Systems -->
+</section>
+<section id="a-database-ecosystem" class="slide level2">
+<h2>A database ecosystem</h2>
+<div class="columns">
+<div class="column">
+<p><em>A heck of a lot more than just data!</em></p>
+<ul>
+<li>Users and their needs</li>
+<li>Storage manager</li>
+<li>Query manager</li>
+<li>Physical storage</li>
+<li>Ways to connect</li>
+</ul>
+<h3 id="designing-a-database">Designing a database</h3>
+<p>Good design requires that we develop a better understanding of the database itself, so that we can more smoothly translate the conceptual and logical designs into a physical design.</p>
+<p>The choice of database and DBMS may constrain or shape our final design.</p>
+</div><div class="column">
+<p><img data-src="assets/dbms-internals.png" style="width:80.0%"></p>
+</div></div>
+</section>
+<section id="users-and-their-needs" class="slide level2">
+<h2>Users and their needs</h2>
+<dl>
+<dt>End user</dt>
+<dd>
+Uses application interfaces to access database
+</dd>
+<dt>Application programmer</dt>
+<dd>
+Develops application interfaces (e.g., Web, API, mobile)
+</dd>
+<dt>Business Analyst</dt>
+<dd>
+Uses query tools to directly access the data base (e.g.&nbsp;statistical business analyst)
+</dd>
+<dt>Database Administrator (DBA)</dt>
+<dd>
+Designs logical and physical schemas
+</dd>
+<dd>
+Handles security and authorization
+</dd>
+<dd>
+Oversees data availability, crash recovery, software updates
+</dd>
+<dd>
+Monitors performance and tunes database as needs evolve
+</dd>
+<dd>
+Manages users and access control
+</dd>
+</dl>
+</section>
+<section id="storage-manager" class="slide level2">
+<h2>Storage manager</h2>
+<p><strong>Storage manager</strong></p>
+<ul>
+<li>a program that provides the interface between the low-level data stored in the database and the application programs and queries submitted to the system.</li>
+</ul>
+<p><strong>Responsible for</strong></p>
+<ul>
+<li>Interaction with the file manager</li>
+<li>Efficient storing, retrieving and updating of data</li>
+</ul>
+<p><strong>Considerations</strong></p>
+<ul>
+<li>Types of storage access</li>
+<li>Types of file organization</li>
+<li>Types of indexing and hashing</li>
+<li>Types of authorization and access control</li>
+<li>Data integritity</li>
+</ul>
+</section>
+<section id="query-manager" class="slide level2">
+<h2>Query manager</h2>
+<div class="columns">
+<div class="column">
+<p><em>Lots going on in between request and response!</em></p>
+<ul>
+<li>REQUEST (query)
+<ul>
+<li>query parser</li>
+<li>relational algebraic evaluationr</li>
+<li>optimizer</li>
+<li>planner (detailed code)</li>
+<li>evaluator</li>
+</ul></li>
+<li>RESPONSE (query output)</li>
+</ul>
+</div><div class="column">
+<p><img data-src="assets/query-manager.png" style="width:80.0%"></p>
+</div></div>
+</section>
+<section id="transaction-example" class="slide level2">
+<h2>Transaction example</h2>
+<p>A <strong>transaction</strong> is a collection of operations that performs a single logical function in a database application</p>
+<p><strong>Transaction-manager</strong> ensures that the database remains in a consistent (correct) state despite system failures (e.g., power failures and operating system crashes) and transaction failures.</p>
+<p><strong>Concurrency-control manager</strong> controls the interaction among the concurrent transactions, to ensure the consistency of the database.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/transaction-example.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="acid-properties" class="slide level2">
+<h2>ACID properties</h2>
+<dl>
+<dt>Atomicity</dt>
+<dd>
+Either all operations of the transaction are properly reflected in the database or none are
+</dd>
+<dt>Consistency</dt>
+<dd>
+Execution of a transaction in isolation preserves the consistency of the database
+</dd>
+<dt>Isolation</dt>
+<dd>
+Although multiple transactions may execute concurrently, each transaction must be unaware of other concurrently executing transactions. <em>For every pair of transactions Ti and Tj, it appears to Ti that either Tj, finished execution before Ti started, or Tj started execution after Ti finished</em>
+</dd>
+<dt>Durability</dt>
+<dd>
+After a transaction completes successfully, the changes it has made to the database persist, even if there are system failures
+</dd>
+</dl>
+</section>
+<section id="accessing-the-dbms" class="slide level2">
+<h2>Accessing the DBMS</h2>
+<dl>
+<dt>Using a command line</dt>
+<dd>
+SSH into server to script creation and population of the databases.
+</dd>
+<dd>
+Using a <em>connector</em>
+</dd>
+<dt>Using an API</dt>
+<dd>
+ODBC, REST, graphQL or other approaches to manipulate aspects of the data base.
+</dd>
+<dt>Using PHPMyAdmin</dt>
+<dd>
+Usually through a web browser to manage, monitor and tune the overall system.
+</dd>
+<dt>Using a PHP full stack</dt>
+<dd>
+To run the application and use the database.
+</dd>
+<dd>
+<ul>
+<li>LAMP Linux : Apache : MySQL : PHP/Perl/Python</li>
+</ul>
+</dd>
+<dt>Using NodeJS full stack</dt>
+<dd>
+To run the application and use the data base
+</dd>
+<dd>
+<ul>
+<li>MEAN Mongo/MySQL : Express : Angular : Node</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>MERN Mondo/MySQL : Express : React : Node</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="dbms-used-in-cmsc-408" class="slide level2">
+<h2>DBMS used in CMSC 408</h2>
+<div class="columns">
+<div class="column">
+<h3 id="mysql">MySQL</h3>
+<p>MySQL is a prominent open-source relational database management system that operates on a client-server model, making it a great choice for handling large-scale database applications and supporting multi-user environments.</p>
+<dl>
+<dt>Deployment and Setup</dt>
+<dd>
+Requires a separate server setup, involving a more complex installation process and server maintenance.
+</dd>
+<dt>Concurrent Access</dt>
+<dd>
+Can handle multiple users and applications simultaneously, making it a better fit for web applications or systems with high concurrency requirements.
+</dd>
+<dt>Storage and Performance</dt>
+<dd>
+Often better suited for large datasets and offers higher performance for complex queries, thanks to optimization features and more expansive indexing options.
+</dd>
+</dl>
+</div><div class="column">
+<h3 id="sqllite">SQLLite</h3>
+<p>SQLite is a self-contained, serverless, and zero-configuration database engine commonly embedded into mobile and desktop applications for local storage and capable of handling smaller-scale database needs with ease.</p>
+<dl>
+<dt>Deployment and Setup</dt>
+<dd>
+Extremely lightweight and easy to set up, with no server to install or configure.
+</dd>
+<dt>Concurrent Access</dt>
+<dd>
+Generally supports single-user systems better, and might encounter locks or bottlenecks with multiple concurrent accesses.
+</dd>
+<dt>Storage and Performance</dt>
+<dd>
+Optimized for local storage with smaller databases, with a file-based storage system that might be less efficient for large datasets or complex queries.
+</dd>
+</dl>
+</div></div>
+</section></section>
+<section>
+<section id="intro-to-sql" class="title-slide slide level1 center">
+<h1>Intro to SQL</h1>
+<!-- # Intro to SQL -->
+</section>
+<section id="interacting-with-the-database" class="slide level2">
+<h2>Interacting with the database</h2>
+<p>A <strong>DBMS</strong> is software that manages databases, providing an interface between users, applications, and the database. The DBMS handles the internal mechanics of data storage, querying, transaction management, and access control. When users or applications issue commands, the DBMS processes these commands and ensures that the database remains consistent, efficient, and secure.</p>
+<p>Interacting with a <strong>Database Management System (DBMS)</strong> and a <strong>database</strong> involves several layers of operations, each designed to handle a specific aspect of how data is stored, managed, secured, and retrieved.</p>
+<p><em>SQL</em> (structured query language) is the computer language we use to interact with the DBMS.</p>
+</section>
+<section id="sql-structured-query-language" class="slide level2">
+<h2>SQL (Structured Query Language )</h2>
+<p><strong>SQL (Structured Query Language)</strong>: is a standardized language used for managing and querying relational databases. It provides commands for defining, manipulating, controlling, and retrieving data in databases.</p>
+<ul>
+<li><p><strong>ANSI SQL Standard</strong>: ANSI (American National Standards Institute) defines the core SQL standard, ensuring a common foundation for relational database operations across different systems, though specific features may vary by vendor. The most recent version of the SQL standard is SQL:2023, formally adopted in June 2023.</p></li>
+<li><p><strong>SQL Dialects by Vendor</strong>: While adhering to ANSI SQL, many database vendors (like <strong>MySQL</strong>, <strong>PostgreSQL</strong>, <strong>Oracle</strong>, <strong>SQL Server</strong>) extend SQL with proprietary features (e.g., Oracle’s PL/SQL, Microsoft’s T-SQL) to support additional functionalities unique to their systems.</p></li>
+</ul>
+</section>
+<section id="sql-command-groups" class="slide level2">
+<h2>SQL command groups</h2>
+<p>SQL commands are grouped based on what they do to/for the DBMS. We sometimes refer to these groups as separate <em>languages</em>: <strong>DDL</strong>, <strong>DML</strong>, <strong>DCL</strong>, and <strong>TCL</strong>.</p>
+<ul>
+<li><p><strong>Design and Structure (DDL)</strong>: When building a database, DDL is the first interaction, defining how data will be stored and structured. This foundational step ensures the database can efficiently support future operations.</p></li>
+<li><p><strong>Manipulating and Retrieving Data (DML)</strong>: The core daily interactions with the database happen through DML. Whether adding new entries, retrieving data, or updating records, these operations are what end-users experience.</p></li>
+<li><p><strong>Security and Permissions (DCL)</strong>: Modern databases are often accessed by multiple users and applications. Ensuring that data access is controlled and secure is essential, and DCL ensures that only the right users have the appropriate access levels.</p></li>
+<li><p><strong>Maintaining Data Integrity (TCL)</strong>: In multi-user environments or where transactions involve complex steps (e.g., financial transactions, inventory updates), TCL ensures that the database remains in a consistent state even when failures or conflicts occur.</p></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language" class="slide level2">
+<h2>DDL (Data Definition Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Defines the structure and organization of the database.</li>
+<li><strong>Role</strong>: DDL commands interact directly with the <strong>DBMS</strong> to create, modify, or delete database objects such as tables, indexes, and schemas.</li>
+<li><strong>Example</strong>: When creating a new table, the <strong>DBMS</strong> allocates the necessary storage and manages the metadata that defines the table structure. DDL commands ensure that the database schema evolves as the application grows.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Creating a new table to store user data.</li>
+<li>Altering the structure of an existing table to accommodate new fields.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language-1" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<p>Key DDL commands include:</p>
+<ol type="1">
+<li><strong><code>CREATE</code></strong>: Used to create new database objects like tables, indexes, views, or databases.</li>
+<li><strong><code>ALTER</code></strong>: Used to modify the structure of an existing database object (e.g., adding or removing columns in a table).</li>
+<li><strong><code>DROP</code></strong>: Used to delete database objects like tables, indexes, or entire databases.</li>
+<li><strong><code>TRUNCATE</code></strong>: Removes all records from a table, but keeps the table structure intact.</li>
+<li><strong><code>RENAME</code></strong>: Used to rename database objects.</li>
+</ol>
+<p>DDL commands define and change the structure or schema of a database, unlike DML, which focuses on manipulating the data within those structures.</p>
+</section>
+<section id="ddl-data-definition-language-2" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>DDL compiler generates a set of tables stored in a data dictionary</li>
+<li>Data dictionary contains metadata about:
+<ul>
+<li>Database tables, fields and data types</li>
+<li>Primary and foreign keys</li>
+<li>Data integrity constrants</li>
+<li>Referential integrity</li>
+<li>Access and authorization rules</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>CREATE TABLE person (</span>
+<span id="cb1-2"><a href=""></a>    person_id INT PRIMARY KEY,</span>
+<span id="cb1-3"><a href=""></a>    person_first_name VARCHAR(50),</span>
+<span id="cb1-4"><a href=""></a>    person_last_name VARCHAR(50),</span>
+<span id="cb1-5"><a href=""></a>    person_city VARCHAR(50)</span>
+<span id="cb1-6"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes">Notes</h3>
+<ol type="1">
+<li>Fields are strongly typed,</li>
+<li>INT, VARCHAR(width), (lots more!)</li>
+<li>Additional attributed can be defined:
+<ul>
+<li>PRIMARY KEY, FOREIGN KEY, etc.</li>
+</ul></li>
+</ol>
+</div></div>
+</section>
+<section id="dml-data-manipulation-language" class="slide level2">
+<h2>DML (Data Manipulation Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages the actual data within the database.</li>
+<li><strong>Role</strong>: DML commands interact with the <strong>DB</strong> to insert, retrieve, update, and delete data. The <strong>DBMS</strong> processes these requests and ensures the data is accessed efficiently and accurately.</li>
+<li><strong>Example</strong>: When querying data (e.g., <code>SELECT</code>), the <strong>DBMS</strong> retrieves the requested information from the database, handles the query optimizations, and returns results to the user or application.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Retrieving customer data for an e-commerce application.</li>
+<li>Inserting new product information into a database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dcl-data-control-language" class="slide level2">
+<h2>DCL (Data Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Controls access to the data within the database.</li>
+<li><strong>Role</strong>: DCL commands interact with the <strong>DBMS</strong> to manage user permissions and security. This ensures that only authorized users can access or modify specific parts of the database.</li>
+<li><strong>Example</strong>: Granting access to a developer to only read the data while restricting their ability to modify or delete it.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Granting access to specific tables for an application.</li>
+<li>Revoking permissions from users who should no longer access the database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tcl-transaction-control-language" class="slide level2">
+<h2>TCL (Transaction Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages and controls database transactions.</li>
+<li><strong>Role</strong>: TCL commands work closely with the <strong>DBMS</strong> to ensure that changes made to the database maintain <strong>ACID (Atomicity, Consistency, Isolation, Durability)</strong> properties. This ensures that transactions are processed reliably.</li>
+<li><strong>Example</strong>: When performing a <code>COMMIT</code> after multiple <code>INSERT</code> operations, the <strong>DBMS</strong> makes the changes permanent. If any part of the transaction fails, a <code>ROLLBACK</code> can undo all the changes to ensure data integrity.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Performing multiple updates to an inventory system and committing them only when all changes are successfully made.</li>
+<li>Rolling back a transaction if a bank transfer fails midway, ensuring no partial changes occur.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sql-summary" class="slide level2">
+<h2>SQL Summary</h2>
+<p>SQL is the overarching language for interacting with the relational database management system.</p>
+<p>SQL commands are organized into <em>languages</em> that play a distinct roles in the overall functioning of the DBMS. Together, they allow the applications programmer to:</p>
+<ul>
+<li><strong>Define the structure</strong> (DDL),</li>
+<li><strong>Manipulate the data</strong> (DML),</li>
+<li><strong>Secure the database</strong> (DCL), and</li>
+<li><strong>Ensure reliable transactions</strong> (TCL).</li>
+</ul>
+<p>By interacting with these layers, the DBMS provides a seamless, powerful way to manage data efficiently, ensuring that applications can scale, users can access information securely, and data integrity is maintained across transactions.</p>
+</section></section>
+<section>
+<section id="brief-intro-to-relational-models" class="title-slide slide level1 center">
+<h1>Brief intro to relational models</h1>
+<!-- # Brief intro to relational model -->
+</section>
+<section id="entity-relationship-models" class="slide level2">
+<h2>Entity-Relationship Models</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<dl>
+<dt>Entities</dt>
+<dd>
+These represent real-world objects, concepts, or things that have data stored about them. Each entity is depicted as a rectangle in the ER diagram.
+</dd>
+<dt>Attributes</dt>
+<dd>
+Attributes are properties or characteristics that describe the entities. For example, if you’re modeling a <em>Customer</em> entity, attributes could include <em>CustomerID,</em> <em>Name,</em> <em>Email,</em> etc.
+</dd>
+<dt>Relationships</dt>
+<dd>
+Relationships illustrate how entities are related to each other. Relationships can be one-to-one, one-to-many, or many-to-many, and they help define how data is interconnected.
+</dd>
+</dl>
+</div><div class="column" style="width:25%;">
+<p><img data-src="assets/er-diagram-shade-none.png"></p>
+</div></div>
+</section>
+<section id="relational-database-model" class="slide level2">
+<h2>Relational Database Model</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><strong>Tables</strong> represent the fundamental entity for manipulation.</li>
+<li>Tables have multiple columns called <strong>fields</strong>, each with unique names and data types. <strong>Fields</strong> correspond to attributes in our ER model.</li>
+<li>Tables have multiple rows called <strong>records</strong> that represent individual instances of the data stored in the table. These are sometimes called <em>tuples</em>.</li>
+<li>Relationships between tables are documented as <strong>keys</strong>. Keys are simply fields in a table, designated as keys. Keys have special properties and the database keeps track of them differently.</li>
+<li>A complete definition entities, attributes and relations, along with any data types and constraints is called a <strong>schema</strong>.</li>
+</ul>
+</div><div class="column">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>CREATE TABLE students (</span>
+<span id="cb2-2"><a href=""></a>    student_id INT PRIMARY KEY,</span>
+<span id="cb2-3"><a href=""></a>    name VARCHAR(100),</span>
+<span id="cb2-4"><a href=""></a>    year INT</span>
+<span id="cb2-5"><a href=""></a>);</span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a>CREATE TABLE courses (</span>
+<span id="cb2-8"><a href=""></a>    course_id INT PRIMARY KEY,</span>
+<span id="cb2-9"><a href=""></a>    title VARCHAR(100),</span>
+<span id="cb2-10"><a href=""></a>    credit_hours INT</span>
+<span id="cb2-11"><a href=""></a>);</span>
+<span id="cb2-12"><a href=""></a></span>
+<span id="cb2-13"><a href=""></a>CREATE TABLE student_courses (</span>
+<span id="cb2-14"><a href=""></a>    student_id INT,</span>
+<span id="cb2-15"><a href=""></a>    course_id INT,</span>
+<span id="cb2-16"><a href=""></a>    FOREIGN KEY (student_id) REFERENCES students(student_id),</span>
+<span id="cb2-17"><a href=""></a>    FOREIGN KEY (course_id) REFERENCES courses(course_id),</span>
+<span id="cb2-18"><a href=""></a>    PRIMARY KEY (student_id, course_id)</span>
+<span id="cb2-19"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px">
+<p>In the example above, we define two entities: students and courses, and establish a many-to-many relationship between them. The relationships are documented in a separate table with foreign keys. The individual rows in the student-courses table represent pairs of students and courses or “student-course tuples”.</p>
+</div>
+</div></div>
+</section>
+<section id="in-the-coming-weeks" class="slide level2">
+<h2>In the coming weeks</h2>
+<ul>
+<li><p>We’ll spend the next lecture exploring how to translate specific logical designs into actual SQL.</p></li>
+<li><p>We’ll also explore the fundamentals of relational algebra and how we tersely communicate operatings that we can perform on the data and how those operations look in SQL.</p></li>
+<li><p>Finally, we’ll examine ways to minimize duplication of data by <em>functionally</em> analyzing our tables and evaluating it’s <em>normal form</em>.</p></li>
+</ul>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +792,18 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134">Homework 2 - ER Diagrams</a> - past due (last night!)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232168">Quiz 1 - Entity-relation models</a> - past due</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232174">Practice Quiz 2 - Relational Algebra</a> - due 9/15 (next week)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135">Homework 3 - Modeling your world</a> - due 9/15 (next week)</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/taking-stock">Taking stock</a></p></li>
+<li><p><a href="#/databases-and-dbms">Databases and DBMS</a></p></li>
+<li><p><a href="#/intro-to-sql">Intro to SQL</a></p></li>
+<li><p><a href="#/brief-intro-to-relational-models">Brief intro to relational models</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -303,7 +845,7 @@
 <td style="text-align: center;">9/14</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Dis2:Relational Alg.</td>
+<td>HW3:Modeling Your World; CANCELLED</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Relational Alg.</td>
@@ -322,14 +864,6 @@
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Relational Alg.</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9/21</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW3:Modeling Your World</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
@@ -337,12 +871,20 @@
 <td>L9:Relational Algebra 2</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
 <td style="text-align: center;">Wed</td>
 <td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9/25</td>
+<td style="text-align: center;">Thu</td>
+<td>Interview Day (10am-3pm)</td>
 <td></td>
 </tr>
 </tbody>
@@ -363,7 +905,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>

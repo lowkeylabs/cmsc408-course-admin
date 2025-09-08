@@ -1,8 +1,36 @@
 ---
 date: '2025-09-08'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- past due (last night!)'
+  topic: Homework 2 - ER Diagrams
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241134
+- options: target="_blank"
+  post_text: '- past due'
+  topic: Quiz 1 - Entity-relation models
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232168
+- options: target="_blank"
+  post_text: '- due 9/15 (next week)'
+  topic: Practice Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232174
+- options: target="_blank"
+  post_text: '- due 9/15 (next week)'
+  topic: Homework 3 - Modeling your world
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135
 lecture-id: 5
-lecture-topics: []
+lecture-topics:
+- id: '47'
+  topic: Taking stock
+  url: _taking-stock-after-er-models.qmd
+- id: '48'
+  topic: Databases and DBMS
+  url: _databases-and-database-management-systems.qmd
+- id: '49'
+  topic: Intro to SQL
+  url: _sql-intro.qmd
+- id: '50'
+  topic: Brief intro to relational models
+  url: _brief-intro-to-relational-model.qmd
 title: Relational models 1
 ---
 
@@ -16,6 +44,21 @@ this_file = 'lecture-05.qmd'
 
 <!-- lecture-block-begin -->
 
+# Taking stock
+
+{{< include ../../topics/_taking-stock-after-er-models.qmd >}}
+
+# Databases and DBMS
+
+{{< include ../../topics/_databases-and-database-management-systems.qmd >}}
+
+# Intro to SQL
+
+{{< include ../../topics/_sql-intro.qmd >}}
+
+# Brief intro to relational models
+
+{{< include ../../topics/_brief-intro-to-relational-model.qmd >}}
 <!-- lecture-block-end -->
 
 
