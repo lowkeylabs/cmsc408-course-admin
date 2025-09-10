@@ -6,11 +6,11 @@
 <script src="lecture-06_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-06_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-06_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-06_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-06_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-06_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-06_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-06_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+  <meta name="generator" content="quarto-1.7.32">
 
   <title>Relational models 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-06_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -127,6 +193,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="lecture-06_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="lecture-06_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="lecture-06_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -153,12 +222,15 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232174">Practice Quiz 2 - Relational Algebra</a> - due 9/15 (next week)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135">Homework 3 - Modeling your world</a> - due 9/15 (next week)</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/relational-models">Relational Models</a></p></li>
+<li><p><a href="#/relationships-and-cardinality">Relationships and Cardinality</a></p></li>
+<li><p><a href="#/hw3---er-diagramming-walkthrough">HW3 - ER Diagramming Walkthrough</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -192,7 +264,7 @@
 <td style="text-align: center;">9/14</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Dis2:Relational Alg.</td>
+<td>HW3:Modeling Your World; CANCELLED</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Relational Alg.</td>
@@ -211,14 +283,6 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Relational Alg.</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9/21</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW3:Modeling Your World</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
@@ -226,7 +290,7 @@
 <td>L9:Relational Algebra 2</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
@@ -234,7 +298,7 @@
 <td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/25</td>
@@ -242,10 +306,1988 @@
 <td>Interview Day (10am-3pm)</td>
 <td></td>
 </tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9/28</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>Dis3:Normal forms</td>
+</tr>
 </tbody>
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="relational-models" class="title-slide slide level1 center">
+<h1>Relational Models</h1>
+<!-- # Relational Models -->
+</section>
+<section id="relational-model---1970" class="slide level2 scrollable">
+<h2>Relational Model - 1970</h2>
+<p>Codd, E. F. (1970). <em>A relational model of data for large shared data banks</em>. <em>Communications of the ACM, 13</em>(6), 377–387. <a href="https://doi.org/10.1145/362384.362685">https://doi.org/10.1145/362384.362685</a></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<div style="font-size:10pt">
+<ol type="1">
+<li><strong>Data is Represented as Relations (Tables)</strong>
+<ul>
+<li>Codd introduced the concept of <strong>relations</strong>, which are mathematically defined as sets of tuples (rows) with attributes (columns). This formal structure provides a consistent and logical way to store and manipulate data.</li>
+</ul></li>
+<li><strong>Data Independence and Normalization</strong>
+<ul>
+<li>The relational model promotes <strong>data independence</strong>, meaning applications don’t need to worry about the underlying data storage structure. He also introduced the idea of <strong>normalization</strong> to reduce redundancy and improve data integrity.</li>
+</ul></li>
+<li><strong>Use of a High-Level Language (Relational Algebra)</strong>
+<ul>
+<li>Codd proposed using <strong>relational algebra</strong> and <strong>relational calculus</strong> as a mathematical foundation for querying data, emphasizing that users should interact with the database using <strong>declarative</strong> queries rather than navigating storage structures directly.</li>
+</ul></li>
+<li><strong>Keys and Integrity Constraints</strong>
+<ul>
+<li>The paper introduced the importance of <strong>primary keys</strong> to uniquely identify tuples and defined integrity constraints (e.g., uniqueness and referential integrity) to ensure consistency and correctness of the data.</li>
+</ul></li>
+</ol>
+<p>This work eventually led to the development of SQL and the modern relational database systems we use today.</p>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><a href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf"><img data-src=".//assets/codd_acm_article.png"></a></p>
+</div></div>
+</section>
+<section id="relational-model---entities" class="slide level2">
+<h2>Relational Model - Entities</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><strong>Tables</strong> correspond with entities and represent the fundamental object of manipulation.</li>
+<li>Tables have multiple columns called <strong>fields</strong>, each with unique names and data types. <strong>Fields</strong> correspond to <em>attributes</em> in our ER model.</li>
+<li>Tables have multiple rows called <strong>records</strong> that represent individual instances of the data stored in the table. These are sometimes called <em>tuples</em>.</li>
+<li>Relationships between tables are documented as <strong>keys</strong>. Keys are simply fields in a table, designated as keys. Keys have special properties and the database keeps track of them differently.</li>
+<li>A complete definition entities, attributes and relations, along with any data types and constraints is called a <strong>schema</strong>.</li>
+</ul>
+</div><div class="column">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>CREATE TABLE students (</span>
+<span id="cb1-2"><a href=""></a>    student_id INT PRIMARY KEY,</span>
+<span id="cb1-3"><a href=""></a>    name VARCHAR(100),</span>
+<span id="cb1-4"><a href=""></a>    year INT</span>
+<span id="cb1-5"><a href=""></a>);</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a>CREATE TABLE courses (</span>
+<span id="cb1-8"><a href=""></a>    course_id INT PRIMARY KEY,</span>
+<span id="cb1-9"><a href=""></a>    title VARCHAR(100),</span>
+<span id="cb1-10"><a href=""></a>    credit_hours INT</span>
+<span id="cb1-11"><a href=""></a>);</span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a>CREATE TABLE student_courses (</span>
+<span id="cb1-14"><a href=""></a>    student_id INT,</span>
+<span id="cb1-15"><a href=""></a>    course_id INT,</span>
+<span id="cb1-16"><a href=""></a>    FOREIGN KEY (student_id) REFERENCES students(student_id),</span>
+<span id="cb1-17"><a href=""></a>    FOREIGN KEY (course_id) REFERENCES courses(course_id),</span>
+<span id="cb1-18"><a href=""></a>    PRIMARY KEY (student_id, course_id)</span>
+<span id="cb1-19"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="font-size:0.70em;font-style:italic;padding-left:20px;margin-top:10px">
+<p>In the example above, we define two entities: students and courses, and establish a many-to-many relationship between them. The relationships are documented in a separate table with foreign keys. The individual rows in the student-courses table represent pairs of students and courses or “student-course tuples”.</p>
+</div>
+</div></div>
+</section>
+<section id="relational-model---attributes" class="slide level2">
+<h2>Relational Model - Attributes</h2>
+<div class="columns">
+<div class="column">
+<h3 id="attributes">Attributes</h3>
+<ul>
+<li><p>Attributes are represented as fields or columns.</p></li>
+<li><p>A <strong>domain</strong> is the set of allowed values for each field.</p></li>
+<li><p>Field values are (normally) required to be atomic (indivisible).</p></li>
+<li><p>A special value <strong>NULL</strong> is a member of every domain.</p></li>
+<li><p>The DB designer must specify whether NULL is allowed or not (NOT NULL)</p></li>
+<li><p>Attributes take on specific data types. A database DDL specifies the data types:</p>
+<ul>
+<li>Strings (VARCHAR, CHAR)</li>
+<li>Numeric (NUMBER, INTEGER, FLOAT)</li>
+<li>Date (DATE, DATETIME)</li>
+<li>Objects (BFILE)</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<h3 id="relation-notation">Relation Notation</h3>
+<p>Tables or entities can be represents in <strong>relation notation</strong>,</p>
+<ul>
+<li><em>relationName (ID, Att1, … , AttN)</em></li>
+</ul>
+<p>For example:</p>
+<ul>
+<li>student( id, name, year )</li>
+<li>course( id, title, credit_hours )</li>
+<li>student_course( id, student_id, course_id )</li>
+</ul>
+<p>We can also add modifiers to individual attributes:</p>
+<ul>
+<li>student( id [PK], name, year )</li>
+<li>course( <u>course_id</u>, title, credit_hours)</li>
+<li>student_course( <u>id</u>, student_id[FK], course_id[FK])</li>
+</ul>
+</div></div>
+</section>
+<section id="relational-model---attribute-example-with-data" class="slide level2">
+<h2>Relational Model - Attribute example with data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="questions">Questions</h3>
+<ul>
+<li><p>What is the domain for each field?</p></li>
+<li><p>Can you write the relation set for each table?</p></li>
+<li><p>Can you draw a Chen diagram for these tables?</p></li>
+<li><p>Can you draw a Crow’s Foot diagram for these tables?</p></li>
+<li><p>Does the column order matter?</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 286.50 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 154,-148 154,-130 8,-130"></polygon>
+<text text-anchor="start" x="59.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 109,-130 109,-112 8,-112"></polygon>
+<text text-anchor="start" x="45.44" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109,-112 109,-130 140,-130 140,-112 109,-112"></polygon>
+<text text-anchor="start" x="114.21" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140,-112 140,-130 154,-130 154,-112 140,-112"></polygon>
+<text text-anchor="start" x="142.56" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 109,-112 109,-94 8,-94"></polygon>
+<text text-anchor="start" x="11" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109,-94 109,-112 140,-112 140,-94 109,-94"></polygon>
+<text text-anchor="start" x="113.38" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140,-94 140,-112 154,-112 154,-94 140,-94"></polygon>
+<text text-anchor="start" x="144.22" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 109,-94 109,-76 8,-76"></polygon>
+<text text-anchor="start" x="10.7" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109,-76 109,-94 140,-94 140,-76 109,-76"></polygon>
+<text text-anchor="start" x="113.38" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140,-76 140,-94 154,-94 154,-76 140,-76"></polygon>
+<text text-anchor="start" x="144.22" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 109,-76 109,-58 8,-58"></polygon>
+<text text-anchor="start" x="11" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109,-58 109,-76 140,-76 140,-58 109,-58"></polygon>
+<text text-anchor="start" x="113.38" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140,-58 140,-76 154,-76 154,-58 140,-58"></polygon>
+<text text-anchor="start" x="144.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 109,-58 109,-40 8,-40"></polygon>
+<text text-anchor="start" x="11" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109,-40 109,-58 140,-58 140,-40 109,-40"></polygon>
+<text text-anchor="start" x="111.72" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-40 140,-58 154,-58 154,-40 140,-40"></polygon>
+<text text-anchor="start" x="144.22" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 109,-40 109,-22 8,-22"></polygon>
+<text text-anchor="start" x="11" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109,-22 109,-40 140,-40 140,-22 109,-22"></polygon>
+<text text-anchor="start" x="113.38" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140,-22 140,-40 154,-40 154,-22 140,-22"></polygon>
+<text text-anchor="start" x="144.22" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 109,-22 109,-4 8,-4"></polygon>
+<text text-anchor="start" x="11" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109,-4 109,-22 140,-22 140,-4 109,-4"></polygon>
+<text text-anchor="start" x="113.38" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140,-4 140,-22 154,-22 154,-4 140,-4"></polygon>
+<text text-anchor="start" x="144.22" y="-10" font-family="Arial" font-size="10.00">6</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 271,-121 271,-103 172,-103"></polygon>
+<text text-anchor="start" x="201.49" y="-110" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 186,-103 186,-85 172,-85"></polygon>
+<text text-anchor="start" x="174.56" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="186,-85 186,-103 238,-103 238,-85 186,-85"></polygon>
+<text text-anchor="start" x="198.94" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="238,-85 238,-103 271,-103 271,-85 238,-85"></polygon>
+<text text-anchor="start" x="240.61" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 186,-85 186,-67 172,-67"></polygon>
+<text text-anchor="start" x="176.22" y="-73" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="186,-67 186,-85 238,-85 238,-67 186,-67"></polygon>
+<text text-anchor="start" x="188.94" y="-73" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="238,-67 238,-85 271,-85 271,-67 238,-67"></polygon>
+<text text-anchor="start" x="251.72" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 186,-67 186,-49 172,-49"></polygon>
+<text text-anchor="start" x="176.22" y="-55" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="186,-49 186,-67 238,-67 238,-49 186,-49"></polygon>
+<text text-anchor="start" x="188.94" y="-55" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="238,-49 238,-67 271,-67 271,-49 238,-49"></polygon>
+<text text-anchor="start" x="251.72" y="-55" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 186,-49 186,-31 172,-31"></polygon>
+<text text-anchor="start" x="176.22" y="-37" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="186,-31 186,-49 238,-49 238,-31 186,-31"></polygon>
+<text text-anchor="start" x="188.94" y="-37" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="238,-31 238,-49 271,-49 271,-31 238,-31"></polygon>
+<text text-anchor="start" x="251.72" y="-37" font-family="Arial" font-size="10.00">3</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="relational-model---keys" class="slide level2">
+<h2>Relational Model - Keys</h2>
+<ul>
+<li>A <strong>key</strong> can be any field (or fields) in a table.</li>
+<li>A key is used to <strong>uniquely</strong> identify each tuple (or row or record).</li>
+<li>Keys can take on any data type.</li>
+<li>A record can have multiple keys, as long as they uniquely identify the record.
+<ul>
+<li>A <em>super key</em> is a key of any size (one or more fields)</li>
+<li>A <em>candidate key</em> is a key of minimal size (minimal number of fields)</li>
+<li>A <em>primary key</em> is selected <em>by the designer</em> from one of the <em>candidate key</em> to become the primary identifier of the tuples in the relation</li>
+</ul></li>
+<li>Any two tuples in the relation are prohibited from having the same value on the key attributes at the same time</li>
+<li><em>Primary keys</em> are typically size 1 but not necessarily.</li>
+<li>Every relation must have a primary key</li>
+<li>Keys are selected based on the intrinsic definition of the attributes, NOT on the existing values at any point in time</li>
+</ul>
+</section>
+<section id="relational-model---key-example-with-data" class="slide level2">
+<h2>Relational Model - Key example with data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="questions-1">Questions</h3>
+<ul>
+<li><p>What columns can uniquely identify each table?</p></li>
+<li><p>Can you identify <em>super keys</em> in each table?</p></li>
+<li><p>Can you identify <em>candidate keys</em> in each table?</p></li>
+<li><p>What is an appropriate <em>primary key</em> for each table?</p></li>
+<li><p>Would student.name be an appropriate key?</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 286.50 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 154,-148 154,-130 8,-130"></polygon>
+<text text-anchor="start" x="59.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 109,-130 109,-112 8,-112"></polygon>
+<text text-anchor="start" x="45.44" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109,-112 109,-130 140,-130 140,-112 109,-112"></polygon>
+<text text-anchor="start" x="114.21" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140,-112 140,-130 154,-130 154,-112 140,-112"></polygon>
+<text text-anchor="start" x="142.56" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 109,-112 109,-94 8,-94"></polygon>
+<text text-anchor="start" x="11" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109,-94 109,-112 140,-112 140,-94 109,-94"></polygon>
+<text text-anchor="start" x="113.38" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140,-94 140,-112 154,-112 154,-94 140,-94"></polygon>
+<text text-anchor="start" x="144.22" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 109,-94 109,-76 8,-76"></polygon>
+<text text-anchor="start" x="10.7" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109,-76 109,-94 140,-94 140,-76 109,-76"></polygon>
+<text text-anchor="start" x="113.38" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140,-76 140,-94 154,-94 154,-76 140,-76"></polygon>
+<text text-anchor="start" x="144.22" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 109,-76 109,-58 8,-58"></polygon>
+<text text-anchor="start" x="11" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109,-58 109,-76 140,-76 140,-58 109,-58"></polygon>
+<text text-anchor="start" x="113.38" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140,-58 140,-76 154,-76 154,-58 140,-58"></polygon>
+<text text-anchor="start" x="144.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 109,-58 109,-40 8,-40"></polygon>
+<text text-anchor="start" x="11" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109,-40 109,-58 140,-58 140,-40 109,-40"></polygon>
+<text text-anchor="start" x="111.72" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-40 140,-58 154,-58 154,-40 140,-40"></polygon>
+<text text-anchor="start" x="144.22" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 109,-40 109,-22 8,-22"></polygon>
+<text text-anchor="start" x="11" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109,-22 109,-40 140,-40 140,-22 109,-22"></polygon>
+<text text-anchor="start" x="113.38" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140,-22 140,-40 154,-40 154,-22 140,-22"></polygon>
+<text text-anchor="start" x="144.22" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 109,-22 109,-4 8,-4"></polygon>
+<text text-anchor="start" x="11" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109,-4 109,-22 140,-22 140,-4 109,-4"></polygon>
+<text text-anchor="start" x="113.38" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140,-4 140,-22 154,-22 154,-4 140,-4"></polygon>
+<text text-anchor="start" x="144.22" y="-10" font-family="Arial" font-size="10.00">6</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 271,-121 271,-103 172,-103"></polygon>
+<text text-anchor="start" x="201.49" y="-110" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 186,-103 186,-85 172,-85"></polygon>
+<text text-anchor="start" x="174.56" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="186,-85 186,-103 238,-103 238,-85 186,-85"></polygon>
+<text text-anchor="start" x="198.94" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="238,-85 238,-103 271,-103 271,-85 238,-85"></polygon>
+<text text-anchor="start" x="240.61" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 186,-85 186,-67 172,-67"></polygon>
+<text text-anchor="start" x="176.22" y="-73" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="186,-67 186,-85 238,-85 238,-67 186,-67"></polygon>
+<text text-anchor="start" x="188.94" y="-73" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="238,-67 238,-85 271,-85 271,-67 238,-67"></polygon>
+<text text-anchor="start" x="251.72" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 186,-67 186,-49 172,-49"></polygon>
+<text text-anchor="start" x="176.22" y="-55" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="186,-49 186,-67 238,-67 238,-49 186,-49"></polygon>
+<text text-anchor="start" x="188.94" y="-55" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="238,-49 238,-67 271,-67 271,-49 238,-49"></polygon>
+<text text-anchor="start" x="251.72" y="-55" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 186,-49 186,-31 172,-31"></polygon>
+<text text-anchor="start" x="176.22" y="-37" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="186,-31 186,-49 238,-49 238,-31 186,-31"></polygon>
+<text text-anchor="start" x="188.94" y="-37" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="238,-31 238,-49 271,-49 271,-31 238,-31"></polygon>
+<text text-anchor="start" x="251.72" y="-37" font-family="Arial" font-size="10.00">3</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="relational-model---relationships" class="slide level2">
+<h2>Relational Model - Relationships</h2>
+<p>Relationships between tables and rows are modeled by connecting individual records using their <em>keys</em>.</p>
+<p>A <em>foreign key</em> is a column(s) in a table that contains copies of the <em>keys</em> from another table referencing the related rows.</p>
+<p>A <em>foreign key</em> must contain valid references to existing records in an existing table or must be null.</p>
+<p>An attribute in a table can be simultaneously the primary key for that table and a foreign key referencing a column of another table</p>
+<p>Attributes which are FKs do not need to have the same name as the referenced key.</p>
+<p>Cardinalty and participation are represented through <em>foreign keys</em> and <em>integrity constraints</em>.</p>
+</section>
+<section id="relational-model---foreign-key-example" class="slide level2">
+<h2>Relational Model - Foreign Key Example</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="questions-2">Questions</h3>
+<ul>
+<li><p>What changed in the students table?</p></li>
+<li><p>What are the primary keys in each table?</p></li>
+<li><p>What is the column labled “crs_id”?</p></li>
+<li><p>What is the cardinality and participation of these tables?</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 392.00 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8.5,-130 8.5,-148 189.5,-148 189.5,-130 8.5,-130"></polygon>
+<text text-anchor="start" x="77.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8.5,-112 8.5,-130 109.5,-130 109.5,-112 8.5,-112"></polygon>
+<text text-anchor="start" x="45.94" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109.5,-112 109.5,-130 140.5,-130 140.5,-112 109.5,-112"></polygon>
+<text text-anchor="start" x="114.71" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140.5,-112 140.5,-130 154.5,-130 154.5,-112 140.5,-112"></polygon>
+<text text-anchor="start" x="143.06" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="154.5,-112 154.5,-130 189.5,-130 189.5,-112 154.5,-112"></polygon>
+<text text-anchor="start" x="157.27" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8.5,-94 8.5,-112 109.5,-112 109.5,-94 8.5,-94"></polygon>
+<text text-anchor="start" x="11.5" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109.5,-94 109.5,-112 140.5,-112 140.5,-94 109.5,-94"></polygon>
+<text text-anchor="start" x="113.88" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140.5,-94 140.5,-112 154.5,-112 154.5,-94 140.5,-94"></polygon>
+<text text-anchor="start" x="144.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="154.5,-94 154.5,-112 189.5,-112 189.5,-94 154.5,-94"></polygon>
+<text text-anchor="start" x="159.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-76 8.5,-94 109.5,-94 109.5,-76 8.5,-76"></polygon>
+<text text-anchor="start" x="11.2" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109.5,-76 109.5,-94 140.5,-94 140.5,-76 109.5,-76"></polygon>
+<text text-anchor="start" x="113.88" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140.5,-76 140.5,-94 154.5,-94 154.5,-76 140.5,-76"></polygon>
+<text text-anchor="start" x="144.72" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="154.5,-76 154.5,-94 189.5,-94 189.5,-76 154.5,-76"></polygon>
+<text text-anchor="start" x="169.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8.5,-58 8.5,-76 109.5,-76 109.5,-58 8.5,-58"></polygon>
+<text text-anchor="start" x="11.5" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109.5,-58 109.5,-76 140.5,-76 140.5,-58 109.5,-58"></polygon>
+<text text-anchor="start" x="113.88" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140.5,-58 140.5,-76 154.5,-76 154.5,-58 140.5,-58"></polygon>
+<text text-anchor="start" x="144.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="154.5,-58 154.5,-76 189.5,-76 189.5,-58 154.5,-58"></polygon>
+<text text-anchor="start" x="159.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-40 8.5,-58 109.5,-58 109.5,-40 8.5,-40"></polygon>
+<text text-anchor="start" x="11.5" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109.5,-40 109.5,-58 140.5,-58 140.5,-40 109.5,-40"></polygon>
+<text text-anchor="start" x="112.22" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140.5,-40 140.5,-58 154.5,-58 154.5,-40 140.5,-40"></polygon>
+<text text-anchor="start" x="144.72" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="154.5,-40 154.5,-58 189.5,-58 189.5,-40 154.5,-40"></polygon>
+<text text-anchor="start" x="169.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8.5,-22 8.5,-40 109.5,-40 109.5,-22 8.5,-22"></polygon>
+<text text-anchor="start" x="11.5" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109.5,-22 109.5,-40 140.5,-40 140.5,-22 109.5,-22"></polygon>
+<text text-anchor="start" x="113.88" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140.5,-22 140.5,-40 154.5,-40 154.5,-22 140.5,-22"></polygon>
+<text text-anchor="start" x="144.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="154.5,-22 154.5,-40 189.5,-40 189.5,-22 154.5,-22"></polygon>
+<text text-anchor="start" x="169.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8.5,-4 8.5,-22 109.5,-22 109.5,-4 8.5,-4"></polygon>
+<text text-anchor="start" x="11.5" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109.5,-4 109.5,-22 140.5,-22 140.5,-4 109.5,-4"></polygon>
+<text text-anchor="start" x="113.88" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140.5,-4 140.5,-22 154.5,-22 154.5,-4 140.5,-4"></polygon>
+<text text-anchor="start" x="144.72" y="-10" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="154.5,-4 154.5,-22 189.5,-22 189.5,-4 154.5,-4"></polygon>
+<text text-anchor="start" x="169.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="277.5,-103 277.5,-121 376.5,-121 376.5,-103 277.5,-103"></polygon>
+<text text-anchor="start" x="306.99" y="-110" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="277.5,-85 277.5,-103 291.5,-103 291.5,-85 277.5,-85"></polygon>
+<text text-anchor="start" x="280.06" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="291.5,-85 291.5,-103 343.5,-103 343.5,-85 291.5,-85"></polygon>
+<text text-anchor="start" x="304.44" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="343.5,-85 343.5,-103 376.5,-103 376.5,-85 343.5,-85"></polygon>
+<text text-anchor="start" x="346.11" y="-92" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="277.5,-67 277.5,-85 291.5,-85 291.5,-67 277.5,-67"></polygon>
+<text text-anchor="start" x="281.72" y="-73" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="291.5,-67 291.5,-85 343.5,-85 343.5,-67 291.5,-67"></polygon>
+<text text-anchor="start" x="294.44" y="-73" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="343.5,-67 343.5,-85 376.5,-85 376.5,-67 343.5,-67"></polygon>
+<text text-anchor="start" x="357.22" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-49 277.5,-67 291.5,-67 291.5,-49 277.5,-49"></polygon>
+<text text-anchor="start" x="281.72" y="-55" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="291.5,-49 291.5,-67 343.5,-67 343.5,-49 291.5,-49"></polygon>
+<text text-anchor="start" x="294.44" y="-55" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="343.5,-49 343.5,-67 376.5,-67 376.5,-49 343.5,-49"></polygon>
+<text text-anchor="start" x="357.22" y="-55" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-31 277.5,-49 291.5,-49 291.5,-31 277.5,-31"></polygon>
+<text text-anchor="start" x="281.72" y="-37" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="291.5,-31 291.5,-49 343.5,-49 343.5,-31 291.5,-31"></polygon>
+<text text-anchor="start" x="294.44" y="-37" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="343.5,-31 343.5,-49 376.5,-49 376.5,-31 343.5,-31"></polygon>
+<text text-anchor="start" x="357.22" y="-37" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M190.5,-85C228.93,-85 238.07,-76 276.5,-76"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M190.5,-49C228.93,-49 238.07,-58 276.5,-58"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-31C228.93,-31 238.07,-40 276.5,-40"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r6-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-13C230.56,-13 236.44,-40 276.5,-40"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="relational-model---foreign-key-example-1" class="slide level2">
+<h2>Relational Model - Foreign Key Example</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="questions-3">Questions</h3>
+<ul>
+<li><p>What changed in the students table?</p></li>
+<li><p>What are the primary keys in each table?</p></li>
+<li><p>What is the column labled “crs_id”?</p></li>
+<li><p>What is the cardinality and participation of these tables?</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 409.50 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8.5,-130 8.5,-148 189.5,-148 189.5,-130 8.5,-130"></polygon>
+<text text-anchor="start" x="77.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8.5,-112 8.5,-130 109.5,-130 109.5,-112 8.5,-112"></polygon>
+<text text-anchor="start" x="45.94" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109.5,-112 109.5,-130 140.5,-130 140.5,-112 109.5,-112"></polygon>
+<text text-anchor="start" x="114.71" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140.5,-112 140.5,-130 154.5,-130 154.5,-112 140.5,-112"></polygon>
+<text text-anchor="start" x="143.06" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="154.5,-112 154.5,-130 189.5,-130 189.5,-112 154.5,-112"></polygon>
+<text text-anchor="start" x="157.27" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8.5,-94 8.5,-112 109.5,-112 109.5,-94 8.5,-94"></polygon>
+<text text-anchor="start" x="11.5" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109.5,-94 109.5,-112 140.5,-112 140.5,-94 109.5,-94"></polygon>
+<text text-anchor="start" x="113.88" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140.5,-94 140.5,-112 154.5,-112 154.5,-94 140.5,-94"></polygon>
+<text text-anchor="start" x="144.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="154.5,-94 154.5,-112 189.5,-112 189.5,-94 154.5,-94"></polygon>
+<text text-anchor="start" x="159.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-76 8.5,-94 109.5,-94 109.5,-76 8.5,-76"></polygon>
+<text text-anchor="start" x="11.2" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109.5,-76 109.5,-94 140.5,-94 140.5,-76 109.5,-76"></polygon>
+<text text-anchor="start" x="113.88" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140.5,-76 140.5,-94 154.5,-94 154.5,-76 140.5,-76"></polygon>
+<text text-anchor="start" x="144.72" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="154.5,-76 154.5,-94 189.5,-94 189.5,-76 154.5,-76"></polygon>
+<text text-anchor="start" x="169.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8.5,-58 8.5,-76 109.5,-76 109.5,-58 8.5,-58"></polygon>
+<text text-anchor="start" x="11.5" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109.5,-58 109.5,-76 140.5,-76 140.5,-58 109.5,-58"></polygon>
+<text text-anchor="start" x="113.88" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140.5,-58 140.5,-76 154.5,-76 154.5,-58 140.5,-58"></polygon>
+<text text-anchor="start" x="144.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="154.5,-58 154.5,-76 189.5,-76 189.5,-58 154.5,-58"></polygon>
+<text text-anchor="start" x="159.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-40 8.5,-58 109.5,-58 109.5,-40 8.5,-40"></polygon>
+<text text-anchor="start" x="11.5" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109.5,-40 109.5,-58 140.5,-58 140.5,-40 109.5,-40"></polygon>
+<text text-anchor="start" x="112.22" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140.5,-40 140.5,-58 154.5,-58 154.5,-40 140.5,-40"></polygon>
+<text text-anchor="start" x="144.72" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="154.5,-40 154.5,-58 189.5,-58 189.5,-40 154.5,-40"></polygon>
+<text text-anchor="start" x="169.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8.5,-22 8.5,-40 109.5,-40 109.5,-22 8.5,-22"></polygon>
+<text text-anchor="start" x="11.5" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109.5,-22 109.5,-40 140.5,-40 140.5,-22 109.5,-22"></polygon>
+<text text-anchor="start" x="113.88" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140.5,-22 140.5,-40 154.5,-40 154.5,-22 140.5,-22"></polygon>
+<text text-anchor="start" x="144.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="154.5,-22 154.5,-40 189.5,-40 189.5,-22 154.5,-22"></polygon>
+<text text-anchor="start" x="169.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8.5,-4 8.5,-22 109.5,-22 109.5,-4 8.5,-4"></polygon>
+<text text-anchor="start" x="11.5" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109.5,-4 109.5,-22 140.5,-22 140.5,-4 109.5,-4"></polygon>
+<text text-anchor="start" x="113.88" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140.5,-4 140.5,-22 154.5,-22 154.5,-4 140.5,-4"></polygon>
+<text text-anchor="start" x="144.72" y="-10" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="154.5,-4 154.5,-22 189.5,-22 189.5,-4 154.5,-4"></polygon>
+<text text-anchor="start" x="169.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="277.5,-130 277.5,-148 393.5,-148 393.5,-130 277.5,-130"></polygon>
+<text text-anchor="start" x="315.49" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="277.5,-112 277.5,-130 308.5,-130 308.5,-112 277.5,-112"></polygon>
+<text text-anchor="start" x="288.56" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="308.5,-112 308.5,-130 360.5,-130 360.5,-112 308.5,-112"></polygon>
+<text text-anchor="start" x="321.44" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="360.5,-112 360.5,-130 393.5,-130 393.5,-112 360.5,-112"></polygon>
+<text text-anchor="start" x="363.11" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="277.5,-94 277.5,-112 308.5,-112 308.5,-94 277.5,-94"></polygon>
+<text text-anchor="start" x="280.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="308.5,-94 308.5,-112 360.5,-112 360.5,-94 308.5,-94"></polygon>
+<text text-anchor="start" x="321.72" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="360.5,-94 360.5,-112 393.5,-112 393.5,-94 360.5,-94"></polygon>
+<text text-anchor="start" x="364.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="277.5,-76 277.5,-94 308.5,-94 308.5,-76 277.5,-76"></polygon>
+<text text-anchor="start" x="290.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="308.5,-76 308.5,-94 360.5,-94 360.5,-76 308.5,-76"></polygon>
+<text text-anchor="start" x="311.44" y="-82" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="360.5,-76 360.5,-94 393.5,-94 393.5,-76 360.5,-76"></polygon>
+<text text-anchor="start" x="374.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-58 277.5,-76 308.5,-76 308.5,-58 277.5,-58"></polygon>
+<text text-anchor="start" x="280.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="308.5,-58 308.5,-76 360.5,-76 360.5,-58 308.5,-58"></polygon>
+<text text-anchor="start" x="321.72" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="360.5,-58 360.5,-76 393.5,-76 393.5,-58 360.5,-58"></polygon>
+<text text-anchor="start" x="364.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="277.5,-40 277.5,-58 308.5,-58 308.5,-40 277.5,-40"></polygon>
+<text text-anchor="start" x="290.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="308.5,-40 308.5,-58 360.5,-58 360.5,-40 308.5,-40"></polygon>
+<text text-anchor="start" x="311.44" y="-46" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="360.5,-40 360.5,-58 393.5,-58 393.5,-40 360.5,-40"></polygon>
+<text text-anchor="start" x="374.22" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-22 277.5,-40 308.5,-40 308.5,-22 277.5,-22"></polygon>
+<text text-anchor="start" x="290.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="308.5,-22 308.5,-40 360.5,-40 360.5,-22 308.5,-22"></polygon>
+<text text-anchor="start" x="311.44" y="-28" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="360.5,-22 360.5,-40 393.5,-40 393.5,-22 360.5,-22"></polygon>
+<text text-anchor="start" x="374.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-4 277.5,-22 308.5,-22 308.5,-4 277.5,-4"></polygon>
+<text text-anchor="start" x="290.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="308.5,-4 308.5,-22 360.5,-22 360.5,-4 308.5,-4"></polygon>
+<text text-anchor="start" x="311.44" y="-10" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="360.5,-4 360.5,-22 393.5,-22 393.5,-4 360.5,-4"></polygon>
+<text text-anchor="start" x="374.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M190.5,-85C228.72,-85 238.28,-85 276.5,-85"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M190.5,-49C228.72,-49 238.28,-49 276.5,-49"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-31C228.72,-31 238.28,-31 276.5,-31"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r6-&gt;course:c3a</title>
+<path fill="none" stroke="black" d="M190.5,-13C228.72,-13 238.28,-13 276.5,-13"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="relational-model---integrity-constraints" class="slide level2">
+<h2>Relational Model - Integrity Constraints</h2>
+<p>An <em>integrity constraint</em> is:</p>
+<ul>
+<li>a condition that must be true for every instance (row, record, tuple) in the relation (table).</li>
+<li>specified in the definition of the database schema</li>
+<li>verified by the DBMS at every CRUD operation (create, read, update, delete)</li>
+</ul>
+<div class="columns">
+<div class="column">
+<h3 id="domain-integrity">Domain integrity</h3>
+<ul>
+<li>ensure fields always contain the correct data</li>
+<li>by data type</li>
+<li>by length or size</li>
+<li>by negative values</li>
+<li>by closed set of allowed values</li>
+<li>by NULL or NOT NULL values</li>
+<li>by UNIQUE or not</li>
+</ul>
+</div><div class="column">
+<h3 id="referential-integrity">Referential integrity</h3>
+<ul>
+<li>maintains cardinality and participation</li>
+<li>primary keys must be unique</li>
+<li>foreign keys must exist</li>
+</ul>
+</div></div>
+<p>Using <em>integrity constraints</em> the DBMS will maintain a perfect state for your database. By specifying integrity constraints, a designer lets the DBMS do the work for them.</p>
+</section>
+<section id="relational-model---one-to-many-example" class="slide level2">
+<h2>Relational Model - One-to-Many example</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+
+    AUTHORS ||--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:80%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 547.00 178.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 174)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-148 8,-166 46,-166 46,-148 8,-148"></polygon>
+<text text-anchor="start" x="10.89" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="46,-148 46,-166 125,-166 125,-148 46,-148"></polygon>
+<text text-anchor="start" x="76.61" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="125,-148 125,-166 210,-166 210,-148 125,-148"></polygon>
+<text text-anchor="start" x="127.77" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="210,-148 210,-166 284,-166 284,-148 210,-148"></polygon>
+<text text-anchor="start" x="212.84" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">author_id (FK)</text>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 46,-148 46,-130 8,-130"></polygon>
+<text text-anchor="start" x="24.22" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="46,-130 46,-148 125,-148 125,-130 46,-130"></polygon>
+<text text-anchor="start" x="59.1" y="-136" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="125,-130 125,-148 210,-148 210,-130 125,-130"></polygon>
+<text text-anchor="start" x="141.92" y="-136" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="210,-130 210,-148 284,-148 284,-130 210,-130"></polygon>
+<text text-anchor="start" x="244.22" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 46,-130 46,-112 8,-112"></polygon>
+<text text-anchor="start" x="24.22" y="-118" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="46,-112 46,-130 125,-130 125,-112 46,-112"></polygon>
+<text text-anchor="start" x="64.65" y="-118" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="125,-112 125,-130 210,-130 210,-112 125,-112"></polygon>
+<text text-anchor="start" x="141.92" y="-118" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="210,-112 210,-130 284,-130 284,-112 210,-112"></polygon>
+<text text-anchor="start" x="244.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 46,-112 46,-94 8,-94"></polygon>
+<text text-anchor="start" x="24.22" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="46,-94 46,-112 125,-112 125,-94 46,-94"></polygon>
+<text text-anchor="start" x="59.38" y="-100" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="125,-94 125,-112 210,-112 210,-94 125,-94"></polygon>
+<text text-anchor="start" x="141.92" y="-100" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="210,-94 210,-112 284,-112 284,-94 210,-94"></polygon>
+<text text-anchor="start" x="244.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 46,-94 46,-76 8,-76"></polygon>
+<text text-anchor="start" x="24.22" y="-82" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="46,-76 46,-94 125,-94 125,-76 46,-76"></polygon>
+<text text-anchor="start" x="61.05" y="-82" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="125,-76 125,-94 210,-94 210,-76 125,-76"></polygon>
+<text text-anchor="start" x="141.92" y="-82" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="210,-76 210,-94 284,-94 284,-76 210,-76"></polygon>
+<text text-anchor="start" x="244.22" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 46,-76 46,-58 8,-58"></polygon>
+<text text-anchor="start" x="24.22" y="-64" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="46,-58 46,-76 125,-76 125,-58 46,-58"></polygon>
+<text text-anchor="start" x="48.54" y="-64" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="125,-58 125,-76 210,-76 210,-58 125,-58"></polygon>
+<text text-anchor="start" x="141.92" y="-64" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="210,-58 210,-76 284,-76 284,-58 210,-58"></polygon>
+<text text-anchor="start" x="244.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 46,-58 46,-40 8,-40"></polygon>
+<text text-anchor="start" x="24.22" y="-46" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="46,-40 46,-58 125,-58 125,-40 46,-40"></polygon>
+<text text-anchor="start" x="55.48" y="-46" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="125,-40 125,-58 210,-58 210,-40 125,-40"></polygon>
+<text text-anchor="start" x="141.92" y="-46" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="210,-40 210,-58 284,-58 284,-40 210,-40"></polygon>
+<text text-anchor="start" x="244.22" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 46,-40 46,-22 8,-22"></polygon>
+<text text-anchor="start" x="24.22" y="-28" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="46,-22 46,-40 125,-40 125,-22 46,-22"></polygon>
+<text text-anchor="start" x="53.26" y="-28" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="125,-22 125,-40 210,-40 210,-22 125,-22"></polygon>
+<text text-anchor="start" x="141.92" y="-28" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="210,-22 210,-40 284,-40 284,-22 210,-22"></polygon>
+<text text-anchor="start" x="244.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 46,-22 46,-4 8,-4"></polygon>
+<text text-anchor="start" x="24.22" y="-10" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="46,-4 46,-22 125,-22 125,-4 46,-4"></polygon>
+<text text-anchor="start" x="51.31" y="-10" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="125,-4 125,-22 210,-22 210,-4 125,-4"></polygon>
+<text text-anchor="start" x="141.92" y="-10" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="210,-4 210,-22 284,-22 284,-4 210,-4"></polygon>
+<text text-anchor="start" x="244.22" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="379,-121 379,-139 417,-139 417,-121 379,-121"></polygon>
+<text text-anchor="start" x="381.89" y="-128" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="417,-121 417,-139 474,-139 474,-121 417,-121"></polygon>
+<text text-anchor="start" x="432.44" y="-128" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="474,-121 474,-139 531,-139 531,-121 474,-121"></polygon>
+<text text-anchor="start" x="481.11" y="-128" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="379,-103 379,-121 417,-121 417,-103 379,-103"></polygon>
+<text text-anchor="start" x="395.22" y="-109" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="417,-103 417,-121 474,-121 474,-103 417,-103"></polygon>
+<text text-anchor="start" x="425.49" y="-109" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="474,-103 474,-121 531,-121 531,-103 474,-103"></polygon>
+<text text-anchor="start" x="476.92" y="-109" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="379,-85 379,-103 417,-103 417,-85 379,-85"></polygon>
+<text text-anchor="start" x="395.22" y="-91" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="417,-85 417,-103 474,-103 474,-85 417,-85"></polygon>
+<text text-anchor="start" x="419.66" y="-91" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="474,-85 474,-103 531,-103 531,-85 474,-85"></polygon>
+<text text-anchor="start" x="476.92" y="-91" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-67 379,-85 417,-85 417,-67 379,-67"></polygon>
+<text text-anchor="start" x="395.22" y="-73" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="417,-67 417,-85 474,-85 474,-67 417,-67"></polygon>
+<text text-anchor="start" x="434.11" y="-73" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="474,-67 474,-85 531,-85 531,-67 474,-67"></polygon>
+<text text-anchor="start" x="476.92" y="-73" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-49 379,-67 417,-67 417,-49 379,-49"></polygon>
+<text text-anchor="start" x="395.22" y="-55" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="417,-49 417,-67 474,-67 474,-49 417,-49"></polygon>
+<text text-anchor="start" x="431.6" y="-55" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="474,-49 474,-67 531,-67 531,-49 474,-49"></polygon>
+<text text-anchor="start" x="476.92" y="-55" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="379,-31 379,-49 417,-49 417,-31 379,-31"></polygon>
+<text text-anchor="start" x="395.22" y="-37" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="417,-31 417,-49 474,-49 474,-31 417,-31"></polygon>
+<text text-anchor="start" x="428" y="-37" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="474,-31 474,-49 531,-49 531,-31 474,-31"></polygon>
+<text text-anchor="start" x="476.92" y="-37" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M285,-139C328.04,-139 334.96,-112 378,-112"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge2" class="edge">
+<title>Books:f3-&gt;Authors:f2</title>
+<path fill="none" stroke="black" d="M285,-103C326.53,-103 336.47,-94 378,-94"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge3" class="edge">
+<title>Books:f4-&gt;Authors:f2</title>
+<path fill="none" stroke="black" d="M285,-85C326.53,-85 336.47,-94 378,-94"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge4" class="edge">
+<title>Books:f6-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M285,-49C334.92,-49 328.08,-112 378,-112"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge5" class="edge">
+<title>Books:f8-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M285,-13C328.04,-13 334.96,-40 378,-40"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge6" class="edge">
+<title>Books:f2-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-121C330.92,-121 332.08,-76 378,-76"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge7" class="edge">
+<title>Books:f5-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-67C326.53,-67 336.47,-76 378,-76"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge8" class="edge">
+<title>Books:f7-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-31C330.92,-31 332.08,-76 378,-76"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="questions-4">Questions</h3>
+<ul>
+<li>Does the ER diagram on the left match the tables on the right?</li>
+<li>How do we ensure partial or total participation?</li>
+<li>Write the detailed relation sets for this model.</li>
+<li>How would we modify the tables to create a many-to-many relationship?</li>
+</ul>
+</div></div>
+</section>
+<section id="relational-model---one-to-many-example-1" class="slide level2">
+<h2>Relational Model - One-to-Many example</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+
+    AUTHORS ||--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:80%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 547.00 196.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 192)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-166 8,-184 46,-184 46,-166 8,-166"></polygon>
+<text text-anchor="start" x="10.89" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="46,-166 46,-184 125,-184 125,-166 46,-166"></polygon>
+<text text-anchor="start" x="76.61" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="125,-166 125,-184 210,-184 210,-166 125,-166"></polygon>
+<text text-anchor="start" x="127.77" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="210,-166 210,-184 284,-184 284,-166 210,-166"></polygon>
+<text text-anchor="start" x="212.84" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">author_id (FK)</text>
+<polygon fill="none" stroke="cyan" points="8,-148 8,-166 46,-166 46,-148 8,-148"></polygon>
+<text text-anchor="start" x="24.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="46,-148 46,-166 125,-166 125,-148 46,-148"></polygon>
+<text text-anchor="start" x="59.1" y="-154" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="125,-148 125,-166 210,-166 210,-148 125,-148"></polygon>
+<text text-anchor="start" x="141.92" y="-154" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="210,-148 210,-166 284,-166 284,-148 210,-148"></polygon>
+<text text-anchor="start" x="244.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 46,-148 46,-130 8,-130"></polygon>
+<text text-anchor="start" x="24.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="46,-130 46,-148 125,-148 125,-130 46,-130"></polygon>
+<text text-anchor="start" x="64.65" y="-136" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="125,-130 125,-148 210,-148 210,-130 125,-130"></polygon>
+<text text-anchor="start" x="141.92" y="-136" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="210,-130 210,-148 284,-148 284,-130 210,-130"></polygon>
+<text text-anchor="start" x="244.22" y="-136" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 46,-130 46,-112 8,-112"></polygon>
+<text text-anchor="start" x="24.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="46,-112 46,-130 125,-130 125,-112 46,-112"></polygon>
+<text text-anchor="start" x="59.38" y="-118" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="125,-112 125,-130 210,-130 210,-112 125,-112"></polygon>
+<text text-anchor="start" x="141.92" y="-118" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="210,-112 210,-130 284,-130 284,-112 210,-112"></polygon>
+<text text-anchor="start" x="244.22" y="-118" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 46,-112 46,-94 8,-94"></polygon>
+<text text-anchor="start" x="24.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="46,-94 46,-112 125,-112 125,-94 46,-94"></polygon>
+<text text-anchor="start" x="61.05" y="-100" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="125,-94 125,-112 210,-112 210,-94 125,-94"></polygon>
+<text text-anchor="start" x="141.92" y="-100" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="210,-94 210,-112 284,-112 284,-94 210,-94"></polygon>
+<text text-anchor="start" x="244.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 46,-94 46,-76 8,-76"></polygon>
+<text text-anchor="start" x="24.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="46,-76 46,-94 125,-94 125,-76 46,-76"></polygon>
+<text text-anchor="start" x="48.54" y="-82" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="125,-76 125,-94 210,-94 210,-76 125,-76"></polygon>
+<text text-anchor="start" x="141.92" y="-82" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="210,-76 210,-94 284,-94 284,-76 210,-76"></polygon>
+<text text-anchor="start" x="244.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 46,-76 46,-58 8,-58"></polygon>
+<text text-anchor="start" x="24.22" y="-64" font-family="Arial" font-size="10.00">&nbsp;</text>
+<polygon fill="none" stroke="cyan" points="46,-58 46,-76 125,-76 125,-58 46,-58"></polygon>
+<polygon fill="none" stroke="cyan" points="125,-58 125,-76 210,-76 210,-58 125,-58"></polygon>
+<polygon fill="none" stroke="cyan" points="210,-58 210,-76 284,-76 284,-58 210,-58"></polygon>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 46,-58 46,-40 8,-40"></polygon>
+<text text-anchor="start" x="24.22" y="-46" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="46,-40 46,-58 125,-58 125,-40 46,-40"></polygon>
+<text text-anchor="start" x="55.48" y="-46" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="125,-40 125,-58 210,-58 210,-40 125,-40"></polygon>
+<text text-anchor="start" x="141.92" y="-46" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="210,-40 210,-58 284,-58 284,-40 210,-40"></polygon>
+<text text-anchor="start" x="244.22" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 46,-40 46,-22 8,-22"></polygon>
+<text text-anchor="start" x="24.22" y="-28" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="46,-22 46,-40 125,-40 125,-22 46,-22"></polygon>
+<text text-anchor="start" x="53.26" y="-28" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="125,-22 125,-40 210,-40 210,-22 125,-22"></polygon>
+<text text-anchor="start" x="141.92" y="-28" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="210,-22 210,-40 284,-40 284,-22 210,-22"></polygon>
+<text text-anchor="start" x="244.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 46,-22 46,-4 8,-4"></polygon>
+<text text-anchor="start" x="24.22" y="-10" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="46,-4 46,-22 125,-22 125,-4 46,-4"></polygon>
+<text text-anchor="start" x="51.31" y="-10" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="125,-4 125,-22 210,-22 210,-4 125,-4"></polygon>
+<text text-anchor="start" x="141.92" y="-10" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="210,-4 210,-22 284,-22 284,-4 210,-4"></polygon>
+<text text-anchor="start" x="244.22" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="379,-166 379,-184 417,-184 417,-166 379,-166"></polygon>
+<text text-anchor="start" x="381.89" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="417,-166 417,-184 474,-184 474,-166 417,-166"></polygon>
+<text text-anchor="start" x="432.44" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="474,-166 474,-184 531,-184 531,-166 474,-166"></polygon>
+<text text-anchor="start" x="481.11" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="379,-148 379,-166 417,-166 417,-148 379,-148"></polygon>
+<text text-anchor="start" x="395.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="417,-148 417,-166 474,-166 474,-148 417,-148"></polygon>
+<text text-anchor="start" x="425.49" y="-154" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="474,-148 474,-166 531,-166 531,-148 474,-148"></polygon>
+<text text-anchor="start" x="476.92" y="-154" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="379,-130 379,-148 417,-148 417,-130 379,-130"></polygon>
+<text text-anchor="start" x="395.22" y="-136" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="417,-130 417,-148 474,-148 474,-130 417,-130"></polygon>
+<text text-anchor="start" x="434.11" y="-136" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="474,-130 474,-148 531,-148 531,-130 474,-130"></polygon>
+<text text-anchor="start" x="476.92" y="-136" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-112 379,-130 417,-130 417,-112 379,-112"></polygon>
+<text text-anchor="start" x="395.22" y="-118" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="417,-112 417,-130 474,-130 474,-112 417,-112"></polygon>
+<text text-anchor="start" x="419.66" y="-118" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="474,-112 474,-130 531,-130 531,-112 474,-112"></polygon>
+<text text-anchor="start" x="476.92" y="-118" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-94 379,-112 417,-112 417,-94 379,-94"></polygon>
+<text text-anchor="start" x="395.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="417,-94 417,-112 474,-112 474,-94 417,-94"></polygon>
+<text text-anchor="start" x="419.66" y="-100" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="474,-94 474,-112 531,-112 531,-94 474,-94"></polygon>
+<text text-anchor="start" x="476.92" y="-100" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-76 379,-94 417,-94 417,-76 379,-76"></polygon>
+<text text-anchor="start" x="395.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="417,-76 417,-94 474,-94 474,-76 417,-76"></polygon>
+<text text-anchor="start" x="434.11" y="-82" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="474,-76 474,-94 531,-94 531,-76 474,-76"></polygon>
+<text text-anchor="start" x="476.92" y="-82" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-58 379,-76 417,-76 417,-58 379,-58"></polygon>
+<text text-anchor="start" x="395.22" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="417,-58 417,-76 474,-76 474,-58 417,-58"></polygon>
+<text text-anchor="start" x="431.6" y="-64" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="474,-58 474,-76 531,-76 531,-58 474,-58"></polygon>
+<text text-anchor="start" x="476.92" y="-64" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="379,-40 379,-58 417,-58 417,-40 379,-40"></polygon>
+<text text-anchor="start" x="395.22" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="417,-40 417,-58 474,-58 474,-40 417,-40"></polygon>
+<text text-anchor="start" x="425.49" y="-46" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="474,-40 474,-58 531,-58 531,-40 474,-40"></polygon>
+<text text-anchor="start" x="476.92" y="-46" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="379,-22 379,-40 417,-40 417,-22 379,-22"></polygon>
+<text text-anchor="start" x="395.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="417,-22 417,-40 474,-40 474,-22 417,-22"></polygon>
+<text text-anchor="start" x="434.11" y="-28" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="474,-22 474,-40 531,-40 531,-22 474,-22"></polygon>
+<text text-anchor="start" x="476.92" y="-28" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="379,-4 379,-22 417,-22 417,-4 379,-4"></polygon>
+<text text-anchor="start" x="395.22" y="-10" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="417,-4 417,-22 474,-22 474,-4 417,-4"></polygon>
+<text text-anchor="start" x="428" y="-10" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="474,-4 474,-22 531,-22 531,-4 474,-4"></polygon>
+<text text-anchor="start" x="476.92" y="-10" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M285,-157C326.33,-157 336.67,-157 378,-157"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge2" class="edge">
+<title>Books:f3-&gt;Authors:f2</title>
+<path fill="none" stroke="black" d="M285,-121C326.33,-121 336.67,-121 378,-121"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge3" class="edge">
+<title>Books:f4-&gt;Authors:f2a</title>
+<path fill="none" stroke="black" d="M285,-103C326.33,-103 336.67,-103 378,-103"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge4" class="edge">
+<title>Books:f6-&gt;Authors:f1a</title>
+<path fill="none" stroke="black" d="M285,-49C326.33,-49 336.67,-49 378,-49"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge5" class="edge">
+<title>Books:f8-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M285,-13C326.33,-13 336.67,-13 378,-13"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge6" class="edge">
+<title>Books:f2-&gt;Authors:f3b</title>
+<path fill="none" stroke="black" d="M285,-139C326.33,-139 336.67,-139 378,-139"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge7" class="edge">
+<title>Books:f5-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M285,-85C326.33,-85 336.67,-85 378,-85"></path>
+</g>
+<!-- Books&#45;&gt;Authors -->
+<g id="edge8" class="edge">
+<title>Books:f7-&gt;Authors:f3a</title>
+<path fill="none" stroke="black" d="M285,-31C326.33,-31 336.67,-31 378,-31"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="questions-5">Questions</h3>
+<ul>
+<li>Does the ER diagram on the left match the tables on the right?</li>
+<li>How do we ensure partial or total participation?</li>
+<li>Write the detailed relation sets for this model.</li>
+<li>How would we modify the tables to create a many-to-many relationship?</li>
+</ul>
+</div></div>
+</section>
+<section id="relational-model---many-to-many-example" class="slide level2">
+<h2>Relational Model - Many-to-Many example</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+
+    AUTHORS }|--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:80%;">
+<div class="cell" data-fig-width="600px" data-fig-height="275px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="600" height="275" viewbox="0.00 0.00 656.00 214.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 210)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-175 8,-193 188,-193 188,-175 8,-175"></polygon>
+<text text-anchor="start" x="86.6" y="-181" font-family="Arial" font-size="10.00">Book</text>
+<polygon fill="none" stroke="cyan" points="8,-157 8,-175 87,-175 87,-157 8,-157"></polygon>
+<text text-anchor="start" x="38.61" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="87,-157 87,-175 172,-175 172,-157 87,-157"></polygon>
+<text text-anchor="start" x="89.77" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="172,-157 172,-175 188,-175 188,-157 172,-157"></polygon>
+<text text-anchor="start" x="175" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">ID</text>
+<polygon fill="none" stroke="cyan" points="8,-139 8,-157 87,-157 87,-139 8,-139"></polygon>
+<text text-anchor="start" x="21.1" y="-145" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="87,-139 87,-157 172,-157 172,-139 87,-139"></polygon>
+<text text-anchor="start" x="103.92" y="-145" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="172,-139 172,-157 188,-157 188,-139 172,-139"></polygon>
+<text text-anchor="start" x="177.22" y="-145" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-121 8,-139 87,-139 87,-121 8,-121"></polygon>
+<text text-anchor="start" x="26.65" y="-127" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="87,-121 87,-139 172,-139 172,-121 87,-121"></polygon>
+<text text-anchor="start" x="103.92" y="-127" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="172,-121 172,-139 188,-139 188,-121 172,-121"></polygon>
+<text text-anchor="start" x="177.22" y="-127" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-103 8,-121 87,-121 87,-103 8,-103"></polygon>
+<text text-anchor="start" x="21.38" y="-109" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="87,-103 87,-121 172,-121 172,-103 87,-103"></polygon>
+<text text-anchor="start" x="103.92" y="-109" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 188,-121 188,-103 172,-103"></polygon>
+<text text-anchor="start" x="177.22" y="-109" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-85 8,-103 87,-103 87,-85 8,-85"></polygon>
+<text text-anchor="start" x="23.05" y="-91" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="87,-85 87,-103 172,-103 172,-85 87,-85"></polygon>
+<text text-anchor="start" x="103.92" y="-91" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 188,-103 188,-85 172,-85"></polygon>
+<text text-anchor="start" x="177.22" y="-91" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-67 8,-85 87,-85 87,-67 8,-67"></polygon>
+<text text-anchor="start" x="10.54" y="-73" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="87,-67 87,-85 172,-85 172,-67 87,-67"></polygon>
+<text text-anchor="start" x="103.92" y="-73" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 188,-85 188,-67 172,-67"></polygon>
+<text text-anchor="start" x="177.22" y="-73" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-49 8,-67 87,-67 87,-49 8,-49"></polygon>
+<text text-anchor="start" x="17.48" y="-55" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="87,-49 87,-67 172,-67 172,-49 87,-49"></polygon>
+<text text-anchor="start" x="103.92" y="-55" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 188,-67 188,-49 172,-49"></polygon>
+<text text-anchor="start" x="177.22" y="-55" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="8,-31 8,-49 87,-49 87,-31 8,-31"></polygon>
+<text text-anchor="start" x="15.26" y="-37" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="87,-31 87,-49 172,-49 172,-31 87,-31"></polygon>
+<text text-anchor="start" x="103.92" y="-37" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 188,-49 188,-31 172,-31"></polygon>
+<text text-anchor="start" x="177.22" y="-37" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="8,-13 8,-31 87,-31 87,-13 8,-13"></polygon>
+<text text-anchor="start" x="13.31" y="-19" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="87,-13 87,-31 172,-31 172,-13 87,-13"></polygon>
+<text text-anchor="start" x="103.92" y="-19" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="172,-13 172,-31 188,-31 188,-13 172,-13"></polygon>
+<text text-anchor="start" x="177.22" y="-19" font-family="Arial" font-size="10.00">8</text>
+</g>
+<!-- bk_auth -->
+<g id="node3" class="node">
+<title>bk_auth</title>
+<polygon fill="none" stroke="cyan" points="284,-184 284,-202 393,-202 393,-184 284,-184"></polygon>
+<text text-anchor="start" x="309.59" y="-190" font-family="Arial" font-size="10.00">Book_Author</text>
+<polygon fill="none" stroke="cyan" points="284,-166 284,-184 328,-184 328,-166 284,-166"></polygon>
+<text text-anchor="start" x="286.83" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">book_id</text>
+<polygon fill="none" stroke="cyan" points="328,-166 328,-184 342,-184 342,-166 328,-166"></polygon>
+<text text-anchor="start" x="330.56" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="342,-166 342,-184 393,-184 393,-166 342,-166"></polygon>
+<text text-anchor="start" x="344.72" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">author_id</text>
+<polygon fill="none" stroke="cyan" points="284,-148 284,-166 328,-166 328,-148 284,-148"></polygon>
+<text text-anchor="start" x="303.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="328,-148 328,-166 342,-166 342,-148 328,-148"></polygon>
+<text text-anchor="start" x="332.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="342,-148 342,-166 393,-166 393,-148 342,-148"></polygon>
+<text text-anchor="start" x="364.72" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-130 284,-148 328,-148 328,-130 284,-130"></polygon>
+<text text-anchor="start" x="303.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="328,-130 328,-148 342,-148 342,-130 328,-130"></polygon>
+<text text-anchor="start" x="332.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="342,-130 342,-148 393,-148 393,-130 342,-130"></polygon>
+<text text-anchor="start" x="364.72" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-112 284,-130 328,-130 328,-112 284,-112"></polygon>
+<text text-anchor="start" x="303.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="328,-112 328,-130 342,-130 342,-112 328,-112"></polygon>
+<text text-anchor="start" x="332.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="342,-112 342,-130 393,-130 393,-112 342,-112"></polygon>
+<text text-anchor="start" x="364.72" y="-118" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-94 284,-112 328,-112 328,-94 284,-94"></polygon>
+<text text-anchor="start" x="303.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="328,-94 328,-112 342,-112 342,-94 328,-94"></polygon>
+<text text-anchor="start" x="332.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="342,-94 342,-112 393,-112 393,-94 342,-94"></polygon>
+<text text-anchor="start" x="364.72" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-76 284,-94 328,-94 328,-76 284,-76"></polygon>
+<text text-anchor="start" x="303.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="328,-76 328,-94 342,-94 342,-76 328,-76"></polygon>
+<text text-anchor="start" x="332.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="342,-76 342,-94 393,-94 393,-76 342,-76"></polygon>
+<text text-anchor="start" x="364.72" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-58 284,-76 328,-76 328,-58 284,-58"></polygon>
+<text text-anchor="start" x="303.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="328,-58 328,-76 342,-76 342,-58 328,-58"></polygon>
+<text text-anchor="start" x="332.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="342,-58 342,-76 393,-76 393,-58 342,-58"></polygon>
+<text text-anchor="start" x="364.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-40 284,-58 328,-58 328,-40 284,-40"></polygon>
+<text text-anchor="start" x="303.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="328,-40 328,-58 342,-58 342,-40 328,-40"></polygon>
+<text text-anchor="start" x="332.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="342,-40 342,-58 393,-58 393,-40 342,-40"></polygon>
+<text text-anchor="start" x="364.72" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-22 284,-40 328,-40 328,-22 284,-22"></polygon>
+<text text-anchor="start" x="303.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="328,-22 328,-40 342,-40 342,-22 328,-22"></polygon>
+<text text-anchor="start" x="332.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="342,-22 342,-40 393,-40 393,-22 342,-22"></polygon>
+<text text-anchor="start" x="364.72" y="-28" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="284,-4 284,-22 328,-22 328,-4 284,-4"></polygon>
+<text text-anchor="start" x="303.22" y="-10" font-family="Arial" font-size="10.00">9</text>
+<polygon fill="none" stroke="cyan" points="328,-4 328,-22 342,-22 342,-4 328,-4"></polygon>
+<text text-anchor="start" x="332.22" y="-10" font-family="Arial" font-size="10.00">9</text>
+<polygon fill="none" stroke="cyan" points="342,-4 342,-22 393,-22 393,-4 342,-4"></polygon>
+<text text-anchor="start" x="364.72" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;bk_auth:l1</title>
+<path fill="none" stroke="black" d="M189,-148C230.97,-148 241.03,-157 283,-157"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge2" class="edge">
+<title>Books:f2-&gt;bk_auth:l2</title>
+<path fill="none" stroke="black" d="M189,-130C230.97,-130 241.03,-139 283,-139"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge3" class="edge">
+<title>Books:f3-&gt;bk_auth:l3</title>
+<path fill="none" stroke="black" d="M189,-112C230.97,-112 241.03,-121 283,-121"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge4" class="edge">
+<title>Books:f4-&gt;bk_auth:l4</title>
+<path fill="none" stroke="black" d="M189,-94C230.97,-94 241.03,-103 283,-103"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge5" class="edge">
+<title>Books:f5-&gt;bk_auth:l5</title>
+<path fill="none" stroke="black" d="M189,-76C230.97,-76 241.03,-85 283,-85"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge6" class="edge">
+<title>Books:f6-&gt;bk_auth:l6</title>
+<path fill="none" stroke="black" d="M189,-58C230.97,-58 241.03,-67 283,-67"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge7" class="edge">
+<title>Books:f7-&gt;bk_auth:l7</title>
+<path fill="none" stroke="black" d="M189,-40C230.97,-40 241.03,-49 283,-49"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge8" class="edge">
+<title>Books:f8-&gt;bk_auth:l8</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-31 283,-31"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge9" class="edge">
+<title>Books:f8-&gt;bk_auth:l9</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-13 283,-13"></path>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="488,-148 488,-166 640,-166 640,-148 488,-148"></polygon>
+<text text-anchor="start" x="549.27" y="-154" font-family="Arial" font-size="10.00">Author</text>
+<polygon fill="none" stroke="cyan" points="488,-130 488,-148 526,-148 526,-130 488,-130"></polygon>
+<text text-anchor="start" x="490.89" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="526,-130 526,-148 583,-148 583,-130 526,-130"></polygon>
+<text text-anchor="start" x="541.44" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="583,-130 583,-148 640,-148 640,-130 583,-130"></polygon>
+<text text-anchor="start" x="590.11" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="488,-112 488,-130 526,-130 526,-112 488,-112"></polygon>
+<text text-anchor="start" x="504.22" y="-118" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="526,-112 526,-130 583,-130 583,-112 526,-112"></polygon>
+<text text-anchor="start" x="534.49" y="-118" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="583,-112 583,-130 640,-130 640,-112 583,-112"></polygon>
+<text text-anchor="start" x="585.92" y="-118" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="488,-94 488,-112 526,-112 526,-94 488,-94"></polygon>
+<text text-anchor="start" x="504.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="526,-94 526,-112 583,-112 583,-94 526,-94"></polygon>
+<text text-anchor="start" x="528.66" y="-100" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="583,-94 583,-112 640,-112 640,-94 583,-94"></polygon>
+<text text-anchor="start" x="585.92" y="-100" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-76 488,-94 526,-94 526,-76 488,-76"></polygon>
+<text text-anchor="start" x="504.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="526,-76 526,-94 583,-94 583,-76 526,-76"></polygon>
+<text text-anchor="start" x="543.11" y="-82" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="583,-76 583,-94 640,-94 640,-76 583,-76"></polygon>
+<text text-anchor="start" x="585.92" y="-82" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-58 488,-76 526,-76 526,-58 488,-58"></polygon>
+<text text-anchor="start" x="504.22" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="526,-58 526,-76 583,-76 583,-58 526,-58"></polygon>
+<text text-anchor="start" x="540.6" y="-64" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="583,-58 583,-76 640,-76 640,-58 583,-58"></polygon>
+<text text-anchor="start" x="585.92" y="-64" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="488,-40 488,-58 526,-58 526,-40 488,-40"></polygon>
+<text text-anchor="start" x="504.22" y="-46" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="526,-40 526,-58 583,-58 583,-40 526,-40"></polygon>
+<text text-anchor="start" x="537" y="-46" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="583,-40 583,-58 640,-58 640,-40 583,-40"></polygon>
+<text text-anchor="start" x="585.92" y="-46" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge10" class="edge">
+<title>bk_auth:r1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-157C438.32,-157 442.68,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge11" class="edge">
+<title>bk_auth:r2-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-139C436.1,-139 444.9,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge12" class="edge">
+<title>bk_auth:r8-&gt;Authors:f4</title>
+<path fill="none" stroke="black" d="M394,-31C438.32,-31 442.68,-67 487,-67"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge13" class="edge">
+<title>bk_auth:r9-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-13C438.32,-13 442.68,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge14" class="edge">
+<title>bk_auth:r4-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-103C436.1,-103 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge15" class="edge">
+<title>bk_auth:r6-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-67C436.1,-67 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge16" class="edge">
+<title>bk_auth:r7-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-49C446.27,-49 434.73,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge17" class="edge">
+<title>bk_auth:r3-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-121C446.27,-121 434.73,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge18" class="edge">
+<title>bk_auth:r5-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-85C438.32,-85 442.68,-49 487,-49"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="detailed-relation-sets">Detailed relation sets</h3>
+<ul>
+<li><p>book(id [PK], title [NOT NULL], publication_date [NOT NULL])</p></li>
+<li><p>author( id[PK], name [NOT NULL], birthdate [NOT NULL])</p></li>
+<li><p>book_author( id [PK], book_id [FK,NOT NULL], author_id [FK,NOT NULL])<br> &nbsp;&nbsp; FK(book_id) references (book.id) <br> &nbsp;&nbsp; FK(author_id) references (author.id)</p></li>
+</ul>
+</div></div>
+</section>
+<section id="relational-model---many-to-many-example-1" class="slide level2">
+<h2>Relational Model - Many-to-Many example</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+
+    AUTHORS }|--o{ BOOKS : "have"
+    
+    AUTHORS {
+        int id
+        string name
+        date birthdate
+    }
+    
+    BOOKS {
+        int id
+        string title
+        date publication_date
+        int author_id
+    }
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:80%;">
+<div class="cell" data-fig-width="600px" data-fig-height="275px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="600" height="275" viewbox="0.00 0.00 656.00 214.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 210)">
+<title>RelationalDataModel</title>
+<!-- Books -->
+<g id="node1" class="node">
+<title>Books</title>
+<polygon fill="none" stroke="cyan" points="8,-175 8,-193 188,-193 188,-175 8,-175"></polygon>
+<text text-anchor="start" x="86.6" y="-181" font-family="Arial" font-size="10.00">Book</text>
+<polygon fill="none" stroke="cyan" points="8,-157 8,-175 87,-175 87,-157 8,-157"></polygon>
+<text text-anchor="start" x="38.61" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">title</text>
+<polygon fill="none" stroke="cyan" points="87,-157 87,-175 172,-175 172,-157 87,-157"></polygon>
+<text text-anchor="start" x="89.77" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">publication_date</text>
+<polygon fill="none" stroke="cyan" points="172,-157 172,-175 188,-175 188,-157 172,-157"></polygon>
+<text text-anchor="start" x="175" y="-164" font-family="Arial" font-weight="bold" font-size="10.00">ID</text>
+<polygon fill="none" stroke="cyan" points="8,-139 8,-157 87,-157 87,-139 8,-139"></polygon>
+<text text-anchor="start" x="21.1" y="-145" font-family="Arial" font-size="10.00">Happy days</text>
+<polygon fill="none" stroke="cyan" points="87,-139 87,-157 172,-157 172,-139 87,-139"></polygon>
+<text text-anchor="start" x="103.92" y="-145" font-family="Arial" font-size="10.00">2000-01-01</text>
+<polygon fill="none" stroke="cyan" points="172,-139 172,-157 188,-157 188,-139 172,-139"></polygon>
+<text text-anchor="start" x="177.22" y="-145" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-121 8,-139 87,-139 87,-121 8,-121"></polygon>
+<text text-anchor="start" x="26.65" y="-127" font-family="Arial" font-size="10.00">Sad days</text>
+<polygon fill="none" stroke="cyan" points="87,-121 87,-139 172,-139 172,-121 87,-121"></polygon>
+<text text-anchor="start" x="103.92" y="-127" font-family="Arial" font-size="10.00">2005-06-15</text>
+<polygon fill="none" stroke="cyan" points="172,-121 172,-139 188,-139 188,-121 172,-121"></polygon>
+<text text-anchor="start" x="177.22" y="-127" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-103 8,-121 87,-121 87,-103 8,-103"></polygon>
+<text text-anchor="start" x="21.38" y="-109" font-family="Arial" font-size="10.00">Jason Days</text>
+<polygon fill="none" stroke="cyan" points="87,-103 87,-121 172,-121 172,-103 87,-103"></polygon>
+<text text-anchor="start" x="103.92" y="-109" font-family="Arial" font-size="10.00">2010-03-10</text>
+<polygon fill="none" stroke="cyan" points="172,-103 172,-121 188,-121 188,-103 172,-103"></polygon>
+<text text-anchor="start" x="177.22" y="-109" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-85 8,-103 87,-103 87,-85 8,-85"></polygon>
+<text text-anchor="start" x="23.05" y="-91" font-family="Arial" font-size="10.00">Craw Days</text>
+<polygon fill="none" stroke="cyan" points="87,-85 87,-103 172,-103 172,-85 87,-85"></polygon>
+<text text-anchor="start" x="103.92" y="-91" font-family="Arial" font-size="10.00">2015-04-31</text>
+<polygon fill="none" stroke="cyan" points="172,-85 172,-103 188,-103 188,-85 172,-85"></polygon>
+<text text-anchor="start" x="177.22" y="-91" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="8,-67 8,-85 87,-85 87,-67 8,-67"></polygon>
+<text text-anchor="start" x="10.54" y="-73" font-family="Arial" font-size="10.00">Days of Thunder</text>
+<polygon fill="none" stroke="cyan" points="87,-67 87,-85 172,-85 172,-67 87,-67"></polygon>
+<text text-anchor="start" x="103.92" y="-73" font-family="Arial" font-size="10.00">2022-01-23</text>
+<polygon fill="none" stroke="cyan" points="172,-67 172,-85 188,-85 188,-67 172,-67"></polygon>
+<text text-anchor="start" x="177.22" y="-73" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="8,-49 8,-67 87,-67 87,-49 8,-49"></polygon>
+<text text-anchor="start" x="17.48" y="-55" font-family="Arial" font-size="10.00">Thunder road</text>
+<polygon fill="none" stroke="cyan" points="87,-49 87,-67 172,-67 172,-49 87,-49"></polygon>
+<text text-anchor="start" x="103.92" y="-55" font-family="Arial" font-size="10.00">2021-12-01</text>
+<polygon fill="none" stroke="cyan" points="172,-49 172,-67 188,-67 188,-49 172,-49"></polygon>
+<text text-anchor="start" x="177.22" y="-55" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="8,-31 8,-49 87,-49 87,-31 8,-31"></polygon>
+<text text-anchor="start" x="15.26" y="-37" font-family="Arial" font-size="10.00">Road of plenty</text>
+<polygon fill="none" stroke="cyan" points="87,-31 87,-49 172,-49 172,-31 87,-31"></polygon>
+<text text-anchor="start" x="103.92" y="-37" font-family="Arial" font-size="10.00">2011-02-21</text>
+<polygon fill="none" stroke="cyan" points="172,-31 172,-49 188,-49 188,-31 172,-31"></polygon>
+<text text-anchor="start" x="177.22" y="-37" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="8,-13 8,-31 87,-31 87,-13 8,-13"></polygon>
+<text text-anchor="start" x="13.31" y="-19" font-family="Arial" font-size="10.00">Plenty of what?</text>
+<polygon fill="none" stroke="cyan" points="87,-13 87,-31 172,-31 172,-13 87,-13"></polygon>
+<text text-anchor="start" x="103.92" y="-19" font-family="Arial" font-size="10.00">2013-01-12</text>
+<polygon fill="none" stroke="cyan" points="172,-13 172,-31 188,-31 188,-13 172,-13"></polygon>
+<text text-anchor="start" x="177.22" y="-19" font-family="Arial" font-size="10.00">8</text>
+</g>
+<!-- bk_auth -->
+<g id="node3" class="node">
+<title>bk_auth</title>
+<polygon fill="none" stroke="cyan" points="284,-184 284,-202 393,-202 393,-184 284,-184"></polygon>
+<text text-anchor="start" x="309.59" y="-190" font-family="Arial" font-size="10.00">Book_Author</text>
+<polygon fill="none" stroke="cyan" points="284,-166 284,-184 328,-184 328,-166 284,-166"></polygon>
+<text text-anchor="start" x="286.83" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">book_id</text>
+<polygon fill="none" stroke="cyan" points="328,-166 328,-184 342,-184 342,-166 328,-166"></polygon>
+<text text-anchor="start" x="330.56" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="342,-166 342,-184 393,-184 393,-166 342,-166"></polygon>
+<text text-anchor="start" x="344.72" y="-173" font-family="Arial" font-weight="bold" font-size="10.00">author_id</text>
+<polygon fill="none" stroke="cyan" points="284,-148 284,-166 328,-166 328,-148 284,-148"></polygon>
+<text text-anchor="start" x="303.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="328,-148 328,-166 342,-166 342,-148 328,-148"></polygon>
+<text text-anchor="start" x="332.22" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="342,-148 342,-166 393,-166 393,-148 342,-148"></polygon>
+<text text-anchor="start" x="364.72" y="-154" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-130 284,-148 328,-148 328,-130 284,-130"></polygon>
+<text text-anchor="start" x="303.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="328,-130 328,-148 342,-148 342,-130 328,-130"></polygon>
+<text text-anchor="start" x="332.22" y="-136" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="342,-130 342,-148 393,-148 393,-130 342,-130"></polygon>
+<text text-anchor="start" x="364.72" y="-136" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-112 284,-130 328,-130 328,-112 284,-112"></polygon>
+<text text-anchor="start" x="303.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="328,-112 328,-130 342,-130 342,-112 328,-112"></polygon>
+<text text-anchor="start" x="332.22" y="-118" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="342,-112 342,-130 393,-130 393,-112 342,-112"></polygon>
+<text text-anchor="start" x="364.72" y="-118" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-94 284,-112 328,-112 328,-94 284,-94"></polygon>
+<text text-anchor="start" x="303.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="328,-94 328,-112 342,-112 342,-94 328,-94"></polygon>
+<text text-anchor="start" x="332.22" y="-100" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="342,-94 342,-112 393,-112 393,-94 342,-94"></polygon>
+<text text-anchor="start" x="364.72" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-76 284,-94 328,-94 328,-76 284,-76"></polygon>
+<text text-anchor="start" x="303.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="328,-76 328,-94 342,-94 342,-76 328,-76"></polygon>
+<text text-anchor="start" x="332.22" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="342,-76 342,-94 393,-94 393,-76 342,-76"></polygon>
+<text text-anchor="start" x="364.72" y="-82" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="284,-58 284,-76 328,-76 328,-58 284,-58"></polygon>
+<text text-anchor="start" x="303.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="328,-58 328,-76 342,-76 342,-58 328,-58"></polygon>
+<text text-anchor="start" x="332.22" y="-64" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="342,-58 342,-76 393,-76 393,-58 342,-58"></polygon>
+<text text-anchor="start" x="364.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="284,-40 284,-58 328,-58 328,-40 284,-40"></polygon>
+<text text-anchor="start" x="303.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="328,-40 328,-58 342,-58 342,-40 328,-40"></polygon>
+<text text-anchor="start" x="332.22" y="-46" font-family="Arial" font-size="10.00">7</text>
+<polygon fill="none" stroke="cyan" points="342,-40 342,-58 393,-58 393,-40 342,-40"></polygon>
+<text text-anchor="start" x="364.72" y="-46" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="284,-22 284,-40 328,-40 328,-22 284,-22"></polygon>
+<text text-anchor="start" x="303.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="328,-22 328,-40 342,-40 342,-22 328,-22"></polygon>
+<text text-anchor="start" x="332.22" y="-28" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="342,-22 342,-40 393,-40 393,-22 342,-22"></polygon>
+<text text-anchor="start" x="364.72" y="-28" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="284,-4 284,-22 328,-22 328,-4 284,-4"></polygon>
+<text text-anchor="start" x="303.22" y="-10" font-family="Arial" font-size="10.00">8</text>
+<polygon fill="none" stroke="cyan" points="328,-4 328,-22 342,-22 342,-4 328,-4"></polygon>
+<text text-anchor="start" x="332.22" y="-10" font-family="Arial" font-size="10.00">9</text>
+<polygon fill="none" stroke="cyan" points="342,-4 342,-22 393,-22 393,-4 342,-4"></polygon>
+<text text-anchor="start" x="364.72" y="-10" font-family="Arial" font-size="10.00">5</text>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge1" class="edge">
+<title>Books:f1-&gt;bk_auth:l1</title>
+<path fill="none" stroke="black" d="M189,-148C230.97,-148 241.03,-157 283,-157"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge2" class="edge">
+<title>Books:f2-&gt;bk_auth:l2</title>
+<path fill="none" stroke="black" d="M189,-130C230.97,-130 241.03,-139 283,-139"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge3" class="edge">
+<title>Books:f3-&gt;bk_auth:l3</title>
+<path fill="none" stroke="black" d="M189,-112C230.97,-112 241.03,-121 283,-121"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge4" class="edge">
+<title>Books:f4-&gt;bk_auth:l4</title>
+<path fill="none" stroke="black" d="M189,-94C230.97,-94 241.03,-103 283,-103"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge5" class="edge">
+<title>Books:f5-&gt;bk_auth:l5</title>
+<path fill="none" stroke="black" d="M189,-76C230.97,-76 241.03,-85 283,-85"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge6" class="edge">
+<title>Books:f6-&gt;bk_auth:l6</title>
+<path fill="none" stroke="black" d="M189,-58C230.97,-58 241.03,-67 283,-67"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge7" class="edge">
+<title>Books:f7-&gt;bk_auth:l7</title>
+<path fill="none" stroke="black" d="M189,-40C230.97,-40 241.03,-49 283,-49"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge8" class="edge">
+<title>Books:f8-&gt;bk_auth:l8</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-31 283,-31"></path>
+</g>
+<!-- Books&#45;&gt;bk_auth -->
+<g id="edge9" class="edge">
+<title>Books:f8-&gt;bk_auth:l9</title>
+<path fill="none" stroke="black" d="M189,-22C230.97,-22 241.03,-13 283,-13"></path>
+</g>
+<!-- Authors -->
+<g id="node2" class="node">
+<title>Authors</title>
+<polygon fill="none" stroke="cyan" points="488,-148 488,-166 640,-166 640,-148 488,-148"></polygon>
+<text text-anchor="start" x="549.27" y="-154" font-family="Arial" font-size="10.00">Author</text>
+<polygon fill="none" stroke="cyan" points="488,-130 488,-148 526,-148 526,-130 488,-130"></polygon>
+<text text-anchor="start" x="490.89" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">id (PK)</text>
+<polygon fill="none" stroke="cyan" points="526,-130 526,-148 583,-148 583,-130 526,-130"></polygon>
+<text text-anchor="start" x="541.44" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="583,-130 583,-148 640,-148 640,-130 583,-130"></polygon>
+<text text-anchor="start" x="590.11" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">birthdate</text>
+<polygon fill="none" stroke="cyan" points="488,-112 488,-130 526,-130 526,-112 488,-112"></polygon>
+<text text-anchor="start" x="504.22" y="-118" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="526,-112 526,-130 583,-130 583,-112 526,-112"></polygon>
+<text text-anchor="start" x="534.49" y="-118" font-family="Arial" font-size="10.00">DiShawn</text>
+<polygon fill="none" stroke="cyan" points="583,-112 583,-130 640,-130 640,-112 583,-112"></polygon>
+<text text-anchor="start" x="585.92" y="-118" font-family="Arial" font-size="10.00">1980-01-01</text>
+<polygon fill="none" stroke="cyan" points="488,-94 488,-112 526,-112 526,-94 488,-94"></polygon>
+<text text-anchor="start" x="504.22" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="526,-94 526,-112 583,-112 583,-94 526,-94"></polygon>
+<text text-anchor="start" x="528.66" y="-100" font-family="Arial" font-size="10.00">Christopher</text>
+<polygon fill="none" stroke="cyan" points="583,-94 583,-112 640,-112 640,-94 583,-94"></polygon>
+<text text-anchor="start" x="585.92" y="-100" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-76 488,-94 526,-94 526,-76 488,-76"></polygon>
+<text text-anchor="start" x="504.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="526,-76 526,-94 583,-94 583,-76 526,-76"></polygon>
+<text text-anchor="start" x="543.11" y="-82" font-family="Arial" font-size="10.00">Halle</text>
+<polygon fill="none" stroke="cyan" points="583,-76 583,-94 640,-94 640,-76 583,-76"></polygon>
+<text text-anchor="start" x="585.92" y="-82" font-family="Arial" font-size="10.00">1975-05-14</text>
+<polygon fill="none" stroke="cyan" points="488,-58 488,-76 526,-76 526,-58 488,-58"></polygon>
+<text text-anchor="start" x="504.22" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="526,-58 526,-76 583,-76 583,-58 526,-58"></polygon>
+<text text-anchor="start" x="540.6" y="-64" font-family="Arial" font-size="10.00">Fayad</text>
+<polygon fill="none" stroke="cyan" points="583,-58 583,-76 640,-76 640,-58 583,-58"></polygon>
+<text text-anchor="start" x="585.92" y="-64" font-family="Arial" font-size="10.00">1990-02-20</text>
+<polygon fill="none" stroke="cyan" points="488,-40 488,-58 526,-58 526,-40 488,-40"></polygon>
+<text text-anchor="start" x="504.22" y="-46" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="526,-40 526,-58 583,-58 583,-40 526,-40"></polygon>
+<text text-anchor="start" x="537" y="-46" font-family="Arial" font-size="10.00">Hermes</text>
+<polygon fill="none" stroke="cyan" points="583,-40 583,-58 640,-58 640,-40 583,-40"></polygon>
+<text text-anchor="start" x="585.92" y="-46" font-family="Arial" font-size="10.00">1960-12-29</text>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge10" class="edge">
+<title>bk_auth:r1-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-157C438.32,-157 442.68,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge11" class="edge">
+<title>bk_auth:r2-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-139C436.1,-139 444.9,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge12" class="edge">
+<title>bk_auth:r8-&gt;Authors:f4</title>
+<path fill="none" stroke="black" d="M394,-31C438.32,-31 442.68,-67 487,-67"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge13" class="edge">
+<title>bk_auth:r9-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-13C438.32,-13 442.68,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge14" class="edge">
+<title>bk_auth:r4-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-103C436.1,-103 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge15" class="edge">
+<title>bk_auth:r6-&gt;Authors:f3</title>
+<path fill="none" stroke="black" d="M394,-67C436.1,-67 444.9,-85 487,-85"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge16" class="edge">
+<title>bk_auth:r7-&gt;Authors:f1</title>
+<path fill="none" stroke="black" d="M394,-49C446.27,-49 434.73,-121 487,-121"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge17" class="edge">
+<title>bk_auth:r3-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-121C446.27,-121 434.73,-49 487,-49"></path>
+</g>
+<!-- bk_auth&#45;&gt;Authors -->
+<g id="edge18" class="edge">
+<title>bk_auth:r5-&gt;Authors:f5</title>
+<path fill="none" stroke="black" d="M394,-85C438.32,-85 442.68,-49 487,-49"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="questions-6">Questions</h3>
+<ul>
+<li><p>How would you modify this to ensure that books exactly one author?</p></li>
+<li><p>How would you modify this to ensure that authors at least one book?</p></li>
+<li><p>How would you modify this to ensure that authors has exactly one book?</p></li>
+<li><p>Could you change these features in real-time?</p></li>
+</ul>
+</div></div>
+</section>
+<section id="relational-model---unanswered-questions" class="slide level2">
+<h2>Relational Model - Unanswered questions</h2>
+<dl>
+<dt>How would I model a composite attribute?</dt>
+<dd>
+A composite attribute is something like <em>full name</em>, for example <em>John Denes Leonard II</em>. You’ll probably want to give each atomic piece of the <em>full name</em> it’s own field/attribute and allow individual pieces to be NULL if they aren’t used. THEN, you might consider setting <em>full name</em> to be a calculated field, so that it is computed whenever needed by combining the individual first, middle, last, and initial.
+</dd>
+<dt>How would I model a multivalued attribute?</dt>
+<dd>
+A multivalued attribute is something like <em>phone number</em>, that is, a <em>person</em> can have zero or more <em>phone numbers</em>. There are several solutions, either by adding a <em>person_id</em> foreign key to the <em>phone number</em> relation, OR by creating a separate link/join table (see the previous slide) and adjust the attributes (e.g., NOT NULL, UNIQUE, etc.) to get the cardinality and participation you’re after.
+</dd>
+<dt>How would I model a weak entity?</dt>
+<dd>
+A weak entity is one that depends on a strong entity to survive. That is, if the <em>parent strong entity</em> is deleted, the weak entity is no longer needed. This is modeled using a <em>TRIGGER</em> in the <em>schema</em>. When the string entity is deleted, all corresponding weak entities are deleted, too.
+</dd>
+</dl>
+</section></section>
+<section>
+<section id="relationships-and-cardinality" class="title-slide slide level1 center">
+<h1>Relationships and Cardinality</h1>
+<!-- # Relationships and Cardinality -->
+</section>
+<section id="understanding-relationships-in-databases" class="slide level2">
+<h2>Understanding Relationships in Databases</h2>
+<p>Relationships connect entities in a database, defining how data points relate to one another. These connections are fundamental to structuring data meaningfully.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Relationships link two or more entities together in a database.</li>
+<li>They describe how entities are associated with one another.</li>
+<li>Examples include a student enrolled in a course or a customer placing an order.</li>
+<li>Relationships can involve two entities (binary), three entities (ternary), or more.</li>
+<li>They help establish connections between different tables in a relational database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Relationships are the glue that binds different entities in a database model.</em></p>
+</section>
+<section id="types-of-relationships-one-to-one" class="slide level2">
+<h2>Types of Relationships: One-to-One</h2>
+<p>One-to-one relationships link one instance of an entity to one instance of another entity. This type of relationship is relatively rare in database design.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A one-to-one relationship exists when a single instance of one entity is associated with a single instance of another.</li>
+<li>Examples include a person and their social security number or a country and its capital city.</li>
+<li>These relationships can be mandatory or optional.</li>
+<li>In many cases, one-to-one relationships are combined into a single table.</li>
+<li>They simplify data retrieval by ensuring a direct link between two specific entities.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>One-to-one relationships provide direct connections between pairs of entities.</em></p>
+</section>
+<section id="types-of-relationships-one-to-many" class="slide level2">
+<h2>Types of Relationships: One-to-Many</h2>
+<p>One-to-many relationships are the most common type in database design, linking one entity to multiple instances of another entity.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A one-to-many relationship occurs when a single instance of one entity is associated with multiple instances of another.</li>
+<li>Examples include a teacher and the students they teach or a department and its employees.</li>
+<li>These relationships are depicted with a single line connecting the “one” side to multiple lines on the “many” side.</li>
+<li>The “one” side often contains a foreign key that points to the primary key on the “many” side.</li>
+<li>One-to-many relationships organize data hierarchically and are essential for relational databases.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>One-to-many relationships structure data so that a single entity can relate to multiple others.</em></p>
+</section>
+<section id="types-of-relationships-many-to-many" class="slide level2">
+<h2>Types of Relationships: Many-to-Many</h2>
+<p>Many-to-many relationships occur when multiple instances of one entity are related to multiple instances of another entity, necessitating an associative entity to manage the relationship.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A many-to-many relationship links multiple instances of one entity to multiple instances of another.</li>
+<li>Examples include students enrolled in multiple courses or customers purchasing multiple products.</li>
+<li>These relationships require a junction or associative table to handle the connections.</li>
+<li>The associative table contains foreign keys referencing the primary keys of the related entities.</li>
+<li>Many-to-many relationships allow for flexible and complex data connections within a database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Many-to-many relationships are crucial for managing complex associations between entities.</em></p>
+</section>
+<section id="cardinality-defining-relationship-multiplicity" class="slide level2">
+<h2>Cardinality: Defining Relationship Multiplicity</h2>
+<p>Cardinality defines the number of instances of one entity that can be associated with instances of another entity, playing a critical role in relationship modeling.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Cardinality specifies the number of instances of an entity that can participate in a relationship.</li>
+<li>It is expressed as one-to-one, one-to-many, or many-to-many.</li>
+<li>Cardinality constraints help enforce data integrity and structure.</li>
+<li>They are depicted in ER diagrams using various notations, such as lines and symbols.</li>
+<li>Understanding cardinality is essential for accurately modeling database relationships.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Cardinality defines the limits and scope of relationships in database design.</em></p>
+</section>
+<section id="depicting-relationships-in-er-diagrams" class="slide level2">
+<h2>Depicting Relationships in ER Diagrams</h2>
+<p>ER diagrams visually represent relationships between entities, using standardized symbols and notations to convey cardinality and participation constraints.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>ER diagrams use lines to depict relationships between entities.</li>
+<li>Cardinality is shown with symbols like “1” and “M” or crow’s foot notation.</li>
+<li>Participation constraints are indicated by solid or dashed lines.</li>
+<li>Chen’s notation uses diamonds for relationships, while Crow’s Foot uses simple lines.</li>
+<li>Accurate depiction of relationships in ER diagrams is crucial for effective database design.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>ER diagrams provide a visual representation of how entities in a database are interconnected.</em></p>
+</section>
+<section id="mapping-relationships-to-relational-tables" class="slide level2">
+<h2>Mapping Relationships to Relational Tables</h2>
+<p>Mapping relationships from an ER model to a relational schema involves translating relationships into foreign keys, ensuring data integrity across tables.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Relationships in an ER model are translated into foreign keys in the relational schema.</li>
+<li>One-to-one relationships often result in a foreign key in one table.</li>
+<li>One-to-many relationships map a primary key in the “one” side to a foreign key in the “many” side.</li>
+<li>Many-to-many relationships require a junction table with foreign keys referencing both entities.</li>
+<li>Proper mapping ensures the logical integrity and normalization of the database.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Mapping relationships correctly is key to creating a well-structured relational database.</em></p>
+</section>
+<section id="examples-of-common-relationships-in-databases" class="slide level2">
+<h2>Examples of Common Relationships in Databases</h2>
+<p>Examples of real-world relationships illustrate how different entities are connected in databases, helping students understand the application of these concepts.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>A customer placing multiple orders (one-to-many relationship).</li>
+<li>Students enrolling in multiple courses (many-to-many relationship).</li>
+<li>An employee having one unique ID number (one-to-one relationship).</li>
+<li>A book being published by multiple authors (many-to-many relationship).</li>
+<li>A department managing several employees (one-to-many relationship).</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Real-world examples help clarify the application of relationships in database design.</em></p>
+</section>
+<section id="common-pitfalls-in-modeling-relationships" class="slide level2">
+<h2>Common Pitfalls in Modeling Relationships</h2>
+<p>Mistakes in modeling relationships can lead to inefficient or incorrect database designs, so understanding these pitfalls is essential for effective database modeling.</p>
+<div class="columns">
+<div class="column" style="width:95%;">
+<ul>
+<li>Failing to identify the correct cardinality between entities.</li>
+<li>Overcomplicating relationships with unnecessary entities or attributes.</li>
+<li>Ignoring participation constraints, leading to data integrity issues.</li>
+<li>Misusing one-to-one relationships when one-to-many would suffice.</li>
+<li>Overlooking the need for junction tables in many-to-many relationships.</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div></div>
+<p><em>Avoiding common pitfalls in relationship modeling ensures a robust and efficient database design.</em></p>
+</section></section>
+<section>
+<section id="hw3---er-diagramming-walkthrough" class="title-slide slide level1 center">
+<h1>HW3 - ER Diagramming Walkthrough</h1>
+<!-- # ER Diagramming Walkthrough -->
+</section>
+<section id="er-diagramming-walkthrough" class="slide level2">
+<h2>ER Diagramming Walkthrough</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="problem">Problem</h3>
+<p>Design a gradebook database for this class.</p>
+<ul>
+<li><p>What do you want to track? Why?</p></li>
+<li><p>If you used a spreadsheet, what would it look like?</p></li>
+<li><p>What are entities, attributes and relationships?</p></li>
+<li><p>What about cardinality and participation?</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="lets-do-it">Let’s do it</h3>
+<p>Open a quarto window, create a document in VS code and start diagramming!</p>
+<p>I’ll walkthrough this example in real-time, discussing design considerations, tradeoffs, and finally arriving at something we can code.</p>
+<p>Start with potential entities? Attributes?</p>
+<p>Then add relationships, cardinality and participation.</p>
+<p>Then try drawing it.</p>
+</div></div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +2298,15 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232174">Practice Quiz 2 - Relational Algebra</a> - due 9/15 (next week)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135">Homework 3 - Modeling your world</a> - due 9/15 (next week)</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/relational-models">Relational Models</a></p></li>
+<li><p><a href="#/relationships-and-cardinality">Relationships and Cardinality</a></p></li>
+<li><p><a href="#/hw3---er-diagramming-walkthrough">HW3 - ER Diagramming Walkthrough</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -295,7 +2340,7 @@
 <td style="text-align: center;">9/14</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Dis2:Relational Alg.</td>
+<td>HW3:Modeling Your World; CANCELLED</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Relational Alg.</td>
@@ -314,14 +2359,6 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Relational Alg.</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9/21</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW3:Modeling Your World</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
@@ -329,7 +2366,7 @@
 <td>L9:Relational Algebra 2</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
@@ -337,13 +2374,21 @@
 <td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/25</td>
 <td style="text-align: center;">Thu</td>
 <td>Interview Day (10am-3pm)</td>
 <td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9/28</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>Dis3:Normal forms</td>
 </tr>
 </tbody>
 </table>
@@ -363,7 +2408,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>

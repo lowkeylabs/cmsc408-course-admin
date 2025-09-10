@@ -1,0 +1,39 @@
+<!-- # ER Diagramming Walkthrough -->
+
+## ER Diagramming Walkthrough
+:::: {.columns}
+
+::: {.column width="50%"}
+### Problem 
+
+Design a gradebook database for this class.
+
+- What do you want to track? Why?
+
+- If you used a spreadsheet, what would it look like?  
+
+- What are entities, attributes and relationships?
+
+- What about cardinality and participation?
+
+:::
+::: {.column width="50%"}
+### Let's do it
+
+
+Open a quarto window, create a document in VS code and start diagramming!
+
+
+I'll walkthrough this example in real-time, discussing design
+considerations, tradeoffs, and finally arriving at something we can code.
+
+Start with potential entities?  Attributes?
+
+Then add relationships, cardinality and participation.
+
+Then try drawing it.
+
+
+:::
+::::
+

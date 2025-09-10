@@ -1,8 +1,25 @@
 ---
 date: '2025-09-10'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 9/15 (next week)'
+  topic: Practice Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232174
+- options: target="_blank"
+  post_text: '- due 9/15 (next week)'
+  topic: Homework 3 - Modeling your world
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135
 lecture-id: 6
-lecture-topics: []
+lecture-topics:
+- id: '53'
+  topic: Relational Models
+  url: _relational-models.qmd
+- id: '54'
+  topic: Relationships and Cardinality
+  url: _relationships-and-cardinality.qmd
+- id: '55'
+  topic: HW3 - ER Diagramming Walkthrough
+  url: _er-diagramming-walkthrough.qmd
 title: Relational models 2
 ---
 
@@ -16,6 +33,17 @@ this_file = 'lecture-06.qmd'
 
 <!-- lecture-block-begin -->
 
+# Relational Models
+
+{{< include ../../topics/_relational-models.qmd >}}
+
+# Relationships and Cardinality
+
+{{< include ../../topics/_relationships-and-cardinality.qmd >}}
+
+# HW3 - ER Diagramming Walkthrough
+
+{{< include ../../topics/_er-diagramming-walkthrough.qmd >}}
 <!-- lecture-block-end -->
 
 
