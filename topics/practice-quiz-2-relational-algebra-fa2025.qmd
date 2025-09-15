@@ -1,0 +1,7 @@
+---
+title: "Practice Quiz 2 - Relational Algebra"
+---
+
+{{< include '_practice-quiz-2-relational-algebra-fa2025.qmd' >}}
+
+    

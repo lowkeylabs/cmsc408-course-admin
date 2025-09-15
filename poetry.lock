@@ -4175,13 +4175,13 @@ widechars = ["wcwidth"]
 
 [[package]]
 name = "tasl"
-version = "0.2.7"
+version = "0.2.8"
 description = ""
 optional = false
 python-versions = ">=3.13,<4.0"
 groups = ["main"]
 files = [
-    {file = "tasl-0.2.7-py3-none-any.whl", hash = "sha256:fca3be37f1c5a9257531c9fc4aa6a356e8e0dfeb0861b6a929500dea5e53556b"},
+    {file = "tasl-0.2.8-py3-none-any.whl", hash = "sha256:9c3d6fbe7b931087ef5d53f7e8519475a525c7f15f1927773faee1e309f7dc3a"},
 ]
 
 [package.dependencies]
@@ -4201,7 +4201,7 @@ pyyaml = ">=6.0.1,<7.0.0"
 
 [package.source]
 type = "file"
-url = "helpers/tasl-0.2.7-py3-none-any.whl"
+url = "helpers/tasl-0.2.8-py3-none-any.whl"
 
 [[package]]
 name = "tenacity"
@@ -4518,4 +4518,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0.0"
-content-hash = "99b355a8aa6c62a2cb1cac24c0163c5317c08f15c3f8514f78cf72d3d37d1693"
+content-hash = "86b68a7617383e40736776d93d9ef0736e73a49f4215d52c2810d4b570dbd9a2"

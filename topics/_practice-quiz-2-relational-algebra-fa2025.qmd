@@ -1,0 +1,34 @@
+<!-- # Practice Quiz 2 - Relational Algebra SP2025 -->
+
+## Practice Quiz 2 - Relational Algebra
+
+:::: {.columns}
+::: {.column width="40%"}
+### Practice Quiz 2
+
+* Open now
+* 30 multiple choice questions
+* Multiple attempts
+
+### Quiz 2 - Relational Algebra
+
+* Due Sept. 15 - Monday
+
+* 30 multiple choice
+
+* 1 attempt
+
+* Take the Practice Quiz!
+
+:::
+::: {.column width="60%"}
+![](assets/quiz-relational-alg-r-and-s.png){fig-width=50%}
+
+The quiz is all about practice with relational algebraic operators.
+
+BE SURE YOU'RE LOGGED INTO GOOGLE DOCS before
+you start the quiz.
+
+If you mess up, send me an email and I'll grant you a second attempt.
+:::
+::::

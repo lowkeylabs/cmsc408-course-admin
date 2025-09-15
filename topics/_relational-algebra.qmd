@@ -43,7 +43,6 @@
 #### Additional Resources
 
 - Relational Algebra Calculator : <https://dbis-uibk.github.io/relax/landing>
-- Practice Exercises (HTML): <http://openclassroom.stanford.edu/MainFolder/courses/cs145/old-site/docs/backup/ra-exercises.html>
 - [More practice exercises (PDF)](http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf)
 
 ## Food Truck Example
