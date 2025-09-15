@@ -35,7 +35,7 @@ lecture-topics:
 - id: '64'
   topic: Set Operations
   url: _set-operations.qmd
-title: Relational models 3
+title: Relational Algebra 1
 ---
 
 ```{python}

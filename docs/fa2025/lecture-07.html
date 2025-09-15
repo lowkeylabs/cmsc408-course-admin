@@ -15,7 +15,7 @@
 <link href="lecture-07_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <title>Relational models 3</title>
+  <title>Relational Algebra 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -140,7 +140,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Relational models 3</h1>
+  <h1 class="title">Relational Algebra 1</h1>
   <p class="subtitle">Lecture 7</p>
 
 <div class="quarto-title-authors">
@@ -193,7 +193,7 @@
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">9/15</td>
 <td style="text-align: center;">Mon</td>
-<td>Last day for progress reports; L7:Relational models 3</td>
+<td>Last day for progress reports; L7:Relational Algebra 1</td>
 <td>Q2:Relational Algebra</td>
 </tr>
 <tr class="even">
@@ -201,7 +201,7 @@
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">9/17</td>
 <td style="text-align: center;">Wed</td>
-<td>L8:Relational Algebra 1</td>
+<td>L8:Relational Algebra 2</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -209,7 +209,7 @@
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
 <td style="text-align: center;">Mon</td>
-<td>L9:Relational Algebra 2</td>
+<td>L9:Analysis and Normal Forms 1</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
 <tr class="even">
@@ -217,7 +217,7 @@
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
 <td style="text-align: center;">Wed</td>
-<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
+<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 2</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -241,7 +241,7 @@
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">9/29</td>
 <td style="text-align: center;">Mon</td>
-<td>L11:Analysis and Normal Forms 2</td>
+<td>L11:Analysis and Normal Forms 3</td>
 <td>Q3:Analysis and Normal Forms</td>
 </tr>
 <tr class="even">
@@ -249,7 +249,7 @@
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">10/1</td>
 <td style="text-align: center;">Wed</td>
-<td>L12:Analysis and Normal Forms 3</td>
+<td>L12:Analysis and Normal Forms 4</td>
 <td></td>
 </tr>
 </tbody>
@@ -720,7 +720,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="ec261b63" class="cell" data-execution_count="5">
+<div id="5ad72a3c" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -776,7 +776,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>σ(ID=3)(Courses) returns:</p>
-<div id="d1181365" class="cell" data-execution_count="6">
+<div id="1b73cf73" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -812,7 +812,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="1c20fa52" class="cell" data-execution_count="7">
+<div id="9e8a839e" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -868,7 +868,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>σ(Course=‘CMSC408’)(Courses) returns:</p>
-<div id="8cc9f05f" class="cell" data-execution_count="8">
+<div id="f502a690" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -915,7 +915,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="a22bbee3" class="cell" data-execution_count="9">
+<div id="dcee3e1c" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -971,7 +971,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>σ(Enrl&lt;=100)(Courses) returns:</p>
-<div id="db01b97d" class="cell" data-execution_count="10">
+<div id="2b555f2c" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1100,7 +1100,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="842d76de" class="cell" data-execution_count="11">
+<div id="bf5139bf" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1156,7 +1156,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>Π(ID,Course)(Courses) returns:</p>
-<div id="ed83485f" class="cell" data-execution_count="12">
+<div id="6485b88e" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 50%;">
@@ -1209,7 +1209,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="602fc328" class="cell" data-execution_count="13">
+<div id="83907ff0" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1265,7 +1265,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>Π(Course)(Courses) returns:</p>
-<div id="74d585bf" class="cell" data-execution_count="14">
+<div id="1c2644c1" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 50%;">
@@ -1309,7 +1309,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="74f71a21" class="cell" data-execution_count="15">
+<div id="15521e76" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1365,7 +1365,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>Π(Term)(Courses) returns:</p>
-<div id="8c64dc48" class="cell" data-execution_count="16">
+<div id="4d236355" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 50%;">
@@ -1403,7 +1403,7 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given the <em>Courses(ID,Course,Term,Enrl)</em> below:</p>
-<div id="95a10f8a" class="cell" data-execution_count="17">
+<div id="84ac4783" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1459,7 +1459,7 @@
 
 </div><div class="column" style="width:47%;">
 <p>Π(Term,ID)(Courses) returns:</p>
-<div id="95b64c5a" class="cell" data-execution_count="18">
+<div id="294df181" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 50%;">
@@ -1518,7 +1518,7 @@
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<div id="95aca3d9" class="cell" data-execution_count="20">
+<div id="564d1f9a" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1605,7 +1605,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="bc1318f3" class="cell" data-execution_count="21">
+<div id="f54bd5e7" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1638,7 +1638,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="3e9ea89d" class="cell" data-execution_count="22">
+<div id="5660dac9" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1678,7 +1678,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> ∪ <em>Courses2</em> returns:</p>
-<div id="e3081ed5" class="cell" data-execution_count="23">
+<div id="5c5e1b84" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1730,7 +1730,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="1c561d2d" class="cell" data-execution_count="24">
+<div id="979db561" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1763,7 +1763,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div>
 </div>
 <p>and <em>Courses3( Course,Term )</em>:</p>
-<div id="f93a9a3f" class="cell" data-execution_count="25">
+<div id="2709f6d9" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1843,7 +1843,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="98fa6f3b" class="cell" data-execution_count="27">
+<div id="cf3f6ec9" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1899,7 +1899,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:47%;">
 <p>Find the Names and GPAs of all students who are expected to graduate in 2023.</p>
 <p>Π(Name,GPA)(σ(Grad_Year=2023)(Students))</p>
-<div id="cdc9b3ac" class="cell" data-execution_count="28">
+<div id="9fc0344e" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1935,7 +1935,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="4d10db22" class="cell" data-execution_count="29">
+<div id="222321cd" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -1991,7 +1991,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:47%;">
 <p>Find the majors of all students with a GPA greater than 3.5</p>
 <p>Π(Major)(σ(GPA&gt;3.5)(Students))</p>
-<div id="5df922cc" class="cell" data-execution_count="30">
+<div id="40e32b56" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2024,7 +2024,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Students( ID,Name,Major,GPA,Grad_Year)</em>:</p>
-<div id="60ebead6" class="cell" data-execution_count="31">
+<div id="c2106bfb" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2080,7 +2080,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:47%;">
 <p>Find the ID and Names of all students in computer science.</p>
 <p>Π(ID,Name)(σ(Major=CS)(Students))</p>
-<div id="968b749f" class="cell" data-execution_count="32">
+<div id="aa29aa7c" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2221,7 +2221,7 @@ R_1 \cup (R_2 \cap R_3) = (R_1 \cup R_2) \cap (R_1 \cup R_3)
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<div id="e510ed89" class="cell" data-execution_count="34">
+<div id="410cfbec" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2308,7 +2308,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="8c0f958f" class="cell" data-execution_count="35">
+<div id="b1a6d203" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2341,7 +2341,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="d58831c1" class="cell" data-execution_count="36">
+<div id="84000798" class="cell" data-execution_count="36">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2381,7 +2381,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> <span class="math inline">\(\cap\)</span> <em>Courses2</em> returns:</p>
-<div id="b084d15f" class="cell" data-execution_count="37">
+<div id="e7ee82fd" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2423,7 +2423,7 @@ R_1 \cap (R_2 \cup R_3) = (R_1 \cap R_2) \cup (R_1 \cap R_3)
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<div id="a4730313" class="cell" data-execution_count="38">
+<div id="f7bdba6e" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2502,7 +2502,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="824bbf01" class="cell" data-execution_count="39">
+<div id="d02015ec" class="cell" data-execution_count="39">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2535,7 +2535,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="bfbc841b" class="cell" data-execution_count="40">
+<div id="918d62b3" class="cell" data-execution_count="40">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2575,7 +2575,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses1</em> <span class="math inline">\(-\)</span> <em>Courses2</em> returns:</p>
-<div id="1641f909" class="cell" data-execution_count="41">
+<div id="165a1464" class="cell" data-execution_count="41">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2611,7 +2611,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <div class="columns">
 <div class="column" style="width:47%;">
 <p>Given <em>Courses1( Course,Term)</em>:</p>
-<div id="94ba2d21" class="cell" data-execution_count="42">
+<div id="0a584dd6" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2644,7 +2644,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 </div>
 </div>
 <p>and <em>Courses2( Course,Term )</em>:</p>
-<div id="a96d2bd1" class="cell" data-execution_count="43">
+<div id="61ebd8b6" class="cell" data-execution_count="43">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2684,7 +2684,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 
 </div><div class="column" style="width:47%;">
 <p><em>Courses2</em> <span class="math inline">\(-\)</span> <em>Courses1</em> returns:</p>
-<div id="c0259157" class="cell" data-execution_count="44">
+<div id="46c6d289" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-display">
 <div style="text-align: center;">
       <div style="display: inline-block; width: 80%;">
@@ -2865,7 +2865,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">9/15</td>
 <td style="text-align: center;">Mon</td>
-<td>Last day for progress reports; L7:Relational models 3</td>
+<td>Last day for progress reports; L7:Relational Algebra 1</td>
 <td>Q2:Relational Algebra</td>
 </tr>
 <tr class="even">
@@ -2873,7 +2873,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">9/17</td>
 <td style="text-align: center;">Wed</td>
-<td>L8:Relational Algebra 1</td>
+<td>L8:Relational Algebra 2</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -2881,7 +2881,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
 <td style="text-align: center;">Mon</td>
-<td>L9:Relational Algebra 2</td>
+<td>L9:Analysis and Normal Forms 1</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
 <tr class="even">
@@ -2889,7 +2889,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
 <td style="text-align: center;">Wed</td>
-<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
+<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 2</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -2913,7 +2913,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">9/29</td>
 <td style="text-align: center;">Mon</td>
-<td>L11:Analysis and Normal Forms 2</td>
+<td>L11:Analysis and Normal Forms 3</td>
 <td>Q3:Analysis and Normal Forms</td>
 </tr>
 <tr class="even">
@@ -2921,7 +2921,7 @@ R_1 - (R_2 \cap R_3) = (R_1 - R_2) \cap (R_1 - R_3)
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">10/1</td>
 <td style="text-align: center;">Wed</td>
-<td>L12:Analysis and Normal Forms 3</td>
+<td>L12:Analysis and Normal Forms 4</td>
 <td></td>
 </tr>
 </tbody>
