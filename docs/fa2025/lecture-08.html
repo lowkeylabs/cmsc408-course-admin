@@ -6,13 +6,13 @@
 <script src="lecture-08_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-08_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-08_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-08_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-08_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-08_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-08_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-08_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+  <meta name="generator" content="quarto-1.7.32">
 
-  <title>Relational Algebra 1</title>
+  <title>Relational Algebra 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -137,7 +137,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Relational Algebra 1</h1>
+  <h1 class="title">Relational Algebra 2</h1>
   <p class="subtitle">Lecture 8</p>
 
 <div class="quarto-title-authors">
@@ -153,12 +153,18 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232169">Quiz 2 - Relational Algebra</a> - Fixed google lockout</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135">Homework 3 - Modeling your world</a> - keep at it!</p></li>
+<li><p>Homework 4 - not until next week!</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/relational-algebra">Relational Algebra</a></p></li>
+<li><p><a href="#/join-examples">Join Examples</a></p></li>
+<li><p><a href="#/join-operations">Join Operations</a></p></li>
+<li><p><a href="#/join-use-cases">Join Use Cases</a></p></li>
+<li><p><a href="#/renaming-and-division">Renaming and Division</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -183,34 +189,26 @@
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">9/17</td>
 <td style="text-align: center;">Wed</td>
-<td>L8:Relational Algebra 1</td>
+<td>L8:Relational Algebra 2</td>
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Relational Alg.</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9/21</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW3:Modeling Your World</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
 <td style="text-align: center;">Mon</td>
-<td>L9:Relational Algebra 2</td>
+<td>L9:Analysis and Normal Forms 1</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
 <td style="text-align: center;">Wed</td>
-<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
+<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 2</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/25</td>
@@ -218,34 +216,3473 @@
 <td>Interview Day (10am-3pm)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/28</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Dis3:Normal forms</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Normal forms</td>
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">9/29</td>
-<td style="text-align: center;">Mon</td>
-<td>L11:Analysis and Normal Forms 2</td>
-<td>Q3:Analysis and Normal Forms</td>
+<td>HW4:Analysis and Normal Forms; Dis3:Normal forms</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">7</td>
+<td style="text-align: center;">9/29</td>
+<td style="text-align: center;">Mon</td>
+<td>L11:Analysis and Normal Forms 3</td>
+<td>Q3:Analysis and Normal Forms</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
 <td style="text-align: center;">10/1</td>
 <td style="text-align: center;">Wed</td>
-<td>L12:Analysis and Normal Forms 3</td>
+<td>L12:Analysis and Normal Forms 4</td>
 <td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">10/5</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW5:Getting started with SQL</td>
 </tr>
 </tbody>
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="relational-algebra" class="title-slide slide level1 center">
+<h1>Relational Algebra</h1>
+<!-- # Relational Algebra -->
+</section>
+<section id="relational-algebraic-operators-and-operations" class="slide level2">
+<h2>Relational Algebraic Operators and Operations</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="relational-operators">Relational Operators</h3>
+<ul>
+<li>Selection σ</li>
+<li>Projection π</li>
+<li>Rename ρ</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="set-operators">Set Operators</h3>
+<ul>
+<li>Union ∪</li>
+<li>Intersection ∩</li>
+<li>Difference -</li>
+</ul>
+<h3 id="logical-operators">Logical Operators</h3>
+<ul>
+<li>And ∧</li>
+<li>Or ∨</li>
+<li>Not ¬</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="joins-and-products">Joins and Products</h3>
+<ul>
+<li>Natural join <span class="math inline">\(\bowtie\)</span></li>
+<li>Theta join <span class="math inline">\(\bowtie_{\theta}\)</span></li>
+<li>Left outer join ⟕<br>
+</li>
+<li>Right outer join ⟖</li>
+<li>Full outer join ⟗</li>
+<li>Cartesian product ⨯</li>
+<li>Division ÷</li>
+</ul>
+</div></div>
+<h4 id="additional-resources">Additional Resources</h4>
+<ul>
+<li>Relational Algebra Calculator : <a href="https://dbis-uibk.github.io/relax/landing" class="uri">https://dbis-uibk.github.io/relax/landing</a></li>
+<li><a href="http://csci.viu.ca/~barskym/teaching/DB2013/Lectures3A.Relational-algebra%20exercises.pdf">More practice exercises (PDF)</a></li>
+</ul>
+</section>
+<section id="food-truck-example" class="slide level2">
+<h2>Food Truck Example</h2>
+<p>Here’s an example of a relation (table) for a food truck with four attributes: ItemID, ItemName, Category, and Price. This relation represents a menu of items sold at the food truck.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="relation-menu">Relation: <code>Menu</code></h3>
+<p>Menu( ItemID, ItemName, Category, Price )</p>
+<h3 id="sample-data">Sample Data</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><strong>ItemID</strong></th>
+<th><strong>ItemName</strong></th>
+<th><strong>Category</strong></th>
+<th><strong>Price</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Tacos</td>
+<td>Main</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Burrito</td>
+<td>Main</td>
+<td>6.50</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Quesadilla</td>
+<td>Main</td>
+<td>5.75</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Chips &amp; Salsa</td>
+<td>Side</td>
+<td>2.50</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Soda</td>
+<td>Drink</td>
+<td>1.50</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Water</td>
+<td>Drink</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Guacamole</td>
+<td>Side</td>
+<td>3.00</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<h3 id="what-items-cost-more-than-6.00">What items cost more than $6.00?</h3>
+<center>
+π(ItemName)(σ_Price &gt; 6(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName}}(\sigma_{\text{Price} &gt; 6}(\text{Menu}))
+\]</span></p>
+<h3 id="what-is-the-price-of-water">What is the price of water?</h3>
+<center>
+π (Price) (σ (ItemName=‘Water’)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{Price}}(\sigma_{\text{ItemName}='Water'}(\text{Menu}))
+\]</span></p>
+<h3 id="what-items-are-sold-as-main-course-items">What items are sold as main course items?</h3>
+<center>
+π (ItemName)(σ (Category=‘Main’)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName}}(\sigma_{\text{Category}='Main'}(\text{Menu}))
+\]</span></p>
+</div></div>
+</section>
+<section id="food-truck-example-1" class="slide level2">
+<h2>Food Truck Example</h2>
+<p>Here’s an example of a relation (table) for a food truck with four attributes: ItemID, ItemName, Category, and Price. This relation represents a menu of items sold at the food truck.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="relation-menu-1">Relation: <code>Menu</code></h3>
+<p>Menu( ItemID, ItemName, Category, Price )</p>
+<h3 id="sample-data-1">Sample Data</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><strong>ItemID</strong></th>
+<th><strong>ItemName</strong></th>
+<th><strong>Category</strong></th>
+<th><strong>Price</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Tacos</td>
+<td>Main</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Burrito</td>
+<td>Main</td>
+<td>6.50</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Quesadilla</td>
+<td>Main</td>
+<td>5.75</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Chips &amp; Salsa</td>
+<td>Side</td>
+<td>2.50</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Soda</td>
+<td>Drink</td>
+<td>1.50</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Water</td>
+<td>Drink</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Guacamole</td>
+<td>Side</td>
+<td>3.00</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<h3 id="what-sides-cost-less-than-3.00">What sides cost less than $3.00?</h3>
+<center>
+π (ItemName)(σ (Category=‘Side’ ∧ Price &lt; 3)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName}}(\sigma_{\text{Category}='Side' \land \text{Price} &lt; 3}(\text{Menu}))
+\]</span></p>
+<h3 id="what-is-itemid-of-a-taco">What is ItemID of a taco?</h3>
+<center>
+π (ItemID)(σ (ItemName=‘Tacos’)(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{Price}}(\sigma_{\text{ItemName}='Water'}(\text{Menu}))
+\]</span></p>
+<h3 id="i-want-the-list-and-price-of-an-order-of-3-4-and-6">I want the list and price of an order of #3, #4 and #6</h3>
+<center>
+π_ItemName, Price(σ_ItemID = 3 ∨ ItemID = 4 ∨ ItemID = 6(Menu))
+</center>
+<p><span class="math display">\[
+\pi_{\text{ItemName, Price}}(\sigma_{\text{ItemID} = 3 \lor \text{ItemID} = 4 \lor \text{ItemID} = 6}(\text{Menu}))
+\]</span></p>
+</div></div>
+</section></section>
+<section>
+<section id="join-examples" class="title-slide slide level1 center">
+<h1>Join Examples</h1>
+<!-- # Join Examples -->
+</section>
+<section id="joining-two-tables" class="slide level2">
+<h2>Joining two tables</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example">Example</h3>
+<ul>
+<li><p>Two relations - <code>Students</code> and <code>Courses</code>.</p></li>
+<li><p>Foreign key in <code>Students</code> connects to Primary Key in <code>Courses</code>.</p></li>
+<li><p>We get <em>different</em> joins depending on what happens to the tuples <em>WITHOUT</em> matching foreign keys.</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 392.00 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8.5,-130 8.5,-148 189.5,-148 189.5,-130 8.5,-130"></polygon>
+<text text-anchor="start" x="77.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8.5,-112 8.5,-130 109.5,-130 109.5,-112 8.5,-112"></polygon>
+<text text-anchor="start" x="45.94" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109.5,-112 109.5,-130 140.5,-130 140.5,-112 109.5,-112"></polygon>
+<text text-anchor="start" x="114.71" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140.5,-112 140.5,-130 154.5,-130 154.5,-112 140.5,-112"></polygon>
+<text text-anchor="start" x="143.06" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="154.5,-112 154.5,-130 189.5,-130 189.5,-112 154.5,-112"></polygon>
+<text text-anchor="start" x="157.27" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8.5,-94 8.5,-112 109.5,-112 109.5,-94 8.5,-94"></polygon>
+<text text-anchor="start" x="11.5" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109.5,-94 109.5,-112 140.5,-112 140.5,-94 109.5,-94"></polygon>
+<text text-anchor="start" x="113.88" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140.5,-94 140.5,-112 154.5,-112 154.5,-94 140.5,-94"></polygon>
+<text text-anchor="start" x="144.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="154.5,-94 154.5,-112 189.5,-112 189.5,-94 154.5,-94"></polygon>
+<text text-anchor="start" x="159.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-76 8.5,-94 109.5,-94 109.5,-76 8.5,-76"></polygon>
+<text text-anchor="start" x="11.2" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109.5,-76 109.5,-94 140.5,-94 140.5,-76 109.5,-76"></polygon>
+<text text-anchor="start" x="113.88" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140.5,-76 140.5,-94 154.5,-94 154.5,-76 140.5,-76"></polygon>
+<text text-anchor="start" x="144.72" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="154.5,-76 154.5,-94 189.5,-94 189.5,-76 154.5,-76"></polygon>
+<text text-anchor="start" x="169.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8.5,-58 8.5,-76 109.5,-76 109.5,-58 8.5,-58"></polygon>
+<text text-anchor="start" x="11.5" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109.5,-58 109.5,-76 140.5,-76 140.5,-58 109.5,-58"></polygon>
+<text text-anchor="start" x="113.88" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140.5,-58 140.5,-76 154.5,-76 154.5,-58 140.5,-58"></polygon>
+<text text-anchor="start" x="144.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="154.5,-58 154.5,-76 189.5,-76 189.5,-58 154.5,-58"></polygon>
+<text text-anchor="start" x="159.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-40 8.5,-58 109.5,-58 109.5,-40 8.5,-40"></polygon>
+<text text-anchor="start" x="11.5" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109.5,-40 109.5,-58 140.5,-58 140.5,-40 109.5,-40"></polygon>
+<text text-anchor="start" x="112.22" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140.5,-40 140.5,-58 154.5,-58 154.5,-40 140.5,-40"></polygon>
+<text text-anchor="start" x="144.72" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="154.5,-40 154.5,-58 189.5,-58 189.5,-40 154.5,-40"></polygon>
+<text text-anchor="start" x="169.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8.5,-22 8.5,-40 109.5,-40 109.5,-22 8.5,-22"></polygon>
+<text text-anchor="start" x="11.5" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109.5,-22 109.5,-40 140.5,-40 140.5,-22 109.5,-22"></polygon>
+<text text-anchor="start" x="113.88" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140.5,-22 140.5,-40 154.5,-40 154.5,-22 140.5,-22"></polygon>
+<text text-anchor="start" x="144.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="154.5,-22 154.5,-40 189.5,-40 189.5,-22 154.5,-22"></polygon>
+<text text-anchor="start" x="169.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8.5,-4 8.5,-22 109.5,-22 109.5,-4 8.5,-4"></polygon>
+<text text-anchor="start" x="11.5" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109.5,-4 109.5,-22 140.5,-22 140.5,-4 109.5,-4"></polygon>
+<text text-anchor="start" x="113.88" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140.5,-4 140.5,-22 154.5,-22 154.5,-4 140.5,-4"></polygon>
+<text text-anchor="start" x="144.72" y="-10" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="154.5,-4 154.5,-22 189.5,-22 189.5,-4 154.5,-4"></polygon>
+<text text-anchor="start" x="169.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="277.5,-112 277.5,-130 376.5,-130 376.5,-112 277.5,-112"></polygon>
+<text text-anchor="start" x="306.99" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="277.5,-94 277.5,-112 291.5,-112 291.5,-94 277.5,-94"></polygon>
+<text text-anchor="start" x="280.06" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="291.5,-94 291.5,-112 343.5,-112 343.5,-94 291.5,-94"></polygon>
+<text text-anchor="start" x="304.44" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="343.5,-94 343.5,-112 376.5,-112 376.5,-94 343.5,-94"></polygon>
+<text text-anchor="start" x="346.11" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="277.5,-76 277.5,-94 291.5,-94 291.5,-76 277.5,-76"></polygon>
+<text text-anchor="start" x="281.72" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="291.5,-76 291.5,-94 343.5,-94 343.5,-76 291.5,-76"></polygon>
+<text text-anchor="start" x="294.44" y="-82" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="343.5,-76 343.5,-94 376.5,-94 376.5,-76 343.5,-76"></polygon>
+<text text-anchor="start" x="357.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-58 277.5,-76 291.5,-76 291.5,-58 277.5,-58"></polygon>
+<text text-anchor="start" x="281.72" y="-64" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="291.5,-58 291.5,-76 343.5,-76 343.5,-58 291.5,-58"></polygon>
+<text text-anchor="start" x="294.44" y="-64" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="343.5,-58 343.5,-76 376.5,-76 376.5,-58 343.5,-58"></polygon>
+<text text-anchor="start" x="357.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-40 277.5,-58 291.5,-58 291.5,-40 277.5,-40"></polygon>
+<text text-anchor="start" x="281.72" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="291.5,-40 291.5,-58 343.5,-58 343.5,-40 291.5,-40"></polygon>
+<text text-anchor="start" x="294.44" y="-46" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="343.5,-40 343.5,-58 376.5,-58 376.5,-40 343.5,-40"></polygon>
+<text text-anchor="start" x="357.22" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-22 277.5,-40 291.5,-40 291.5,-22 277.5,-22"></polygon>
+<text text-anchor="start" x="281.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="291.5,-22 291.5,-40 343.5,-40 343.5,-22 291.5,-22"></polygon>
+<text text-anchor="start" x="294.44" y="-28" font-family="Arial" font-size="10.00">CMSC452</text>
+<polygon fill="none" stroke="cyan" points="343.5,-22 343.5,-40 376.5,-40 376.5,-22 343.5,-22"></polygon>
+<text text-anchor="start" x="357.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M190.5,-85C228.72,-85 238.28,-85 276.5,-85"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M190.5,-49C229.55,-49 237.45,-67 276.5,-67"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-31C229.55,-31 237.45,-49 276.5,-49"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r6-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-13C231.94,-13 235.06,-49 276.5,-49"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="example-1-join-example---inner-join" class="slide level2">
+<h2>Example 1: Join example - <em>Inner Join</em></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example-1">Example</h3>
+<ul>
+<li><p>Two relations - <code>Students</code> and <code>Courses</code>.</p></li>
+<li><p>Foreign key in <code>Students</code> connects to Primary Key in <code>Courses</code>.</p></li>
+<li><p>We get <em>different</em> joins depending on what happens to the tuples <em>WITHOUT</em> matching foreign keys.</p></li>
+<li><p>In this example <em>We only keep records that connect, with valid foreign keys</em>.</p></li>
+<li><p>This is an example of a <em>Inner Join</em></p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 392.00 124.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 120)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8.5,-94 8.5,-112 189.5,-112 189.5,-94 8.5,-94"></polygon>
+<text text-anchor="start" x="77.61" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8.5,-76 8.5,-94 109.5,-94 109.5,-76 8.5,-76"></polygon>
+<text text-anchor="start" x="45.94" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109.5,-76 109.5,-94 140.5,-94 140.5,-76 109.5,-76"></polygon>
+<text text-anchor="start" x="114.71" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140.5,-76 140.5,-94 154.5,-94 154.5,-76 140.5,-76"></polygon>
+<text text-anchor="start" x="143.06" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="154.5,-76 154.5,-94 189.5,-94 189.5,-76 154.5,-76"></polygon>
+<text text-anchor="start" x="157.27" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8.5,-58 8.5,-76 109.5,-76 109.5,-58 8.5,-58"></polygon>
+<text text-anchor="start" x="11.2" y="-64" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109.5,-58 109.5,-76 140.5,-76 140.5,-58 109.5,-58"></polygon>
+<text text-anchor="start" x="113.88" y="-64" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140.5,-58 140.5,-76 154.5,-76 154.5,-58 140.5,-58"></polygon>
+<text text-anchor="start" x="144.72" y="-64" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="154.5,-58 154.5,-76 189.5,-76 189.5,-58 154.5,-58"></polygon>
+<text text-anchor="start" x="169.22" y="-64" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8.5,-40 8.5,-58 109.5,-58 109.5,-40 8.5,-40"></polygon>
+<text text-anchor="start" x="11.5" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109.5,-40 109.5,-58 140.5,-58 140.5,-40 109.5,-40"></polygon>
+<text text-anchor="start" x="112.22" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140.5,-40 140.5,-58 154.5,-58 154.5,-40 140.5,-40"></polygon>
+<text text-anchor="start" x="144.72" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="154.5,-40 154.5,-58 189.5,-58 189.5,-40 154.5,-40"></polygon>
+<text text-anchor="start" x="169.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8.5,-22 8.5,-40 109.5,-40 109.5,-22 8.5,-22"></polygon>
+<text text-anchor="start" x="11.5" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109.5,-22 109.5,-40 140.5,-40 140.5,-22 109.5,-22"></polygon>
+<text text-anchor="start" x="113.88" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140.5,-22 140.5,-40 154.5,-40 154.5,-22 140.5,-22"></polygon>
+<text text-anchor="start" x="144.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="154.5,-22 154.5,-40 189.5,-40 189.5,-22 154.5,-22"></polygon>
+<text text-anchor="start" x="169.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8.5,-4 8.5,-22 109.5,-22 109.5,-4 8.5,-4"></polygon>
+<text text-anchor="start" x="11.5" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109.5,-4 109.5,-22 140.5,-22 140.5,-4 109.5,-4"></polygon>
+<text text-anchor="start" x="113.88" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140.5,-4 140.5,-22 154.5,-22 154.5,-4 140.5,-4"></polygon>
+<text text-anchor="start" x="144.72" y="-10" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="154.5,-4 154.5,-22 189.5,-22 189.5,-4 154.5,-4"></polygon>
+<text text-anchor="start" x="169.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="277.5,-94 277.5,-112 376.5,-112 376.5,-94 277.5,-94"></polygon>
+<text text-anchor="start" x="306.99" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="277.5,-76 277.5,-94 291.5,-94 291.5,-76 277.5,-76"></polygon>
+<text text-anchor="start" x="280.06" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="291.5,-76 291.5,-94 343.5,-94 343.5,-76 291.5,-76"></polygon>
+<text text-anchor="start" x="304.44" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="343.5,-76 343.5,-94 376.5,-94 376.5,-76 343.5,-76"></polygon>
+<text text-anchor="start" x="346.11" y="-83" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="277.5,-58 277.5,-76 291.5,-76 291.5,-58 277.5,-58"></polygon>
+<text text-anchor="start" x="281.72" y="-64" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="291.5,-58 291.5,-76 343.5,-76 343.5,-58 291.5,-58"></polygon>
+<text text-anchor="start" x="294.44" y="-64" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="343.5,-58 343.5,-76 376.5,-76 376.5,-58 343.5,-58"></polygon>
+<text text-anchor="start" x="357.22" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-40 277.5,-58 291.5,-58 291.5,-40 277.5,-40"></polygon>
+<text text-anchor="start" x="281.72" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="291.5,-40 291.5,-58 343.5,-58 343.5,-40 291.5,-40"></polygon>
+<text text-anchor="start" x="294.44" y="-46" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="343.5,-40 343.5,-58 376.5,-58 376.5,-40 343.5,-40"></polygon>
+<text text-anchor="start" x="357.22" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-22 277.5,-40 291.5,-40 291.5,-22 277.5,-22"></polygon>
+<text text-anchor="start" x="281.72" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="291.5,-22 291.5,-40 343.5,-40 343.5,-22 291.5,-22"></polygon>
+<text text-anchor="start" x="294.44" y="-28" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="343.5,-22 343.5,-40 376.5,-40 376.5,-22 343.5,-22"></polygon>
+<text text-anchor="start" x="357.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-4 277.5,-22 291.5,-22 291.5,-4 277.5,-4"></polygon>
+<text text-anchor="start" x="281.72" y="-10" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="291.5,-4 291.5,-22 343.5,-22 343.5,-4 291.5,-4"></polygon>
+<text text-anchor="start" x="294.44" y="-10" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="343.5,-4 343.5,-22 376.5,-22 376.5,-4 343.5,-4"></polygon>
+<text text-anchor="start" x="357.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M190.5,-67C228.72,-67 238.28,-67 276.5,-67"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M190.5,-49C228.72,-49 238.28,-49 276.5,-49"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-31C228.72,-31 238.28,-31 276.5,-31"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r6-&gt;course:c3a</title>
+<path fill="none" stroke="black" d="M190.5,-13C228.72,-13 238.28,-13 276.5,-13"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="example-2-join-example---left-join-or-left-outer-join" class="slide level2">
+<h2>Example 2: Join example - <em>Left Join</em> or <em>Left Outer Join</em></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example-2">Example</h3>
+<ul>
+<li><p>Two relations - <code>Students</code> and <code>Courses</code>.</p></li>
+<li><p>Foreign key in <code>Students</code> connects to Primary Key in <code>Courses</code>.</p></li>
+<li><p>We get <em>different</em> joins depending on what happens to the tuples <em>WITHOUT</em> matching foreign keys.</p></li>
+<li><p>In this example <em>We Keep records from the left table that don’t connect with the right table</em>.</p></li>
+<li><p>One record from the right table didn’t have a match, so it’s dropped from the resulting relation.</p></li>
+<li><p>This is an example of a <em>Left Join</em></p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 409.50 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8.5,-130 8.5,-148 189.5,-148 189.5,-130 8.5,-130"></polygon>
+<text text-anchor="start" x="77.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8.5,-112 8.5,-130 109.5,-130 109.5,-112 8.5,-112"></polygon>
+<text text-anchor="start" x="45.94" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109.5,-112 109.5,-130 140.5,-130 140.5,-112 109.5,-112"></polygon>
+<text text-anchor="start" x="114.71" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140.5,-112 140.5,-130 154.5,-130 154.5,-112 140.5,-112"></polygon>
+<text text-anchor="start" x="143.06" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="154.5,-112 154.5,-130 189.5,-130 189.5,-112 154.5,-112"></polygon>
+<text text-anchor="start" x="157.27" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8.5,-94 8.5,-112 109.5,-112 109.5,-94 8.5,-94"></polygon>
+<text text-anchor="start" x="11.5" y="-100" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109.5,-94 109.5,-112 140.5,-112 140.5,-94 109.5,-94"></polygon>
+<text text-anchor="start" x="113.88" y="-100" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140.5,-94 140.5,-112 154.5,-112 154.5,-94 140.5,-94"></polygon>
+<text text-anchor="start" x="144.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="154.5,-94 154.5,-112 189.5,-112 189.5,-94 154.5,-94"></polygon>
+<text text-anchor="start" x="159.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-76 8.5,-94 109.5,-94 109.5,-76 8.5,-76"></polygon>
+<text text-anchor="start" x="11.2" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109.5,-76 109.5,-94 140.5,-94 140.5,-76 109.5,-76"></polygon>
+<text text-anchor="start" x="113.88" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140.5,-76 140.5,-94 154.5,-94 154.5,-76 140.5,-76"></polygon>
+<text text-anchor="start" x="144.72" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="154.5,-76 154.5,-94 189.5,-94 189.5,-76 154.5,-76"></polygon>
+<text text-anchor="start" x="169.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8.5,-58 8.5,-76 109.5,-76 109.5,-58 8.5,-58"></polygon>
+<text text-anchor="start" x="11.5" y="-64" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109.5,-58 109.5,-76 140.5,-76 140.5,-58 109.5,-58"></polygon>
+<text text-anchor="start" x="113.88" y="-64" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140.5,-58 140.5,-76 154.5,-76 154.5,-58 140.5,-58"></polygon>
+<text text-anchor="start" x="144.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="154.5,-58 154.5,-76 189.5,-76 189.5,-58 154.5,-58"></polygon>
+<text text-anchor="start" x="159.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8.5,-40 8.5,-58 109.5,-58 109.5,-40 8.5,-40"></polygon>
+<text text-anchor="start" x="11.5" y="-46" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109.5,-40 109.5,-58 140.5,-58 140.5,-40 109.5,-40"></polygon>
+<text text-anchor="start" x="112.22" y="-46" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140.5,-40 140.5,-58 154.5,-58 154.5,-40 140.5,-40"></polygon>
+<text text-anchor="start" x="144.72" y="-46" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="154.5,-40 154.5,-58 189.5,-58 189.5,-40 154.5,-40"></polygon>
+<text text-anchor="start" x="169.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8.5,-22 8.5,-40 109.5,-40 109.5,-22 8.5,-22"></polygon>
+<text text-anchor="start" x="11.5" y="-28" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109.5,-22 109.5,-40 140.5,-40 140.5,-22 109.5,-22"></polygon>
+<text text-anchor="start" x="113.88" y="-28" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140.5,-22 140.5,-40 154.5,-40 154.5,-22 140.5,-22"></polygon>
+<text text-anchor="start" x="144.72" y="-28" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="154.5,-22 154.5,-40 189.5,-40 189.5,-22 154.5,-22"></polygon>
+<text text-anchor="start" x="169.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8.5,-4 8.5,-22 109.5,-22 109.5,-4 8.5,-4"></polygon>
+<text text-anchor="start" x="11.5" y="-10" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109.5,-4 109.5,-22 140.5,-22 140.5,-4 109.5,-4"></polygon>
+<text text-anchor="start" x="113.88" y="-10" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140.5,-4 140.5,-22 154.5,-22 154.5,-4 140.5,-4"></polygon>
+<text text-anchor="start" x="144.72" y="-10" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="154.5,-4 154.5,-22 189.5,-22 189.5,-4 154.5,-4"></polygon>
+<text text-anchor="start" x="169.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="277.5,-130 277.5,-148 393.5,-148 393.5,-130 277.5,-130"></polygon>
+<text text-anchor="start" x="315.49" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="277.5,-112 277.5,-130 308.5,-130 308.5,-112 277.5,-112"></polygon>
+<text text-anchor="start" x="288.56" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="308.5,-112 308.5,-130 360.5,-130 360.5,-112 308.5,-112"></polygon>
+<text text-anchor="start" x="321.44" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="360.5,-112 360.5,-130 393.5,-130 393.5,-112 360.5,-112"></polygon>
+<text text-anchor="start" x="363.11" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="277.5,-94 277.5,-112 308.5,-112 308.5,-94 277.5,-94"></polygon>
+<text text-anchor="start" x="280.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="308.5,-94 308.5,-112 360.5,-112 360.5,-94 308.5,-94"></polygon>
+<text text-anchor="start" x="321.72" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="360.5,-94 360.5,-112 393.5,-112 393.5,-94 360.5,-94"></polygon>
+<text text-anchor="start" x="364.22" y="-100" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="277.5,-76 277.5,-94 308.5,-94 308.5,-76 277.5,-76"></polygon>
+<text text-anchor="start" x="290.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="308.5,-76 308.5,-94 360.5,-94 360.5,-76 308.5,-76"></polygon>
+<text text-anchor="start" x="311.44" y="-82" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="360.5,-76 360.5,-94 393.5,-94 393.5,-76 360.5,-76"></polygon>
+<text text-anchor="start" x="374.22" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-58 277.5,-76 308.5,-76 308.5,-58 277.5,-58"></polygon>
+<text text-anchor="start" x="280.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="308.5,-58 308.5,-76 360.5,-76 360.5,-58 308.5,-58"></polygon>
+<text text-anchor="start" x="321.72" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="360.5,-58 360.5,-76 393.5,-76 393.5,-58 360.5,-58"></polygon>
+<text text-anchor="start" x="364.22" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="277.5,-40 277.5,-58 308.5,-58 308.5,-40 277.5,-40"></polygon>
+<text text-anchor="start" x="290.22" y="-46" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="308.5,-40 308.5,-58 360.5,-58 360.5,-40 308.5,-40"></polygon>
+<text text-anchor="start" x="311.44" y="-46" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="360.5,-40 360.5,-58 393.5,-58 393.5,-40 360.5,-40"></polygon>
+<text text-anchor="start" x="374.22" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-22 277.5,-40 308.5,-40 308.5,-22 277.5,-22"></polygon>
+<text text-anchor="start" x="290.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="308.5,-22 308.5,-40 360.5,-40 360.5,-22 308.5,-22"></polygon>
+<text text-anchor="start" x="311.44" y="-28" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="360.5,-22 360.5,-40 393.5,-40 393.5,-22 360.5,-22"></polygon>
+<text text-anchor="start" x="374.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="277.5,-4 277.5,-22 308.5,-22 308.5,-4 277.5,-4"></polygon>
+<text text-anchor="start" x="290.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="308.5,-4 308.5,-22 360.5,-22 360.5,-4 308.5,-4"></polygon>
+<text text-anchor="start" x="311.44" y="-10" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="360.5,-4 360.5,-22 393.5,-22 393.5,-4 360.5,-4"></polygon>
+<text text-anchor="start" x="374.22" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r1-&gt;course:c0</title>
+<path fill="none" stroke="black" d="M190.5,-103C228.72,-103 238.28,-103 276.5,-103"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M190.5,-85C228.72,-85 238.28,-85 276.5,-85"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r3-&gt;course:c00</title>
+<path fill="none" stroke="black" d="M190.5,-67C228.72,-67 238.28,-67 276.5,-67"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M190.5,-49C228.72,-49 238.28,-49 276.5,-49"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge5" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M190.5,-31C228.72,-31 238.28,-31 276.5,-31"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge6" class="edge">
+<title>student:r6-&gt;course:c3a</title>
+<path fill="none" stroke="black" d="M190.5,-13C228.72,-13 238.28,-13 276.5,-13"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="example-3-join-example---right-join-or-right-outer-join" class="slide level2">
+<h2>Example 3: Join example - <em>Right Join</em> or <em>Right Outer Join</em></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example-3">Example</h3>
+<ul>
+<li><p>Two relations - <code>Students</code> and <code>Courses</code>.</p></li>
+<li><p>Foreign key in <code>Students</code> connects to Primary Key in <code>Courses</code>.</p></li>
+<li><p>We get <em>different</em> joins depending on what happens to the tuples <em>WITHOUT</em> matching foreign keys.</p></li>
+<li><p>In this example <em>We keep all records from the right table even without a match, and only keep tables from the left that have a match</em>.</p></li>
+<li><p>This is an example of a <em>Right Join</em></p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 409.50 142.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 138)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 206,-130 206,-112 8,-112"></polygon>
+<text text-anchor="start" x="85.61" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 109,-112 109,-94 8,-94"></polygon>
+<text text-anchor="start" x="45.44" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109,-94 109,-112 140,-112 140,-94 109,-94"></polygon>
+<text text-anchor="start" x="114.21" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140,-94 140,-112 171,-112 171,-94 140,-94"></polygon>
+<text text-anchor="start" x="151.06" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="171,-94 171,-112 206,-112 206,-94 171,-94"></polygon>
+<text text-anchor="start" x="173.77" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 109,-94 109,-76 8,-76"></polygon>
+<text text-anchor="start" x="10.7" y="-82" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109,-76 109,-94 140,-94 140,-76 109,-76"></polygon>
+<text text-anchor="start" x="113.38" y="-82" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140,-76 140,-94 171,-94 171,-76 140,-76"></polygon>
+<text text-anchor="start" x="152.72" y="-82" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="171,-76 171,-94 206,-94 206,-76 171,-76"></polygon>
+<text text-anchor="start" x="185.72" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 109,-76 109,-58 8,-58"></polygon>
+<text text-anchor="start" x="11" y="-64" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109,-58 109,-76 140,-76 140,-58 109,-58"></polygon>
+<text text-anchor="start" x="111.72" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-58 140,-76 171,-76 171,-58 140,-58"></polygon>
+<text text-anchor="start" x="152.72" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="171,-58 171,-76 206,-76 206,-58 171,-58"></polygon>
+<text text-anchor="start" x="185.72" y="-64" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 109,-58 109,-40 8,-40"></polygon>
+<text text-anchor="start" x="11" y="-46" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109,-40 109,-58 140,-58 140,-40 109,-40"></polygon>
+<text text-anchor="start" x="113.38" y="-46" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140,-40 140,-58 171,-58 171,-40 140,-40"></polygon>
+<text text-anchor="start" x="152.72" y="-46" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="171,-40 171,-58 206,-58 206,-40 171,-40"></polygon>
+<text text-anchor="start" x="185.72" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 109,-40 109,-22 8,-22"></polygon>
+<text text-anchor="start" x="11" y="-28" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109,-22 109,-40 140,-40 140,-22 109,-22"></polygon>
+<text text-anchor="start" x="113.38" y="-28" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140,-22 140,-40 171,-40 171,-22 140,-22"></polygon>
+<text text-anchor="start" x="152.72" y="-28" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="171,-22 171,-40 206,-40 206,-22 171,-22"></polygon>
+<text text-anchor="start" x="185.72" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 109,-22 109,-4 8,-4"></polygon>
+<text text-anchor="start" x="11" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="109,-4 109,-22 140,-22 140,-4 109,-4"></polygon>
+<text text-anchor="start" x="111.72" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-4 140,-22 171,-22 171,-4 140,-4"></polygon>
+<text text-anchor="start" x="142.72" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="171,-4 171,-22 206,-22 206,-4 171,-4"></polygon>
+<text text-anchor="start" x="175.72" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="295,-112 295,-130 394,-130 394,-112 295,-112"></polygon>
+<text text-anchor="start" x="324.49" y="-119" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="295,-94 295,-112 309,-112 309,-94 295,-94"></polygon>
+<text text-anchor="start" x="297.56" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="309,-94 309,-112 361,-112 361,-94 309,-94"></polygon>
+<text text-anchor="start" x="321.94" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="361,-94 361,-112 394,-112 394,-94 361,-94"></polygon>
+<text text-anchor="start" x="363.61" y="-101" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="295,-76 295,-94 309,-94 309,-76 295,-76"></polygon>
+<text text-anchor="start" x="299.22" y="-82" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="309,-76 309,-94 361,-94 361,-76 309,-76"></polygon>
+<text text-anchor="start" x="311.94" y="-82" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="361,-76 361,-94 394,-94 394,-76 361,-76"></polygon>
+<text text-anchor="start" x="374.72" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="295,-58 295,-76 309,-76 309,-58 295,-58"></polygon>
+<text text-anchor="start" x="299.22" y="-64" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="309,-58 309,-76 361,-76 361,-58 309,-58"></polygon>
+<text text-anchor="start" x="311.94" y="-64" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="361,-58 361,-76 394,-76 394,-58 361,-58"></polygon>
+<text text-anchor="start" x="374.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="295,-40 295,-58 309,-58 309,-40 295,-40"></polygon>
+<text text-anchor="start" x="299.22" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="309,-40 309,-58 361,-58 361,-40 309,-40"></polygon>
+<text text-anchor="start" x="311.94" y="-46" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="361,-40 361,-58 394,-58 394,-40 361,-40"></polygon>
+<text text-anchor="start" x="374.72" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="295,-22 295,-40 309,-40 309,-22 295,-22"></polygon>
+<text text-anchor="start" x="299.22" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="309,-22 309,-40 361,-40 361,-22 309,-22"></polygon>
+<text text-anchor="start" x="311.94" y="-28" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="361,-22 361,-40 394,-40 394,-22 361,-22"></polygon>
+<text text-anchor="start" x="374.72" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="295,-4 295,-22 309,-22 309,-4 295,-4"></polygon>
+<text text-anchor="start" x="299.22" y="-10" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="309,-4 309,-22 361,-22 361,-4 309,-4"></polygon>
+<text text-anchor="start" x="311.94" y="-10" font-family="Arial" font-size="10.00">CMSC452</text>
+<polygon fill="none" stroke="cyan" points="361,-4 361,-22 394,-22 394,-4 361,-4"></polygon>
+<text text-anchor="start" x="374.72" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M207,-85C245.67,-85 255.33,-85 294,-85"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M207,-67C245.67,-67 255.33,-67 294,-67"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M207,-49C245.67,-49 255.33,-49 294,-49"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r6-&gt;course:c3a</title>
+<path fill="none" stroke="black" d="M207,-31C245.67,-31 255.33,-31 294,-31"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge5" class="edge">
+<title>student:r7-&gt;course:c4</title>
+<path fill="none" stroke="black" d="M207,-13C245.67,-13 255.33,-13 294,-13"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="example-4-join-example---outer-join-or-full-outer-join" class="slide level2">
+<h2>Example 4: Join example - <em>Outer Join</em> or <em>Full Outer Join</em></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example-4">Example</h3>
+<ul>
+<li><p>Two relations - <code>Students</code> and <code>Courses</code>.</p></li>
+<li><p>Foreign key in <code>Students</code> connects to Primary Key in <code>Courses</code>.</p></li>
+<li><p>We get <em>different</em> joins depending on what happens to the tuples <em>WITHOUT</em> matching foreign keys.</p></li>
+<li><p>In this example <em>We keep records at least one record from both tables</em>.</p></li>
+<li><p>This is an example of a <em>Outer Join</em> or <em>Full Outer Join</em></p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig-width="550px" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="550" height="250" viewbox="0.00 0.00 426.00 178.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 174)">
+<title>RelationalDataModel</title>
+<!-- student -->
+<g id="node1" class="node">
+<title>student</title>
+<polygon fill="none" stroke="cyan" points="8,-148 8,-166 206,-166 206,-148 8,-148"></polygon>
+<text text-anchor="start" x="85.61" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">Students</text>
+<polygon fill="none" stroke="cyan" points="8,-130 8,-148 109,-148 109,-130 8,-130"></polygon>
+<text text-anchor="start" x="45.44" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="109,-130 109,-148 140,-148 140,-130 109,-130"></polygon>
+<text text-anchor="start" x="114.21" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">year</text>
+<polygon fill="none" stroke="cyan" points="140,-130 140,-148 171,-148 171,-130 140,-130"></polygon>
+<text text-anchor="start" x="151.06" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="171,-130 171,-148 206,-148 206,-130 171,-130"></polygon>
+<text text-anchor="start" x="173.77" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">crs_id</text>
+<polygon fill="none" stroke="cyan" points="8,-112 8,-130 109,-130 109,-112 8,-112"></polygon>
+<text text-anchor="start" x="11" y="-118" font-family="Arial" font-size="10.00">Amara Singh</text>
+<polygon fill="none" stroke="cyan" points="109,-112 109,-130 140,-130 140,-112 109,-112"></polygon>
+<text text-anchor="start" x="113.38" y="-118" font-family="Arial" font-size="10.00">1991</text>
+<polygon fill="none" stroke="cyan" points="140,-112 140,-130 171,-130 171,-112 140,-112"></polygon>
+<text text-anchor="start" x="152.72" y="-118" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="171,-112 171,-130 206,-130 206,-112 171,-112"></polygon>
+<text text-anchor="start" x="175.72" y="-118" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8,-94 8,-112 109,-112 109,-94 8,-94"></polygon>
+<text text-anchor="start" x="10.7" y="-100" font-family="Arial" font-size="10.00">Youssef El-Mohamed</text>
+<polygon fill="none" stroke="cyan" points="109,-94 109,-112 140,-112 140,-94 109,-94"></polygon>
+<text text-anchor="start" x="113.38" y="-100" font-family="Arial" font-size="10.00">1987</text>
+<polygon fill="none" stroke="cyan" points="140,-94 140,-112 171,-112 171,-94 140,-94"></polygon>
+<text text-anchor="start" x="152.72" y="-100" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="171,-94 171,-112 206,-112 206,-94 171,-94"></polygon>
+<text text-anchor="start" x="185.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="8,-76 8,-94 109,-94 109,-76 8,-76"></polygon>
+<text text-anchor="start" x="11" y="-82" font-family="Arial" font-size="10.00">Chen Wei</text>
+<polygon fill="none" stroke="cyan" points="109,-76 109,-94 140,-94 140,-76 109,-76"></polygon>
+<text text-anchor="start" x="113.38" y="-82" font-family="Arial" font-size="10.00">1978</text>
+<polygon fill="none" stroke="cyan" points="140,-76 140,-94 171,-94 171,-76 140,-76"></polygon>
+<text text-anchor="start" x="152.72" y="-82" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="171,-76 171,-94 206,-94 206,-76 171,-76"></polygon>
+<text text-anchor="start" x="175.72" y="-82" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="8,-58 8,-76 109,-76 109,-58 8,-58"></polygon>
+<text text-anchor="start" x="11" y="-64" font-family="Arial" font-size="10.00">Olga Petrova</text>
+<polygon fill="none" stroke="cyan" points="109,-58 109,-76 140,-76 140,-58 109,-58"></polygon>
+<text text-anchor="start" x="111.72" y="-64" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-58 140,-76 171,-76 171,-58 140,-58"></polygon>
+<text text-anchor="start" x="152.72" y="-64" font-family="Arial" font-size="10.00">4</text>
+<polygon fill="none" stroke="cyan" points="171,-58 171,-76 206,-76 206,-58 171,-58"></polygon>
+<text text-anchor="start" x="185.72" y="-64" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="8,-40 8,-58 109,-58 109,-40 8,-40"></polygon>
+<text text-anchor="start" x="11" y="-46" font-family="Arial" font-size="10.00">Kwame Nkrumah</text>
+<polygon fill="none" stroke="cyan" points="109,-40 109,-58 140,-58 140,-40 109,-40"></polygon>
+<text text-anchor="start" x="113.38" y="-46" font-family="Arial" font-size="10.00">1965</text>
+<polygon fill="none" stroke="cyan" points="140,-40 140,-58 171,-58 171,-40 140,-40"></polygon>
+<text text-anchor="start" x="152.72" y="-46" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="171,-40 171,-58 206,-58 206,-40 171,-40"></polygon>
+<text text-anchor="start" x="185.72" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-22 8,-40 109,-40 109,-22 8,-22"></polygon>
+<text text-anchor="start" x="11" y="-28" font-family="Arial" font-size="10.00">Lucia Gonzalez</text>
+<polygon fill="none" stroke="cyan" points="109,-22 109,-40 140,-40 140,-22 109,-22"></polygon>
+<text text-anchor="start" x="113.38" y="-28" font-family="Arial" font-size="10.00">1980</text>
+<polygon fill="none" stroke="cyan" points="140,-22 140,-40 171,-40 171,-22 140,-22"></polygon>
+<text text-anchor="start" x="152.72" y="-28" font-family="Arial" font-size="10.00">6</text>
+<polygon fill="none" stroke="cyan" points="171,-22 171,-40 206,-40 206,-22 171,-22"></polygon>
+<text text-anchor="start" x="185.72" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="8,-4 8,-22 109,-22 109,-4 8,-4"></polygon>
+<text text-anchor="start" x="11" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="109,-4 109,-22 140,-22 140,-4 109,-4"></polygon>
+<text text-anchor="start" x="111.72" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="140,-4 140,-22 171,-22 171,-4 140,-4"></polygon>
+<text text-anchor="start" x="142.72" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="171,-4 171,-22 206,-22 206,-4 171,-4"></polygon>
+<text text-anchor="start" x="175.72" y="-10" font-family="Arial" font-size="10.00">NULL</text>
+</g>
+<!-- course -->
+<g id="node2" class="node">
+<title>course</title>
+<polygon fill="none" stroke="cyan" points="294,-148 294,-166 410,-166 410,-148 294,-148"></polygon>
+<text text-anchor="start" x="331.99" y="-155" font-family="Arial" font-weight="bold" font-size="10.00">Courses</text>
+<polygon fill="none" stroke="cyan" points="294,-130 294,-148 325,-148 325,-130 294,-130"></polygon>
+<text text-anchor="start" x="305.06" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">id</text>
+<polygon fill="none" stroke="cyan" points="325,-130 325,-148 377,-148 377,-130 325,-130"></polygon>
+<text text-anchor="start" x="337.94" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">name</text>
+<polygon fill="none" stroke="cyan" points="377,-130 377,-148 410,-148 410,-130 377,-130"></polygon>
+<text text-anchor="start" x="379.61" y="-137" font-family="Arial" font-weight="bold" font-size="10.00">hours</text>
+<polygon fill="none" stroke="cyan" points="294,-112 294,-130 325,-130 325,-112 294,-112"></polygon>
+<text text-anchor="start" x="296.72" y="-118" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="325,-112 325,-130 377,-130 377,-112 325,-112"></polygon>
+<text text-anchor="start" x="338.22" y="-118" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="377,-112 377,-130 410,-130 410,-112 377,-112"></polygon>
+<text text-anchor="start" x="380.72" y="-118" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="294,-94 294,-112 325,-112 325,-94 294,-94"></polygon>
+<text text-anchor="start" x="306.72" y="-100" font-family="Arial" font-size="10.00">1</text>
+<polygon fill="none" stroke="cyan" points="325,-94 325,-112 377,-112 377,-94 325,-94"></polygon>
+<text text-anchor="start" x="327.94" y="-100" font-family="Arial" font-size="10.00">CMSC391</text>
+<polygon fill="none" stroke="cyan" points="377,-94 377,-112 410,-112 410,-94 377,-94"></polygon>
+<text text-anchor="start" x="390.72" y="-100" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="294,-76 294,-94 325,-94 325,-76 294,-76"></polygon>
+<text text-anchor="start" x="296.72" y="-82" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="325,-76 325,-94 377,-94 377,-76 325,-76"></polygon>
+<text text-anchor="start" x="338.22" y="-82" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="377,-76 377,-94 410,-94 410,-76 377,-76"></polygon>
+<text text-anchor="start" x="380.72" y="-82" font-family="Arial" font-size="10.00">NULL</text>
+<polygon fill="none" stroke="cyan" points="294,-58 294,-76 325,-76 325,-58 294,-58"></polygon>
+<text text-anchor="start" x="306.72" y="-64" font-family="Arial" font-size="10.00">2</text>
+<polygon fill="none" stroke="cyan" points="325,-58 325,-76 377,-76 377,-58 325,-58"></polygon>
+<text text-anchor="start" x="327.94" y="-64" font-family="Arial" font-size="10.00">CMSC475</text>
+<polygon fill="none" stroke="cyan" points="377,-58 377,-76 410,-76 410,-58 377,-58"></polygon>
+<text text-anchor="start" x="390.72" y="-64" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="294,-40 294,-58 325,-58 325,-40 294,-40"></polygon>
+<text text-anchor="start" x="306.72" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="325,-40 325,-58 377,-58 377,-40 325,-40"></polygon>
+<text text-anchor="start" x="327.94" y="-46" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="377,-40 377,-58 410,-58 410,-40 377,-40"></polygon>
+<text text-anchor="start" x="390.72" y="-46" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="294,-22 294,-40 325,-40 325,-22 294,-22"></polygon>
+<text text-anchor="start" x="306.72" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="325,-22 325,-40 377,-40 377,-22 325,-22"></polygon>
+<text text-anchor="start" x="327.94" y="-28" font-family="Arial" font-size="10.00">CMSC508</text>
+<polygon fill="none" stroke="cyan" points="377,-22 377,-40 410,-40 410,-22 377,-22"></polygon>
+<text text-anchor="start" x="390.72" y="-28" font-family="Arial" font-size="10.00">3</text>
+<polygon fill="none" stroke="cyan" points="294,-4 294,-22 325,-22 325,-4 294,-4"></polygon>
+<text text-anchor="start" x="306.72" y="-10" font-family="Arial" font-size="10.00">5</text>
+<polygon fill="none" stroke="cyan" points="325,-4 325,-22 377,-22 377,-4 325,-4"></polygon>
+<text text-anchor="start" x="327.94" y="-10" font-family="Arial" font-size="10.00">CMSC452</text>
+<polygon fill="none" stroke="cyan" points="377,-4 377,-22 410,-22 410,-4 377,-4"></polygon>
+<text text-anchor="start" x="390.72" y="-10" font-family="Arial" font-size="10.00">3</text>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge1" class="edge">
+<title>student:r1-&gt;course:c0</title>
+<path fill="none" stroke="black" d="M207,-121C245.22,-121 254.78,-121 293,-121"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge2" class="edge">
+<title>student:r2-&gt;course:c1</title>
+<path fill="none" stroke="black" d="M207,-103C245.22,-103 254.78,-103 293,-103"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge3" class="edge">
+<title>student:r3-&gt;course:c00</title>
+<path fill="none" stroke="black" d="M207,-85C245.22,-85 254.78,-85 293,-85"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge4" class="edge">
+<title>student:r4-&gt;course:c2</title>
+<path fill="none" stroke="black" d="M207,-67C245.22,-67 254.78,-67 293,-67"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge5" class="edge">
+<title>student:r5-&gt;course:c3</title>
+<path fill="none" stroke="black" d="M207,-49C245.22,-49 254.78,-49 293,-49"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge6" class="edge">
+<title>student:r6-&gt;course:c3a</title>
+<path fill="none" stroke="black" d="M207,-31C245.22,-31 254.78,-31 293,-31"></path>
+</g>
+<!-- student&#45;&gt;course -->
+<g id="edge7" class="edge">
+<title>student:r7-&gt;course:c4</title>
+<path fill="none" stroke="black" d="M207,-13C245.22,-13 254.78,-13 293,-13"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="join-operations" class="title-slide slide level1 center">
+<h1>Join Operations</h1>
+<!-- # Join Operations -->
+</section>
+<section id="introduction-to-join-operations-in-relational-algebra" class="slide level2">
+<h2>Introduction to Join Operations in Relational Algebra</h2>
+<p>Join operations allow you to combine data from two or more relations based on a condition. Understanding these operations is key to querying relational databases effectively.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Joins combine related data from different relations.</li>
+<li>The result of a join operation is another <em>relation</em>. <strong>&lt;- TOTALLY AWESOME!</strong></li>
+<li>A condition (join predicate) specifies how to match tuples from different relations.</li>
+<li>Common types of joins include inner and outer joins.</li>
+<li>Joins are fundamental to multi-relation queries.</li>
+<li>Different types of joins solve different query requirements.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<p><em>Joins are essential in connecting data from multiple tables in relational databases.</em></p>
+</section>
+<section id="inner-join-definition-and-use" class="slide level2">
+<h2>Inner Join: Definition and Use</h2>
+<p>Inner join is the most common type of join, which only returns matching tuples from both relations. It is frequently used in relational databases.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Inner join retrieves only the matching tuples from two relations.</li>
+<li>Non-matching tuples are excluded from the result.</li>
+<li>The join condition specifies how tuples are matched.</li>
+<li>Useful when you need to combine data from two relations where all entries meet a condition.</li>
+<li>Most common join operation in SQL and relational algebra.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Inner join is ideal when you only need rows where data exists in both relations.</em></p>
+</section>
+<section id="properties-of-the-inner-join-operator" class="slide level2">
+<h2>Properties of the Inner Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} R_2 = { t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } condition(t_1, t_2) }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>inner join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>The result contains only those rows where the condition is true for both relations (i.e., rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> that satisfy the join condition).</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations matters in inner join (unless the join condition is symmetric):</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} R_2 \neq R_2 \bowtie_{condition} R_1
+\]</span> (Unless <span class="math inline">\(condition(t_1, t_2) = condition(t_2, t_1)\)</span>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping inner join operations doesn’t affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie_{condition1} R_2) \bowtie_{condition2} R_3 = R_1 \bowtie_{condition1} (R_2 \bowtie_{condition2} R_3)
+\]</span></p>
+<ul>
+<li><strong>Inner join with an empty set</strong> – The inner join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{condition} \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Distributive over selection</strong> – Inner join distributes over selection:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie R_2) = (\sigma_{condition}(R_1)) \bowtie R_2
+\]</span> (if the selection condition applies to <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> match rows in <span class="math inline">\(R_2\)</span> under the join condition.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order of the relations in the inner join may affect the result unless the join condition is symmetric (e.g., <span class="math inline">\(A = B\)</span> is the same as <span class="math inline">\(B = A\)</span>).</li>
+<li><strong>Associative</strong>: Grouping inner joins differently doesn’t change the result as long as the conditions are applied consistently.</li>
+<li><strong>Inner join with an empty set</strong>: If either relation is empty, the result is an empty set because no rows can satisfy the join condition.</li>
+<li><strong>Distributive over selection</strong>: You can first apply a selection condition to one of the relations and then join it with the other relation without affecting the outcome, assuming the selection condition applies to that relation only.</li>
+<li><strong>Size of result</strong>: The size of the result is determined by the number of matching rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> that satisfy the join condition.</li>
+</ul>
+<p>This structure mirrors the other relational algebra operations and highlights the key properties of the inner join.</p>
+</section>
+<section id="inner-join-----example-1" class="slide level2">
+<h2>Inner Join - ⋈ - Example 1</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Students(VID,Name,Major)</em>:</p>
+<div id="47719d70" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10102</td>
+<td>Bob</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+</tr>
+<tr class="even">
+<td>V10104</td>
+<td>Dave</td>
+<td>Physics</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Enrollments(VID,Course,Term,Enrl)</em>:</p>
+<div id="9882e64a" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10103</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td>V10105</td>
+<td>CMSC420</td>
+<td>Spring 2024</td>
+<td>120</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Find all the data for students enrolled in classes</strong></p>
+<p><em>Students</em> ⋈ (<em>VID</em>) <em>Enrollments</em>;</p>
+<div id="11aa6cdd" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">VID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Major</th>
+<th data-quarto-table-cell-role="th">Course</th>
+<th data-quarto-table-cell-role="th">Term</th>
+<th data-quarto-table-cell-role="th">Enrl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V10101</td>
+<td>Alice</td>
+<td>CS</td>
+<td>CMSC460</td>
+<td>Spring 2024</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>V10103</td>
+<td>Carol</td>
+<td>CS</td>
+<td>CMSC455</td>
+<td>Spring 2024</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<ul>
+<li><p>This list does not include students who don’t have enrollments, nor enrollments with students not found in the relation.</p></li>
+<li><p>What is the cardinality and participation?</p></li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="inner-join-----example-2" class="slide level2">
+<h2>Inner Join - ⋈ - Example 2</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
+<div id="317de428" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D001</td>
+<td>Samosa</td>
+<td>2.5</td>
+</tr>
+<tr class="even">
+<td>D002</td>
+<td>Butter Chicken</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td>D003</td>
+<td>Naan</td>
+<td>1.5</td>
+</tr>
+<tr class="even">
+<td>D004</td>
+<td>Paneer Tikka</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
+<div id="a975d738" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O1001</td>
+<td>D001</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>O1002</td>
+<td>D003</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>O1003</td>
+<td>D005</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Menu</em> ⋈ (<em>DishID</em>) <em>Orders</em> returns:</p>
+<div id="47a8cc78" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D001</td>
+<td>Samosa</td>
+<td>2.5</td>
+<td>O1001</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D003</td>
+<td>Naan</td>
+<td>1.5</td>
+<td>O1002</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example demonstrates how an inner join will return only the dishes from the <code>orders</code> that exist in the <code>menu</code>, leaving out any ordered dishes that are not on the menu (like <code>DishID: D005</code>).</p>
+</div></div>
+<!-- -->
+</section>
+<section id="outer-join-introduction-and-types" class="slide level2">
+<h2>Outer Join: Introduction and Types</h2>
+<p>Outer join returns all tuples from one or both relations, filling in missing values with NULLs. It allows for more inclusive queries.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Outer join returns matching and non-matching tuples.</li>
+<li>NULL values are used for missing data.</li>
+<li>There are three types: left, right, and full outer join.</li>
+<li>Left outer join returns all tuples from the left relation and matches from the right.</li>
+<li>Right outer join does the reverse: all from the right relation and matches from the left.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Outer joins are useful when you need to retain non-matching data from one or both relations.</em></p>
+</section>
+<section id="properties-of-the-outer-join-operator" class="slide level2">
+<h2>Properties of the Outer Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+R_1 \text{⟕}_{condition} R_2 = &amp;{ t_1 , t_2 \mid (t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2)) } \
+&amp;\cup { t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 } \
+&amp;\cup { t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 }
+\end{aligned}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>outer join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>Unlike the inner join, the result includes all matching rows from both relations as well as non-matching rows, which are padded with <code>NULL</code> values where no match is found.</li>
+</ul>
+<p><strong>Types of outer join:</strong></p>
+<ul>
+<li><strong>Left outer join</strong>: Keeps all rows from <span class="math inline">\(R_1\)</span> and matches from <span class="math inline">\(R_2\)</span>.</li>
+<li><strong>Right outer join</strong>: Keeps all rows from <span class="math inline">\(R_2\)</span> and matches from <span class="math inline">\(R_1\)</span>.</li>
+<li><strong>Full outer join</strong>: Keeps all rows from both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, including unmatched rows from both sides.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations matters for left and right outer joins:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \text{⟕}_{condition} R_2 \neq R_2 \text{⟕}_{condition} R_1
+\]</span> (unless using a <strong>full outer join</strong>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping outer joins can depend on the type of join but generally holds true for full outer joins:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \text{⟕}_{condition1} R_2) \text{⟕}_{condition2} R_3 = R_1 \text{⟕}_{condition1} (R_2 \text{⟕}_{condition2} R_3)
+\]</span> (applies to full outer joins)</p>
+<ul>
+<li><p><strong>Outer join with an empty set</strong> – The outer join with an empty relation depends on the type of outer join:</p>
+<ul>
+<li><strong>Left outer join</strong>: Returns all rows from <span class="math inline">\(R_1\)</span> with <code>NULL</code> for <span class="math inline">\(R_2\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \text{⟕} \emptyset = R_1
+\]</span></p>
+<ul>
+<li><strong>Right outer join</strong>: Returns all rows from <span class="math inline">\(R_2\)</span> with <code>NULL</code> for <span class="math inline">\(R_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\emptyset  \text{⟕}  R_2 = R_2
+\]</span></p>
+<ul>
+<li><strong>Full outer join</strong>: Results in both relations with unmatched rows being padded with <code>NULL</code>:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟕}  \emptyset = R_1 \quad \text{and} \quad \emptyset  \text{⟕}  R_2 = R_2
+\]</span></p></li>
+<li><p><strong>Distributive over selection</strong> – Outer join is not generally distributive over selection, as selection might remove rows that would otherwise be included with <code>NULL</code> values.</p></li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-1" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order of relations in left and right outer joins affects the result, but for full outer joins, the order does not matter.</li>
+<li><strong>Associative</strong>: Full outer joins are associative, meaning you can group them in different ways and still get the same result.</li>
+<li><strong>Outer join with an empty set</strong>: In left and right outer joins, the non-empty relation is returned with <code>NULL</code> values in place of the missing relation. For full outer joins, both relations contribute to the result, filling unmatched rows with <code>NULL</code>.</li>
+<li><strong>Distributive over selection</strong>: Unlike the inner join, selection does not distribute cleanly over outer joins because rows with <code>NULL</code> values might be incorrectly excluded if the selection is applied beforehand.</li>
+</ul>
+</section>
+<section id="left-outer-join-----example" class="slide level2">
+<h2>Left Outer Join - ⟕ - Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
+<div id="279d0aad" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Pad Thai</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Ramen</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
+<div id="ecc7fd21" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O2001</td>
+<td>A001</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>O2002</td>
+<td>A003</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>O2003</td>
+<td>A005</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Menu</em> ⟕ <em>Orders</em> on <em>DishID</em> returns:</p>
+<div id="0400d7cf" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+<td>O2001</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Pad Thai</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+<td>O2002</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Ramen</td>
+<td>8.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example shows how a left outer join includes <strong>all rows from the left table</strong> (<code>Menu</code>), and the matching rows from the right table (<code>Orders</code>). If there is no match, <code>NULL</code> (or <code>NaN</code> in pandas) values are returned for the columns from the right table. Here, the <code>DishID: A005</code> from the <code>Orders</code> table does not exist in the <code>Menu</code>, so it is not included in the result, but all menu items are shown, regardless of whether they are ordered.</p>
+</div></div>
+<!-- -->
+</section>
+<section id="right-outer-join-----example" class="slide level2">
+<h2>Right Outer Join - ⟖ - Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Menu(DishID, Dish, Price)</em>:</p>
+<div id="71b6fd74" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Pad Thai</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Ramen</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Orders(OrderID, DishID, Quantity)</em>:</p>
+<div id="85befe22" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O2001</td>
+<td>A001</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>O2002</td>
+<td>A003</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>O2003</td>
+<td>A005</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Menu</em> ⟖ <em>Orders</em> on <em>DishID</em> returns:</p>
+<div id="d0ee4859" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">Dish</th>
+<th data-quarto-table-cell-role="th">Price</th>
+<th data-quarto-table-cell-role="th">OrderID</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Spring Roll</td>
+<td>5.0</td>
+<td>O2001</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>A003</td>
+<td>Sushi</td>
+<td>10.0</td>
+<td>O2002</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>A005</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>O2003</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example demonstrates how a right outer join includes <strong>all rows from the right table</strong> (<code>Orders</code>), and the matching rows from the left table (<code>Menu</code>). If there is no match, <code>NULL</code> (or <code>NaN</code> in pandas) values are returned for the columns from the left table. Here, the <code>DishID: A005</code> from the <code>Orders</code> table does not exist in the <code>Menu</code>, so its corresponding <code>Dish</code> and <code>Price</code> columns have <code>NaN</code> values, but all orders are shown, even if the dish is not found on the menu.</p>
+</div></div>
+<!-- -->
+</section>
+<section id="full-outer-join-combining-data" class="slide level2">
+<h2>Full Outer Join: Combining Data</h2>
+<p>Full outer join returns all tuples from both relations, filling missing values with NULLs. It is the most inclusive join operation.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Full outer join returns all rows from both relations.</li>
+<li>Non-matching rows from both sides are included.</li>
+<li>Missing values are filled with NULLs for unmatched tuples.</li>
+<li>This join is used when you need a complete set of data from both relations.</li>
+<li>A powerful operation when analyzing two datasets with partial overlap.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Full outer join helps combine datasets completely, even if some data is missing.</em></p>
+</section>
+<section id="properties-of-the-full-outer-join-operator" class="slide level2">
+<h2>Properties of the Full Outer Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+R_1  \text{⟗}_{condition}  R_2 = &amp;{ t_1 , t_2 \mid t_1 \in R_1 \text{ and } t_2 \in R_2 \text{ and } condition(t_1, t_2) } \
+&amp;\cup { t_1 \mid t_1 \in R_1 \text{ and no match in } R_2 } \
+&amp;\cup { t_2 \mid t_2 \in R_2 \text{ and no match in } R_1 }
+\end{aligned}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>full outer join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> based on a specified <strong>join condition</strong>,</li>
+<li>The result includes:
+<ul>
+<li>Rows where the join condition holds for both relations (matching rows),</li>
+<li>Rows from <span class="math inline">\(R_1\)</span> with no matching rows in <span class="math inline">\(R_2\)</span> (padded with <code>NULL</code> values),</li>
+<li>Rows from <span class="math inline">\(R_2\)</span> with no matching rows in <span class="math inline">\(R_1\)</span> (padded with <code>NULL</code> values).</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a full outer join does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}_{condition}  R_2 = R_2  \text{⟗}_{condition}  R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Grouping full outer join operations does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1  \text{⟗}_{condition1}  R_2)  \text{⟗}_{condition2}  R_3 = R_1  \text{⟗}_{condition1}  (R_2  \text{⟗}_{condition2}  R_3)
+\]</span></p>
+<ul>
+<li><strong>Full outer join with an empty set</strong> – The full outer join with an empty relation includes all rows from the non-empty relation, padded with <code>NULL</code> values for the other side:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}  \emptyset = R_1 \quad \text{(padded with `NULL` for } R_2\text{)}
+\]</span></p>
+<p><span class="math display">\[
+\emptyset  \text{⟗}  R_2 = R_2 \quad \text{(padded with `NULL` for } R_1\text{)}
+\]</span></p>
+<ul>
+<li><strong>Distributive over union</strong> – The full outer join is distributive over union:</li>
+</ul>
+<p><span class="math display">\[
+R_1  \text{⟗}  (R_2 \cup R_3) = (R_1  \text{⟗}  R_2) \cup (R_1  \text{⟗}  R_3)
+\]</span></p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result is at most the sum of the rows in both relations, since all rows from both <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are included, with unmatched rows padded with <code>NULL</code>.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-2" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Commutative</strong>: The order in which the relations are combined in a full outer join does not matter, as the result includes all rows from both relations.</li>
+<li><strong>Associative</strong>: Grouping full outer joins differently does not affect the result, allowing the operation to be applied in stages.</li>
+<li><strong>Full outer join with an empty set</strong>: If either relation is empty, the result includes all rows from the non-empty relation, with the other side padded with <code>NULL</code>.</li>
+<li><strong>Distributive over union</strong>: Full outer join distributes over union, meaning you can break the join into smaller unions and join them separately.</li>
+<li><strong>Size of result</strong>: The result contains all rows from both relations, so the number of rows is at most the sum of rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, with <code>NULL</code> values used for non-matching rows.</li>
+</ul>
+<p>Here’s an example using a soccer team to demonstrate a <strong>Full Outer Join</strong>:</p>
+</section>
+<section id="full-outer-join-----example" class="slide level2">
+<h2>Full Outer Join - ⋈ - Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Players(PlayerID, PlayerName, Position)</em>:</p>
+<div id="9489623a" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">PlayerID</th>
+<th data-quarto-table-cell-role="th">PlayerName</th>
+<th data-quarto-table-cell-role="th">Position</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P001</td>
+<td>John</td>
+<td>Forward</td>
+</tr>
+<tr class="even">
+<td>P002</td>
+<td>Alex</td>
+<td>Midfielder</td>
+</tr>
+<tr class="odd">
+<td>P003</td>
+<td>Max</td>
+<td>Defender</td>
+</tr>
+<tr class="even">
+<td>P004</td>
+<td>Luke</td>
+<td>Goalkeeper</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Teams(TeamID, PlayerID, TeamName)</em>:</p>
+<div id="67d2be6b" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">TeamID</th>
+<th data-quarto-table-cell-role="th">PlayerID</th>
+<th data-quarto-table-cell-role="th">TeamName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T001</td>
+<td>P001</td>
+<td>Tigers</td>
+</tr>
+<tr class="even">
+<td>T002</td>
+<td>P003</td>
+<td>Lions</td>
+</tr>
+<tr class="odd">
+<td>T003</td>
+<td>P005</td>
+<td>Bears</td>
+</tr>
+<tr class="even">
+<td>T004</td>
+<td>P006</td>
+<td>Wolves</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Players</em> ⋈ <em>Teams</em> on <em>PlayerID</em> returns:</p>
+<div id="9520e3c8" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">PlayerID</th>
+<th data-quarto-table-cell-role="th">PlayerName</th>
+<th data-quarto-table-cell-role="th">Position</th>
+<th data-quarto-table-cell-role="th">TeamID</th>
+<th data-quarto-table-cell-role="th">TeamName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P001</td>
+<td>John</td>
+<td>Forward</td>
+<td>T001</td>
+<td>Tigers</td>
+</tr>
+<tr class="even">
+<td>P002</td>
+<td>Alex</td>
+<td>Midfielder</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>P003</td>
+<td>Max</td>
+<td>Defender</td>
+<td>T002</td>
+<td>Lions</td>
+</tr>
+<tr class="even">
+<td>P004</td>
+<td>Luke</td>
+<td>Goalkeeper</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>P005</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>T003</td>
+<td>Bears</td>
+</tr>
+<tr class="even">
+<td>P006</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>T004</td>
+<td>Wolves</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This example demonstrates how a full outer join combines all rows from both tables (<code>Players</code> and <code>Teams</code>), with matches being displayed where available. If a player does not belong to a team or a team does not have a listed player, <code>NULL</code> (or <code>NaN</code> in pandas) values are filled in for missing information. For example, players <code>P005</code> and <code>P006</code> exist only in the <code>Teams</code> table, and players <code>P002</code> and <code>P004</code> exist only in the <code>Players</code> table. The full outer join will include all records from both tables.</p>
+</div></div>
+<!-- -->
+<p>Here’s another example using cameras and images to demonstrate a <strong>Full Outer Join</strong>:</p>
+</section>
+<section id="full-outer-join-----example-1" class="slide level2">
+<h2>Full Outer Join - ⋈ - Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Cameras(CameraID, CameraModel, LensType)</em>:</p>
+<div id="de4a3ef0" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">CameraID</th>
+<th data-quarto-table-cell-role="th">CameraModel</th>
+<th data-quarto-table-cell-role="th">LensType</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C001</td>
+<td>Canon EOS</td>
+<td>50mm</td>
+</tr>
+<tr class="even">
+<td>C002</td>
+<td>Nikon D3500</td>
+<td>18-55mm</td>
+</tr>
+<tr class="odd">
+<td>C003</td>
+<td>Sony Alpha</td>
+<td>35mm</td>
+</tr>
+<tr class="even">
+<td>C004</td>
+<td>Fujifilm XT3</td>
+<td>24-70mm</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Images(ImageID, CameraID, ImageDescription)</em>:</p>
+<div id="38b903f4" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">ImageID</th>
+<th data-quarto-table-cell-role="th">CameraID</th>
+<th data-quarto-table-cell-role="th">ImageDescription</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I001</td>
+<td>C001</td>
+<td>Landscape</td>
+</tr>
+<tr class="even">
+<td>I002</td>
+<td>C003</td>
+<td>Portrait</td>
+</tr>
+<tr class="odd">
+<td>I003</td>
+<td>C005</td>
+<td>Macro</td>
+</tr>
+<tr class="even">
+<td>I004</td>
+<td>C006</td>
+<td>Night Sky</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Cameras</em> ⋈ (<em>CameraID</em>) <em>Images</em> returns:</p>
+<div id="9ac62576" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">CameraID</th>
+<th data-quarto-table-cell-role="th">CameraModel</th>
+<th data-quarto-table-cell-role="th">LensType</th>
+<th data-quarto-table-cell-role="th">ImageID</th>
+<th data-quarto-table-cell-role="th">ImageDescription</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C001</td>
+<td>Canon EOS</td>
+<td>50mm</td>
+<td>I001</td>
+<td>Landscape</td>
+</tr>
+<tr class="even">
+<td>C002</td>
+<td>Nikon D3500</td>
+<td>18-55mm</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>C003</td>
+<td>Sony Alpha</td>
+<td>35mm</td>
+<td>I002</td>
+<td>Portrait</td>
+</tr>
+<tr class="even">
+<td>C004</td>
+<td>Fujifilm XT3</td>
+<td>24-70mm</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>C005</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>I003</td>
+<td>Macro</td>
+</tr>
+<tr class="even">
+<td>C006</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>I004</td>
+<td>Night Sky</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This full outer join combines all rows from both the <code>Cameras</code> and <code>Images</code> tables. Where there is a matching <code>CameraID</code>, the corresponding camera and image details are shown. For unmatched <code>CameraID</code>s (such as <code>C005</code> and <code>C006</code> from the <code>Images</code> table and <code>C002</code> and <code>C004</code> from the <code>Cameras</code> table), <code>NULL</code> (or <code>NaN</code>) values fill in the missing data. This query provides a complete view of all cameras and all images, regardless of whether they have a match in the other table.</p>
+</div></div>
+<!-- -->
+</section>
+<section id="natural-join-definition-and-application" class="slide level2">
+<h2>Natural Join: Definition and Application</h2>
+<p>A natural join automatically matches attributes with the same name in both relations, simplifying queries when attribute names align.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Natural join matches tuples based on attributes with the same name.</li>
+<li>No explicit join condition is needed.</li>
+<li>Automatically merges common columns.</li>
+<li>Useful when attribute names are consistent across relations.</li>
+<li>Simplifies queries by eliminating the need for specifying the join condition.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Natural join is a convenient way to join relations when common attribute names are used.</em></p>
+</section>
+<section id="properties-of-the-natural-join-operator" class="slide level2">
+<h2>Properties of the Natural Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie R_2 = { t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and for all common attributes } A, t_1\[A\] = t_2\[A\] }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li>The <strong>natural join</strong> operation joins two relations based on all attributes they have in common, combining rows where the values of the common attributes are equal,</li>
+<li>The result contains only the attributes from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, but common attributes appear only once.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Commutative</strong> – The order of relations in a natural join does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie R_2 = R_2 \bowtie R_1
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Grouping natural join operations does not affect the result:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie R_2) \bowtie R_3 = R_1 \bowtie (R_2 \bowtie R_3)
+\]</span></p>
+<ul>
+<li><strong>Natural join with an empty set</strong> – The natural join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Natural join distributes over selection</strong> – The natural join distributes over selection operations when the selection condition involves attributes from one of the relations:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie R_2) = \sigma_{condition}(R_1) \bowtie R_2
+\]</span> (if the selection condition applies to attributes of <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result depends on how many rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> match based on the values of the common attributes.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-3" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Commutative</strong>: The order of relations in the natural join does not matter, as the result includes matching rows from both relations based on their common attributes.</li>
+<li><strong>Associative</strong>: Grouping natural joins differently does not affect the result, allowing the operation to be applied in stages.</li>
+<li><strong>Natural join with an empty set</strong>: If either relation is empty, the result will also be empty, as there are no rows to match.</li>
+<li><strong>Natural join distributes over selection</strong>: You can apply a selection condition to one relation before performing the natural join without affecting the outcome, provided the condition applies only to attributes from that relation.</li>
+<li><strong>Size of result</strong>: The result includes all rows from both relations where the values of common attributes match, and the number of matching rows determines the size of the result.</li>
+</ul>
+<p>Here’s an example using a <strong>Natural Join</strong> with a kennel and dog data set.</p>
+</section>
+<section id="natural-join-example" class="slide level2">
+<h2>Natural Join Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Dogs(DogID, Name, Breed, Age)</em>:</p>
+<div id="c6e42cc2" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DogID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Breed</th>
+<th data-quarto-table-cell-role="th">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D101</td>
+<td>Buddy</td>
+<td>Labrador</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>D102</td>
+<td>Bella</td>
+<td>Beagle</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>D103</td>
+<td>Charlie</td>
+<td>Poodle</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D104</td>
+<td>Lucy</td>
+<td>Bulldog</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Kennels(DogID, KennelID, ArrivalDate)</em>:</p>
+<div id="518783c1" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DogID</th>
+<th data-quarto-table-cell-role="th">KennelID</th>
+<th data-quarto-table-cell-role="th">ArrivalDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D101</td>
+<td>K001</td>
+<td>2024-01-10</td>
+</tr>
+<tr class="even">
+<td>D103</td>
+<td>K002</td>
+<td>2024-02-15</td>
+</tr>
+<tr class="odd">
+<td>D105</td>
+<td>K003</td>
+<td>2024-03-20</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Dogs</em> <span class="math inline">\(\bowtie\)</span> <em>Kennels</em> on <em>DogID</em> returns:</p>
+<div id="98836a51" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DogID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Breed</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">KennelID</th>
+<th data-quarto-table-cell-role="th">ArrivalDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D101</td>
+<td>Buddy</td>
+<td>Labrador</td>
+<td>3</td>
+<td>K001</td>
+<td>2024-01-10</td>
+</tr>
+<tr class="even">
+<td>D103</td>
+<td>Charlie</td>
+<td>Poodle</td>
+<td>2</td>
+<td>K002</td>
+<td>2024-02-15</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In a <strong>Natural Join</strong>, the join is based on columns with the same name and automatically combines rows with matching values in those columns. In this case, both tables have the column <code>DogID</code>, so a natural join combines the <code>dogs</code> and <code>kennels</code> data where <code>DogID</code> matches. Only the dogs with a corresponding kennel entry (<code>DogID: D101</code> and <code>D103</code>) are included in the result, while unmatched dogs and kennels are excluded.</p>
+</div></div>
+<!-- -->
+</section>
+<section id="natural-join---example-with-two-overlapping-columns" class="slide level2">
+<h2>Natural Join - Example with Two Overlapping Columns</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Buses(BusID, Route, Capacity, DriverID)</em>:</p>
+<div id="2de4eddc" class="cell" data-execution_count="34">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">BusID</th>
+<th data-quarto-table-cell-role="th">Route</th>
+<th data-quarto-table-cell-role="th">Capacity</th>
+<th data-quarto-table-cell-role="th">DriverID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B001</td>
+<td>101</td>
+<td>50</td>
+<td>D001</td>
+</tr>
+<tr class="even">
+<td>B002</td>
+<td>102</td>
+<td>45</td>
+<td>D002</td>
+</tr>
+<tr class="odd">
+<td>B003</td>
+<td>103</td>
+<td>60</td>
+<td>D003</td>
+</tr>
+<tr class="even">
+<td>B004</td>
+<td>104</td>
+<td>40</td>
+<td>D004</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Passengers(PassengerID, BusID, DriverID, Seat)</em>:</p>
+<div id="56e8ae7a" class="cell" data-execution_count="35">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">PassengerID</th>
+<th data-quarto-table-cell-role="th">BusID</th>
+<th data-quarto-table-cell-role="th">DriverID</th>
+<th data-quarto-table-cell-role="th">Seat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P101</td>
+<td>B001</td>
+<td>D001</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>P102</td>
+<td>B003</td>
+<td>D003</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>P103</td>
+<td>B002</td>
+<td>D002</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>P104</td>
+<td>B005</td>
+<td>D006</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Buses</em> <span class="math inline">\(\bowtie\)</span> <em>Passengers</em> on <em>BusID</em> and <em>DriverID</em> returns:</p>
+<div id="91317aa3" class="cell" data-execution_count="36">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">BusID</th>
+<th data-quarto-table-cell-role="th">Route</th>
+<th data-quarto-table-cell-role="th">Capacity</th>
+<th data-quarto-table-cell-role="th">DriverID</th>
+<th data-quarto-table-cell-role="th">PassengerID</th>
+<th data-quarto-table-cell-role="th">Seat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B001</td>
+<td>101</td>
+<td>50</td>
+<td>D001</td>
+<td>P101</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>B002</td>
+<td>102</td>
+<td>45</td>
+<td>D002</td>
+<td>P103</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>B003</td>
+<td>103</td>
+<td>60</td>
+<td>D003</td>
+<td>P102</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In this <strong>Natural Join</strong>, we are joining on two columns that both tables have in common: <code>BusID</code> and <code>DriverID</code>. The join automatically combines rows where both the <code>BusID</code> <strong>and</strong> <code>DriverID</code> match. This natural join will return only rows where both the bus and passenger data have matching <code>BusID</code> and <code>DriverID</code>. In this case, it will exclude any buses or passengers where these two columns do not match simultaneously.</p>
+</div></div>
+<!-- -->
+</section>
+<section id="theta-join-flexibility-with-conditions" class="slide level2">
+<h2>Theta Join: Flexibility with Conditions</h2>
+<p>Theta join allows the use of arbitrary conditions to combine relations, offering flexibility beyond just equality conditions.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Theta join applies a condition other than equality to combine relations.</li>
+<li>The condition can be any comparison operator (e.g., &lt;, &gt;, =).</li>
+<li>More flexible than natural or inner joins.</li>
+<li>Useful when a relationship between tuples is based on non-equality conditions.</li>
+<li>Examples include finding tuples where one attribute is greater than another.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Theta join provides flexibility in combining relations using complex conditions.</em></p>
+</section>
+<section id="properties-of-the-theta-join-operator" class="slide level2">
+<h2>Properties of the Theta Join Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} R_2 = { t_1 , t_2 \mid t_1 \in R_1, t_2 \in R_2, \text{ and } \theta(t_1, t_2) = \text{true} }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t_1\)</span> is a row (tuple) from relation <span class="math inline">\(R_1\)</span>,</li>
+<li><span class="math inline">\(t_2\)</span> is a row (tuple) from relation <span class="math inline">\(R_2\)</span>,</li>
+<li><span class="math inline">\(\theta\)</span> is a <strong>predicate</strong> (condition) that can be any comparison expression involving the attributes of <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, such as <span class="math inline">\(=, \neq, \&lt;, &gt;, \leq, \geq\)</span>,</li>
+<li>The <strong>theta join</strong> combines rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> where the condition <span class="math inline">\(\theta\)</span> holds true for both relations.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of relations in a theta join matters (unless the predicate is symmetric):</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} R_2 \neq R_2 \bowtie_{\theta} R_1
+\]</span> (unless <span class="math inline">\(\theta(t_1, t_2) = \theta(t_2, t_1)\)</span>)</p>
+<ul>
+<li><strong>Associative</strong> – Grouping theta join operations depends on the predicates but generally holds true:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \bowtie_{\theta_1} R_2) \bowtie_{\theta_2} R_3 = R_1 \bowtie_{\theta_1} (R_2 \bowtie_{\theta_2} R_3)
+\]</span> (if the conditions <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are consistent)</p>
+<ul>
+<li><strong>Theta join with an empty set</strong> – The theta join with an empty relation results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \bowtie_{\theta} \emptyset = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Theta join distributes over selection</strong> – The theta join distributes over selection when the selection condition involves only attributes from one of the relations:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{condition}(R_1 \bowtie_{\theta} R_2) = \sigma_{condition}(R_1) \bowtie_{\theta} R_2
+\]</span> (if the selection condition applies to attributes of <span class="math inline">\(R_1\)</span> only)</p>
+<ul>
+<li><strong>Size of result</strong> – The size of the result depends on how many rows in <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the predicate <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-4" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Non-commutative</strong>: The order of relations in the theta join matters unless the predicate <span class="math inline">\(\theta\)</span> is symmetric, meaning <span class="math inline">\(R_1 \bowtie_{\theta} R_2\)</span> will not necessarily equal <span class="math inline">\(R_2 \bowtie_{\theta} R_1\)</span>.</li>
+<li><strong>Associative</strong>: Grouping theta joins with different predicates can affect the result, but when consistent conditions are applied, associativity holds.</li>
+<li><strong>Theta join with an empty set</strong>: If either relation is empty, the result of the theta join is empty because there are no rows to compare.</li>
+<li><strong>Theta join distributes over selection</strong>: You can apply a selection condition to one relation before performing the theta join without affecting the result, provided the selection applies only to that relation.</li>
+<li><strong>Size of result</strong>: The number of rows in the result depends on how many rows from <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> satisfy the condition <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+<p>This structure mirrors the format of previous relational algebra operations, focusing on the flexibility and behavior of the theta join, where any comparison operator can be used in the join condition.</p>
+<p>Here’s an example of a <strong>Theta Join</strong> using an authors and books model. In this case, the Theta Join will be based on a condition, such as comparing the number of books an author has written to a certain threshold.</p>
+</section>
+<section id="theta-join-example" class="slide level2">
+<h2>Theta Join Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Authors(AuthorID, AuthorName, BooksWritten)</em>:</p>
+<div id="5098f267" class="cell" data-execution_count="38">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">AuthorID</th>
+<th data-quarto-table-cell-role="th">AuthorName</th>
+<th data-quarto-table-cell-role="th">BooksWritten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Alice</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>Bob</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Charlie</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>Diana</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Books(BookID, AuthorID, Title)</em>:</p>
+<div id="2eb52149" class="cell" data-execution_count="39">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">BookID</th>
+<th data-quarto-table-cell-role="th">AuthorID</th>
+<th data-quarto-table-cell-role="th">Title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B001</td>
+<td>A001</td>
+<td>Data Science 101</td>
+</tr>
+<tr class="even">
+<td>B002</td>
+<td>A002</td>
+<td>Math Fundamentals</td>
+</tr>
+<tr class="odd">
+<td>B003</td>
+<td>A003</td>
+<td>Advanced Python</td>
+</tr>
+<tr class="even">
+<td>B004</td>
+<td>A003</td>
+<td>Machine Learning</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Authors</em> ⨝ θ <em>Books</em> where <em>BooksWritten &gt; 3</em>:</p>
+<div id="8a463ba9" class="cell" data-execution_count="40">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">AuthorID</th>
+<th data-quarto-table-cell-role="th">AuthorName</th>
+<th data-quarto-table-cell-role="th">BooksWritten</th>
+<th data-quarto-table-cell-role="th">BookID</th>
+<th data-quarto-table-cell-role="th">Title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>Alice</td>
+<td>5</td>
+<td>B001</td>
+<td>Data Science 101</td>
+</tr>
+<tr class="even">
+<td>A003</td>
+<td>Charlie</td>
+<td>8</td>
+<td>B003</td>
+<td>Advanced Python</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>Charlie</td>
+<td>8</td>
+<td>B004</td>
+<td>Machine Learning</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In this <strong>Theta Join</strong>, we apply a condition (<code>BooksWritten &gt; 3</code>) to filter the authors, then join the result with the <code>Books</code> table on the common column <code>AuthorID</code>. This example only includes authors who have written more than 3 books and returns their associated books.</p>
+</div></div>
+<!-- -->
+<p>Here’s another example of a <strong>Theta Join</strong> using a video game store and video game model. This Theta Join will be based on a condition, such as comparing the price of video games to a certain threshold.</p>
+</section>
+<section id="theta-join-example-2" class="slide level2">
+<h2>Theta Join Example 2</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Stores(StoreID, StoreName, Location)</em>:</p>
+<div id="82635292" class="cell" data-execution_count="42">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">StoreID</th>
+<th data-quarto-table-cell-role="th">StoreName</th>
+<th data-quarto-table-cell-role="th">Location</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S001</td>
+<td>Game Galaxy</td>
+<td>Downtown</td>
+</tr>
+<tr class="even">
+<td>S002</td>
+<td>Retro Station</td>
+<td>Suburbs</td>
+</tr>
+<tr class="odd">
+<td>S003</td>
+<td>Pixel Paradise</td>
+<td>City Center</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>Games(GameID, StoreID, GameTitle, Price)</em>:</p>
+<div id="0294eb36" class="cell" data-execution_count="43">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">GameID</th>
+<th data-quarto-table-cell-role="th">StoreID</th>
+<th data-quarto-table-cell-role="th">GameTitle</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>G001</td>
+<td>S001</td>
+<td>Super Smash</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>G002</td>
+<td>S001</td>
+<td>Zelda Quest</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>G003</td>
+<td>S002</td>
+<td>Mario Kart</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<td>G004</td>
+<td>S003</td>
+<td>Fortnite</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><em>Stores</em> ⨝ θ (<em>Price &gt; 50</em>) <em>Games</em> return :</p>
+<div id="8078f2a2" class="cell" data-execution_count="44">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">StoreID</th>
+<th data-quarto-table-cell-role="th">StoreName</th>
+<th data-quarto-table-cell-role="th">Location</th>
+<th data-quarto-table-cell-role="th">GameID</th>
+<th data-quarto-table-cell-role="th">GameTitle</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S001</td>
+<td>Game Galaxy</td>
+<td>Downtown</td>
+<td>G001</td>
+<td>Super Smash</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>S002</td>
+<td>Retro Station</td>
+<td>Suburbs</td>
+<td>G003</td>
+<td>Mario Kart</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>In this <strong>Theta Join</strong>, we apply a condition (<code>Price &gt; 50</code>) to filter the video games, then join the result with the <code>Stores</code> table on the common column <code>StoreID</code>. This example only includes games that are priced above $50 and returns the store details for those games.</p>
+<p>For instance, only games like <code>Super Smash</code> and <code>Mario Kart</code> will be included in the result, along with the corresponding stores. Games priced $50 or below (like <code>Fortnite</code>) are excluded from the result.</p>
+</div></div>
+</section></section>
+<section>
+<section id="join-use-cases" class="title-slide slide level1 center">
+<h1>Join Use Cases</h1>
+<!-- # Join Use Cases -->
+<!-- expand this section with example questions and their solution with relational algebra -->
+</section>
+<section id="use-cases-inner-join" class="slide level2">
+<h2>Use Cases: Inner Join</h2>
+<p>Inner join is commonly used in scenarios where you only need matching data from two relations. It’s ideal for combining related data.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Frequently used when matching foreign keys with primary keys.</li>
+<li>Example: retrieving student records with matching course registrations.</li>
+<li>Ideal for filtering data to include only relevant, connected records.</li>
+<li>Used when non-matching data is not important for the query.</li>
+<li>Popular in most applications like finance, HR, and inventory systems.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Inner join is ideal when you only care about related records from two relations.</em></p>
+</section>
+<section id="use-cases-left-and-right-outer-joins" class="slide level2">
+<h2>Use Cases: Left and Right Outer Joins</h2>
+<p>Outer joins are useful when you want to keep all records from one side, even if they don’t have a match in the other relation.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Left outer join is often used in master-detail relationships.</li>
+<li>Example: retrieving all customers and their orders, including customers without orders.</li>
+<li>Right outer join can be used when focusing on all records from a detail table.</li>
+<li>Used when incomplete data is acceptable, such as optional relationships.</li>
+<li>Often used in customer management systems to track unfilled orders.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Left and right outer joins are valuable when you need non-matching data from one side.</em></p>
+</section>
+<section id="use-cases-full-outer-join" class="slide level2">
+<h2>Use Cases: Full Outer Join</h2>
+<p>Full outer join is used in scenarios where you need to retain all data, even if some entries don’t match. This join is comprehensive.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Often used in data integration tasks.</li>
+<li>Example: merging two datasets where both may contain unmatched records.</li>
+<li>Used in scenarios like combining employee records from different departments.</li>
+<li>Useful in data warehousing and analytics to ensure no data is lost.</li>
+<li>Common in reconciling data from different sources with partial overlap.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Full outer join ensures no data is lost when combining two relations with missing matches.</em></p>
+</section>
+<section id="combining-joins-for-complex-queries" class="slide level2">
+<h2>Combining Joins for Complex Queries</h2>
+<p>Different join types can be combined to solve complex queries involving multiple relations. This is often used in real-world database systems.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Inner and outer joins can be combined in complex queries.</li>
+<li>Example: joining multiple relations with inner joins, then an outer join to fill gaps.</li>
+<li>Different join types solve different parts of the same query.</li>
+<li>Used in multi-table queries for comprehensive data retrieval.</li>
+<li>Often seen in reporting systems that need complete data coverage.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Combining join operations allows complex queries that satisfy multiple data needs.</em></p>
+</section></section>
+<section>
+<section id="renaming-and-division" class="title-slide slide level1 center">
+<h1>Renaming and Division</h1>
+<!-- # Renaming and Division -->
+</section>
+<section id="renaming-in-relational-algebra" class="slide level2">
+<h2>Renaming in Relational Algebra</h2>
+<p>Renaming allows the assignment of new names to relations or attributes, making complex queries easier to understand. This operation helps avoid ambiguities, especially in self-joins or when handling multiple relations.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Renaming provides a way to assign new names to relations and their attributes.</li>
+<li>The <code>ρ</code> (rho) operator is used for renaming in relational algebra.</li>
+<li>Syntax: <code>ρ(new_name(old_name))</code> for renaming relations.</li>
+<li>Renaming is essential when performing self-joins to avoid confusion.</li>
+<li>It allows for clearer queries when dealing with complex or long attribute names.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Renaming enhances clarity in query design, especially when handling multiple relations.</em></p>
+<p>Here’s the definition and properties of the <strong>renaming</strong> operation in relational algebra, formatted similarly to the template you provided:</p>
+</section>
+<section id="properties-of-the-renaming-operator" class="slide level2">
+<h2>Properties of the Renaming Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+\rho_{new_name}(R) = { t \mid t \in R }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(R\)</span> is a relation (table),</li>
+<li><span class="math inline">\(new_name\)</span> is the new name assigned to relation <span class="math inline">\(R\)</span> or one or more of its attributes,</li>
+<li>The <strong>renaming</strong> operation is used to assign a new name to either the entire relation or to individual attributes in the relation, preserving the structure and data,</li>
+<li>It allows us to avoid ambiguity in cases where relations have overlapping attribute names or when working with complex queries.</li>
+</ul>
+<p>The renaming operation can be used in three forms:</p>
+<ul>
+<li>Renaming the entire relation: <span class="math inline">\(\rho_{S}(R)\)</span> renames relation <span class="math inline">\(R\)</span> to <span class="math inline">\(S\)</span>,</li>
+<li>Renaming attributes: <span class="math inline">\(\rho_{(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)\)</span> renames the attributes <span class="math inline">\(A_1, A_2, \dots\)</span> in <span class="math inline">\(R\)</span> to <span class="math inline">\(B_1, B_2, \dots\)</span>,</li>
+<li>Renaming both the relation and its attributes: <span class="math inline">\(\rho_{S(A_1 \rightarrow B_1, A_2 \rightarrow B_2, \dots)}(R)\)</span>.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Idempotent</strong> – Renaming a relation or attribute multiple times with the same name does not change the result:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new_name}(\rho_{new_name}(R)) = \rho_{new_name}(R)
+\]</span></p>
+<ul>
+<li><strong>Non-commutative</strong> – The order of renaming different attributes matters:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{(A \rightarrow B)}(\rho_{(B \rightarrow C)}(R)) \neq \rho_{(B \rightarrow C)}(\rho_{(A \rightarrow B)}(R))
+\]</span></p>
+<ul>
+<li><strong>Associative</strong> – Renaming operations can be grouped without affecting the result:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new_name_1}(\rho_{new_name_2}(R)) = \rho_{new_name_2}(\rho_{new_name_1}(R))
+\]</span></p>
+<ul>
+<li><strong>Renaming with an empty set</strong> – Renaming an empty relation still results in an empty set:</li>
+</ul>
+<p><span class="math display">\[
+\rho_{new_name}(\emptyset) = \emptyset
+\]</span></p>
+<ul>
+<li><strong>Renaming preserves all rows and attributes</strong> – The renaming operation only changes names and does not affect the content or structure of the relation:</li>
+</ul>
+<p><span class="math display">\[
+|R| = |\rho_{new_name}(R)|
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation-of-properties-5" class="slide level2">
+<h2>Explanation of properties</h2>
+<ul>
+<li><strong>Idempotent</strong>: Renaming a relation or attribute multiple times with the same name has no additional effect.</li>
+<li><strong>Non-commutative</strong>: The order in which you rename attributes matters, especially if the renaming involves the same attribute multiple times.</li>
+<li><strong>Associative</strong>: Renaming operations can be applied in any order, provided they refer to different attributes or relation names.</li>
+<li><strong>Renaming with an empty set</strong>: If the relation is empty, renaming it will still result in an empty relation.</li>
+<li><strong>Renaming preserves all rows and attributes</strong>: The renaming operation only affects the labels of relations and attributes, not their content or structure, so the number of rows and attributes remains unchanged.</li>
+</ul>
+</section>
+<section id="example-of-renaming-in-queries" class="slide level2">
+<h2>Example of Renaming in Queries</h2>
+<p>Renaming becomes critical when performing operations like joins, ensuring that attribute names are distinct. This slide provides a simple renaming example to illustrate its importance.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Example: <code>ρ(S(Age -&gt; StudentAge))</code> renames the attribute <code>Age</code> to <code>StudentAge</code> in relation <code>S</code>.</li>
+<li>Used to avoid name clashes during operations such as joins.</li>
+<li>Provides a way to clarify attribute roles in a query.</li>
+<li>Enables more readable queries in complex databases.</li>
+<li>Essential when working with relations that have identical attribute names.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Renaming is a flexible tool for improving query readability and structure.</em></p>
+</section>
+<section id="introduction-to-division-in-relational-algebra" class="slide level2">
+<h2>Introduction to Division in Relational Algebra</h2>
+<p>Division is a specialized relational operation used to retrieve tuples that match all combinations of a related set. It is particularly useful when you need to find records related to every value in another relation.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Division is used to query for entities that are related to all values in a subset.</li>
+<li>The operation works on two relations: a dividend and a divisor.</li>
+<li>It returns tuples from the dividend that are associated with all tuples in the divisor.</li>
+<li>Typically used in “all” queries, such as “students enrolled in all courses.”</li>
+<li>Not as common as basic operations but vital in certain query types.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Division is a powerful but specific operation that allows querying for “all related” records.</em></p>
+</section>
+<section id="properties-of-the-division-operator" class="slide level2">
+<h2>Properties of the Division Operator</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[
+R_1 \div R_2 = { t_1 \mid t_1 \in \pi_{A}(R_1) \text{ and for every } t_2 \in R_2, (t_1, t_2) \in R_1 }
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(R_1\)</span> is a relation with attributes <span class="math inline">\(A \cup B\)</span>,</li>
+<li><span class="math inline">\(R_2\)</span> is a relation with attributes <span class="math inline">\(B\)</span> (a subset of <span class="math inline">\(R_1\)</span>’s attributes),</li>
+<li>The <strong>division</strong> operation returns a new relation consisting of the values of <span class="math inline">\(A\)</span> from <span class="math inline">\(R_1\)</span> that match every tuple in <span class="math inline">\(R_2\)</span>,</li>
+<li>Essentially, division finds the tuples in <span class="math inline">\(R_1\)</span> that have a corresponding match for every tuple in <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>Not commutative</strong> – The order of relations in the division operation matters:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_2 \neq R_2 \div R_1
+\]</span></p>
+<ul>
+<li><strong>Non-associative</strong> – Division is not associative:</li>
+</ul>
+<p><span class="math display">\[
+(R_1 \div R_2) \div R_3 \neq R_1 \div (R_2 \div R_3)
+\]</span></p>
+<ul>
+<li><strong>Division with an empty set</strong> – If <span class="math inline">\(R_2\)</span> is an empty set, the division result is the projection of <span class="math inline">\(R_1\)</span> on <span class="math inline">\(A\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div \emptyset = \pi_{A}(R_1)
+\]</span></p>
+<ul>
+<li><strong>Division with itself</strong> – Dividing a relation by itself results in an empty set unless <span class="math inline">\(R_2\)</span> contains only tuples present in <span class="math inline">\(R_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_1 = \emptyset \quad \text{(if } R_1 \text{ and } R_2 \text{ are identical and non-empty)}
+\]</span></p>
+<ul>
+<li><strong>Division with a superset</strong> – If <span class="math inline">\(R_2\)</span> is a superset of <span class="math inline">\(B\)</span>-values in <span class="math inline">\(R_1\)</span>, the result is empty:</li>
+</ul>
+<p><span class="math display">\[
+R_1 \div R_2 = \emptyset \quad \text{(if } \pi_B(R_2) \not\subseteq \pi_B(R_1))
+\]</span></p>
+</div></div>
+<!-- -->
+</section>
+<section id="explanation" class="slide level2">
+<h2>Explanation:</h2>
+<ul>
+<li><strong>Not commutative</strong>: The order of relations in the division operation matters, as dividing one relation by another is not symmetric.</li>
+<li><strong>Non-associative</strong>: Division is not associative, meaning that the order in which you perform multiple division operations can affect the result.</li>
+<li><strong>Division with an empty set</strong>: If <span class="math inline">\(R_2\)</span> is empty, the result is the projection of <span class="math inline">\(R_1\)</span> on <span class="math inline">\(A\)</span>, as no conditions exist for <span class="math inline">\(B\)</span> attributes.</li>
+<li><strong>Division with itself</strong>: Dividing a relation by itself typically results in an empty set unless all tuples from <span class="math inline">\(R_2\)</span> are in <span class="math inline">\(R_1\)</span>.</li>
+<li><strong>Division with a superset</strong>: If <span class="math inline">\(R_2\)</span> contains values that don’t appear in <span class="math inline">\(R_1\)</span>, the result is empty since no <span class="math inline">\(A\)</span>-values in <span class="math inline">\(R_1\)</span> satisfy the matching condition for all tuples in <span class="math inline">\(R_2\)</span>.</li>
+</ul>
+</section>
+<section id="division-syntax-and-example" class="slide level2">
+<h2>Division: Syntax and Example</h2>
+<p>Division can be represented using the <code>/</code> operator between two relations. Understanding how this operator works in practice will help you apply it correctly.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Syntax: <code>R / S</code> where <code>R</code> is the dividend and <code>S</code> is the divisor.</li>
+<li>Example: Find students enrolled in all mandatory courses: <code>StudentCourses / MandatoryCourses</code>.</li>
+<li>Involves projecting attributes from <code>R</code> that do not appear in <code>S</code>.</li>
+<li>Often paired with set difference to exclude unwanted tuples.</li>
+<li>Typically used when one relation defines a subset of another relation’s attributes.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>The division operator retrieves records that match a complete set of conditions across relations.</em></p>
+<p>Here’s the <strong>division</strong> relational operator example using the template format you provided earlier:</p>
+</section>
+<section id="division-----example" class="slide level2">
+<h2>Division - ÷ - Example</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Given <em>Customers(CustomerID, DishID)</em>:</p>
+<div id="8196c99b" class="cell" data-execution_count="46">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">CustomerID</th>
+<th data-quarto-table-cell-role="th">DishID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C001</td>
+<td>D001</td>
+</tr>
+<tr class="even">
+<td>C001</td>
+<td>D002</td>
+</tr>
+<tr class="odd">
+<td>C002</td>
+<td>D001</td>
+</tr>
+<tr class="even">
+<td>C002</td>
+<td>D002</td>
+</tr>
+<tr class="odd">
+<td>C002</td>
+<td>D003</td>
+</tr>
+<tr class="even">
+<td>C003</td>
+<td>D001</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>and <em>DimSum(DishID, DishName)</em>:</p>
+<div id="656886b8" class="cell" data-execution_count="47">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">DishID</th>
+<th data-quarto-table-cell-role="th">DishName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D001</td>
+<td>Siu Mai</td>
+</tr>
+<tr class="even">
+<td>D002</td>
+<td>Har Gow</td>
+</tr>
+<tr class="odd">
+<td>D003</td>
+<td>Char Siu Bao</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Find the customers who have ordered all dim sum dishes:</p>
+<div id="8685a4a7" class="cell" data-execution_count="48">
+<div class="cell-output cell-output-display">
+<div style="text-align: center;">
+      <div style="display: inline-block; width: 80%;">
+         
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">CustomerID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C002</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+   </div>
+</div>
+</div>
+<p>This query performs a <strong>division</strong> operation to find customers who have ordered <strong>all</strong> the dim sum dishes listed in the <code>DimSum</code> table. The result shows only those customers (in this case, <code>CustomerID: C002</code>) who have ordered all available dishes.</p>
+<ul>
+<li>The <code>CustomerID</code> of the customer(s) who ordered every dim sum dish (from the <code>DimSum</code> table) will be displayed.</li>
+</ul>
+</div></div>
+<!-- -->
+</section>
+<section id="practical-use-case-for-division" class="slide level2">
+<h2>Practical Use Case for Division</h2>
+<p>Division is especially useful in scenarios where a tuple needs to be related to all tuples in another relation, such as students attending all classes or employees assigned to all projects.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Example: “Find suppliers who supply all products in a given category.”</li>
+<li>Applicable in situations where completeness across multiple related attributes is required.</li>
+<li>Helps with queries involving all relationships between a set of tuples.</li>
+<li>Simplifies queries that would otherwise require multiple joins or nested operations.</li>
+<li>Especially common in constraint-related queries, such as project assignments.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Division is ideal for scenarios where a record must meet all criteria in a related set.</em></p>
+</section>
+<section id="common-mistakes-with-division" class="slide level2">
+<h2>Common Mistakes with Division</h2>
+<p>Although powerful, division can be misused or misunderstood, particularly in situations where its requirements aren’t fully met. This slide highlights common pitfalls to avoid.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Confusing division with joins, especially in multi-relation queries.</li>
+<li>Forgetting that all tuples in the divisor must match for a result to be returned.</li>
+<li>Misinterpreting the need for completeness across tuples in both relations.</li>
+<li>Using division in cases where a simple join would suffice.</li>
+<li>Failing to project the correct attributes before performing the operation.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Avoid these common errors to ensure the correct application of division in your queries.</em></p>
+</section>
+<section id="renaming-and-division-in-query-design" class="slide level2">
+<h2>Renaming and Division in Query Design</h2>
+<p>Combining renaming and division can lead to highly readable, efficient queries. This slide demonstrates how these operations complement each other in practice.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Renaming helps clarify relations and attributes before applying division.</li>
+<li>Avoids ambiguity when the same attributes are present in both relations.</li>
+<li>Ensures that division works on correctly named attributes.</li>
+<li>Improves readability of queries, especially in complex database structures.</li>
+<li>Example: <code>ρ(StudentCourses/AllCourses)</code> can clarify query intent and results.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Renaming can simplify and clarify the application of division in query design.</em></p>
+</section>
+<section id="limitations-of-division-in-relational-algebra" class="slide level2">
+<h2>Limitations of Division in Relational Algebra</h2>
+<p>Division, while useful, has limitations and is not appropriate for all query types. Understanding these constraints will help avoid unnecessary complexity in queries.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Division requires exact matching across relations, which may not be flexible enough for some queries.</li>
+<li>Not suitable for situations where partial matches are acceptable.</li>
+<li>Can be less intuitive than other relational operations like join or projection.</li>
+<li>Often difficult to optimize in large databases due to its complexity.</li>
+<li>Sometimes requires preprocessing or additional operations to work effectively.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Division is powerful but limited by its strict requirements for matching across relations.</em></p>
+</section>
+<section id="alternatives-to-division" class="slide level2">
+<h2>Alternatives to Division</h2>
+<p>In cases where division is not the best fit, other relational operations may be more appropriate. This slide explores alternatives such as joins and nested queries.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Join operations, including natural and theta joins, often provide more flexible alternatives to division.</li>
+<li>Nested queries can sometimes replace division, offering more control over specific conditions.</li>
+<li>Set operations like intersection and difference may achieve similar results.</li>
+<li>Depending on the database design, a series of joins and selections may be more efficient.</li>
+<li>SQL often handles division-like queries using alternative constructs like <code>HAVING</code> or correlated subqueries.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Consider alternatives to division when its strict requirements don’t fit the query’s needs.</em></p>
+</section>
+<section id="summary-of-renaming-and-division" class="slide level2">
+<h2>Summary of Renaming and Division</h2>
+<p>Renaming and division are important operations in relational algebra, each with its own use cases and limitations. Properly applied, these tools enhance both query design and execution.</p>
+<div class="columns">
+<div class="column" style="width:98%;">
+<ul>
+<li>Renaming clarifies queries by giving distinct names to relations and attributes.</li>
+<li>Division helps identify tuples related to all members of another relation.</li>
+<li>Division is strict and requires complete matching, while renaming aids in query readability.</li>
+<li>Both operations are essential for complex query design and practical database management.</li>
+<li>Combining these tools can lead to clearer and more efficient relational queries.</li>
+</ul>
+</div><div class="column" style="width:1%;">
+
+</div><div class="column" style="width:1%;">
+
+</div></div>
+<!-- -->
+<p><em>Understanding renaming and division allows for more advanced and efficient database queries.</em></p>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +3693,18 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232169">Quiz 2 - Relational Algebra</a> - Fixed google lockout</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135">Homework 3 - Modeling your world</a> - keep at it!</p></li>
+<li><p>Homework 4 - not until next week!</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/relational-algebra">Relational Algebra</a></p></li>
+<li><p><a href="#/join-examples">Join Examples</a></p></li>
+<li><p><a href="#/join-operations">Join Operations</a></p></li>
+<li><p><a href="#/join-use-cases">Join Use Cases</a></p></li>
+<li><p><a href="#/renaming-and-division">Renaming and Division</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -286,34 +3729,26 @@
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">9/17</td>
 <td style="text-align: center;">Wed</td>
-<td>L8:Relational Algebra 1</td>
+<td>L8:Relational Algebra 2</td>
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Relational Alg.</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9/21</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW3:Modeling Your World</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/22</td>
 <td style="text-align: center;">Mon</td>
-<td>L9:Relational Algebra 2</td>
+<td>L9:Analysis and Normal Forms 1</td>
 <td>PQ3:Analysis and Normal Forms</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/24</td>
 <td style="text-align: center;">Wed</td>
-<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 1</td>
+<td>Career Fair (10am-3pm); L10:Analysis and Normal Forms 2</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/25</td>
@@ -321,29 +3756,37 @@
 <td>Interview Day (10am-3pm)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">9/28</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Dis3:Normal forms</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Normal forms</td>
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">9/29</td>
-<td style="text-align: center;">Mon</td>
-<td>L11:Analysis and Normal Forms 2</td>
-<td>Q3:Analysis and Normal Forms</td>
+<td>HW4:Analysis and Normal Forms; Dis3:Normal forms</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Normal forms</td>
 <td style="text-align: center;">7</td>
+<td style="text-align: center;">9/29</td>
+<td style="text-align: center;">Mon</td>
+<td>L11:Analysis and Normal Forms 3</td>
+<td>Q3:Analysis and Normal Forms</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
 <td style="text-align: center;">10/1</td>
 <td style="text-align: center;">Wed</td>
-<td>L12:Analysis and Normal Forms 3</td>
+<td>L12:Analysis and Normal Forms 4</td>
 <td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Normal forms</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">10/5</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW5:Getting started with SQL</td>
 </tr>
 </tbody>
 </table>
@@ -363,7 +3806,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>

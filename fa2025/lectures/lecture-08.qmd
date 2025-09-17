@@ -1,9 +1,36 @@
 ---
 date: '2025-09-17'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- Fixed google lockout'
+  topic: Quiz 2 - Relational Algebra
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232169
+- options: target="_blank"
+  post_text: '- keep at it!'
+  topic: Homework 3 - Modeling your world
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241135
+- options: ''
+  post_text: '- Phew! I need a break!'
+  topic: Homework 4 - not until next week!
+  url: ''
 lecture-id: 8
-lecture-topics: []
-title: Relational Algebra 1
+lecture-topics:
+- id: '68'
+  topic: Relational Algebra
+  url: _relational-algebra.qmd
+- id: '69'
+  topic: Join Examples
+  url: _join-examples.qmd
+- id: '70'
+  topic: Join Operations
+  url: _join-operations.qmd
+- id: '71'
+  topic: Join Use Cases
+  url: _join-use-cases.qmd
+- id: '72'
+  topic: Renaming and Division
+  url: _renaming-and-division.qmd
+title: Relational Algebra 2
 ---
 
 ```{python}
@@ -16,6 +43,25 @@ this_file = 'lecture-08.qmd'
 
 <!-- lecture-block-begin -->
 
+# Relational Algebra
+
+{{< include ../../topics/_relational-algebra.qmd >}}
+
+# Join Examples
+
+{{< include ../../topics/_join-examples.qmd >}}
+
+# Join Operations
+
+{{< include ../../topics/_join-operations.qmd >}}
+
+# Join Use Cases
+
+{{< include ../../topics/_join-use-cases.qmd >}}
+
+# Renaming and Division
+
+{{< include ../../topics/_renaming-and-division.qmd >}}
 <!-- lecture-block-end -->
 
 
