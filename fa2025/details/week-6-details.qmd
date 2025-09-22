@@ -27,8 +27,10 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Week 6 - Changes to the schedule!
+
+* Monday lecture is deferred.  Rather, I ask that you attend and participate in the [Computer Science Club Night](https://virginiacommonwealth.instructure.com/courses/122236/discussion_topics/1085317).  I sent out an announcement to the class via email.  Check it out!
+
 
 <!-- overview-block-begin -->
 
@@ -44,11 +46,29 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 [Discussion 3 - Normal forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241112) is a challenging discussion because you need to know about normalization to get started. I HIGHLY recommend that you watch the *Normal Forms* video in the resources.
 
 
+[Homework 4 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136) focuses on normal forms and analysis. Successful completion of homework 4 will REALLY help you with Quiz 3!
+
+
 [Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241148) is the practice quiz for Normal Forms. Work this practice quiz in conjunction with homework 4.
 
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-6-normal-forms) is probably the *MOST IMPORTANT* video you can watch this week. It very cleanly describes normal forms and why they're important.  Watch this *before* you tackle the discussion assignment.
+
+
+[BCNF](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-6-bcnf) is another video from Decomplexify (the author of the normal forms video).  This video describes *Boyce-Codd Normal Form* or *BCNF*.
+
+
+[Keys and more keys](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-6-keys-and-more-keys) provides an overview of *all* the different kinds of database keys.
+
+
+[Denormalization](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-6-denormalization) is a change of pace.  While we've been spending all of our time *normalizing* databases, sometime we need to *denormalize* them!  Check it out!
+
 <!-- resources-block-end -->
 
 

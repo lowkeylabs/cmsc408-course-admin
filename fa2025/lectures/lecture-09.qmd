@@ -1,9 +1,28 @@
 ---
 date: '2025-09-22'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/5, SUN'
+  topic: Homework 4 - Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136
+- options: target="_blank"
+  post_text: '- due 9/28, SUN'
+  topic: Discussion 3 - Normal forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241112
+- options: target="_blank"
+  post_text: '- Quiz due 9/29, MON'
+  topic: Practice Quiz 3 - Normal forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232175
+- options: target="_blank"
+  post_text: ''
+  topic: Resources on the Canvas homepage.
+  url: https://virginiacommonwealth.instructure.com/courses/122236
 lecture-id: 9
-lecture-topics: []
-title: Relational Algebra 2
+lecture-topics:
+- id: '77'
+  topic: Analysis and Normal Forms
+  url: _analysis-and-normal-forms.qmd
+title: Analysis and Normal Forms 1
 ---
 
 ```{python}
@@ -11,11 +30,47 @@ title: Relational Algebra 2
 this_file = 'lecture-09.qmd'
 ```
 
+## Computer Science Club Night
+
+No lecture tonight - Rather, please ATTEND the Computer Science Club Night.
+
+:::: {.columns}
+::: {.column}
+### Schedule (Monday, 9/22)
+
+&nbsp;
+
+5:00 - Mentor Meeting - ERB 1313 - Get a mentor, Be a mentor
+
+5:30 - Club Meetings 
+
+* Cybersecurity Competition Team - E 4224
+* Girls Who Code & WiCyS - E2214
+* RamDev - E4221
+
+6:00 - Food
+
+6:30 - Club Meetings and Special Guest Speaker
+
+* Linux User Group - E3210
+* Guest Speaker - Dr. Sajid Farooq - E3229
+
+:::
+::: {.column}
+![](assets/ilham-game-studio.png)
+:::
+::::
+
+
 {{< include "./_template-lecture-init.qmd" >}}
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
+
 <!-- lecture-block-begin -->
 
+# Analysis and Normal Forms
+
+{{< include ../../topics/_analysis-and-normal-forms.qmd >}}
 <!-- lecture-block-end -->
 
 
