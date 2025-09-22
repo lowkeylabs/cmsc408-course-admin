@@ -46,9 +46,6 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 [Discussion 3 - Normal forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241112) is a challenging discussion because you need to know about normalization to get started. I HIGHLY recommend that you watch the *Normal Forms* video in the resources.
 
 
-[Homework 4 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136) focuses on normal forms and analysis. Successful completion of homework 4 will REALLY help you with Quiz 3!
-
-
 [Practice Quiz 3 - Analysis and Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241148) is the practice quiz for Normal Forms. Work this practice quiz in conjunction with homework 4.
 
 <!-- deliverables-block-end -->
