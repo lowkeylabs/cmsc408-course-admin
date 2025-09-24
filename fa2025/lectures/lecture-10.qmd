@@ -1,9 +1,31 @@
 ---
 date: '2025-09-24'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/5, SUN'
+  topic: Homework 4 - Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136
+- options: target="_blank"
+  post_text: '- due 9/28, SUN'
+  topic: Discussion 3 - Normal forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241112
+- options: target="_blank"
+  post_text: '- Quiz due 9/29, MON'
+  topic: Practice Quiz 3 - Analysis and Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232175
+- options: target="_blank"
+  post_text: ''
+  topic: Resources on the Canvas homepage.
+  url: https://virginiacommonwealth.instructure.com/courses/122236
 lecture-id: 10
-lecture-topics: []
-title: Analysis and Normal Forms 1
+lecture-topics:
+- id: '82'
+  topic: Analysis and Normal Forms
+  url: _analysis-and-normal-forms.qmd
+- id: '83'
+  topic: BCNF Terms and Definitions
+  url: _bcnf-terms-and-definitions.qmd
+title: Analysis and Normal Forms 2
 ---
 
 ```{python}
@@ -16,6 +38,13 @@ this_file = 'lecture-10.qmd'
 
 <!-- lecture-block-begin -->
 
+# Analysis and Normal Forms
+
+{{< include ../../topics/_analysis-and-normal-forms.qmd >}}
+
+# BCNF Terms and Definitions
+
+{{< include ../../topics/_bcnf-terms-and-definitions.qmd >}}
 <!-- lecture-block-end -->
 
 
