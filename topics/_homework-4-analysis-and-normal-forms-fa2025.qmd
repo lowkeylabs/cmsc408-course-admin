@@ -1,0 +1,14 @@
+<!-- # Homework 4 - Analysis and Normal Forms SP2025 -->
+
+## Homework 4 - Analysis and Normal Forms
+
+### Problem statement
+
+* [Homework 4 problem statement](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136)
+
+### GITHUB Classroom Template
+
+* [Homework 4 template](https://classroom.github.com/a/POfYo-wu)
+
+* (In class we opened a terminal window to download the template and explore the assignment.  See the video for details.)
+

@@ -1,0 +1,7 @@
+---
+title: "Homework 4 - Analysis and Normal Forms SP2025"
+---
+
+{{< include '_homework-4-analysis-and-normal-forms-fa2025.qmd' >}}
+
+    

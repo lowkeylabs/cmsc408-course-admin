@@ -2,7 +2,7 @@
 
 ## Normalization - Example 1 - Issues
 
-Is this a *good* table/relation? NO!
+Is this a *good* table/relation? NO!  (count the number of entities ...)
 
 ::: {style="font-size:10pt; padding-top:0px; padding-bottom:0px"}
 

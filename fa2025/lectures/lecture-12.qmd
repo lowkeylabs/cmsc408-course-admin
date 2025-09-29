@@ -1,9 +1,27 @@
 ---
 date: '2025-10-01'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/5, SUN'
+  topic: Homework 4 - Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241136
+- options: target="_blank"
+  post_text: '- due 9/28, SUN'
+  topic: Discussion 3 - Normal forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241112
+- options: target="_blank"
+  post_text: '- Quiz due 9/29, MON'
+  topic: Practice Quiz 3 - Analysis and Normal Forms
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232175
 lecture-id: 12
-lecture-topics: []
-title: Analysis and Normal Forms 3
+lecture-topics:
+- id: '94'
+  topic: Normalization Example
+  url: _normalization-example-1.qmd
+- id: '95'
+  topic: Homework 4 - Analysis and Normal Forms
+  url: _homework-4-analysis-and-normal-forms-fa2025.qmd
+title: Analysis and Normal Forms 4
 ---
 
 ```{python}
@@ -16,6 +34,13 @@ this_file = 'lecture-12.qmd'
 
 <!-- lecture-block-begin -->
 
+# Normalization Example
+
+{{< include ../../topics/_normalization-example-1.qmd >}}
+
+# Homework 4 - Analysis and Normal Forms
+
+{{< include ../../topics/_homework-4-analysis-and-normal-forms-fa2025.qmd >}}
 <!-- lecture-block-end -->
 
 

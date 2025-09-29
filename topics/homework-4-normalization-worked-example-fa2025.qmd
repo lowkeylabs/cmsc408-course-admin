@@ -1,0 +1,7 @@
+---
+title: "Homework 4 - Normalization Worked Example SP2025"
+---
+
+{{< include '_homework-4-normalization-worked-example-fa2025.qmd' >}}
+
+    

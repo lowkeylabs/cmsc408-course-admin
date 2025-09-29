@@ -1,0 +1,10 @@
+<!-- # Homework 4 - Normalization Worked Example SP2025 -->
+
+
+## Homework 4 - Quick Looksie at the QMD
+
+* [Homework 4 template](https://classroom.github.com/a/POfYo-wu){target="_blank"}
+
+* (In class we opened terminal window to download template and review template.  See lecture video.)
+
+

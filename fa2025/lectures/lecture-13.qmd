@@ -3,7 +3,7 @@ date: '2025-10-06'
 discussion-items: []
 lecture-id: 13
 lecture-topics: []
-title: Analysis and Normal Forms 4
+title: Intro to SQL
 ---
 
 ```{python}

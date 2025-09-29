@@ -27,15 +27,14 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Oh - will it ever end?
 
-<!-- overview-block-begin -->
+We're plowing through all the normal form concepts, vocabulary, algorithms and examples.  It's a lot.
 
-<p class="lead">Finish up normal forms.</p>
-    
-<!-- overview-block-end -->
+How will it help? Understanding normal forms can help you design efficient and accurate databases. 
 
+Will you ever need to normalize a database?  Heck yeah!  If you do any data science at all, you'll often receive dirty and denormal data.  Data cleaning
+is all about cleaning the data and then ... wait for it ... NORMALIZING it so that you can be assured it's even cleaner!
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
@@ -49,6 +48,33 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Closures w/ examples](https://vertabelo.com/blog/closure-of-a-set-of-attributes/) - closures. Umhhh.  What is a closure?  It's KEY to identifying KEYS!  (that's a joke, y'all)
+
+
+[Normal Forms (text)](https://www.geeksforgeeks.org/normal-forms-in-dbms/) for those of you who want something more "texty".
+
+
+[Normalization article](https://medium.com/@ndleah/a-brief-guide-to-database-normalization-5ac59f093161) - this article is really cool.  It provides REAL EXAMPLES of normal forms - all the way through 5NF! It's worth a review.
+
+
+[Normal Forms](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-7-normal-forms) is probably the *MOST IMPORTANT* video you can watch this week. It very cleanly describes normal forms and why they're important.  Watch this *before* you tackle the discussion assignment.
+
+
+[BCNF](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-7-bcnf) is another video from Decomplexify (the author of the normal forms video).  This video describes *Boyce-Codd Normal Form* or *BCNF*.
+
+
+[Keys and more keys](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-7-keys-and-more-keys) provides an overview of *all* the different kinds of database keys.
+
+
+[Denormalization](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-7-denormalization) is a change of pace.  While we've been spending all of our time *normalizing* databases, sometime we need to *denormalize* them!  Check it out!
+
+
+[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours) - my tips and tricks are still relevant.  Please review!
+
 <!-- resources-block-end -->
 
 
