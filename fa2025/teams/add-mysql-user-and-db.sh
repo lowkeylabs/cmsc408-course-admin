@@ -26,9 +26,9 @@ if [ -z "$PASSWORD" ]; then
 fi
 
 # Load the .env file located one folder up
-if [ -f ../.env ]; then
+if [ -f ../../.env ]; then
     # Export variables from the .env file
-    export $(grep -v '^#' ../.env | xargs)
+    export $(grep -v '^#' ../../.env | xargs)
 else
     echo "Warning: .env file not found in the parent directory."
 fi
