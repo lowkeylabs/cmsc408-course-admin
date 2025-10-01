@@ -1,4 +1,4 @@
-2025-10-01 13:23:31 | INFO     | Logger initialized at INFO
+2025-10-01 13:32:54 | INFO     | Logger initialized at INFO
 ./add-mysql-db-to-user.sh -u fa25_lbcarasik -d fa25_lbcarasik_hw5
 ./add-mysql-db-to-user.sh -u fa25_tdroper -d fa25_tdroper_hw5
 ./add-mysql-db-to-user.sh -u fa25_afzalie -d fa25_afzalie_hw5

@@ -26,6 +26,10 @@ $(json-enrollments):
 	@echo downloading $(json-enrollments) from Canvas
 	cnvsapi list enrollments --as-json > $(@)
 
+download-users-from-canvas :
+	@echo Downloading from Canvas - BE SURE TO DISABLE ZSCALER INTERNET SECURITY
+	make -B $(json-enrollments)
+
 $(build-user-script) : $(json-enrollments)
 	@echo Build $(build-user-script) : to create .sh file, one row per DB account to be created from json-enrollments
 	python usercli.py new-users --input-user-file=$(json-enrollments) --term-id=$(term) > $(@)
