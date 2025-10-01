@@ -1,3 +1,6 @@
+2025-10-01 13:21:06 | INFO     | Logger initialized at INFO
+2025-10-01 13:21:06 | INFO     | Shout4_${login_id}_joY
+2025-10-01 13:21:06 | INFO     | Shout4_${login_id}_joY
 ./add-mysql-user-and-db.sh -u fa25_lbcarasik -p Shout4_lbcarasik_joY
 ./add-mysql-user-and-db.sh -u fa25_tdroper -p Shout4_tdroper_joY
 ./add-mysql-user-and-db.sh -u fa25_afzalie -p Shout4_afzalie_joY
