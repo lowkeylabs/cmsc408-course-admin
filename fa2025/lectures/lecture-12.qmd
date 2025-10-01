@@ -1,6 +1,10 @@
 ---
 date: '2025-10-01'
 discussion-items:
+- options: ''
+  post_text: ''
+  topic: Where's Skippy? (homework 4)
+  url: ''
 - options: target="_blank"
   post_text: '- due 10/5, SUN'
   topic: Homework 4 - Normal Forms
@@ -15,10 +19,10 @@ discussion-items:
   url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232175
 lecture-id: 12
 lecture-topics:
-- id: '94'
+- id: '95'
   topic: Normalization Example
   url: _normalization-example-1.qmd
-- id: '95'
+- id: '96'
   topic: Homework 4 - Analysis and Normal Forms
   url: _homework-4-analysis-and-normal-forms-fa2025.qmd
 title: Analysis and Normal Forms 4
