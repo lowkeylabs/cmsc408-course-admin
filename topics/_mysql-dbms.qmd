@@ -53,7 +53,7 @@ for the management of the database itself!
 * Data Definition Statement (DDL)
 * Data Manipulation Statements (DML)
 
-<https://dev.mysql.com/doc/refman/8.0/en/>{target="_blank"}
+<https://dev.mysql.com/doc/refman/8.4/en/>{target="_blank"}
 
 :::
 ::::

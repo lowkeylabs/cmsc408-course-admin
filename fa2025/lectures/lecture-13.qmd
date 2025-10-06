@@ -1,8 +1,28 @@
 ---
 date: '2025-10-06'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/12, SUN'
+  topic: Practice Quiz 4 - SQL Basics
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176
+- options: target="_blank"
+  post_text: '- due 10/12, SUN'
+  topic: Homework 5 - Getting started with SQL
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137
 lecture-id: 13
-lecture-topics: []
+lecture-topics:
+- id: '98'
+  topic: Homework 5 - Getting started with SQL
+  url: _homework-5-getting-started-with-sql-fa2025.qmd
+- id: '99'
+  topic: Getting started with phpmyadmin
+  url: _phpmyadmin-getting-started.qmd
+- id: '100'
+  topic: Intro to SQL
+  url: _sql-intro.qmd
+- id: '101'
+  topic: mySql DBMS
+  url: _mysql-dbms.qmd
 title: Intro to SQL
 ---
 
@@ -16,6 +36,21 @@ this_file = 'lecture-13.qmd'
 
 <!-- lecture-block-begin -->
 
+# Homework 5 - Getting started with SQL
+
+{{< include ../../topics/_homework-5-getting-started-with-sql-fa2025.qmd >}}
+
+# Getting started with phpmyadmin
+
+{{< include ../../topics/_phpmyadmin-getting-started.qmd >}}
+
+# Intro to SQL
+
+{{< include ../../topics/_sql-intro.qmd >}}
+
+# mySql DBMS
+
+{{< include ../../topics/_mysql-dbms.qmd >}}
 <!-- lecture-block-end -->
 
 

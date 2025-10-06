@@ -27,14 +27,12 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### And now for something totally different!
 
-<!-- overview-block-begin -->
+We're leaving the world of modeling and heading to the world of coding.  This week our focus is on getting the tools
+and connections all working.
 
-<p class="lead">Intro to SQL</p>
-    
-<!-- overview-block-end -->
+
 
 
 <!-- deliverables-block-begin -->
@@ -46,12 +44,27 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 [Practice Quiz 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241149) is the practice quiz for SQL.
 
-
-[Quiz 4 - SQL Basics - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241130) focuses on basic SQL statements and structure.  This is the last quiz!!
-
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[SQL tool setup](https://vcu-ssg.github.io/ssg-quarto-python-setup/) Helpful walkthrough and tutorial for software tool installation!!! (yes, this website was created using quarto.)
+
+
+[PhpMyAdmin](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-8-phpmyadmin) A good overview of PhyMyAdmin.
+
+
+[MAC - installing pyenv](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-8-mac-installing-pyenv) OK video on installing pyenv on a mac. Easy to follow.
+
+
+[PC - installing pyenv](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-8-pc-installing-pyenv) Installing pyenv on a PC.
+
+
+[Intro to poetry](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-8-intro-to-poetry) Poetry is a GREAT tool for managing dependencies and virtual environments.  It combines SetupTools and VENV into one simple program to use.
+
 <!-- resources-block-end -->
 
 

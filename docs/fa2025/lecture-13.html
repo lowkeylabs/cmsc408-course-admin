@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-13_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -153,12 +219,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176">Practice Quiz 4 - SQL Basics</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137">Homework 5 - Getting started with SQL</a> - due 10/12, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/homework-5---getting-started-with-sql">Homework 5 - Getting started with SQL</a></p></li>
+<li><p><a href="#/getting-started-with-phpmyadmin">Getting started with phpmyadmin</a></p></li>
+<li><p><a href="#/intro-to-sql">Intro to SQL</a></p></li>
+<li><p><a href="#/mysql-dbms">mySql DBMS</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -184,7 +254,7 @@
 <td style="text-align: center;">10/6</td>
 <td style="text-align: center;">Mon</td>
 <td>L13:Intro to SQL</td>
-<td>PQ4:SQL Basics</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -200,7 +270,7 @@
 <td style="text-align: center;">10/12</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Q4:SQL Basics; HW5:Getting started with SQL</td>
+<td>PQ4:SQL Basics; HW5:Getting started with SQL</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -232,7 +302,7 @@
 <td style="text-align: center;">10/19</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6:Constructing a database</td>
+<td>Q4:SQL Basics; HW6:Constructing a database</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -246,6 +316,513 @@
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="homework-5---getting-started-with-sql" class="title-slide slide level1 center">
+<h1>Homework 5 - Getting started with SQL</h1>
+<!-- # Homework 5 - connecting to DBMS -->
+</section>
+<section id="homework-5---getting-started" class="slide level2 scrollable">
+<h2>Homework 5 - getting started</h2>
+<p>Homework 5 is challenging - lots of software to install and to orchestrate!</p>
+<div class="columns">
+<div class="column">
+<h3 id="software-to-install">Software to install</h3>
+<ol type="1">
+<li><code>pyenv</code> - manages different versions of python.</li>
+<li><code>poetry</code> - manages virtual environments and more</li>
+<li><code>python</code> - installed using <code>pyenv</code></li>
+<li><code>quarto</code> - adjustments for virtual environments</li>
+<li><code>VSCODE</code> - extensions for SQL</li>
+</ol>
+<div style="font-size:2em">
+<p><em>I prepared a <a href="https://vcu-ssg.github.io/ssg-quarto-python-setup/" target="_blank">helper tutorial</a> to help with the software install.</em></p>
+</div>
+</div><div class="column">
+<p><img data-src="assets/homework-5-fa2025-software-versions.png"></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ways-to-connect">Ways to connect</h3>
+<ol type="1">
+<li><strong>phpMyAdmin - via the web</strong></li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li>python - using a connection</li>
+</ol>
+<p>
+&nbsp;
+</p>
+<p>example username: <em>fa25_jleonard99</em></p>
+<p>example password: <em>Shout4_jleonard99_joY</em></p>
+<p>example host: <a href="https://cmsc-vcu.com/phpmyadmin" class="uri">https://cmsc-vcu.com/phpmyadmin</a></p>
+</div><div class="column">
+<p><a href="https://cmsc-vcu.com/phpmyadmin"><img data-src="./assets/phpmyadmin-login.png"></a></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-1" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ways-to-connect-1">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li><strong>vscode - using SQLTools extension</strong></li>
+<li>python - using a connection</li>
+</ol>
+<p>example username: <em>fa25_jleonard99</em></p>
+<p>example password: <em>Shout4_jleonard99_joY</em></p>
+</div><div class="column">
+<p><img data-src="./assets/vscode-to-dbms.png"></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-2" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ways-to-connect-2">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li><strong>python - using a connection</strong></li>
+</ol>
+</div><div class="column">
+<h3 id="key-connection-terms">Key connection terms</h3>
+<dl>
+<dt>credentials</dt>
+<dd>
+host, username, password, database
+</dd>
+<dt>local database engine</dt>
+<dd>
+software on your machine that manages the connection through the internet to your remote server.
+</dd>
+<dt>query</dt>
+<dd>
+a command sent to the remove database server
+</dd>
+<dt>result set</dt>
+<dd>
+the package returned from the remote server. It may contain data or error information.
+</dd>
+</dl>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-3" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="ways-to-connect-3">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li><strong>python - using a connection</strong></li>
+</ol>
+<h3 id="env-file"><em>.env</em> file</h3>
+<ul>
+<li>stores connection information <strong><em>outside</em></strong> your repository.</li>
+<li>best if kept in your <em>home directory</em></li>
+<li>can be stored in current project folder</li>
+<li><em>MUST</em> be listed in <em>.gitignore</em></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="assets/homework-5-fa2025-env-example.png"></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-4" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="ways-to-connect-4">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li><strong>python - using a connection</strong></li>
+</ol>
+<h3 id="sample-connection-block">Sample connection block</h3>
+<p>This single block of code general sits at the top of all your QMD files.</p>
+<p>This block of code creates the <code>cnx</code> variable - the actually connection to the database.</p>
+<p>We’ll use <code>cnx</code> later in the code whenever we want to talk with the DBMS.</p>
+</div><div class="column" style="width:60%;">
+<div id="5321954a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">#| eval: false</span></span>
+<span id="cb1-3"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb1-4"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-6"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb1-9"><a href=""></a>load_dotenv()</span>
+<span id="cb1-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb1-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb1-12"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"MYSQL_HOST"</span>),</span>
+<span id="cb1-13"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"MYSQL_USERNAME"</span>),</span>
+<span id="cb1-14"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"MYSQL_PASSWORD"</span>),</span>
+<span id="cb1-15"><a href=""></a></span>
+<span id="cb1-16"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"HW5_DB"</span>)</span>
+<span id="cb1-17"><a href=""></a>}</span>
+<span id="cb1-18"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-19"><a href=""></a></span>
+<span id="cb1-20"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb1-21"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb1-22"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="database-connection---imports" class="slide level2">
+<h2>Database connection - Imports</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="77682420" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb2-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb2-3"><a href=""></a><span class="co">#| code-line-numbers: 4-7</span></span>
+<span id="cb2-4"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb2-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-6"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb2-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb2-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb2-9"><a href=""></a>load_dotenv()</span>
+<span id="cb2-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb2-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb2-12"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"CMSC408_HW5_USER"</span>),</span>
+<span id="cb2-13"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"CMSC408_HW5_PASSWORD"</span>),</span>
+<span id="cb2-14"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"CMSC408_HW5_HOST"</span>),</span>
+<span id="cb2-15"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"CMSC408_HW5_DB_NAME"</span>)</span>
+<span id="cb2-16"><a href=""></a>}</span>
+<span id="cb2-17"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-18"><a href=""></a></span>
+<span id="cb2-19"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb2-20"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb2-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="imports">Imports</h3>
+<p>The <code>import</code> commands load modules into your <em>python</em> program.</p>
+<p>These modules must first be installed in your virtual environment using <code>poetry</code> or <code>pip</code> to install the necessary modules. I prefer <code>poetry</code>!</p>
+<p><code>dotenv</code> module is used to load environment variable from disk into memory.</p>
+<p><code>sqlalchemy</code> module provides many different tools for connecting to, managing, and querying databases. <code>sqlalchemy</code> is known as an <em>Object Relational Mapper</em> or <em>ORM</em>. When used to it’s full extent it allows to you seamlessly load and store objects without having to think about the SQL.</p>
+<p>But that kind of defeats the purpose for this class! So we’ll only use a few of the tools provided.</p>
+</div></div>
+</section>
+<section id="database-connection---load-.env-into-environment" class="slide level2">
+<h2>Database connection - Load .env into environment</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="bfa16215" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="8-16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb3-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb3-3"><a href=""></a><span class="co">#| code-line-numbers: 8-16</span></span>
+<span id="cb3-4"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb3-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-6"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb3-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb3-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb3-9"><a href=""></a>load_dotenv()</span>
+<span id="cb3-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb3-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb3-12"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"CMSC408_HW5_USER"</span>),</span>
+<span id="cb3-13"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"CMSC408_HW5_PASSWORD"</span>),</span>
+<span id="cb3-14"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"CMSC408_HW5_HOST"</span>),</span>
+<span id="cb3-15"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"CMSC408_HW5_DB_NAME"</span>)</span>
+<span id="cb3-16"><a href=""></a>}</span>
+<span id="cb3-17"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb3-18"><a href=""></a></span>
+<span id="cb3-19"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb3-20"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb3-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="getting-your-connection-variables.">Getting your connection variables.</h3>
+<p>Rather than hard-coding your database connection into your code, we’ll store the connection information on your disk and load it when your program starts.</p>
+<p><code>load_dotenv()</code> searches for a <code>.env</code> file and if found, loads the contents into your environment.</p>
+<p><code>os.getenv()</code> searches for a <em>key</em> in the environnment and if found returns it’s <em>value</em>.</p>
+<p>A database connection is defined by four attributes: * Server name * Database name * Username * Password</p>
+<p>To minimize pollution in the namespace we’ll store these four separate variables in a single dictionary for later reference.</p>
+</div></div>
+</section>
+<section id="database-connection---create-connection" class="slide level2">
+<h2>Database connection - Create connection</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="759a2932" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="17-20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb4-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb4-3"><a href=""></a><span class="co">#| code-line-numbers: 17-20</span></span>
+<span id="cb4-4"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb4-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-6"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb4-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb4-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb4-9"><a href=""></a>load_dotenv()</span>
+<span id="cb4-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb4-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb4-12"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"CMSC408_HW5_USER"</span>),</span>
+<span id="cb4-13"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"CMSC408_HW5_PASSWORD"</span>),</span>
+<span id="cb4-14"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"CMSC408_HW5_HOST"</span>),</span>
+<span id="cb4-15"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"CMSC408_HW5_DB_NAME"</span>)</span>
+<span id="cb4-16"><a href=""></a>}</span>
+<span id="cb4-17"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-18"><a href=""></a></span>
+<span id="cb4-19"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb4-20"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb4-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="creating-the-connection">Creating the connection</h3>
+<p>Armed with our connection varaibles we create a connection string and open a connection to the database using a <em>local database engine.</em></p>
+<p>A connection to ANY database and server starts with a <a href="https://www.connectionstrings.com/" target="_blank"><em>connection string</em></a></p>
+<p>Through the connection string you can customize the connection and how information passes through it.</p>
+<p>Connection strings are used by your <em>local database engine</em> to <em>locate the database host</em>, <em>open the appropriate port</em>, <em>pass credentials like username and password</em>, and finally <em>select the database to use</em>.</p>
+<p>Connection strings also manage which languages and character sets are used, sizes of transmission buffers, and more.</p>
+<p><em>RTFM</em> for your <a href="https://docs.sqlalchemy.org/en/20/core/engines.html" target="_blank"><em>local database engine</em>!</a></p>
+</div></div>
+</section></section>
+<section>
+<section id="getting-started-with-phpmyadmin" class="title-slide slide level1 center">
+<h1>Getting started with phpmyadmin</h1>
+<!-- # phpmyadmin - Getting Started -->
+</section>
+<section id="phpmyadmin---getting-started" class="slide level2">
+<h2>PhpMyAdmin - getting started</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><a href="https://cmsc-vcu.com/phpmyadmin/" target="_blank"><img data-src="./assets/phpmyadmin-login.png"></a></p>
+</div><div class="column" style="width:30%;">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Verify your login to DBMS
+<p>
+&nbsp;
+</p></li>
+<li>Username format:
+<ul>
+<li>fa25_(your EID)</li>
+<li>For example: fa25_jdleonard
+<p>
+&nbsp;
+</p></li>
+</ul></li>
+<li>Password format
+<ul>
+<li>Shout4_(your EID)_joY</li>
+<li>For example: Shout4_jdleonard_joY
+<p>
+&nbsp;
+</p></li>
+</ul></li>
+<li>Explore the DBMS
+<ul>
+<li>what can I access?</li>
+<li>what is inside?</li>
+</ul></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="intro-to-sql" class="title-slide slide level1 center">
+<h1>Intro to SQL</h1>
+<!-- # Intro to SQL -->
+</section>
+<section id="interacting-with-the-database" class="slide level2">
+<h2>Interacting with the database</h2>
+<p>A <strong>DBMS</strong> is software that manages databases, providing an interface between users, applications, and the database. The DBMS handles the internal mechanics of data storage, querying, transaction management, and access control. When users or applications issue commands, the DBMS processes these commands and ensures that the database remains consistent, efficient, and secure.</p>
+<p>Interacting with a <strong>Database Management System (DBMS)</strong> and a <strong>database</strong> involves several layers of operations, each designed to handle a specific aspect of how data is stored, managed, secured, and retrieved.</p>
+<p><em>SQL</em> (structured query language) is the computer language we use to interact with the DBMS.</p>
+</section>
+<section id="sql-structured-query-language" class="slide level2">
+<h2>SQL (Structured Query Language )</h2>
+<p><strong>SQL (Structured Query Language)</strong>: is a standardized language used for managing and querying relational databases. It provides commands for defining, manipulating, controlling, and retrieving data in databases.</p>
+<ul>
+<li><p><strong>ANSI SQL Standard</strong>: ANSI (American National Standards Institute) defines the core SQL standard, ensuring a common foundation for relational database operations across different systems, though specific features may vary by vendor. The most recent version of the SQL standard is SQL:2023, formally adopted in June 2023.</p></li>
+<li><p><strong>SQL Dialects by Vendor</strong>: While adhering to ANSI SQL, many database vendors (like <strong>MySQL</strong>, <strong>PostgreSQL</strong>, <strong>Oracle</strong>, <strong>SQL Server</strong>) extend SQL with proprietary features (e.g., Oracle’s PL/SQL, Microsoft’s T-SQL) to support additional functionalities unique to their systems.</p></li>
+</ul>
+</section>
+<section id="sql-command-groups" class="slide level2">
+<h2>SQL command groups</h2>
+<p>SQL commands are grouped based on what they do to/for the DBMS. We sometimes refer to these groups as separate <em>languages</em>: <strong>DDL</strong>, <strong>DML</strong>, <strong>DCL</strong>, and <strong>TCL</strong>.</p>
+<ul>
+<li><p><strong>Design and Structure (DDL)</strong>: When building a database, DDL is the first interaction, defining how data will be stored and structured. This foundational step ensures the database can efficiently support future operations.</p></li>
+<li><p><strong>Manipulating and Retrieving Data (DML)</strong>: The core daily interactions with the database happen through DML. Whether adding new entries, retrieving data, or updating records, these operations are what end-users experience.</p></li>
+<li><p><strong>Security and Permissions (DCL)</strong>: Modern databases are often accessed by multiple users and applications. Ensuring that data access is controlled and secure is essential, and DCL ensures that only the right users have the appropriate access levels.</p></li>
+<li><p><strong>Maintaining Data Integrity (TCL)</strong>: In multi-user environments or where transactions involve complex steps (e.g., financial transactions, inventory updates), TCL ensures that the database remains in a consistent state even when failures or conflicts occur.</p></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language" class="slide level2">
+<h2>DDL (Data Definition Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Defines the structure and organization of the database.</li>
+<li><strong>Role</strong>: DDL commands interact directly with the <strong>DBMS</strong> to create, modify, or delete database objects such as tables, indexes, and schemas.</li>
+<li><strong>Example</strong>: When creating a new table, the <strong>DBMS</strong> allocates the necessary storage and manages the metadata that defines the table structure. DDL commands ensure that the database schema evolves as the application grows.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Creating a new table to store user data.</li>
+<li>Altering the structure of an existing table to accommodate new fields.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ddl-data-definition-language-1" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<p>Key DDL commands include:</p>
+<ol type="1">
+<li><strong><code>CREATE</code></strong>: Used to create new database objects like tables, indexes, views, or databases.</li>
+<li><strong><code>ALTER</code></strong>: Used to modify the structure of an existing database object (e.g., adding or removing columns in a table).</li>
+<li><strong><code>DROP</code></strong>: Used to delete database objects like tables, indexes, or entire databases.</li>
+<li><strong><code>TRUNCATE</code></strong>: Removes all records from a table, but keeps the table structure intact.</li>
+<li><strong><code>RENAME</code></strong>: Used to rename database objects.</li>
+</ol>
+<p>DDL commands define and change the structure or schema of a database, unlike DML, which focuses on manipulating the data within those structures.</p>
+</section>
+<section id="ddl-data-definition-language-2" class="slide level2 scrollable">
+<h2>DDL (Data Definition Language)</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>DDL compiler generates a set of tables stored in a data dictionary</li>
+<li>Data dictionary contains metadata about:
+<ul>
+<li>Database tables, fields and data types</li>
+<li>Primary and foreign keys</li>
+<li>Data integrity constrants</li>
+<li>Referential integrity</li>
+<li>Access and authorization rules</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>CREATE TABLE person (</span>
+<span id="cb5-2"><a href=""></a>    person_id INT PRIMARY KEY,</span>
+<span id="cb5-3"><a href=""></a>    person_first_name VARCHAR(50),</span>
+<span id="cb5-4"><a href=""></a>    person_last_name VARCHAR(50),</span>
+<span id="cb5-5"><a href=""></a>    person_city VARCHAR(50)</span>
+<span id="cb5-6"><a href=""></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="notes">Notes</h3>
+<ol type="1">
+<li>Fields are strongly typed,</li>
+<li>INT, VARCHAR(width), (lots more!)</li>
+<li>Additional attributed can be defined:
+<ul>
+<li>PRIMARY KEY, FOREIGN KEY, etc.</li>
+</ul></li>
+</ol>
+</div></div>
+</section>
+<section id="dml-data-manipulation-language" class="slide level2">
+<h2>DML (Data Manipulation Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages the actual data within the database.</li>
+<li><strong>Role</strong>: DML commands interact with the <strong>DB</strong> to insert, retrieve, update, and delete data. The <strong>DBMS</strong> processes these requests and ensures the data is accessed efficiently and accurately.</li>
+<li><strong>Example</strong>: When querying data (e.g., <code>SELECT</code>), the <strong>DBMS</strong> retrieves the requested information from the database, handles the query optimizations, and returns results to the user or application.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Retrieving customer data for an e-commerce application.</li>
+<li>Inserting new product information into a database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dcl-data-control-language" class="slide level2">
+<h2>DCL (Data Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Controls access to the data within the database.</li>
+<li><strong>Role</strong>: DCL commands interact with the <strong>DBMS</strong> to manage user permissions and security. This ensures that only authorized users can access or modify specific parts of the database.</li>
+<li><strong>Example</strong>: Granting access to a developer to only read the data while restricting their ability to modify or delete it.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Granting access to specific tables for an application.</li>
+<li>Revoking permissions from users who should no longer access the database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tcl-transaction-control-language" class="slide level2">
+<h2>TCL (Transaction Control Language)</h2>
+<ul>
+<li><strong>Purpose</strong>: Manages and controls database transactions.</li>
+<li><strong>Role</strong>: TCL commands work closely with the <strong>DBMS</strong> to ensure that changes made to the database maintain <strong>ACID (Atomicity, Consistency, Isolation, Durability)</strong> properties. This ensures that transactions are processed reliably.</li>
+<li><strong>Example</strong>: When performing a <code>COMMIT</code> after multiple <code>INSERT</code> operations, the <strong>DBMS</strong> makes the changes permanent. If any part of the transaction fails, a <code>ROLLBACK</code> can undo all the changes to ensure data integrity.</li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Performing multiple updates to an inventory system and committing them only when all changes are successfully made.</li>
+<li>Rolling back a transaction if a bank transfer fails midway, ensuring no partial changes occur.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sql-summary" class="slide level2">
+<h2>SQL Summary</h2>
+<p>SQL is the overarching language for interacting with the relational database management system.</p>
+<p>SQL commands are organized into <em>languages</em> that play a distinct roles in the overall functioning of the DBMS. Together, they allow the applications programmer to:</p>
+<ul>
+<li><strong>Define the structure</strong> (DDL),</li>
+<li><strong>Manipulate the data</strong> (DML),</li>
+<li><strong>Secure the database</strong> (DCL), and</li>
+<li><strong>Ensure reliable transactions</strong> (TCL).</li>
+</ul>
+<p>By interacting with these layers, the DBMS provides a seamless, powerful way to manage data efficiently, ensuring that applications can scale, users can access information securely, and data integrity is maintained across transactions.</p>
+</section></section>
+<section>
+<section id="mysql-dbms" class="title-slide slide level1 center">
+<h1>mySql DBMS</h1>
+<!-- # MySQL DBMS -->
+</section>
+<section id="mysql-dbms-1" class="slide level2">
+<h2>MYSQL DBMS</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<h3 id="leveraging-the-power">Leveraging the power</h3>
+<p>What not simply use 2-D arrays or other data structures in our programs? Why use a data base at all?</p>
+<ul>
+<li><p>The DBMS will DO LOTS OF WORK for us AUTOMATICALLY. We simply need to know how to tell it what we want it to do.</p></li>
+<li><p>We can provide these management and operating rules when tables are created.</p></li>
+<li><p>The DBMS will enforce the rules in real-time behind the scenes.</p></li>
+<li><p>The DBMS maintains several databases specifically for the management of the database itself!</p>
+<ul>
+<li><em>information_schema</em></li>
+<li><em>performance_schema</em></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/L13-dbms-overview.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="mysql-dbms-2" class="slide level2">
+<h2>MySQL DBMS</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img data-src="assets/L13-mysql-col1.png"></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="assets/L13-mysql-col2.png"></p>
+</div><div class="column" style="width:45%;">
+<h3 id="mysql-documentation">MYSQL Documentation</h3>
+<p><img data-src="assets/L13-mysql-col3.png"></p>
+<h3 id="two-types-of-statements">Two types of statements:</h3>
+<ul>
+<li>Data Definition Statement (DDL)</li>
+<li>Data Manipulation Statements (DML)</li>
+</ul>
+<p><a href="https://dev.mysql.com/doc/refman/8.4/en/" target="_blank">https://dev.mysql.com/doc/refman/8.4/en/</a></p>
+</div></div>
+</section>
+<section id="ddl---data-definition-language" class="slide level2">
+<h2>DDL - Data Definition Language</h2>
+<p><img data-src="assets/L13-mysql-ddl.png"></p>
+</section>
+<section id="dml---data-manipulation-language" class="slide level2">
+<h2>DML - Data Manipulation Language</h2>
+<p><img data-src="assets/L13-mysql-dml.png"></p>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +833,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176">Practice Quiz 4 - SQL Basics</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137">Homework 5 - Getting started with SQL</a> - due 10/12, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/homework-5---getting-started-with-sql">Homework 5 - Getting started with SQL</a></p></li>
+<li><p><a href="#/getting-started-with-phpmyadmin">Getting started with phpmyadmin</a></p></li>
+<li><p><a href="#/intro-to-sql">Intro to SQL</a></p></li>
+<li><p><a href="#/mysql-dbms">mySql DBMS</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -287,7 +868,7 @@
 <td style="text-align: center;">10/6</td>
 <td style="text-align: center;">Mon</td>
 <td>L13:Intro to SQL</td>
-<td>PQ4:SQL Basics</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -303,7 +884,7 @@
 <td style="text-align: center;">10/12</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Q4:SQL Basics; HW5:Getting started with SQL</td>
+<td>PQ4:SQL Basics; HW5:Getting started with SQL</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -335,7 +916,7 @@
 <td style="text-align: center;">10/19</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6:Constructing a database</td>
+<td>Q4:SQL Basics; HW6:Constructing a database</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -363,7 +944,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>

@@ -1,0 +1,323 @@
+<!-- # Homework 5 - connecting to DBMS -->
+
+## Homework 5 - getting started
+
+Homework 5 is challenging - lots of software to install and to orchestrate!
+
+:::: {.columns}
+::: {.column}
+### Software to install
+
+1. `pyenv` - manages different versions of python.
+1. `poetry` - manages virtual environments and more
+1. `python` - installed using `pyenv`
+1. `quarto` - adjustments for virtual environments
+1. `VSCODE` - extensions for SQL
+
+::: {style="font-size:2em"}
+*I prepared a [helper tutorial](https://vcu-ssg.github.io/ssg-quarto-python-setup/){target="_blank"} to
+help with the software install.*
+:::
+
+:::
+::: {.column}
+![](assets/homework-5-fa2025-software-versions.png)
+:::
+::::
+
+## Homework 5 - verifying that your good to go
+
+:::: {.columns}
+::: {.column}
+### Ways to connect
+
+1. **phpMyAdmin - via the web**
+1. ssh - to a linux terminal
+1. vscode - using SQLTools extension
+1. python - using a connection
+
+<p>&nbsp;</p>
+
+example username: *fa25_jleonard99*
+
+example password: *Shout4_jleonard99_joY*
+
+example host: <https://cmsc-vcu.com/phpmyadmin>
+
+:::
+::: {.column}
+[![](./assets/phpmyadmin-login.png)](https://cmsc-vcu.com/phpmyadmin)
+:::
+::::
+
+
+## Homework 5 - verifying that your good to go
+
+:::: {.columns}
+::: {.column}
+### Ways to connect
+
+1. phpMyAdmin - via the web
+1. ssh - to a linux terminal
+1. **vscode - using SQLTools extension**
+1. python - using a connection
+
+example username: *fa25_jleonard99*
+
+example password: *Shout4_jleonard99_joY*
+
+:::
+::: {.column}
+![](./assets/vscode-to-dbms.png)
+:::
+::::
+
+
+## Homework 5 - verifying that your good to go
+
+:::: {.columns}
+::: {.column}
+### Ways to connect
+
+1. phpMyAdmin - via the web
+1. ssh - to a linux terminal
+1. vscode - using SQLTools extension
+1. **python - using a connection**
+
+:::
+::: {.column}
+### Key connection terms
+
+credentials
+: host, username, password, database
+
+local database engine
+: software on your machine that manages the connection through the internet to your remote server.
+
+query
+: a command sent to the remove database server
+
+result set
+: the package returned from the remote server.  It may contain data or error information.
+
+:::
+::::
+
+## Homework 5 - verifying that your good to go
+
+:::: {.columns}
+::: {.column width=40%}
+### Ways to connect
+
+1. phpMyAdmin - via the web
+1. ssh - to a linux terminal
+1. vscode - using SQLTools extension
+1. **python - using a connection**
+
+### *.env* file
+
+* stores connection information ***outside*** your
+repository.
+* best if kept in your *home directory*
+* can be stored in current project folder
+* *MUST* be listed in *.gitignore*
+
+:::
+::: {.column width=60%}
+
+![](assets/homework-5-fa2025-env-example.png)
+
+:::
+::::
+
+## Homework 5 - verifying that your good to go
+
+:::: {.columns}
+::: {.column width=40%}
+### Ways to connect
+
+1. phpMyAdmin - via the web
+1. ssh - to a linux terminal
+1. vscode - using SQLTools extension
+1. **python - using a connection**
+
+### Sample connection block
+
+This single block of code general sits at the top of all your QMD files.
+
+This block of code creates the `cnx` variable - the actually connection
+to the database.
+
+We'll use `cnx` later in the code whenever we want to talk with
+the DBMS.
+
+:::
+::: {.column width=60%}
+```{python}
+#| eval: false
+#| echo: fenced
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'host': os.getenv("MYSQL_HOST"),
+  'user': os.getenv("MYSQL_USERNAME"),
+  'password': os.getenv("MYSQL_PASSWORD"),
+
+  'database': os.getenv("HW5_DB")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+
+```
+:::
+::::
+
+## Database connection - Imports
+
+:::: {.columns}
+::: {.column width=60%}
+
+```{python}
+#| eval: true
+#| echo: fenced
+#| code-line-numbers: 4-7
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("CMSC408_HW5_USER"),
+  'password': os.getenv("CMSC408_HW5_PASSWORD"),
+  'host': os.getenv("CMSC408_HW5_HOST"),
+  'database': os.getenv("CMSC408_HW5_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+:::
+::: {.column width=40%}
+### Imports
+
+The `import` commands load modules into your *python* program. 
+
+These modules must first be installed in your virtual environment using 
+`poetry` or `pip` to install the necessary modules.  I prefer `poetry`!
+
+`dotenv` module is used to load environment variable from disk into memory.
+
+`sqlalchemy` module provides many different tools for connecting to, managing, and querying databases.
+`sqlalchemy` is known as an *Object Relational Mapper* or *ORM*.  When used to it's full extent
+it allows to you seamlessly load and store objects without having to think about the SQL.
+
+But that kind of defeats the purpose for this class!  So we'll only use a few of the tools provided.
+
+:::
+::::
+
+## Database connection - Load .env into environment
+
+:::: {.columns}
+::: {.column width=60%}
+```{python}
+#| eval: true
+#| echo: fenced
+#| code-line-numbers: 8-16
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("CMSC408_HW5_USER"),
+  'password': os.getenv("CMSC408_HW5_PASSWORD"),
+  'host': os.getenv("CMSC408_HW5_HOST"),
+  'database': os.getenv("CMSC408_HW5_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+:::
+::: {.column width=40%}
+### Getting your connection variables.
+
+Rather than hard-coding your database connection into your code, we'll
+store the connection information on your disk and load it when your program starts.
+
+`load_dotenv()` searches for a `.env` file and if found, loads the contents into your environment.
+
+`os.getenv()` searches for a *key* in the environnment and if found returns it's *value*.
+
+A database connection is defined by four attributes:
+  * Server name
+  * Database name
+  * Username
+  * Password
+
+To minimize pollution in the namespace we'll store these four separate variables in a single dictionary for later reference.
+
+:::
+::::
+
+## Database connection - Create connection
+
+:::: {.columns}
+::: {.column width=60%}
+```{python}
+#| eval: true
+#| echo: fenced
+#| code-line-numbers: 17-20
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from sqlalchemy import create_engine,text
+# load credentials from .env file
+load_dotenv()
+# store these credentials a dictionary for later reference
+config = {
+  'user': os.getenv("CMSC408_HW5_USER"),
+  'password': os.getenv("CMSC408_HW5_PASSWORD"),
+  'host': os.getenv("CMSC408_HW5_HOST"),
+  'database': os.getenv("CMSC408_HW5_DB_NAME")
+}
+engine_uri = f"mysql+pymysql://{config['user']}:{config['password']}@{config['host']}/{config['database']}"
+
+# create a database connection.  THIS IS THE ACTUAL CONNECTION!
+cnx = create_engine(engine_uri)
+```
+:::
+::: {.column width=40%}
+### Creating the connection
+
+Armed with our connection varaibles we create a connection string and open a connection to the database using a *local database engine.*
+
+A connection to ANY database and server starts with a [*connection string*](https://www.connectionstrings.com/){target="_blank"}
+
+Through the connection string you can customize the connection and how information passes through it.
+
+Connection strings are used by your *local database engine* to *locate the database host*, *open the appropriate port*, 
+*pass credentials like username and password*, and finally *select the database to use*.
+
+Connection strings also manage which languages and character sets are used, sizes of transmission buffers, and more.
+
+*RTFM* for your [*local database engine*!](https://docs.sqlalchemy.org/en/20/core/engines.html){target="_blank"}
+
+:::
+::::
+

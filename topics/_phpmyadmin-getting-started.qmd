@@ -12,8 +12,8 @@
 * Verify your login to DBMS
 <p>&nbsp;</p>
 * Username format:
-    - sp25_(your EID)
-    - For example: sp25_jdleonard
+    - fa25_(your EID)
+    - For example: fa25_jdleonard
 <p>&nbsp;</p>
 * Password format
     - Shout4_(your EID)_joY

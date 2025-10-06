@@ -1,0 +1,7 @@
+---
+title: Homework 5 - Getting started with SQL
+---
+
+{{< include '_homework-5-getting-started-with-sql-fa2025.qmd' >}}
+
+    
