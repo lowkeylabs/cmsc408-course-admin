@@ -1,9 +1,29 @@
 ---
 date: '2025-10-08'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/12, SUN'
+  topic: Practice Quiz 4 - SQL Basics
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176
+- options: target="_blank"
+  post_text: '- due 10/12, SUN'
+  topic: Homework 5 - Getting started with SQL
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137
 lecture-id: 14
-lecture-topics: []
-title: Analysis and Normal Forms 5
+lecture-topics:
+- id: '104'
+  topic: Save You Hours™
+  url: _save-you-hours.qmd
+- id: '105'
+  topic: Python-Quarto setup
+  url: _python-quarto-setup.qmd
+- id: '106'
+  topic: Homework 5 - Getting started with SQL
+  url: _homework-5-getting-started-with-sql-fa2025.qmd
+- id: '107'
+  topic: Getting to SELECT
+  url: _sql-selects.qmd
+title: Intro to SQL
 ---
 
 ```{python}
@@ -16,6 +36,21 @@ this_file = 'lecture-14.qmd'
 
 <!-- lecture-block-begin -->
 
+# Save You Hours™
+
+{{< include ../../topics/_save-you-hours.qmd >}}
+
+# Python-Quarto setup
+
+{{< include ../../topics/_python-quarto-setup.qmd >}}
+
+# Homework 5 - Getting started with SQL
+
+{{< include ../../topics/_homework-5-getting-started-with-sql-fa2025.qmd >}}
+
+# Getting to SELECT
+
+{{< include ../../topics/_sql-selects.qmd >}}
 <!-- lecture-block-end -->
 
 

@@ -6,13 +6,16 @@
 <script src="lecture-14_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-14_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-14_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-14_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-14_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-14_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-14_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-14_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="lecture-14_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-14_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-14_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-14_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
-  <title>Analysis and Normal Forms 5</title>
+  <title>Intro to SQL</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +33,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture-14_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
@@ -137,7 +206,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Analysis and Normal Forms 5</h1>
+  <h1 class="title">Intro to SQL</h1>
   <p class="subtitle">Lecture 14</p>
 
 <div class="quarto-title-authors">
@@ -153,12 +222,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176">Practice Quiz 4 - SQL Basics</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137">Homework 5 - Getting started with SQL</a> - due 10/12, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/save-you-hours™">Save You Hours™</a></p></li>
+<li><p><a href="#/python-quarto-setup">Python-Quarto setup</a></p></li>
+<li><p><a href="#/homework-5---getting-started-with-sql">Homework 5 - Getting started with SQL</a></p></li>
+<li><p><a href="#/getting-to-select">Getting to SELECT</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -183,7 +256,7 @@
 <td style="text-align: center;">8</td>
 <td style="text-align: center;">10/8</td>
 <td style="text-align: center;">Wed</td>
-<td>L14:Analysis and Normal Forms 5</td>
+<td>L14:Intro to SQL</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -192,7 +265,7 @@
 <td style="text-align: center;">10/12</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Q4:SQL Basics; HW5:Getting started with SQL</td>
+<td>PQ4:SQL Basics; HW5:Getting started with SQL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -224,7 +297,7 @@
 <td style="text-align: center;">10/19</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6:Constructing a database</td>
+<td>Q4:SQL Basics; HW6:Constructing a database</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -246,6 +319,3473 @@
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="save-you-hours" class="title-slide slide level1 center">
+<h1>Save You Hours™</h1>
+<!-- # Save You Hours -->
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><a href="https://virginiacommonwealth.instructure.com/courses/113813/pages/resource-save-you-hours"><img data-src="assets/save-you-hours.png"></a></p>
+</section>
+<section id="save-you-hours-1" class="slide level2">
+<h2>Save You Hours™</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://virginiacommonwealth.instructure.com/courses/113813/external_tools/34" target="_blank"><img data-src="./assets/resource-analytics.png" class="quarto-figure quarto-figure-center" width="450"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<h3 id="analytics">Analytics</h3>
+<ul>
+<li><p>Who is looking at what?</p></li>
+<li><p>Let’s explore</p></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="python-quarto-setup" class="title-slide slide level1 center">
+<h1>Python-Quarto setup</h1>
+<!-- # Python-Quarto Setup -->
+</section>
+<section id="issue---vs-code-is-blocking-extensions" class="slide level2">
+<h2>Issue - VS code is blocking extensions</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-restricted-mode.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="./assets/env-restricted-mode.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="where-are-all-my-cool-features">Where are all my cool features?</h3>
+<ul>
+<li>VS code will only enable extensions in approved directories.</li>
+<li>If you’re editing a QMD and you see <code>plain text</code> you need to fix things.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="click-on-manage">Click on <em>Manage</em></h3>
+<ul>
+<li>Add your project folder to list OR</li>
+<li>Add your project folder PARENT to list.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---vs-code-is-blocking-extensions-1" class="slide level2">
+<h2>Issue - VS code is blocking extensions</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-workspace-trust.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="./assets/env-workspace-trust.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="where-are-all-my-cool-features-1">Where are all my cool features?</h3>
+<ul>
+<li>VS code will only enable extensions in approved directories.</li>
+<li>If you’re editing a QMD and you see <code>plain text</code> you need to fix things.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="click-on-manage-1">Click on <em>Manage</em></h3>
+<ul>
+<li>Add your project folder to list OR</li>
+<li>Add your project folder PARENT to list.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---why-is-this-so-hard" class="slide level2">
+<h2>Issue - Why is this so hard?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/xkcd-python-environments.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="./assets/xkcd-python-environments.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="oh-will-the-pain-ever-end">Oh … will the pain ever end?</h3>
+<ul>
+<li>YES - it will, I promise!</li>
+<li>You only need to install and debug the tools once.</li>
+<li>We’ll use them throughout the rest of the term.</li>
+<li>Hopefully, you’ll learn a bit more so that you can fix things in the future.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---so-many-environments" class="slide level2">
+<h2>Issue - So many environments!</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="i-followed-your-directions">I followed your directions!!!</h3>
+<ul>
+<li>YES - I DID properly install pyenv and poetry.</li>
+<li>YES - I DID properly select python.</li>
+<li>YES - I DID install Quarto.</li>
+<li>YES - I DID update VS code.</li>
+<li>YES - I DID run it from the terminal OK.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="but-why-does-it-still-not-work">BUT, why does it still NOT work???</h3>
+</div><div class="column" style="width:50%;">
+<h3 id="relax-its-a-feature---not-a-bug">Relax, it’s a feature - not a bug!</h3>
+<ul>
+<li>Child programs are isolated from parent programs to protect parent program from crashes.</li>
+<li>When the kernel starts a child program, the child gets an environment.</li>
+<li>An environment is a shared piece of memory, with key=value pairs.</li>
+<li>Child programs are given <em>copies</em> of their parent’s environment.</li>
+<li>Sometimes the child isn’t given what you want them to get.</li>
+<li>It all depends on your parent program, that is, how you start VS code, quarto and python.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---so-many-environments-1" class="slide level2">
+<h2>Issue - So many environments!</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./assets/env-processes-and-forks.png"></p>
+</div><div class="column" style="width:50%;">
+<h3 id="relax-its-a-feature---not-a-bug-1">Relax, it’s a feature - not a bug!</h3>
+<ul>
+<li>Child programs are isolated from parent programs to protect parent program from crashes.</li>
+<li>When the kernel starts a child program, the child gets an environment.</li>
+<li>An environment is a shared piece of memory, with key=value pairs.</li>
+<li>Child programs are given <em>copies</em> of their parent’s environment.</li>
+<li>Sometimes the child isn’t given what you want them to get.</li>
+<li>It all depends on your parent program, that is, how you start VS code, quarto and python.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---vscode---wrong-environments" class="slide level2">
+<h2>Issue - VSCode - Wrong environments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-wrong-environments.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="./assets/env-wrong-environments.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="look-at-all-those-things">Look at all those things!</h3>
+<ul>
+<li>Each window is a separate program</li>
+<li>Each gets it’s own environment</li>
+<li>If you start vs code from a terminal they all get VS code</li>
+<li>If you run VS code from the GUI you get the GUI environment
+<p>
+&nbsp;
+</p>
+<h3 id="to-fix-click-on-python-version">To fix: click on python version</h3></li>
+<li>Click on the version and select the correct environment.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---vscode---wrong-environments-1" class="slide level2">
+<h2>Issue - VSCode - Wrong environments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-selecting-bottom.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="./assets/env-selecting-bottom.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="look-at-all-those-things-1">Look at all those things!</h3>
+<ul>
+<li>Each window is a separate program</li>
+<li>Each gets it’s own environment</li>
+<li>If you start vs code from a terminal they all get VS code</li>
+<li>If you run VS code from the GUI you get the GUI environment
+<p>
+&nbsp;
+</p>
+<h3 id="to-fix-click-on-python-version-1">To fix: click on python version</h3></li>
+<li>Click on the version and select the correct environment.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---vscode---wrong-environments-2" class="slide level2">
+<h2>Issue - VSCode - Wrong environments</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/env-selecting-top.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="./assets/env-selecting-top.png" class="quarto-figure quarto-figure-center" width="410"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="look-at-all-those-things-2">Look at all those things!</h3>
+<ul>
+<li>Each window is a separate program</li>
+<li>Each gets it’s own environment</li>
+<li>If you start vs code from a terminal they all get VS code</li>
+<li>If you run VS code from the GUI you get the GUI environment
+<p>
+&nbsp;
+</p>
+<h3 id="to-fix-click-on-python-version-2">To fix: click on python version</h3></li>
+<li>Click on the version and select the correct environment.</li>
+</ul>
+</div></div>
+</section>
+<section id="issue---poetry---key-commands" class="slide level2">
+<h2>Issue - Poetry - key commands</h2>
+<h3 id="install-shell-plugin-for-versions-2.0">Install <em>shell</em> plugin for versions &gt; 2.0</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>poetry self add poetry-plugin-shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>See: <a href="https://github.com/python-poetry/poetry-plugin-shell" class="uri">https://github.com/python-poetry/poetry-plugin-shell</a></em></p>
+<h3 id="create-virtual-environment-install-packages-open-shell">Create virtual environment, install packages, open shell</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>poetry install</span>
+<span id="cb2-2"><a href=""></a>pip list</span>
+<span id="cb2-3"><a href=""></a>poetry shell  or poetry run pwsh</span>
+<span id="cb2-4"><a href=""></a>pip list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="once-in-shell---quarto-can-do-its-thing">Once in shell - quarto can do it’s thing!</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>quarto render report.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="issue---poetry---im-getting-wierd-errors" class="slide level2">
+<h2>Issue - Poetry - I’m getting WIERD ERRORS</h2>
+<h3 id="im-getting-wierd-errors-when-running-poetry-install">I’m getting wierd errors when running <code>poetry install</code></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>poetry lock --regenerate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command realigns the packages to your current version of python.</p>
+<h3 id="switch-versions-of-python-for-my-project">Switch versions of python for my project</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>poetry env info</span>
+<span id="cb5-2"><a href=""></a>poetry env remove --all</span>
+<span id="cb5-3"><a href=""></a>poetry env info</span>
+<span id="cb5-4"><a href=""></a>poetry env use 3.13.2</span>
+<span id="cb5-5"><a href=""></a>poetry lock --regenerate</span>
+<span id="cb5-6"><a href=""></a>poetry install</span>
+<span id="cb5-7"><a href=""></a>poetry shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will show you your current environment settings, clear out old environments, sets poetry to use 3.13.2 (or whatever), regenerate the lock file to the new version of python, and then install packages.</p>
+</section>
+<section id="issue---pythonquarto-not-connecting-to-database" class="slide level2 scrollable">
+<h2>Issue - Python/Quarto not connecting to database</h2>
+<h3 id="missing-or-incorrect-.env-file">Missing or incorrect <em>.env</em> file</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>cp .env.sample .env</span>
+<span id="cb6-2"><a href=""></a>code .env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Edit .env file using VSCode and save to disk</em></p>
+<h3 id="possible-.env-locations">Possible .env locations</h3>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p><code>load_dotenv</code> package looks <em>up</em> the directory chain until it finds the first .env file.</p></li>
+<li><p>I recommend keeping the <em>.env</em> file in your user home folder!</p></li>
+</ul>
+</div><div class="column">
+<ol type="1">
+<li>same folder as <em>report.qmd</em></li>
+<li>home folder of project</li>
+<li>home folder of user
+<ul>
+<li>C:\Users\jdleonard</li>
+<li>/home/jdleonard</li>
+</ul></li>
+</ol>
+</div></div>
+</section></section>
+<section>
+<section id="homework-5---getting-started-with-sql" class="title-slide slide level1 center">
+<h1>Homework 5 - Getting started with SQL</h1>
+<!-- # Homework 5 - connecting to DBMS -->
+</section>
+<section id="homework-5---getting-started" class="slide level2 scrollable">
+<h2>Homework 5 - getting started</h2>
+<p>Homework 5 is challenging - lots of software to install and to orchestrate!</p>
+<div class="columns">
+<div class="column">
+<h3 id="software-to-install">Software to install</h3>
+<ol type="1">
+<li><code>pyenv</code> - manages different versions of python.</li>
+<li><code>poetry</code> - manages virtual environments and more</li>
+<li><code>python</code> - installed using <code>pyenv</code></li>
+<li><code>quarto</code> - adjustments for virtual environments</li>
+<li><code>VSCODE</code> - extensions for SQL</li>
+</ol>
+<div style="font-size:2em">
+<p><em>I prepared a <a href="https://vcu-ssg.github.io/ssg-quarto-python-setup/" target="_blank">helper tutorial</a> to help with the software install.</em></p>
+</div>
+</div><div class="column">
+<p><img data-src="assets/homework-5-fa2025-software-versions.png"></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ways-to-connect">Ways to connect</h3>
+<ol type="1">
+<li><strong>phpMyAdmin - via the web</strong></li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li>python - using a connection</li>
+</ol>
+<p>
+&nbsp;
+</p>
+<p>example username: <em>fa25_jleonard99</em></p>
+<p>example password: <em>Shout4_jleonard99_joY</em></p>
+<p>example host: <a href="https://cmsc-vcu.com/phpmyadmin" class="uri">https://cmsc-vcu.com/phpmyadmin</a></p>
+</div><div class="column">
+<p><a href="https://cmsc-vcu.com/phpmyadmin"><img data-src="./assets/phpmyadmin-login.png"></a></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-1" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ways-to-connect-1">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li><strong>vscode - using SQLTools extension</strong></li>
+<li>python - using a connection</li>
+</ol>
+<p>example username: <em>fa25_jleonard99</em></p>
+<p>example password: <em>Shout4_jleonard99_joY</em></p>
+</div><div class="column">
+<p><img data-src="./assets/vscode-to-dbms.png"></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-2" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ways-to-connect-2">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li><strong>python - using a connection</strong></li>
+</ol>
+</div><div class="column">
+<h3 id="key-connection-terms">Key connection terms</h3>
+<dl>
+<dt>credentials</dt>
+<dd>
+host, username, password, database
+</dd>
+<dt>local database engine</dt>
+<dd>
+software on your machine that manages the connection through the internet to your remote server.
+</dd>
+<dt>query</dt>
+<dd>
+a command sent to the remove database server
+</dd>
+<dt>result set</dt>
+<dd>
+the package returned from the remote server. It may contain data or error information.
+</dd>
+</dl>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-3" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="ways-to-connect-3">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li><strong>python - using a connection</strong></li>
+</ol>
+<h3 id="env-file"><em>.env</em> file</h3>
+<ul>
+<li>stores connection information <strong><em>outside</em></strong> your repository.</li>
+<li>best if kept in your <em>home directory</em></li>
+<li>can be stored in current project folder</li>
+<li><em>MUST</em> be listed in <em>.gitignore</em></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="assets/homework-5-fa2025-env-example.png"></p>
+</div></div>
+</section>
+<section id="homework-5---verifying-that-your-good-to-go-4" class="slide level2 scrollable">
+<h2>Homework 5 - verifying that your good to go</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="ways-to-connect-4">Ways to connect</h3>
+<ol type="1">
+<li>phpMyAdmin - via the web</li>
+<li>ssh - to a linux terminal</li>
+<li>vscode - using SQLTools extension</li>
+<li><strong>python - using a connection</strong></li>
+</ol>
+<h3 id="sample-connection-block">Sample connection block</h3>
+<p>This single block of code general sits at the top of all your QMD files.</p>
+<p>This block of code creates the <code>cnx</code> variable - the actually connection to the database.</p>
+<p>We’ll use <code>cnx</code> later in the code whenever we want to talk with the DBMS.</p>
+</div><div class="column" style="width:60%;">
+<div id="f9b64c71" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb7-2"><a href=""></a><span class="co">#| eval: false</span></span>
+<span id="cb7-3"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb7-4"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-5"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb7-6"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb7-9"><a href=""></a>load_dotenv()</span>
+<span id="cb7-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb7-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb7-12"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"MYSQL_HOST"</span>),</span>
+<span id="cb7-13"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"MYSQL_USERNAME"</span>),</span>
+<span id="cb7-14"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"MYSQL_PASSWORD"</span>),</span>
+<span id="cb7-15"><a href=""></a></span>
+<span id="cb7-16"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"HW5_DB"</span>)</span>
+<span id="cb7-17"><a href=""></a>}</span>
+<span id="cb7-18"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb7-19"><a href=""></a></span>
+<span id="cb7-20"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb7-21"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb7-22"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="database-connection---imports" class="slide level2">
+<h2>Database connection - Imports</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="e2e92bfb" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb8-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb8-3"><a href=""></a><span class="co">#| code-line-numbers: 4-7</span></span>
+<span id="cb8-4"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb8-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-6"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb8-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb8-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb8-9"><a href=""></a>load_dotenv()</span>
+<span id="cb8-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb8-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb8-12"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"CMSC408_HW5_USER"</span>),</span>
+<span id="cb8-13"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"CMSC408_HW5_PASSWORD"</span>),</span>
+<span id="cb8-14"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"CMSC408_HW5_HOST"</span>),</span>
+<span id="cb8-15"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"CMSC408_HW5_DB_NAME"</span>)</span>
+<span id="cb8-16"><a href=""></a>}</span>
+<span id="cb8-17"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-18"><a href=""></a></span>
+<span id="cb8-19"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb8-20"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb8-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="imports">Imports</h3>
+<p>The <code>import</code> commands load modules into your <em>python</em> program.</p>
+<p>These modules must first be installed in your virtual environment using <code>poetry</code> or <code>pip</code> to install the necessary modules. I prefer <code>poetry</code>!</p>
+<p><code>dotenv</code> module is used to load environment variable from disk into memory.</p>
+<p><code>sqlalchemy</code> module provides many different tools for connecting to, managing, and querying databases. <code>sqlalchemy</code> is known as an <em>Object Relational Mapper</em> or <em>ORM</em>. When used to it’s full extent it allows to you seamlessly load and store objects without having to think about the SQL.</p>
+<p>But that kind of defeats the purpose for this class! So we’ll only use a few of the tools provided.</p>
+</div></div>
+</section>
+<section id="database-connection---load-.env-into-environment" class="slide level2">
+<h2>Database connection - Load .env into environment</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="6cb41fb1" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="8-16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb9-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb9-3"><a href=""></a><span class="co">#| code-line-numbers: 8-16</span></span>
+<span id="cb9-4"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb9-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-6"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb9-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb9-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb9-9"><a href=""></a>load_dotenv()</span>
+<span id="cb9-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb9-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb9-12"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"CMSC408_HW5_USER"</span>),</span>
+<span id="cb9-13"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"CMSC408_HW5_PASSWORD"</span>),</span>
+<span id="cb9-14"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"CMSC408_HW5_HOST"</span>),</span>
+<span id="cb9-15"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"CMSC408_HW5_DB_NAME"</span>)</span>
+<span id="cb9-16"><a href=""></a>}</span>
+<span id="cb9-17"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb9-18"><a href=""></a></span>
+<span id="cb9-19"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb9-20"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb9-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="getting-your-connection-variables.">Getting your connection variables.</h3>
+<p>Rather than hard-coding your database connection into your code, we’ll store the connection information on your disk and load it when your program starts.</p>
+<p><code>load_dotenv()</code> searches for a <code>.env</code> file and if found, loads the contents into your environment.</p>
+<p><code>os.getenv()</code> searches for a <em>key</em> in the environnment and if found returns it’s <em>value</em>.</p>
+<p>A database connection is defined by four attributes: * Server name * Database name * Username * Password</p>
+<p>To minimize pollution in the namespace we’ll store these four separate variables in a single dictionary for later reference.</p>
+</div></div>
+</section>
+<section id="database-connection---create-connection" class="slide level2">
+<h2>Database connection - Create connection</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="ff572043" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="17-20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb10-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb10-3"><a href=""></a><span class="co">#| code-line-numbers: 17-20</span></span>
+<span id="cb10-4"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb10-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-6"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb10-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine,text</span>
+<span id="cb10-8"><a href=""></a><span class="co"># load credentials from .env file</span></span>
+<span id="cb10-9"><a href=""></a>load_dotenv()</span>
+<span id="cb10-10"><a href=""></a><span class="co"># store these credentials a dictionary for later reference</span></span>
+<span id="cb10-11"><a href=""></a>config <span class="op">=</span> {</span>
+<span id="cb10-12"><a href=""></a>  <span class="st">'user'</span>: os.getenv(<span class="st">"CMSC408_HW5_USER"</span>),</span>
+<span id="cb10-13"><a href=""></a>  <span class="st">'password'</span>: os.getenv(<span class="st">"CMSC408_HW5_PASSWORD"</span>),</span>
+<span id="cb10-14"><a href=""></a>  <span class="st">'host'</span>: os.getenv(<span class="st">"CMSC408_HW5_HOST"</span>),</span>
+<span id="cb10-15"><a href=""></a>  <span class="st">'database'</span>: os.getenv(<span class="st">"CMSC408_HW5_DB_NAME"</span>)</span>
+<span id="cb10-16"><a href=""></a>}</span>
+<span id="cb10-17"><a href=""></a>engine_uri <span class="op">=</span> <span class="ss">f"mysql+pymysql://</span><span class="sc">{</span>config[<span class="st">'user'</span>]<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>config[<span class="st">'password'</span>]<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>config[<span class="st">'host'</span>]<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>config[<span class="st">'database'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb10-18"><a href=""></a></span>
+<span id="cb10-19"><a href=""></a><span class="co"># create a database connection.  THIS IS THE ACTUAL CONNECTION!</span></span>
+<span id="cb10-20"><a href=""></a>cnx <span class="op">=</span> create_engine(engine_uri)</span>
+<span id="cb10-21"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="creating-the-connection">Creating the connection</h3>
+<p>Armed with our connection varaibles we create a connection string and open a connection to the database using a <em>local database engine.</em></p>
+<p>A connection to ANY database and server starts with a <a href="https://www.connectionstrings.com/" target="_blank"><em>connection string</em></a></p>
+<p>Through the connection string you can customize the connection and how information passes through it.</p>
+<p>Connection strings are used by your <em>local database engine</em> to <em>locate the database host</em>, <em>open the appropriate port</em>, <em>pass credentials like username and password</em>, and finally <em>select the database to use</em>.</p>
+<p>Connection strings also manage which languages and character sets are used, sizes of transmission buffers, and more.</p>
+<p><em>RTFM</em> for your <a href="https://docs.sqlalchemy.org/en/20/core/engines.html" target="_blank"><em>local database engine</em>!</a></p>
+</div></div>
+</section></section>
+<section>
+<section id="getting-to-select" class="title-slide slide level1 center">
+<h1>Getting to SELECT</h1>
+<!-- # Getting to SELECT -->
+</section>
+<section id="homework-5---making-the-connection" class="slide level2">
+<h2>Homework 5 - Making the connection</h2>
+<div class="columns">
+<div class="column">
+<div id="44ed8c89" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb11-2"><a href=""></a><span class="co"># Load these variables from first .env file found.</span></span>
+<span id="cb11-3"><a href=""></a>config_map <span class="op">=</span> {</span>
+<span id="cb11-4"><a href=""></a>  <span class="st">'user'</span>: <span class="st">"MYSQL_USERNAME"</span>,</span>
+<span id="cb11-5"><a href=""></a>  <span class="st">'password'</span>: <span class="st">"MYSQL_PASSWORD"</span>,</span>
+<span id="cb11-6"><a href=""></a>  <span class="st">'host'</span>: <span class="st">"MYSQL_DB_HOST"</span>,</span>
+<span id="cb11-7"><a href=""></a>  <span class="st">'database'</span>: <span class="st">"HW5_DB_NAME"</span></span>
+<span id="cb11-8"><a href=""></a>}</span>
+<span id="cb11-9"><a href=""></a></span>
+<span id="cb11-10"><a href=""></a>cnx,config <span class="op">=</span> create_db_wrapper( config_map )</span>
+<span id="cb11-11"><a href=""></a></span>
+<span id="cb11-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<h3 id="connecting-to-a-database">Connecting to a database</h3>
+<ul>
+<li>A <strong><em>.env</em></strong> file contains key-value pairs</li>
+<li>The <em>config_map</em> maps needed keys and values.</li>
+<li>ANY database connection requires at least 4 values:
+<ul>
+<li>username and password</li>
+<li>host computer name</li>
+<li>host database name</li>
+<li>other values are often used to manage connection</li>
+</ul></li>
+</ul>
+<h3 id="helper-function">Helper Function</h3>
+<p>I provide a helper function <code>create_db_wrapper</code> to encapsulate the details.</p>
+<p>Look in <em>helpers.py</em> to see the connection code. The majority of the code contains exception handling to work smoothly with <em>Quarto</em>.</p>
+</div></div>
+</section>
+<section id="select-statement" class="slide level2">
+<h2>Select statement</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>A <em>SELECT</em> query is the one of the most fundamental statements in SQL.</p>
+<p>A <em>SELECT</em> statement describe a request to perform operations within the database and return a <em>result set</em>.</p>
+<p>This <em>result set</em> is a relation.</p>
+<p>This <em>result</em> can be used in subsequent operations or stored back into the DB as a new table.</p>
+<p>A SQL query is relational algebra:</p>
+<p><span class="math inline">\(\Pi_{A_1, A_2, ... A_n}(\sigma_{P}(R_1 \times R_2 \times ... \times R_n) )\)</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>SELECT</strong> A1, A2, A3</p>
+<p><strong>FROM</strong> R1,R2</p>
+<p><strong>WHERE</strong> P</p>
+<p><strong>ORDER BY</strong> A2,A3,A1;</p>
+<ul>
+<li>A* represents an attribute (column), a literal, a function, or an operation</li>
+<li>R* represents a relation (table), cartesian project, or join</li>
+<li>P is a predicate, conditions or filters</li>
+</ul>
+</div></div>
+</section>
+<section id="select-clause-and-examples" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The select clause lists the attributes desired in the result of a query, corresponds to the projection operation of the relational algebra</p></li>
+<li><p>SQL names are case insensitive</p></li>
+<li><p>SQL allows duplicates in relations as well as in query results</p></li>
+<li><p>To force the elimination of duplicates, use the keyword distinct</p></li>
+<li><p>An asterisk in the select clause denotes “all attributes”</p></li>
+<li><p>May rename columns using alias</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>-- this is syntax</span>
+<span id="cb12-2"><a href=""></a>SELECT [distinct] {*, column [[as] alias], ...}</span>
+<span id="cb12-3"><a href=""></a>FROM table {or tables}</span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a>-- this is a real statement (and comment!)</span>
+<span id="cb12-6"><a href=""></a>SELECT</span>
+<span id="cb12-7"><a href=""></a>  *</span>
+<span id="cb12-8"><a href=""></a>FROM</span>
+<span id="cb12-9"><a href=""></a>  REGIONS</span>
+<span id="cb12-10"><a href=""></a></span>
+<span id="cb12-11"><a href=""></a>-- indents are not managed</span>
+<span id="cb12-12"><a href=""></a>-- comments stop processing of line</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="regions-table" class="slide level2">
+<h2><em>Regions</em> table</h2>
+<p>Two different helper functions provided in homework 5: <em>run_sql_and_return_df</em> and <em>run_sql_and_return_html</em>.</p>
+<div class="columns">
+<div class="column">
+<div style="font-size: 100%;">
+<div id="529cb7dc" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb13-2"><a href=""></a>run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb13-3"><a href=""></a><span class="st">select </span></span>
+<span id="cb13-4"><a href=""></a><span class="st">  *</span></span>
+<span id="cb13-5"><a href=""></a><span class="st">from</span></span>
+<span id="cb13-6"><a href=""></a><span class="st">  regions</span></span>
+<span id="cb13-7"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb13-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="352">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">region_id</th>
+<th data-quarto-table-cell-role="th">region_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Europe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Americas</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Middle East and Africa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div style="font-size: 100%;">
+<div id="6f54e97d" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb14-2"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb14-3"><a href=""></a><span class="st">select </span></span>
+<span id="cb14-4"><a href=""></a><span class="st">  *</span></span>
+<span id="cb14-5"><a href=""></a><span class="st">from</span></span>
+<span id="cb14-6"><a href=""></a><span class="st">  regions</span></span>
+<span id="cb14-7"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb14-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="353">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+region_id
+</th>
+
+<th>
+region_name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+Europe
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+Americas
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+Asia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+4
+</td>
+
+<td>
+Middle East and Africa
+</td>
+
+</tr>
+
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 4, Total Columns: 2
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-1" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="using-to-select-all-columns">Using * to select all columns</h3>
+<div id="4cb691cc" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb15-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
+<span id="cb15-3"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb15-4"><a href=""></a><span class="st">select * from regions</span></span>
+<span id="cb15-5"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb15-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="354">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+region_id
+</th>
+
+<th>
+region_name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+Europe
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+Americas
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+Asia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+4
+</td>
+
+<td>
+Middle East and Africa
+</td>
+
+</tr>
+
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 4, Total Columns: 2
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="selecting-only-one-attribute">Selecting only one attribute</h3>
+<div id="b37557f2" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb16-2"><a href=""></a><span class="co">#| code-line-numbers: 4-7</span></span>
+<span id="cb16-3"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb16-4"><a href=""></a><span class="st">select</span></span>
+<span id="cb16-5"><a href=""></a><span class="st">  region_name</span></span>
+<span id="cb16-6"><a href=""></a><span class="st">from</span></span>
+<span id="cb16-7"><a href=""></a><span class="st">  regions</span></span>
+<span id="cb16-8"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb16-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="355">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+region_name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+Europe
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Americas
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Asia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Middle East and Africa
+</td>
+
+</tr>
+
+<tr>
+<td colspan="1" style="text-align: left;">
+Total Rows: 4, Total Columns: 1
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="employees-table---first-15-rows" class="slide level2">
+<h2><em>Employees</em> table - first 15 rows</h2>
+<div style="font-size:50%;">
+<div id="d08cb319" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb17-2"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb17-3"><a href=""></a><span class="st">select * from employees limit 15</span></span>
+<span id="cb17-4"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb17-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="356">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+employee_id
+</th>
+
+<th>
+first_name
+</th>
+
+<th>
+last_name
+</th>
+
+<th>
+email
+</th>
+
+<th>
+phone_number
+</th>
+
+<th>
+hire_date
+</th>
+
+<th>
+job_id
+</th>
+
+<th>
+salary
+</th>
+
+<th>
+commission_pct
+</th>
+
+<th>
+manager_id
+</th>
+
+<th>
+department_id
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+100
+</td>
+
+<td>
+Steven
+</td>
+
+<td>
+King
+</td>
+
+<td>
+SKING
+</td>
+
+<td>
+515.123.4567
+</td>
+
+<td>
+2003-06-17
+</td>
+
+<td>
+AD_PRES
+</td>
+
+<td>
+24000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+90
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+101
+</td>
+
+<td>
+Neena
+</td>
+
+<td>
+Kochhar
+</td>
+
+<td>
+NKOCHHAR
+</td>
+
+<td>
+515.123.4568
+</td>
+
+<td>
+2005-09-21
+</td>
+
+<td>
+AD_VP
+</td>
+
+<td>
+17000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+100.0
+</td>
+
+<td>
+90
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Lex
+</td>
+
+<td>
+De Haan
+</td>
+
+<td>
+LDEHAAN
+</td>
+
+<td>
+515.123.4569
+</td>
+
+<td>
+2001-01-13
+</td>
+
+<td>
+AD_VP
+</td>
+
+<td>
+17000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+100.0
+</td>
+
+<td>
+90
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alexander
+</td>
+
+<td>
+Hunold
+</td>
+
+<td>
+AHUNOLD
+</td>
+
+<td>
+590.423.4567
+</td>
+
+<td>
+2006-01-03
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+9000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+102.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+104
+</td>
+
+<td>
+Bruce
+</td>
+
+<td>
+Ernst
+</td>
+
+<td>
+BERNST
+</td>
+
+<td>
+590.423.4568
+</td>
+
+<td>
+2007-05-21
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+6000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+105
+</td>
+
+<td>
+David
+</td>
+
+<td>
+Austin
+</td>
+
+<td>
+DAUSTIN
+</td>
+
+<td>
+590.423.4569
+</td>
+
+<td>
+2005-06-25
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+4800.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+106
+</td>
+
+<td>
+Valli
+</td>
+
+<td>
+Pataballa
+</td>
+
+<td>
+VPATABAL
+</td>
+
+<td>
+590.423.4560
+</td>
+
+<td>
+2006-02-05
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+4800.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+107
+</td>
+
+<td>
+Diana
+</td>
+
+<td>
+Lorentz
+</td>
+
+<td>
+DLORENTZ
+</td>
+
+<td>
+590.423.5567
+</td>
+
+<td>
+2007-02-07
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+4200.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+108
+</td>
+
+<td>
+Nancy
+</td>
+
+<td>
+Greenberg
+</td>
+
+<td>
+NGREENBE
+</td>
+
+<td>
+515.124.4569
+</td>
+
+<td>
+2002-08-17
+</td>
+
+<td>
+FI_MGR
+</td>
+
+<td>
+12008.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+101.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+109
+</td>
+
+<td>
+Daniel
+</td>
+
+<td>
+Faviet
+</td>
+
+<td>
+DFAVIET
+</td>
+
+<td>
+515.124.4169
+</td>
+
+<td>
+2002-08-16
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+9000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+110
+</td>
+
+<td>
+John
+</td>
+
+<td>
+Chen
+</td>
+
+<td>
+JCHEN
+</td>
+
+<td>
+515.124.4269
+</td>
+
+<td>
+2005-09-28
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+8200.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+111
+</td>
+
+<td>
+Ismael
+</td>
+
+<td>
+Sciarra
+</td>
+
+<td>
+ISCIARRA
+</td>
+
+<td>
+515.124.4369
+</td>
+
+<td>
+2005-09-30
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+7700.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+112
+</td>
+
+<td>
+Jose Manuel
+</td>
+
+<td>
+Urman
+</td>
+
+<td>
+JMURMAN
+</td>
+
+<td>
+515.124.4469
+</td>
+
+<td>
+2006-03-07
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+7800.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+113
+</td>
+
+<td>
+Luis
+</td>
+
+<td>
+Popp
+</td>
+
+<td>
+LPOPP
+</td>
+
+<td>
+515.124.4567
+</td>
+
+<td>
+2007-12-07
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+6900.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+114
+</td>
+
+<td>
+Den
+</td>
+
+<td>
+Raphaely
+</td>
+
+<td>
+DRAPHEAL
+</td>
+
+<td>
+515.127.4561
+</td>
+
+<td>
+2002-12-07
+</td>
+
+<td>
+PU_MAN
+</td>
+
+<td>
+11000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+100.0
+</td>
+
+<td>
+30
+</td>
+
+</tr>
+
+<tr>
+<td colspan="11" style="text-align: left;">
+Total Rows: 15, Total Columns: 11
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="select-clause-and-examples-2" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;font-size:50%">
+<h3 id="gathering-all-last-names">Gathering all last names</h3>
+<div id="d02713cc" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb18-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
+<span id="cb18-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb18-4"><a href=""></a><span class="st">select last_name from employees</span></span>
+<span id="cb18-5"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb18-6"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb18-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_d382e151_9d51_477f_a727_3e1027d10b9d"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_d382e151_9d51_477f_a727_3e1027d10b9d:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "text_in_header_can_be_selected": true, "classes": ["display", "nowrap"], "order": [], "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div><div class="column" style="width:50%;font-size:50%">
+<h3 id="eliminating-duplicates-with-distinct">Eliminating duplicates with DISTINCT</h3>
+<div id="81bb1e7b" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb19-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
+<span id="cb19-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb19-4"><a href=""></a><span class="st">select distinct last_name from employees</span></span>
+<span id="cb19-5"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb19-6"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb19-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_c16f6d7c_3adb_4a6e_b7a7_d142ed43f294"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_c16f6d7c_3adb_4a6e_b7a7_d142ed43f294:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "text_in_header_can_be_selected": true, "classes": ["display", "nowrap"], "order": [], "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-3" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;font-size:50%">
+<h3 id="combining-last-and-first-names">Combining last and first names</h3>
+<div id="d0e8aa6c" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb20-2"><a href=""></a><span class="co">#| code-line-numbers: 4-5</span></span>
+<span id="cb20-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb20-4"><a href=""></a><span class="st">select concat(last_name,',',first_name)</span></span>
+<span id="cb20-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb20-6"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb20-7"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb20-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_4f9320a4_efca_46d3_b1ee_daddb26fdfcf"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_4f9320a4_efca_46d3_b1ee_daddb26fdfcf:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "text_in_header_can_be_selected": true, "classes": ["display", "nowrap"], "order": [], "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>concat(last_name,',',first_name)</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div><div class="column" style="width:50%;font-size:50%">
+<h3 id="then-renaming-the-column">Then renaming the column</h3>
+<div id="39857bb9" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb21-2"><a href=""></a><span class="co">#| code-line-numbers: 4-5</span></span>
+<span id="cb21-3"><a href=""></a>df <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
+<span id="cb21-4"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name </span></span>
+<span id="cb21-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb21-6"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb21-7"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb21-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_32cfab03_0810_4436_91c4_3ae6a0edddcb"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_32cfab03_0810_4436_91c4_3ae6a0edddcb:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "text_in_header_can_be_selected": true, "classes": ["display", "nowrap"], "order": [], "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>full_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-4" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="attribute-can-be-literal-or-function">attribute can be literal or function</h3>
+<div id="42a7dcc6" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="4-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb22-2"><a href=""></a><span class="co">#| code-line-numbers: 4-8</span></span>
+<span id="cb22-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb22-4"><a href=""></a><span class="st">select</span></span>
+<span id="cb22-5"><a href=""></a><span class="st">  27 as "Literal",</span></span>
+<span id="cb22-6"><a href=""></a><span class="st">  now() as "Current Time" </span></span>
+<span id="cb22-7"><a href=""></a><span class="st">from</span></span>
+<span id="cb22-8"><a href=""></a><span class="st">  dual</span></span>
+<span id="cb22-9"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb22-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="361">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Literal</th>
+<th data-quarto-table-cell-role="th">Current Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>27</td>
+<td>2025-10-08 15:52:51</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Note that we’re using a built-in table named <em>dual</em> that returns what you put in as a table that can be used in subsequent operations.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="doing-computations">Doing computations</h3>
+<p>The attribute can be a function or arithmetic operation</p>
+<div id="45f7a994" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb23-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb23-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb23-4"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name,</span></span>
+<span id="cb23-5"><a href=""></a><span class="st">salary*12 as "Annual Salary"</span></span>
+<span id="cb23-6"><a href=""></a><span class="st">from employees limit 5</span></span>
+<span id="cb23-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb23-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="362">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+<th data-quarto-table-cell-role="th">Annual Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King,Steven</td>
+<td>288000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Kochhar,Neena</td>
+<td>204000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>De Haan,Lex</td>
+<td>204000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Hunold,Alexander</td>
+<td>108000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Ernst,Bruce</td>
+<td>72000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The WHERE clause specifies conditions that the results must satisfy, corresponding to the <span class="math inline">\(\sigma\)</span> predicate in relational algebra.</p></li>
+<li><p>An individual WHERE element returns TRUE or FALSE for every row. This is applied during the query and will return only rows that evaluate TRUE in the where clause.</p></li>
+<li><p>Attributes in where clause can be compared using relational operators: &lt; &lt;= = &gt;= &gt;</p></li>
+<li><p>WHERE elements can be combined using <em>AND</em>, <em>OR</em> and <em>NOT</em> logical operators.</p></li>
+<li><p>WHERE also uses special operators: <em>BETWEEN</em>, <em>IN</em> and <em>IS NULL</em></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="7503a779" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb24-2"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
+<span id="cb24-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb24-4"><a href=""></a><span class="st">-- note that this is a monthly salary!</span></span>
+<span id="cb24-5"><a href=""></a><span class="st">SELECT</span></span>
+<span id="cb24-6"><a href=""></a><span class="st">  last_name, first_name, salary</span></span>
+<span id="cb24-7"><a href=""></a><span class="st">FROM</span></span>
+<span id="cb24-8"><a href=""></a><span class="st">  employees</span></span>
+<span id="cb24-9"><a href=""></a><span class="st">WHERE</span></span>
+<span id="cb24-10"><a href=""></a><span class="st">  salary &gt; 10000</span></span>
+<span id="cb24-11"><a href=""></a><span class="st">LIMIT</span></span>
+<span id="cb24-12"><a href=""></a><span class="st">  5</span></span>
+<span id="cb24-13"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb24-14"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="363">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King</td>
+<td>Steven</td>
+<td>24000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Kochhar</td>
+<td>Neena</td>
+<td>17000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>De Haan</td>
+<td>Lex</td>
+<td>17000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Greenberg</td>
+<td>Nancy</td>
+<td>12008.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Raphaely</td>
+<td>Den</td>
+<td>11000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples-1" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="selecting-a-department">Selecting a department</h3>
+<div id="89e4e291" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb25-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb25-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb25-4"><a href=""></a><span class="st">select last_name,department_id</span></span>
+<span id="cb25-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb25-6"><a href=""></a><span class="st">where department_id=110 limit 7;</span></span>
+<span id="cb25-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb25-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="364">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Higgins</td>
+<td>110</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Gietz</td>
+<td>110</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Data types matter. You’ll get an error if you set <em>department_id=‘110’</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="using-between">Using BETWEEN</h3>
+<p>The attribute can be a function or arithmetic operation</p>
+<div id="8c276153" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb26-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb26-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb26-4"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name, salary</span></span>
+<span id="cb26-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb26-6"><a href=""></a><span class="st">where salary BETWEEN 10000 and 12000</span></span>
+<span id="cb26-7"><a href=""></a><span class="st">limit 5;</span></span>
+<span id="cb26-8"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb26-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="365">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+<th data-quarto-table-cell-role="th">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Raphaely,Den</td>
+<td>11000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Errazuriz,Alberto</td>
+<td>12000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Cambrault,Gerald</td>
+<td>11000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Tucker,Peter</td>
+<td>10000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples-2" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="using-in">Using IN</h3>
+<div id="09737516" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb27-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb27-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb27-4"><a href=""></a><span class="st">select last_name,department_id</span></span>
+<span id="cb27-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb27-6"><a href=""></a><span class="st">where department_id in (100,145,146)</span></span>
+<span id="cb27-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb27-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="366">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Greenberg</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Faviet</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Chen</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Sciarra</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Urman</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Popp</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="the-long-way">The long way</h3>
+<div id="9f3b4b71" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb28-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb28-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb28-4"><a href=""></a><span class="st">select last_name,department_id</span></span>
+<span id="cb28-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb28-6"><a href=""></a><span class="st">where department_id=30 or department_id=70 or department_id=120</span></span>
+<span id="cb28-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb28-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="367">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Raphaely</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Khoo</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Baida</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Tobias</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Himuro</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Colmenares</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Baer</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div></div>
+</section>
+<section id="where-clause-and-examples-3" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-are-all-the-department-ids">What are all the department IDs?</h3>
+<div id="49f30f79" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb29-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb29-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb29-4"><a href=""></a><span class="st">select distinct department_id</span></span>
+<span id="cb29-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb29-6"><a href=""></a><span class="st">order by department_id</span></span>
+<span id="cb29-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb29-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="368">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>20.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>40.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>50.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>70.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>90.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>110.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="who-is-missing-a-manager">Who is missing a manager?</h3>
+<div id="692ebaf5" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb30-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb30-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb30-4"><a href=""></a><span class="st">select last_name,job_id,manager_id</span></span>
+<span id="cb30-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb30-6"><a href=""></a><span class="st">where manager_id is NULL</span></span>
+<span id="cb30-7"><a href=""></a><span class="st">limit 7</span></span>
+<span id="cb30-8"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb30-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="369">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">job_id</th>
+<th data-quarto-table-cell-role="th">manager_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King</td>
+<td>AD_PRES</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>NULL must be all caps!!</p>
+</div></div>
+</section>
+<section id="computations" class="slide level2">
+<h2>Computations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="calculating-commissions">Calculating commissions</h3>
+<div id="0daadb48" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="5-13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb31-2"><a href=""></a><span class="co">#| eval: false</span></span>
+<span id="cb31-3"><a href=""></a><span class="co">#| code-line-numbers: 5-13</span></span>
+<span id="cb31-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb31-5"><a href=""></a><span class="st">select </span></span>
+<span id="cb31-6"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Name",</span></span>
+<span id="cb31-7"><a href=""></a><span class="st">  salary as "Monthly",</span></span>
+<span id="cb31-8"><a href=""></a><span class="st">  12.0*salary+commission_pct*salary as "With/Commission"</span></span>
+<span id="cb31-9"><a href=""></a><span class="st">from</span></span>
+<span id="cb31-10"><a href=""></a><span class="st">  employees</span></span>
+<span id="cb31-11"><a href=""></a><span class="st">order by</span></span>
+<span id="cb31-12"><a href=""></a><span class="st">  last_name,</span></span>
+<span id="cb31-13"><a href=""></a><span class="st">  first_name</span></span>
+<span id="cb31-14"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb31-15"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>What are the NaN “not a number” entries?</p>
+<p>How do we remove the NaN (not a number) from list?</p>
+</div><div class="column" style="width:50%;">
+<h3 id="calculating-commissions-1">Calculating commissions</h3>
+<div id="a76b210c" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="370">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="ifnull-operator" class="slide level2">
+<h2>IFNULL operator</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="the-ifnull-operator">The IFNULL operator</h3>
+<p>IFNULL( expr1, expr2 ) replaces NULL with a value.</p>
+<ul>
+<li><p>IF expr1 is NOT NULL then returns expr1</p></li>
+<li><p>IF expr1 IS NULL, then returns expr2.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="calculating-commissions-2">Calculating commissions</h3>
+<div id="5559e4fc" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb32-2"><a href=""></a><span class="co">#| eval: false</span></span>
+<span id="cb32-3"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
+<span id="cb32-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb32-5"><a href=""></a><span class="st">select </span></span>
+<span id="cb32-6"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Name",</span></span>
+<span id="cb32-7"><a href=""></a><span class="st">  salary as "Monthly",</span></span>
+<span id="cb32-8"><a href=""></a><span class="st">  IFNULL(12.0*salary+commission_pct*salary,0.0) as "With/Commission"</span></span>
+<span id="cb32-9"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb32-10"><a href=""></a><span class="st">order by last_name, first_name</span></span>
+<span id="cb32-11"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb32-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="ifnull-operator-1" class="slide level2">
+<h2>IFNULL operator</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="ifnull-expr1-0.0">IFNULL( expr1, 0.0)</h3>
+<div id="321f5443" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="371">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="ifnull-expr1-missing">IFNULL( expr1, ‘missing’)</h3>
+<div id="3ad1328a" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="372">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0000</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="string-operations" class="slide level2">
+<h2>String operations</h2>
+<p>The operator <em>LIKE</em> uses patterns (case insensitive) (use <em>LIKE BINARY</em> for case sensitive) for string-matching operations using two special characters:</p>
+<pre><code>* percentage ( % ) matches any substring (none or many characters)
+* underscore ( _ ) matches any single character</code></pre>
+<p>Examples:</p>
+<p>‘Intro%’ matches any string beginning with “Intro”</p>
+<p>‘%Comp%’ matches any string containing “Comp” as a substring</p>
+<p>’_ _ _’ matches any string of exactly three characters</p>
+<p>‘_ _ _ %’ matches any string of at least three characters</p>
+<p>‘%_ a _’ same as before but the second to the last letter is ‘a’</p>
+</section>
+<section id="string-operations-1" class="slide level2">
+<h2>String operations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="double-when-using-python">DOUBLE %% when using Python</h3>
+<div id="1ad07054" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb34-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb34-3"><a href=""></a><span class="co">#| code-line-numbers: 5-6</span></span>
+<span id="cb34-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb34-5"><a href=""></a><span class="st">select last_name from employees</span></span>
+<span id="cb34-6"><a href=""></a><span class="st">where last_name like 'MC</span><span class="sc">%%</span><span class="st">'</span></span>
+<span id="cb34-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb34-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="373">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>McCain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>McEwen</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="double-when-using-python-1">DOUBLE %% when using Python</h3>
+<div id="71795ecf" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb35-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb35-3"><a href=""></a><span class="co">#| code-line-numbers: 5-6</span></span>
+<span id="cb35-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb35-5"><a href=""></a><span class="st">SELECT phone_number FROM employees</span></span>
+<span id="cb35-6"><a href=""></a><span class="st">WHERE phone_number LIKE '</span><span class="sc">%%</span><span class="st">123</span><span class="sc">%%</span><span class="st">';</span></span>
+<span id="cb35-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb35-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="374">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">phone_number</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>515.123.4567</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>515.123.4568</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>515.123.4569</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>650.123.1234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>650.123.2234</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>650.123.3234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>650.123.4234</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>650.123.5234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>650.121.1234</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>515.123.4444</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>515.123.5555</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>603.123.6666</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>515.123.7777</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>515.123.8888</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>515.123.8080</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>515.123.8181</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="order-by-clause" class="slide level2">
+<h2>ORDER BY clause</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>ORDER BY</em> is used to specify the sort order in the result set.</p>
+<p>The result set is sorted by the first attribute listed in the <em>ORDER BY</em>.</p>
+<p>If there is a tie, <em>ORDER BY</em> moves to the second attribute, and so on.</p>
+<p>Attribute expression may be modified with ASC (the default) or DESC (for descending)</p>
+<p>Attributes in <em>ORDER BY</em> can be computed!</p>
+</div><div class="column" style="width:50%;">
+<h3 id="example">Example</h3>
+<div id="5027abf8" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb36-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb36-3"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
+<span id="cb36-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb36-5"><a href=""></a><span class="st">select </span></span>
+<span id="cb36-6"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Full Name", salary as "Monthly"</span></span>
+<span id="cb36-7"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb36-8"><a href=""></a><span class="st">order by</span></span>
+<span id="cb36-9"><a href=""></a><span class="st">  salary desc,</span></span>
+<span id="cb36-10"><a href=""></a><span class="st">  last_name, first_name</span></span>
+<span id="cb36-11"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb36-12"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="375">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Full Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>King,Steven</td>
+<td>24000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>De Haan,Lex</td>
+<td>17000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Kochhar,Neena</td>
+<td>17000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Russell,John</td>
+<td>14000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Partners,Karen</td>
+<td>13500.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Gee,Ki</td>
+<td>2400.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Landry,James</td>
+<td>2400.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104</td>
+<td>Markle,Steven</td>
+<td>2200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Philtanker,Hazel</td>
+<td>2200.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">106</td>
+<td>Olson,TJ</td>
+<td>2100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-summary" class="slide level2">
+<h2>SELECT summary</h2>
+<div class="columns">
+<div class="column">
+<h3 id="major-statement-clauses">Major statement clauses</h3>
+<ul>
+<li><code>SELECT</code> - variable to project</li>
+<li><code>FROM</code> - tables to combine</li>
+<li><code>WHERE</code> - filters to apply</li>
+<li><code>ORDER BY</code> - order of results</li>
+</ul>
+<h3 id="inside-each-clause">Inside each clause</h3>
+<ul>
+<li><code>CONCAT</code> - combining columns</li>
+<li><code>AS</code> - Renaming columns</li>
+<li>Literals</li>
+<li>Computations in SELECT</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/select.html">MySQL <em>SELECT</em> documentation</a>.</p>
+</div><div class="column">
+<h3 id="filters-and-functions">Filters and functions</h3>
+<ul>
+<li><code>WHERE</code>
+<ul>
+<li>AND, OR, NOT</li>
+<li><code>&lt;</code> <code>&lt;=</code> <code>=</code> <code>=&gt;</code> <code>&gt;</code></li>
+</ul></li>
+<li><code>BETWEEN</code> - for <em>where</em></li>
+<li><code>IN</code> - checking set membership</li>
+<li><code>NULL</code> values</li>
+<li><code>IFNULL</code> operator</li>
+<li>String matches <code>%%</code></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/functions.html">MySQL <em>Functions</em> documentation</a></p>
+</div></div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +3796,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176">Practice Quiz 4 - SQL Basics</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137">Homework 5 - Getting started with SQL</a> - due 10/12, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/save-you-hours™">Save You Hours™</a></p></li>
+<li><p><a href="#/python-quarto-setup">Python-Quarto setup</a></p></li>
+<li><p><a href="#/homework-5---getting-started-with-sql">Homework 5 - Getting started with SQL</a></p></li>
+<li><p><a href="#/getting-to-select">Getting to SELECT</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -286,7 +3830,7 @@
 <td style="text-align: center;">8</td>
 <td style="text-align: center;">10/8</td>
 <td style="text-align: center;">Wed</td>
-<td>L14:Analysis and Normal Forms 5</td>
+<td>L14:Intro to SQL</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -295,7 +3839,7 @@
 <td style="text-align: center;">10/12</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>Q4:SQL Basics; HW5:Getting started with SQL</td>
+<td>PQ4:SQL Basics; HW5:Getting started with SQL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -327,7 +3871,7 @@
 <td style="text-align: center;">10/19</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6:Constructing a database</td>
+<td>Q4:SQL Basics; HW6:Constructing a database</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -363,7 +3907,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -754,6 +4298,38 @@
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

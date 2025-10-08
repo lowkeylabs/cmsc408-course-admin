@@ -1435,6 +1435,37 @@ files = [
 arrow = ">=0.15.0"
 
 [[package]]
+name = "itables"
+version = "2.5.2"
+description = "Pandas and Polar DataFrames as interactive DataTables"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "itables-2.5.2-py3-none-any.whl", hash = "sha256:a26b5a5fad079db7eee83ff720fb98395f7327fddcb7af84d10e1165a139acf2"},
+    {file = "itables-2.5.2.tar.gz", hash = "sha256:ec34bbacfbf4305570ea75b36970de442f924126f3701c323a5a46018de84c8a"},
+]
+
+[package.dependencies]
+ipython = "*"
+numpy = "*"
+pandas = "*"
+
+[package.extras]
+all = ["anywidget", "dash", "matplotlib", "platformdirs", "polars", "pyarrow", "pytz", "shiny", "shinywidgets", "streamlit", "tomli ; python_version < \"3.11\"", "traitlets", "typeguard (>=4.4.1)", "world-bank-data"]
+check-type = ["typeguard (>=4.4.1)"]
+config = ["platformdirs", "tomli ; python_version < \"3.11\""]
+dash = ["dash"]
+dev = ["anywidget", "dash", "ipykernel", "jupyterlab", "jupytext", "marimo", "matplotlib", "nbconvert", "platformdirs", "polars", "pyarrow", "pytest", "pytest-cov", "pytz", "requests", "shiny", "shinywidgets", "streamlit", "tomli ; python_version < \"3.11\"", "traitlets", "typeguard (>=4.4.1)", "watchfiles", "world-bank-data"]
+polars = ["polars", "pyarrow"]
+samples = ["pytz", "world-bank-data"]
+shiny = ["shiny", "shinywidgets"]
+streamlit = ["streamlit"]
+style = ["matplotlib"]
+test = ["anywidget", "dash", "ipykernel", "jupytext", "marimo", "matplotlib", "nbconvert", "platformdirs", "polars", "pyarrow", "pytest", "pytest-cov", "pytz", "requests", "shiny", "shinywidgets", "streamlit", "tomli ; python_version < \"3.11\"", "traitlets", "typeguard (>=4.4.1)", "world-bank-data"]
+widget = ["anywidget", "traitlets"]
+
+[[package]]
 name = "jaraco-classes"
 version = "3.4.0"
 description = "Utility functions for Python class constructs"
@@ -4575,4 +4606,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0.0"
-content-hash = "86b68a7617383e40736776d93d9ef0736e73a49f4215d52c2810d4b570dbd9a2"
+content-hash = "f1092d1aca89ecee32a5160f61a7f062086d574d36bd9d9d9cf376843742696e"

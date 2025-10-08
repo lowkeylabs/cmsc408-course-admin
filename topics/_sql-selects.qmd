@@ -8,6 +8,7 @@ import re
 import sys
 import copy
 import pandas as pd
+from itables import show
 from tabulate import tabulate
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
@@ -219,10 +220,10 @@ def execute_ddl(cnx,ddl_commands):
 
 # Load these variables from first .env file found.
 config_map = {
-  'user': "CMSC408_HW5_USER",
-  'password': "CMSC408_HW5_PASSWORD",
-  'host': "CMSC408_HW5_HOST",
-  'database': "CMSC408_HW5_DB_NAME"
+  'user': "MYSQL_USERNAME",
+  'password': "MYSQL_PASSWORD",
+  'host': "MYSQL_DB_HOST",
+  'database': "HW5_DB_NAME"
 }
 
 cnx,config = create_db_wrapper( config_map )
@@ -391,7 +392,7 @@ from
 
 ## *Employees* table - first 15 rows
 
-::: {style="font-size: 50%;"}
+::: {style="font-size:50%;"}
 ```{python}
 #| echo: fenced
 run_sql_and_return_html(cnx,"""
@@ -403,25 +404,27 @@ select * from employees limit 15
 ## SELECT clause and examples
 
 :::: {.columns}
-::: {.column width=50%}
+::: {.column style="width:50%;font-size:50%"}
 ### Gathering all last names
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-4
-run_sql_and_return_html(cnx,"""
+df = run_sql_and_return_df(cnx,"""
 select last_name from employees
 """)
+show(df,pageLength=6)
 ```
 
 :::
-::: {.column width=50%}
+::: {.column style="width:50%;font-size:50%"}
 ### Eliminating duplicates with DISTINCT
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-4
-run_sql_and_return_html(cnx,"""
+df = run_sql_and_return_df(cnx,"""
 select distinct last_name from employees
 """)
+show(df,pageLength=6)
 ```
 
 :::
@@ -430,27 +433,29 @@ select distinct last_name from employees
 ## SELECT clause and examples
 
 :::: {.columns}
-::: {.column width=50%}
+::: {.column style="width:50%;font-size:50%"}
 ### Combining last and first names
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-5
-run_sql_and_return_html(cnx,"""
+df = run_sql_and_return_df(cnx,"""
 select concat(last_name,',',first_name)
 from employees
 """)
+show(df,pageLength=6)
 ```
 
 :::
-::: {.column width=50%}
+::: {.column style="width:50%;font-size:50%"}
 ### Then renaming the column
 ```{python}
 #| echo: fenced
 #| code-line-numbers: 4-5
-pd.read_sql("""
-select concat(last_name,',',first_name) as full_name
-from employees limit 7
+df = pd.read_sql("""
+select concat(last_name,',',first_name) as full_name 
+from employees
 """,cnx)
+show(df,pageLength=6)
 ```
 
 :::
