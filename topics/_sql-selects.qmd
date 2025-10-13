@@ -209,15 +209,6 @@ def execute_ddl(cnx,ddl_commands):
 
     return None
 
-```
-
-## Homework 5 - Making the connection
-
-:::: {.columns}
-::: {.column}
-```{python}
-#| echo: fenced
-
 # Load these variables from first .env file found.
 config_map = {
   'user': "MYSQL_USERNAME",
@@ -229,27 +220,6 @@ config_map = {
 cnx,config = create_db_wrapper( config_map )
   
 ```
-:::
-::: {.column}
-### Connecting to a database
-
-* A ***.env*** file contains key-value pairs
-* The *config_map* maps needed keys and values.
-* ANY database connection requires at least 4 values:
-  * username and password
-  * host computer name
-  * host database name
-  * other values are often used to manage connection
-
-### Helper Function
-
-I provide a helper function `create_db_wrapper` to encapsulate the details.
-
-Look in *helpers.py* to see the connection code.  The majority of the code
-contains exception handling to work smoothly with *Quarto*.
-
-:::
-::::
 
 ## Select statement
 

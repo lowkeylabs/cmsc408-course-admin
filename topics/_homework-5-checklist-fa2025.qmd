@@ -1,0 +1,498 @@
+<!-- # Homework 5 - checklist -->
+
+## Homework 5 - Checklist - Layer 1
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. **Show the versions the tools from a command line?**
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. *Preview* report.qmd from inside VScode.
+
+1. Run a python block in VSCode?
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-fa2025-software-versions.png)
+
+***This assures us that you've got everything properly installed
+and on the PATH.***
+:::
+::::
+
+
+## Homework 5 - Checklist - Layer 2
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. **Run `poetry shell` and verify quarto is working (`quarto check`)**
+
+1. Render report.qmd from the command line.
+
+1. *Preview* report.qmd from inside VScode.
+
+1. Run a python block in VSCode?
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-fa2025-quarto-check.png){.lightbox}
+
+**This assures us that quarto is using the correct python.  Be sure that you ran `poetry install` (once) and `poetry shell` to start a venv session. IF you get errors (like missing module) THEN make sure [your tool stack](https://vcu-ssg.github.io/ssg-quarto-python-setup/finalsteps.html) is installed properly.**
+
+:::
+::::
+
+## Homework 5 - Checklist - Layer 3
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. **Render report.qmd from the command line.**
+
+1. *Preview* report.qmd from inside VScode.
+
+1. Run a python block in VSCode?
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-quarto-render.png){height=300px .lightbox}
+
+**This assures us that we have pyenv, python, poetry and quarto working together, and that
+we can complete the homework assignment!**
+:::
+::::
+
+
+
+## Homework 5 - Checklist - Layer 4
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. ***Preview* report.qmd from inside VScode.**
+
+1. Run a python block in VSCode?
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-missing-modules.png)
+
+**This assures us that VSCode is using the correct python from our virtualenv. If not then select python interpreter using ctrl-shift-P and entering `Python: Select interpreter`**
+:::
+::::
+
+## Homework 5 - Checklist - Layer 4
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. ***Preview* report.qmd from inside VScode.**
+
+1. Run a python block in VSCode?
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-fa2025-correct-interpreter-selected.png){.lightbox}
+
+**This is what it looks like when the correct virtual environment is selected.**
+
+
+:::
+::::
+
+## Homework 5 - Checklist - VENV and VSCODE
+
+:::: {.columns}
+::: {.column}
+
+![](assets/homework-5-fa2025-command-pallete.png){.lightbox}
+
+**How to find the command palette.  You can also use Ctrl+Shift+P directly.**
+
+:::
+
+::: {.column}
+
+IF VSCODE throws errors saying it can't find a module THEN you need to tell VSCODE where to find your virtual environment.
+
+The *Command Palette* is a central function of VS-Code.  From this *internal command line* you
+can set various features and functions DIRECTLY. The *command palette* greatly simplies the VScode UI!.
+
+You access the command palette from the Settings icon in the bottom left, or press *Ctrl+Shift+P* from 
+anywhere in VSCode.
+
+The *Command palette* auto-completes.  Enter `python: select interpreter` to have this command show in the list
+of possible commands.
+
+Select your virtual environment python from the list, or select *Enter interpreter path*.
+
+All poetry *virtual environments* are stored in *~/.cache/pypoetry/virtualenvs/*  Pick your virtualenv
+folder from the list then navigate into *./bin/python*.  This tells VSCODE which python to run.
+
+:::
+::::
+
+## Homework 5 - Checklist - VENV and VSCODE
+
+:::: {.columns}
+::: {.column}
+
+![](assets/homework-5-fa2025-python-select-interpreter.png){.lightbox}
+
+**Finding the select-interpreter command.**
+:::
+
+::: {.column}
+
+IF VSCODE throws errors saying it can't find a module THEN you need to tell VSCODE where to find your virtual environment.
+
+The *Command Palette* is a central function of VS-Code.  From this *internal command line* you
+can set various features and functions DIRECTLY. The *command palette* greatly simplies the VScode UI!.
+
+You access the command palette from the Settings icon in the bottom left, or press *Ctrl+Shift+P* from 
+anywhere in VSCode.
+
+The *Command palette* auto-completes.  Enter `python: select interpreter` to have this command show in the list
+of possible commands.
+
+Select your virtual environment python from the list, or select *Enter interpreter path*.
+
+All poetry *virtual environments* are stored in *~/.cache/pypoetry/virtualenvs/*  Pick your virtualenv
+folder from the list then navigate into *./bin/python*.  This tells VSCODE which python to run.
+
+:::
+::::
+
+## Homework 5 - Checklist - VENV and VSCODE
+
+:::: {.columns}
+::: {.column}
+
+![](assets/homework-5-fa2025-select-interpreter.png){.lightbox}
+
+**Selecting the correct virtual environment.**
+:::
+
+::: {.column}
+
+IF VSCODE throws errors saying it can't find a module THEN you need to tell VSCODE where to find your virtual environment.
+
+The *Command Palette* is a central function of VS-Code.  From this *internal command line* you
+can set various features and functions DIRECTLY. The *command palette* greatly simplies the VScode UI!.
+
+You access the command palette from the Settings icon in the bottom left, or press *Ctrl+Shift+P* from 
+anywhere in VSCode.
+
+The *Command palette* auto-completes.  Enter `python: select interpreter` to have this command show in the list
+of possible commands.
+
+Select your virtual environment python from the list, or select *Enter interpreter path*.
+
+All poetry *virtual environments* are stored in *~/.cache/pypoetry/virtualenvs/*  Pick your virtualenv
+folder from the list then navigate into *./bin/python*.  This tells VSCODE which python to run.
+
+
+:::
+::::
+
+## Homework 5 - Checklist - Layer 4
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. ***Preview* report.qmd from inside VScode.**
+
+1. Run a python block in VSCode?
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-fa2025-correct-interpreter-selected.png)
+
+**This is what it looks like when the correct virtual environment is selected for `quarto preview`.**
+
+:::
+::::
+
+## Homework 5 - Checklist - Layer 5
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. *Preview* report.qmd from inside VScode.
+
+1. **Run a python block in VSCode?**
+
+1. Connect to the database in VSCode?
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-fa2025-python-in-vscode.png)
+
+**This is what it looks like when the correct virtual environment is selected ... AND the correct DB has been selected.
+IF you get database connection errors THEN you need to edit the *.env* file!**
+
+:::
+::::
+
+
+## Homework 5 - Checklist - the *.env* file
+
+:::: {.columns}
+::: {.column}
+
+```python
+
+# Load these variables from first .env file found.
+config_map = {
+  'user': "MYSQL_USERNAME",
+  'password': "MYSQL_PASSWORD",
+  'host': "MYSQL_DB_HOST",
+
+  'database': "HW5_DB_NAME" # <- change as needed!
+
+}
+
+cnx,config = create_db_wrapper( config_map )
+  
+```
+
+:::
+::: {.column}
+### Connecting to a database
+
+* A ***.env*** file contains key-value pairs
+* The *config_map* maps needed keys and values.
+* ANY database connection requires at least 4 values:
+  * username and password
+  * host computer name
+  * host database name
+  * other values are often used to manage connection
+
+### Helper Function
+
+I provide a helper function `create_db_wrapper` to encapsulate the details.
+
+Look in *helpers.py* to see the connection code.  The majority of the code
+contains exception handling to work smoothly with *Quarto*.
+
+:::
+::::
+
+
+## Homework 5 - Checklist - the *.env* file
+
+:::: {.columns}
+::: {.column}
+```python
+
+# .env file contents.  A bunch of KEY=VALUE pairs.
+
+MYSQL_DB_HOST=cmsc-vcu.com
+MYSQL_USERNAME=fa25_jdleonard
+MYSQL_PASSWORD=Shout4_jdleonard_joY
+
+HW5_DB_NAME=fa25_jdleonard_hr
+
+HW6_DB_NAME=fa25_jdleonard_hw6
+HW7_DB_NAME=fa25_jdleonard_hw7
+USER_DB_NAME=fa25_jdleonard_user
+
+```
+:::
+::: {.column}
+### Connecting to a database
+
+* A ***.env*** file contains key-value pairs
+* The *config_map* maps needed keys and values.
+* ANY database connection requires at least 4 values:
+  * username and password
+  * host computer name
+  * host database name
+  * other values are often used to manage connection
+
+### Helper Function
+
+I provide a helper function `create_db_wrapper` to encapsulate the details.
+
+Look in *helpers.py* to see the connection code.  The majority of the code
+contains exception handling to work smoothly with *Quarto*.
+
+:::
+::::
+
+
+## Homework 5 - Checklist - Layer 6
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. *Preview* report.qmd from inside VScode.
+
+1. Run a python block in VSCode?
+
+1. **Connect to the database in VSCode?**
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+![](assets/homework-5-fa2025-db-setup.png){.lightbox}
+
+**This assures us that we can talk DIRECTLY to the MySQL server, outside of python.**
+:::
+::::
+
+
+## Homework 5 - Checklist - Summary
+
+:::: {.columns}
+::: {.column}
+Homework 5 is more than just installing the software. It's all about making sure that it works!
+
+Here is a checklist - can you do these things?
+
+1. Show the versions the tools from a command line?
+
+1. Run `poetry shell` and verify quarto is working (`quarto check`)
+
+1. Render report.qmd from the command line.
+
+1. *Preview* report.qmd from inside VScode.
+
+1. Run a python block in VSCode?
+
+1. **Connect to the database in VSCode?**
+
+You should be able to ALL of these activities!
+
+:::
+::: {.column}
+
+These layers are generally independent of each other.  If one works, the others may or may not work.
+
+You should be able to perform ALL of these activities!  If not, you're only going to make more
+work for yourself later on in the class.
+
+There are other, odder errors you may encounter, especially if you had older versions of the tools installed.  In
+some cases, you might need to UNINSTALL and REINSTALL the tools.
+
+Don't forget to review [the tool stack installation guide](https://vcu-ssg.github.io/). There may be something
+of value in their somewhere!
+
+:::
+::::
+
+## Homework 5 - Checklist - Summary
+
+This is a general homework pattern that applies to all homeworks in CMSC408:
+
+        gh repo clone cmsc408-fa2025-hw5-jdleonard hw5  <- clone project to shorter folder
+        cd hw5                   <- change into project folder created above
+        poetry install           <- install virtualenv and all your modules
+        poetry shell             <- shell into the virtualenv
+        cd reports               <- change into reports folder
+        code ~/.env              <- review the database connection key-value pairs.
+        code report.qmd          <- review then adjust .ENV key-value pairs.
+        quarto render report.qmd <- render report for first time
+        open report.html         <- review report.html for errors and next changes
+
+Iterate editing report.qmd, saving, and rendering until done!

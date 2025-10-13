@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lecture-15_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="lecture-15_files/libs/clipboard/clipboard.min.js"></script>
 <script src="lecture-15_files/libs/quarto-html/tabby.min.js"></script>
 <script src="lecture-15_files/libs/quarto-html/popper.min.js"></script>
 <script src="lecture-15_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-15_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-15_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-15_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-15_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-15_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-15_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
-<link href="lecture-15_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="lecture-15_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<script src="lecture-15_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="lecture-15_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="lecture-15_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <title>Intro to SQL</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,8 +33,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lecture-15_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
+  <link rel="stylesheet" href="lecture-15_files/libs/revealjs/dist/theme/quarto-613214ccde63bca908c251674a9c3ba8.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-15_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-15_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -127,7 +196,7 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
@@ -153,12 +222,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137">Homework 5 - Getting started with SQL</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176">Practice Quiz 4 - SQL Basics</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232171">Quiz 4 - SQL Basics</a> - due 10/19, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138">Homework 6 - Creating a database</a> - due 10/19, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/homework-5---setup-checklist">Homework 5 - Setup Checklist</a></p></li>
+<li><p><a href="#/getting-to-select">Getting to SELECT</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -166,7 +239,7 @@
 </div>
 <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -246,6 +319,3213 @@
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="homework-5---setup-checklist" class="title-slide slide level1 center">
+<h1>Homework 5 - Setup Checklist</h1>
+<!-- # Homework 5 - checklist -->
+</section>
+<section id="homework-5---checklist---layer-1" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 1</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p><strong>Show the versions the tools from a command line?</strong></p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><em>Preview</em> report.qmd from inside VScode.</p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><img data-src="assets/homework-5-fa2025-software-versions.png"></p>
+<p><strong><em>This assures us that you’ve got everything properly installed and on the PATH.</em></strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-2" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 2</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p><strong>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</strong></p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><em>Preview</em> report.qmd from inside VScode.</p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><a href="assets/homework-5-fa2025-quarto-check.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="assets/homework-5-fa2025-quarto-check.png"></a></p>
+<p><strong>This assures us that quarto is using the correct python. Be sure that you ran <code>poetry install</code> (once) and <code>poetry shell</code> to start a venv session. IF you get errors (like missing module) THEN make sure <a href="https://vcu-ssg.github.io/ssg-quarto-python-setup/finalsteps.html">your tool stack</a> is installed properly.</strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-3" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 3</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p><strong>Render report.qmd from the command line.</strong></p></li>
+<li><p><em>Preview</em> report.qmd from inside VScode.</p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><a href="assets/homework-5-quarto-render.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="assets/homework-5-quarto-render.png" height="300"></a></p>
+<p><strong>This assures us that we have pyenv, python, poetry and quarto working together, and that we can complete the homework assignment!</strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-4" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 4</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><strong><em>Preview</em> report.qmd from inside VScode.</strong></p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><img data-src="assets/homework-5-missing-modules.png"></p>
+<p><strong>This assures us that VSCode is using the correct python from our virtualenv. If not then select python interpreter using ctrl-shift-P and entering <code>Python: Select interpreter</code></strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-4-1" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 4</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><strong><em>Preview</em> report.qmd from inside VScode.</strong></p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><a href="assets/homework-5-fa2025-correct-interpreter-selected.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="assets/homework-5-fa2025-correct-interpreter-selected.png"></a></p>
+<p><strong>This is what it looks like when the correct virtual environment is selected.</strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---venv-and-vscode" class="slide level2">
+<h2>Homework 5 - Checklist - VENV and VSCODE</h2>
+<div class="columns">
+<div class="column">
+<p><a href="assets/homework-5-fa2025-command-pallete.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="assets/homework-5-fa2025-command-pallete.png"></a></p>
+<p><strong>How to find the command palette. You can also use Ctrl+Shift+P directly.</strong></p>
+</div><div class="column">
+<p>IF VSCODE throws errors saying it can’t find a module THEN you need to tell VSCODE where to find your virtual environment.</p>
+<p>The <em>Command Palette</em> is a central function of VS-Code. From this <em>internal command line</em> you can set various features and functions DIRECTLY. The <em>command palette</em> greatly simplies the VScode UI!.</p>
+<p>You access the command palette from the Settings icon in the bottom left, or press <em>Ctrl+Shift+P</em> from anywhere in VSCode.</p>
+<p>The <em>Command palette</em> auto-completes. Enter <code>python: select interpreter</code> to have this command show in the list of possible commands.</p>
+<p>Select your virtual environment python from the list, or select <em>Enter interpreter path</em>.</p>
+<p>All poetry <em>virtual environments</em> are stored in <em>~/.cache/pypoetry/virtualenvs/</em> Pick your virtualenv folder from the list then navigate into <em>./bin/python</em>. This tells VSCODE which python to run.</p>
+</div></div>
+</section>
+<section id="homework-5---checklist---venv-and-vscode-1" class="slide level2">
+<h2>Homework 5 - Checklist - VENV and VSCODE</h2>
+<div class="columns">
+<div class="column">
+<p><a href="assets/homework-5-fa2025-python-select-interpreter.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="assets/homework-5-fa2025-python-select-interpreter.png"></a></p>
+<p><strong>Finding the select-interpreter command.</strong></p>
+</div><div class="column">
+<p>IF VSCODE throws errors saying it can’t find a module THEN you need to tell VSCODE where to find your virtual environment.</p>
+<p>The <em>Command Palette</em> is a central function of VS-Code. From this <em>internal command line</em> you can set various features and functions DIRECTLY. The <em>command palette</em> greatly simplies the VScode UI!.</p>
+<p>You access the command palette from the Settings icon in the bottom left, or press <em>Ctrl+Shift+P</em> from anywhere in VSCode.</p>
+<p>The <em>Command palette</em> auto-completes. Enter <code>python: select interpreter</code> to have this command show in the list of possible commands.</p>
+<p>Select your virtual environment python from the list, or select <em>Enter interpreter path</em>.</p>
+<p>All poetry <em>virtual environments</em> are stored in <em>~/.cache/pypoetry/virtualenvs/</em> Pick your virtualenv folder from the list then navigate into <em>./bin/python</em>. This tells VSCODE which python to run.</p>
+</div></div>
+</section>
+<section id="homework-5---checklist---venv-and-vscode-2" class="slide level2">
+<h2>Homework 5 - Checklist - VENV and VSCODE</h2>
+<div class="columns">
+<div class="column">
+<p><a href="assets/homework-5-fa2025-select-interpreter.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="assets/homework-5-fa2025-select-interpreter.png"></a></p>
+<p><strong>Selecting the correct virtual environment.</strong></p>
+</div><div class="column">
+<p>IF VSCODE throws errors saying it can’t find a module THEN you need to tell VSCODE where to find your virtual environment.</p>
+<p>The <em>Command Palette</em> is a central function of VS-Code. From this <em>internal command line</em> you can set various features and functions DIRECTLY. The <em>command palette</em> greatly simplies the VScode UI!.</p>
+<p>You access the command palette from the Settings icon in the bottom left, or press <em>Ctrl+Shift+P</em> from anywhere in VSCode.</p>
+<p>The <em>Command palette</em> auto-completes. Enter <code>python: select interpreter</code> to have this command show in the list of possible commands.</p>
+<p>Select your virtual environment python from the list, or select <em>Enter interpreter path</em>.</p>
+<p>All poetry <em>virtual environments</em> are stored in <em>~/.cache/pypoetry/virtualenvs/</em> Pick your virtualenv folder from the list then navigate into <em>./bin/python</em>. This tells VSCODE which python to run.</p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-4-2" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 4</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><strong><em>Preview</em> report.qmd from inside VScode.</strong></p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><img data-src="assets/homework-5-fa2025-correct-interpreter-selected.png"></p>
+<p><strong>This is what it looks like when the correct virtual environment is selected for <code>quarto preview</code>.</strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-5" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 5</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><em>Preview</em> report.qmd from inside VScode.</p></li>
+<li><p><strong>Run a python block in VSCode?</strong></p></li>
+<li><p>Connect to the database in VSCode?</p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><img data-src="assets/homework-5-fa2025-python-in-vscode.png"></p>
+<p><strong>This is what it looks like when the correct virtual environment is selected … AND the correct DB has been selected. IF you get database connection errors THEN you need to edit the <em>.env</em> file!</strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---the-.env-file" class="slide level2">
+<h2>Homework 5 - Checklist - the <em>.env</em> file</h2>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a></span>
+<span id="cb1-2"><a href=""></a><span class="co"># Load these variables from first .env file found.</span></span>
+<span id="cb1-3"><a href=""></a>config_map <span class="op">=</span> {</span>
+<span id="cb1-4"><a href=""></a>  <span class="st">'user'</span>: <span class="st">"MYSQL_USERNAME"</span>,</span>
+<span id="cb1-5"><a href=""></a>  <span class="st">'password'</span>: <span class="st">"MYSQL_PASSWORD"</span>,</span>
+<span id="cb1-6"><a href=""></a>  <span class="st">'host'</span>: <span class="st">"MYSQL_DB_HOST"</span>,</span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a>  <span class="st">'database'</span>: <span class="st">"HW5_DB_NAME"</span> <span class="co"># &lt;- change as needed!</span></span>
+<span id="cb1-9"><a href=""></a></span>
+<span id="cb1-10"><a href=""></a>}</span>
+<span id="cb1-11"><a href=""></a></span>
+<span id="cb1-12"><a href=""></a>cnx,config <span class="op">=</span> create_db_wrapper( config_map )</span>
+<span id="cb1-13"><a href=""></a>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="connecting-to-a-database">Connecting to a database</h3>
+<ul>
+<li>A <strong><em>.env</em></strong> file contains key-value pairs</li>
+<li>The <em>config_map</em> maps needed keys and values.</li>
+<li>ANY database connection requires at least 4 values:
+<ul>
+<li>username and password</li>
+<li>host computer name</li>
+<li>host database name</li>
+<li>other values are often used to manage connection</li>
+</ul></li>
+</ul>
+<h3 id="helper-function">Helper Function</h3>
+<p>I provide a helper function <code>create_db_wrapper</code> to encapsulate the details.</p>
+<p>Look in <em>helpers.py</em> to see the connection code. The majority of the code contains exception handling to work smoothly with <em>Quarto</em>.</p>
+</div></div>
+</section>
+<section id="homework-5---checklist---the-.env-file-1" class="slide level2">
+<h2>Homework 5 - Checklist - the <em>.env</em> file</h2>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a></span>
+<span id="cb2-2"><a href=""></a><span class="co"># .env file contents.  A bunch of KEY=VALUE pairs.</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>MYSQL_DB_HOST<span class="op">=</span>cmsc<span class="op">-</span>vcu.com</span>
+<span id="cb2-5"><a href=""></a>MYSQL_USERNAME<span class="op">=</span>fa25_jdleonard</span>
+<span id="cb2-6"><a href=""></a>MYSQL_PASSWORD<span class="op">=</span>Shout4_jdleonard_joY</span>
+<span id="cb2-7"><a href=""></a></span>
+<span id="cb2-8"><a href=""></a>HW5_DB_NAME<span class="op">=</span>fa25_jdleonard_hr</span>
+<span id="cb2-9"><a href=""></a></span>
+<span id="cb2-10"><a href=""></a>HW6_DB_NAME<span class="op">=</span>fa25_jdleonard_hw6</span>
+<span id="cb2-11"><a href=""></a>HW7_DB_NAME<span class="op">=</span>fa25_jdleonard_hw7</span>
+<span id="cb2-12"><a href=""></a>USER_DB_NAME<span class="op">=</span>fa25_jdleonard_user</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="connecting-to-a-database-1">Connecting to a database</h3>
+<ul>
+<li>A <strong><em>.env</em></strong> file contains key-value pairs</li>
+<li>The <em>config_map</em> maps needed keys and values.</li>
+<li>ANY database connection requires at least 4 values:
+<ul>
+<li>username and password</li>
+<li>host computer name</li>
+<li>host database name</li>
+<li>other values are often used to manage connection</li>
+</ul></li>
+</ul>
+<h3 id="helper-function-1">Helper Function</h3>
+<p>I provide a helper function <code>create_db_wrapper</code> to encapsulate the details.</p>
+<p>Look in <em>helpers.py</em> to see the connection code. The majority of the code contains exception handling to work smoothly with <em>Quarto</em>.</p>
+</div></div>
+</section>
+<section id="homework-5---checklist---layer-6" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Layer 6</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><em>Preview</em> report.qmd from inside VScode.</p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p><strong>Connect to the database in VSCode?</strong></p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p><a href="assets/homework-5-fa2025-db-setup.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="assets/homework-5-fa2025-db-setup.png"></a></p>
+<p><strong>This assures us that we can talk DIRECTLY to the MySQL server, outside of python.</strong></p>
+</div></div>
+</section>
+<section id="homework-5---checklist---summary" class="slide level2 scrollable">
+<h2>Homework 5 - Checklist - Summary</h2>
+<div class="columns">
+<div class="column">
+<p>Homework 5 is more than just installing the software. It’s all about making sure that it works!</p>
+<p>Here is a checklist - can you do these things?</p>
+<ol type="1">
+<li><p>Show the versions the tools from a command line?</p></li>
+<li><p>Run <code>poetry shell</code> and verify quarto is working (<code>quarto check</code>)</p></li>
+<li><p>Render report.qmd from the command line.</p></li>
+<li><p><em>Preview</em> report.qmd from inside VScode.</p></li>
+<li><p>Run a python block in VSCode?</p></li>
+<li><p><strong>Connect to the database in VSCode?</strong></p></li>
+</ol>
+<p>You should be able to ALL of these activities!</p>
+</div><div class="column">
+<p>These layers are generally independent of each other. If one works, the others may or may not work.</p>
+<p>You should be able to perform ALL of these activities! If not, you’re only going to make more work for yourself later on in the class.</p>
+<p>There are other, odder errors you may encounter, especially if you had older versions of the tools installed. In some cases, you might need to UNINSTALL and REINSTALL the tools.</p>
+<p>Don’t forget to review <a href="https://vcu-ssg.github.io/">the tool stack installation guide</a>. There may be something of value in their somewhere!</p>
+</div></div>
+</section>
+<section id="homework-5---checklist---summary-1" class="slide level2">
+<h2>Homework 5 - Checklist - Summary</h2>
+<p>This is a general homework pattern that applies to all homeworks in CMSC408:</p>
+<pre><code>    gh repo clone cmsc408-fa2025-hw5-jdleonard hw5  &lt;- clone project to shorter folder
+    cd hw5                   &lt;- change into project folder created above
+    poetry install           &lt;- install virtualenv and all your modules
+    poetry shell             &lt;- shell into the virtualenv
+    cd reports               &lt;- change into reports folder
+    code ~/.env              &lt;- review the database connection key-value pairs.
+    code report.qmd          &lt;- review then adjust .ENV key-value pairs.
+    quarto render report.qmd &lt;- render report for first time
+    open report.html         &lt;- review report.html for errors and next changes</code></pre>
+<p>Iterate editing report.qmd, saving, and rendering until done!</p>
+</section></section>
+<section>
+<section id="getting-to-select" class="title-slide slide level1 center">
+<h1>Getting to SELECT</h1>
+<!-- # Getting to SELECT -->
+</section>
+<section id="select-statement" class="slide level2">
+<h2>Select statement</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>A <em>SELECT</em> query is the one of the most fundamental statements in SQL.</p>
+<p>A <em>SELECT</em> statement describe a request to perform operations within the database and return a <em>result set</em>.</p>
+<p>This <em>result set</em> is a relation.</p>
+<p>This <em>result</em> can be used in subsequent operations or stored back into the DB as a new table.</p>
+<p>A SQL query is relational algebra:</p>
+<p><span class="math inline">\(\Pi_{A_1, A_2, ... A_n}(\sigma_{P}(R_1 \times R_2 \times ... \times R_n) )\)</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>SELECT</strong> A1, A2, A3</p>
+<p><strong>FROM</strong> R1,R2</p>
+<p><strong>WHERE</strong> P</p>
+<p><strong>ORDER BY</strong> A2,A3,A1;</p>
+<ul>
+<li>A* represents an attribute (column), a literal, a function, or an operation</li>
+<li>R* represents a relation (table), cartesian project, or join</li>
+<li>P is a predicate, conditions or filters</li>
+</ul>
+</div></div>
+</section>
+<section id="select-clause-and-examples" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The select clause lists the attributes desired in the result of a query, corresponds to the projection operation of the relational algebra</p></li>
+<li><p>SQL names are case insensitive</p></li>
+<li><p>SQL allows duplicates in relations as well as in query results</p></li>
+<li><p>To force the elimination of duplicates, use the keyword distinct</p></li>
+<li><p>An asterisk in the select clause denotes “all attributes”</p></li>
+<li><p>May rename columns using alias</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>-- this is syntax</span>
+<span id="cb4-2"><a href=""></a>SELECT [distinct] {*, column [[as] alias], ...}</span>
+<span id="cb4-3"><a href=""></a>FROM table {or tables}</span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a>-- this is a real statement (and comment!)</span>
+<span id="cb4-6"><a href=""></a>SELECT</span>
+<span id="cb4-7"><a href=""></a>  *</span>
+<span id="cb4-8"><a href=""></a>FROM</span>
+<span id="cb4-9"><a href=""></a>  REGIONS</span>
+<span id="cb4-10"><a href=""></a></span>
+<span id="cb4-11"><a href=""></a>-- indents are not managed</span>
+<span id="cb4-12"><a href=""></a>-- comments stop processing of line</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="regions-table" class="slide level2">
+<h2><em>Regions</em> table</h2>
+<p>Two different helper functions provided in homework 5: <em>run_sql_and_return_df</em> and <em>run_sql_and_return_html</em>.</p>
+<div class="columns">
+<div class="column">
+<div style="font-size: 100%;">
+<div id="ca2a24b6" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb5-2"><a href=""></a>run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb5-3"><a href=""></a><span class="st">select </span></span>
+<span id="cb5-4"><a href=""></a><span class="st">  *</span></span>
+<span id="cb5-5"><a href=""></a><span class="st">from</span></span>
+<span id="cb5-6"><a href=""></a><span class="st">  regions</span></span>
+<span id="cb5-7"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb5-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">region_id</th>
+<th data-quarto-table-cell-role="th">region_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>Europe</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2</td>
+<td>Americas</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>3</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>4</td>
+<td>Middle East and Africa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div style="font-size: 100%;">
+<div id="e5be8fcc" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb6-3"><a href=""></a><span class="st">select </span></span>
+<span id="cb6-4"><a href=""></a><span class="st">  *</span></span>
+<span id="cb6-5"><a href=""></a><span class="st">from</span></span>
+<span id="cb6-6"><a href=""></a><span class="st">  regions</span></span>
+<span id="cb6-7"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb6-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+region_id
+</th>
+
+<th>
+region_name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+Europe
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+Americas
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+Asia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+4
+</td>
+
+<td>
+Middle East and Africa
+</td>
+
+</tr>
+
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 4, Total Columns: 2
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-1" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="using-to-select-all-columns">Using * to select all columns</h3>
+<div id="bcda6268" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb7-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
+<span id="cb7-3"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb7-4"><a href=""></a><span class="st">select * from regions</span></span>
+<span id="cb7-5"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb7-6"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+region_id
+</th>
+
+<th>
+region_name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+Europe
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+Americas
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+Asia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+4
+</td>
+
+<td>
+Middle East and Africa
+</td>
+
+</tr>
+
+<tr>
+<td colspan="2" style="text-align: left;">
+Total Rows: 4, Total Columns: 2
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="selecting-only-one-attribute">Selecting only one attribute</h3>
+<div id="368f00b9" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb8-2"><a href=""></a><span class="co">#| code-line-numbers: 4-7</span></span>
+<span id="cb8-3"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb8-4"><a href=""></a><span class="st">select</span></span>
+<span id="cb8-5"><a href=""></a><span class="st">  region_name</span></span>
+<span id="cb8-6"><a href=""></a><span class="st">from</span></span>
+<span id="cb8-7"><a href=""></a><span class="st">  regions</span></span>
+<span id="cb8-8"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb8-9"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+region_name
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+Europe
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Americas
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Asia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Middle East and Africa
+</td>
+
+</tr>
+
+<tr>
+<td colspan="1" style="text-align: left;">
+Total Rows: 4, Total Columns: 1
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="employees-table---first-15-rows" class="slide level2">
+<h2><em>Employees</em> table - first 15 rows</h2>
+<div style="font-size:50%;">
+<div id="0be24f85" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb9-2"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
+<span id="cb9-3"><a href=""></a><span class="st">select * from employees limit 15</span></span>
+<span id="cb9-4"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb9-5"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<table border="1" class="dataframe">
+
+<thead>
+
+<tr style="text-align: center;">
+
+<th>
+employee_id
+</th>
+
+<th>
+first_name
+</th>
+
+<th>
+last_name
+</th>
+
+<th>
+email
+</th>
+
+<th>
+phone_number
+</th>
+
+<th>
+hire_date
+</th>
+
+<th>
+job_id
+</th>
+
+<th>
+salary
+</th>
+
+<th>
+commission_pct
+</th>
+
+<th>
+manager_id
+</th>
+
+<th>
+department_id
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+100
+</td>
+
+<td>
+Steven
+</td>
+
+<td>
+King
+</td>
+
+<td>
+SKING
+</td>
+
+<td>
+515.123.4567
+</td>
+
+<td>
+2003-06-17
+</td>
+
+<td>
+AD_PRES
+</td>
+
+<td>
+24000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+90
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+101
+</td>
+
+<td>
+Neena
+</td>
+
+<td>
+Kochhar
+</td>
+
+<td>
+NKOCHHAR
+</td>
+
+<td>
+515.123.4568
+</td>
+
+<td>
+2005-09-21
+</td>
+
+<td>
+AD_VP
+</td>
+
+<td>
+17000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+100.0
+</td>
+
+<td>
+90
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+102
+</td>
+
+<td>
+Lex
+</td>
+
+<td>
+De Haan
+</td>
+
+<td>
+LDEHAAN
+</td>
+
+<td>
+515.123.4569
+</td>
+
+<td>
+2001-01-13
+</td>
+
+<td>
+AD_VP
+</td>
+
+<td>
+17000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+100.0
+</td>
+
+<td>
+90
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+103
+</td>
+
+<td>
+Alexander
+</td>
+
+<td>
+Hunold
+</td>
+
+<td>
+AHUNOLD
+</td>
+
+<td>
+590.423.4567
+</td>
+
+<td>
+2006-01-03
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+9000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+102.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+104
+</td>
+
+<td>
+Bruce
+</td>
+
+<td>
+Ernst
+</td>
+
+<td>
+BERNST
+</td>
+
+<td>
+590.423.4568
+</td>
+
+<td>
+2007-05-21
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+6000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+105
+</td>
+
+<td>
+David
+</td>
+
+<td>
+Austin
+</td>
+
+<td>
+DAUSTIN
+</td>
+
+<td>
+590.423.4569
+</td>
+
+<td>
+2005-06-25
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+4800.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+106
+</td>
+
+<td>
+Valli
+</td>
+
+<td>
+Pataballa
+</td>
+
+<td>
+VPATABAL
+</td>
+
+<td>
+590.423.4560
+</td>
+
+<td>
+2006-02-05
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+4800.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+107
+</td>
+
+<td>
+Diana
+</td>
+
+<td>
+Lorentz
+</td>
+
+<td>
+DLORENTZ
+</td>
+
+<td>
+590.423.5567
+</td>
+
+<td>
+2007-02-07
+</td>
+
+<td>
+IT_PROG
+</td>
+
+<td>
+4200.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+103.0
+</td>
+
+<td>
+60
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+108
+</td>
+
+<td>
+Nancy
+</td>
+
+<td>
+Greenberg
+</td>
+
+<td>
+NGREENBE
+</td>
+
+<td>
+515.124.4569
+</td>
+
+<td>
+2002-08-17
+</td>
+
+<td>
+FI_MGR
+</td>
+
+<td>
+12008.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+101.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+109
+</td>
+
+<td>
+Daniel
+</td>
+
+<td>
+Faviet
+</td>
+
+<td>
+DFAVIET
+</td>
+
+<td>
+515.124.4169
+</td>
+
+<td>
+2002-08-16
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+9000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+110
+</td>
+
+<td>
+John
+</td>
+
+<td>
+Chen
+</td>
+
+<td>
+JCHEN
+</td>
+
+<td>
+515.124.4269
+</td>
+
+<td>
+2005-09-28
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+8200.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+111
+</td>
+
+<td>
+Ismael
+</td>
+
+<td>
+Sciarra
+</td>
+
+<td>
+ISCIARRA
+</td>
+
+<td>
+515.124.4369
+</td>
+
+<td>
+2005-09-30
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+7700.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+112
+</td>
+
+<td>
+Jose Manuel
+</td>
+
+<td>
+Urman
+</td>
+
+<td>
+JMURMAN
+</td>
+
+<td>
+515.124.4469
+</td>
+
+<td>
+2006-03-07
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+7800.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+113
+</td>
+
+<td>
+Luis
+</td>
+
+<td>
+Popp
+</td>
+
+<td>
+LPOPP
+</td>
+
+<td>
+515.124.4567
+</td>
+
+<td>
+2007-12-07
+</td>
+
+<td>
+FI_ACCOUNT
+</td>
+
+<td>
+6900.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+108.0
+</td>
+
+<td>
+100
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+114
+</td>
+
+<td>
+Den
+</td>
+
+<td>
+Raphaely
+</td>
+
+<td>
+DRAPHEAL
+</td>
+
+<td>
+515.127.4561
+</td>
+
+<td>
+2002-12-07
+</td>
+
+<td>
+PU_MAN
+</td>
+
+<td>
+11000.0
+</td>
+
+<td>
+NULL
+</td>
+
+<td>
+100.0
+</td>
+
+<td>
+30
+</td>
+
+</tr>
+
+<tr>
+<td colspan="11" style="text-align: left;">
+Total Rows: 15, Total Columns: 11
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="select-clause-and-examples-2" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;font-size:50%">
+<h3 id="gathering-all-last-names">Gathering all last names</h3>
+<div id="2bb1cda8" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb10-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
+<span id="cb10-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb10-4"><a href=""></a><span class="st">select last_name from employees</span></span>
+<span id="cb10-5"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb10-6"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb10-7"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_e9add557_c413_4380_9e84_a825a678e972"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_e9add557_c413_4380_9e84_a825a678e972:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div><div class="column" style="width:50%;font-size:50%">
+<h3 id="eliminating-duplicates-with-distinct">Eliminating duplicates with DISTINCT</h3>
+<div id="2ac4bd9c" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb11-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
+<span id="cb11-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb11-4"><a href=""></a><span class="st">select distinct last_name from employees</span></span>
+<span id="cb11-5"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb11-6"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb11-7"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_926d90c5_55d8_4dfd_b17c_624ff109e093"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_926d90c5_55d8_4dfd_b17c_624ff109e093:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-3" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;font-size:50%">
+<h3 id="combining-last-and-first-names">Combining last and first names</h3>
+<div id="a708ae6a" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb12-2"><a href=""></a><span class="co">#| code-line-numbers: 4-5</span></span>
+<span id="cb12-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
+<span id="cb12-4"><a href=""></a><span class="st">select concat(last_name,',',first_name)</span></span>
+<span id="cb12-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb12-6"><a href=""></a><span class="st">"""</span>)</span>
+<span id="cb12-7"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb12-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_d2d56fdd_a708_4c7a_9a9a_baf9658124e0"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_d2d56fdd_a708_4c7a_9a9a_baf9658124e0:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>concat(last_name,',',first_name)</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div><div class="column" style="width:50%;font-size:50%">
+<h3 id="then-renaming-the-column">Then renaming the column</h3>
+<div id="3cf792b7" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb13-2"><a href=""></a><span class="co">#| code-line-numbers: 4-5</span></span>
+<span id="cb13-3"><a href=""></a>df <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
+<span id="cb13-4"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name </span></span>
+<span id="cb13-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb13-6"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb13-7"><a href=""></a>show(df,pageLength<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb13-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_b5277d6e_854b_4562_a1a5_4f78e6b06e99"><tbody><tr>
+    <td style="vertical-align:middle; text-align:left">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+    Loading ITables v2.5.2 from the internet...
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+    </tr></tbody></table>
+<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
+
+    document.querySelectorAll("#itables_b5277d6e_854b_4562_a1a5_4f78e6b06e99:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>full_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-clause-and-examples-4" class="slide level2">
+<h2>SELECT clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="attribute-can-be-literal-or-function">attribute can be literal or function</h3>
+<div id="60f351c9" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="4-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb14-2"><a href=""></a><span class="co">#| code-line-numbers: 4-8</span></span>
+<span id="cb14-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb14-4"><a href=""></a><span class="st">select</span></span>
+<span id="cb14-5"><a href=""></a><span class="st">  27 as "Literal",</span></span>
+<span id="cb14-6"><a href=""></a><span class="st">  now() as "Current Time" </span></span>
+<span id="cb14-7"><a href=""></a><span class="st">from</span></span>
+<span id="cb14-8"><a href=""></a><span class="st">  dual</span></span>
+<span id="cb14-9"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb14-10"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Literal</th>
+<th data-quarto-table-cell-role="th">Current Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>27</td>
+<td>2025-10-13 19:16:53</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Note that we’re using a built-in table named <em>dual</em> that returns what you put in as a table that can be used in subsequent operations.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="doing-computations">Doing computations</h3>
+<p>The attribute can be a function or arithmetic operation</p>
+<div id="a9d60716" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb15-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb15-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb15-4"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name,</span></span>
+<span id="cb15-5"><a href=""></a><span class="st">salary*12 as "Annual Salary"</span></span>
+<span id="cb15-6"><a href=""></a><span class="st">from employees limit 5</span></span>
+<span id="cb15-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb15-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+<th data-quarto-table-cell-role="th">Annual Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>King,Steven</td>
+<td>288000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Kochhar,Neena</td>
+<td>204000.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>De Haan,Lex</td>
+<td>204000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Hunold,Alexander</td>
+<td>108000.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Ernst,Bruce</td>
+<td>72000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The WHERE clause specifies conditions that the results must satisfy, corresponding to the <span class="math inline">\(\sigma\)</span> predicate in relational algebra.</p></li>
+<li><p>An individual WHERE element returns TRUE or FALSE for every row. This is applied during the query and will return only rows that evaluate TRUE in the where clause.</p></li>
+<li><p>Attributes in where clause can be compared using relational operators: &lt; &lt;= = &gt;= &gt;</p></li>
+<li><p>WHERE elements can be combined using <em>AND</em>, <em>OR</em> and <em>NOT</em> logical operators.</p></li>
+<li><p>WHERE also uses special operators: <em>BETWEEN</em>, <em>IN</em> and <em>IS NULL</em></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="ce642745" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb16-2"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
+<span id="cb16-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb16-4"><a href=""></a><span class="st">-- note that this is a monthly salary!</span></span>
+<span id="cb16-5"><a href=""></a><span class="st">SELECT</span></span>
+<span id="cb16-6"><a href=""></a><span class="st">  last_name, first_name, salary</span></span>
+<span id="cb16-7"><a href=""></a><span class="st">FROM</span></span>
+<span id="cb16-8"><a href=""></a><span class="st">  employees</span></span>
+<span id="cb16-9"><a href=""></a><span class="st">WHERE</span></span>
+<span id="cb16-10"><a href=""></a><span class="st">  salary &gt; 10000</span></span>
+<span id="cb16-11"><a href=""></a><span class="st">LIMIT</span></span>
+<span id="cb16-12"><a href=""></a><span class="st">  5</span></span>
+<span id="cb16-13"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb16-14"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>King</td>
+<td>Steven</td>
+<td>24000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Kochhar</td>
+<td>Neena</td>
+<td>17000.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>De Haan</td>
+<td>Lex</td>
+<td>17000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Greenberg</td>
+<td>Nancy</td>
+<td>12008.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Raphaely</td>
+<td>Den</td>
+<td>11000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples-1" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="selecting-a-department">Selecting a department</h3>
+<div id="17445397" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb17-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb17-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb17-4"><a href=""></a><span class="st">select last_name,department_id</span></span>
+<span id="cb17-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb17-6"><a href=""></a><span class="st">where department_id=110 limit 7;</span></span>
+<span id="cb17-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb17-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Higgins</td>
+<td>110</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Gietz</td>
+<td>110</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>Data types matter. You’ll get an error if you set <em>department_id=‘110’</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="using-between">Using BETWEEN</h3>
+<p>The attribute can be a function or arithmetic operation</p>
+<div id="9c11c8df" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb18-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb18-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb18-4"><a href=""></a><span class="st">select concat(last_name,',',first_name) as full_name, salary</span></span>
+<span id="cb18-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb18-6"><a href=""></a><span class="st">where salary BETWEEN 10000 and 12000</span></span>
+<span id="cb18-7"><a href=""></a><span class="st">limit 5;</span></span>
+<span id="cb18-8"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb18-9"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">full_name</th>
+<th data-quarto-table-cell-role="th">salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Raphaely,Den</td>
+<td>11000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Errazuriz,Alberto</td>
+<td>12000.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Cambrault,Gerald</td>
+<td>11000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Tucker,Peter</td>
+<td>10000.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="where-clause-and-examples-2" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="using-in">Using IN</h3>
+<div id="b80b3a9c" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb19-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb19-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb19-4"><a href=""></a><span class="st">select last_name,department_id</span></span>
+<span id="cb19-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb19-6"><a href=""></a><span class="st">where department_id in (100,145,146)</span></span>
+<span id="cb19-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb19-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Greenberg</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Faviet</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Chen</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Sciarra</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Urman</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Popp</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="the-long-way">The long way</h3>
+<div id="4f7e9354" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb20-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb20-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb20-4"><a href=""></a><span class="st">select last_name,department_id</span></span>
+<span id="cb20-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb20-6"><a href=""></a><span class="st">where department_id=30 or department_id=70 or department_id=120</span></span>
+<span id="cb20-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb20-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Raphaely</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Khoo</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Baida</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Tobias</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Himuro</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Colmenares</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Baer</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div></div>
+</section>
+<section id="where-clause-and-examples-3" class="slide level2">
+<h2>WHERE clause and examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-are-all-the-department-ids">What are all the department IDs?</h3>
+<div id="0c4b5539" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb21-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb21-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb21-4"><a href=""></a><span class="st">select distinct department_id</span></span>
+<span id="cb21-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb21-6"><a href=""></a><span class="st">order by department_id</span></span>
+<span id="cb21-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb21-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">department_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>20.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>40.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>50.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>70.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>90.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>110.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+</div><div class="column" style="width:50%;">
+<h3 id="who-is-missing-a-manager">Who is missing a manager?</h3>
+<div id="82e73257" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb22-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
+<span id="cb22-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb22-4"><a href=""></a><span class="st">select last_name,job_id,manager_id</span></span>
+<span id="cb22-5"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb22-6"><a href=""></a><span class="st">where manager_id is NULL</span></span>
+<span id="cb22-7"><a href=""></a><span class="st">limit 7</span></span>
+<span id="cb22-8"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb22-9"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">job_id</th>
+<th data-quarto-table-cell-role="th">manager_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>King</td>
+<td>AD_PRES</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>NULL must be all caps!!</p>
+</div></div>
+</section>
+<section id="computations" class="slide level2">
+<h2>Computations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="calculating-commissions">Calculating commissions</h3>
+<div id="59fa0a7c" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5-13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb23-2"><a href=""></a><span class="co">#| eval: false</span></span>
+<span id="cb23-3"><a href=""></a><span class="co">#| code-line-numbers: 5-13</span></span>
+<span id="cb23-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb23-5"><a href=""></a><span class="st">select </span></span>
+<span id="cb23-6"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Name",</span></span>
+<span id="cb23-7"><a href=""></a><span class="st">  salary as "Monthly",</span></span>
+<span id="cb23-8"><a href=""></a><span class="st">  12.0*salary+commission_pct*salary as "With/Commission"</span></span>
+<span id="cb23-9"><a href=""></a><span class="st">from</span></span>
+<span id="cb23-10"><a href=""></a><span class="st">  employees</span></span>
+<span id="cb23-11"><a href=""></a><span class="st">order by</span></span>
+<span id="cb23-12"><a href=""></a><span class="st">  last_name,</span></span>
+<span id="cb23-13"><a href=""></a><span class="st">  first_name</span></span>
+<span id="cb23-14"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb23-15"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>What are the NaN “not a number” entries?</p>
+<p>How do we remove the NaN (not a number) from list?</p>
+</div><div class="column" style="width:50%;">
+<h3 id="calculating-commissions-1">Calculating commissions</h3>
+<div id="a24d5c56" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">102</th>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">103</th>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">104</th>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">105</th>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">106</th>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="ifnull-operator" class="slide level2">
+<h2>IFNULL operator</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="the-ifnull-operator">The IFNULL operator</h3>
+<p>IFNULL( expr1, expr2 ) replaces NULL with a value.</p>
+<ul>
+<li><p>IF expr1 is NOT NULL then returns expr1</p></li>
+<li><p>IF expr1 IS NULL, then returns expr2.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="calculating-commissions-2">Calculating commissions</h3>
+<div id="68c63ed3" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb24-2"><a href=""></a><span class="co">#| eval: false</span></span>
+<span id="cb24-3"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
+<span id="cb24-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb24-5"><a href=""></a><span class="st">select </span></span>
+<span id="cb24-6"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Name",</span></span>
+<span id="cb24-7"><a href=""></a><span class="st">  salary as "Monthly",</span></span>
+<span id="cb24-8"><a href=""></a><span class="st">  IFNULL(12.0*salary+commission_pct*salary,0.0) as "With/Commission"</span></span>
+<span id="cb24-9"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb24-10"><a href=""></a><span class="st">order by last_name, first_name</span></span>
+<span id="cb24-11"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb24-12"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="ifnull-operator-1" class="slide level2">
+<h2>IFNULL operator</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="ifnull-expr1-0.0">IFNULL( expr1, 0.0)</h3>
+<div id="87e1d6f6" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">102</th>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">103</th>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">104</th>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">105</th>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">106</th>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="ifnull-expr1-missing">IFNULL( expr1, ‘missing’)</h3>
+<div id="e636b4f9" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+<th data-quarto-table-cell-role="th">With/Commission</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Abel,Ellen</td>
+<td>11000.0</td>
+<td>135300.0000</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Ande,Sundar</td>
+<td>6400.0</td>
+<td>77440.0000</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Atkinson,Mozhe</td>
+<td>2800.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Austin,David</td>
+<td>4800.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Baer,Hermann</td>
+<td>10000.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">102</th>
+<td>Vollman,Shanta</td>
+<td>6500.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">103</th>
+<td>Walsh,Alana</td>
+<td>3100.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">104</th>
+<td>Weiss,Matthew</td>
+<td>8000.0</td>
+<td>missing</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">105</th>
+<td>Whalen,Jennifer</td>
+<td>4400.0</td>
+<td>missing</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">106</th>
+<td>Zlotkey,Eleni</td>
+<td>10500.0</td>
+<td>128100.0000</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="string-operations" class="slide level2">
+<h2>String operations</h2>
+<p>The operator <em>LIKE</em> uses patterns (case insensitive) (use <em>LIKE BINARY</em> for case sensitive) for string-matching operations using two special characters:</p>
+<pre><code>* percentage ( % ) matches any substring (none or many characters)
+* underscore ( _ ) matches any single character</code></pre>
+<p>Examples:</p>
+<p>‘Intro%’ matches any string beginning with “Intro”</p>
+<p>‘%Comp%’ matches any string containing “Comp” as a substring</p>
+<p>’_ _ _’ matches any string of exactly three characters</p>
+<p>‘_ _ _ %’ matches any string of at least three characters</p>
+<p>‘%_ a _’ same as before but the second to the last letter is ‘a’</p>
+</section>
+<section id="string-operations-1" class="slide level2">
+<h2>String operations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="double-when-using-python">DOUBLE %% when using Python</h3>
+<div id="b67e36cc" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb26-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb26-3"><a href=""></a><span class="co">#| code-line-numbers: 5-6</span></span>
+<span id="cb26-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb26-5"><a href=""></a><span class="st">select last_name from employees</span></span>
+<span id="cb26-6"><a href=""></a><span class="st">where last_name like 'MC</span><span class="sc">%%</span><span class="st">'</span></span>
+<span id="cb26-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb26-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>McCain</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>McEwen</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="double-when-using-python-1">DOUBLE %% when using Python</h3>
+<div id="7c607b85" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb27-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb27-3"><a href=""></a><span class="co">#| code-line-numbers: 5-6</span></span>
+<span id="cb27-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb27-5"><a href=""></a><span class="st">SELECT phone_number FROM employees</span></span>
+<span id="cb27-6"><a href=""></a><span class="st">WHERE phone_number LIKE '</span><span class="sc">%%</span><span class="st">123</span><span class="sc">%%</span><span class="st">';</span></span>
+<span id="cb27-7"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb27-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">phone_number</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>515.123.4567</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>515.123.4568</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>515.123.4569</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>650.123.1234</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>650.123.2234</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>650.123.3234</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>650.123.4234</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>650.123.5234</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>650.121.1234</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>515.123.4444</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>515.123.5555</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>603.123.6666</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>515.123.7777</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>515.123.8888</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>515.123.8080</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>515.123.8181</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="order-by-clause" class="slide level2">
+<h2>ORDER BY clause</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>ORDER BY</em> is used to specify the sort order in the result set.</p>
+<p>The result set is sorted by the first attribute listed in the <em>ORDER BY</em>.</p>
+<p>If there is a tie, <em>ORDER BY</em> moves to the second attribute, and so on.</p>
+<p>Attribute expression may be modified with ASC (the default) or DESC (for descending)</p>
+<p>Attributes in <em>ORDER BY</em> can be computed!</p>
+</div><div class="column" style="width:50%;">
+<h3 id="example">Example</h3>
+<div id="06d77369" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb28-2"><a href=""></a><span class="co">#| eval: true</span></span>
+<span id="cb28-3"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
+<span id="cb28-4"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
+<span id="cb28-5"><a href=""></a><span class="st">select </span></span>
+<span id="cb28-6"><a href=""></a><span class="st">  concat(last_name,',',first_name) as "Full Name", salary as "Monthly"</span></span>
+<span id="cb28-7"><a href=""></a><span class="st">from employees</span></span>
+<span id="cb28-8"><a href=""></a><span class="st">order by</span></span>
+<span id="cb28-9"><a href=""></a><span class="st">  salary desc,</span></span>
+<span id="cb28-10"><a href=""></a><span class="st">  last_name, first_name</span></span>
+<span id="cb28-11"><a href=""></a><span class="st">"""</span>,cnx)</span>
+<span id="cb28-12"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Full Name</th>
+<th data-quarto-table-cell-role="th">Monthly</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>King,Steven</td>
+<td>24000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>De Haan,Lex</td>
+<td>17000.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Kochhar,Neena</td>
+<td>17000.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Russell,John</td>
+<td>14000.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Partners,Karen</td>
+<td>13500.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">102</th>
+<td>Gee,Ki</td>
+<td>2400.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">103</th>
+<td>Landry,James</td>
+<td>2400.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">104</th>
+<td>Markle,Steven</td>
+<td>2200.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">105</th>
+<td>Philtanker,Hazel</td>
+<td>2200.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">106</th>
+<td>Olson,TJ</td>
+<td>2100.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>107 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="select-summary" class="slide level2">
+<h2>SELECT summary</h2>
+<div class="columns">
+<div class="column">
+<h3 id="major-statement-clauses">Major statement clauses</h3>
+<ul>
+<li><code>SELECT</code> - variable to project</li>
+<li><code>FROM</code> - tables to combine</li>
+<li><code>WHERE</code> - filters to apply</li>
+<li><code>ORDER BY</code> - order of results</li>
+</ul>
+<h3 id="inside-each-clause">Inside each clause</h3>
+<ul>
+<li><code>CONCAT</code> - combining columns</li>
+<li><code>AS</code> - Renaming columns</li>
+<li>Literals</li>
+<li>Computations in SELECT</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/select.html">MySQL <em>SELECT</em> documentation</a>.</p>
+</div><div class="column">
+<h3 id="filters-and-functions">Filters and functions</h3>
+<ul>
+<li><code>WHERE</code>
+<ul>
+<li>AND, OR, NOT</li>
+<li><code>&lt;</code> <code>&lt;=</code> <code>=</code> <code>=&gt;</code> <code>&gt;</code></li>
+</ul></li>
+<li><code>BETWEEN</code> - for <em>where</em></li>
+<li><code>IN</code> - checking set membership</li>
+<li><code>NULL</code> values</li>
+<li><code>IFNULL</code> operator</li>
+<li>String matches <code>%%</code></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/functions.html">MySQL <em>Functions</em> documentation</a></p>
+</div></div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +3536,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241137">Homework 5 - Getting started with SQL</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232176">Practice Quiz 4 - SQL Basics</a> - due 10/12, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232171">Quiz 4 - SQL Basics</a> - due 10/19, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138">Homework 6 - Creating a database</a> - due 10/19, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/homework-5---setup-checklist">Homework 5 - Setup Checklist</a></p></li>
+<li><p><a href="#/getting-to-select">Getting to SELECT</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -269,7 +3553,7 @@
 </div>
 <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -363,7 +3647,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -561,7 +3845,7 @@
         maxScale: 2,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -635,13 +3919,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
@@ -754,6 +4039,38 @@
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>
