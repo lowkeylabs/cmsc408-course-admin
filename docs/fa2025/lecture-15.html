@@ -687,6 +687,10 @@
 <span id="cb4-10"><a href=""></a></span>
 <span id="cb4-11"><a href=""></a>-- indents are not managed</span>
 <span id="cb4-12"><a href=""></a>-- comments stop processing of line</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="want-to-know-more">Want to know more?</h3>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.4/en/select.html">See the full documentation for SELECT</a></li>
+</ul>
 </div></div>
 </section>
 <section id="regions-table" class="slide level2">
@@ -695,7 +699,7 @@
 <div class="columns">
 <div class="column">
 <div style="font-size: 100%;">
-<div id="ca2a24b6" class="cell" data-execution_count="5">
+<div id="8830326e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb5-2"><a href=""></a>run_sql_and_return_df(cnx,<span class="st">"""</span></span>
 <span id="cb5-3"><a href=""></a><span class="st">select </span></span>
@@ -758,7 +762,7 @@
 </div>
 </div><div class="column">
 <div style="font-size: 100%;">
-<div id="e5be8fcc" class="cell" data-execution_count="6">
+<div id="c08ae65f" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb6-2"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
 <span id="cb6-3"><a href=""></a><span class="st">select </span></span>
@@ -854,7 +858,7 @@ Total Rows: 4, Total Columns: 2
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="using-to-select-all-columns">Using * to select all columns</h3>
-<div id="bcda6268" class="cell" data-execution_count="7">
+<div id="183574c1" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb7-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
 <span id="cb7-3"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
@@ -942,7 +946,7 @@ Total Rows: 4, Total Columns: 2
 </div>
 </div><div class="column" style="width:50%;">
 <h3 id="selecting-only-one-attribute">Selecting only one attribute</h3>
-<div id="368f00b9" class="cell" data-execution_count="8">
+<div id="f66228c8" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="4-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb8-2"><a href=""></a><span class="co">#| code-line-numbers: 4-7</span></span>
 <span id="cb8-3"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
@@ -1016,7 +1020,7 @@ Total Rows: 4, Total Columns: 1
 <section id="employees-table---first-15-rows" class="slide level2">
 <h2><em>Employees</em> table - first 15 rows</h2>
 <div style="font-size:50%;">
-<div id="0be24f85" class="cell" data-execution_count="9">
+<div id="baa4fe64" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb9-2"><a href=""></a>run_sql_and_return_html(cnx,<span class="st">"""</span></span>
 <span id="cb9-3"><a href=""></a><span class="st">select * from employees limit 15</span></span>
@@ -1816,7 +1820,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;font-size:50%">
 <h3 id="gathering-all-last-names">Gathering all last names</h3>
-<div id="2bb1cda8" class="cell" data-execution_count="10">
+<div id="2b8fc6fd" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb10-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
 <span id="cb10-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
@@ -1826,7 +1830,7 @@ Total Rows: 15, Total Columns: 11
 <span id="cb10-7"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_e9add557_c413_4380_9e84_a825a678e972"><tbody><tr>
+<table id="itables_fc9fe3f4_a023_4469_ac61_ea7484152c8c"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -1892,11 +1896,11 @@ Total Rows: 15, Total Columns: 11
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_e9add557_c413_4380_9e84_a825a678e972:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_fc9fe3f4_a023_4469_ac61_ea7484152c8c:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
         new ITable(table, dt_args);
     });
 </script>
@@ -1904,7 +1908,7 @@ Total Rows: 15, Total Columns: 11
 </div>
 </div><div class="column" style="width:50%;font-size:50%">
 <h3 id="eliminating-duplicates-with-distinct">Eliminating duplicates with DISTINCT</h3>
-<div id="2ac4bd9c" class="cell" data-execution_count="11">
+<div id="a34e96e3" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="4-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb11-2"><a href=""></a><span class="co">#| code-line-numbers: 4-4</span></span>
 <span id="cb11-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
@@ -1914,7 +1918,7 @@ Total Rows: 15, Total Columns: 11
 <span id="cb11-7"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_926d90c5_55d8_4dfd_b17c_624ff109e093"><tbody><tr>
+<table id="itables_d8baf94d_3b3e_4cb9_b928_5da3de628120"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -1980,11 +1984,11 @@ Total Rows: 15, Total Columns: 11
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_926d90c5_55d8_4dfd_b17c_624ff109e093:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_d8baf94d_3b3e_4cb9_b928_5da3de628120:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>last_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel\"], [\"Ande\"], [\"Atkinson\"], [\"Austin\"], [\"Baer\"], [\"Baida\"], [\"Banda\"], [\"Bates\"], [\"Bell\"], [\"Bernstein\"], [\"Bissot\"], [\"Bloom\"], [\"Bull\"], [\"Cabrio\"], [\"Cambrault\"], [\"Chen\"], [\"Chung\"], [\"Colmenares\"], [\"Davies\"], [\"De Haan\"], [\"Dellinger\"], [\"Dilly\"], [\"Doran\"], [\"Ernst\"], [\"Errazuriz\"], [\"Everett\"], [\"Faviet\"], [\"Fay\"], [\"Feeney\"], [\"Fleaur\"], [\"Fox\"], [\"Fripp\"], [\"Gates\"], [\"Gee\"], [\"Geoni\"], [\"Gietz\"], [\"Grant\"], [\"Greenberg\"], [\"Greene\"], [\"Hall\"], [\"Hartstein\"], [\"Higgins\"], [\"Himuro\"], [\"Hunold\"], [\"Hutton\"], [\"Johnson\"], [\"Jones\"], [\"Kaufling\"], [\"Khoo\"], [\"King\"], [\"Kochhar\"], [\"Kumar\"], [\"Ladwig\"], [\"Landry\"], [\"Lee\"], [\"Livingston\"], [\"Lorentz\"], [\"Mallin\"], [\"Markle\"], [\"Marlow\"], [\"Marvins\"], [\"Matos\"], [\"Mavris\"], [\"McCain\"], [\"McEwen\"], [\"Mikkilineni\"], [\"Mourgos\"], [\"Nayer\"], [\"OConnell\"], [\"Olsen\"], [\"Olson\"], [\"Ozer\"], [\"Partners\"], [\"Pataballa\"], [\"Patel\"], [\"Perkins\"], [\"Philtanker\"], [\"Popp\"], [\"Rajs\"], [\"Raphaely\"], [\"Rogers\"], [\"Russell\"], [\"Sarchand\"], [\"Sciarra\"], [\"Seo\"], [\"Sewall\"], [\"Smith\"], [\"Stiles\"], [\"Sullivan\"], [\"Sully\"], [\"Taylor\"], [\"Tobias\"], [\"Tucker\"], [\"Tuvault\"], [\"Urman\"], [\"Vargas\"], [\"Vishney\"], [\"Vollman\"], [\"Walsh\"], [\"Weiss\"], [\"Whalen\"], [\"Zlotkey\"]]"};
         new ITable(table, dt_args);
     });
 </script>
@@ -1997,7 +2001,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;font-size:50%">
 <h3 id="combining-last-and-first-names">Combining last and first names</h3>
-<div id="a708ae6a" class="cell" data-execution_count="12">
+<div id="6b0cdbc5" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb12-2"><a href=""></a><span class="co">#| code-line-numbers: 4-5</span></span>
 <span id="cb12-3"><a href=""></a>df <span class="op">=</span> run_sql_and_return_df(cnx,<span class="st">"""</span></span>
@@ -2008,7 +2012,7 @@ Total Rows: 15, Total Columns: 11
 <span id="cb12-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_d2d56fdd_a708_4c7a_9a9a_baf9658124e0"><tbody><tr>
+<table id="itables_18dabf23_b975_46e7_ab6d_8611be9c1350"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -2074,11 +2078,11 @@ Total Rows: 15, Total Columns: 11
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_d2d56fdd_a708_4c7a_9a9a_baf9658124e0:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_18dabf23_b975_46e7_ab6d_8611be9c1350:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>concat(last_name,',',first_name)</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>concat(last_name,',',first_name)</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
         new ITable(table, dt_args);
     });
 </script>
@@ -2086,7 +2090,7 @@ Total Rows: 15, Total Columns: 11
 </div>
 </div><div class="column" style="width:50%;font-size:50%">
 <h3 id="then-renaming-the-column">Then renaming the column</h3>
-<div id="3cf792b7" class="cell" data-execution_count="13">
+<div id="b759f486" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="4-5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb13-2"><a href=""></a><span class="co">#| code-line-numbers: 4-5</span></span>
 <span id="cb13-3"><a href=""></a>df <span class="op">=</span> pd.read_sql(<span class="st">"""</span></span>
@@ -2097,7 +2101,7 @@ Total Rows: 15, Total Columns: 11
 <span id="cb13-8"><a href=""></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_b5277d6e_854b_4562_a1a5_4f78e6b06e99"><tbody><tr>
+<table id="itables_04e76df5_2dda_42a3_921e_7cd09de14de6"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -2163,11 +2167,11 @@ Total Rows: 15, Total Columns: 11
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_b5277d6e_854b_4562_a1a5_4f78e6b06e99:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_04e76df5_2dda_42a3_921e_7cd09de14de6:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>full_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
+        let dt_args = {"pageLength": 6, "layout": {"topStart": "pageLength", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "classes": ["display", "nowrap"], "text_in_header_can_be_selected": true, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>full_name</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Abel,Ellen\"], [\"Ande,Sundar\"], [\"Atkinson,Mozhe\"], [\"Austin,David\"], [\"Baer,Hermann\"], [\"Baida,Shelli\"], [\"Banda,Amit\"], [\"Bates,Elizabeth\"], [\"Bell,Sarah\"], [\"Bernstein,David\"], [\"Bissot,Laura\"], [\"Bloom,Harrison\"], [\"Bull,Alexis\"], [\"Cabrio,Anthony\"], [\"Cambrault,Gerald\"], [\"Cambrault,Nanette\"], [\"Chen,John\"], [\"Chung,Kelly\"], [\"Colmenares,Karen\"], [\"Davies,Curtis\"], [\"De Haan,Lex\"], [\"Dellinger,Julia\"], [\"Dilly,Jennifer\"], [\"Doran,Louise\"], [\"Ernst,Bruce\"], [\"Errazuriz,Alberto\"], [\"Everett,Britney\"], [\"Faviet,Daniel\"], [\"Fay,Pat\"], [\"Feeney,Kevin\"], [\"Fleaur,Jean\"], [\"Fox,Tayler\"], [\"Fripp,Adam\"], [\"Gates,Timothy\"], [\"Gee,Ki\"], [\"Geoni,Girard\"], [\"Gietz,William\"], [\"Grant,Douglas\"], [\"Grant,Kimberely\"], [\"Greenberg,Nancy\"], [\"Greene,Danielle\"], [\"Hall,Peter\"], [\"Hartstein,Michael\"], [\"Higgins,Shelley\"], [\"Himuro,Guy\"], [\"Hunold,Alexander\"], [\"Hutton,Alyssa\"], [\"Johnson,Charles\"], [\"Jones,Vance\"], [\"Kaufling,Payam\"], [\"Khoo,Alexander\"], [\"King,Janette\"], [\"King,Steven\"], [\"Kochhar,Neena\"], [\"Kumar,Sundita\"], [\"Ladwig,Renske\"], [\"Landry,James\"], [\"Lee,David\"], [\"Livingston,Jack\"], [\"Lorentz,Diana\"], [\"Mallin,Jason\"], [\"Markle,Steven\"], [\"Marlow,James\"], [\"Marvins,Mattea\"], [\"Matos,Randall\"], [\"Mavris,Susan\"], [\"McCain,Samuel\"], [\"McEwen,Allan\"], [\"Mikkilineni,Irene\"], [\"Mourgos,Kevin\"], [\"Nayer,Julia\"], [\"OConnell,Donald\"], [\"Olsen,Christopher\"], [\"Olson,TJ\"], [\"Ozer,Lisa\"], [\"Partners,Karen\"], [\"Pataballa,Valli\"], [\"Patel,Joshua\"], [\"Perkins,Randall\"], [\"Philtanker,Hazel\"], [\"Popp,Luis\"], [\"Rajs,Trenna\"], [\"Raphaely,Den\"], [\"Rogers,Michael\"], [\"Russell,John\"], [\"Sarchand,Nandita\"], [\"Sciarra,Ismael\"], [\"Seo,John\"], [\"Sewall,Sarath\"], [\"Smith,Lindsey\"], [\"Smith,William\"], [\"Stiles,Stephen\"], [\"Sullivan,Martha\"], [\"Sully,Patrick\"], [\"Taylor,Jonathon\"], [\"Taylor,Winston\"], [\"Tobias,Sigal\"], [\"Tucker,Peter\"], [\"Tuvault,Oliver\"], [\"Urman,Jose Manuel\"], [\"Vargas,Peter\"], [\"Vishney,Clara\"], [\"Vollman,Shanta\"], [\"Walsh,Alana\"], [\"Weiss,Matthew\"], [\"Whalen,Jennifer\"], [\"Zlotkey,Eleni\"]]"};
         new ITable(table, dt_args);
     });
 </script>
@@ -2180,7 +2184,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="attribute-can-be-literal-or-function">attribute can be literal or function</h3>
-<div id="60f351c9" class="cell" data-execution_count="14">
+<div id="083610ba" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="4-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb14-2"><a href=""></a><span class="co">#| code-line-numbers: 4-8</span></span>
 <span id="cb14-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2219,7 +2223,7 @@ Total Rows: 15, Total Columns: 11
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
 <td>27</td>
-<td>2025-10-13 19:16:53</td>
+<td>2025-10-13 20:46:16</td>
 </tr>
 </tbody>
 </table>
@@ -2234,7 +2238,7 @@ Total Rows: 15, Total Columns: 11
 </div><div class="column" style="width:50%;">
 <h3 id="doing-computations">Doing computations</h3>
 <p>The attribute can be a function or arithmetic operation</p>
-<div id="a9d60716" class="cell" data-execution_count="15">
+<div id="e6a4cf1c" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb15-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb15-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2313,7 +2317,7 @@ Total Rows: 15, Total Columns: 11
 <li><p>WHERE also uses special operators: <em>BETWEEN</em>, <em>IN</em> and <em>IS NULL</em></p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="ce642745" class="cell" data-execution_count="16">
+<div id="d222c4e5" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb16-2"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
 <span id="cb16-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2397,7 +2401,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="selecting-a-department">Selecting a department</h3>
-<div id="17445397" class="cell" data-execution_count="17">
+<div id="d32d43c6" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb17-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb17-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2454,7 +2458,7 @@ Total Rows: 15, Total Columns: 11
 </div><div class="column" style="width:50%;">
 <h3 id="using-between">Using BETWEEN</h3>
 <p>The attribute can be a function or arithmetic operation</p>
-<div id="9c11c8df" class="cell" data-execution_count="18">
+<div id="7f96ee7d" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb18-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb18-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2527,7 +2531,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="using-in">Using IN</h3>
-<div id="b80b3a9c" class="cell" data-execution_count="19">
+<div id="867b2347" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb19-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb19-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2602,7 +2606,7 @@ Total Rows: 15, Total Columns: 11
 </p>
 </div><div class="column" style="width:50%;">
 <h3 id="the-long-way">The long way</h3>
-<div id="4f7e9354" class="cell" data-execution_count="20">
+<div id="c8972dfb" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb20-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb20-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2687,7 +2691,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="what-are-all-the-department-ids">What are all the department IDs?</h3>
-<div id="0c4b5539" class="cell" data-execution_count="21">
+<div id="19e40a29" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb21-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb21-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2779,7 +2783,7 @@ Total Rows: 15, Total Columns: 11
 </p>
 </div><div class="column" style="width:50%;">
 <h3 id="who-is-missing-a-manager">Who is missing a manager?</h3>
-<div id="82e73257" class="cell" data-execution_count="22">
+<div id="565691df" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="4-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb22-2"><a href=""></a><span class="co">#| code-line-numbers: 4-6</span></span>
 <span id="cb22-3"><a href=""></a>pd.read_sql(<span class="st">"""</span></span>
@@ -2838,7 +2842,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="calculating-commissions">Calculating commissions</h3>
-<div id="59fa0a7c" class="cell" data-execution_count="23">
+<div id="d0e48313" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5-13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb23-2"><a href=""></a><span class="co">#| eval: false</span></span>
 <span id="cb23-3"><a href=""></a><span class="co">#| code-line-numbers: 5-13</span></span>
@@ -2862,7 +2866,7 @@ Total Rows: 15, Total Columns: 11
 <p>How do we remove the NaN (not a number) from list?</p>
 </div><div class="column" style="width:50%;">
 <h3 id="calculating-commissions-1">Calculating commissions</h3>
-<div id="a24d5c56" class="cell" data-execution_count="24">
+<div id="5108319d" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 <style scoped="">
@@ -2976,7 +2980,7 @@ Total Rows: 15, Total Columns: 11
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="calculating-commissions-2">Calculating commissions</h3>
-<div id="68c63ed3" class="cell" data-execution_count="25">
+<div id="309ef484" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb24-2"><a href=""></a><span class="co">#| eval: false</span></span>
 <span id="cb24-3"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
@@ -2997,7 +3001,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="ifnull-expr1-0.0">IFNULL( expr1, 0.0)</h3>
-<div id="87e1d6f6" class="cell" data-execution_count="26">
+<div id="7abf0f38" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 <style scoped="">
@@ -3099,7 +3103,7 @@ Total Rows: 15, Total Columns: 11
 </div>
 </div><div class="column" style="width:50%;">
 <h3 id="ifnull-expr1-missing">IFNULL( expr1, ‘missing’)</h3>
-<div id="e636b4f9" class="cell" data-execution_count="27">
+<div id="27badac1" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 <style scoped="">
@@ -3218,7 +3222,7 @@ Total Rows: 15, Total Columns: 11
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="double-when-using-python">DOUBLE %% when using Python</h3>
-<div id="b67e36cc" class="cell" data-execution_count="28">
+<div id="0121731b" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb26-2"><a href=""></a><span class="co">#| eval: true</span></span>
 <span id="cb26-3"><a href=""></a><span class="co">#| code-line-numbers: 5-6</span></span>
@@ -3267,7 +3271,7 @@ Total Rows: 15, Total Columns: 11
 </div>
 </div><div class="column" style="width:50%;">
 <h3 id="double-when-using-python-1">DOUBLE %% when using Python</h3>
-<div id="7c607b85" class="cell" data-execution_count="29">
+<div id="678531a2" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" data-code-line-numbers="5-6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb27-2"><a href=""></a><span class="co">#| eval: true</span></span>
 <span id="cb27-3"><a href=""></a><span class="co">#| code-line-numbers: 5-6</span></span>
@@ -3383,7 +3387,7 @@ Total Rows: 15, Total Columns: 11
 <p>Attributes in <em>ORDER BY</em> can be computed!</p>
 </div><div class="column" style="width:50%;">
 <h3 id="example">Example</h3>
-<div id="06d77369" class="cell" data-execution_count="30">
+<div id="f3fffe7c" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="5-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb28-2"><a href=""></a><span class="co">#| eval: true</span></span>
 <span id="cb28-3"><a href=""></a><span class="co">#| code-line-numbers: 5-10</span></span>
