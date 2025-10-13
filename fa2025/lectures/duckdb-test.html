@@ -38,9 +38,9 @@
 </head>
 <body>
   <h1>DuckDB-WASM in Browser</h1>
-  <p>Try a query like <code>SELECT * FROM people WHERE age &gt; 30;</code></p>
+  <p>Try a query like <code>SHOW TABLES;</code> or <code>SELECT * FROM people WHERE age &gt; 30;</code></p>
   <textarea id="sqlInput" rows="4" cols="60">
-SELECT * FROM people;
+SHOW TABLES;
   </textarea><br />
   <button id="executeButton">Execute Query</button>
 
@@ -55,6 +55,19 @@ SELECT * FROM people;
 
     let db, conn;
 
+    async function loadDDLFile(filename) {
+      try {
+        const response = await fetch(filename);
+        if (!response.ok) throw new Error(`Failed to load ${filename}`);
+        const sqlText = await response.text();
+        console.log(`Loaded DDL file (${filename}):`, sqlText.slice(0, 200));
+        return sqlText;
+      } catch (err) {
+        console.error("Error loading DDL file:", err);
+        throw err;
+      }
+    }
+
     async function initializeDuckDB() {
       try {
         const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
@@ -64,27 +77,19 @@ SELECT * FROM people;
         const workerUrl = URL.createObjectURL(
           new Blob([`importScripts("${bundle.mainWorker}");`], { type: "text/javascript" })
         );
-
         const worker = new Worker(workerUrl);
         const logger = new duckdb.ConsoleLogger();
+
         db = new duckdb.AsyncDuckDB(logger, worker);
         await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
         URL.revokeObjectURL(workerUrl);
-
         conn = await db.connect();
 
-        // ✅ Create an initial table with demo data
-        await conn.query(`
-          CREATE TABLE people(id INTEGER, name TEXT, age INTEGER);
-          INSERT INTO people VALUES
-            (1, 'Alice', 32),
-            (2, 'Bob', 28),
-            (3, 'Carol', 35),
-            (4, 'Dave', 40),
-            (5, 'Eve', 22);
-        `);
+        // ✅ Load external SQL (DDL + INSERTs)
+        const ddlSQL = await loadDDLFile("duckdb-ddl.sql");
+        await conn.query(ddlSQL);
 
-        outputDiv.innerHTML = "<em>DuckDB-WASM initialized successfully.</em>";
+        outputDiv.innerHTML = "<em>DuckDB initialized and DDL executed successfully.</em>";
 
         // Auto-run the initial query once loaded
         executeQuery();
@@ -129,7 +134,7 @@ SELECT * FROM people;
           paging: true,
           searching: true,
           info: false,
-          order: [],     
+          order: [],
           pageLength: 5,
         });
       } catch (e) {
