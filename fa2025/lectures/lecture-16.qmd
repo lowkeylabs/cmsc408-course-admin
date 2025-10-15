@@ -1,8 +1,28 @@
 ---
 date: '2025-10-15'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/19, SUN'
+  topic: Quiz 4 - SQL Basics
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232171
+- options: target="_blank"
+  post_text: '- due 10/19, SUN'
+  topic: Homework 6 - Creating a database
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138
 lecture-id: 16
-lecture-topics: []
+lecture-topics:
+- id: '116'
+  topic: Poetry and VS Code
+  url: _poetry-and-vs-code.qmd
+- id: '117'
+  topic: Homework 5 - Quick Summary
+  url: _homework-5-quick-summary.qmd
+- id: '118'
+  topic: Creating and populating tables
+  url: _creating-and-populating-tables.qmd
+- id: '119'
+  topic: Homework 6 - constructing a database
+  url: _homework-6-constructing-a-database-fa2025.qmd
 title: SQL Selects
 ---
 
@@ -16,6 +36,21 @@ this_file = 'lecture-16.qmd'
 
 <!-- lecture-block-begin -->
 
+# Poetry and VS Code
+
+{{< include ../../topics/_poetry-and-vs-code.qmd >}}
+
+# Homework 5 - Quick Summary
+
+{{< include ../../topics/_homework-5-quick-summary.qmd >}}
+
+# Creating and populating tables
+
+{{< include ../../topics/_creating-and-populating-tables.qmd >}}
+
+# Homework 6 - constructing a database
+
+{{< include ../../topics/_homework-6-constructing-a-database-fa2025.qmd >}}
 <!-- lecture-block-end -->
 
 

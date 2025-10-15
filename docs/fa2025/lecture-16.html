@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lecture-16_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="lecture-16_files/libs/clipboard/clipboard.min.js"></script>
 <script src="lecture-16_files/libs/quarto-html/tabby.min.js"></script>
 <script src="lecture-16_files/libs/quarto-html/popper.min.js"></script>
 <script src="lecture-16_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-16_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-16_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-16_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-16_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-16_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-16_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-16_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+  <meta name="generator" content="quarto-1.8.25">
 
   <title>SQL Selects</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lecture-16_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
+  <link rel="stylesheet" href="lecture-16_files/libs/revealjs/dist/theme/quarto-613214ccde63bca908c251674a9c3ba8.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-16_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-16_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -127,7 +193,10 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="lecture-16_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="lecture-16_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="lecture-16_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
@@ -153,12 +222,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232171">Quiz 4 - SQL Basics</a> - due 10/19, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138">Homework 6 - Creating a database</a> - due 10/19, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/poetry-and-vs-code">Poetry and VS Code</a></p></li>
+<li><p><a href="#/homework-5---quick-summary">Homework 5 - Quick Summary</a></p></li>
+<li><p><a href="#/creating-and-populating-tables">Creating and populating tables</a></p></li>
+<li><p><a href="#/homework-6---constructing-a-database">Homework 6 - constructing a database</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -166,7 +239,7 @@
 </div>
 <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -200,7 +273,7 @@
 <td style="text-align: center;">10/19</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6:Constructing a database</td>
+<td>Q4:SQL Basics; HW6:Constructing a database</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -246,6 +319,922 @@
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="poetry-and-vs-code" class="title-slide slide level1 center">
+<h1>Poetry and VS Code</h1>
+<!-- # Poetry and VS Code -->
+</section>
+<section id="poetry-and-vs-code-1" class="slide level2">
+<h2>Poetry and VS Code</h2>
+<p><strong>Goal:</strong> tell VS Code where to find your project virtualenv. This eliminates <em>Module not found</em> errors.</p>
+<p><strong>Solution:</strong> 1) Pipe virtualenv location to clipboard, 2) Paste into VS Code</p>
+<p>From a command line terminal, either INSIDE or OUTSIDE of VS Code:</p>
+<pre><code>    poetry env info -e  &lt;- Lists current location of virtualenv python
+
+    poetry env info -e | pbcopy      &lt;- on Mac
+    poetry env info -e | clip        &lt;- on Windows powershell or command.exe
+    poetry env info -e | clip.exe    &lt;- on WSL</code></pre>
+<p>Then:</p>
+<pre><code>    Open VS Code command palette:  'Ctrl-Shift-P'
+    Enter 'Python: Select Interpreter' on command line, then select
+    'Enter Interpreter Path', then
+    PASTE ('Command-V' on Mac or 'Ctrl-V' on PC) the clipboard</code></pre>
+<p>Done.</p>
+</section></section>
+<section>
+<section id="homework-5---quick-summary" class="title-slide slide level1 center">
+<h1>Homework 5 - Quick Summary</h1>
+<!-- # Homework 5 - quick summary -->
+</section>
+<section id="homework-5---quick-summary-1" class="slide level2">
+<h2>Homework 5 - Quick summary</h2>
+<p>
+&nbsp;
+</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="overview">Overview</h3>
+<p>Homework 5 is all about reverse engineering a database.</p>
+<p>Using SQL commands to explore the database provided, you are to print out samples of the tables, the table schema, and finally, prepare Chen and Crowsfoot diagrams for the database.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="other-skills">Other Skills</h3>
+<p>Homework 5 also focuses on software installation.</p>
+<p>You’ve got Quarto running. Now we’re introducing python, poetry virtual environments, and database connections.</p>
+<p>You’ve got to get all the tools running before you can actually reverse engineer the database.</p>
+</div></div>
+<p><strong><em>Among other things, the autograder will look to see that you’ve got sections in your report for each object in the database, that includes tables or views.</em></strong></p>
+</section>
+<section id="homework-5---checklist" class="slide level2">
+<h2>Homework 5 - Checklist</h2>
+<p>This is a general homework pattern that applies to all homeworks in CMSC408:</p>
+<pre><code>    gh repo clone cmsc408-fa2025-hw5-jdleonard hw5  &lt;- clone project to shorter folder
+    cd hw5                     &lt;- change into project folder created above
+    poetry install             &lt;- install virtualenv and all your modules
+    poetry env info -e | clip  &lt;- clip env location and paste to VS code
+    poetry shell               &lt;- shell into the virtualenv
+    cd reports                 &lt;- change into reports folder
+    code ~/.env                &lt;- review the database connection key-value pairs.
+    code report.qmd            &lt;- review then adjust .ENV key-value pairs.
+    quarto render report.qmd   &lt;- render report for first time
+    open report.html           &lt;- review report.html for errors and next changes</code></pre>
+<p>Iterate editing report.qmd, saving, and rendering until done!</p>
+</section></section>
+<section>
+<section id="creating-and-populating-tables" class="title-slide slide level1 center">
+<h1>Creating and populating tables</h1>
+<!-- # Creating and populating tables -->
+</section>
+<section id="data-definition-language-ddl" class="slide level2">
+<h2>Data Definition Language (DDL)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="crud-operations">CRUD operations</h3>
+<ul>
+<li><p><strong>C</strong>reate</p>
+<ul>
+<li>tables using CREATE TABLE</li>
+<li>records using INSERT INTO</li>
+</ul></li>
+<li><p><strong>R</strong>etrive records from tables using SELECT</p></li>
+<li><p><strong>U</strong>pdate</p>
+<ul>
+<li>tables using ALTER TABLE</li>
+<li>records using UPDATE</li>
+</ul></li>
+<li><p><strong>D</strong>elete</p>
+<ul>
+<li>tables using DROP TABLE</li>
+<li>records using DELETE or TRUNCATE</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:39%;">
+<h3 id="general-workflow">General workflow</h3>
+<p>There are many approaches to database creation. For this class I recommend the following workflow:</p>
+<ul>
+<li>Create database then create tables and then insert data all at one time</li>
+<li>Store all commands in single SQL file</li>
+<li>Paste commands to a command line in one chunk</li>
+<li>Design file for reuse / rebuilding</li>
+<li>SQL executes commands from top to bottom in file, like an interpreter.</li>
+</ul>
+</div></div>
+</section>
+<section id="sql-creating-tables" class="slide level2">
+<h2>SQL Creating tables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="sql-tables">SQL Tables</h3>
+<p><em>Tables</em> correspond to <em>relations</em>.</p>
+<p><em>Tables</em> are the fundamental object in a database.</p>
+<p><em>Tables</em> are created using the CREATE TABLE command. As you can imagine, there are plenty of options.</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">MySQL CREATE TABLE documentation</a></p>
+</div><div class="column" style="width:39%;">
+<h3 id="create-table-syntax">CREATE TABLE SYNTAX</h3>
+<pre><code>CREATE TABLE &lt;table name&gt; (
+    [columns and data types],
+    [integrity constraints],
+    [lots of other goodies!]
+)</code></pre>
+</div></div>
+</section>
+<section id="create-table-example" class="slide level2">
+<h2>CREATE TABLE example</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h3 id="create-table"><a href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">CREATE TABLE</a></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> instructor (</span>
+<span id="cb5-2"><a href=""></a>  <span class="kw">ID</span>        <span class="dt">int</span> AUTO_INCREMENT,</span>
+<span id="cb5-3"><a href=""></a>  full_name <span class="dt">varchar</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb5-4"><a href=""></a>  dept_name <span class="dt">varchar</span>(<span class="dv">30</span>),</span>
+<span id="cb5-5"><a href=""></a>  salary    <span class="dt">decimal</span>(<span class="dv">10</span>,<span class="dv">2</span>) <span class="kw">CHECK</span> (salary <span class="op">&gt;</span> <span class="dv">0</span>),</span>
+<span id="cb5-6"><a href=""></a>  office    <span class="dt">char</span>(<span class="dv">5</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">UNIQUE</span>,</span>
+<span id="cb5-7"><a href=""></a>  <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">ID</span>),</span>
+<span id="cb5-8"><a href=""></a>  <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (dept_name)</span>
+<span id="cb5-9"><a href=""></a>    <span class="kw">REFERENCES</span> departments (department_name)</span>
+<span id="cb5-10"><a href=""></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>indentation and capitalization doesn’t matter</em></p>
+</div><div class="column" style="width:30%;">
+<h3 id="features">Features</h3>
+<ul>
+<li>columns, data types</li>
+<li>column constraints
+<ul>
+<li>AUTO_INCREMENT</li>
+<li>NOT NULL</li>
+<li>CHECK</li>
+<li>UNIQUE</li>
+</ul></li>
+<li>table constraints
+<ul>
+<li>PRIMARY KEY</li>
+<li>FOREIGN KEY</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:22%;">
+<h3 id="data-types"><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">Data Types</a></h3>
+<ul>
+<li>Numeric types</li>
+<li>Date and time</li>
+<li>String</li>
+<li>Spatial (POINT, LINE, etc.)</li>
+<li>JSON (structure)</li>
+</ul>
+</div></div>
+</section>
+<section id="alter-and-drop-tables" class="slide level2">
+<h2>ALTER and DROP tables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="alter-table">ALTER TABLE</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>ALTER TABLE tbl_name</span>
+<span id="cb6-2"><a href=""></a>    [alter_option [, alter_option] ...]</span>
+<span id="cb6-3"><a href=""></a>    [partition_options]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<ul>
+<li><p>Alter options:</p>
+<ul>
+<li>ADD columns or constraints</li>
+<li>ALTER columns or constraints</li>
+<li>DROP columns or constraints</li>
+</ul></li>
+<li><p>Partition options:</p>
+<ul>
+<li>Related to storage organization</li>
+</ul></li>
+</ul>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/alter-table.html">MySQL ALTER TABLE documentation</a></p>
+</div><div class="column" style="width:49%;">
+<h3 id="drop-table">DROP TABLE</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>DROP [TEMPORARY] TABLE [IF EXISTS]</span>
+<span id="cb7-2"><a href=""></a>    tbl_name [, tbl_name] ...</span>
+<span id="cb7-3"><a href=""></a>    [RESTRICT | CASCADE]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<ul>
+<li>Can drop multiple tables with a single command.</li>
+<li>IF EXISTS modifier will drop only if the table exists. This is handy for eliminating errors in code.</li>
+<li>RESTRICT and CASCADE are useful when there are keys.</li>
+<li>DDL tip: put all drops at top of file.</li>
+</ul>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/drop-table.html">MySQL DROP TABLE documentation</a></p>
+</div></div>
+</section>
+<section id="complete-example" class="slide level2">
+<h2>Complete example</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="crows-foot-diagram">Crows Foot Diagram</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    CITY {
+        int city_id PK
+        string name
+        string state_abbreviation FK
+    }
+    STATE {
+        string state_abbreviation PK
+        string name
+        int country_id FK
+        int capital_city_id FK
+    }
+    COUNTRY {
+        int country_id PK
+        string name
+        int capital_city_id FK
+    }
+    COUNTRY ||--|{ STATE : "Has"
+    STATE ||--|{ CITY : "Has"
+    CITY ||--o| STATE : "Is capital of"
+    CITY ||--o| COUNTRY : "Is capital of"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:54%;">
+<h3 id="sql-create">SQL CREATE</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a></span>
+<span id="cb8-2"><a href=""></a>SET foreign_key_checks = 0;</span>
+<span id="cb8-3"><a href=""></a>DROP TABLE IF EXISTS city;</span>
+<span id="cb8-4"><a href=""></a>DROP TABLE IF EXISTS state;</span>
+<span id="cb8-5"><a href=""></a>DROP TABLE IF EXISTS country;</span>
+<span id="cb8-6"><a href=""></a>SET foreign_key_checks = 1;</span>
+<span id="cb8-7"><a href=""></a></span>
+<span id="cb8-8"><a href=""></a>CREATE TABLE city (</span>
+<span id="cb8-9"><a href=""></a>    city_id int,</span>
+<span id="cb8-10"><a href=""></a>    city_name varchar(30),</span>
+<span id="cb8-11"><a href=""></a>    city_home_state varchar(5),</span>
+<span id="cb8-12"><a href=""></a>    PRIMARY KEY (city_id)</span>
+<span id="cb8-13"><a href=""></a>);</span>
+<span id="cb8-14"><a href=""></a></span>
+<span id="cb8-15"><a href=""></a>CREATE TABLE state (</span>
+<span id="cb8-16"><a href=""></a>    state_abbr varchar(5),</span>
+<span id="cb8-17"><a href=""></a>    state_name varchar(30),</span>
+<span id="cb8-18"><a href=""></a>    state_home_country_id int,</span>
+<span id="cb8-19"><a href=""></a>    state_capital_city_id int,</span>
+<span id="cb8-20"><a href=""></a>    PRIMARY KEY (state_abbr)</span>
+<span id="cb8-21"><a href=""></a>);</span>
+<span id="cb8-22"><a href=""></a></span>
+<span id="cb8-23"><a href=""></a>CREATE TABLE country (</span>
+<span id="cb8-24"><a href=""></a>    country_id int not null,</span>
+<span id="cb8-25"><a href=""></a>    country_name varchar(50) not null,</span>
+<span id="cb8-26"><a href=""></a>    country_capital_city_id int not null,</span>
+<span id="cb8-27"><a href=""></a>    PRIMARY KEY (country_id)</span>
+<span id="cb8-28"><a href=""></a>);</span>
+<span id="cb8-29"><a href=""></a></span>
+<span id="cb8-30"><a href=""></a>ALTER TABLE city ADD FOREIGN KEY (city_home_state) REFERENCES state ( state_abbr );</span>
+<span id="cb8-31"><a href=""></a>ALTER TABLE state ADD FOREIGN KEY (state_home_country_id) REFERENCES country (country_id);</span>
+<span id="cb8-32"><a href=""></a>ALTER TABLE state ADD FOREIGN KEY (state_capital_city_id) REFERENCES city (city_id);</span>
+<span id="cb8-33"><a href=""></a>ALTER TABLE country ADD FOREIGN KEY (country_capital_city_id) REFERENCES city (city_id);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="inserting-data-into-tables" class="slide level2 scrollable">
+<h2>Inserting data into tables</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<h3 id="insert-into-syntax">INSERT INTO syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>INSERT INTO relation VALUES (V1, …, VN);</span>
+<span id="cb9-2"><a href=""></a># Inserts a new row with all the values matching the order of the columns.</span>
+<span id="cb9-3"><a href=""></a># BAD IN PRACTICE!</span>
+<span id="cb9-4"><a href=""></a># Example:</span>
+<span id="cb9-5"><a href=""></a>INSERT INTO instructor VALUES (123, 'ALBERTO CANO', NULL, 1234.56, 'E4251');</span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a>INSERT INTO relation (Ci, …, Cj) VALUES (Vi, …, Vj);</span>
+<span id="cb9-8"><a href=""></a># Inserts a new row with the values matching any order of the columns specified,</span>
+<span id="cb9-9"><a href=""></a># any other column not listed is assumed to be NULL.</span>
+<span id="cb9-10"><a href=""></a># Examples:</span>
+<span id="cb9-11"><a href=""></a></span>
+<span id="cb9-12"><a href=""></a>INSERT INTO instructor (ID, name, salary, office)</span>
+<span id="cb9-13"><a href=""></a>              VALUES (123, 'ALBERTO CANO', 1234.56, 'E4251');</span>
+<span id="cb9-14"><a href=""></a></span>
+<span id="cb9-15"><a href=""></a>INSERT INTO instructor (name, salary, office)</span>
+<span id="cb9-16"><a href=""></a>              VALUES ('ALBERTO CANO', 9876.5, 'W0465'); -- ID AUTO GENERATED</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/insert.html">MySQL INSERT INTO documentation</a></p>
+</div><div class="column" style="width:35%;">
+<h3 id="features-1">Features</h3>
+<ul>
+<li>Bulk INSERT Can be used to insert multiple records at once.</li>
+<li>Lots of flexiblity in variable and value lists.</li>
+<li>Some DBMS can load CSV files directly. Otherwise a CSV file is converted into SQL INSERT commands and then SQL is run.</li>
+<li>Quarto strategy:
+<ol type="1">
+<li>Load CSV in python dataframe using Pandas, then</li>
+<li>Create table using Pandas.</li>
+</ol></li>
+</ul>
+</div></div>
+</section>
+<section id="update-data-in-existing-tables" class="slide level2">
+<h2>UPDATE data in existing tables</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="update-syntax">UPDATE syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>UPDATE [LOW_PRIORITY] [IGNORE] table_reference</span>
+<span id="cb10-2"><a href=""></a>    SET assignment_list</span>
+<span id="cb10-3"><a href=""></a>    [WHERE where_condition]</span>
+<span id="cb10-4"><a href=""></a>    [ORDER BY ...]</span>
+<span id="cb10-5"><a href=""></a>    [LIMIT row_count]</span>
+<span id="cb10-6"><a href=""></a></span>
+<span id="cb10-7"><a href=""></a>value:</span>
+<span id="cb10-8"><a href=""></a>    {expr | DEFAULT}</span>
+<span id="cb10-9"><a href=""></a></span>
+<span id="cb10-10"><a href=""></a>assignment:</span>
+<span id="cb10-11"><a href=""></a>    col_name = value</span>
+<span id="cb10-12"><a href=""></a></span>
+<span id="cb10-13"><a href=""></a>assignment_list:</span>
+<span id="cb10-14"><a href=""></a>    assignment [, assignment] ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/update.html">MySQL UPDATE docs</a></p>
+</div><div class="column" style="width:55%;">
+<h3 id="update-examples">UPDATE examples</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>UPDATE instructor SET salary = 4321.00 WHERE ID = 123;</span>
+<span id="cb11-2"><a href=""></a># SAFE. Will update the salary based on the PRIMARY KEY.</span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a>UPDATE instructor SET salary = 4321.00 </span>
+<span id="cb11-5"><a href=""></a>WHERE name = 'ALBERTO CANO';</span>
+<span id="cb11-6"><a href=""></a># DANGER! Will update the salary for ALL </span>
+<span id="cb11-7"><a href=""></a># instructors with the given name.</span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a>UPDATE instructor SET salary = 4321.00;</span>
+<span id="cb11-10"><a href=""></a># DANGER! Will update everyone’s salary!</span>
+<span id="cb11-11"><a href=""></a></span>
+<span id="cb11-12"><a href=""></a>UPDATE instructor SET salary = salary * 1.05;</span>
+<span id="cb11-13"><a href=""></a># DANGER! Will update everyone’s </span>
+<span id="cb11-14"><a href=""></a># salary +5% respectively.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="deleting-data-from-tables" class="slide level2">
+<h2>Deleting data from tables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="delete">DELETE</h3>
+<p>Opposite of SELECT with many common arguments.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>DELETE [LOW_PRIORITY] [QUICK] [IGNORE]</span>
+<span id="cb12-2"><a href=""></a>  FROM tbl_name [[AS] tbl_alias]</span>
+<span id="cb12-3"><a href=""></a>  [PARTITION (partition_name [, partition_name] ...)]</span>
+<span id="cb12-4"><a href=""></a>  [WHERE where_condition]</span>
+<span id="cb12-5"><a href=""></a>  [ORDER BY ...]</span>
+<span id="cb12-6"><a href=""></a>  [LIMIT row_count]</span>
+<span id="cb12-7"><a href=""></a></span>
+<span id="cb12-8"><a href=""></a># Examples</span>
+<span id="cb12-9"><a href=""></a></span>
+<span id="cb12-10"><a href=""></a>DELETE FROM instructor</span>
+<span id="cb12-11"><a href=""></a> WHERE last_name like 'LEON%';</span>
+<span id="cb12-12"><a href=""></a></span>
+<span id="cb12-13"><a href=""></a>DELETE FROM employee where id=101;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/delete.html">MySQL DELETE statement docs</a></p>
+</div><div class="column" style="width:50%;">
+<h3 id="truncate">TRUNCATE</h3>
+<p>Removes all rows in a table and resets metadata (counters, indexes, etc)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>TRUNCATE TABLE instructor;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html">MySQL TRUNCATE docs</a></p>
+<p>
+&nbsp;
+</p>
+<h3 id="drop-table-1">DROP TABLE</h3>
+<p>Removes table from the database.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>DROP TABLE instructor;</span>
+<span id="cb14-2"><a href=""></a>DROP TABLE IF EXISTS country;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>
+&nbsp;
+</p>
+<p>See the <a href="https://dev.mysql.com/doc/refman/8.0/en/drop-table.html">MySQL DROP TABLE docs</a> )</p>
+</div></div>
+</section>
+<section id="large-ddl-example" class="slide level2">
+<h2>Large DDL example</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {sql} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>CREATE TABLE job_grades (</span>
+<span id="cb15-2"><a href=""></a>grade_level VARCHAR(3),</span>
+<span id="cb15-3"><a href=""></a>lowest_sal  FLOAT,</span>
+<span id="cb15-4"><a href=""></a>highest_sal FLOAT,</span>
+<span id="cb15-5"><a href=""></a>PRIMARY KEY(grade_level)</span>
+<span id="cb15-6"><a href=""></a>);</span>
+<span id="cb15-7"><a href=""></a></span>
+<span id="cb15-8"><a href=""></a>INSERT INTO job_grades VALUES ('A', 1000, 2999);</span>
+<span id="cb15-9"><a href=""></a>INSERT INTO job_grades VALUES ('B', 3000, 5999);</span>
+<span id="cb15-10"><a href=""></a>INSERT INTO job_grades VALUES ('C', 6000, 9999);</span>
+<span id="cb15-11"><a href=""></a>INSERT INTO job_grades VALUES ('D', 10000, 14999);</span>
+<span id="cb15-12"><a href=""></a>INSERT INTO job_grades VALUES ('E', 15000, 24999);</span>
+<span id="cb15-13"><a href=""></a>INSERT INTO job_grades VALUES ('F', 25000, 40000);</span>
+<span id="cb15-14"><a href=""></a></span>
+<span id="cb15-15"><a href=""></a>CREATE TABLE regions (</span>
+<span id="cb15-16"><a href=""></a>region_id   INT,</span>
+<span id="cb15-17"><a href=""></a>region_name VARCHAR(25),</span>
+<span id="cb15-18"><a href=""></a>PRIMARY KEY(region_id)</span>
+<span id="cb15-19"><a href=""></a>);</span>
+<span id="cb15-20"><a href=""></a></span>
+<span id="cb15-21"><a href=""></a>INSERT INTO regions VALUES (1, 'Europe');</span>
+<span id="cb15-22"><a href=""></a>INSERT INTO regions VALUES (2, 'Americas');</span>
+<span id="cb15-23"><a href=""></a>INSERT INTO regions VALUES (3, 'Asia');</span>
+<span id="cb15-24"><a href=""></a>INSERT INTO regions VALUES (4, 'Middle East and Africa');</span>
+<span id="cb15-25"><a href=""></a></span>
+<span id="cb15-26"><a href=""></a>CREATE TABLE countries (</span>
+<span id="cb15-27"><a href=""></a>country_id      CHAR(2),</span>
+<span id="cb15-28"><a href=""></a>country_name    VARCHAR(40),</span>
+<span id="cb15-29"><a href=""></a>region_id       INT,</span>
+<span id="cb15-30"><a href=""></a>PRIMARY KEY (country_id),</span>
+<span id="cb15-31"><a href=""></a>FOREIGN KEY (region_id) REFERENCES regions(region_id) </span>
+<span id="cb15-32"><a href=""></a>);</span>
+<span id="cb15-33"><a href=""></a></span>
+<span id="cb15-34"><a href=""></a>INSERT INTO countries VALUES ('IT','Italy', 1); </span>
+<span id="cb15-35"><a href=""></a>INSERT INTO countries VALUES ('JP','Japan', 3); </span>
+<span id="cb15-36"><a href=""></a>INSERT INTO countries VALUES ('US','United States of America', 2); </span>
+<span id="cb15-37"><a href=""></a>INSERT INTO countries VALUES ('CA','Canada', 2); </span>
+<span id="cb15-38"><a href=""></a>INSERT INTO countries VALUES ('CN','China', 3); </span>
+<span id="cb15-39"><a href=""></a>INSERT INTO countries VALUES ('IN','India', 3); </span>
+<span id="cb15-40"><a href=""></a>INSERT INTO countries VALUES ('AU','Australia', 3); </span>
+<span id="cb15-41"><a href=""></a>INSERT INTO countries VALUES ('ZW','Zimbabwe', 4); </span>
+<span id="cb15-42"><a href=""></a>INSERT INTO countries VALUES ('SG','Singapore', 3); </span>
+<span id="cb15-43"><a href=""></a>INSERT INTO countries VALUES ('UK','United Kingdom', 1); </span>
+<span id="cb15-44"><a href=""></a>INSERT INTO countries VALUES ('FR','France', 1); </span>
+<span id="cb15-45"><a href=""></a>INSERT INTO countries VALUES ('DE','Germany', 1); </span>
+<span id="cb15-46"><a href=""></a>INSERT INTO countries VALUES ('ZM','Zambia', 4); </span>
+<span id="cb15-47"><a href=""></a>INSERT INTO countries VALUES ('EG','Egypt', 4); </span>
+<span id="cb15-48"><a href=""></a>INSERT INTO countries VALUES ('BR','Brazil', 2); </span>
+<span id="cb15-49"><a href=""></a>INSERT INTO countries VALUES ('CH','Switzerland', 1); </span>
+<span id="cb15-50"><a href=""></a>INSERT INTO countries VALUES ('NL','Netherlands', 1); </span>
+<span id="cb15-51"><a href=""></a>INSERT INTO countries VALUES ('MX','Mexico', 2); </span>
+<span id="cb15-52"><a href=""></a>INSERT INTO countries VALUES ('KW','Kuwait', 4); </span>
+<span id="cb15-53"><a href=""></a>INSERT INTO countries VALUES ('IL','Israel', 4); </span>
+<span id="cb15-54"><a href=""></a>INSERT INTO countries VALUES ('DK','Denmark', 1); </span>
+<span id="cb15-55"><a href=""></a>INSERT INTO countries VALUES ('ML','Malaysia', 3); </span>
+<span id="cb15-56"><a href=""></a>INSERT INTO countries VALUES ('NG','Nigeria', 4); </span>
+<span id="cb15-57"><a href=""></a>INSERT INTO countries VALUES ('AR','Argentina', 2); </span>
+<span id="cb15-58"><a href=""></a>INSERT INTO countries VALUES ('BE','Belgium', 1);</span>
+<span id="cb15-59"><a href=""></a></span>
+<span id="cb15-60"><a href=""></a>CREATE TABLE locations (</span>
+<span id="cb15-61"><a href=""></a>location_id    INT(4),</span>
+<span id="cb15-62"><a href=""></a>street_address VARCHAR(40),</span>
+<span id="cb15-63"><a href=""></a>postal_code    VARCHAR(12),</span>
+<span id="cb15-64"><a href=""></a>city           VARCHAR(30) NOT NULL,</span>
+<span id="cb15-65"><a href=""></a>state_province VARCHAR(25),</span>
+<span id="cb15-66"><a href=""></a>country_id     CHAR(2),</span>
+<span id="cb15-67"><a href=""></a>PRIMARY KEY (location_id),</span>
+<span id="cb15-68"><a href=""></a>FOREIGN KEY (country_id) REFERENCES countries(country_id) </span>
+<span id="cb15-69"><a href=""></a>);</span>
+<span id="cb15-70"><a href=""></a></span>
+<span id="cb15-71"><a href=""></a>INSERT INTO locations VALUES ( 1000 , '1297 Via Cola di Rie' , '00989' , 'Roma' , NULL , 'IT' );  </span>
+<span id="cb15-72"><a href=""></a>INSERT INTO locations VALUES ( 1100 , '93091 Calle della Testa' , '10934' , 'Venice' , NULL , 'IT' );  </span>
+<span id="cb15-73"><a href=""></a>INSERT INTO locations VALUES ( 1200 , '2017 Shinjuku-ku' , '1689' , 'Tokyo' , 'Tokyo Prefecture' , 'JP' );  </span>
+<span id="cb15-74"><a href=""></a>INSERT INTO locations VALUES ( 1300 , '9450 Kamiya-cho' , '6823' , 'Hiroshima' , NULL , 'JP' );  </span>
+<span id="cb15-75"><a href=""></a>INSERT INTO locations VALUES ( 1400 , '2014 Jabberwocky Rd' , '26192' , 'Southlake' , 'Texas' , 'US' );  </span>
+<span id="cb15-76"><a href=""></a>INSERT INTO locations VALUES ( 1500 , '2011 Interiors Blvd' , '99236' , 'South San Francisco' , 'California' , 'US' );  </span>
+<span id="cb15-77"><a href=""></a>INSERT INTO locations VALUES ( 1600 , '2007 Zagora St' , '50090' , 'South Brunswick' , 'New Jersey' , 'US' );  </span>
+<span id="cb15-78"><a href=""></a>INSERT INTO locations VALUES ( 1700 , '2004 Charade Rd' , '98199' , 'Seattle' , 'Washington' , 'US' );  </span>
+<span id="cb15-79"><a href=""></a>INSERT INTO locations VALUES ( 1800 , '147 Spadina Ave' , 'M5V 2L7' , 'Toronto' , 'Ontario' , 'CA' );  </span>
+<span id="cb15-80"><a href=""></a>INSERT INTO locations VALUES ( 1900 , '6092 Boxwood St' , 'YSW 9T2' , 'Whitehorse' , 'Yukon' , 'CA' );  </span>
+<span id="cb15-81"><a href=""></a>INSERT INTO locations VALUES ( 2000 , '40-5-12 Laogianggen' , '190518' , 'Beijing' , NULL , 'CN' );  </span>
+<span id="cb15-82"><a href=""></a>INSERT INTO locations VALUES ( 2100 , '1298 Vileparle (E)' , '490231' , 'Bombay' , 'Maharashtra' , 'IN' );  </span>
+<span id="cb15-83"><a href=""></a>INSERT INTO locations VALUES ( 2200 , '12-98 Victoria Street' , '2901' , 'Sydney' , 'New South Wales' , 'AU' );  </span>
+<span id="cb15-84"><a href=""></a>INSERT INTO locations VALUES ( 2300 , '198 Clementi North' , '540198' , 'Singapore' , NULL , 'SG' );  </span>
+<span id="cb15-85"><a href=""></a>INSERT INTO locations VALUES ( 2400 , '8204 Arthur St' , NULL , 'London' , NULL , 'UK' );  </span>
+<span id="cb15-86"><a href=""></a>INSERT INTO locations VALUES ( 2500 , 'Magdalen Centre, The Oxford Science Park' , 'OX9 9ZB' , 'Oxford' , 'Oxford' , 'UK' );  </span>
+<span id="cb15-87"><a href=""></a>INSERT INTO locations VALUES ( 2600 , '9702 Chester Road' , '09629850293' , 'Stretford' , 'Manchester' , 'UK' );  </span>
+<span id="cb15-88"><a href=""></a>INSERT INTO locations VALUES ( 2700 , 'Schwanthalerstr. 7031' , '80925' , 'Munich' , 'Bavaria' , 'DE' );  </span>
+<span id="cb15-89"><a href=""></a>INSERT INTO locations VALUES ( 2800 , 'Rua Frei Caneca 1360 ' , '01307-002' , 'Sao Paulo' , 'Sao Paulo' , 'BR' );  </span>
+<span id="cb15-90"><a href=""></a>INSERT INTO locations VALUES ( 2900 , '20 Rue des Corps-Saints' , '1730' , 'Geneva' , 'Geneve' , 'CH' );  </span>
+<span id="cb15-91"><a href=""></a>INSERT INTO locations VALUES ( 3000 , 'Murtenstrasse 921' , '3095' , 'Bern' , 'BE' , 'CH' );  </span>
+<span id="cb15-92"><a href=""></a>INSERT INTO locations VALUES ( 3100 , 'Pieter Breughelstraat 837' , '3029SK' , 'Utrecht' , 'Utrecht' , 'NL' );  </span>
+<span id="cb15-93"><a href=""></a>INSERT INTO locations VALUES ( 3200 , 'Mariano Escobedo 9991' , '11932' , 'Mexico City' , 'Distrito Federal,' , 'MX' );</span>
+<span id="cb15-94"><a href=""></a></span>
+<span id="cb15-95"><a href=""></a></span>
+<span id="cb15-96"><a href=""></a>CREATE TABLE departments (</span>
+<span id="cb15-97"><a href=""></a>department_id    INT(4),</span>
+<span id="cb15-98"><a href=""></a>department_name  VARCHAR(30) NOT NULL,</span>
+<span id="cb15-99"><a href=""></a>manager_id       INT(6),</span>
+<span id="cb15-100"><a href=""></a>location_id      INT(4),</span>
+<span id="cb15-101"><a href=""></a>PRIMARY KEY (department_id),</span>
+<span id="cb15-102"><a href=""></a>FOREIGN KEY (location_id) REFERENCES locations (location_id)</span>
+<span id="cb15-103"><a href=""></a>);</span>
+<span id="cb15-104"><a href=""></a></span>
+<span id="cb15-105"><a href=""></a>INSERT INTO departments VALUES ( 10 , 'Administration' , 200 , 1700 );</span>
+<span id="cb15-106"><a href=""></a>INSERT INTO departments VALUES ( 20 , 'Marketing' , 201 , 1800 );   </span>
+<span id="cb15-107"><a href=""></a>INSERT INTO departments VALUES ( 30 , 'Purchasing' , 114 , 1700 );  </span>
+<span id="cb15-108"><a href=""></a>INSERT INTO departments VALUES ( 40 , 'Human Resources' , 203 , 2400 );</span>
+<span id="cb15-109"><a href=""></a>INSERT INTO departments VALUES ( 50 , 'Shipping' , 121 , 1500 );  </span>
+<span id="cb15-110"><a href=""></a>INSERT INTO departments VALUES ( 60 , 'IT' , 103 , 1400 );  </span>
+<span id="cb15-111"><a href=""></a>INSERT INTO departments VALUES ( 70 , 'Public Relations' , 204 , 2700 );  </span>
+<span id="cb15-112"><a href=""></a>INSERT INTO departments VALUES ( 80 , 'Sales' , 145 , 2500 );  </span>
+<span id="cb15-113"><a href=""></a>INSERT INTO departments VALUES ( 90 , 'Executive' , 100 , 1700 );</span>
+<span id="cb15-114"><a href=""></a>INSERT INTO departments VALUES ( 100 , 'Finance' , 108 , 1700 );  </span>
+<span id="cb15-115"><a href=""></a>INSERT INTO departments VALUES ( 110 , 'Accounting' , 205 , 1700 );</span>
+<span id="cb15-116"><a href=""></a>INSERT INTO departments VALUES ( 120 , 'Treasury' , NULL , 1700 );</span>
+<span id="cb15-117"><a href=""></a>INSERT INTO departments VALUES ( 130 , 'Corporate Tax' , NULL , 1700 );</span>
+<span id="cb15-118"><a href=""></a>INSERT INTO departments VALUES ( 140 , 'Control And Credit' , NULL , 1700 );</span>
+<span id="cb15-119"><a href=""></a>INSERT INTO departments VALUES ( 150 , 'Shareholder Services' , NULL , 1700 );</span>
+<span id="cb15-120"><a href=""></a>INSERT INTO departments VALUES ( 160 , 'Benefits' , NULL , 1700 );</span>
+<span id="cb15-121"><a href=""></a>INSERT INTO departments VALUES ( 170 , 'Manufacturing' , NULL , 1700 );</span>
+<span id="cb15-122"><a href=""></a>INSERT INTO departments VALUES ( 180 , 'Construction' , NULL , 1700 );</span>
+<span id="cb15-123"><a href=""></a>INSERT INTO departments VALUES ( 190 , 'Contracting' , NULL , 1700 );</span>
+<span id="cb15-124"><a href=""></a>INSERT INTO departments VALUES ( 200 , 'Operations' , NULL , 1700 );</span>
+<span id="cb15-125"><a href=""></a>INSERT INTO departments VALUES ( 210 , 'IT Support' , NULL , 1700 );</span>
+<span id="cb15-126"><a href=""></a>INSERT INTO departments VALUES ( 220 , 'NOC' , NULL , 1700 );</span>
+<span id="cb15-127"><a href=""></a>INSERT INTO departments VALUES ( 230 , 'IT Helpdesk' , NULL , 1700 );</span>
+<span id="cb15-128"><a href=""></a>INSERT INTO departments VALUES ( 240 , 'Government Sales' , NULL , 1700 );</span>
+<span id="cb15-129"><a href=""></a>INSERT INTO departments VALUES ( 250 , 'Retail Sales' , NULL , 1700 );</span>
+<span id="cb15-130"><a href=""></a>INSERT INTO departments VALUES ( 260 , 'Recruiting' , NULL , 1700 );</span>
+<span id="cb15-131"><a href=""></a>INSERT INTO departments VALUES ( 270 , 'Payroll' , NULL , 1700 );</span>
+<span id="cb15-132"><a href=""></a></span>
+<span id="cb15-133"><a href=""></a></span>
+<span id="cb15-134"><a href=""></a>CREATE TABLE jobs (</span>
+<span id="cb15-135"><a href=""></a>job_id     VARCHAR(10),</span>
+<span id="cb15-136"><a href=""></a>job_title  VARCHAR(35) NOT NULL,</span>
+<span id="cb15-137"><a href=""></a>min_salary FLOAT,</span>
+<span id="cb15-138"><a href=""></a>max_salary FLOAT,</span>
+<span id="cb15-139"><a href=""></a>PRIMARY KEY(job_id)</span>
+<span id="cb15-140"><a href=""></a>);</span>
+<span id="cb15-141"><a href=""></a></span>
+<span id="cb15-142"><a href=""></a>INSERT INTO jobs VALUES ( 'AD_PRES', 'President', 20080, 40000);</span>
+<span id="cb15-143"><a href=""></a>INSERT INTO jobs VALUES ( 'AD_VP', 'Administration Vice President', 15000, 30000);</span>
+<span id="cb15-144"><a href=""></a>INSERT INTO jobs VALUES ( 'AD_ASST', 'Administration Assistant', 3000, 6000);</span>
+<span id="cb15-145"><a href=""></a>INSERT INTO jobs VALUES ( 'FI_MGR', 'Finance Manager', 8200, 16000);</span>
+<span id="cb15-146"><a href=""></a>INSERT INTO jobs VALUES ( 'FI_ACCOUNT', 'Accountant', 4200, 9000);</span>
+<span id="cb15-147"><a href=""></a>INSERT INTO jobs VALUES ( 'AC_MGR', 'Accounting Manager', 8200, 16000);</span>
+<span id="cb15-148"><a href=""></a>INSERT INTO jobs VALUES ( 'AC_ACCOUNT', 'Public Accountant', 4200, 9000);</span>
+<span id="cb15-149"><a href=""></a>INSERT INTO jobs VALUES ( 'SA_MAN', 'Sales Manager', 10000, 20080);</span>
+<span id="cb15-150"><a href=""></a>INSERT INTO jobs VALUES ( 'SA_REP', 'Sales Representative', 6000, 12008);</span>
+<span id="cb15-151"><a href=""></a>INSERT INTO jobs VALUES ( 'PU_MAN', 'Purchasing Manager', 8000, 15000);</span>
+<span id="cb15-152"><a href=""></a>INSERT INTO jobs VALUES ( 'PU_CLERK', 'Purchasing Clerk', 2500, 5500);</span>
+<span id="cb15-153"><a href=""></a>INSERT INTO jobs VALUES ( 'ST_MAN', 'Stock Manager', 5500, 8500);</span>
+<span id="cb15-154"><a href=""></a>INSERT INTO jobs VALUES ( 'ST_CLERK', 'Stock Clerk', 2008, 5000);</span>
+<span id="cb15-155"><a href=""></a>INSERT INTO jobs VALUES ( 'SH_CLERK', 'Shipping Clerk', 2500, 5500);</span>
+<span id="cb15-156"><a href=""></a>INSERT INTO jobs VALUES ( 'IT_PROG', 'Programmer', 4000, 10000);</span>
+<span id="cb15-157"><a href=""></a>INSERT INTO jobs VALUES ( 'MK_MAN', 'Marketing Manager', 9000, 15000);</span>
+<span id="cb15-158"><a href=""></a>INSERT INTO jobs VALUES ( 'MK_REP', 'Marketing Representative', 4000, 9000);</span>
+<span id="cb15-159"><a href=""></a>INSERT INTO jobs VALUES ( 'HR_REP', 'Human Resources Representative', 4000, 9000);</span>
+<span id="cb15-160"><a href=""></a>INSERT INTO jobs VALUES ( 'PR_REP', 'Public Relations Representative', 4500, 10500);</span>
+<span id="cb15-161"><a href=""></a></span>
+<span id="cb15-162"><a href=""></a>CREATE TABLE employees (</span>
+<span id="cb15-163"><a href=""></a>employee_id     INTEGER(6) AUTO_INCREMENT,</span>
+<span id="cb15-164"><a href=""></a>first_name      VARCHAR(20),</span>
+<span id="cb15-165"><a href=""></a>last_name       VARCHAR(25) NOT NULL,</span>
+<span id="cb15-166"><a href=""></a>email           VARCHAR(25) NOT NULL UNIQUE,</span>
+<span id="cb15-167"><a href=""></a>phone_number    VARCHAR(20),</span>
+<span id="cb15-168"><a href=""></a>hire_date       DATE NOT NULL,</span>
+<span id="cb15-169"><a href=""></a>job_id          VARCHAR(10) NOT NULL,</span>
+<span id="cb15-170"><a href=""></a>salary          DECIMAL(8,2) CHECK (salary &gt; 0),</span>
+<span id="cb15-171"><a href=""></a>commission_pct  DECIMAL(2,2),</span>
+<span id="cb15-172"><a href=""></a>manager_id      INT(6),</span>
+<span id="cb15-173"><a href=""></a>department_id   INT(4),</span>
+<span id="cb15-174"><a href=""></a>PRIMARY KEY (employee_id),</span>
+<span id="cb15-175"><a href=""></a>FOREIGN KEY (department_id) REFERENCES departments (department_id),</span>
+<span id="cb15-176"><a href=""></a>FOREIGN KEY (job_id) REFERENCES jobs (job_id)</span>
+<span id="cb15-177"><a href=""></a>);</span>
+<span id="cb15-178"><a href=""></a></span>
+<span id="cb15-179"><a href=""></a>INSERT INTO employees VALUES ( 100, 'Steven', 'King', 'SKING', '515.123.4567', STR_TO_DATE('17-06-2003', '%d-%m-%Y'), 'AD_PRES', 24000, NULL, NULL, 90);</span>
+<span id="cb15-180"><a href=""></a>INSERT INTO employees VALUES ( 101, 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', STR_TO_DATE('21-09-2005', '%d-%m-%Y'), 'AD_VP', 17000, NULL, 100, 90);</span>
+<span id="cb15-181"><a href=""></a>INSERT INTO employees VALUES ( 102, 'Lex', 'De Haan', 'LDEHAAN', '515.123.4569', STR_TO_DATE('13-01-2001', '%d-%m-%Y'), 'AD_VP', 17000, NULL, 100, 90);</span>
+<span id="cb15-182"><a href=""></a>INSERT INTO employees VALUES ( 103, 'Alexander', 'Hunold', 'AHUNOLD', '590.423.4567', STR_TO_DATE('03-01-2006', '%d-%m-%Y'), 'IT_PROG', 9000, NULL, 102, 60);</span>
+<span id="cb15-183"><a href=""></a>INSERT INTO employees VALUES ( 104, 'Bruce', 'Ernst', 'BERNST', '590.423.4568', STR_TO_DATE('21-05-2007', '%d-%m-%Y'), 'IT_PROG', 6000, NULL, 103, 60);</span>
+<span id="cb15-184"><a href=""></a>INSERT INTO employees VALUES ( 105, 'David', 'Austin', 'DAUSTIN', '590.423.4569', STR_TO_DATE('25-06-2005', '%d-%m-%Y'), 'IT_PROG', 4800, NULL, 103, 60);</span>
+<span id="cb15-185"><a href=""></a>INSERT INTO employees VALUES ( 106, 'Valli', 'Pataballa', 'VPATABAL', '590.423.4560', STR_TO_DATE('05-02-2006', '%d-%m-%Y'), 'IT_PROG', 4800, NULL, 103, 60);</span>
+<span id="cb15-186"><a href=""></a>INSERT INTO employees VALUES ( 107, 'Diana', 'Lorentz', 'DLORENTZ', '590.423.5567', STR_TO_DATE('07-02-2007', '%d-%m-%Y'), 'IT_PROG', 4200, NULL, 103, 60);</span>
+<span id="cb15-187"><a href=""></a>INSERT INTO employees VALUES ( 108, 'Nancy', 'Greenberg', 'NGREENBE', '515.124.4569', STR_TO_DATE('17-08-2002', '%d-%m-%Y'), 'FI_MGR', 12008, NULL, 101, 100);</span>
+<span id="cb15-188"><a href=""></a>INSERT INTO employees VALUES ( 109, 'Daniel', 'Faviet', 'DFAVIET', '515.124.4169', STR_TO_DATE('16-08-2002', '%d-%m-%Y'), 'FI_ACCOUNT', 9000, NULL, 108, 100);</span>
+<span id="cb15-189"><a href=""></a>INSERT INTO employees VALUES ( 110, 'John', 'Chen', 'JCHEN', '515.124.4269', STR_TO_DATE('28-09-2005', '%d-%m-%Y'), 'FI_ACCOUNT', 8200, NULL, 108, 100);</span>
+<span id="cb15-190"><a href=""></a>INSERT INTO employees VALUES ( 111, 'Ismael', 'Sciarra', 'ISCIARRA', '515.124.4369', STR_TO_DATE('30-09-2005', '%d-%m-%Y'), 'FI_ACCOUNT', 7700, NULL, 108, 100);</span>
+<span id="cb15-191"><a href=""></a>INSERT INTO employees VALUES ( 112, 'Jose Manuel', 'Urman', 'JMURMAN', '515.124.4469', STR_TO_DATE('07-03-2006', '%d-%m-%Y'), 'FI_ACCOUNT', 7800, NULL, 108, 100);</span>
+<span id="cb15-192"><a href=""></a>INSERT INTO employees VALUES ( 113, 'Luis', 'Popp', 'LPOPP', '515.124.4567', STR_TO_DATE('07-12-2007', '%d-%m-%Y'), 'FI_ACCOUNT', 6900, NULL, 108, 100);</span>
+<span id="cb15-193"><a href=""></a>INSERT INTO employees VALUES ( 114, 'Den', 'Raphaely', 'DRAPHEAL', '515.127.4561', STR_TO_DATE('07-12-2002', '%d-%m-%Y'), 'PU_MAN', 11000, NULL, 100, 30);</span>
+<span id="cb15-194"><a href=""></a>INSERT INTO employees VALUES ( 115, 'Alexander', 'Khoo', 'AKHOO', '515.127.4562', STR_TO_DATE('18-05-2003', '%d-%m-%Y'), 'PU_CLERK', 3100, NULL, 114, 30);</span>
+<span id="cb15-195"><a href=""></a>INSERT INTO employees VALUES ( 116, 'Shelli', 'Baida', 'SBAIDA', '515.127.4563', STR_TO_DATE('24-12-2005', '%d-%m-%Y'), 'PU_CLERK', 2900, NULL, 114, 30);</span>
+<span id="cb15-196"><a href=""></a>INSERT INTO employees VALUES ( 117, 'Sigal', 'Tobias', 'STOBIAS', '515.127.4564', STR_TO_DATE('24-07-2005', '%d-%m-%Y'), 'PU_CLERK', 2800, NULL, 114, 30);</span>
+<span id="cb15-197"><a href=""></a>INSERT INTO employees VALUES ( 118, 'Guy', 'Himuro', 'GHIMURO', '515.127.4565', STR_TO_DATE('15-11-2006', '%d-%m-%Y'), 'PU_CLERK', 2600, NULL, 114, 30);</span>
+<span id="cb15-198"><a href=""></a>INSERT INTO employees VALUES ( 119, 'Karen', 'Colmenares', 'KCOLMENA', '515.127.4566', STR_TO_DATE('10-08-2007', '%d-%m-%Y'), 'PU_CLERK', 2500, NULL, 114, 30);</span>
+<span id="cb15-199"><a href=""></a>INSERT INTO employees VALUES ( 120, 'Matthew', 'Weiss', 'MWEISS', '650.123.1234', STR_TO_DATE('18-07-2004', '%d-%m-%Y'), 'ST_MAN', 8000, NULL, 100, 50);</span>
+<span id="cb15-200"><a href=""></a>INSERT INTO employees VALUES ( 121, 'Adam', 'Fripp', 'AFRIPP', '650.123.2234', STR_TO_DATE('10-04-2005', '%d-%m-%Y'), 'ST_MAN', 8200, NULL, 100, 50);</span>
+<span id="cb15-201"><a href=""></a>INSERT INTO employees VALUES ( 122, 'Payam', 'Kaufling', 'PKAUFLIN', '650.123.3234', STR_TO_DATE('01-05-2003', '%d-%m-%Y'), 'ST_MAN', 7900, NULL, 100, 50);</span>
+<span id="cb15-202"><a href=""></a>INSERT INTO employees VALUES ( 123, 'Shanta', 'Vollman', 'SVOLLMAN', '650.123.4234', STR_TO_DATE('10-10-2005', '%d-%m-%Y'), 'ST_MAN', 6500, NULL, 100, 50);</span>
+<span id="cb15-203"><a href=""></a>INSERT INTO employees VALUES ( 124, 'Kevin', 'Mourgos', 'KMOURGOS', '650.123.5234', STR_TO_DATE('16-11-2007', '%d-%m-%Y'), 'ST_MAN', 5800, NULL, 100, 50);</span>
+<span id="cb15-204"><a href=""></a>INSERT INTO employees VALUES ( 125, 'Julia', 'Nayer', 'JNAYER', '650.124.1214', STR_TO_DATE('16-07-2005', '%d-%m-%Y'), 'ST_CLERK', 3200, NULL, 120, 50);</span>
+<span id="cb15-205"><a href=""></a>INSERT INTO employees VALUES ( 126, 'Irene', 'Mikkilineni', 'IMIKKILI', '650.124.1224', STR_TO_DATE('28-09-2006', '%d-%m-%Y'), 'ST_CLERK', 2700, NULL, 120, 50);</span>
+<span id="cb15-206"><a href=""></a>INSERT INTO employees VALUES ( 127, 'James', 'Landry', 'JLANDRY', '650.124.1334', STR_TO_DATE('14-01-2007', '%d-%m-%Y'), 'ST_CLERK', 2400, NULL, 120, 50);</span>
+<span id="cb15-207"><a href=""></a>INSERT INTO employees VALUES ( 128, 'Steven', 'Markle', 'SMARKLE', '650.124.1434', STR_TO_DATE('08-03-2008', '%d-%m-%Y'), 'ST_CLERK', 2200, NULL, 120, 50);</span>
+<span id="cb15-208"><a href=""></a>INSERT INTO employees VALUES ( 129, 'Laura', 'Bissot', 'LBISSOT', '650.124.5234', STR_TO_DATE('20-08-2005', '%d-%m-%Y'), 'ST_CLERK', 3300, NULL, 121, 50);</span>
+<span id="cb15-209"><a href=""></a>INSERT INTO employees VALUES ( 130, 'Mozhe', 'Atkinson', 'MATKINSO', '650.124.6234', STR_TO_DATE('30-10-2005', '%d-%m-%Y'), 'ST_CLERK', 2800, NULL, 121, 50);</span>
+<span id="cb15-210"><a href=""></a>INSERT INTO employees VALUES ( 131, 'James', 'Marlow', 'JAMRLOW', '650.124.7234', STR_TO_DATE('16-02-2005', '%d-%m-%Y'), 'ST_CLERK', 2500, NULL, 121, 50);</span>
+<span id="cb15-211"><a href=""></a>INSERT INTO employees VALUES ( 132, 'TJ', 'Olson', 'TJOLSON', '650.124.8234', STR_TO_DATE('10-04-2007', '%d-%m-%Y'), 'ST_CLERK', 2100, NULL, 121, 50);</span>
+<span id="cb15-212"><a href=""></a>INSERT INTO employees VALUES ( 133, 'Jason', 'Mallin', 'JMALLIN', '650.127.1934', STR_TO_DATE('14-06-2004', '%d-%m-%Y'), 'ST_CLERK', 3300, NULL, 122, 50);</span>
+<span id="cb15-213"><a href=""></a>INSERT INTO employees VALUES ( 134, 'Michael', 'Rogers', 'MROGERS', '650.127.1834', STR_TO_DATE('26-08-2006', '%d-%m-%Y'), 'ST_CLERK', 2900, NULL, 122, 50);</span>
+<span id="cb15-214"><a href=""></a>INSERT INTO employees VALUES ( 135, 'Ki', 'Gee', 'KGEE', '650.127.1734', STR_TO_DATE('12-12-2007', '%d-%m-%Y'), 'ST_CLERK', 2400, NULL, 122, 50);</span>
+<span id="cb15-215"><a href=""></a>INSERT INTO employees VALUES ( 136, 'Hazel', 'Philtanker', 'HPHILTAN', '650.127.1634', STR_TO_DATE('06-02-2008', '%d-%m-%Y'), 'ST_CLERK', 2200, NULL, 122, 50);</span>
+<span id="cb15-216"><a href=""></a>INSERT INTO employees VALUES ( 137, 'Renske', 'Ladwig', 'RLADWIG', '650.121.1234', STR_TO_DATE('14-07-2003', '%d-%m-%Y'), 'ST_CLERK', 3600, NULL, 123, 50);</span>
+<span id="cb15-217"><a href=""></a>INSERT INTO employees VALUES ( 138, 'Stephen', 'Stiles', 'SSTILES', '650.121.2034', STR_TO_DATE('26-10-2005', '%d-%m-%Y'), 'ST_CLERK', 3200, NULL, 123, 50);</span>
+<span id="cb15-218"><a href=""></a>INSERT INTO employees VALUES ( 139, 'John', 'Seo', 'JSEO', '650.121.2019', STR_TO_DATE('12-02-2006', '%d-%m-%Y'), 'ST_CLERK', 2700, NULL, 123, 50);</span>
+<span id="cb15-219"><a href=""></a>INSERT INTO employees VALUES ( 140, 'Joshua', 'Patel', 'JPATEL', '650.121.1834', STR_TO_DATE('06-04-2006', '%d-%m-%Y'), 'ST_CLERK', 2500, NULL, 123, 50);</span>
+<span id="cb15-220"><a href=""></a>INSERT INTO employees VALUES ( 141, 'Trenna', 'Rajs', 'TRAJS', '650.121.8009', STR_TO_DATE('17-10-2003', '%d-%m-%Y'), 'ST_CLERK', 3500, NULL, 124, 50);</span>
+<span id="cb15-221"><a href=""></a>INSERT INTO employees VALUES ( 142, 'Curtis', 'Davies', 'CDAVIES', '650.121.2994', STR_TO_DATE('29-01-2005', '%d-%m-%Y'), 'ST_CLERK', 3100, NULL, 124, 50);</span>
+<span id="cb15-222"><a href=""></a>INSERT INTO employees VALUES ( 143, 'Randall', 'Matos', 'RMATOS', '650.121.2874', STR_TO_DATE('15-03-2006', '%d-%m-%Y'), 'ST_CLERK', 2600, NULL, 124, 50);</span>
+<span id="cb15-223"><a href=""></a>INSERT INTO employees VALUES ( 144, 'Peter', 'Vargas', 'PVARGAS', '650.121.2004', STR_TO_DATE('09-07-2006', '%d-%m-%Y'), 'ST_CLERK', 2500, NULL, 124, 50);</span>
+<span id="cb15-224"><a href=""></a>INSERT INTO employees VALUES ( 145, 'John', 'Russell', 'JRUSSEL', '011.44.1344.429268', STR_TO_DATE('01-10-2004', '%d-%m-%Y'), 'SA_MAN', 14000, .4, 100, 80);</span>
+<span id="cb15-225"><a href=""></a>INSERT INTO employees VALUES ( 146, 'Karen', 'Partners', 'KPARTNER', '011.44.1344.467268', STR_TO_DATE('05-01-2005', '%d-%m-%Y'), 'SA_MAN', 13500, .3, 100, 80);</span>
+<span id="cb15-226"><a href=""></a>INSERT INTO employees VALUES ( 147, 'Alberto', 'Errazuriz', 'AERRAZUR', '011.44.1344.429278', STR_TO_DATE('10-03-2005', '%d-%m-%Y'), 'SA_MAN', 12000, .3, 100, 80);</span>
+<span id="cb15-227"><a href=""></a>INSERT INTO employees VALUES ( 148, 'Gerald', 'Cambrault', 'GCAMBRAU', '011.44.1344.619268', STR_TO_DATE('15-10-2007', '%d-%m-%Y'), 'SA_MAN', 11000, .3, 100, 80);</span>
+<span id="cb15-228"><a href=""></a>INSERT INTO employees VALUES ( 149, 'Eleni', 'Zlotkey', 'EZLOTKEY', '011.44.1344.429018', STR_TO_DATE('29-01-2008', '%d-%m-%Y'), 'SA_MAN', 10500, .2, 100, 80);</span>
+<span id="cb15-229"><a href=""></a>INSERT INTO employees VALUES ( 150, 'Peter', 'Tucker', 'PTUCKER', '011.44.1344.129268', STR_TO_DATE('30-01-2005', '%d-%m-%Y'), 'SA_REP', 10000, .3, 145, 80);</span>
+<span id="cb15-230"><a href=""></a>INSERT INTO employees VALUES ( 151, 'David', 'Bernstein', 'DBERNSTE', '011.44.1344.345268', STR_TO_DATE('24-03-2005', '%d-%m-%Y'), 'SA_REP', 9500, .25, 145, 80);</span>
+<span id="cb15-231"><a href=""></a>INSERT INTO employees VALUES ( 152, 'Peter', 'Hall', 'PHALL', '011.44.1344.478968', STR_TO_DATE('20-08-2005', '%d-%m-%Y'), 'SA_REP', 9000, .25, 145, 80);</span>
+<span id="cb15-232"><a href=""></a>INSERT INTO employees VALUES ( 153, 'Christopher', 'Olsen', 'COLSEN', '011.44.1344.498718', STR_TO_DATE('30-03-2006', '%d-%m-%Y'), 'SA_REP', 8000, .2, 145, 80);</span>
+<span id="cb15-233"><a href=""></a>INSERT INTO employees VALUES ( 154, 'Nanette', 'Cambrault', 'NCAMBRAU', '011.44.1344.987668', STR_TO_DATE('09-12-2006', '%d-%m-%Y'), 'SA_REP', 7500, .2, 145, 80);</span>
+<span id="cb15-234"><a href=""></a>INSERT INTO employees VALUES ( 155, 'Oliver', 'Tuvault', 'OTUVAULT', '011.44.1344.486508', STR_TO_DATE('23-11-2007', '%d-%m-%Y'), 'SA_REP', 7000, .15, 145, 80);</span>
+<span id="cb15-235"><a href=""></a>INSERT INTO employees VALUES ( 156, 'Janette', 'King', 'JKING', '011.44.1345.429268', STR_TO_DATE('30-01-2004', '%d-%m-%Y'), 'SA_REP', 10000, .35, 146, 80);</span>
+<span id="cb15-236"><a href=""></a>INSERT INTO employees VALUES ( 157, 'Patrick', 'Sully', 'PSULLY', '011.44.1345.929268', STR_TO_DATE('04-03-2004', '%d-%m-%Y'), 'SA_REP', 9500, .35, 146, 80);</span>
+<span id="cb15-237"><a href=""></a>INSERT INTO employees VALUES ( 158, 'Allan', 'McEwen', 'AMCEWEN', '011.44.1345.829268', STR_TO_DATE('01-08-2004', '%d-%m-%Y'), 'SA_REP', 9000, .35, 146, 80);</span>
+<span id="cb15-238"><a href=""></a>INSERT INTO employees VALUES ( 159, 'Lindsey', 'Smith', 'LSMITH', '011.44.1345.729268', STR_TO_DATE('10-03-2005', '%d-%m-%Y'), 'SA_REP', 8000, .3, 146, 80);</span>
+<span id="cb15-239"><a href=""></a>INSERT INTO employees VALUES ( 160, 'Louise', 'Doran', 'LDORAN', '011.44.1345.629268', STR_TO_DATE('15-12-2005', '%d-%m-%Y'), 'SA_REP', 7500, .3, 146, 80);</span>
+<span id="cb15-240"><a href=""></a>INSERT INTO employees VALUES ( 161, 'Sarath', 'Sewall', 'SSEWALL', '011.44.1345.529268', STR_TO_DATE('03-11-2006', '%d-%m-%Y'), 'SA_REP', 7000, .25, 146, 80);</span>
+<span id="cb15-241"><a href=""></a>INSERT INTO employees VALUES ( 162, 'Clara', 'Vishney', 'CVISHNEY', '011.44.1346.129268', STR_TO_DATE('11-11-2005', '%d-%m-%Y'), 'SA_REP', 10500, .25, 147, 80);</span>
+<span id="cb15-242"><a href=""></a>INSERT INTO employees VALUES ( 163, 'Danielle', 'Greene', 'DGREENE', '011.44.1346.229268', STR_TO_DATE('19-03-2007', '%d-%m-%Y'), 'SA_REP', 9500, .15, 147, 80);</span>
+<span id="cb15-243"><a href=""></a>INSERT INTO employees VALUES ( 164, 'Mattea', 'Marvins', 'MMARVINS', '011.44.1346.329268', STR_TO_DATE('24-01-2008', '%d-%m-%Y'), 'SA_REP', 7200, .10, 147, 80);</span>
+<span id="cb15-244"><a href=""></a>INSERT INTO employees VALUES ( 165, 'David', 'Lee', 'DLEE', '011.44.1346.529268', STR_TO_DATE('23-02-2008', '%d-%m-%Y'), 'SA_REP', 6800, .1, 147, 80);</span>
+<span id="cb15-245"><a href=""></a>INSERT INTO employees VALUES ( 166, 'Sundar', 'Ande', 'SANDE', '011.44.1346.629268', STR_TO_DATE('24-03-2008', '%d-%m-%Y'), 'SA_REP', 6400, .10, 147, 80);</span>
+<span id="cb15-246"><a href=""></a>INSERT INTO employees VALUES ( 167, 'Amit', 'Banda', 'ABANDA', '011.44.1346.729268', STR_TO_DATE('21-04-2008', '%d-%m-%Y'), 'SA_REP', 6200, .10, 147, 80);</span>
+<span id="cb15-247"><a href=""></a>INSERT INTO employees VALUES ( 168, 'Lisa', 'Ozer', 'LOZER', '011.44.1343.929268', STR_TO_DATE('11-03-2005', '%d-%m-%Y'), 'SA_REP', 11500, .25, 148, 80);</span>
+<span id="cb15-248"><a href=""></a>INSERT INTO employees VALUES ( 169  , 'Harrison', 'Bloom', 'HBLOOM', '011.44.1343.829268', STR_TO_DATE('23-03-2006', '%d-%m-%Y'), 'SA_REP', 10000, .20, 148, 80);</span>
+<span id="cb15-249"><a href=""></a>INSERT INTO employees VALUES ( 170, 'Tayler', 'Fox', 'TFOX', '011.44.1343.729268', STR_TO_DATE('24-01-2006', '%d-%m-%Y'), 'SA_REP', 9600, .20, 148, 80);</span>
+<span id="cb15-250"><a href=""></a>INSERT INTO employees VALUES ( 171, 'William', 'Smith', 'WSMITH', '011.44.1343.629268', STR_TO_DATE('23-02-2007', '%d-%m-%Y'), 'SA_REP', 7400, .15, 148, 80);</span>
+<span id="cb15-251"><a href=""></a>INSERT INTO employees VALUES ( 172, 'Elizabeth', 'Bates', 'EBATES', '011.44.1343.529268', STR_TO_DATE('24-03-2007', '%d-%m-%Y'), 'SA_REP', 7300, .15, 148, 80);</span>
+<span id="cb15-252"><a href=""></a>INSERT INTO employees VALUES ( 173, 'Sundita', 'Kumar', 'SKUMAR', '011.44.1343.329268', STR_TO_DATE('21-04-2008', '%d-%m-%Y'), 'SA_REP', 6100, .10, 148, 80);</span>
+<span id="cb15-253"><a href=""></a>INSERT INTO employees VALUES ( 174, 'Ellen', 'Abel', 'EABEL', '011.44.1644.429267', STR_TO_DATE('11-05-2004', '%d-%m-%Y'), 'SA_REP', 11000, .30, 149, 80);</span>
+<span id="cb15-254"><a href=""></a>INSERT INTO employees VALUES ( 175, 'Alyssa', 'Hutton', 'AHUTTON', '011.44.1644.429266', STR_TO_DATE('19-03-2005', '%d-%m-%Y'), 'SA_REP', 8800, .25, 149, 80);</span>
+<span id="cb15-255"><a href=""></a>INSERT INTO employees VALUES ( 176, 'Jonathon', 'Taylor', 'JTAYLOR', '011.44.1644.429265', STR_TO_DATE('24-03-2006', '%d-%m-%Y'), 'SA_REP', 8600, .20, 149, 80);</span>
+<span id="cb15-256"><a href=""></a>INSERT INTO employees VALUES ( 177, 'Jack', 'Livingston', 'JLIVINGS', '011.44.1644.429264', STR_TO_DATE('23-04-2006', '%d-%m-%Y'), 'SA_REP', 8400, .20, 149, 80);</span>
+<span id="cb15-257"><a href=""></a>INSERT INTO employees VALUES ( 178, 'Kimberely', 'Grant', 'KGRANT', '011.44.1644.429263', STR_TO_DATE('24-05-2007', '%d-%m-%Y'), 'SA_REP', 7000, .15, 149, NULL);</span>
+<span id="cb15-258"><a href=""></a>INSERT INTO employees VALUES ( 179, 'Charles', 'Johnson', 'CJOHNSON', '011.44.1644.429262', STR_TO_DATE('04-01-2008', '%d-%m-%Y'), 'SA_REP', 6200, .10, 149, 80);</span>
+<span id="cb15-259"><a href=""></a>INSERT INTO employees VALUES ( 180, 'Winston', 'Taylor', 'WTAYLOR', '650.507.9876', STR_TO_DATE('24-01-2006', '%d-%m-%Y'), 'SH_CLERK', 3200, NULL, 120, 50);</span>
+<span id="cb15-260"><a href=""></a>INSERT INTO employees VALUES ( 181, 'Jean', 'Fleaur', 'JFLEAUR', '650.507.9877', STR_TO_DATE('23-02-2006', '%d-%m-%Y'), 'SH_CLERK', 3100, NULL, 120, 50);</span>
+<span id="cb15-261"><a href=""></a>INSERT INTO employees VALUES ( 182, 'Martha', 'Sullivan', 'MSULLIVA', '650.507.9878', STR_TO_DATE('21-06-2007', '%d-%m-%Y'), 'SH_CLERK', 2500, NULL, 120, 50);</span>
+<span id="cb15-262"><a href=""></a>INSERT INTO employees VALUES ( 183, 'Girard', 'Geoni', 'GGEONI', '650.507.9879', STR_TO_DATE('03-02-2008', '%d-%m-%Y'), 'SH_CLERK', 2800, NULL, 120, 50);</span>
+<span id="cb15-263"><a href=""></a>INSERT INTO employees VALUES ( 184, 'Nandita', 'Sarchand', 'NSARCHAN', '650.509.1876', STR_TO_DATE('27-01-2004', '%d-%m-%Y'), 'SH_CLERK', 4200, NULL, 121, 50);</span>
+<span id="cb15-264"><a href=""></a>INSERT INTO employees VALUES ( 185, 'Alexis', 'Bull', 'ABULL', '650.509.2876', STR_TO_DATE('20-02-2005', '%d-%m-%Y'), 'SH_CLERK', 4100, NULL, 121, 50);</span>
+<span id="cb15-265"><a href=""></a>INSERT INTO employees VALUES ( 186, 'Julia', 'Dellinger', 'JDELLING', '650.509.3876', STR_TO_DATE('24-06-2006', '%d-%m-%Y'), 'SH_CLERK', 3400, NULL, 121, 50);</span>
+<span id="cb15-266"><a href=""></a>INSERT INTO employees VALUES ( 187, 'Anthony', 'Cabrio', 'ACABRIO', '650.509.4876', STR_TO_DATE('07-02-2007', '%d-%m-%Y'), 'SH_CLERK', 3000, NULL, 121, 50);</span>
+<span id="cb15-267"><a href=""></a>INSERT INTO employees VALUES ( 188, 'Kelly', 'Chung', 'KCHUNG', '650.505.1876', STR_TO_DATE('14-06-2005', '%d-%m-%Y'), 'SH_CLERK', 3800, NULL, 122, 50);</span>
+<span id="cb15-268"><a href=""></a>INSERT INTO employees VALUES ( 189, 'Jennifer', 'Dilly', 'JDILLY', '650.505.2876', STR_TO_DATE('13-08-2005', '%d-%m-%Y'), 'SH_CLERK', 3600, NULL, 122, 50);</span>
+<span id="cb15-269"><a href=""></a>INSERT INTO employees VALUES ( 190, 'Timothy', 'Gates', 'TGATES', '650.505.3876', STR_TO_DATE('11-07-2006', '%d-%m-%Y'), 'SH_CLERK', 2900, NULL, 122, 50);</span>
+<span id="cb15-270"><a href=""></a>INSERT INTO employees VALUES ( 191, 'Randall', 'Perkins', 'RPERKINS', '650.505.4876', STR_TO_DATE('19-12-2007', '%d-%m-%Y'), 'SH_CLERK', 2500, NULL, 122, 50);</span>
+<span id="cb15-271"><a href=""></a>INSERT INTO employees VALUES ( 192, 'Sarah', 'Bell', 'SBELL', '650.501.1876', STR_TO_DATE('04-02-2004', '%d-%m-%Y'), 'SH_CLERK', 4000, NULL, 123, 50);</span>
+<span id="cb15-272"><a href=""></a>INSERT INTO employees VALUES ( 193, 'Britney', 'Everett', 'BEVERETT', '650.501.2876', STR_TO_DATE('03-03-2005', '%d-%m-%Y'), 'SH_CLERK', 3900, NULL, 123, 50);</span>
+<span id="cb15-273"><a href=""></a>INSERT INTO employees VALUES ( 194, 'Samuel', 'McCain', 'SMCCAIN', '650.501.3876', STR_TO_DATE('01-07-2006', '%d-%m-%Y'), 'SH_CLERK', 3200, NULL, 123, 50);</span>
+<span id="cb15-274"><a href=""></a>INSERT INTO employees VALUES ( 195, 'Vance', 'Jones', 'VJONES', '650.501.4876', STR_TO_DATE('17-03-2007', '%d-%m-%Y'), 'SH_CLERK', 2800, NULL, 123, 50);</span>
+<span id="cb15-275"><a href=""></a>INSERT INTO employees VALUES ( 196, 'Alana', 'Walsh', 'AWALSH', '650.507.9811', STR_TO_DATE('24-04-2006', '%d-%m-%Y'), 'SH_CLERK', 3100, NULL, 124, 50);</span>
+<span id="cb15-276"><a href=""></a>INSERT INTO employees VALUES ( 197, 'Kevin', 'Feeney', 'KFEENEY', '650.507.9822', STR_TO_DATE('23-05-2006', '%d-%m-%Y'), 'SH_CLERK', 3000, NULL, 124, 50);</span>
+<span id="cb15-277"><a href=""></a>INSERT INTO employees VALUES ( 198, 'Donald', 'OConnell', 'DOCONNEL', '650.507.9833', STR_TO_DATE('21-06-2007', '%d-%m-%Y'), 'SH_CLERK', 2600, NULL, 124, 50);</span>
+<span id="cb15-278"><a href=""></a>INSERT INTO employees VALUES ( 199, 'Douglas', 'Grant', 'DGRANT', '650.507.9844', STR_TO_DATE('13-01-2008', '%d-%m-%Y'), 'SH_CLERK', 2600, NULL, 124, 50);</span>
+<span id="cb15-279"><a href=""></a>INSERT INTO employees VALUES ( 200, 'Jennifer', 'Whalen', 'JWHALEN', '515.123.4444', STR_TO_DATE('17-09-2003', '%d-%m-%Y'), 'AD_ASST', 4400, NULL, 101, 10);</span>
+<span id="cb15-280"><a href=""></a>INSERT INTO employees VALUES ( 201, 'Michael', 'Hartstein', 'MHARTSTE', '515.123.5555', STR_TO_DATE('17-02-2004', '%d-%m-%Y'), 'MK_MAN', 13000, NULL, 100, 20);</span>
+<span id="cb15-281"><a href=""></a>INSERT INTO employees VALUES ( 202, 'Pat', 'Fay', 'PFAY', '603.123.6666', STR_TO_DATE('17-08-2005', '%d-%m-%Y'), 'MK_REP', 6000, NULL, 201, 20);</span>
+<span id="cb15-282"><a href=""></a>INSERT INTO employees VALUES ( 203, 'Susan', 'Mavris', 'SMAVRIS', '515.123.7777', STR_TO_DATE('07-06-2002', '%d-%m-%Y'), 'HR_REP', 6500, NULL, 101, 40);</span>
+<span id="cb15-283"><a href=""></a>INSERT INTO employees VALUES ( 204, 'Hermann', 'Baer', 'HBAER', '515.123.8888', STR_TO_DATE('07-06-2002', '%d-%m-%Y'), 'PR_REP', 10000, NULL, 101, 70);</span>
+<span id="cb15-284"><a href=""></a>INSERT INTO employees VALUES ( 205, 'Shelley', 'Higgins', 'SHIGGINS', '515.123.8080', STR_TO_DATE('07-06-2002', '%d-%m-%Y'), 'AC_MGR', 12008, NULL, 101, 110);</span>
+<span id="cb15-285"><a href=""></a>INSERT INTO employees VALUES ( 206, 'William', 'Gietz', 'WGIETZ', '515.123.8181', STR_TO_DATE('07-06-2002', '%d-%m-%Y'), 'AC_ACCOUNT', 8300, NULL, 205, 110);</span>
+<span id="cb15-286"><a href=""></a></span>
+<span id="cb15-287"><a href=""></a>ALTER TABLE departments ADD (CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id));</span>
+<span id="cb15-288"><a href=""></a></span>
+<span id="cb15-289"><a href=""></a>CREATE TABLE job_history (</span>
+<span id="cb15-290"><a href=""></a>employee_id   INT(6) NOT NULL,</span>
+<span id="cb15-291"><a href=""></a>start_date    DATE NOT NULL,</span>
+<span id="cb15-292"><a href=""></a>end_date      DATE NOT NULL,</span>
+<span id="cb15-293"><a href=""></a>job_id        VARCHAR(10) NOT NULL,</span>
+<span id="cb15-294"><a href=""></a>department_id INT(4),</span>
+<span id="cb15-295"><a href=""></a>PRIMARY KEY (employee_id, start_date, end_date),</span>
+<span id="cb15-296"><a href=""></a>FOREIGN KEY (job_id) REFERENCES jobs (job_id),</span>
+<span id="cb15-297"><a href=""></a>FOREIGN KEY (employee_id) REFERENCES employees (employee_id),</span>
+<span id="cb15-298"><a href=""></a>FOREIGN KEY (department_id) REFERENCES departments (department_id)</span>
+<span id="cb15-299"><a href=""></a>);</span>
+<span id="cb15-300"><a href=""></a></span>
+<span id="cb15-301"><a href=""></a>INSERT INTO job_history VALUES (102, STR_TO_DATE('13-01-2001', '%d-%m-%Y'), STR_TO_DATE('24-07-2006', '%d-%m-%Y'), 'IT_PROG', 60);</span>
+<span id="cb15-302"><a href=""></a>INSERT INTO job_history VALUES (101, STR_TO_DATE('21-09-1997', '%d-%m-%Y'), STR_TO_DATE('27-10-2001', '%d-%m-%Y'), 'AC_ACCOUNT', 110);</span>
+<span id="cb15-303"><a href=""></a>INSERT INTO job_history VALUES (101, STR_TO_DATE('28-10-2001', '%d-%m-%Y'), STR_TO_DATE('15-03-2005', '%d-%m-%Y'), 'AC_MGR', 110);</span>
+<span id="cb15-304"><a href=""></a>INSERT INTO job_history VALUES (201, STR_TO_DATE('17-02-2004', '%d-%m-%Y'), STR_TO_DATE('19-12-2007', '%d-%m-%Y'), 'MK_REP', 20);</span>
+<span id="cb15-305"><a href=""></a>INSERT INTO job_history VALUES  (114, STR_TO_DATE('24-03-2006', '%d-%m-%Y'), STR_TO_DATE('31-12-2007', '%d-%m-%Y'), 'ST_CLERK', 50);</span>
+<span id="cb15-306"><a href=""></a>INSERT INTO job_history VALUES  (122, STR_TO_DATE('01-01-2007', '%d-%m-%Y'), STR_TO_DATE('31-12-2007', '%d-%m-%Y'), 'ST_CLERK', 50);</span>
+<span id="cb15-307"><a href=""></a>INSERT INTO job_history VALUES  (200, STR_TO_DATE('17-09-1995', '%d-%m-%Y'), STR_TO_DATE('17-06-2001', '%d-%m-%Y'), 'AD_ASST', 90);</span>
+<span id="cb15-308"><a href=""></a>INSERT INTO job_history VALUES  (176, STR_TO_DATE('24-03-2006', '%d-%m-%Y'), STR_TO_DATE('31-12-2006', '%d-%m-%Y'), 'SA_REP', 80);</span>
+<span id="cb15-309"><a href=""></a>INSERT INTO job_history VALUES  (176, STR_TO_DATE('01-01-2007', '%d-%m-%Y'), STR_TO_DATE('31-12-2007', '%d-%m-%Y'), 'SA_MAN', 80);</span>
+<span id="cb15-310"><a href=""></a>INSERT INTO job_history VALUES  (200, STR_TO_DATE('01-07-2002', '%d-%m-%Y'), STR_TO_DATE('31-12-2006', '%d-%m-%Y'), 'AC_ACCOUNT', 90);</span>
+<span id="cb15-311"><a href=""></a></span>
+<span id="cb15-312"><a href=""></a>CREATE OR REPLACE VIEW emp_details_view (</span>
+<span id="cb15-313"><a href=""></a>   employee_id,</span>
+<span id="cb15-314"><a href=""></a>   job_id,</span>
+<span id="cb15-315"><a href=""></a>   manager_id,</span>
+<span id="cb15-316"><a href=""></a>   department_id,</span>
+<span id="cb15-317"><a href=""></a>   location_id,</span>
+<span id="cb15-318"><a href=""></a>   country_id,</span>
+<span id="cb15-319"><a href=""></a>   first_name,</span>
+<span id="cb15-320"><a href=""></a>   last_name,</span>
+<span id="cb15-321"><a href=""></a>   salary,</span>
+<span id="cb15-322"><a href=""></a>   commission_pct,</span>
+<span id="cb15-323"><a href=""></a>   department_name,</span>
+<span id="cb15-324"><a href=""></a>   job_title,</span>
+<span id="cb15-325"><a href=""></a>   city,</span>
+<span id="cb15-326"><a href=""></a>   state_province,</span>
+<span id="cb15-327"><a href=""></a>   country_name,</span>
+<span id="cb15-328"><a href=""></a>   region_name)</span>
+<span id="cb15-329"><a href=""></a>AS SELECT</span>
+<span id="cb15-330"><a href=""></a>  e.employee_id, </span>
+<span id="cb15-331"><a href=""></a>  e.job_id, </span>
+<span id="cb15-332"><a href=""></a>  e.manager_id, </span>
+<span id="cb15-333"><a href=""></a>  e.department_id,</span>
+<span id="cb15-334"><a href=""></a>  d.location_id,</span>
+<span id="cb15-335"><a href=""></a>  l.country_id,</span>
+<span id="cb15-336"><a href=""></a>  e.first_name,</span>
+<span id="cb15-337"><a href=""></a>  e.last_name,</span>
+<span id="cb15-338"><a href=""></a>  e.salary,</span>
+<span id="cb15-339"><a href=""></a>  e.commission_pct,</span>
+<span id="cb15-340"><a href=""></a>  d.department_name,</span>
+<span id="cb15-341"><a href=""></a>  j.job_title,</span>
+<span id="cb15-342"><a href=""></a>  l.city,</span>
+<span id="cb15-343"><a href=""></a>  l.state_province,</span>
+<span id="cb15-344"><a href=""></a>  c.country_name,</span>
+<span id="cb15-345"><a href=""></a>  r.region_name</span>
+<span id="cb15-346"><a href=""></a>FROM</span>
+<span id="cb15-347"><a href=""></a>  employees e,</span>
+<span id="cb15-348"><a href=""></a>  departments d,</span>
+<span id="cb15-349"><a href=""></a>  jobs j,</span>
+<span id="cb15-350"><a href=""></a>  locations l,</span>
+<span id="cb15-351"><a href=""></a>  countries c,</span>
+<span id="cb15-352"><a href=""></a>  regions r</span>
+<span id="cb15-353"><a href=""></a>WHERE e.department_id = d.department_id</span>
+<span id="cb15-354"><a href=""></a>  AND d.location_id = l.location_id</span>
+<span id="cb15-355"><a href=""></a>  AND l.country_id = c.country_id</span>
+<span id="cb15-356"><a href=""></a>  AND c.region_id = r.region_id</span>
+<span id="cb15-357"><a href=""></a>  AND j.job_id = e.job_id </span>
+<span id="cb15-358"><a href=""></a>;</span>
+<span id="cb15-359"><a href=""></a></span>
+<span id="cb15-360"><a href=""></a>CREATE INDEX emp_department_ix ON employees (department_id);</span>
+<span id="cb15-361"><a href=""></a></span>
+<span id="cb15-362"><a href=""></a>CREATE INDEX emp_job_ix ON employees (job_id);</span>
+<span id="cb15-363"><a href=""></a></span>
+<span id="cb15-364"><a href=""></a>CREATE INDEX emp_manager_ix ON employees (manager_id);</span>
+<span id="cb15-365"><a href=""></a></span>
+<span id="cb15-366"><a href=""></a>CREATE INDEX emp_name_ix ON employees (last_name, first_name);</span>
+<span id="cb15-367"><a href=""></a></span>
+<span id="cb15-368"><a href=""></a>CREATE INDEX dept_location_ix ON departments (location_id);</span>
+<span id="cb15-369"><a href=""></a></span>
+<span id="cb15-370"><a href=""></a>CREATE INDEX dept_name_ix ON departments (department_name);</span>
+<span id="cb15-371"><a href=""></a></span>
+<span id="cb15-372"><a href=""></a>CREATE INDEX jhist_job_ix ON job_history (job_id);</span>
+<span id="cb15-373"><a href=""></a></span>
+<span id="cb15-374"><a href=""></a>CREATE INDEX jhist_employee_ix ON job_history (employee_id);</span>
+<span id="cb15-375"><a href=""></a></span>
+<span id="cb15-376"><a href=""></a>CREATE INDEX jhist_department_ix ON job_history (department_id);</span>
+<span id="cb15-377"><a href=""></a></span>
+<span id="cb15-378"><a href=""></a>CREATE INDEX loc_city_ix ON locations (city);</span>
+<span id="cb15-379"><a href=""></a></span>
+<span id="cb15-380"><a href=""></a>CREATE INDEX loc_state_province_ix ON locations (state_province);</span>
+<span id="cb15-381"><a href=""></a></span>
+<span id="cb15-382"><a href=""></a>CREATE INDEX loc_country_ix ON locations (country_id);</span>
+<span id="cb15-383"><a href=""></a></span>
+<span id="cb15-384"><a href=""></a>DELIMITER //</span>
+<span id="cb15-385"><a href=""></a></span>
+<span id="cb15-386"><a href=""></a>CREATE PROCEDURE add_job_history</span>
+<span id="cb15-387"><a href=""></a>(</span>
+<span id="cb15-388"><a href=""></a>p_emp_id         INT(6),</span>
+<span id="cb15-389"><a href=""></a>p_start_date     DATE,</span>
+<span id="cb15-390"><a href=""></a>p_end_date       DATE,</span>
+<span id="cb15-391"><a href=""></a>p_job_id         VARCHAR(10),</span>
+<span id="cb15-392"><a href=""></a>p_department_id  INT(4)</span>
+<span id="cb15-393"><a href=""></a>)</span>
+<span id="cb15-394"><a href=""></a>BEGIN</span>
+<span id="cb15-395"><a href=""></a>  INSERT INTO job_history (employee_id, start_date, end_date, job_id, department_id) VALUES(p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);</span>
+<span id="cb15-396"><a href=""></a>END</span>
+<span id="cb15-397"><a href=""></a>//</span>
+<span id="cb15-398"><a href=""></a></span>
+<span id="cb15-399"><a href=""></a>DELIMITER //</span>
+<span id="cb15-400"><a href=""></a></span>
+<span id="cb15-401"><a href=""></a>CREATE TRIGGER update_job_history</span>
+<span id="cb15-402"><a href=""></a>  AFTER UPDATE ON employees</span>
+<span id="cb15-403"><a href=""></a>  FOR EACH ROW</span>
+<span id="cb15-404"><a href=""></a>BEGIN</span>
+<span id="cb15-405"><a href=""></a>  IF (new.job_id &lt;&gt; old.job_id OR new.department_id &lt;&gt; old.department_id) THEN</span>
+<span id="cb15-406"><a href=""></a>    CALL add_job_history(old.employee_id, old.hire_date, sysdate(), old.job_id, old.department_id);</span>
+<span id="cb15-407"><a href=""></a>  END IF;</span>
+<span id="cb15-408"><a href=""></a>END;</span>
+<span id="cb15-409"><a href=""></a>//</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ddl-and-dml-summary" class="slide level2">
+<h2>DDL and DML summary</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="ddl">DDL</h3>
+<ul>
+<li>Data Definition Language</li>
+<li>Used to create databases and tables</li>
+<li>Used to define table, row and field constraints</li>
+<li>Operations generally done <em>atomically</em>, in one big push.</li>
+</ul>
+<h3 id="preferred-workflow">Preferred Workflow</h3>
+<ul>
+<li>Create a file (e.g., MY-DDL.sql) and add all the commands.</li>
+<li>Test commands one-by-one in VS code.</li>
+<li>Test entire block to make sure it runs.</li>
+<li>Commands: CREATE TABLE, ALTER TABLE, bulk INSERT, DROP TABLE</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="dml">DML</h3>
+<ul>
+<li>Data Manipulation Language</li>
+<li>Used to update individual records and fields</li>
+<li>Generally connected to Web/HTML front end</li>
+<li>Sometimes connected to API</li>
+<li>API is constructed separately from UI</li>
+<li>Data integrity paramount</li>
+<li>Code designed to run each operation as needed ad-hoc.</li>
+<li>Commands: INSERT INTO, UPDATE, DELETE</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="homework-6---constructing-a-database" class="title-slide slide level1 center">
+<h1>Homework 6 - constructing a database</h1>
+<!-- Homework 6 - Creating and using a database -->
+</section>
+<section id="homework-6---constructing-a-database-1" class="slide level2">
+<h2>Homework 6 - Constructing a database</h2>
+<p>
+<iframe style="width: 900px; height: 350px;" src="https://docs.google.com/document/d/1ccAOBOSWIEZBAJXj8dRWqi96crtTayKO1584y2tDRNo/preview" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *">
+</iframe>
+</p>
+<center>
+<a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138">Homework 6 Canvas Page</a>
+</center>
+</section>
+<section id="homework-6---constructing-a-database-2" class="slide level2">
+<h2>Homework 6 - Constructing a database</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="the-challenge">The Challenge</h3>
+<p>Your boss came to you all excited with another one of their great ideas. “I want you to build me a DATABASE!”</p>
+<p>Your company consists of a ragtag bunch of designers and developers trying to pay for school by picking up project work under the tutelage of world famous sensei of Kill-Bill fame. Business has been slow and your sensei is looking for ways to jumpstart this frankenstein.</p>
+<p>The database will represent a company-wide resume capturing the collective skills and certifications of all the people in your company. The database will capture skills, employees and their roles within the company. The database will help your sensei find employees with specific skills, list the skills of any employee and help find gaps in the skill sets of employees in specific roles.</p>
+</div><div class="column" style="width:40%;">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li><p>Analyze a DB problem</p></li>
+<li><p>Create a database from scratch</p>
+<ul>
+<li>Build the DDL file</li>
+<li>Document DB in report</li>
+</ul></li>
+<li><p>Working all the tools</p>
+<ul>
+<li>Understanding the workflow(s)</li>
+<li>VS code and direct connection</li>
+<li>Create and test blocks</li>
+<li>Quarto and DB connection</li>
+<li>Create entire DB at once</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="homework-6---build-your-database-incrementally" class="slide level2">
+<h2>Homework 6 - Build your database incrementally!</h2>
+<div class="columns">
+<div class="column">
+<h3 id="ddl-starter-commands">DDL Starter commands</h3>
+<ul>
+<li>commands to create the database</li>
+<li>DROP TABLE, CREATE TABLE, INSERT INTO</li>
+</ul>
+<h3 id="data-constraints">Data constraints</h3>
+<ul>
+<li>attributes to ensure that only good data gets into the database</li>
+<li>Data types: INT, DATE, VARCHAR(255), VARCHAR(4096)</li>
+<li>Data attributes: NOT NULL, DEFAULT</li>
+</ul>
+</div><div class="column">
+<h3 id="tips-and-tricks">Tips and tricks</h3>
+<ul>
+<li><p>Start simple - not too much at once!</p></li>
+<li><p>You <em>don’t need</em> primary keys, foreign keys or unique field constraints.</p></li>
+<li><p>Primary, foreign keys, and UNIQUE are <em>integrity constraints</em>.</p></li>
+<li><p>They are all OPTIONAL and can added later.</p></li>
+<li><p>You can do “joins” without primary and foreign key, just use caution.</p></li>
+<li><p>Tables and records connect on values in the table.</p></li>
+<li><p>Primary keys, foreign keys and UNIQUE are your friends, don’t ignore them. With them, you can trust your database.</p></li>
+</ul>
+</div></div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +1245,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232171">Quiz 4 - SQL Basics</a> - due 10/19, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138">Homework 6 - Creating a database</a> - due 10/19, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/poetry-and-vs-code">Poetry and VS Code</a></p></li>
+<li><p><a href="#/homework-5---quick-summary">Homework 5 - Quick Summary</a></p></li>
+<li><p><a href="#/creating-and-populating-tables">Creating and populating tables</a></p></li>
+<li><p><a href="#/homework-6---constructing-a-database">Homework 6 - constructing a database</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -269,7 +1262,7 @@
 </div>
 <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -303,7 +1296,7 @@
 <td style="text-align: center;">10/19</td>
 <td style="text-align: center;">Sun</td>
 <td></td>
-<td>HW6:Constructing a database</td>
+<td>Q4:SQL Basics; HW6:Constructing a database</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -363,7 +1356,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -561,7 +1554,7 @@
         maxScale: 2,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -635,13 +1628,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

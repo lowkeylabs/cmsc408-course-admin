@@ -10,16 +10,15 @@
     - tables using CREATE TABLE
     - records using INSERT INTO
 
-* **R**etrive data from tables using SELECT
+* **R**etrive records from tables using SELECT
 
 * **U**pdate
-
-    - Tables using ALTER TABLE
-    - Records using UPDATE
+    - tables using ALTER TABLE
+    - records using UPDATE
 
 * **D**elete
     - tables using DROP TABLE
-    - records using DELETE
+    - records using DELETE or TRUNCATE
 
 :::
 ::: {.column width=39%}
