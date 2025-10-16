@@ -1,0 +1,7 @@
+---
+title: "Homework 5 - quick summary"
+---
+
+{{< include '_homework-5-quick-summary.qmd' >}}
+
+    

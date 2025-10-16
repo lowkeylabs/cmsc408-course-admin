@@ -1,0 +1,13 @@
+---
+title: Homework 6 - Constructing a database SP2025
+tasl:
+    source: fa2023\lectures\lect17-joins-and-aggregates.qmd
+    tags:
+    - lecture
+    - lecture-17
+    topic: Homework 7 - Creating and using a database
+---
+
+{{< include '_homework-6-constructing-a-database-fa2025.qmd' >}}
+
+    

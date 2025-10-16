@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DuckDB-WASM + DataTables Example</title>
+
+  <!-- ✅ DataTables (needs jQuery) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css"
+  />
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+    textarea {
+      width: 100%;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+    button {
+      margin: 0.5rem 0;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>DuckDB-WASM in Browser</h1>
+  <p>Try a query like <code>SHOW TABLES;</code> or <code>SELECT * FROM people WHERE age &gt; 30;</code></p>
+  <textarea id="sqlInput" rows="4" cols="60">
+SHOW TABLES;
+  </textarea><br />
+  <button id="executeButton">Execute Query</button>
+
+  <div id="output"><em>Initializing DuckDB...</em></div>
+
+  <script type="module">
+    import * as duckdb from "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm";
+
+    const outputDiv = document.getElementById("output");
+    const sqlInput = document.getElementById("sqlInput");
+    const executeButton = document.getElementById("executeButton");
+
+    let db, conn;
+
+    async function loadDDLFile(filename) {
+      try {
+        const response = await fetch(filename);
+        if (!response.ok) throw new Error(`Failed to load ${filename}`);
+        const sqlText = await response.text();
+        console.log(`Loaded DDL file (${filename}):`, sqlText.slice(0, 200));
+        return sqlText;
+      } catch (err) {
+        console.error("Error loading DDL file:", err);
+        throw err;
+      }
+    }
+
+    async function initializeDuckDB() {
+      try {
+        const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+        const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+
+        // ✅ Create a worker that loads the DuckDB-WASM code
+        const workerUrl = URL.createObjectURL(
+          new Blob([`importScripts("${bundle.mainWorker}");`], { type: "text/javascript" })
+        );
+        const worker = new Worker(workerUrl);
+        const logger = new duckdb.ConsoleLogger();
+
+        db = new duckdb.AsyncDuckDB(logger, worker);
+        await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+        URL.revokeObjectURL(workerUrl);
+        conn = await db.connect();
+
+        // ✅ Load external SQL (DDL + INSERTs)
+        const ddlSQL = await loadDDLFile("duckdb-ddl.sql");
+        await conn.query(ddlSQL);
+
+        outputDiv.innerHTML = "<em>DuckDB initialized and DDL executed successfully.</em>";
+
+        // Auto-run the initial query once loaded
+        executeQuery();
+      } catch (e) {
+        outputDiv.textContent = `Error initializing DuckDB: ${e.message}`;
+        console.error("Error initializing DuckDB:", e);
+      }
+    }
+
+    async function executeQuery() {
+      const sql = sqlInput.value.trim();
+      if (!conn) {
+        outputDiv.textContent = "DuckDB not initialized. Please wait.";
+        return;
+      }
+
+      try {
+        const result = await conn.query(sql);
+        const rows = result.toArray();
+        const cols = result.schema.fields.map((f) => f.name);
+
+        if (!rows.length) {
+          outputDiv.innerHTML = "<em>No rows returned.</em>";
+          return;
+        }
+
+        // ✅ Build the HTML table
+        let html = "<table id='resultTable' class='display'><thead><tr>";
+        for (const c of cols) html += `<th>${c}</th>`;
+        html += "</tr></thead><tbody>";
+        for (const row of rows) {
+          html += "<tr>";
+          for (const val of Object.values(row)) html += `<td>${val}</td>`;
+          html += "</tr>";
+        }
+        html += "</tbody></table>";
+
+        outputDiv.innerHTML = html;
+
+        // ✅ Initialize DataTables
+        new DataTable("#resultTable", {
+          paging: true,
+          searching: true,
+          info: false,
+          order: [],
+          pageLength: 5,
+        });
+      } catch (e) {
+        outputDiv.textContent = `Error executing query: ${e.message}`;
+        console.error("Error executing query:", e);
+      }
+    }
+
+    executeButton.addEventListener("click", executeQuery);
+
+    initializeDuckDB();
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!-- # Homework 5 - quick summary -->
+
+## Homework 5 - Quick summary
+
+<p>&nbsp;</p>
+
+:::: {.columns}
+::: {.column width="50%"}
+### Overview
+
+Homework 5 is all about reverse engineering a database.
+
+Using SQL commands to explore the database provided, you are to
+print out samples of the tables, the table schema, and finally,
+prepare Chen and Crowsfoot diagrams for the database.
+
+
+:::
+::: {.column width="50%"}
+### Other Skills
+
+Homework 5 also focuses on software installation.
+
+You've got Quarto running.  Now we're introducing python, poetry virtual
+environments, and database connections.
+
+You've got to get all the tools running before you can actually reverse
+engineer the database.
+
+:::
+::::
+
+***Among other things, the autograder will look to see that you've got sections in your report for each object in the database, that includes tables or views.***
+
+## Homework 5 - Checklist
+
+This is a general homework pattern that applies to all homeworks in CMSC408:
+
+        gh repo clone cmsc408-fa2025-hw5-jdleonard hw5  <- clone project to shorter folder
+        cd hw5                     <- change into project folder created above
+        poetry install             <- install virtualenv and all your modules
+        poetry env info -e | clip  <- clip env location and paste to VS code
+        poetry shell               <- shell into the virtualenv
+        cd reports                 <- change into reports folder
+        code ~/.env                <- review the database connection key-value pairs.
+        code report.qmd            <- review then adjust .ENV key-value pairs.
+        quarto render report.qmd   <- render report for first time
+        open report.html           <- review report.html for errors and next changes
+
+Iterate editing report.qmd, saving, and rendering until done!
+
+

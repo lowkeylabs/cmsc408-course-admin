@@ -1,0 +1,24 @@
+<!-- # Poetry and VS Code -->
+
+## Poetry and VS Code
+
+**Goal:** tell VS Code where to find your project virtualenv.  This eliminates *Module not found* errors.
+
+**Solution:** 1) Pipe virtualenv location to clipboard, 2) Paste into VS Code
+
+From a command line terminal, either INSIDE or OUTSIDE of VS Code:
+
+		poetry env info -e  <- Lists current location of virtualenv python
+
+		poetry env info -e | pbcopy      <- on Mac
+		poetry env info -e | clip        <- on Windows powershell or command.exe
+		poetry env info -e | clip.exe    <- on WSL
+
+Then:
+
+		Open VS Code command palette:  'Ctrl-Shift-P'
+		Enter 'Python: Select Interpreter' on command line, then select
+		'Enter Interpreter Path', then
+		PASTE ('Command-V' on Mac or 'Ctrl-V' on PC) the clipboard
+
+Done.

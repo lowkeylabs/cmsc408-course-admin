@@ -1,0 +1,7 @@
+---
+title: "Poetry and VS Code"
+---
+
+{{< include '_poetry-and-vs-code.qmd' >}}
+
+    

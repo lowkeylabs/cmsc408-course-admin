@@ -27,14 +27,13 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Are we having fun yet?
 
-<!-- overview-block-begin -->
+As of Monday morning, 36 of 150 students have submitted Homework 5.  ARGHH! We'll talk more about it - and do some more walkthroughs in Class.
 
-<p class="lead">Review of homework 5, introduce and explore SELECT statements.</p>
-    
-<!-- overview-block-end -->
+For the on-line people - WATCH LECTURE 15 (after it's posted, but you're welcome to watch live, too!) we'll be playing with Homework 5 and the tools you need to have running.
+
+YES - homework 5 is challenging - BUT JUST DO IT!  The rest of the class will be MUCH MORE ENJOYABLE if you get the tools running, and you're able to working with some proficiency.  You're CS majors - you got this!
 
 
 <!-- deliverables-block-begin -->
@@ -43,9 +42,33 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 [Homework 6 - Constructing a database](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138) creates a complete database for the first time!
 
+
+[Quiz 4 - SQL Basics - Requires Respondus LockDown Browser + Webcam](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241130) focuses on basic SQL statements and structure.  This is the last quiz!!
+
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[SQL tool setup](https://vcu-ssg.github.io/ssg-quarto-python-setup/) Helpful walkthrough and tutorial for software tool installation!!!
+
+
+[11 SQL Questions](https://medium.com/@ritika_DataAnalyst/11-practical-sql-interview-questions-i-failed-to-answer-during-an-interview-f3a40205ddff) is a fun reference on questions you might get asked about SQL for a job interview!
+
+
+[PhpMyAdmin](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-9-phpmyadmin) A good overview of PhyMyAdmin.
+
+
+[MAC - installing pyenv](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-9-mac-installing-pyenv) OK video on installing pyenv on a mac. Easy to follow.
+
+
+[PC - installing pyenv](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-9-pc-installing-pyenv) Installing pyenv on a PC.
+
+
+[Intro to poetry](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-9-intro-to-poetry) Poetry is a GREAT tool for managing dependencies and virtual environments.  It combines SetupTools and VENV into one simple program to use.
+
 <!-- resources-block-end -->
 
 

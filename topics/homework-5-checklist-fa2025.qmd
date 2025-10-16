@@ -1,0 +1,7 @@
+---
+title: "Homework 5 - checklist - FA2025"
+---
+
+{{< include '_homework-5-checklist-fa2025.qmd' >}}
+
+    
