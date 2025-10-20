@@ -1,8 +1,35 @@
 ---
 date: '2025-10-20'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/19, SUN'
+  topic: Quiz 4 - SQL Basics
+  url: https://virginiacommonwealth.instructure.com/courses/122236/quizzes/232171
+- options: target="_blank"
+  post_text: '- due 10/19, SUN'
+  topic: Homework 6 - Creating a database
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138
+- options: target="_blank"
+  post_text: '- due 10/26, SUN'
+  topic: Homework 7 - Joins and more
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments
 lecture-id: 17
-lecture-topics: []
+lecture-topics:
+- id: '123'
+  topic: Poetry and VS Code
+  url: _poetry-and-vs-code.qmd
+- id: '124'
+  topic: Homework 5 - Quick Summary
+  url: _homework-5-quick-summary.qmd
+- id: '125'
+  topic: Creating and populating tables
+  url: _creating-and-populating-tables.qmd
+- id: '126'
+  topic: Homework 6 - constructing a database
+  url: _homework-6-constructing-a-database-fa2025.qmd
+- id: '127'
+  topic: Homework 7 - Joining and more
+  url: _homework-7-joining-tables-and-reporting-fa2025.qmd
 title: SQL Toolset
 ---
 
@@ -12,10 +39,52 @@ this_file = 'lecture-17.qmd'
 ```
 
 {{< include "./_template-lecture-init.qmd" >}}
+
+## 
+
+<div style="
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) rotate(-20deg);
+  font-size:60pt;
+  color:red;
+  text-shadow:
+    -2px -2px 0 black,
+     2px -2px 0 black,
+    -2px  2px 0 black,
+     2px  2px 0 black;
+  font-family:Impact, 'Arial Black', sans-serif;
+  white-space:nowrap;
+">
+  ARGH – the internet is down!!!
+</div>
+
+
+
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
 
+# Poetry and VS Code
+
+{{< include ../../topics/_poetry-and-vs-code.qmd >}}
+
+# Homework 5 - Quick Summary
+
+{{< include ../../topics/_homework-5-quick-summary.qmd >}}
+
+# Creating and populating tables
+
+{{< include ../../topics/_creating-and-populating-tables.qmd >}}
+
+# Homework 6 - constructing a database
+
+{{< include ../../topics/_homework-6-constructing-a-database-fa2025.qmd >}}
+
+# Homework 7 - Joining and more
+
+{{< include ../../topics/_homework-7-joining-tables-and-reporting-fa2025.qmd >}}
 <!-- lecture-block-end -->
 
 
