@@ -27,21 +27,16 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### More SQL basics
 
-<!-- overview-block-begin -->
-
-<p class="lead">Quiz 5 - SQL basics. Review docker assignment. Introduce homework 6 and building a database from scratch.</p>
-    
-<!-- overview-block-end -->
+This week we continue our journey to create a database.  We're focusing on homeworks 6 and 7.  Enjoy!
 
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
 
 
-[Discussion 4 - SQL Basics](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241116) SQL Basics
+[Discussion 4 - CANCELLED](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241116) CANCELLED
 
 
 [Homework 7 - Joining tables and reporting](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241139) extends our first database with new tables and more complicated queries.
@@ -49,6 +44,24 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[11 SQL Questions](https://medium.com/@ritika_DataAnalyst/11-practical-sql-interview-questions-i-failed-to-answer-during-an-interview-f3a40205ddff) is a fun reference on questions you might get asked about SQL for a job interview!
+
+
+[Keys made easy](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-10-keys-made-easy) Another one of those cool videos.  Enjoy!
+
+
+[Joins - Part 1](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-10-joins-part-1) First of 2 on SQL.  Enjoy the entire series! https://www.youtube.com/playlist?list=PLi01XoE8jYojRqM4qGBF1U90Ee1Ecb5tt
+
+
+[Joins - Part 2](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-10-joins-part-2) Second of 2 on SQL.  Enjoy the entire series! https://www.youtube.com/playlist?list=PLi01XoE8jYojRqM4qGBF1U90Ee1Ecb5tt
+
+
+[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours) Don't forget - these can save you hours!
+
 <!-- resources-block-end -->
 
 
