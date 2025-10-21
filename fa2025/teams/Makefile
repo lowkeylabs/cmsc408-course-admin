@@ -11,7 +11,7 @@ homeworks := hw5 hw6 hw7
 
 
 GET_THIRD = $(word 3,$(subst -, ,$1))
-homework-commands := $(foreach hw,$(homeworks),add-homework-$(hw))
+database-commands := $(foreach hw,$(homeworks),add-database-$(hw))
 
 
 json-enrollments := $(term)-enrollments.json
@@ -38,7 +38,7 @@ $(build-user-script) : $(json-enrollments)
 initial-users-and-db : $(build-user-script)
 	@echo Run: $(build-user-script)  -- script will create mysql users and add _user and _hr databases.
 
-$(homework-commands) : $(json-enrollments)
+$(database-commands) : $(json-enrollments)
 	echo Adding homework: $(call GET_THIRD,$(@)) using $(json-enrollments)
 	python usercli.py add-homework-db --input-user-file=$(json-enrollments) --term-id=$(term) --homework-db=$(call GET_THIRD,$(@)) > $(term)-add-$(call GET_THIRD,$(@))-to-users.sh
 	chmod +x $(term)-add-$(call GET_THIRD,$(@))-to-users.sh
