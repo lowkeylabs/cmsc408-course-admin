@@ -1,9 +1,30 @@
 ---
 date: '2025-10-27'
-discussion-items: []
+discussion-items:
+- options: .
+  post_text: .
+  topic: Catching up
+  url: Focus this week on catching up
+- options: target="_blank"
+  post_text: '- due 10/19, SUN'
+  topic: Homework 6 - Creating a database
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241138
+- options: target="_blank"
+  post_text: '- due 10/26, SUN'
+  topic: Homework 7 - Joins and more
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241139
 lecture-id: 19
-lecture-topics: []
-title: C-R-U-D
+lecture-topics:
+- id: '139'
+  topic: SQL Joins
+  url: _sql-joins.qmd
+- id: '140'
+  topic: Join Examples
+  url: _sql-joins-examples.qmd
+- id: '141'
+  topic: .
+  url: _rest-of-class-working-examples.qmd
+title: SQL Joins
 ---
 
 ```{python}
@@ -16,6 +37,18 @@ this_file = 'lecture-19.qmd'
 
 <!-- lecture-block-begin -->
 
+# SQL Joins
+
+{{< include ../../topics/_sql-joins.qmd >}}
+
+# Join Examples
+
+{{< include ../../topics/_sql-joins-examples.qmd >}}
+
+
+
+
+{{< include ../../topics/_rest-of-class-working-examples.qmd >}}
 <!-- lecture-block-end -->
 
 

@@ -164,10 +164,10 @@ def execute_ddl_from_file(filename, cnx):
 # modify config_map to reflect credentials needed by this program
 # These variables are set in your .env file
 config_map = {
-    'user':'CMSC408_USER',
-    'password':'CMSC408_PASSWORD',
-    'host':'CMSC408_HOST',
-    'database':'CMSC408_DB_NAME'
+    'user':'MYSQL_USERNAME',
+    'password':'MYSQL_PASSWORD',
+    'host':'MYSQL_DB_HOST',
+    'database':'LECTURE_DB_NAME'
 }
 # load and store credentials
 load_dotenv()
@@ -253,7 +253,7 @@ insert into skills (id,name) values
 ;
 commit;
 """
-##df = run_sql_and_return_df( sql,cnx )
+#df = run_sql_and_return_df( sql,cnx )
 run_ddl_and_confirm( sql, cnx)
 ```
 
@@ -369,7 +369,7 @@ We've been using *keys* to make these connections in our ER diagrams.
 :::
 ::: {.column}
 
-### Cardinalty and Participation
+### Cardinality and Participation
 
 Think about our options for connecting people and skills.
 
