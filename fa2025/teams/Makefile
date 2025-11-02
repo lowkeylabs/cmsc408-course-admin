@@ -5,14 +5,16 @@
 
 # ---- Update these for each new semester
 term = fa25
-homeworks := hw5 hw6 hw7
+homeworks := hw5 hw6 hw7 hw8 hw9
+shared_db := world_bank_data simpsons_data
 # ---
 
 
 
 GET_THIRD = $(word 3,$(subst -, ,$1))
+GET_SECOND = $(word 2,$(subst -, ,$1))
 database-commands := $(foreach hw,$(homeworks),add-database-$(hw))
-
+shared-commands := $(foreach db,$(shared_db),grant-$(db)-to-users)
 
 json-enrollments := $(term)-enrollments.json
 build-user-script := $(term)-add-mysql-user-and-db.sh
@@ -43,3 +45,9 @@ $(database-commands) : $(json-enrollments)
 	python usercli.py add-homework-db --input-user-file=$(json-enrollments) --term-id=$(term) --homework-db=$(call GET_THIRD,$(@)) > $(term)-add-$(call GET_THIRD,$(@))-to-users.sh
 	chmod +x $(term)-add-$(call GET_THIRD,$(@))-to-users.sh
 	@echo Run: $(term)-add-$(call GET_THIRD,$(@))-to-users.sh -- script will add db to all users
+
+$(shared-commands) : $(json-enrollments)
+	echo Sharing: $(call GET_SECOND,$(@)) using $(json-enrollments)
+	python usercli.py grant-shared-db --input-user-file=$(json-enrollments) --term-id=$(term) --shared-db=$(call GET_SECOND,$(@)) > $(term)-grant-$(call GET_SECOND,$(@))-to-users.sh
+	chmod +x $(term)-grant-$(call GET_SECOND,$(@))-to-users.sh
+	@echo Run: $(term)-grant-$(call GET_SECOND,$(@))-to-users.sh -- script will share db with all users

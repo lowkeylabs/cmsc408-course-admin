@@ -52,6 +52,24 @@ def add_database_to_users( input_user_file = DEFAULT_INPUT_FILE, term_id = DEFAU
             used.append( login_id )
             print(f"./add-mysql-db-to-user.sh -u {term_id}_{login_id} -d {term_id}_{login_id}_{database_name}")
 
+def grant_database_to_users( input_user_file = DEFAULT_INPUT_FILE, term_id = DEFAULT_TERM_ID, shared_db = "world_bank_data" ):
+    with open(input_user_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    used = []
+    for enrollment in data.values():
+        login_id = enrollment.get("user", {}).get("login_id", "")
+        name = enrollment.get("user", {}).get("name", "")
+        role = enrollment.get("role", "")
+        if name=="Test Student":
+            continue
+        if login_id in used:
+            continue
+        if role in ["DesignerEnrollment","StudentEnrollment","TeacherEnrollment","TaEnrollment"]:
+            used.append( login_id )
+            print(f"./grant-db-to-user.sh -u {term_id}_{login_id} -d {shared_db}")
+
+
 
 @click.group()
 @click.option(
@@ -119,6 +137,29 @@ def new_users(input_user_file, term_id, password_template):
 def add_homework_db(input_user_file, term_id, homework_db):
     """Add a homework database to existing users."""
     add_database_to_users(input_user_file, term_id, homework_db)
+
+
+@cli.command("grant-shared-db")
+@click.option(
+    "--input-user-file",
+    default=DEFAULT_INPUT_FILE,
+    show_default=True,
+    help="Path to enrollment JSON file.",
+)
+@click.option(
+    "--term-id",
+    default=DEFAULT_TERM_ID,
+    show_default=True,
+    help="Academic term identifier.",
+)
+@click.option(
+    "--shared-db",
+    required=True,
+    help="Name of the database to share.",
+)
+def add_homework_db(input_user_file, term_id, shared_db):
+    """Add a homework database to existing users."""
+    grant_database_to_users(input_user_file, term_id, shared_db)
 
 
 if __name__ == "__main__":
