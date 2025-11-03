@@ -6,11 +6,12 @@
 from helpers import create_database_engine, run_sql_and_return_df, run_sql_and_return_html, create_db_wrapper, execute_ddl_from_file,show_sql_and_results
 
 # Load these variables from .env file.
+# Load these variables from .env file.
 config_map = {
-  'user': "CMSC408_USER",
-  'password': "CMSC408_PASSWORD",
-  'host': "CMSC408_HOST",
-  'database': "CMSC408_DB_NAME"
+  'user': "MYSQL_USERNAME",
+  'password': "MYSQL_PASSWORD",
+  'host': "MYSQL_DB_HOST",
+  'database': "HW7_DB_NAME"
 }
 
 cnx,config = create_db_wrapper( config_map )

@@ -1,0 +1,47 @@
+<!-- # Homework 8 - SQL Funhouse -->
+
+## Homework 8 - The World Bank
+
+The World Bank is an international financial institution that provides financial and technical assistance to developing countries around the world.
+
+Its primary goal is to reduce poverty and promote economic development by offering loans, grants, and expertise for various projects, such as infrastructure development, education, and healthcare.
+
+The World Bank also conducts research and analysis to address global development challenges and improve the living conditions of people in low and middle-income countries.
+
+<p>&nbsp;</p>
+
+- <https://www.worldbank.org/ext/en/home> - the home page
+
+- <https://data.worldbank.org/> - the data home page
+
+
+## Homework 8 - World Development Indicators (WDI)
+
+The World Development Indicators (WDI) is a comprehensive and extensive database maintained by the World Bank, offering a wealth of statistical information on various facets of global development.
+
+It includes data on economic indicators like GDP, inflation rates, and trade, as well as social indicators such as education, health, and poverty.
+
+Researchers, policymakers, analysts and *students in CMSC 408* use the WDI to track development progress, conduct comparative analyses, and make informed decisions to improve the well-being of people around the world.
+
+<p>&nbsp;</p>
+
+- <https://databank.worldbank.org/source/world-development-indicators> - World development indicators
+
+- <https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators> - the data set and meta data
+
+- <https://cmsc-vcu.com/phpmyadmin>
+
+
+## Homework 8 - SQL Funhouse!
+
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1eH7wsqa_-cuVPt_D30GTKjCY1jbwMvFf_solqCApArQ/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
+
+<center>
+[Homework 8 Canvas Page](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140)
+</center>

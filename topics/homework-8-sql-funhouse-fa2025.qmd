@@ -1,0 +1,12 @@
+---
+title: Homework 8 - SQL Funhouse
+tasl:
+    tags:
+    - lecture
+    - lecture-21
+    topic: Homework 9 - SQL Funhouse
+---
+
+{{< include '_homework-8-sql-funhouse-fa2025.qmd' >}}
+
+    
