@@ -1,9 +1,26 @@
 ---
 date: '2025-11-05'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 10/26, SUN'
+  topic: Homework 7 - Joins and more
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241139
+- options: target="_blank"
+  post_text: '- due 11/9, SUN'
+  topic: Homework 8 - SQL Funhouse!
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140
 lecture-id: 22
-lecture-topics: []
-title: Joins and Selects 2
+lecture-topics:
+- id: '155'
+  topic: SQL Subqueries
+  url: _sql-subqueries.qmd
+- id: '156'
+  topic: Common Table Expressions
+  url: _sql-common-table-expressions.qmd
+- id: '157'
+  topic: Homework 8 - SQL Funhouse
+  url: _homework-8-sql-funhouse-fa2025.qmd
+title: Subqueries and WITH 1
 ---
 
 ```{python}
@@ -16,6 +33,17 @@ this_file = 'lecture-22.qmd'
 
 <!-- lecture-block-begin -->
 
+# SQL Subqueries
+
+{{< include ../../topics/_sql-subqueries.qmd >}}
+
+# Common Table Expressions
+
+{{< include ../../topics/_sql-common-table-expressions.qmd >}}
+
+# Homework 8 - SQL Funhouse
+
+{{< include ../../topics/_homework-8-sql-funhouse-fa2025.qmd >}}
 <!-- lecture-block-end -->
 
 

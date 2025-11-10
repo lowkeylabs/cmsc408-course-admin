@@ -1,9 +1,27 @@
 ---
 date: '2025-11-03'
-discussion-items: []
+discussion-items:
+- options: ''
+  post_text: ''
+  topic: Campus Closed tomorrow (Tuesday, 11/4)
+  url: ''
+- options: target="_blank"
+  post_text: '- due 10/26, SUN'
+  topic: Homework 7 - Joins and more
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241139
+- options: target="_blank"
+  post_text: '- due 11/9, SUN'
+  topic: Homework 8 - SQL Funhouse!
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140
 lecture-id: 21
-lecture-topics: []
-title: Joins and Selects 1
+lecture-topics:
+- id: '151'
+  topic: SQL Aggregate Functions
+  url: _sql-aggregate-functions.qmd
+- id: '152'
+  topic: HW7 Revisited
+  url: _homework-7-advanced-queries-sp2025.qmd
+title: Aggregates 1
 ---
 
 ```{python}
@@ -16,6 +34,13 @@ this_file = 'lecture-21.qmd'
 
 <!-- lecture-block-begin -->
 
+# SQL Aggregate Functions
+
+{{< include ../../topics/_sql-aggregate-functions.qmd >}}
+
+# HW7 Revisited
+
+{{< include ../../topics/_homework-7-advanced-queries-sp2025.qmd >}}
 <!-- lecture-block-end -->
 
 

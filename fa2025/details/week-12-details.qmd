@@ -27,25 +27,46 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Building on our BASIC SQL
 
-<!-- overview-block-begin -->
+At this point you can create a database and query a database.  So - [is that all there is](https://youtu.be/LCRZZC-DH7M?t=45){class="inline_disabled"}?
 
-<p class="lead">More joins and aggregates.  Lots MORE!</p>
-    
-<!-- overview-block-end -->
-
+NO - it's time for the fun stuff!  We started playing with aggregates in homework 7, let's dive in and explore
+some of the features that have kept SQL in business for all these years!
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
 
 
-[Homework 9 - Even more on SQL](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141) - enjoyed homework 8? Wait until you work on this one!
+[Homework 8 - SQL Funhouse](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140) explores the SELECT statement and all the different ways to gain insights from raw data using SQL.
 
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Learn SQL joins](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-12-learn-sql-joins) Another one of those cool Decomplexify videos.  Enjoy!
+
+
+[Keys made easy](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-12-keys-made-easy) You've seen this before, but its a good reminder of Keys.
+
+
+[Intro to joins](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-12-intro-to-joins) a quick intro to joins - worth your time.
+
+
+[Joins - Part 1](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-12-joins-part-1) First of 2 on SQL.  Enjoy the entire series! https://www.youtube.com/playlist?list=PLi01XoE8jYojRqM4qGBF1U90Ee1Ecb5tt
+
+
+[Joins - Part 2](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-12-joins-part-2) Second of 2 on SQL.  Enjoy the entire series! https://www.youtube.com/playlist?list=PLi01XoE8jYojRqM4qGBF1U90Ee1Ecb5tt
+
+
+[Database constraints](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-12-database-constraints) Insights into the why and how of database constraints.
+
+
+[11 SQL Questions](https://medium.com/@ritika_DataAnalyst/11-practical-sql-interview-questions-i-failed-to-answer-during-an-interview-f3a40205ddff) is a fun reference on questions you might get asked about SQL for a job interview!  Hopefully, you'll know how to answer these questions by the end of the semester!
+
 <!-- resources-block-end -->
 
 
