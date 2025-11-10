@@ -3,24 +3,27 @@ date: '2025-11-10'
 discussion-items:
 - options: .
   post_text: .
-  topic: Homework update
+  topic: Homework update - HW9 and HW10 (no 11 or 12)
   url: .
 - options: target="_blank"
-  post_text: '- due 4/20, SUN'
+  post_text: '- due 11/16, SUN'
   topic: Homework 8 - SQL Funhouse
   url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140
 lecture-id: 23
 lecture-topics:
 - id: '160'
+  topic: CASE statements
+  url: _sql-case-statements.qmd
+- id: '161'
   topic: Subqueries in SQL
   url: _sql-subqueries.qmd
-- id: '161'
+- id: '162'
   topic: Common Table Expressions
   url: _sql-common-table-expressions.qmd
-- id: '162'
+- id: '163'
   topic: Homework 8 - SQL Funhouse
   url: _homework-8-sql-funhouse-sp2025.qmd
-- id: '163'
+- id: '164'
   topic: .
   url: _rest-of-class-working-examples.qmd
 title: Subqueries and WITH 2
@@ -35,6 +38,10 @@ this_file = 'lecture-23.qmd'
 {{< include "./_template-lecture-housekeeping.qmd" >}}
 
 <!-- lecture-block-begin -->
+
+# CASE statements
+
+{{< include ../../topics/_sql-case-statements.qmd >}}
 
 # Subqueries in SQL
 
