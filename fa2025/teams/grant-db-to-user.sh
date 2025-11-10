@@ -59,8 +59,10 @@ fi
 
 # Step 3: Grant privileges
 SQL_COMMANDS="
-GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO '${USERNAME}'@'localhost';
-GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO '${USERNAME}'@'%';
+REVOKE ALL PRIVILEGES ON \`${DB_NAME}\`.* FROM '${USERNAME}'@'localhost';
+GRANT SELECT ON \`${DB_NAME}\`.* TO '${USERNAME}'@'localhost';
+REVOKE ALL PRIVILEGES ON \`${DB_NAME}\`.* FROM '${USERNAME}'@'%';
+GRANT SELECT ON \`${DB_NAME}\`.* TO '${USERNAME}'@'%';
 FLUSH PRIVILEGES;
 "
 
