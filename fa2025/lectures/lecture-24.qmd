@@ -1,9 +1,25 @@
 ---
 date: '2025-11-12'
-discussion-items: []
+discussion-items:
+- options: target="_blank"
+  post_text: '- due 4/20, SUN'
+  topic: Homework 8 - SQL Funhouse
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140
 lecture-id: 24
-lecture-topics: []
-title: Subqueries and WITH 1
+lecture-topics:
+- id: '165'
+  topic: Subqueries in SQL
+  url: _sql-subqueries.qmd
+- id: '166'
+  topic: Common Table Expressions
+  url: _sql-common-table-expressions.qmd
+- id: '167'
+  topic: Homework 8 - SQL Funhouse
+  url: _homework-8-discussion-sp2025.qmd
+- id: '168'
+  topic: .
+  url: _rest-of-class-working-examples.qmd
+title: Subqueries and WITH 3
 ---
 
 ```{python}
@@ -16,6 +32,22 @@ this_file = 'lecture-24.qmd'
 
 <!-- lecture-block-begin -->
 
+# Subqueries in SQL
+
+{{< include ../../topics/_sql-subqueries.qmd >}}
+
+# Common Table Expressions
+
+{{< include ../../topics/_sql-common-table-expressions.qmd >}}
+
+# Homework 8 - SQL Funhouse
+
+{{< include ../../topics/_homework-8-discussion-sp2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_rest-of-class-working-examples.qmd >}}
 <!-- lecture-block-end -->
 
 

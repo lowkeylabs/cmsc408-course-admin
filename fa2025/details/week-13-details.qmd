@@ -27,25 +27,44 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Common table expressions and subqueries
 
-<!-- overview-block-begin -->
-
-<p class="lead">SQL SELECTS - full tilt boogie! Subqueries and WITH.  Views and Indexes.</p>
-    
-<!-- overview-block-end -->
-
+The due date for homework 8 was pushed to this Sunday, 11/16.  This week in class we'll be revisiting 
+common table expressions and subqueries, and working through homework 8!
 
 <!-- deliverables-block-begin -->
 #### Things to do this week
 
 
-[Homework 10 - More SQL](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241143) More SQL
+[Homework 8 - SQL Funhouse](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140) explores the SELECT statement and all the different ways to gain insights from raw data using SQL.
 
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[CASE (if/then) in SQL](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-13-case-if-slash-then-in-sql) Intro to CASE statement
+
+
+[Subquery intro](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-13-subquery-intro) A quick into subquery when and why
+
+
+[Subqueries by example](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-13-subqueries-by-example) A good intro, much like my lecture!
+
+
+[CTE by example](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-13-cte-by-example) Wow - I really like this video - CTEs by example!
+
+
+[CTEs - intro](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-13-ctes-intro) a good intro and overview of common table expressions.
+
+
+[CTEs - another intro](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-13-ctes-another-intro) CTE's in greater detail.
+
+
+[SAVE YOU HOURS™](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-save-you-hours) Need I say more?
+
 <!-- resources-block-end -->
 
 
