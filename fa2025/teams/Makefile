@@ -5,7 +5,7 @@
 
 # ---- Update these for each new semester
 term = fa25
-homeworks := hw5 hw6 hw7 hw8 hw9
+homeworks := hw5 hw6 hw7 hw8 hw9 hw10
 shared_db := world_bank_data simpsons_data
 # ---
 

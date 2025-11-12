@@ -1,0 +1,7 @@
+---
+title: "Homework 8 Table Examples"
+---
+
+{{< include '_homework-8-table-examples.qmd' >}}
+
+    

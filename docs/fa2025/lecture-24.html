@@ -219,14 +219,18 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140">Homework 8 - SQL Funhouse</a> - due 4/20, SUN</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140">Homework 8 - SQL Funhouse</a> - due 11/16, SUN</p></li>
+<li><p>CS CLUB NIGHT - MON 11/17 - 5pm-7:30pm (no lecture)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141">Homework 9 - released tomorrow</a> - due 11/30, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li><p><a href="#/subqueries-in-sql">Subqueries in SQL</a></p></li>
-<li><p><a href="#/common-table-expressions">Common Table Expressions</a></p></li>
-<li><p><a href="#/homework-8---sql-funhouse">Homework 8 - SQL Funhouse</a></p></li>
+<li><p><a href="#/case-statements-(repeated)">CASE statements (repeated)</a></p></li>
+<li><p><a href="#/subqueries-in-sql-(repeated)">Subqueries in SQL (repeated)</a></p></li>
+<li><p><a href="#/common-table-expressions-(repeated)">Common Table Expressions (repeated)</a></p></li>
+<li><p><a href="#/homework-8---sql-funhouse-(repeated)">Homework 8 - SQL Funhouse (repeated)</a></p></li>
+<li><p><a href="#/homework-8-table-examples">Homework 8 Table Examples</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -267,7 +271,7 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Mon</td>
-<td>L25:Subqueries and WITH 2</td>
+<td>L25:Subqueries and WITH 4</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -279,14 +283,6 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">11/23</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW9:Even more on SQL</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/24</td>
@@ -294,13 +290,21 @@
 <td>NO CLASS - Fall break</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/26</td>
 <td style="text-align: center;">Wed</td>
 <td>NO CLASS - Fall break</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Fall Break</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">11/30</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW9:Even more on SQL</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>
@@ -316,8 +320,475 @@
 <!-- lecture-block-begin -->
 </section>
 <section>
-<section id="subqueries-in-sql" class="title-slide slide level1 center">
-<h1>Subqueries in SQL</h1>
+<section id="case-statements-repeated" class="title-slide slide level1 center">
+<h1>CASE statements (repeated)</h1>
+<!-- # SQL CASE statements -->
+</section>
+<section id="sql-case-statements" class="slide level2">
+<h2>SQL CASE statements</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-is-a-case-statement">What is a CASE statement?</h3>
+<ul>
+<li><code>CASE</code> is SQL’s way of adding <strong>conditional logic</strong> (like <code>if-else</code>) inside queries.<br>
+</li>
+<li><code>CASE</code> lets you <strong>return different values</strong> depending on conditions you define.<br>
+</li>
+<li><code>CASE</code> helps <strong>transform or categorize data</strong> without changing the original table.</li>
+</ul>
+<p><code>CASE</code> can be used in <code>SELECT</code>, <code>WHERE</code>, <code>ORDER BY</code>, and even inside aggregate functions.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="why-use-case">Why use CASE?</h3>
+<ul>
+<li><p>Adds if-else logic to your SQL <code>SELECT</code>, <code>ORDER BY</code>, or <code>WHERE</code> clauses.</p></li>
+<li><p>Creates custom labels or buckets (e.g., pass/fail, high/medium/low).</p></li>
+<li><p>Replaces the need for multiple queries with a single flexible query.</p></li>
+<li><p>Combined with GROUP BY, <code>CASE</code> is part of standard PIVOT TABLE pattern.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="case-statement-in-select" class="slide level2">
+<h2>CASE statement in SELECT</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax">Syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb1-2"><a href=""></a>  column_name,</span>
+<span id="cb1-3"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> result1</span>
+<span id="cb1-5"><a href=""></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> result2</span>
+<span id="cb1-6"><a href=""></a>    <span class="cf">ELSE</span> default_result</span>
+<span id="cb1-7"><a href=""></a>  <span class="cf">END</span> <span class="kw">AS</span> new_column</span>
+<span id="cb1-8"><a href=""></a><span class="kw">FROM</span> table_name;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>CASE is a DML statement</li>
+<li>CASE statements can be used in <code>SELECT</code>, <code>ORDER BY</code>, or <code>WHERE</code></li>
+</ul>
+</div><div class="column">
+<h3 id="example---grades">Example - Grades</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb2-2"><a href=""></a>  student_name,</span>
+<span id="cb2-3"><a href=""></a>  grade,</span>
+<span id="cb2-4"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">THEN</span> <span class="st">'A'</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">THEN</span> <span class="st">'B'</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">70</span> <span class="cf">THEN</span> <span class="st">'C'</span></span>
+<span id="cb2-8"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">60</span> <span class="cf">THEN</span> <span class="st">'D'</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="cf">ELSE</span> <span class="st">'F'</span></span>
+<span id="cb2-10"><a href=""></a>  <span class="cf">END</span> <span class="kw">AS</span> letter_grade</span>
+<span id="cb2-11"><a href=""></a><span class="kw">FROM</span> student_scores;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="case-in-select-before-and-after" class="slide level2">
+<h2>CASE in SELECT – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="raw-data-student_scores">Raw Data – <code>student_scores</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>+----------------+-------+</span>
+<span id="cb3-2"><a href=""></a>| student_name   | grade |</span>
+<span id="cb3-3"><a href=""></a>+----------------+-------+</span>
+<span id="cb3-4"><a href=""></a>| Alice Johnson  | 94    |</span>
+<span id="cb3-5"><a href=""></a>| Bob Smith      | 82    |</span>
+<span id="cb3-6"><a href=""></a>| Carol Chen     | 76    |</span>
+<span id="cb3-7"><a href=""></a>| David Lee      | 67    |</span>
+<span id="cb3-8"><a href=""></a>| Eva Martínez   | 58    |</span>
+<span id="cb3-9"><a href=""></a>+----------------+-------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="query-result-with-case">Query Result – With <code>CASE</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb4-2"><a href=""></a>| student_name   | grade | letter_grade |</span>
+<span id="cb4-3"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb4-4"><a href=""></a>| Alice Johnson  | 94    | A            |</span>
+<span id="cb4-5"><a href=""></a>| Bob Smith      | 82    | B            |</span>
+<span id="cb4-6"><a href=""></a>| Carol Chen     | 76    | C            |</span>
+<span id="cb4-7"><a href=""></a>| David Lee      | 67    | D            |</span>
+<span id="cb4-8"><a href=""></a>| Eva Martínez   | 58    | F            |</span>
+<span id="cb4-9"><a href=""></a>+----------------+-------+--------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="case-in-select-before-and-after-1" class="slide level2">
+<h2>CASE in SELECT – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example---grades-1">Example - Grades</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb5-2"><a href=""></a>  student_name,</span>
+<span id="cb5-3"><a href=""></a>  grade,</span>
+<span id="cb5-4"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb5-5"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">90</span> <span class="cf">THEN</span> <span class="st">'A'</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">80</span> <span class="cf">THEN</span> <span class="st">'B'</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">70</span> <span class="cf">THEN</span> <span class="st">'C'</span></span>
+<span id="cb5-8"><a href=""></a>    <span class="cf">WHEN</span> grade <span class="op">&gt;=</span> <span class="dv">60</span> <span class="cf">THEN</span> <span class="st">'D'</span></span>
+<span id="cb5-9"><a href=""></a>    <span class="cf">ELSE</span> <span class="st">'F'</span></span>
+<span id="cb5-10"><a href=""></a>  <span class="cf">END</span> <span class="kw">AS</span> letter_grade</span>
+<span id="cb5-11"><a href=""></a><span class="kw">FROM</span> student_scores;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="query-result-with-case-1">Query Result – With <code>CASE</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb6-2"><a href=""></a>| student_name   | grade | letter_grade |</span>
+<span id="cb6-3"><a href=""></a>+----------------+-------+--------------+</span>
+<span id="cb6-4"><a href=""></a>| Alice Johnson  | 94    | A            |</span>
+<span id="cb6-5"><a href=""></a>| Bob Smith      | 82    | B            |</span>
+<span id="cb6-6"><a href=""></a>| Carol Chen     | 76    | C            |</span>
+<span id="cb6-7"><a href=""></a>| David Lee      | 67    | D            |</span>
+<span id="cb6-8"><a href=""></a>| Eva Martínez   | 58    | F            |</span>
+<span id="cb6-9"><a href=""></a>+----------------+-------+--------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="case-statement-in-order-by" class="slide level2">
+<h2>CASE statement in ORDER BY</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-1">Syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb7-2"><a href=""></a>  column_name,</span>
+<span id="cb7-3"><a href=""></a>  other_column</span>
+<span id="cb7-4"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb7-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb7-6"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb7-7"><a href=""></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> sort_priority1</span>
+<span id="cb7-8"><a href=""></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> sort_priority2</span>
+<span id="cb7-9"><a href=""></a>    <span class="cf">ELSE</span> default_priority</span>
+<span id="cb7-10"><a href=""></a>  <span class="cf">END</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Useful for <strong>custom sorting</strong></li>
+<li>Replaces fixed sorting rules with <strong>dynamic logic</strong></li>
+<li>Can be combined with ascending/descending order</li>
+</ul>
+</div><div class="column">
+<h3 id="example-custom-department-sort">Example – Custom Department Sort</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb8-2"><a href=""></a>  employee_name,</span>
+<span id="cb8-3"><a href=""></a>  department</span>
+<span id="cb8-4"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb8-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb8-6"><a href=""></a>  <span class="cf">CASE</span> department</span>
+<span id="cb8-7"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Executive'</span> <span class="cf">THEN</span> <span class="dv">1</span></span>
+<span id="cb8-8"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="dv">2</span></span>
+<span id="cb8-9"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="dv">3</span></span>
+<span id="cb8-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="dv">4</span></span>
+<span id="cb8-11"><a href=""></a>  <span class="cf">END</span>,</span>
+<span id="cb8-12"><a href=""></a>  department</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This example overrides the default sort order, forcing specific departments to come before others in the result set.</p>
+</div></div>
+</section>
+<section id="case-in-order-by-before-and-after" class="slide level2">
+<h2>CASE in ORDER BY – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="sample-data-employees">Sample Data – <code>employees</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>+------------------+-------------+</span>
+<span id="cb9-2"><a href=""></a>| employee_name    | department  |</span>
+<span id="cb9-3"><a href=""></a>+------------------+-------------+</span>
+<span id="cb9-4"><a href=""></a>| Alice Johnson    | Sales       |</span>
+<span id="cb9-5"><a href=""></a>| Bob Smith        | Engineering |</span>
+<span id="cb9-6"><a href=""></a>| Carol Chen       | Executive   |</span>
+<span id="cb9-7"><a href=""></a>| David Lee        | Marketing   |</span>
+<span id="cb9-8"><a href=""></a>| Eva Martínez     | Sales       |</span>
+<span id="cb9-9"><a href=""></a>| Frank Patel      | Engineering |</span>
+<span id="cb9-10"><a href=""></a>+------------------+-------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="ordered-result-custom-sort">Ordered Result – Custom Sort</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>+------------------+-------------+</span>
+<span id="cb10-2"><a href=""></a>| employee_name    | department  |</span>
+<span id="cb10-3"><a href=""></a>+------------------+-------------+</span>
+<span id="cb10-4"><a href=""></a>| Carol Chen       | Executive   |</span>
+<span id="cb10-5"><a href=""></a>| Bob Smith        | Engineering |</span>
+<span id="cb10-6"><a href=""></a>| Frank Patel      | Engineering |</span>
+<span id="cb10-7"><a href=""></a>| Alice Johnson    | Sales       |</span>
+<span id="cb10-8"><a href=""></a>| Eva Martínez     | Sales       |</span>
+<span id="cb10-9"><a href=""></a>| David Lee        | Marketing   |</span>
+<span id="cb10-10"><a href=""></a>+------------------+-------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Custom order: Executive → Engineering → Sales → (others)</p>
+</div></div>
+</section>
+<section id="case-in-order-by-before-and-after-1" class="slide level2">
+<h2>CASE in ORDER BY – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-custom-department-sort-1">Example – Custom Department Sort</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb11-2"><a href=""></a>  employee_name,</span>
+<span id="cb11-3"><a href=""></a>  department</span>
+<span id="cb11-4"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb11-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb11-6"><a href=""></a>  <span class="cf">CASE</span> department</span>
+<span id="cb11-7"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Executive'</span> <span class="cf">THEN</span> <span class="dv">1</span></span>
+<span id="cb11-8"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="dv">2</span></span>
+<span id="cb11-9"><a href=""></a>    <span class="cf">WHEN</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="dv">3</span></span>
+<span id="cb11-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="dv">4</span></span>
+<span id="cb11-11"><a href=""></a>  <span class="cf">END</span>,</span>
+<span id="cb11-12"><a href=""></a>  department</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="ordered-result-custom-sort-1">Ordered Result – Custom Sort</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>+------------------+-------------+</span>
+<span id="cb12-2"><a href=""></a>| employee_name    | department  |</span>
+<span id="cb12-3"><a href=""></a>+------------------+-------------+</span>
+<span id="cb12-4"><a href=""></a>| Carol Chen       | Executive   |</span>
+<span id="cb12-5"><a href=""></a>| Bob Smith        | Engineering |</span>
+<span id="cb12-6"><a href=""></a>| Frank Patel      | Engineering |</span>
+<span id="cb12-7"><a href=""></a>| Alice Johnson    | Sales       |</span>
+<span id="cb12-8"><a href=""></a>| Eva Martínez     | Sales       |</span>
+<span id="cb12-9"><a href=""></a>| David Lee        | Marketing   |</span>
+<span id="cb12-10"><a href=""></a>+------------------+-------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Custom order: Executive → Engineering → Sales → (others)</p>
+</div></div>
+</section>
+<section id="case-statement-in-where" class="slide level2">
+<h2>CASE statement in WHERE</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-2">Syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb13-2"><a href=""></a>  column_name,</span>
+<span id="cb13-3"><a href=""></a>  other_column</span>
+<span id="cb13-4"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb13-5"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb13-6"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb13-7"><a href=""></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> boolean_result1</span>
+<span id="cb13-8"><a href=""></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> boolean_result2</span>
+<span id="cb13-9"><a href=""></a>    <span class="cf">ELSE</span> default_boolean</span>
+<span id="cb13-10"><a href=""></a>  <span class="cf">END</span> <span class="op">=</span> <span class="kw">TRUE</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Allows <strong>conditional filtering</strong><br>
+</li>
+<li>Not commonly used, but helpful for <strong>complex logic</strong><br>
+</li>
+<li>Must evaluate to a boolean (<code>TRUE</code>/<code>FALSE</code>)</li>
+</ul>
+</div><div class="column">
+<h3 id="example-conditional-filter-by-role">Example – Conditional Filter by Role</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb14-2"><a href=""></a>  employee_name,</span>
+<span id="cb14-3"><a href=""></a>  department,</span>
+<span id="cb14-4"><a href=""></a>  <span class="kw">role</span></span>
+<span id="cb14-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb14-6"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb14-7"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb14-8"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Manager'</span></span>
+<span id="cb14-9"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Engineer'</span></span>
+<span id="cb14-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="kw">FALSE</span></span>
+<span id="cb14-11"><a href=""></a>  <span class="cf">END</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Selects specific department-role pairs. Applied to each row.</p>
+<ul>
+<li><p>If the employee is in the Sales department, they must have the role ‘Manager’.</p></li>
+<li><p>If the employee is in Engineering, they must have the role ‘Engineer’.</p></li>
+<li><p>Employees in any other department are excluded.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="case-in-where-before-and-after" class="slide level2">
+<h2>CASE in WHERE – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="sample-data-employees-1">Sample Data – <code>employees</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb15-2"><a href=""></a>| employee_name    | department  | role      |</span>
+<span id="cb15-3"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb15-4"><a href=""></a>| Alice Johnson    | Sales       | Manager   |</span>
+<span id="cb15-5"><a href=""></a>| Bob Smith        | Sales       | Rep       |</span>
+<span id="cb15-6"><a href=""></a>| Carol Chen       | Engineering | Engineer  |</span>
+<span id="cb15-7"><a href=""></a>| David Lee        | Engineering | Manager   |</span>
+<span id="cb15-8"><a href=""></a>| Eva Martínez     | Marketing   | Manager   |</span>
+<span id="cb15-9"><a href=""></a>| Frank Patel      | Engineering | Engineer  |</span>
+<span id="cb15-10"><a href=""></a>| Grace O'Connor   | Sales       | Manager   |</span>
+<span id="cb15-11"><a href=""></a>+------------------+-------------+-----------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="filtered-result-with-case">Filtered Result – With CASE</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb16-2"><a href=""></a>| employee_name    | department  | role      |</span>
+<span id="cb16-3"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb16-4"><a href=""></a>| Alice Johnson    | Sales       | Manager   |</span>
+<span id="cb16-5"><a href=""></a>| Carol Chen       | Engineering | Engineer  |</span>
+<span id="cb16-6"><a href=""></a>| Frank Patel      | Engineering | Engineer  |</span>
+<span id="cb16-7"><a href=""></a>| Grace O'Connor   | Sales       | Manager   |</span>
+<span id="cb16-8"><a href=""></a>+------------------+-------------+-----------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Only includes: - <strong>Sales + Manager</strong> - <strong>Engineering + Engineer</strong></p>
+</div></div>
+</section>
+<section id="case-in-where-before-and-after-1" class="slide level2">
+<h2>CASE in WHERE – Before and After</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-conditional-filter-by-role-1">Example – Conditional Filter by Role</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb17-2"><a href=""></a>  employee_name,</span>
+<span id="cb17-3"><a href=""></a>  department,</span>
+<span id="cb17-4"><a href=""></a>  <span class="kw">role</span></span>
+<span id="cb17-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb17-6"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb17-7"><a href=""></a>  <span class="cf">CASE</span></span>
+<span id="cb17-8"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Sales'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Manager'</span></span>
+<span id="cb17-9"><a href=""></a>    <span class="cf">WHEN</span> department <span class="op">=</span> <span class="st">'Engineering'</span> <span class="cf">THEN</span> <span class="kw">role</span> <span class="op">=</span> <span class="st">'Engineer'</span></span>
+<span id="cb17-10"><a href=""></a>    <span class="cf">ELSE</span> <span class="kw">FALSE</span></span>
+<span id="cb17-11"><a href=""></a>  <span class="cf">END</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="filtered-result-with-case-1">Filtered Result – With CASE</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb18-2"><a href=""></a>| employee_name    | department  | role      |</span>
+<span id="cb18-3"><a href=""></a>+------------------+-------------+-----------+</span>
+<span id="cb18-4"><a href=""></a>| Alice Johnson    | Sales       | Manager   |</span>
+<span id="cb18-5"><a href=""></a>| Carol Chen       | Engineering | Engineer  |</span>
+<span id="cb18-6"><a href=""></a>| Frank Patel      | Engineering | Engineer  |</span>
+<span id="cb18-7"><a href=""></a>| Grace O'Connor   | Sales       | Manager   |</span>
+<span id="cb18-8"><a href=""></a>+------------------+-------------+-----------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Only includes: - <strong>Sales + Manager</strong> - <strong>Engineering + Engineer</strong></p>
+</div></div>
+</section>
+<section id="case-statement-for-pivot-tables" class="slide level2">
+<h2>CASE statement for Pivot Tables</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax-3">Syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb19-2"><a href=""></a>  group_column,</span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> label1,</span>
+<span id="cb19-4"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> label2,</span>
+<span id="cb19-5"><a href=""></a>  <span class="op">..</span>.</span>
+<span id="cb19-6"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb19-7"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> group_column;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Simulates a <strong>pivot table</strong> using <code>CASE</code> + <code>SUM</code></li>
+<li>Converts <strong>row values into columns</strong></li>
+<li>Used for <strong>categorical counts or sums</strong></li>
+</ul>
+</div><div class="column">
+<h3 id="example-count-by-gender">Example – Count by Gender</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb20-2"><a href=""></a>  department,</span>
+<span id="cb20-3"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'F'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> female_count,</span>
+<span id="cb20-4"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'M'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> male_count</span>
+<span id="cb20-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb20-6"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> department;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>This example counts how many males and females are in each department.</li>
+<li>Standard design pattern for creating pivot tables.</li>
+</ul>
+</div></div>
+</section>
+<section id="case-statement-for-pivot-tables-1" class="slide level2">
+<h2>CASE statement for Pivot Tables</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-sample-employees-table.">Example – Sample <code>employees</code> table.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href=""></a><span class="op">+</span><span class="co">----+-----------------+-------------+--------+</span></span>
+<span id="cb21-2"><a href=""></a>| <span class="kw">ID</span> | employee_name   | department  | gender |</span>
+<span id="cb21-3"><a href=""></a><span class="op">+</span><span class="co">----+-----------------+-------------+--------+</span></span>
+<span id="cb21-4"><a href=""></a>|  <span class="dv">1</span> | Alice Johnson   | Engineering | F      |</span>
+<span id="cb21-5"><a href=""></a>|  <span class="dv">2</span> | Bob Smith       | Sales       | M      |</span>
+<span id="cb21-6"><a href=""></a>|  <span class="dv">3</span> | Carol Chen      | Engineering | F      |</span>
+<span id="cb21-7"><a href=""></a>|  <span class="dv">4</span> | David Lee       | Sales       | M      |</span>
+<span id="cb21-8"><a href=""></a>|  <span class="dv">5</span> | Eva Martínez    | Marketing   | F      |</span>
+<span id="cb21-9"><a href=""></a>|  <span class="dv">6</span> | Frank Patel     | Engineering | M      |</span>
+<span id="cb21-10"><a href=""></a>|  <span class="dv">7</span> | Grace O<span class="st">''</span>Connor | Marketing   | F      |</span>
+<span id="cb21-11"><a href=""></a>|  <span class="dv">8</span> | Henry Davis     | Sales       | M      |</span>
+<span id="cb21-12"><a href=""></a>|  <span class="dv">9</span> | Irene Thompson  | Engineering | F      |</span>
+<span id="cb21-13"><a href=""></a><span class="op">+</span><span class="co">----+-----------------+-------------+--------+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="example-sample-employees-table.-1">Example – Sample <code>employees</code> table.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb22-2"><a href=""></a>| department  | female_count | male_count  |</span>
+<span id="cb22-3"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb22-4"><a href=""></a>| Engineering |      <span class="dv">3</span>       |      <span class="dv">1</span>      |</span>
+<span id="cb22-5"><a href=""></a>| Sales       |      <span class="dv">0</span>       |      <span class="dv">3</span>      |</span>
+<span id="cb22-6"><a href=""></a>| Marketing   |      <span class="dv">2</span>       |      <span class="dv">0</span>      |</span>
+<span id="cb22-7"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Answers question: <em>Gender by Department</em></li>
+<li>Very standard SQL design pattern</li>
+</ul>
+</div></div>
+</section>
+<section id="case-statement-for-pivot-tables-2" class="slide level2">
+<h2>CASE statement for Pivot Tables</h2>
+<div class="columns">
+<div class="column">
+<h3 id="example-count-by-gender-1">Example – Count by Gender</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb23-2"><a href=""></a>  department,</span>
+<span id="cb23-3"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'F'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> female_count,</span>
+<span id="cb23-4"><a href=""></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'M'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> male_count</span>
+<span id="cb23-5"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb23-6"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> department;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<h3 id="example-sample-employees-table.-2">Example – Sample <code>employees</code> table.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb24-2"><a href=""></a>| department  | female_count | male_count  |</span>
+<span id="cb24-3"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span>
+<span id="cb24-4"><a href=""></a>| Engineering |      <span class="dv">3</span>       |      <span class="dv">1</span>      |</span>
+<span id="cb24-5"><a href=""></a>| Sales       |      <span class="dv">0</span>       |      <span class="dv">3</span>      |</span>
+<span id="cb24-6"><a href=""></a>| Marketing   |      <span class="dv">2</span>       |      <span class="dv">0</span>      |</span>
+<span id="cb24-7"><a href=""></a><span class="op">+</span><span class="co">-------------+--------------+-------------+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Answers question: <em>Gender by Department</em></li>
+<li>Very standard SQL design pattern</li>
+</ul>
+</div></div>
+</section>
+<section id="before-group-by-preparing-for-pivot" class="slide level2">
+<h2>Before GROUP BY: Preparing for Pivot</h2>
+<div class="columns">
+<div class="column">
+<h3 id="query-no-group-by">Query (No GROUP BY)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb25-2"><a href=""></a>  department,</span>
+<span id="cb25-3"><a href=""></a>  gender,</span>
+<span id="cb25-4"><a href=""></a>  <span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'F'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span> <span class="kw">AS</span> is_female,</span>
+<span id="cb25-5"><a href=""></a>  <span class="cf">CASE</span> <span class="cf">WHEN</span> gender <span class="op">=</span> <span class="st">'M'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span> <span class="kw">AS</span> is_male</span>
+<span id="cb25-6"><a href=""></a><span class="kw">FROM</span> employees;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>CASE</code> transforms gender into numeric indicators<br>
+</li>
+<li>Useful for preparing <strong>per-row</strong> values for aggregation<br>
+</li>
+<li>Still shows one row per employee</li>
+<li>Employee name can be shown if desired.</li>
+</ul>
+</div><div class="column">
+<h3 id="output-table">Output Table</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href=""></a>+-------------+--------+-----------+---------+</span>
+<span id="cb26-2"><a href=""></a>| department  | gender | is_female | is_male |</span>
+<span id="cb26-3"><a href=""></a>+-------------+--------+-----------+---------+</span>
+<span id="cb26-4"><a href=""></a>| Engineering | F      |     1     |    0    |</span>
+<span id="cb26-5"><a href=""></a>| Sales       | M      |     0     |    1    |</span>
+<span id="cb26-6"><a href=""></a>| Engineering | F      |     1     |    0    |</span>
+<span id="cb26-7"><a href=""></a>| Sales       | M      |     0     |    1    |</span>
+<span id="cb26-8"><a href=""></a>| Marketing   | F      |     1     |    0    |</span>
+<span id="cb26-9"><a href=""></a>| Engineering | M      |     0     |    1    |</span>
+<span id="cb26-10"><a href=""></a>| Marketing   | F      |     1     |    0    |</span>
+<span id="cb26-11"><a href=""></a>| Sales       | M      |     0     |    1    |</span>
+<span id="cb26-12"><a href=""></a>| Engineering | F      |     1     |    0    |</span>
+<span id="cb26-13"><a href=""></a>+-------------+--------+-----------+---------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="case-statement-summary" class="slide level2">
+<h2>CASE Statement Summary</h2>
+<div class="columns">
+<div class="column">
+<h3 id="what-is-case">What is <code>CASE</code>?</h3>
+<ul>
+<li>SQL’s version of <code>if-then-else</code></li>
+<li>Adds conditional logic to queries</li>
+<li>Evaluates <strong>top-down</strong>, returns first match</li>
+<li>Defaults to <code>NULL</code> if no condition matches</li>
+</ul>
+</div><div class="column">
+<h3 id="where-is-it-used">Where is it used?</h3>
+<ul>
+<li><code>SELECT</code> – to create new computed columns<br>
+</li>
+<li><code>ORDER BY</code> – to sort by custom rules<br>
+</li>
+<li><code>WHERE</code> – to apply conditional filtering<br>
+</li>
+<li><code>GROUP BY</code> + aggregate – to pivot or count conditionally<br>
+</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="subqueries-in-sql-repeated" class="title-slide slide level1 center">
+<h1>Subqueries in SQL (repeated)</h1>
 <!-- # SQL Subqueries -->
 </section>
 <section id="subqueries" class="slide level2">
@@ -331,27 +802,27 @@
 </div><div class="column">
 <h3 id="single-row-example">Single-row example</h3>
 <p>Find employees with greater than average salary.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="kw">SELECT</span> name</span>
-<span id="cb1-2"><a href=""></a><span class="kw">FROM</span> employees</span>
-<span id="cb1-3"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary) <span class="kw">FROM</span> employees);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href=""></a><span class="kw">SELECT</span> name</span>
+<span id="cb27-2"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb27-3"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary) <span class="kw">FROM</span> employees);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>
 &nbsp;
 </p>
 <h3 id="multi-row-example">Multi-row example</h3>
 <p>Find employees from small departments (&lt;5 employees)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">SELECT</span> name</span>
-<span id="cb2-2"><a href=""></a><span class="kw">FROM</span> employees</span>
-<span id="cb2-3"><a href=""></a><span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
-<span id="cb2-4"><a href=""></a>                        <span class="kw">FROM</span> employees</span>
-<span id="cb2-5"><a href=""></a>                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
-<span id="cb2-6"><a href=""></a>                        <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&lt;</span> <span class="dv">5</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href=""></a><span class="kw">SELECT</span> name</span>
+<span id="cb28-2"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb28-3"><a href=""></a><span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
+<span id="cb28-4"><a href=""></a>                        <span class="kw">FROM</span> employees</span>
+<span id="cb28-5"><a href=""></a>                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb28-6"><a href=""></a>                        <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&lt;</span> <span class="dv">5</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="sample-data---employees-table-from-hr-database" class="slide level2">
 <h2>Sample data - employees table from HR database</h2>
 <p>First 20 records from <code>employees</code> table in your <code>sp25_&lt;eid&gt;_hr</code> database.</p>
 <div style="font-size: 0.5em;">
-<div id="614c59d8" class="cell" data-execution_count="6">
+<div id="3a503e7a" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table border="1" class="dataframe">
 
@@ -1384,21 +1855,21 @@ Total Rows: 20, Total Columns: 11
 <section id="subquery-in-the-where-clause" class="slide level2">
 <h2>Subquery in the WHERE clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="37549179" class="cell" data-execution_count="7">
+<div id="82f40e2a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">SELECT</span></span>
-<span id="cb3-2"><a href=""></a>  last_name,</span>
-<span id="cb3-3"><a href=""></a>  salary</span>
-<span id="cb3-4"><a href=""></a><span class="kw">FROM</span></span>
-<span id="cb3-5"><a href=""></a>  employees</span>
-<span id="cb3-6"><a href=""></a><span class="kw">WHERE</span></span>
-<span id="cb3-7"><a href=""></a>  salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">from</span> employees)</span>
-<span id="cb3-8"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
-<span id="cb3-9"><a href=""></a>  salary <span class="kw">desc</span></span>
-<span id="cb3-10"><a href=""></a><span class="kw">LIMIT</span> <span class="dv">15</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb29-2"><a href=""></a>  last_name,</span>
+<span id="cb29-3"><a href=""></a>  salary</span>
+<span id="cb29-4"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb29-5"><a href=""></a>  employees</span>
+<span id="cb29-6"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb29-7"><a href=""></a>  salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">from</span> employees)</span>
+<span id="cb29-8"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb29-9"><a href=""></a>  salary <span class="kw">desc</span></span>
+<span id="cb29-10"><a href=""></a><span class="kw">LIMIT</span> <span class="dv">15</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -1546,24 +2017,24 @@ Zlotkey
 <section id="subquery-in-the-select-clause" class="slide level2">
 <h2>Subquery in the SELECT clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="edeb8911" class="cell" data-execution_count="8">
+<div id="1346bbec" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-1">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="kw">SELECT</span></span>
-<span id="cb4-2"><a href=""></a>  last_name,</span>
-<span id="cb4-3"><a href=""></a>  salary,</span>
-<span id="cb4-4"><a href=""></a>  (<span class="kw">select</span> <span class="fu">avg</span>(salary) </span>
-<span id="cb4-5"><a href=""></a>   <span class="kw">from</span> employees</span>
-<span id="cb4-6"><a href=""></a>  ) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
-<span id="cb4-7"><a href=""></a><span class="kw">FROM</span></span>
-<span id="cb4-8"><a href=""></a>  employees</span>
-<span id="cb4-9"><a href=""></a><span class="kw">WHERE</span></span>
-<span id="cb4-10"><a href=""></a>  salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">from</span> employees)</span>
-<span id="cb4-11"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
-<span id="cb4-12"><a href=""></a>  salary <span class="kw">desc</span></span>
-<span id="cb4-13"><a href=""></a><span class="kw">LIMIT</span> <span class="dv">15</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb30-2"><a href=""></a>  last_name,</span>
+<span id="cb30-3"><a href=""></a>  salary,</span>
+<span id="cb30-4"><a href=""></a>  (<span class="kw">select</span> <span class="fu">avg</span>(salary) </span>
+<span id="cb30-5"><a href=""></a>   <span class="kw">from</span> employees</span>
+<span id="cb30-6"><a href=""></a>  ) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
+<span id="cb30-7"><a href=""></a><span class="kw">FROM</span></span>
+<span id="cb30-8"><a href=""></a>  employees</span>
+<span id="cb30-9"><a href=""></a><span class="kw">WHERE</span></span>
+<span id="cb30-10"><a href=""></a>  salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">from</span> employees)</span>
+<span id="cb30-11"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb30-12"><a href=""></a>  salary <span class="kw">desc</span></span>
+<span id="cb30-13"><a href=""></a><span class="kw">LIMIT</span> <span class="dv">15</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -1760,21 +2231,21 @@ Zlotkey
 <section id="subquery-in-the-from-clause" class="slide level2">
 <h2>Subquery in the FROM clause</h2>
 <p><em>List employees with salary greater than average salary.</em></p>
-<div id="e187930c" class="cell" data-execution_count="9">
+<div id="34f2b687" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-2">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">SELECT</span></span>
-<span id="cb5-2"><a href=""></a>  <span class="op">*</span></span>
-<span id="cb5-3"><a href=""></a><span class="kw">FROM</span> (</span>
-<span id="cb5-4"><a href=""></a>  <span class="kw">SELECT</span></span>
-<span id="cb5-5"><a href=""></a>    department_id,</span>
-<span id="cb5-6"><a href=""></a>    <span class="fu">SUM</span>(salary) <span class="kw">AS</span> total_salary</span>
-<span id="cb5-7"><a href=""></a>  <span class="kw">FROM</span></span>
-<span id="cb5-8"><a href=""></a>    employees</span>
-<span id="cb5-9"><a href=""></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
-<span id="cb5-10"><a href=""></a>  ) <span class="kw">as</span> junk_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href=""></a><span class="kw">SELECT</span></span>
+<span id="cb31-2"><a href=""></a>  <span class="op">*</span></span>
+<span id="cb31-3"><a href=""></a><span class="kw">FROM</span> (</span>
+<span id="cb31-4"><a href=""></a>  <span class="kw">SELECT</span></span>
+<span id="cb31-5"><a href=""></a>    department_id,</span>
+<span id="cb31-6"><a href=""></a>    <span class="fu">SUM</span>(salary) <span class="kw">AS</span> total_salary</span>
+<span id="cb31-7"><a href=""></a>  <span class="kw">FROM</span></span>
+<span id="cb31-8"><a href=""></a>    employees</span>
+<span id="cb31-9"><a href=""></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb31-10"><a href=""></a>  ) <span class="kw">as</span> junk_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -1903,19 +2374,19 @@ NULL
 <h2>Single-value subqueries</h2>
 <p><em>Find employees hired before the earliest hire date in the Sales department.</em></p>
 <p>The <em>inner query</em> or <em>subquery</em> returns a single value - the earliest hire date of employees from department 100. The <em>outer query</em> or <em>main query</em> uses this value in a comparison with <em>hire_data</em></p>
-<div id="1955131d" class="cell" data-execution_count="10">
+<div id="ad8aae0f" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-3">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a></span>
-<span id="cb6-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
-<span id="cb6-3"><a href=""></a><span class="kw">FROM</span> employees</span>
-<span id="cb6-4"><a href=""></a><span class="kw">WHERE</span> hire_date <span class="op">&lt;</span> (</span>
-<span id="cb6-5"><a href=""></a>  <span class="kw">SELECT</span> <span class="fu">MIN</span>(hire_date)</span>
-<span id="cb6-6"><a href=""></a>  <span class="kw">FROM</span> employees</span>
-<span id="cb6-7"><a href=""></a>  <span class="kw">WHERE</span> department_id<span class="op">=</span><span class="dv">100</span></span>
-<span id="cb6-8"><a href=""></a>  );</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href=""></a></span>
+<span id="cb32-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb32-3"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb32-4"><a href=""></a><span class="kw">WHERE</span> hire_date <span class="op">&lt;</span> (</span>
+<span id="cb32-5"><a href=""></a>  <span class="kw">SELECT</span> <span class="fu">MIN</span>(hire_date)</span>
+<span id="cb32-6"><a href=""></a>  <span class="kw">FROM</span> employees</span>
+<span id="cb32-7"><a href=""></a>  <span class="kw">WHERE</span> department_id<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb32-8"><a href=""></a>  );</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -1966,18 +2437,18 @@ Gietz
 <h2>Multi-value subqueries</h2>
 <p>List the employees in large departments (this with more than 5 employees).</p>
 <p>The <em>inner query</em> returns a list of department ids. The <em>outer query</em> uses the <code>IN</code> operator to test of <code>department_id</code> is in the returned list.</p>
-<div id="bd44a25e" class="cell" data-execution_count="11">
+<div id="20e0d846" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-4">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a></span>
-<span id="cb7-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
-<span id="cb7-3"><a href=""></a><span class="kw">FROM</span> employees</span>
-<span id="cb7-4"><a href=""></a><span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
-<span id="cb7-5"><a href=""></a>                        <span class="kw">FROM</span> employees</span>
-<span id="cb7-6"><a href=""></a>                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
-<span id="cb7-7"><a href=""></a>                        <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;</span> <span class="dv">5</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href=""></a></span>
+<span id="cb33-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb33-3"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb33-4"><a href=""></a><span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
+<span id="cb33-5"><a href=""></a>                        <span class="kw">FROM</span> employees</span>
+<span id="cb33-6"><a href=""></a>                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb33-7"><a href=""></a>                        <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;</span> <span class="dv">5</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -2459,18 +2930,18 @@ Grant
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>The <em>inner query</em> returns the average salary for the department that matches the department id of the employee in the outer query.</p>
 <p>You can also get the same list by using a <em>join</em> in the <code>FROM</code> clause.</p>
-<div id="d53f8bd1" class="cell" data-execution_count="12">
+<div id="883c268c" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-5">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a></span>
-<span id="cb8-2"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
-<span id="cb8-3"><a href=""></a><span class="kw">FROM</span> employees <span class="kw">AS</span> e1</span>
-<span id="cb8-4"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary)</span>
-<span id="cb8-5"><a href=""></a>                <span class="kw">FROM</span> employees <span class="kw">AS</span> e2</span>
-<span id="cb8-6"><a href=""></a>                <span class="kw">WHERE</span> e1.department_id <span class="op">=</span> e2.department_id)</span>
-<span id="cb8-7"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href=""></a></span>
+<span id="cb34-2"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
+<span id="cb34-3"><a href=""></a><span class="kw">FROM</span> employees <span class="kw">AS</span> e1</span>
+<span id="cb34-4"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary)</span>
+<span id="cb34-5"><a href=""></a>                <span class="kw">FROM</span> employees <span class="kw">AS</span> e2</span>
+<span id="cb34-6"><a href=""></a>                <span class="kw">WHERE</span> e1.department_id <span class="op">=</span> e2.department_id)</span>
+<span id="cb34-7"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -2803,21 +3274,21 @@ Zlotkey
 <h2>Subquery as a virtual table</h2>
 <p><em>List employees earning more than the average salary in their department.</em></p>
 <p>Here is the example as before, joining a subquery.</p>
-<div id="3ef59f5e" class="cell" data-execution_count="13">
+<div id="6fde2d38" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="13">
 <div class="columns">
 <div class="column" style="width:70%;">
 <h3 id="sql-code-6">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a></span>
-<span id="cb9-2"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
-<span id="cb9-3"><a href=""></a><span class="kw">FROM</span> </span>
-<span id="cb9-4"><a href=""></a>  employees e1 </span>
-<span id="cb9-5"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> (<span class="kw">SELECT</span> department_id,<span class="fu">AVG</span>(salary) <span class="kw">as</span> avg_salary</span>
-<span id="cb9-6"><a href=""></a>                <span class="kw">FROM</span> employees</span>
-<span id="cb9-7"><a href=""></a>                <span class="kw">group</span> <span class="kw">by</span> department_id) e2</span>
-<span id="cb9-8"><a href=""></a>        <span class="kw">on</span> (e1.department_id<span class="op">=</span>e2.department_id)</span>
-<span id="cb9-9"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> avg_salary</span>
-<span id="cb9-10"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href=""></a></span>
+<span id="cb35-2"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
+<span id="cb35-3"><a href=""></a><span class="kw">FROM</span> </span>
+<span id="cb35-4"><a href=""></a>  employees e1 </span>
+<span id="cb35-5"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> (<span class="kw">SELECT</span> department_id,<span class="fu">AVG</span>(salary) <span class="kw">as</span> avg_salary</span>
+<span id="cb35-6"><a href=""></a>                <span class="kw">FROM</span> employees</span>
+<span id="cb35-7"><a href=""></a>                <span class="kw">group</span> <span class="kw">by</span> department_id) e2</span>
+<span id="cb35-8"><a href=""></a>        <span class="kw">on</span> (e1.department_id<span class="op">=</span>e2.department_id)</span>
+<span id="cb35-9"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> avg_salary</span>
+<span id="cb35-10"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -3149,20 +3620,20 @@ Zlotkey
 <section id="nested-subqueries" class="slide level2">
 <h2>Nested subqueries</h2>
 <p><em>List employees who earn more than the average salary in departments with an average salary above $7,000 per month.</em></p>
-<div id="9bb0d0c0" class="cell" data-execution_count="14">
+<div id="08d40f9e" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <div class="columns">
 <div class="column" style="width:70%;">
 <h3 id="sql-code-7">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href=""></a></span>
-<span id="cb10-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
-<span id="cb10-3"><a href=""></a><span class="kw">FROM</span> employees</span>
-<span id="cb10-4"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary)</span>
-<span id="cb10-5"><a href=""></a>                <span class="kw">FROM</span> employees</span>
-<span id="cb10-6"><a href=""></a>                <span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
-<span id="cb10-7"><a href=""></a>                                        <span class="kw">FROM</span> employees</span>
-<span id="cb10-8"><a href=""></a>                                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
-<span id="cb10-9"><a href=""></a>                                        <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href=""></a></span>
+<span id="cb36-2"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb36-3"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb36-4"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(salary)</span>
+<span id="cb36-5"><a href=""></a>                <span class="kw">FROM</span> employees</span>
+<span id="cb36-6"><a href=""></a>                <span class="kw">WHERE</span> department_id <span class="kw">IN</span> (<span class="kw">SELECT</span> department_id</span>
+<span id="cb36-7"><a href=""></a>                                        <span class="kw">FROM</span> employees</span>
+<span id="cb36-8"><a href=""></a>                                        <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb36-9"><a href=""></a>                                        <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -3280,8 +3751,8 @@ Higgins
 </div>
 </section></section>
 <section>
-<section id="common-table-expressions" class="title-slide slide level1 center">
-<h1>Common Table Expressions</h1>
+<section id="common-table-expressions-repeated" class="title-slide slide level1 center">
+<h1>Common Table Expressions (repeated)</h1>
 <!-- # SQL - Common Table Expressions -->
 </section>
 <section id="common-table-expressions-cte" class="slide level2">
@@ -3315,30 +3786,30 @@ Higgins
 <p>CTE SIGNIFICANTLY simplify complex queries, improves readability, and allows reusing query logic.</p>
 </div><div class="column">
 <h3 id="example-cte">Example CTE</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href=""></a><span class="kw">WITH</span> cte_name <span class="kw">AS</span> (</span>
-<span id="cb11-2"><a href=""></a>    <span class="kw">SELECT</span> <span class="kw">columns</span></span>
-<span id="cb11-3"><a href=""></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb11-4"><a href=""></a>    <span class="kw">WHERE</span> condition</span>
-<span id="cb11-5"><a href=""></a>)</span>
-<span id="cb11-6"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> cte_name;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href=""></a><span class="kw">WITH</span> cte_name <span class="kw">AS</span> (</span>
+<span id="cb37-2"><a href=""></a>    <span class="kw">SELECT</span> <span class="kw">columns</span></span>
+<span id="cb37-3"><a href=""></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb37-4"><a href=""></a>    <span class="kw">WHERE</span> condition</span>
+<span id="cb37-5"><a href=""></a>)</span>
+<span id="cb37-6"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> cte_name;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="cte-example-1" class="slide level2">
 <h2>CTE Example #1</h2>
 <p><em>List employees with salaries greater than average salary.</em></p>
-<div id="b865b7fd" class="cell" data-execution_count="17">
+<div id="de2c93b9" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-8">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a></span>
-<span id="cb12-2"><a href=""></a><span class="kw">WITH</span> avg_salary <span class="kw">AS</span> (</span>
-<span id="cb12-3"><a href=""></a>    <span class="kw">SELECT</span> <span class="fu">AVG</span>(salary) <span class="kw">AS</span> average_salary</span>
-<span id="cb12-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
-<span id="cb12-5"><a href=""></a>)</span>
-<span id="cb12-6"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
-<span id="cb12-7"><a href=""></a><span class="kw">FROM</span> employees, avg_salary</span>
-<span id="cb12-8"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> avg_salary.average_salary;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href=""></a></span>
+<span id="cb38-2"><a href=""></a><span class="kw">WITH</span> avg_salary <span class="kw">AS</span> (</span>
+<span id="cb38-3"><a href=""></a>    <span class="kw">SELECT</span> <span class="fu">AVG</span>(salary) <span class="kw">AS</span> average_salary</span>
+<span id="cb38-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb38-5"><a href=""></a>)</span>
+<span id="cb38-6"><a href=""></a><span class="kw">SELECT</span> last_name, salary</span>
+<span id="cb38-7"><a href=""></a><span class="kw">FROM</span> employees, avg_salary</span>
+<span id="cb38-8"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> avg_salary.average_salary;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -3779,26 +4250,26 @@ Total Rows: 51, Total Columns: 2
 <section id="cte-example-2" class="slide level2">
 <h2>CTE Example #2</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
-<div id="5140b4fc" class="cell" data-execution_count="18">
+<div id="78f31439" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-9">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a></span>
-<span id="cb13-2"><a href=""></a><span class="kw">with</span> big_salary_depts <span class="kw">as</span> (</span>
-<span id="cb13-3"><a href=""></a>    <span class="kw">SELECT</span> department_id</span>
-<span id="cb13-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
-<span id="cb13-5"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
-<span id="cb13-6"><a href=""></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span></span>
-<span id="cb13-7"><a href=""></a>), big_salary_dept_avg <span class="kw">as</span> (</span>
-<span id="cb13-8"><a href=""></a>    <span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">as</span> big_depts_avg_salary</span>
-<span id="cb13-9"><a href=""></a>    <span class="kw">from</span> employees </span>
-<span id="cb13-10"><a href=""></a>    <span class="kw">where</span> department_id <span class="kw">in</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_depts)</span>
-<span id="cb13-11"><a href=""></a>)</span>
-<span id="cb13-12"><a href=""></a><span class="kw">SELECT</span> last_name</span>
-<span id="cb13-13"><a href=""></a><span class="kw">FROM</span> employees</span>
-<span id="cb13-14"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_dept_avg)</span>
-<span id="cb13-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href=""></a></span>
+<span id="cb39-2"><a href=""></a><span class="kw">with</span> big_salary_depts <span class="kw">as</span> (</span>
+<span id="cb39-3"><a href=""></a>    <span class="kw">SELECT</span> department_id</span>
+<span id="cb39-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb39-5"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb39-6"><a href=""></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span></span>
+<span id="cb39-7"><a href=""></a>), big_salary_dept_avg <span class="kw">as</span> (</span>
+<span id="cb39-8"><a href=""></a>    <span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">as</span> big_depts_avg_salary</span>
+<span id="cb39-9"><a href=""></a>    <span class="kw">from</span> employees </span>
+<span id="cb39-10"><a href=""></a>    <span class="kw">where</span> department_id <span class="kw">in</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_depts)</span>
+<span id="cb39-11"><a href=""></a>)</span>
+<span id="cb39-12"><a href=""></a><span class="kw">SELECT</span> last_name</span>
+<span id="cb39-13"><a href=""></a><span class="kw">FROM</span> employees</span>
+<span id="cb39-14"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_dept_avg)</span>
+<span id="cb39-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -3924,26 +4395,26 @@ Total Rows: 19, Total Columns: 1
 <h2>CTE Example #3</h2>
 <p><em>List employees with salaries greater than the average salary of the big-salary departments (i.e., avg salary &gt; $7000)</em></p>
 <p>Same question - different solution</p>
-<div id="8e8bf18b" class="cell" data-execution_count="19">
+<div id="be03a49a" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-10">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a></span>
-<span id="cb14-2"><a href=""></a><span class="kw">with</span> big_salary_depts <span class="kw">as</span> (</span>
-<span id="cb14-3"><a href=""></a>    <span class="kw">SELECT</span> department_id</span>
-<span id="cb14-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
-<span id="cb14-5"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
-<span id="cb14-6"><a href=""></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span></span>
-<span id="cb14-7"><a href=""></a>), big_salary_dept_avg <span class="kw">as</span> (</span>
-<span id="cb14-8"><a href=""></a>    <span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">as</span> big_depts_avg_salary</span>
-<span id="cb14-9"><a href=""></a>    <span class="kw">from</span> employees </span>
-<span id="cb14-10"><a href=""></a>    <span class="kw">where</span> department_id <span class="kw">in</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_depts)</span>
-<span id="cb14-11"><a href=""></a>)</span>
-<span id="cb14-12"><a href=""></a><span class="kw">SELECT</span> last_name, salary, big_depts_avg_salary</span>
-<span id="cb14-13"><a href=""></a><span class="kw">FROM</span> employees a, big_salary_dept_avg</span>
-<span id="cb14-14"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> big_depts_avg_salary</span>
-<span id="cb14-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href=""></a></span>
+<span id="cb40-2"><a href=""></a><span class="kw">with</span> big_salary_depts <span class="kw">as</span> (</span>
+<span id="cb40-3"><a href=""></a>    <span class="kw">SELECT</span> department_id</span>
+<span id="cb40-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb40-5"><a href=""></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> department_id</span>
+<span id="cb40-6"><a href=""></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(salary) <span class="op">&gt;</span> <span class="dv">7000</span></span>
+<span id="cb40-7"><a href=""></a>), big_salary_dept_avg <span class="kw">as</span> (</span>
+<span id="cb40-8"><a href=""></a>    <span class="kw">select</span> <span class="fu">avg</span>(salary) <span class="kw">as</span> big_depts_avg_salary</span>
+<span id="cb40-9"><a href=""></a>    <span class="kw">from</span> employees </span>
+<span id="cb40-10"><a href=""></a>    <span class="kw">where</span> department_id <span class="kw">in</span> (<span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> big_salary_depts)</span>
+<span id="cb40-11"><a href=""></a>)</span>
+<span id="cb40-12"><a href=""></a><span class="kw">SELECT</span> last_name, salary, big_depts_avg_salary</span>
+<span id="cb40-13"><a href=""></a><span class="kw">FROM</span> employees a, big_salary_dept_avg</span>
+<span id="cb40-14"><a href=""></a><span class="kw">WHERE</span> salary <span class="op">&gt;</span> big_depts_avg_salary</span>
+<span id="cb40-15"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -4188,24 +4659,24 @@ Total Rows: 19, Total Columns: 3
 <section id="cte-example-4" class="slide level2">
 <h2>CTE Example #4</h2>
 <p><em>List employees and their manager_id using a recursive CTE</em></p>
-<div id="3e0b4957" class="cell" data-execution_count="20">
+<div id="e279b2a3" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <div class="columns">
 <div class="column" style="width:54%;">
 <h3 id="sql-code-11">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href=""></a></span>
-<span id="cb15-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
-<span id="cb15-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, <span class="dv">1</span> <span class="kw">AS</span> level_id</span>
-<span id="cb15-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
-<span id="cb15-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
-<span id="cb15-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
-<span id="cb15-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, eh.level_id <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb15-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
-<span id="cb15-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
-<span id="cb15-10"><a href=""></a>)</span>
-<span id="cb15-11"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
-<span id="cb15-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
-<span id="cb15-13"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> level_id;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href=""></a></span>
+<span id="cb41-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
+<span id="cb41-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, <span class="dv">1</span> <span class="kw">AS</span> level_id</span>
+<span id="cb41-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb41-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
+<span id="cb41-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb41-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, eh.level_id <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb41-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
+<span id="cb41-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
+<span id="cb41-10"><a href=""></a>)</span>
+<span id="cb41-11"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
+<span id="cb41-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
+<span id="cb41-13"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> level_id;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:1%;">
 <p>
 &nbsp;
@@ -5737,26 +6208,26 @@ Gietz
 <section id="cte-example-5" class="slide level2">
 <h2>CTE Example #5</h2>
 <p><em>List the average salaries for each managerial level in the company</em></p>
-<div id="7f88509a" class="cell" data-execution_count="21">
+<div id="c32bedbf" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <div class="columns">
 <div class="column" style="width:60%;">
 <h3 id="sql-code-12">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a></span>
-<span id="cb16-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
-<span id="cb16-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, salary, <span class="dv">1</span> <span class="kw">AS</span> <span class="ot">"Level ID"</span></span>
-<span id="cb16-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
-<span id="cb16-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
-<span id="cb16-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
-<span id="cb16-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb16-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
-<span id="cb16-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
-<span id="cb16-10"><a href=""></a>), eh1 <span class="kw">as</span> (</span>
-<span id="cb16-11"><a href=""></a><span class="kw">SELECT</span> `Level ID`,<span class="fu">round</span>(<span class="fu">avg</span>(salary),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
-<span id="cb16-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
-<span id="cb16-13"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> `Level ID`</span>
-<span id="cb16-14"><a href=""></a>)</span>
-<span id="cb16-15"><a href=""></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> eh1 <span class="kw">order</span> <span class="kw">by</span> `Level ID`</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href=""></a></span>
+<span id="cb42-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
+<span id="cb42-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, salary, <span class="dv">1</span> <span class="kw">AS</span> <span class="ot">"Level ID"</span></span>
+<span id="cb42-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb42-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
+<span id="cb42-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb42-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb42-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
+<span id="cb42-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
+<span id="cb42-10"><a href=""></a>), eh1 <span class="kw">as</span> (</span>
+<span id="cb42-11"><a href=""></a><span class="kw">SELECT</span> `Level ID`,<span class="fu">round</span>(<span class="fu">avg</span>(salary),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
+<span id="cb42-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
+<span id="cb42-13"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> `Level ID`</span>
+<span id="cb42-14"><a href=""></a>)</span>
+<span id="cb42-15"><a href=""></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> eh1 <span class="kw">order</span> <span class="kw">by</span> `Level ID`</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:2%;">
 <p>
 &nbsp;
@@ -5817,34 +6288,34 @@ Avg Salary
 <h2>CTE Example #6</h2>
 <p><em>List employeee, managerial levels, salaries, flagging those employees with lower than average salaries for their managerial level.</em></p>
 <div style="font-size: 0.8em;">
-<div id="3ae22d07" class="cell" data-execution_count="22">
+<div id="73f6c1e1" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="sql-code-13">SQL Code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href=""></a></span>
-<span id="cb17-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
-<span id="cb17-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, salary, <span class="dv">1</span> <span class="kw">AS</span> <span class="ot">"Level ID"</span></span>
-<span id="cb17-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
-<span id="cb17-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
-<span id="cb17-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
-<span id="cb17-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb17-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
-<span id="cb17-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
-<span id="cb17-10"><a href=""></a>), eh1 <span class="kw">as</span> (</span>
-<span id="cb17-11"><a href=""></a><span class="kw">SELECT</span> `Level ID`,<span class="fu">round</span>(<span class="fu">avg</span>(salary),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
-<span id="cb17-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
-<span id="cb17-13"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> `Level ID`</span>
-<span id="cb17-14"><a href=""></a>)</span>
-<span id="cb17-15"><a href=""></a><span class="kw">select</span></span>
-<span id="cb17-16"><a href=""></a>  last_name, eh0.`Level ID`, </span>
-<span id="cb17-17"><a href=""></a>  <span class="fu">round</span>(salary,<span class="dv">2</span>) <span class="kw">as</span> salary, `Avg Salary`,</span>
-<span id="cb17-18"><a href=""></a>  <span class="cf">case</span> <span class="cf">when</span> salary <span class="op">&lt;</span> `Avg Salary` <span class="cf">then</span> <span class="st">'&lt;-- LOW!'</span> <span class="cf">else</span> <span class="st">''</span> <span class="cf">end</span> <span class="kw">as</span> flag</span>
-<span id="cb17-19"><a href=""></a><span class="kw">from</span></span>
-<span id="cb17-20"><a href=""></a>  employee_hierarchy eh0 </span>
-<span id="cb17-21"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> eh1 eh1 <span class="kw">on</span> (eh0.`Level ID`<span class="op">=</span>eh1.`Level ID`)</span>
-<span id="cb17-22"><a href=""></a><span class="kw">order</span> <span class="kw">by</span></span>
-<span id="cb17-23"><a href=""></a>  eh0.`Level ID`, last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href=""></a></span>
+<span id="cb43-2"><a href=""></a><span class="kw">WITH</span> RECURSIVE employee_hierarchy <span class="kw">AS</span> (</span>
+<span id="cb43-3"><a href=""></a>    <span class="kw">SELECT</span> employee_id, manager_id, last_name, salary, <span class="dv">1</span> <span class="kw">AS</span> <span class="ot">"Level ID"</span></span>
+<span id="cb43-4"><a href=""></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb43-5"><a href=""></a>    <span class="kw">WHERE</span> manager_id <span class="kw">IS</span> <span class="kw">NULL</span>  <span class="co">-- Starting point (top-level manager)</span></span>
+<span id="cb43-6"><a href=""></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb43-7"><a href=""></a>    <span class="kw">SELECT</span> e.employee_id, e.manager_id, e.last_name, e.salary, eh.`Level ID` <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb43-8"><a href=""></a>    <span class="kw">FROM</span> employees <span class="kw">AS</span> e</span>
+<span id="cb43-9"><a href=""></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> employee_hierarchy <span class="kw">AS</span> eh <span class="kw">ON</span> e.manager_id <span class="op">=</span> eh.employee_id</span>
+<span id="cb43-10"><a href=""></a>), eh1 <span class="kw">as</span> (</span>
+<span id="cb43-11"><a href=""></a><span class="kw">SELECT</span> `Level ID`,<span class="fu">round</span>(<span class="fu">avg</span>(salary),<span class="dv">2</span>) <span class="kw">as</span> <span class="ot">"Avg Salary"</span></span>
+<span id="cb43-12"><a href=""></a><span class="kw">FROM</span> employee_hierarchy</span>
+<span id="cb43-13"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> `Level ID`</span>
+<span id="cb43-14"><a href=""></a>)</span>
+<span id="cb43-15"><a href=""></a><span class="kw">select</span></span>
+<span id="cb43-16"><a href=""></a>  last_name, eh0.`Level ID`, </span>
+<span id="cb43-17"><a href=""></a>  <span class="fu">round</span>(salary,<span class="dv">2</span>) <span class="kw">as</span> salary, `Avg Salary`,</span>
+<span id="cb43-18"><a href=""></a>  <span class="cf">case</span> <span class="cf">when</span> salary <span class="op">&lt;</span> `Avg Salary` <span class="cf">then</span> <span class="st">'&lt;-- LOW!'</span> <span class="cf">else</span> <span class="st">''</span> <span class="cf">end</span> <span class="kw">as</span> flag</span>
+<span id="cb43-19"><a href=""></a><span class="kw">from</span></span>
+<span id="cb43-20"><a href=""></a>  employee_hierarchy eh0 </span>
+<span id="cb43-21"><a href=""></a>    <span class="kw">left</span> <span class="kw">join</span> eh1 eh1 <span class="kw">on</span> (eh0.`Level ID`<span class="op">=</span>eh1.`Level ID`)</span>
+<span id="cb43-22"><a href=""></a><span class="kw">order</span> <span class="kw">by</span></span>
+<span id="cb43-23"><a href=""></a>  eh0.`Level ID`, last_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:2%;">
 <p>
 &nbsp;
@@ -7655,8 +8126,8 @@ Total Rows: 107, Total Columns: 5
 </div>
 </section></section>
 <section>
-<section id="homework-8---sql-funhouse" class="title-slide slide level1 center">
-<h1>Homework 8 - SQL Funhouse</h1>
+<section id="homework-8---sql-funhouse-repeated" class="title-slide slide level1 center">
+<h1>Homework 8 - SQL Funhouse (repeated)</h1>
 <!-- # Homework 8 - discussion -->
 </section>
 <section id="homework-8-discussion" class="slide level2">
@@ -7683,6 +8154,30 @@ Total Rows: 107, Total Columns: 5
 <center>
 We’ll jump to the command line to get the project started!
 </center>
+</section></section>
+<section>
+<section id="homework-8-table-examples" class="title-slide slide level1 center">
+<h1>Homework 8 Table Examples</h1>
+<!-- # Homework 8 Table Examples -->
+</section>
+<section id="homework-8---task-18" class="slide level2">
+<h2>Homework 8 - Task 18</h2>
+<p>Write a single query that returns income-region pairs without countries.</p>
+<p><img data-src="assets/homework-8-task-18.png"></p>
+</section>
+<section id="homework-8---task-19" class="slide level2">
+<h2>Homework 8 - Task 19</h2>
+<p>What is the percentage of all countries in each income-region pair?</p>
+<p><img data-src="assets/homework-8-task-19.png"></p>
+</section>
+<section id="homework-8---task-20" class="slide level2">
+<h2>Homework 8 - Task 20</h2>
+<p>Craft a table showing percentage of all countries in each income-region pair, with region in rows and income group in columns.</p>
+<p><img data-src="assets/homework-8-task-20.png"></p>
+</section>
+<section id="homework-8---task-21" class="slide level2">
+<h2>Homework 8 - Task 21</h2>
+<p>List percentage of countries in each income group. (easier than task 20!) <img data-src="assets/homework-8-task-21.png"></p>
 <!-- _rest-of-class-working-examples.qmd -->
 </section>
 <section id="section" class="slide level2">
@@ -7705,14 +8200,18 @@ We’ll jump to the command line to get the project started!
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140">Homework 8 - SQL Funhouse</a> - due 4/20, SUN</li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140">Homework 8 - SQL Funhouse</a> - due 11/16, SUN</p></li>
+<li><p>CS CLUB NIGHT - MON 11/17 - 5pm-7:30pm (no lecture)</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141">Homework 9 - released tomorrow</a> - due 11/30, SUN</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li><p><a href="#/subqueries-in-sql">Subqueries in SQL</a></p></li>
-<li><p><a href="#/common-table-expressions">Common Table Expressions</a></p></li>
-<li><p><a href="#/homework-8---sql-funhouse">Homework 8 - SQL Funhouse</a></p></li>
+<li><p><a href="#/case-statements-(repeated)">CASE statements (repeated)</a></p></li>
+<li><p><a href="#/subqueries-in-sql-(repeated)">Subqueries in SQL (repeated)</a></p></li>
+<li><p><a href="#/common-table-expressions-(repeated)">Common Table Expressions (repeated)</a></p></li>
+<li><p><a href="#/homework-8---sql-funhouse-(repeated)">Homework 8 - SQL Funhouse (repeated)</a></p></li>
+<li><p><a href="#/homework-8-table-examples">Homework 8 Table Examples</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -7753,7 +8252,7 @@ We’ll jump to the command line to get the project started!
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/17</td>
 <td style="text-align: center;">Mon</td>
-<td>L25:Subqueries and WITH 2</td>
+<td>L25:Subqueries and WITH 4</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -7765,14 +8264,6 @@ We’ll jump to the command line to get the project started!
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">11/23</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW9:Even more on SQL</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/24</td>
@@ -7780,13 +8271,21 @@ We’ll jump to the command line to get the project started!
 <td>NO CLASS - Fall break</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/26</td>
 <td style="text-align: center;">Wed</td>
 <td>NO CLASS - Fall break</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Fall Break</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">11/30</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW9:Even more on SQL</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">SQL</td>

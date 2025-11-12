@@ -2,21 +2,35 @@
 date: '2025-11-12'
 discussion-items:
 - options: target="_blank"
-  post_text: '- due 4/20, SUN'
+  post_text: '- due 11/16, SUN'
   topic: Homework 8 - SQL Funhouse
   url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241140
+- options: ''
+  post_text: ''
+  topic: CS CLUB NIGHT - MON 11/17 - 5pm-7:30pm (no lecture)
+  url: ''
+- options: target="_blank"
+  post_text: '- due 11/30, SUN'
+  topic: Homework 9 - released tomorrow
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141
 lecture-id: 24
 lecture-topics:
-- id: '165'
-  topic: Subqueries in SQL
-  url: _sql-subqueries.qmd
-- id: '166'
-  topic: Common Table Expressions
-  url: _sql-common-table-expressions.qmd
-- id: '167'
-  topic: Homework 8 - SQL Funhouse
-  url: _homework-8-discussion-sp2025.qmd
 - id: '168'
+  topic: CASE statements (repeated)
+  url: _sql-case-statements.qmd
+- id: '169'
+  topic: Subqueries in SQL (repeated)
+  url: _sql-subqueries.qmd
+- id: '170'
+  topic: Common Table Expressions (repeated)
+  url: _sql-common-table-expressions.qmd
+- id: '171'
+  topic: Homework 8 - SQL Funhouse (repeated)
+  url: _homework-8-discussion-sp2025.qmd
+- id: '172'
+  topic: Homework 8 Table Examples
+  url: _homework-8-table-examples.qmd
+- id: '173'
   topic: .
   url: _rest-of-class-working-examples.qmd
 title: Subqueries and WITH 3
@@ -32,17 +46,25 @@ this_file = 'lecture-24.qmd'
 
 <!-- lecture-block-begin -->
 
-# Subqueries in SQL
+# CASE statements (repeated)
+
+{{< include ../../topics/_sql-case-statements.qmd >}}
+
+# Subqueries in SQL (repeated)
 
 {{< include ../../topics/_sql-subqueries.qmd >}}
 
-# Common Table Expressions
+# Common Table Expressions (repeated)
 
 {{< include ../../topics/_sql-common-table-expressions.qmd >}}
 
-# Homework 8 - SQL Funhouse
+# Homework 8 - SQL Funhouse (repeated)
 
 {{< include ../../topics/_homework-8-discussion-sp2025.qmd >}}
+
+# Homework 8 Table Examples
+
+{{< include ../../topics/_homework-8-table-examples.qmd >}}
 
 
 
