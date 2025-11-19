@@ -1,9 +1,33 @@
 ---
 date: '2025-11-19'
-discussion-items: []
+discussion-items:
+- options: .
+  post_text: .
+  topic: BREAK WEEK NEXT WEEK!!!
+  url: ''
+- options: target="_blank"
+  post_text: '- due 11/30, SUN'
+  topic: Homework 9 - More SQL Fun!
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141
+- options: target="_blank"
+  post_text: '- opens 11/24, MON'
+  topic: Survey 2 - Course evaluations
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241132
 lecture-id: 26
-lecture-topics: []
-title: Views, CASE and more
+lecture-topics:
+- id: '179'
+  topic: End of semester checklist
+  url: _end-of-semester-checklist-fa2025.qmd
+- id: '180'
+  topic: SQL Views
+  url: _sql-views.qmd
+- id: '181'
+  topic: Homework 9 - walk through
+  url: _homework-9-population-fa2025.qmd
+- id: '182'
+  topic: .
+  url: _rest-of-class-working-examples.qmd
+title: Views and more
 ---
 
 ```{python}
@@ -16,6 +40,22 @@ this_file = 'lecture-26.qmd'
 
 <!-- lecture-block-begin -->
 
+# End of semester checklist
+
+{{< include ../../topics/_end-of-semester-checklist-fa2025.qmd >}}
+
+# SQL Views
+
+{{< include ../../topics/_sql-views.qmd >}}
+
+# Homework 9 - walk through
+
+{{< include ../../topics/_homework-9-population-fa2025.qmd >}}
+
+
+
+
+{{< include ../../topics/_rest-of-class-working-examples.qmd >}}
 <!-- lecture-block-end -->
 
 

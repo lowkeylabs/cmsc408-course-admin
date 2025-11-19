@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lecture-26_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="lecture-26_files/libs/clipboard/clipboard.min.js"></script>
 <script src="lecture-26_files/libs/quarto-html/tabby.min.js"></script>
 <script src="lecture-26_files/libs/quarto-html/popper.min.js"></script>
 <script src="lecture-26_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lecture-26_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecture-26_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture-26_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lecture-26_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="lecture-26_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="lecture-26_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
 <link href="lecture-26_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+  <meta name="generator" content="quarto-1.8.25">
 
-  <title>Views, CASE and more</title>
+  <title>Views and more</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lecture-26_files/libs/revealjs/dist/theme/quarto-eb0a844ca0ffb89a2301a9b0539d1c70.css">
+  <link rel="stylesheet" href="lecture-26_files/libs/revealjs/dist/theme/quarto-613214ccde63bca908c251674a9c3ba8.css">
   <link rel="stylesheet" href="assets/sketch-css.css">
   <link href="lecture-26_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lecture-26_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -127,7 +193,7 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
@@ -137,7 +203,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Views, CASE and more</h1>
+  <h1 class="title">Views and more</h1>
   <p class="subtitle">Lecture 26</p>
 
 <div class="quarto-title-authors">
@@ -153,12 +219,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p>BREAK WEEK NEXT WEEK!!!</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141">Homework 9 - More SQL Fun!</a> - due 11/30, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241132">Survey 2 - Course evaluations</a> - opens 11/24, MON</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/end-of-semester-checklist">End of semester checklist</a></p></li>
+<li><p><a href="#/sql-views">SQL Views</a></p></li>
+<li><p><a href="#/homework-9---walk-through">Homework 9 - walk through</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -166,7 +236,7 @@
 </div>
 <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -183,18 +253,10 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/19</td>
 <td style="text-align: center;">Wed</td>
-<td>L26:Views, CASE and more</td>
+<td>L26:Views and more</td>
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">11/23</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW11:More SQL Again</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/24</td>
@@ -202,13 +264,21 @@
 <td>NO CLASS - Fall break</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/26</td>
 <td style="text-align: center;">Wed</td>
 <td>NO CLASS - Fall break</td>
 <td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Fall Break</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">11/30</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW9:Even more on SQL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -227,25 +297,227 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">12/7</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW12:More SQL Again</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">Finals</td>
 <td style="text-align: center;">17</td>
 <td style="text-align: center;">12/8</td>
 <td style="text-align: center;">Mon</td>
-<td>Last day of classes; L29:NO LECTURE - See slides</td>
-<td>Srv2:Course evaluation</td>
+<td>Last day of classes; L29:SQL topics</td>
+<td>HW10:More SQL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finals</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">12/9</td>
+<td style="text-align: center;">Tue</td>
+<td>Finals begin</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </div>
 <!-- lecture-block-begin -->
+</section>
+<section>
+<section id="end-of-semester-checklist" class="title-slide slide level1 center">
+<h1>End of semester checklist</h1>
+<!-- # End of Semester Checklist - fa2025 -->
+</section>
+<section id="end-of-semester-checklist-1" class="slide level2">
+<h2>End of Semester Checklist</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="whats-left-to-cover">What’s left to cover?</h3>
+<ul>
+<li><p>After tonight, there are only 3 more lectures! Tonight we’re focusing on HW 9.</p></li>
+<li><p>Fall break is next week - chill time!</p></li>
+<li><p>One more homework assignment - HW 10. This assignment will be released sometime during break.</p></li>
+<li><p>One more SQL topic (window/analytic functions). Powerful stuff, and HW10 will focus on this new topic.</p></li>
+<li><p>Please use the Discord and the TAs as your first stop for questions.</p></li>
+<li><p>My response time over the next few weeks will be slow.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="end-of-semester-checklist-2">End of semester checklist</h3>
+<p>It’s end of the semester time! Plenty to do to ensure that you earn your best grade possible!</p>
+<ul>
+<li><p>No final exam. You’ve submitted PLENTY for me to assess your learning and comprehension.</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/gradebook">Check the gradebook</a>. It was updated earlier this week.</p>
+<ul>
+<li>Verify your scores and email me if you have any questions.</li>
+<li>Submit any missing assignments, discussions or quizzes.</li>
+</ul></li>
+<li><p>Starting next Monday (11/25) complete the <a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241132">course evaluation</a>. You’ll get credit towards your final grade AND you’ll be helping improve the course for the next group of students. Thank you!</p></li>
+</ul>
+</div></div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<center>
+<div class="r-fit-text">
+<h2>
+Late submission deadline
+</h2>
+<p>
+&nbsp;
+</p>
+<h3>
+Monday, December 8, Midnight
+</h3>
+<p>
+&nbsp;
+</p>
+<h3>
+No submissions will be accepted after this deadline.
+</h3>
+</div>
+</center>
+</section></section>
+<section>
+<section id="sql-views" class="title-slide slide level1 center">
+<h1>SQL Views</h1>
+<!-- # VIEWS in SQL -->
+</section>
+<section id="views-in-sql" class="slide level2">
+<h2>VIEWS in SQL</h2>
+<div class="columns">
+<div class="column">
+<h3 id="what-is-a-view">What is a VIEW?</h3>
+<ul>
+<li>A View is a virtual table in SQL.</li>
+<li>It does not store data itself but retrieves data from one or more underlying tables.</li>
+<li>Similar to CTE, but permanent across SELECT statements.</li>
+</ul>
+<h3 id="why-use-views">Why Use VIEWS?</h3>
+<ul>
+<li>Simplify complex queries.</li>
+<li>Provide an abstraction layer for security.</li>
+<li>Hide the complexity of underlying database schema.</li>
+<li>Very useful with API development</li>
+</ul>
+</div><div class="column">
+<p><a href="https://www.youtube.com/shorts/JrWEVWAV6Dg" target="_blank"><img data-src="./assets/sql-view.jpg"></a></p>
+</div></div>
+</section>
+<section id="views---creating-a-view" class="slide level2">
+<h2>VIEWS - Creating a VIEW</h2>
+<div class="columns">
+<div class="column">
+<h3 id="syntax">Syntax</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> view_name <span class="kw">AS</span></span>
+<span id="cb1-2"><a href=""></a><span class="kw">SELECT</span> column1, column2, <span class="op">..</span>.</span>
+<span id="cb1-3"><a href=""></a><span class="kw">FROM</span> table_name</span>
+<span id="cb1-4"><a href=""></a><span class="kw">WHERE</span> condition;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>CREATE VIEW is a DDL statement</li>
+<li>VIEWS should be defined in same DDL file that creates your database</li>
+<li>VIEWS should be designed with API to simplify API queries.</li>
+</ul>
+</div><div class="column">
+<h3 id="example">Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> customer_orders <span class="kw">AS</span></span>
+<span id="cb2-2"><a href=""></a>  <span class="kw">SELECT</span> </span>
+<span id="cb2-3"><a href=""></a>    customers.customer_name, orders.order_date</span>
+<span id="cb2-4"><a href=""></a>  <span class="kw">FROM</span></span>
+<span id="cb2-5"><a href=""></a>    customers</span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">JOIN</span> orders <span class="kw">ON</span> </span>
+<span id="cb2-7"><a href=""></a>    customers.customer_id <span class="op">=</span> orders.customer_id;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="views-in-sql-when-and-when-not" class="slide level2">
+<h2>VIEWS in SQL: When and When NOT</h2>
+<div class="columns">
+<div class="column">
+<h3 id="when-to-use-a-view">When to Use a View</h3>
+<ul>
+<li><p><strong>Simplify Complex Queries</strong>: Use views to encapsulate complex SQL logic, making it easier for developers and users to work with pre-defined query results.</p></li>
+<li><p><strong>Enhance Security</strong>: Views can restrict access to specific columns or rows in a table, providing a controlled way to expose data without granting direct table access.</p></li>
+<li><p><strong>Abstract Schema Complexity</strong>: Use views to present a simplified version of the database schema, especially when the underlying schema is complex or frequently changing.</p></li>
+<li><p><strong>Enable Reusability</strong>: Views allow you to reuse commonly used query patterns, reducing duplication and improving maintainability across your database applications.</p></li>
+</ul>
+</div><div class="column">
+<h3 id="when-not-to-use-a-view">When NOT to Use a View</h3>
+<ul>
+<li><p><strong>Performance-Critical Scenarios</strong>: Avoid views when they involve complex queries or large datasets, as they can negatively impact query performance, especially if not indexed appropriately.</p></li>
+<li><p><strong>Dynamic Data Needs</strong>: Do not use views if the data requires frequent real-time updates or parameterized filtering, as views are static by nature and cannot accept parameters.</p></li>
+<li><p><strong>Data Manipulation Requirements</strong>: Views are unsuitable when you need to frequently update, delete, or insert data, as not all views are updatable and may cause unexpected behavior.</p></li>
+<li><p><strong>Overabstraction</strong>: Avoid creating too many nested or layered views, as this can lead to confusion, reduced readability, and maintenance challenges.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="views-in-sql-benefits-and-considerations" class="slide level2">
+<h2>VIEWS in SQL: Benefits and Considerations</h2>
+<div class="columns">
+<div class="column">
+<h3 id="other-ddl-commands">Other DDL commands</h3>
+<ul>
+<li>CREATE VIEW</li>
+<li>DROP VIEW</li>
+<li>CREATE OR REPLACE VIEW</li>
+</ul>
+<h3 id="benefits-of-views">Benefits of Views</h3>
+<ul>
+<li>Data abstraction and security.</li>
+<li>Reusability of complex queries.</li>
+<li>Performance optimization by precomputing results.</li>
+</ul>
+</div><div class="column">
+<h3 id="considerations">Considerations</h3>
+<ul>
+<li>Views can hide underlying schema complexity, but overuse can lead to confusion.</li>
+<li>Views may impact query performance if they involve complex operations or large datasets.</li>
+<li>Views are NOT tables, they are reevaluated every time they’re called.</li>
+<li>Views are NOT a substitute for a well-structured WITH query.</li>
+<li>WARNING - changes in underlying tables can affect view results.</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="homework-9---walk-through" class="title-slide slide level1 center">
+<h1>Homework 9 - walk through</h1>
+<!-- # Homework 9 -->
+</section>
+<section id="homework-9---population-analysis" class="slide level2">
+<h2>Homework 9 - Population Analysis</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>
+<iframe style="width: 900px; height: 350px;" src="https://docs.google.com/document/d/1lJyf5juvGz3SvCJAPwWUJ61L4WZMQ6kTIGb9N0z4Nlg/preview" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *">
+</iframe>
+</p>
+<center>
+<a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141" target="_blank">Homework 9 Canvas Page</a>
+</center>
+</div><div class="column" style="width:40%;">
+<h3 id="hw9-learning-objectives">HW9 Learning Objectives</h3>
+<ul>
+<li><p>Deeper understanding of <code>SELECT</code></p></li>
+<li><p>Deeper exploration of <code>CTE</code>s</p></li>
+<li><p>More data analysis</p></li>
+</ul>
+<h3 id="data-source">Data Source</h3>
+<ul>
+<li><a href="https://data.worldbank.org/indicator" target="_blank">World Bank Indicators</a></li>
+</ul>
+<p>
+&nbsp;
+</p>
+<h3 id="model-solution-without-sql">Model Solution (without SQL)</h3>
+<ul>
+<li><p><a href="./assets/hw9-example-sp2025.html" target="_blank">HW9 - outputs only</a></p></li>
+<li><p><a href="./assets/hw8-example-sp2025.html" target="_blank">HW8 - outputs only</a></p></li>
+</ul>
+</div></div>
+<!-- _rest-of-class-working-examples.qmd -->
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div style="height:90%;display:flex;flex-direction:column;justify-content:center;align-items:center">
+<div style="font-size:2em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<p>We spend the rest of the class working examples.</p>
+</div>
+<div style="font-size:2em;width:100%;text-align:center;font-weight:bold;font-style:italic;margin:20px;">
+<p>Refer to the video for details.</p>
+</div>
+</div>
 <!-- lecture-block-end -->
 </section>
 <section id="housekeeping-1" class="slide level2">
@@ -256,12 +528,16 @@
 </div><div class="column" style="width:52%;">
 <h3 id="discussion-items-1">Discussion items</h3>
 <ul>
-<li>(under construction))</li>
+<li><p>BREAK WEEK NEXT WEEK!!!</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141">Homework 9 - More SQL Fun!</a> - due 11/30, SUN</p></li>
+<li><p><a href="https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241132">Survey 2 - Course evaluations</a> - opens 11/24, MON</p></li>
 </ul>
 </div><div class="column" style="width:43%;">
 <h3 id="lecture-topics-1">Lecture topics</h3>
 <ul>
-<li>(under construction)</li>
+<li><p><a href="#/end-of-semester-checklist">End of semester checklist</a></p></li>
+<li><p><a href="#/sql-views">SQL Views</a></p></li>
+<li><p><a href="#/homework-9---walk-through">Homework 9 - walk through</a></p></li>
 </ul>
 </div></div>
 <div style="margin-top:25px">
@@ -269,7 +545,7 @@
 </div>
 <style></style>
     <div class="upcoming-calendar">
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Module</th>
@@ -286,18 +562,10 @@
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">11/19</td>
 <td style="text-align: center;">Wed</td>
-<td>L26:Views, CASE and more</td>
+<td>L26:Views and more</td>
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">11/23</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW11:More SQL Again</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/24</td>
@@ -305,13 +573,21 @@
 <td>NO CLASS - Fall break</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Fall Break</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">11/26</td>
 <td style="text-align: center;">Wed</td>
 <td>NO CLASS - Fall break</td>
 <td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Fall Break</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">11/30</td>
+<td style="text-align: center;">Sun</td>
+<td></td>
+<td>HW9:Even more on SQL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SQL</td>
@@ -330,20 +606,20 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">SQL</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">12/7</td>
-<td style="text-align: center;">Sun</td>
-<td></td>
-<td>HW12:More SQL Again</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">Finals</td>
 <td style="text-align: center;">17</td>
 <td style="text-align: center;">12/8</td>
 <td style="text-align: center;">Mon</td>
-<td>Last day of classes; L29:NO LECTURE - See slides</td>
-<td>Srv2:Course evaluation</td>
+<td>Last day of classes; L29:SQL topics</td>
+<td>HW10:More SQL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finals</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">12/9</td>
+<td style="text-align: center;">Tue</td>
+<td>Finals begin</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -363,7 +639,7 @@
 <p> </p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/CS-icon-01.png" class="slide-logo"></p>
@@ -561,7 +837,7 @@
         maxScale: 2,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -635,13 +911,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

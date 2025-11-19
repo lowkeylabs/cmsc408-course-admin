@@ -1,0 +1,7 @@
+---
+title: "SQL Window Functions"
+---
+
+{{< include '_sql-window-functions.qmd' >}}
+
+    

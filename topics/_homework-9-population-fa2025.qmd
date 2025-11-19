@@ -1,0 +1,40 @@
+<!-- # Homework 9 -->
+
+## Homework 9 - Population Analysis
+
+:::: {.columns}
+::: {.column width=60%}
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1lJyf5juvGz3SvCJAPwWUJ61L4WZMQ6kTIGb9N0z4Nlg/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
+<center>
+[Homework 9 Canvas Page](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141){target="_blank"}
+</center>
+:::
+::: {.column width=40%}
+### HW9 Learning Objectives
+
+* Deeper understanding of `SELECT`
+
+* Deeper exploration of `CTE`s
+
+* More data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+<p>&nbsp;</p>
+
+### Model Solution (without SQL)
+
+* [HW9 - outputs only](./assets/hw9-example-sp2025.html){target="_blank"}
+
+* [HW8 - outputs only](./assets/hw8-example-sp2025.html){target="_blank"}
+
+:::
+::::

@@ -27,14 +27,11 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### Almost FALL BREAK ... hold on!
 
-<!-- overview-block-begin -->
+**MONDAY NIGHT, 11/17** is Computer Science Club Night - class is deferred.  Please plan on attending club night starting at 5pm!
 
-<p class="lead">More on SELECTS and other finishing-up topics</p>
-    
-<!-- overview-block-end -->
+This week in SQL we're learning about VIEWs and focusing on [homework 9](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141).
 
 
 <!-- deliverables-block-begin -->
@@ -46,6 +43,27 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 <!-- deliverables-block-end -->
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[SQL Views](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-14-sql-views) Quick little video documenting views
+
+
+[Windowing functions](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-14-windowing-functions) Good creator, good video!  Watch me!
+
+
+[windows vs GROUP BY](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-14-windows-vs-group-by) GROUP BY vs window functions
+
+
+[window functions](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-14-window-functions) More window functions
+
+
+[GITHUB Profile (Think JOB)](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-14-github-profile-think-job) Thinking about applying for a job?  Working on that resume?  A quality GITHUB Profile is a GREAT WAY to demonstrate your coding skills.  This video can help!
+
+
+[Writing good READMEs!](E6NO0rgFub4) Looking for a job? Wanting to show off your skills?  Pointing to a few good readmes that you've written can give you that edge!
+
 <!-- resources-block-end -->
 
 

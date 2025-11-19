@@ -17,7 +17,7 @@
 
 :::
 ::: {.column}
-![](./assets/sql-view.jpg)
+[![](./assets/sql-view.jpg)](https://www.youtube.com/shorts/JrWEVWAV6Dg){target="_blank"}
 :::
 ::::
 
@@ -79,7 +79,6 @@ CREATE VIEW customer_orders AS
 
 :::
 ::::
-
 
 
 ## VIEWS in SQL: Benefits and Considerations
