@@ -14,6 +14,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.exc import ArgumentError, NoSuchModuleError, OperationalError, ProgrammingError
 
 
+
 def run_sql_and_return_df(cnx, sql, show_size=True):
     """Given an SQL command and connection string, return a DataFrame."""
 
@@ -171,7 +172,6 @@ def split_sql_commands(sql):
         
     return [stmt for stmt in statements if stmt]
 
-
 def execute_ddl(cnx,ddl_commands):
     """
     Executes DDL statements from a file on a given SQLAlchemy connection, 
@@ -200,6 +200,44 @@ def execute_ddl(cnx,ddl_commands):
             except Exception as e:
                 # Capture the error message if execution fails
                 errors.append(f"<hr/>Error executing statement: <b>{statement}</b><br/>    Error: {str(e)}<br/>")
+
+#    return messages, errors
+
+    if errors:
+        df = pd.DataFrame({'Errors': errors})
+        return df.to_html(index=False)
+
+    return None
+
+
+
+def execute_ddl_sqlite(cnx,ddl_commands):
+    """
+    Executes DDL statements from a file on a given SQLAlchemy connection, 
+    capturing any errors and results.
+    """
+    messages = []
+    errors = []
+
+    # Check if the connection is None
+    if cnx is None:
+        error_message = "No valid connection. See above."
+        df = pd.DataFrame({'ErrorType': ['ConnectionError'], 'ErrorMessage': [error_message]})
+        return df.to_html(index=False)
+
+    # Split commands if needed
+    ddl_statements = split_sql_commands( ddl_commands )
+#    ddl_statements = [cmd.strip() for cmd in ddl_commands.split(';') if cmd.strip()]
+
+    for statement in ddl_statements:
+        try:
+            result = cnx.execute(statement)
+            # Capture the result, if any
+            result_info = result.rowcount if result.rowcount != -1 else "No rows affected"
+            messages.append(f"Executed statement: {statement}<br/>Result: {result_info}<br/>")
+        except Exception as e:
+            # Capture the error message if execution fails
+            errors.append(f"<hr/>Error executing statement: <b>{statement}</b><br/>    Error: {str(e)}<br/>")
 
 #    return messages, errors
 
@@ -270,6 +308,8 @@ def show_sql_and_results( cnx, sql,widths=[35,5,60],headers=["SQL Code","Result 
 ::::
 """
     return Markdown(s1 + s2 + s3 + s4 + s5)
+
+
 
 
 if __name__=="__main":

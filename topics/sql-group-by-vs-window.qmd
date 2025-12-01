@@ -1,0 +1,7 @@
+---
+title: "SQL Group By vs Window"
+---
+
+{{< include '_sql-group-by-vs-window.qmd' >}}
+
+    

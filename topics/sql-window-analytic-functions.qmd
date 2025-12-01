@@ -1,0 +1,7 @@
+---
+title: "SQL Window Analytic Functions"
+---
+
+{{< include '_sql-window-analytic-functions.qmd' >}}
+
+    

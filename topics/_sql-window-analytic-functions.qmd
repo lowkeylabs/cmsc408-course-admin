@@ -1,0 +1,300 @@
+<!-- # SQL Window Analytic Functions -->
+
+
+## Window Analytic Functions
+
+```{python}
+import sqlite3
+from helpers import show_sql_and_results
+```
+```{python}
+try:
+	cnx = sqlite3.connect("sql-group-by-vs-window.db")
+except sqlite3.Error as e:
+	print(f"SQLite error: {e}")
+	cnx = None
+```
+
+A *window function* performs a calculation *across a set of related rows* without collapsing them (unlike GROUP BY).
+
+
+:::: {.columns}
+
+::: {.column}
+### Window function syntax
+
+A **window** is defined by three clauses:
+
+```
+<window_function>() OVER (
+    PARTITION BY ...
+    ORDER BY ...
+    ROWS | RANGE ...
+)
+```
+
+* **PARTITION BY** = groups (like GROUP BY but output is not collapsed)
+* **ORDER BY** = defines row ordering inside each partition
+* **ROWS / RANGE** = defines a sliding window relative to each row
+
+:::
+::: {.column}
+### Window function example
+
+```
+SELECT
+  country,
+  population,
+  sum(population) OVER 
+  (ROWS BETWEEN 
+     UNBOUNDED PRECEDING 
+	 AND UNBOUNDED FOLLOWING
+   ) as TOTAL
+```
+:::
+::::
+
+
+## Categories of Window Functions
+
+:::: {.columns}
+::: {.column width=33%}
+### Ranking Functions
+
+* `ROW_NUMBER()`
+* `RANK()`
+* `DENSE_RANK()`
+* `NTILE(n)`
+
+:::
+::: {.column width=33%}
+### Aggregate Window Functions
+
+* `SUM() OVER`
+* `AVG() OVER`
+* `MIN() OVER`
+* `MAX() OVER`
+* with frames like:
+  `ROWS BETWEEN 2 PRECEDING AND CURRENT ROW`
+:::
+::: {.column width=33%}
+### Value Functions
+
+* `LAG()`
+* `LEAD()`
+* `FIRST_VALUE()`
+* `LAST_VALUE()`
+* `NTH_VALUE()`
+
+:::
+::::
+
+## Ranking Functions Example
+
+```{python}
+sql = """
+DROP TABLE IF EXISTS indicators;
+
+CREATE TABLE indicators (
+    country TEXT,
+    grp TEXT,       -- 'High' or 'Moderate'
+    mfg INT         -- manufacturing output (tens of billions USD)
+);
+
+INSERT INTO indicators (country, grp, mfg ) VALUES
+('United States', 'High',    92),
+('Germany',       'High',    84),
+('Japan',         'High',    79),
+('South Korea',   'High',    71),
+('China',         'Moderate', 68),
+('Brazil',        'Moderate', 55),
+('India',         'Moderate', 49),
+('Mexico',        'Moderate', 46);
+"""
+x = cnx.executescript( sql )
+```
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""SELECT
+  country,
+  grp,
+  RANK() OVER (
+    ORDER BY mfg DESC
+  ) AS rank_all
+FROM indicators
+ORDER BY country
+"""
+)
+```
+:::
+
+## Ranking Functions Example
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""SELECT
+  country,
+  grp,
+  RANK() OVER (
+    ORDER BY mfg DESC
+  ) AS rank_all
+FROM indicators
+ORDER BY country
+""",
+left_side_text="""
+### Notes
+
+* Ties get the same rank
+* Gaps appear in the ranking (1, 2, 2, 4…)
+* `ROW_NUMBER()` produces unique row positions in window
+* `DENSE_RANK()` has no gaps
+"""
+)
+```
+:::
+
+## Window functions - 3-year moving average
+
+```{python}
+sql = """
+DROP TABLE IF EXISTS yearly;
+CREATE TABLE yearly (
+    country TEXT,
+    year INT,
+    mfg INT   -- manufacturing output in tens of billions USD
+);
+INSERT INTO yearly (country, year, mfg) VALUES
+('Brazil', 2021, 55),
+('Brazil', 2020, 53),
+('Brazil', 2019, 57),
+('Brazil', 2018, 54),
+('Brazil', 2017, 52),
+('Brazil', 2016, 50),
+('Brazil', 2015, 48),
+('Brazil', 2014, 47);
+"""
+x = cnx.executescript( sql )
+```
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""SELECT
+  country,
+  year,
+  mfg,
+  ROUND(AVG(mfg) OVER (
+    PARTITION BY country
+    ORDER BY year
+    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+  ),2) AS movavg_3yr
+FROM yearly
+WHERE country = 'Brazil'
+ORDER BY year;
+"""
+)
+```
+:::
+
+## Window functions - 3-year moving average
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""SELECT
+  country,
+  year,
+  mfg,
+  ROUND( AVG(mfg) OVER (
+    PARTITION BY country
+    ORDER BY year
+    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+  ),2) AS movavg_3yr
+FROM yearly
+WHERE country = 'Brazil'
+ORDER BY year;
+""",
+left_side_text = """
+### Explanation
+
+* `ORDER BY year` ensures chronological sliding window
+* `ROWS BETWEEN 2 PRECEDING AND CURRENT ROW`
+
+  * For 2014, only 1 row
+  * For 2015, only 2 rows
+  * For 2016+, full 3-row window
+* Window recalculates for each row individually
+* Note how ROUND wraps the entire `() OVER ()` block.
+
+"""
+)
+```
+:::
+
+## Value Functions: LAG / LEAD
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""SELECT
+  country,
+  year,
+  mfg,
+  -- lag (previous) in column
+  LAG(mfg, 1) OVER (
+    PARTITION BY country
+    ORDER BY year
+  ) AS lag_mfg,
+  -- lead (next) in column  
+  LEAD(mfg, 1) OVER (
+    PARTITION BY country
+    ORDER BY year
+  ) AS lead_mfg
+FROM yearly
+WHERE country = 'Brazil'
+ORDER BY year;
+"""
+)
+```
+:::
+
+
+## Value functions:  FIRST_VALUE / LAST_VALUE
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""SELECT
+  country,
+  year,
+  mfg,
+  -- First value in the partition (earliest year)
+  FIRST_VALUE(mfg) OVER (
+    PARTITION BY country
+    ORDER BY year
+    ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+  ) AS first_mfg,
+  -- Last value in the partition (latest year)
+  LAST_VALUE(mfg) OVER (
+    PARTITION BY country
+    ORDER BY year
+    ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING
+  ) AS last_mfg
+FROM yearly
+WHERE country = 'Brazil'
+ORDER BY year;
+"""
+)
+```
+:::
+
+
+## Summary
+
+Window functions enable:
+
+* Rankings
+* Running totals
+* Moving averages
+* Lagged comparisons
+* Period-over-period changes
+* Locate first/last values without subqueries
+
+They are essential for *analytics*, *BI*, and *modern SQL workloads*.

@@ -1,0 +1,7 @@
+---
+title: "Homework 10 Life expectancy fa2025"
+---
+
+{{< include '_homework-10-life-expectancy-fa2025.qmd' >}}
+
+    

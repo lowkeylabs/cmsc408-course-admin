@@ -1,0 +1,42 @@
+<!-- # Homework 10 Life expectancy fa2025 -->
+
+## Homework 10 - Life expectancy
+
+:::: {.columns}
+::: {.column width=60%}
+<p>
+<iframe style="width: 900px; height: 350px;"
+src="https://docs.google.com/document/d/1Gz5pxdaxDwPKu4XHQQE2Fkhr_-hSogWMqj3gaiyfEMU/preview"
+allowfullscreen="allowfullscreen"
+allow="geolocation *; microphone *; camera *; midi *; encrypted-media *; autoplay *; clipboard-write *; display-capture *"
+></iframe>
+</p>
+<center>
+[Homework 10 Canvas Page](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241143){target="_blank"}
+</center>
+:::
+::: {.column width=40%}
+### HW10 Learning Objectives
+
+* Introduction to window analytic functions
+
+* Comparison of GROUP BY vs window functions
+
+* More data analysis
+
+### Data Source
+
+* [World Bank Indicators](https://data.worldbank.org/indicator){target="_blank"}
+
+<p>&nbsp;</p>
+
+### Rough Solutions (without SQL)
+
+* [HW10 - outputs only](./assets/hw10-example-fa2025.html){target="_blank"}
+
+* [HW9 - outputs only](./assets/hw9-example-sp2025.html){target="_blank"}
+
+* [HW8 - outputs only](./assets/hw8-example-sp2025.html){target="_blank"}
+
+:::
+::::

@@ -27,25 +27,44 @@ from cnvsapi.markup_utils import  expand_assignment, expand_page, expand_quiz, e
 
 ```
 
-<p class="lead">Welcome to a new week!</p>
-*Details will be updated closer to the week.*
+#### **Monday, December 8, MIDNIGHT IS THE FINAL SUBMISSION DEADLINE**. 
 
-<!-- overview-block-begin -->
+Nothing will be accepted after Midnight on Monday!
 
-<p class="lead">More on SQL</p>
-    
-<!-- overview-block-end -->
-
-
-<!-- deliverables-block-begin -->
 #### Things to do this week
 
+*No deliverables this week ...* Hah! Don't let that fool you!!!!
 
-[Homework 12 - More SQL Again](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241145) More SQL Again
+* [Homework 9 - More SQL ](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241143) was due this past Sunday and only 20 of 150 student submitted something.  Keep working at it!
 
-<!-- deliverables-block-end -->
+* [Homework 10 - the Last Homework](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241143) is due next Monday, 12/8.
+
+* You can continue to work on and submit past-due homework assignments ... BUT ...
+
+*Did I mention that nothing will be accepted after next Monday, December 8 at midnight?*
 
 <!-- resources-block-begin -->
+#### Notes on the Resources
+
+Review ALL the resources above. Here are some additional notes:
+    
+[Window functions](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-16-window-functions) Good creator, good video!  Watch me!
+
+
+[Group by vs Window](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-16-group-by-vs-window) A comparison of group-by vs window functions
+
+
+[Window function examples](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-16-window-function-examples) More examples of window functions
+
+
+[windows vs GROUP BY](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-16-windows-vs-group-by) GROUP BY vs window functions
+
+
+[Lead/Lag examples](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-16-lead-slash-lag-examples) Lead and Lag window functions with a baseball example.
+
+
+[Data-X?](https://virginiacommonwealth.instructure.com/courses/122236/pages/resource-week-16-data-x) Expand your mind - database vs data warehouse vs data lake
+
 <!-- resources-block-end -->
 
 

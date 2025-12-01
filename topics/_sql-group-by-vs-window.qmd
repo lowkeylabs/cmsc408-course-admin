@@ -1,0 +1,266 @@
+<!-- # SQL Group By vs Window -->
+
+## Example 1: Exploring aggregate vs window functions
+
+Let's explore aggregate vs window functions using this example:
+
+
+```{python}
+import sqlite3
+from helpers import create_database_engine, run_sql_and_return_df, run_sql_and_return_html, create_db_wrapper, execute_ddl_from_file,show_sql_and_results
+```
+```{python}
+try:
+	cnx = sqlite3.connect("sql-group-by-vs-window.db")
+except sqlite3.Error as e:
+	print(f"SQLite error: {e}")
+	cnx = None
+```
+
+```{python}
+sql = """
+DROP TABLE IF EXISTS indicators;
+
+CREATE TABLE indicators (
+    country TEXT,
+    grp TEXT,       -- 'High' or 'Moderate'
+    mfg INT         -- manufacturing output (tens of billions USD)
+);
+
+INSERT INTO indicators (country, grp, mfg ) VALUES
+('United States', 'High',    92),
+('Germany',       'High',    84),
+('Japan',         'High',    79),
+('South Korea',   'High',    71),
+('China',         'Moderate', 68),
+('Brazil',        'Moderate', 55),
+('India',         'Moderate', 49),
+('Mexico',        'Moderate', 46);
+"""
+x = cnx.executescript( sql )
+```
+```{python}
+show_sql_and_results(cnx,"""
+select
+  * 
+from 
+  indicators 
+order by 
+  country
+""",
+left_side_text="""
+### Manufacturing Output
+
+This sample (fake) data set showing Manufacturing Output (in billions of dollar per year) for eight countries.
+
+Using manufacturing output, the countries are grouped by *High* and *Moderate*.
+
+### Questions
+
+* What is the total mfg output? totals for each group?
+
+* What percentage of the total and group does each country represent?
+
+
+""")
+```
+
+## Example 1: Solution 1 - using aggregate functions
+
+::: {style="font-size:0.8em;"}
+```{python}
+show_sql_and_results(cnx,"""with by_all as (
+  select sum(mfg) as total 
+  from indicators
+),
+by_grp as (
+  select grp, sum(mfg) as grp_tot 
+  from indicators
+  group by grp
+)
+select
+  a.country,
+  a.grp,
+  a.mfg,
+  b.total,
+  c.grp_tot,
+  round(1.0*a.mfg/b.total,2) as over_all,
+  round(1.0*a.mfg/c.grp_tot,2) as over_grp
+from 
+  indicators a 
+    join by_all b
+    join by_grp c on (a.grp=c.grp)
+order by 
+  country
+"""
+)
+```
+:::
+
+
+## Example 1: Solution 2 - using Window functions
+
+::: {style="font-size:0.8em;"}
+
+```{python}
+show_sql_and_results(cnx,"""select
+  country,
+  grp,
+  mfg,
+  SUM(mfg) over () as total,
+  SUM(mfg) over (PARTITION BY grp) as grp_tot,
+  ROUND(
+    1.0 * mfg / 
+      SUM(mfg) over (),
+  2) as over_all,
+  ROUND(
+    1.0 * mfg / 
+      SUM(mfg) over (PARTITION BY grp)
+  ,2) as over_grp
+from 
+  indicators 
+order by 
+  country
+"""
+)
+```
+:::
+
+## Example 1: Comparison of solutions
+
+:::: {.columns}
+::: {.column}
+### Solution 1 — Using Aggregate Functions + CTEs
+
+* Uses **CTEs (`by_all`, `by_grp`)** to pre-compute totals.
+* Performs **aggregate calculations once**, then **joins results** back to the base table.
+* Relies on **GROUP BY** inside the CTE for group totals.
+* Joins produce a **flat table** with totals duplicated for each row.
+* Clear separation of logic: *compute → join → calculate percentages*.
+* More familiar for students already comfortable with GROUP BY.
+
+:::
+::: {.column}
+### Solution 2 — Using Window Functions
+
+* Uses **window aggregates** (`SUM() OVER`) to compute totals **directly in each row**.
+* Eliminates the need for **GROUP BY**, **CTEs**, and **joins**.
+* Computes **global total** and **group total** using window partitions.
+* Allows per-row metrics (like percentages) without changing the row structure.
+* More concise and expressive: all logic kept in a **single SELECT**.
+* Ideal for analytics queries where rows must remain **unaggregated**.
+
+:::
+::::
+
+## Example : Ranking data
+
+Let's explore ranking the same data:
+
+```{python}
+show_sql_and_results(cnx,"""
+select
+  * 
+from 
+  indicators 
+order by 
+  country
+""",
+left_side_text="""
+### Manufacturing Output
+
+(same as before)
+
+### Questions
+
+* How does each country rank across the entire population?
+
+* How does each country rank within their groups?
+
+
+""")
+```
+
+## Example 2: Solution 1 - Ranking using correlated subqueries
+
+::: {style="font-size:0.8em;"}
+
+```{python}
+show_sql_and_results(cnx,"""SELECT
+a.country,
+a.grp,
+a.mfg,
+-- Rank across the entire sample
+(
+  SELECT COUNT(*)
+  FROM indicators x
+  WHERE x.mfg > a.mfg
+) + 1 AS rank_all,
+-- Rank within each group
+(
+  SELECT COUNT(*)
+  FROM indicators y
+  WHERE y.grp = a.grp
+  AND y.mfg > a.mfg
+) + 1 AS rank_grp
+FROM indicators a
+ORDER BY country;
+"""
+)
+```
+:::
+
+
+## Example 2: Solution 2 - Ranking using window functions
+
+::: {style="font-size:0.8em;"}
+
+```{python}
+show_sql_and_results(cnx,"""
+SELECT
+  country,
+  grp,
+  mfg,
+  -- Rank across the entire sample
+  RANK() OVER (
+    ORDER BY mfg DESC
+  ) AS rank_all,
+  -- Rank within each group
+  RANK() OVER (
+    PARTITION BY grp
+    ORDER BY mfg DESC
+  ) AS rank_grp
+FROM indicators
+ORDER BY country;
+"""
+)
+```
+:::
+
+
+## Example 2: Comparison of solutions
+
+:::: {.columns}
+::: {.column}
+### Solution 1 — Correlated Subqueries
+
+* Uses **correlated subqueries** to compute ranks.
+* Rank = count of rows with higher `mfg` value **+ 1**.
+* Needs **two separate subqueries**: one for overall rank, one for group rank.
+* Logic is explicit but more verbose and repetitive.
+* Runs on **any** SQL engine (maximum compatibility).
+* Good for understanding *how* ranking works behind the scenes.
+
+:::
+::: {.column}
+### Solution 2 — With Window Functions
+
+* Uses `RANK() OVER` for concise, declarative ranking.
+* **rank_all** computed with `ORDER BY mfg DESC`.
+* **rank_grp** computed with `PARTITION BY grp`.
+* No subqueries, no joins — logic stays inside a single SELECT.
+* More readable and maintainable.
+* Ideal for analytics workloads; modern SQL expresses ranking directly.
+
+:::
+::::

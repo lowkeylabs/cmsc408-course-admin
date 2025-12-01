@@ -1,0 +1,46 @@
+<!-- # End of Semester Checklist -->
+
+## End of Semester Checklist
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### What's left to cover?
+
+- One more homework assignment - HW 10 - The Last Assignment
+
+- One more SQL topic (window/analytic functions).  Powerful stuff, and HW10 will focus on this new topic.
+
+- Please use the Discord and the TAs as your first stop for questions.
+
+- My response time over the next few weeks will be slow.
+
+:::
+::: {.column width="50%"}
+### End of semester checklist
+
+It's end of the semester time! Plenty to do to ensure that you earn your best grade possible!
+
+- No final exam. You've submitted PLENTY for me to assess your learning and comprehension.
+
+- [Check the gradebook](https://virginiacommonwealth.instructure.com/courses/122236/gradebook). It was updated earlier this week.
+
+	- Verify your scores and email me if you have any questions.
+	- Submit any missing assignments, discussions or quizzes.
+
+- Complete the [course evaluation](https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241132). You'll get credit towards your final grade AND you'll be helping improve the course for the next group of students. Thank you!
+
+:::
+::::
+
+## 
+
+<center>
+<div class="r-fit-text">
+  <h2>Late submission deadline</h2>
+  <p>&nbsp;</p>
+  <h3>Monday, December 8, Midnight</h3>
+  <p>&nbsp;</p>
+  <h3>No submissions will be accepted after this deadline.</h3>
+</div>
+</center>

@@ -1,9 +1,37 @@
 ---
 date: '2025-12-01'
-discussion-items: []
+discussion-items:
+- options: .
+  post_text: .
+  topic: SUBMISSION DEADLINE! next Monday, Midnight!
+  url: ''
+- options: target="_blank"
+  post_text: '- due 12/8, MON'
+  topic: Survey 2 - Course evaluations
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241132
+- options: target="_blank"
+  post_text: '- due 11/30, SUN'
+  topic: Homework 9 - More SQL Fun!
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241141
+- options: target="_blank"
+  post_text: '- due 12/8, MON'
+  topic: Homework 10 - The Last Homework
+  url: https://virginiacommonwealth.instructure.com/courses/122236/assignments/1241143
 lecture-id: 27
-lecture-topics: []
-title: SQL topics
+lecture-topics:
+- id: '187'
+  topic: End of semester checklist
+  url: _end-of-semester-checklist-2-fa2025.qmd
+- id: '188'
+  topic: Homework 10 - introduction
+  url: _homework-10-life-expectancy-fa2025.qmd
+- id: '189'
+  topic: Aggregate vs Window functions
+  url: _sql-group-by-vs-window.qmd
+- id: '190'
+  topic: Window analytic functions
+  url: _sql-window-analytic-functions.qmd
+title: Window functions 1
 ---
 
 ```{python}
@@ -16,6 +44,21 @@ this_file = 'lecture-27.qmd'
 
 <!-- lecture-block-begin -->
 
+# End of semester checklist
+
+{{< include ../../topics/_end-of-semester-checklist-2-fa2025.qmd >}}
+
+# Homework 10 - introduction
+
+{{< include ../../topics/_homework-10-life-expectancy-fa2025.qmd >}}
+
+# Aggregate vs Window functions
+
+{{< include ../../topics/_sql-group-by-vs-window.qmd >}}
+
+# Window analytic functions
+
+{{< include ../../topics/_sql-window-analytic-functions.qmd >}}
 <!-- lecture-block-end -->
 
 
