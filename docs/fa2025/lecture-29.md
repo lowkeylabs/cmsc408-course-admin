@@ -39,7 +39,7 @@ Monday - Dec 8, 2025
 
 | Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
 |:--:|:--:|:--:|:--:|----|----|
-| Finals | 17 | 12/8 | Mon | Last day of classes; L29:NO LECTURE - See slides | Srv2:Course evaluation |
+| Finals | 17 | 12/8 | Mon | Last day of classes; L29:SQL topics | HW10:The Last Homework |
 | Finals | 17 | 12/9 | Tue | Finals begin |  |
 | Finals | 17 | 12/13 | Sat | Commencment |  |
 | Finals | 18 | 12/16 | Tue | Finals end |  |
@@ -88,7 +88,7 @@ Monday - Dec 8, 2025
 
 | Module | Week | Date | Day | Notes and Lectures | Activities and due dates |
 |:--:|:--:|:--:|:--:|----|----|
-| Finals | 17 | 12/8 | Mon | Last day of classes; L29:NO LECTURE - See slides | Srv2:Course evaluation |
+| Finals | 17 | 12/8 | Mon | Last day of classes; L29:SQL topics | HW10:The Last Homework |
 | Finals | 17 | 12/9 | Tue | Finals begin |  |
 | Finals | 17 | 12/13 | Sat | Commencment |  |
 | Finals | 18 | 12/16 | Tue | Finals end |  |
